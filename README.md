@@ -1,4 +1,4 @@
-Social Networks Algorithms
+# Social Networks Algorithms
 
 This repository includes a few basic algorithms for:
 + Generating random graphs:
