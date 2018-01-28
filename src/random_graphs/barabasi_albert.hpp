@@ -9,8 +9,8 @@
 #include <vector>
 using namespace std;
 
-#include "random_generator.hpp"
-#include "digraph.hpp"
+#include "src/random_generator.hpp"
+#include "src/digraph.hpp"
 
 namespace dsa {
 namespace graphs {
@@ -86,6 +86,6 @@ using namespace utils;
 } // -- namespace graphs
 } // -- namespace dsa
 
-#include "rg_preferential_attachment.cpp"
-#include "rg_random_attachment.cpp"
-#include "rg_no_vertex_growth.cpp"
+#include "ba_preferential_attachment.cpp"
+#include "ba_random_attachment.cpp"
+#include "ba_no_vertex_growth.cpp"
