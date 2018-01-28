@@ -25,8 +25,10 @@ HEADERS +=                                                  \
         src/random_graphs/ba_random_attachment.cpp          \
         src/random_graphs/ba_no_vertex_growth.cpp           \
     src/random_graphs/switching.hpp                         \
-        src/random_graphs/switching.cpp
+        src/random_graphs/switching.cpp                     \
+    src/metrics/clustering.hpp
 
-SOURCES +=                  \
-        random_graphs.cpp   \
-	src/digraph.cpp
+SOURCES +=                      \
+    random_graphs.cpp           \
+    src/digraph.cpp             \
+    src/metrics/clustering.cpp
