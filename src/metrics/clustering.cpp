@@ -18,7 +18,7 @@ namespace clustering {
 				
 				lcit w = v; ++w;
 				for (; w != neigh_u.end(); ++w) {
-					// ... get two different neighbours of i (v, w) and
+					// ... get two different neighbours of u (v, w) and
 					// check if they are connected. If so, we found a triangle
 					if (v != w and G.has_edge(*v, *w)) ++T;
 				}
@@ -57,7 +57,7 @@ namespace clustering {
 					
 					lcit w = v; ++w;
 					for (; w != neigh_u.end(); ++w) {
-						// ... get two different neighbours of i (v, w) and
+						// ... get two different neighbours of u (v, w) and
 						// check if there is a connection.
 						if (*v != *w and G.has_edge(*v, *w)) ++T;
 					}
