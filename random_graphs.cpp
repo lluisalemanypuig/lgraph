@@ -25,7 +25,7 @@ void print_usage() {
 	cout << "        -ra: Generate Barabasi-Albert model with random attachment" << endl;
 	cout << "        -ng: Generate Barabasi-Albert model without vertex growth" << endl;
 	cout << "        -sw: Generate a switching model graph. This option requires" << endl;
-	cout << "             the selection of one of these models this model will:" << endl;
+	cout << "             the selection of one of these models this model will" << endl;
 	cout << "             be applied on:" << endl;
 	cout << "             - Barabasi-Albert model (any of its variants)" << endl;
 	cout << "    Barabasi-Albert model configuration parameters:" << endl;
@@ -34,6 +34,7 @@ void print_usage() {
 	cout << "        --m0: Number of edges added at each step" << endl;
 	cout << "    Switching model configuration parameters:" << endl;
 	cout << "        -Q:   The switching model will run for Q*|E| steps." << endl;
+	cout << "              Its default value is 1" << endl;
 	cout << "    Other options" << endl;
 	cout << "        --seed: Seed the random number generator" << endl;
 }
@@ -68,7 +69,7 @@ int main(int argc, char *argv[]) {
 	bool seed = false;
 
 	bool apply_switching = false;
-	size_t Q = 0;
+	size_t Q = 1;
 	
 	for (int i = 1; i < argc; ++i) {
 		if (strcmp(argv[i], "-h") == 0 or strcmp(argv[i], "--help") == 0) {
