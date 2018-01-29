@@ -66,8 +66,35 @@ class drandom_generator : public random_generator<G,dT> {
 		
 }; // -- class drandom_generator
 
+///
+/// CONTINUOUS RANDOM GENERATOR
+
+template<
+	class G = default_random_engine,	// class used for the random engine
+	typename cT = float				// type of the continuous distributions
+										// float, double
+>
+class crandom_generator : public random_generator<G,cT> {
+	private:
+		uniform_real_distribution<cT> U;
+		
+	public:
+		crandom_generator();
+		~crandom_generator();
+		
+		/* Initialisers of the distributions */
+		
+		void init_uniform(cT a, cT b);
+		
+		/* Get pseudo-random numbers */
+		
+		cT get_uniform();
+		
+}; // -- class crandom_generator
+
 } // -- namespace utils
 } // -- namespace dsa
 
 #include "random_generator.cpp"
 #include "drandom_generator.cpp"
+#include "crandom_generator.cpp"
