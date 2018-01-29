@@ -19,6 +19,7 @@ HEADERS +=													\
     src/random_generator.hpp								\
         src/random_generator.cpp							\
         src/drandom_generator.cpp							\
+        src/crandom_generator.cpp							\
     src/random_graphs/barabasi_albert.hpp					\
         src/random_graphs/ba_preferential_attachment.cpp	\
         src/random_graphs/ba_random_attachment.cpp			\
@@ -27,12 +28,12 @@ HEADERS +=													\
         src/random_graphs/switching.cpp						\
     src/metrics/clustering.hpp								\
     src/metrics/centralities.hpp							\
-    src/epidemics/models.hpp
+    src/epidemics/models.hpp								\
+		src/epidemics/sir.cpp								\
+		src/epidemics/sis.cpp
 
 SOURCES +=							\
     complex_social_networks.cpp		\
     src/graph.cpp					\
     src/metrics/clustering.cpp		\
-    src/metrics/centralities.cpp	\
-    src/epidemics/sir.cpp			\
-    src/epidemics/sis.cpp
+    src/metrics/centralities.cpp
