@@ -39,14 +39,19 @@ The project may be compiled using the qmake tool.
 	3. In order to build a social network following the Barabási-Albert
 	model with Preferential Attachment, issue the specified command.
 	The other variants of the same model can be found in the usage.
-		- ./csn --seed -pa --n0 10 --m0 4 -T 20
+		- ./csn --seed -pa --n0 10 --m0 4 --T 20
 	
 	4. Applying the switching model is also easy: use the option -sw and give
 	a value to Q to determine the number of steps of the switching model algorithm.
-		- ./csn --seed -pa --n0 10 --m0 4 -T 20 -sw -Q 10 
+		- ./csn (..) -sw --Q 10 
 
 	5. Centrality  and clustering metrics can be calculated if the appropriate
 	parameters are passed to the program.
 		- ./csn (..) --gcc		: Global Clustering Coefficient (Newman 2010)
 		- ./csn (..) --mlcc		: Mean Local Clustering Coefficient (Watts & Strogatz 1998)
 		- ./csn (..) --dc		: degree centrality
+
+	6. One can also execute the epidemic models on the generated network.
+	The selection of the model is done by adding --sir or --sis for the
+	SIR and SIS models. Their configuration is done in the same way:
+		- ./csn (..) --p0 0.1 --beta 0.7 --gamma 0.55 --T 1000
