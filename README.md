@@ -33,7 +33,6 @@ The project may be compiled using the qmake tool.
 	3. In order to build a social network following the Barabási-Albert
 	model with Preferential Attachment, issue the command
 		- ./make_random_graphs --seed -pa --n0 10 --m0 4 -T 20
-	4. Applying the switching model is also easy
-		- ./make_random_graphs --seed -pa --n0 10 --m0 4 -T 20 -sw -Q 10
-	where Q is an optional parameter that determines the number of steps
-	of the switching model algorithm.
+	4. Applying the switching model is also easy: use the option -sw and give
+	a value to Q to determine the number of steps of the switching model algorithm.
+		- ./make_random_graphs --seed -pa --n0 10 --m0 4 -T 20 -sw -Q 10 
