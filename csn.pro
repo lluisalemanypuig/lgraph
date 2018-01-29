@@ -2,7 +2,7 @@
 TEMPLATE = app
 
 OBJECTS_DIR = bin
-TARGET = make_random_graphs
+TARGET = csn
 
 CONFIG += release
 CONFIG += c++11
@@ -27,9 +27,12 @@ HEADERS +=													\
         src/random_graphs/switching.cpp						\
     src/metrics/clustering.hpp								\
     src/metrics/centralities.hpp							\
+    src/epidemics/models.hpp
 
 SOURCES +=							\
-    random_graphs.cpp				\
+    complex_social_networks.cpp		\
     src/graph.cpp					\
     src/metrics/clustering.cpp		\
-    src/metrics/centralities.cpp
+    src/metrics/centralities.cpp	\
+    src/epidemics/sir.cpp			\
+    src/epidemics/sis.cpp
