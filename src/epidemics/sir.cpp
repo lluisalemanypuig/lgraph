@@ -9,7 +9,7 @@ namespace epidemics {
 	>
 	void SIR
 	(
-		const graph& G,
+		const graph& net,
 		double p0, double beta, double gamma,
 		size_t T,
 		crandom_generator<> *rg,

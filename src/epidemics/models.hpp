@@ -5,10 +5,13 @@
 using namespace std;
 
 /// Custom includes
-#include "src/crandom_generator.hpp"
+#include "src/random_generator.hpp"
 #include "src/graph.hpp"
 
 namespace dsa {
+
+using namespace utils;
+
 namespace networks {
 namespace epidemics {
 	
@@ -45,7 +48,7 @@ namespace epidemics {
 	>
 	void SIR
 	(
-		const graph& G,
+		const graph& net,
 		double p0, double beta, double gamma,
 		size_t T,
 		crandom_generator<> *rg,
@@ -59,7 +62,7 @@ namespace epidemics {
 	>
 	void SIS
 	(
-		const graph& G,
+		const graph& net,
 		double p0, double beta, double gamma,
 		size_t T,
 		crandom_generator<> *rg,
