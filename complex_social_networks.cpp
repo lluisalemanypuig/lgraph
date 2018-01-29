@@ -58,7 +58,7 @@ void print_usage() {
 	cout << "        --m0: Number of edges added at each step" << endl;
 	cout << endl;
 	cout << "    Switching model configuration parameters:" << endl;
-	cout << "        --Q:   The switching model will run for Q*|E| steps." << endl;
+	cout << "        --Q:  The switching model will run for Q*|E| steps." << endl;
 	cout << "              Its default value is 1" << endl;
 	cout << endl;
 	cout << endl;
