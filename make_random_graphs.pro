@@ -8,7 +8,6 @@ CONFIG += release
 CONFIG += c++11
 CONFIG -= qt
 
-QMAKESPEC =
 DEFINES -= QT_WEBKIT
 
 QMAKE_CXXFLAGS += -std=c++0x
@@ -26,9 +25,11 @@ HEADERS +=													\
         src/random_graphs/ba_no_vertex_growth.cpp			\
     src/random_graphs/switching.hpp							\
         src/random_graphs/switching.cpp						\
-    src/metrics/clustering.hpp
+    src/metrics/clustering.hpp								\
+    src/metrics/centralities.hpp							\
 
-SOURCES +=						\
-    random_graphs.cpp			\
-    src/graph.cpp				\
-    src/metrics/clustering.cpp
+SOURCES +=							\
+    random_graphs.cpp				\
+    src/graph.cpp					\
+    src/metrics/clustering.cpp		\
+    src/metrics/centralities.cpp
