@@ -17,6 +17,9 @@ typedef neighbourhood::const_iterator lcit;
 typedef neighbourhood::iterator lit;
 typedef pair<node, node> edge;
 
+/*
+Implementation of directed graphs as adjacency lists
+*/
 class graph {
 	private:
 		vector<neighbourhood> adjacency_list;
