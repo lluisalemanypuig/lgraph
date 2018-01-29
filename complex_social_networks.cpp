@@ -11,6 +11,7 @@ using namespace std;
 #include "src/random_graphs/switching.hpp"
 #include "src/metrics/centralities.hpp"
 #include "src/metrics/clustering.hpp"
+#include "src/epidemics/models.hpp"
 #include "src/random_generator.hpp"
 #include "src/graph.hpp"
 using namespace dsa;
@@ -32,27 +33,32 @@ bool clust_mlcc = false;
 
 bool cent_degree = false;
 
+bool epid_sir = false;
+bool epid_sis = false;
+double epid_p0, epid_gamma, epid_beta;
+
 bool seed = false;
 /// <Global variables>
 
 void print_usage() {
 	cout << "Help of this program" << endl;
-	cout << " [-h, --help]: show the usage of this program" << endl;
+	cout << "    [-h, --help]: show the usage of this program" << endl;
 	cout << "* Generating random networks" << endl;
 	cout << "    Model selection parameters:" << endl;
 	cout << "        -pa: Generate Barabasi-Albert model with preferential attachment" << endl;
 	cout << "        -ra: Generate Barabasi-Albert model with random attachment" << endl;
 	cout << "        -ng: Generate Barabasi-Albert model without vertex growth" << endl;
-	cout << "        -sw: Generate a switching model graph. This option requires" << endl;
-	cout << "             the selection of one of the previous models" << endl;
+	cout << endl;
+	cout << "    Modification of the generated network:" << endl;
+	cout << "        -sw: Apply the Switching model on the generated network" << endl;
 	cout << endl;
 	cout << "    Barabasi-Albert model configuration parameters:" << endl;
-	cout << "        -T:   Number of steps of the simulation" << endl;
+	cout << "        --T:  Number of steps of the simulation" << endl;
 	cout << "        --n0: Initial number of vertices" << endl;
 	cout << "        --m0: Number of edges added at each step" << endl;
 	cout << endl;
 	cout << "    Switching model configuration parameters:" << endl;
-	cout << "        -Q:   The switching model will run for Q*|E| steps." << endl;
+	cout << "        --Q:   The switching model will run for Q*|E| steps." << endl;
 	cout << "              Its default value is 1" << endl;
 	cout << endl;
 	cout << endl;
@@ -65,17 +71,27 @@ void print_usage() {
 	cout << "    --dc: degree centrality" << endl;
 	cout << endl;
 	cout << endl;
+	cout << "* Simulation of the spread of an infection:" << endl;
+	cout << "    --sir: simulate the SIR model over the generated network" << endl;
+	cout << "    --sis: simulate the SIS model over the generated network" << endl;
+	cout << "    Configuration of the simulation:" << endl;
+	cout << "        --p0: initial proportion of infected individuals" << endl;
+	cout << "        --beta: rate of infection" << endl;
+	cout << "        --gamma: rate of recovery" << endl;
+	cout << "        --T: number of steps of simulation" << endl;
+	cout << endl;
+	cout << endl;
 	cout << "* Other options" << endl;
 	cout << "    --seed: Seed the random number generator" << endl;
 }
 
-void print_metrics(const graph& Gs, bool gcc, bool mlcc) {
-	if (gcc or mlcc) {
+void print_metrics(const graph& Gs) {
+	if (clust_gcc or clust_mlcc) {
 		cout << "Metrics:" << endl;
-		if (gcc) {
+		if (clust_gcc) {
 			cout << "    Global clustering coefficient:     " << networks::metrics::clustering::gcc(Gs) << endl;
 		}
-		if (mlcc) {
+		if (clust_mlcc) {
 			cout << "    Mean local clustering coefficient: " << networks::metrics::clustering::mlcc(Gs) << endl;
 		}
 		cout << endl;
@@ -92,6 +108,22 @@ void print_degree_centrality(const graph& Gs) {
 	}
 	
 	cout << endl;
+}
+
+void execute_epidemic_models(const graph& Gs) {
+	
+	crandom_generator<> *rg = new crandom_generator<>();
+	vector<size_t> res;
+	
+	if (epid_sir) {
+		networks::epidemics::SIR(Gs, epid_p0, epid_beta, epid_gamma, T, rg, res);
+	}
+	
+	if (epid_sis) {
+		networks::epidemics::SIS(Gs, epid_p0, epid_beta, epid_gamma, T, rg, res);
+	}
+	
+	delete rg;
 }
 
 int parse_options(int argc, char *argv[]) {
@@ -112,7 +144,11 @@ int parse_options(int argc, char *argv[]) {
 		else if (strcmp(argv[i], "-sw") == 0) {
 			apply_switching = true;
 		}
-		else if (strcmp(argv[i], "-T") == 0) {
+		else if (strcmp(argv[i], "--Q") == 0) {
+			Q = atoi(argv[i + 1]);
+			++i;
+		}
+		else if (strcmp(argv[i], "--T") == 0) {
 			T = atoi(argv[i + 1]);
 			++i;
 		}
@@ -122,6 +158,18 @@ int parse_options(int argc, char *argv[]) {
 		}
 		else if (strcmp(argv[i], "--m0") == 0) {
 			m0 = atoi(argv[i + 1]);
+			++i;
+		}
+		else if (strcmp(argv[i], "--p0") == 0) {
+			epid_p0 = atof(argv[i + 1]);
+			++i;
+		}
+		else if (strcmp(argv[i], "--beta") == 0) {
+			epid_beta = atof(argv[i + 1]);
+			++i;
+		}
+		else if (strcmp(argv[i], "--gamma") == 0) {
+			epid_gamma = atof(argv[i + 1]);
 			++i;
 		}
 		else if (strcmp(argv[i], "--seed") == 0) {
@@ -136,9 +184,11 @@ int parse_options(int argc, char *argv[]) {
 		else if (strcmp(argv[i], "--dc") == 0) {
 			cent_degree = true;
 		}
-		else if (strcmp(argv[i], "-Q") == 0) {
-			Q = atoi(argv[i + 1]);
-			++i;
+		else if (strcmp(argv[i], "--sir") == 0) {
+			epid_sir = true;
+		}
+		else if (strcmp(argv[i], "--sis") == 0) {
+			epid_sis = true;
 		}
 		else {
 			cerr << "Warning: option '" << string(argv[i]) << "' not recognized" << endl;
@@ -186,13 +236,17 @@ int main(int argc, char *argv[]) {
 	cout << Gs << endl;
 	cout << endl;
 	
-	print_metrics(Gs, clust_gcc, clust_mlcc);
+	print_metrics(Gs);
 	
 	if (cent_degree) {
 		cout << "Centralities:" << endl;
 		if (cent_degree) {
 			print_degree_centrality(Gs);
 		}
+	}
+	
+	if (epid_sir or epid_sis) {
+		execute_epidemic_models(Gs);
 	}
 	
 	// free memory
