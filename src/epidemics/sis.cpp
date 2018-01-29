@@ -1,10 +1,22 @@
-#include "models.hpp"
 
 namespace dsa {
 namespace networks {
 namespace epidemics {
 	
-	void SIS(const graph& G, double p0, double beta, double gamma, size_t T, vector<size_t>& n_inf) {
+	template<
+		class G = default_random_engine,
+		typename cT = float
+	>
+	void SIS
+	(
+		const graph& G,
+		double p0, double beta, double gamma,
+		size_t T,
+		crandom_generator<> *rg,
+		
+		vector<size_t>& n_inf
+	)
+	{
 		
 		
 		
