@@ -9,9 +9,12 @@ using namespace std;
 /// Custom includes
 #include "src/random_graphs/barabasi_albert.hpp"
 #include "src/random_graphs/switching.hpp"
+#include "src/metrics/centralities.hpp"
+#include "src/metrics/clustering.hpp"
 #include "src/random_generator.hpp"
 #include "src/graph.hpp"
 using namespace dsa;
+using namespace networks;
 using namespace utils;
 
 void print_usage() {
@@ -33,6 +36,25 @@ void print_usage() {
 	cout << "        -Q:   The switching model will run for Q*|E| steps." << endl;
 	cout << "    Other options" << endl;
 	cout << "        --seed: Seed the random number generator" << endl;
+}
+
+void print_metrics(const graph& Gs) {
+	cout << "Metrics:" << endl;
+	cout << "    Global clustering coefficient:     " << networks::metrics::clustering::gcc(Gs) << endl;
+	cout << "    Mean local clustering coefficient: " << networks::metrics::clustering::mlcc(Gs) << endl;
+	cout << endl;
+}
+
+void print_degree_centrality(const graph& Gs) {
+	cout << "    Degree centrality:" << endl;
+	
+	vector<double> deg_cen;
+	networks::metrics::centralities::degree(Gs, deg_cen);
+	for (size_t u = 0; u < deg_cen.size(); ++u) {
+		cout << "    Node " << u << ": " << deg_cen[u] << endl;
+	}
+	
+	cout << endl;
 }
 
 int main(int argc, char *argv[]) {
@@ -100,7 +122,7 @@ int main(int argc, char *argv[]) {
 	drandom_generator<> *rg = new drandom_generator<>();
 	if (seed) rg->seed_random_engine();
 	
-	networks::graph Gs;
+	graph Gs;
 	
 	if (model == "preferential") {
 		networks::random::Barabasi_Albert::preferential_attachment(n0, m0, T, rg, Gs);
@@ -115,9 +137,15 @@ int main(int argc, char *argv[]) {
 	if (apply_switching) {
 		networks::random::switching::switching_model(Q, rg, Gs);
 	}
-
-	cout << Gs << endl;
 	
+	cout << "Resulting network:" << endl;
+	cout << Gs << endl;
+	cout << endl;
+	
+	print_metrics(Gs);
+	
+	cout << "Centralities:" << endl;
+	print_degree_centrality(Gs);
 	
 	// free memory
 	delete rg;
