@@ -1,11 +1,11 @@
-#include "digraph.hpp"
+#include "graph.hpp"
 
 namespace dsa {
-namespace graphs {
+namespace networks {
 
 /// PRIVATE
 
-lcit digraph::cget_neighbour_position(const neighbourhood& n, node u) const {
+lcit graph::cget_neighbour_position(const neighbourhood& n, node u) const {
 	bool found = false;
 	lcit cit = n.begin();
 	while (cit != n.end() and not found) {
@@ -15,7 +15,7 @@ lcit digraph::cget_neighbour_position(const neighbourhood& n, node u) const {
 	return cit;
 }
 
-lit digraph::get_neighbour_position(neighbourhood& n, node u) {
+lit graph::get_neighbour_position(neighbourhood& n, node u) {
 	bool found = false;
 	lit it = n.begin();
 	while (it != n.end() and not found) {
@@ -27,25 +27,25 @@ lit digraph::get_neighbour_position(neighbourhood& n, node u) {
 
 /// PUBLIC
 
-digraph::digraph() {
+graph::graph() {
 	num_edges = 0;
 }
 
-digraph::digraph(size_t n) {
+graph::graph(size_t n) {
 	num_edges = 0;
 	adjacency_list = vector<neighbourhood>(n);
 }
 
-digraph::~digraph() { }
+graph::~graph() { }
 
-void digraph::init(size_t n) {
+void graph::init(size_t n) {
 	clear();
 	adjacency_list = vector<neighbourhood>(n);
 }
 
 /// OPERATORS
 
-digraph& digraph::operator= (const digraph& g) {
+graph& graph::operator= (const graph& g) {
 	init(g.n_nodes());
 	for (size_t i = 0; i < adjacency_list.size(); ++i) {
 		adjacency_list[i] = g.adjacency_list[i];
@@ -56,31 +56,31 @@ digraph& digraph::operator= (const digraph& g) {
 
 /// SETTERS
 
-size_t digraph::add_node() {
+size_t graph::add_node() {
 	adjacency_list.push_back(neighbourhood());
 	return adjacency_list.size() - 1;
 }
 
-size_t digraph::add_n_nodes(node n) {
+size_t graph::add_n_nodes(node n) {
 	adjacency_list.insert(adjacency_list.end(), n, neighbourhood());
 	return adjacency_list.size() - 1;
 }
 
-void digraph::add_edge(const edge& e) {
+void graph::add_edge(const edge& e) {
 	add_edge(e.first, e.second);
 }
 
-void digraph::add_edge(node u, node v) {
+void graph::add_edge(node u, node v) {
 	adjacency_list[u].push_back(v);
 	adjacency_list[v].push_back(u);
 	++num_edges;
 }
 
-void digraph::remove_edge(const edge& e) {
+void graph::remove_edge(const edge& e) {
 	remove_edge(e.first, e.second);
 }
 	
-void digraph::remove_edge(node u, node v) {
+void graph::remove_edge(node u, node v) {
 	bool erased = false;
 	
 	neighbourhood& nu = adjacency_list[u];
@@ -100,7 +100,7 @@ void digraph::remove_edge(node u, node v) {
 	num_edges -= erased;
 }
 
-void digraph::clear() {
+void graph::clear() {
 	num_edges = 0;
 	for (size_t i = 0; i < adjacency_list.size(); ++i) {
 		adjacency_list[i].clear();
@@ -110,11 +110,11 @@ void digraph::clear() {
 
 /// GETTERS
 
-bool digraph::has_node(node u) const {
+bool graph::has_node(node u) const {
 	return u < adjacency_list.size();
 }
 
-bool digraph::has_edge(node u, node v) const {
+bool graph::has_edge(node u, node v) const {
 	const neighbourhood& nu = adjacency_list[u];
 	const neighbourhood& nv = adjacency_list[v];
 	
@@ -122,20 +122,20 @@ bool digraph::has_edge(node u, node v) const {
 	return cget_neighbour_position(nv, u) != nv.end();
 }
 
-size_t digraph::n_nodes() const {
+size_t graph::n_nodes() const {
 	return adjacency_list.size();
 }
 
-size_t digraph::n_edges() const {
+size_t graph::n_edges() const {
 	return num_edges;
 }
 
-void digraph::nodes(vector<node>& all_nodes) const {
+void graph::nodes(vector<node>& all_nodes) const {
 	all_nodes.resize(adjacency_list.size());
 	for (size_t u = 0; u < all_nodes.size(); ++u) all_nodes[u] = u;
 }
 
-void digraph::edges(vector<edge>& all_edges) const {
+void graph::edges(vector<edge>& all_edges) const {
 	set<edge> unique_edges;
 	
 	// insert all edges into a set to get only those that are unique
@@ -165,15 +165,15 @@ void digraph::edges(vector<edge>& all_edges) const {
 	}
 }
 
-const neighbourhood& digraph::get_neighbours(node u) const {
+const neighbourhood& graph::get_neighbours(node u) const {
 	return adjacency_list[u];
 }
 
-size_t digraph::degree(node u) const {
+size_t graph::degree(node u) const {
 	return adjacency_list[u].size();
 }
 
-void digraph::get_degree_sequence(map<node, node>& deg_seq) const {
+void graph::get_degree_sequence(map<node, node>& deg_seq) const {
 	for (size_t u = 0; u < adjacency_list.size(); ++u) {
 		size_t deg = degree(u);
 		if (deg_seq.find(deg) == deg_seq.end()) deg_seq[deg] = 1;
@@ -181,7 +181,7 @@ void digraph::get_degree_sequence(map<node, node>& deg_seq) const {
 	}
 }
 
-size_t digraph::n_triangles() const {
+size_t graph::n_triangles() const {
 	size_t tris = 0;
 	const size_t N = n_nodes();
 	
@@ -207,6 +207,6 @@ size_t digraph::n_triangles() const {
 	return tris/3;
 }
 
-} // -- namespace graphs
+} // -- namespace networks
 } // -- namespace dsa
 

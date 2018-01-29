@@ -10,10 +10,10 @@
 using namespace std;
 
 #include "src/random_generator.hpp"
-#include "src/digraph.hpp"
+#include "src/graph.hpp"
 
 namespace dsa {
-namespace graphs {
+namespace networks {
 namespace random {
 namespace Barabasi_Albert {
 
@@ -58,7 +58,7 @@ using namespace utils;
 	void preferential_attachment(
 		size_t n0, size_t m0, size_t T,
 		drandom_generator<G,dT> *rg,
-		digraph& Gs
+		graph& Gs
 	);
 	
 	template<
@@ -68,7 +68,7 @@ using namespace utils;
 	void random_attachment(
 		size_t n0, size_t m0, size_t T,
 		drandom_generator<G,dT> *rg,
-		digraph& Gs
+		graph& Gs
 	);
 	
 	template<
@@ -78,12 +78,12 @@ using namespace utils;
 	void no_vertex_growth(
 		size_t n0, size_t m0, size_t T,
 		drandom_generator<G,dT> *rg,
-		digraph& Gs
+		graph& Gs
 	);
 
 } // -- namespace Barabasi_Albert
 } // -- namespace random
-} // -- namespace graphs
+} // -- namespace networks
 } // -- namespace dsa
 
 #include "ba_preferential_attachment.cpp"

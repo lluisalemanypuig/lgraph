@@ -10,10 +10,10 @@
 using namespace std;
 
 #include "src/random_generator.hpp"
-#include "src/digraph.hpp"
+#include "src/graph.hpp"
 
 namespace dsa {
-namespace graphs {
+namespace networks {
 namespace random {
 namespace switching {
 
@@ -34,11 +34,11 @@ using namespace utils;
 		class G = default_random_engine,
 		typename dT = size_t
 	>
-	void switching_model(size_t Q, drandom_generator<G,dT> *rg, digraph& Gs);
+	void switching_model(size_t Q, drandom_generator<G,dT> *rg, graph& Gs);
 
 } // -- namespace switching
 } // -- namespace random
-} // -- namespace graphs
+} // -- namespace networks
 } // -- namespace dsa
 
 #include "switching.cpp"

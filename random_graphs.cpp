@@ -10,7 +10,7 @@ using namespace std;
 #include "src/random_graphs/barabasi_albert.hpp"
 #include "src/random_graphs/switching.hpp"
 #include "src/random_generator.hpp"
-#include "src/digraph.hpp"
+#include "src/graph.hpp"
 using namespace dsa;
 using namespace utils;
 
@@ -100,20 +100,20 @@ int main(int argc, char *argv[]) {
 	drandom_generator<> *rg = new drandom_generator<>();
 	if (seed) rg->seed_random_engine();
 	
-	graphs::digraph Gs;
+	networks::graph Gs;
 	
 	if (model == "preferential") {
-		graphs::random::Barabasi_Albert::preferential_attachment(n0, m0, T, rg, Gs);
+		networks::random::Barabasi_Albert::preferential_attachment(n0, m0, T, rg, Gs);
 	}
 	else if (model == "random") {
-		graphs::random::Barabasi_Albert::random_attachment(n0, m0, T, rg, Gs);
+		networks::random::Barabasi_Albert::random_attachment(n0, m0, T, rg, Gs);
 	}
 	else if (model == "no-growth") {
-		graphs::random::Barabasi_Albert::no_vertex_growth(n0, m0, T, rg, Gs);
+		networks::random::Barabasi_Albert::no_vertex_growth(n0, m0, T, rg, Gs);
 	}
 	
 	if (apply_switching) {
-		graphs::random::switching::switching_model(Q, rg, Gs);
+		networks::random::switching::switching_model(Q, rg, Gs);
 	}
 
 	cout << Gs << endl;

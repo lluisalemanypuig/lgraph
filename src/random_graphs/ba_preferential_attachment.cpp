@@ -1,6 +1,6 @@
 
 namespace dsa {
-namespace graphs {
+namespace networks {
 namespace random {
 namespace Barabasi_Albert {
 	
@@ -8,7 +8,7 @@ namespace Barabasi_Albert {
 	namespace _pa {
 		
 		// function for debugging
-		inline void print_stubs(const digraph& G, const vector<size_t>& stubs, size_t max_idx, const string& tab = "") {
+		inline void print_stubs(const graph& G, const vector<size_t>& stubs, size_t max_idx, const string& tab = "") {
 			
 			cout << tab << "max_idx= " << max_idx << endl;
 			cout << tab;
@@ -65,7 +65,7 @@ namespace Barabasi_Albert {
 		// max_idx: upper bound of the range of the stubs vector
 		inline void update_stubs
 		(
-			const digraph& G, size_t stub_idx,
+			const graph& G, size_t stub_idx,
 			vector<size_t>& stubs, size_t& max_idx
 		)
 		{
@@ -139,7 +139,7 @@ namespace Barabasi_Albert {
 		size_t n0, size_t m0,
 		size_t T,
 		drandom_generator<G,dT> *rg,
-		digraph& Gs
+		graph& Gs
 	)
 	{
 		// initialize sequences of graphs
@@ -186,6 +186,6 @@ namespace Barabasi_Albert {
 	
 } // -- namespace Barabasi_Albert
 } // -- namespace random
-} // -- namespace graphs
+} // -- namespace networks
 } // -- namespace dsa
 

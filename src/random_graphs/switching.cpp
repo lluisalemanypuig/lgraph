@@ -1,6 +1,6 @@
 
 namespace dsa {
-namespace graphs {
+namespace networks {
 namespace random {
 namespace switching {
 
@@ -61,7 +61,7 @@ namespace switching {
 	}
 
 	template<class G, typename dT>
-	void switching_model(size_t Q, drandom_generator<G,dT> *rg, digraph& Gs) {
+	void switching_model(size_t Q, drandom_generator<G,dT> *rg, graph& Gs) {
 
 		vector<edge> all_edges;
 		Gs.edges(all_edges);
@@ -110,6 +110,6 @@ namespace switching {
 
 } // -- namespace switching
 } // -- namespace random
-} // -- namespace graphs
+} // -- namespace networks
 } // -- namespace dsa
 

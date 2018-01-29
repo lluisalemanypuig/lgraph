@@ -9,7 +9,7 @@
 using namespace std;
 
 namespace dsa {
-namespace graphs {
+namespace networks {
 
 typedef size_t node;
 typedef vector<node> neighbourhood;
@@ -17,7 +17,7 @@ typedef neighbourhood::const_iterator lcit;
 typedef neighbourhood::iterator lit;
 typedef pair<node, node> edge;
 
-class digraph {
+class graph {
 	private:
 		vector<neighbourhood> adjacency_list;
 		size_t num_edges;
@@ -31,9 +31,9 @@ class digraph {
 		lit get_neighbour_position(neighbourhood& n, node u);
 		
 	public:
-		digraph();
-		digraph(size_t n); // n: number of nodes
-		~digraph();
+		graph();
+		graph(size_t n); // n: number of nodes
+		~graph();
 		
 		// Clears the graph and initializes it
 		// with an empty graph of 'n' nodes
@@ -42,7 +42,7 @@ class digraph {
 		/// OPERATORS
 		
 		inline friend
-		ostream& operator<< (ostream& os, const digraph& d) {
+		ostream& operator<< (ostream& os, const graph& d) {
 			for (size_t i = 0; i < d.adjacency_list.size(); ++i) {
 				os << i << ":";
 				lcit begin = d.adjacency_list[i].begin();
@@ -53,7 +53,7 @@ class digraph {
 			return os;
 		}
 		
-		digraph& operator= (const digraph& g);
+		graph& operator= (const graph& g);
 		
 		/// SETTERS
 		
@@ -109,6 +109,6 @@ class digraph {
 		size_t n_triangles() const;
 };
 
-} // -- namespace graphs
+} // -- namespace networks
 } // -- namespace dsa
 

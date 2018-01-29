@@ -1,11 +1,11 @@
 #include "src/metrics/clustering.hpp"
 
 namespace dsa {
-namespace graphs {
+namespace networks {
 namespace metrics {
 namespace clustering {
 
-	double gcc(const digraph& G) {
+	double gcc(const graph& G) {
 		size_t T = 0;
 		size_t connected_triples = 0;
 		const size_t N = G.n_nodes();
@@ -37,7 +37,7 @@ namespace clustering {
 		return (1.0*T)/(connected_triples);
 	}
 	
-	double mlcc(const digraph& G) {
+	double mlcc(const graph& G) {
 		double Cws = 0.0;
 		const size_t N = G.n_nodes();
 		
@@ -75,6 +75,6 @@ namespace clustering {
 
 } // -- namespace clustering
 } // -- namespace metrics
-} // -- namespace graphs	
+} // -- namespace networks	
 } // -- namespace dsa
 
