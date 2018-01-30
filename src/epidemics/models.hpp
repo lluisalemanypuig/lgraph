@@ -5,8 +5,8 @@
 using namespace std;
 
 /// Custom includes
-#include "src/random_generator.hpp"
-#include "src/graph.hpp"
+#include "data_structures/random_generator.hpp"
+#include "data_structures/graph.hpp"
 
 namespace dsa {
 

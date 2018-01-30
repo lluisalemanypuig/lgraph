@@ -7,13 +7,13 @@
 using namespace std;
 
 /// Custom includes
-#include "src/random_graphs/barabasi_albert.hpp"
-#include "src/random_graphs/switching.hpp"
-#include "src/metrics/centralities.hpp"
-#include "src/metrics/clustering.hpp"
-#include "src/epidemics/models.hpp"
-#include "src/random_generator.hpp"
-#include "src/graph.hpp"
+#include "data_structures/random_generator.hpp"
+#include "data_structures/graph.hpp"
+#include "random_graphs/barabasi_albert.hpp"
+#include "random_graphs/switching.hpp"
+#include "metrics/centralities.hpp"
+#include "metrics/clustering.hpp"
+#include "epidemics/models.hpp"
 using namespace dsa;
 using namespace networks;
 using namespace utils;

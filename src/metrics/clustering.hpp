@@ -5,7 +5,7 @@
 using namespace std;
 
 /// Custom includes
-#include "src/graph.hpp"
+#include "data_structures/graph.hpp"
 
 namespace dsa {
 namespace networks {

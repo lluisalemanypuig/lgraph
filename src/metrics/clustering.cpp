@@ -1,4 +1,4 @@
-#include "src/metrics/clustering.hpp"
+#include "metrics/clustering.hpp"
 
 namespace dsa {
 namespace networks {

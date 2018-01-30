@@ -1,4 +1,4 @@
-#include "src/metrics/centralities.hpp"
+#include "metrics/centralities.hpp"
 
 namespace dsa {
 namespace networks {
