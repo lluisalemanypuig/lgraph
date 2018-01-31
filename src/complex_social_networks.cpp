@@ -3,11 +3,13 @@
 
 /// C++ includes
 #include <iostream>
+#include <iomanip>
 #include <map>
 using namespace std;
 
 /// Custom includes
 #include "data_structures/random_generator.hpp"
+#include "data_structures/svector.hpp"
 #include "data_structures/graph.hpp"
 #include "random_graphs/barabasi_albert.hpp"
 #include "random_graphs/switching.hpp"
@@ -23,7 +25,7 @@ string model = "none";
 	
 size_t n0 = 10;
 size_t m0 = 5;
-size_t T = 7;
+size_t T = 1;
 
 bool apply_switching = false;
 size_t Q = 1;
@@ -35,7 +37,10 @@ bool cent_degree = false;
 
 bool epid_sir = false;
 bool epid_sis = false;
-double epid_p0, epid_gamma, epid_beta;
+double epid_p0 = 0.5;
+double epid_gamma = 0.5;
+double epid_beta = 0.5;
+size_t epid_T = 1;
 
 bool seed = false;
 /// <Global variables>
@@ -54,12 +59,15 @@ void print_usage() {
 	cout << endl;
 	cout << "    Barabasi-Albert model configuration parameters:" << endl;
 	cout << "        --T:  Number of steps of the simulation" << endl;
+	cout << "              Default: 1" << endl;
 	cout << "        --n0: Initial number of vertices" << endl;
+	cout << "              Default: 10" << endl;
 	cout << "        --m0: Number of edges added at each step" << endl;
+	cout << "              Default: 5" << endl;
 	cout << endl;
 	cout << "    Switching model configuration parameters:" << endl;
 	cout << "        --Q:  The switching model will run for Q*|E| steps." << endl;
-	cout << "              Its default value is 1" << endl;
+	cout << "              Default: 1" << endl;
 	cout << endl;
 	cout << endl;
 	cout << "* Evaluating networks:" << endl;
@@ -76,9 +84,13 @@ void print_usage() {
 	cout << "    --sis: simulate the SIS model over the generated network" << endl;
 	cout << "    Configuration of the simulation:" << endl;
 	cout << "        --p0: initial proportion of infected individuals" << endl;
+	cout << "              Default: 0.5" << endl;
 	cout << "        --beta: rate of infection" << endl;
+	cout << "              Default: 0.5" << endl;
 	cout << "        --gamma: rate of recovery" << endl;
-	cout << "        --T: number of steps of simulation" << endl;
+	cout << "              Default: 0.5" << endl;
+	cout << "        --T-epidemics: number of steps of simulation" << endl;
+	cout << "              Default: 1" << endl;
 	cout << endl;
 	cout << endl;
 	cout << "* Other options" << endl;
@@ -110,17 +122,63 @@ void print_degree_centrality(const graph& Gs) {
 	cout << endl;
 }
 
+void display_epid_information
+(
+	const vector<size_t>& rec,
+	const vector<size_t>& sus,
+	const vector<size_t>& inf
+)
+{
+	size_t max_rec, max_sus, max_inf;
+	max_rec = max_sus = max_inf = 0;
+	
+	for (size_t i = 0; i < rec.size(); ++i) {
+		max_rec = max(max_rec, rec[i]);
+		max_sus = max(max_sus, sus[i]);
+		max_inf = max(max_inf, inf[i]);
+	}
+	
+	size_t len_step = max(size_t(4), std::to_string(rec.size()).length());
+	size_t len_rec  = max(size_t(3), std::to_string(max_rec).length());
+	size_t len_sus  = max(size_t(3), std::to_string(max_sus).length());
+	size_t len_inf  = max(size_t(3), std::to_string(max_inf).length());
+	
+	cout << setw(len_step) << "Step" << "\t"
+		 << setw(len_rec) << "Rec" << "\t"
+		 << setw(len_sus) << "Sus" << "\t"
+		 << setw(len_inf) << "Inf" << endl;
+	
+	cout << setw(len_step) << 0 << "\t"
+		 << setw(len_rec) << " " << "\t"
+		 << setw(len_sus) << sus[0] << "\t"
+		 << setw(len_inf) << inf[0] << endl;
+	
+	for (size_t t = 1; t < inf.size(); ++t) {
+		cout << setw(len_step) << t << "\t"
+			 << setw(len_rec) << rec[t] << "\t"
+			 << setw(len_sus) << sus[t] << "\t"
+			 << setw(len_inf) << inf[t] << endl;
+	}
+}
+
 void execute_epidemic_models(const graph& Gs) {
 	
 	crandom_generator<> *rg = new crandom_generator<>();
-	vector<size_t> res;
+	vector<size_t> n_rec, n_sus, n_inf;
+	
+	cout << "-- EPIDEMIC SIMULATION --" << endl;
+	cout << "p0= " << epid_p0 << endl;
+	cout << "beta= " << epid_beta << endl;
+	cout << "gamma= " << epid_gamma << endl;
 	
 	if (epid_sir) {
-		networks::epidemics::SIR(Gs, epid_p0, epid_beta, epid_gamma, T, rg, res);
+		networks::epidemics::SIR(Gs, epid_p0, epid_beta, epid_gamma, epid_T, rg, n_rec, n_sus, n_inf);
+		cout << "SIR:" << endl;
+		display_epid_information(n_rec, n_sus, n_inf);
 	}
 	
 	if (epid_sis) {
-		networks::epidemics::SIS(Gs, epid_p0, epid_beta, epid_gamma, T, rg, res);
+		networks::epidemics::SIS(Gs, epid_p0, epid_beta, epid_gamma, epid_T, rg, n_inf);
 	}
 	
 	delete rg;
@@ -150,6 +208,10 @@ int parse_options(int argc, char *argv[]) {
 		}
 		else if (strcmp(argv[i], "--T") == 0) {
 			T = atoi(argv[i + 1]);
+			++i;
+		}
+		else if (strcmp(argv[i], "--T-epidemics") == 0) {
+			epid_T = atoi(argv[i + 1]);
 			++i;
 		}
 		else if (strcmp(argv[i], "--n0") == 0) {
@@ -205,7 +267,6 @@ int main(int argc, char *argv[]) {
 		// an error occurred or --help was used
 		return 1;
 	}
-	
 	
 	if (model == "none") {
 		cerr << "Error: no model selected." << endl;
