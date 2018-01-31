@@ -1,7 +1,7 @@
 #include "graph.hpp"
 
 namespace dsa {
-namespace networks {
+namespace utils {
 
 /// PRIVATE
 
@@ -207,6 +207,6 @@ size_t graph::n_triangles() const {
 	return tris/3;
 }
 
-} // -- namespace networks
+} // -- namespace utils
 } // -- namespace dsa
 

@@ -9,7 +9,7 @@
 using namespace std;
 
 namespace dsa {
-namespace networks {
+namespace utils {
 
 typedef size_t node;
 typedef vector<node> neighbourhood;
@@ -112,6 +112,6 @@ class graph {
 		size_t n_triangles() const;
 };
 
-} // -- namespace networks
+} // -- namespace utils
 } // -- namespace dsa
 

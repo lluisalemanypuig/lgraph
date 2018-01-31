@@ -9,6 +9,8 @@ using namespace std;
 #include "data_structures/graph.hpp"
 
 namespace dsa {
+using namespace utils;
+
 namespace networks {
 namespace metrics {
 namespace centralities {
