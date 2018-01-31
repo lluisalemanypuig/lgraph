@@ -54,4 +54,4 @@ The project may be compiled using the qmake tool.
 	6. One can also execute the epidemic models on the generated network.
 	The selection of the model is done by adding --sir or --sis for the
 	SIR and SIS models. Their configuration is done in the same way:
-		- ./csn (..) --p0 0.1 --beta 0.7 --gamma 0.55 --T 1000
+		- ./csn (..) --p0 0.1 --beta 0.7 --gamma 0.55 --T-epidemics 1000
