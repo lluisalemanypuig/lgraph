@@ -6,10 +6,10 @@ using namespace std;
 
 /// Custom includes
 #include "data_structures/random_generator.hpp"
+#include "data_structures/svector.hpp"
 #include "data_structures/graph.hpp"
 
 namespace dsa {
-
 using namespace utils;
 
 namespace networks {
@@ -30,21 +30,33 @@ namespace epidemics {
 		0 <= p0 <= 1
 	- beta: rate of infection of an individual with a single neighbour.
 		0 <= beta <= 1
-	- gamma: rate of recovery of an individual with a single neighbour.
+	- gamma: rate of recovery of an individual.
 		0 <= gamma <= 1
-	- T: maximum number of steps of the simulation
+	- T: maximum number of steps of the simulation. The steps performed
+		have index 1,2,...,T.
 	- rg: the random generator used to generate real uniform numbers
 		between 0 and 1.
 	
 	Likewise for their output parameters:
-	- n_inf: n_infected[i] contains the amount of infected nodes at step i.
-		The number of healthy agents at step i can be obtained doing:
-		n_healthy[i] = G.n_nodes() - n_inf[i]
+	- n_rec: n_rec[i] contains the number of recoverd agents after the
+		i-th step is completed. n_rec[0] always has a zero and is not a
+		valid value.
+		Size at the end of the population T + 1.
+	- n_sus: n_sus[i] contains the number of susceptible agents after
+		the i-th step is completed. n_sus[0] contains the amount of agents
+		susceptible of infection after infecting a proportion of p0 agents
+		of the population.
+		Size at the end of the population T + 1.
+	- n_inf: n_inf[i] contains the number of infected agents after the
+		i-th step is completed. n_inf[0] contains the amount of agents
+		susceptible of infection after infecting a proportion of p0 agents
+		of the population.
+		Size at the end of the population T + 1.
 	*/
 	
 	template<
 		class G = default_random_engine,
-		typename cT = float
+		typename cT = double
 	>
 	void SIR
 	(
@@ -53,12 +65,14 @@ namespace epidemics {
 		size_t T,
 		crandom_generator<> *rg,
 		
+		vector<size_t>& n_rec,
+		vector<size_t>& n_sus,
 		vector<size_t>& n_inf
 	);
 	
 	template<
 		class G = default_random_engine,
-		typename cT = float
+		typename cT = double
 	>
 	void SIS
 	(
