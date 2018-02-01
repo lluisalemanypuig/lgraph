@@ -4,15 +4,13 @@ TEMPLATE = app
 OBJECTS_DIR = ../bin
 TARGET = ../csn
 
-CONFIG += release
+CONFIG += debug
 CONFIG += c++11
 CONFIG -= qt
 
 DEFINES -= QT_WEBKIT
 
 QMAKE_CXXFLAGS += -std=c++0x
-QMAKE_CXXFLAGS_RELEASE -= -O -O1 -O2 -O3
-QMAKE_CXXFLAGS_RELEASE += -Ofast
 
 HEADERS +=												\
 	data_structures/graph.hpp							\
