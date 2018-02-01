@@ -162,7 +162,6 @@ void display_epid_information
 }
 
 void execute_epidemic_models(const graph& Gs) {
-	
 	drandom_generator<> *drg = new drandom_generator<>();
 	crandom_generator<> *crg = new crandom_generator<>();
 	
@@ -187,7 +186,16 @@ void execute_epidemic_models(const graph& Gs) {
 	}
 	
 	if (epid_sis) {
-		networks::epidemics::SIS(Gs, epid_p0, epid_beta, epid_gamma, epid_T, crg, n_inf);
+		networks::epidemics::SIS
+		(
+			Gs,
+			epid_p0, epid_beta, epid_gamma, epid_T,
+			drg, crg,
+			n_rec, n_sus, n_inf
+		);
+		
+		cout << "SIS:" << endl;
+		display_epid_information(n_rec, n_sus, n_inf);
 	}
 	
 	delete drg;
