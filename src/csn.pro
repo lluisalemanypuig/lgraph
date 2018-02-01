@@ -2,7 +2,7 @@
 TEMPLATE = app
 
 OBJECTS_DIR = bin
-TARGET = csn
+TARGET = csn-debug
 
 CONFIG += debug
 CONFIG += c++11
