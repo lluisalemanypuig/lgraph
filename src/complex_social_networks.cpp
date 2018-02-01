@@ -43,6 +43,9 @@ double epid_beta = 0.5;
 size_t epid_T = 1;
 
 bool seed = false;
+
+drandom_generator<> *drg;
+crandom_generator<> *crg;
 /// <Global variables>
 
 void print_usage() {
@@ -162,9 +165,6 @@ void display_epid_information
 }
 
 void execute_epidemic_models(const graph& Gs) {
-	drandom_generator<> *drg = new drandom_generator<>();
-	crandom_generator<> *crg = new crandom_generator<>();
-	
 	vector<size_t> n_rec, n_sus, n_inf;
 	
 	cout << "-- EPIDEMIC SIMULATION --" << endl;
@@ -197,9 +197,6 @@ void execute_epidemic_models(const graph& Gs) {
 		cout << "SIS:" << endl;
 		display_epid_information(n_rec, n_sus, n_inf);
 	}
-	
-	delete drg;
-	delete crg;
 }
 
 int parse_options(int argc, char *argv[]) {
@@ -292,23 +289,27 @@ int main(int argc, char *argv[]) {
 		return 1;
 	}
 	
-	drandom_generator<> *rg = new drandom_generator<>();
-	if (seed) rg->seed_random_engine();
+	drg = new drandom_generator<>();
+	crg = new crandom_generator<>();
+	if (seed) {
+		drg->seed_random_engine();
+		crg->seed_random_engine();
+	}
 	
 	graph Gs;
 	
 	if (model == "preferential") {
-		networks::random::Barabasi_Albert::preferential_attachment(n0, m0, T, rg, Gs);
+		networks::random::Barabasi_Albert::preferential_attachment(n0, m0, T, drg, Gs);
 	}
 	else if (model == "random") {
-		networks::random::Barabasi_Albert::random_attachment(n0, m0, T, rg, Gs);
+		networks::random::Barabasi_Albert::random_attachment(n0, m0, T, drg, Gs);
 	}
 	else if (model == "no-growth") {
-		networks::random::Barabasi_Albert::no_vertex_growth(n0, m0, T, rg, Gs);
+		networks::random::Barabasi_Albert::no_vertex_growth(n0, m0, T, drg, Gs);
 	}
 	
 	if (apply_switching) {
-		networks::random::switching::switching_model(Q, rg, Gs);
+		networks::random::switching::switching_model(Q, drg, Gs);
 	}
 	
 	cout << "Resulting network:" << endl;
@@ -329,6 +330,7 @@ int main(int argc, char *argv[]) {
 	}
 	
 	// free memory
-	delete rg;
+	delete drg;
+	delete crg;
 }
 
