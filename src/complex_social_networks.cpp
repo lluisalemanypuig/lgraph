@@ -163,7 +163,9 @@ void display_epid_information
 
 void execute_epidemic_models(const graph& Gs) {
 	
-	crandom_generator<> *rg = new crandom_generator<>();
+	drandom_generator<> *drg = new drandom_generator<>();
+	crandom_generator<> *crg = new crandom_generator<>();
+	
 	vector<size_t> n_rec, n_sus, n_inf;
 	
 	cout << "-- EPIDEMIC SIMULATION --" << endl;
@@ -172,16 +174,24 @@ void execute_epidemic_models(const graph& Gs) {
 	cout << "gamma= " << epid_gamma << endl;
 	
 	if (epid_sir) {
-		networks::epidemics::SIR(Gs, epid_p0, epid_beta, epid_gamma, epid_T, rg, n_rec, n_sus, n_inf);
+		networks::epidemics::SIR
+		(
+			Gs,
+			epid_p0, epid_beta, epid_gamma, epid_T,
+			drg, crg,
+			n_rec, n_sus, n_inf
+		);
+		
 		cout << "SIR:" << endl;
 		display_epid_information(n_rec, n_sus, n_inf);
 	}
 	
 	if (epid_sis) {
-		networks::epidemics::SIS(Gs, epid_p0, epid_beta, epid_gamma, epid_T, rg, n_inf);
+		networks::epidemics::SIS(Gs, epid_p0, epid_beta, epid_gamma, epid_T, crg, n_inf);
 	}
 	
-	delete rg;
+	delete drg;
+	delete crg;
 }
 
 int parse_options(int argc, char *argv[]) {
