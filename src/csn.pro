@@ -1,8 +1,8 @@
 
 TEMPLATE = app
 
-OBJECTS_DIR = ../bin
-TARGET = ../csn
+OBJECTS_DIR = bin
+TARGET = csn
 
 CONFIG += debug
 CONFIG += c++11
