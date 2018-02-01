@@ -30,7 +30,7 @@ The project may be compiled using the qmake tool.
 
 + Build a social network
 	1. Compile the appropriate file
-		- qmake -makefile csn.pro
+		- qmake -makefile src/csn.pro
 		- make
 		
 	2. See the complete usage issuing the command
