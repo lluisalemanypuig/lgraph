@@ -51,6 +51,7 @@ template<
 class drandom_generator : public random_generator<G,dT> {
 	private:
 		uniform_int_distribution<dT> U;
+		binomial_distribution<dT> B;
 		
 	public:
 		drandom_generator();
@@ -59,10 +60,12 @@ class drandom_generator : public random_generator<G,dT> {
 		/* Initialisers of the distributions */
 		
 		void init_uniform(dT a, dT b);
+		void init_binomial(dT a, double p);
 		
 		/* Get pseudo-random numbers */
 		
 		dT get_uniform();
+		dT get_binomial();
 		
 }; // -- class drandom_generator
 
