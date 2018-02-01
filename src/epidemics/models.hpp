@@ -74,6 +74,7 @@ namespace epidemics {
 	
 	template<
 		class G = default_random_engine,
+		typename dT = size_t,
 		typename cT = double
 	>
 	void SIS
@@ -81,8 +82,11 @@ namespace epidemics {
 		const graph& net,
 		double p0, double beta, double gamma,
 		size_t T,
-		crandom_generator<> *rg,
+		drandom_generator<G,dT> *drg,
+		crandom_generator<G,cT> *crg,
 		
+		vector<size_t>& n_rec,
+		vector<size_t>& n_sus,
 		vector<size_t>& n_inf
 	);
 	
