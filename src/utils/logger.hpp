@@ -5,36 +5,52 @@
 #include <fstream>
 using namespace std;
 
-template<class out_stream = std::ofstream>
+namespace dsa {
+namespace utils {
+
 class null_stream {
 	public:
-		null_stream() { }
-		~null_stream() { }
+		void open(const char *, const ios_base::openmode& ) { }
 		
-		void open(const char *s, const ios_base::openmode& m = ios_base::out) { }
+		// this is the type of std::cout
+		typedef std::basic_ostream<char, std::char_traits<char> > cout_type;
+
+		// this is the function signature of std::endl
+		typedef cout_type& (*standard_endl)(cout_type&);
+
+		// define an operator<< to take in std::endl
+		null_stream& operator<< (const standard_endl&)
+		{ return *this; }
 		
-		template<typename t_printable>
-		inline friend
-		out_stream& operator<< (out_stream& ns, const t_printable& t) {
-			return ns;
-		}
+		// operator<< for any printable type
+		template<class t_printable>
+		null_stream& operator<< (const t_printable&)
+		{ return *this; }
 };
 
 template<class out_stream = ofstream>
 class logger {
 	private:
 		out_stream fout;
+		bool opened;
 		
-		logger() { }
+		logger() {
+			opened = false;
+		}
 		
 	public:
 		out_stream& log() {
 			return fout;
 		}
 		
-		static logger& get_logger() {
+		static logger& get_logger(const string& o = "log.txt") {
 			static logger<out_stream> L;
-			L.fout.open("log", ios_base::app);
+			
+			if (not L.opened) {
+				L.fout.open(o.c_str(), ios_base::app);
+				L.opened = true;
+			}
+			
 			return L;
 		}
 		
@@ -42,4 +58,6 @@ class logger {
 		void operator= (const logger& L)	= delete;
 };
 
+} // -- namespace utils
+} // -- namespace dsa
 
