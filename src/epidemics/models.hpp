@@ -8,6 +8,7 @@ using namespace std;
 #include "data_structures/random_generator.hpp"
 #include "data_structures/svector.hpp"
 #include "data_structures/graph.hpp"
+#include "utils/logger.hpp"
 
 namespace dsa {
 using namespace utils;

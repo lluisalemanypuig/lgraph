@@ -17,6 +17,8 @@ namespace epidemics {
 		vector<size_t>& n_inf
 	)
 	{
+		logger<null_stream>& LOG = logger<null_stream>::get_logger();
+		
 		const size_t N = net.n_nodes();
 		
 		// easiliy iterate through susceptible and infected agents
@@ -45,9 +47,9 @@ namespace epidemics {
 			}
 		}
 		
-		cout << "Population after initialisation" << endl;
-		cout << "    Susceptible: " << susceptible << endl;
-		cout << "    Infected:    " << infected << endl;
+		LOG.log() << "Population after initialisation" << endl;
+		LOG.log() << "    Susceptible: " << susceptible << endl;
+		LOG.log() << "    Infected:    " << infected << endl;
 		
 		// update simulation information
 		n_inf[0] = infected.n_elems();
@@ -58,26 +60,26 @@ namespace epidemics {
 		size_t t = 1;
 		while (t <= T and infected.n_elems() > 0) {
 			
-			cout << "Step: " << t << endl;
+			LOG.log() << "Step: " << t << endl;
 			
-			cout << "-------------------------------" << endl;
-			cout << "|   Population:" << endl;
-			cout << "|       Susceptible: " << susceptible << endl;
-			cout << "|       Infected:    " << infected << endl;
-			cout << "-------------------------------" << endl;
+			LOG.log() << "-------------------------------" << endl;
+			LOG.log() << "|   Population:" << endl;
+			LOG.log() << "|       Susceptible: " << susceptible << endl;
+			LOG.log() << "|       Infected:    " << infected << endl;
+			LOG.log() << "-------------------------------" << endl;
 			
-			cout << "    Phase 1:" << endl;
+			LOG.log() << "    Phase 1:" << endl;
 			
 			// phase 1: infected agents try to recover
 			size_t n_recovered = 0;
 			for (size_t i = infected.n_elems(); i >= 1; --i) {
 				
 				size_t iA = infected[i - 1];
-				cout << "        Agent " << iA << " recovers? ";
+				LOG.log() << "        Agent " << iA << " recovers? ";
 				
 				double r = crg->get_uniform();
 				if (r <= gamma) {
-					cout << "Yes" << endl;
+					LOG.log() << "Yes" << endl;
 					
 					// agent recovers
 					infected.remove(i - 1);
@@ -87,28 +89,28 @@ namespace epidemics {
 					++n_recovered;
 				}
 				else {
-					cout << "No" << endl;
+					LOG.log() << "No" << endl;
 				}
 			}
 			n_rec[t] = n_recovered;
 			
-			cout << "-------------------------------" << endl;
-			cout << "|   Population:" << endl;
-			cout << "|       Susceptible: " << susceptible << endl;
-			cout << "|       Infected:    " << infected << endl;
-			cout << "-------------------------------" << endl;
+			LOG.log() << "-------------------------------" << endl;
+			LOG.log() << "|   Population:" << endl;
+			LOG.log() << "|       Susceptible: " << susceptible << endl;
+			LOG.log() << "|       Infected:    " << infected << endl;
+			LOG.log() << "-------------------------------" << endl;
 			
 			// phase 2: infected agents try to infect their neighbours
 			// except those already recovered (this is the SIR model)
 			
 			size_t current_infected = infected.n_elems();
 			
-			cout << "    Phase 2:" << endl;
-			cout << "        # susceptible= " << susceptible.n_elems() << endl;
-			cout << "        # infected=    " << current_infected << endl;
+			LOG.log() << "    Phase 2:" << endl;
+			LOG.log() << "        # susceptible= " << susceptible.n_elems() << endl;
+			LOG.log() << "        # infected=    " << current_infected << endl;
 			
 			if (current_infected < susceptible.n_elems()) {
-				cout << "        Branch 1" << endl;
+				LOG.log() << "        Branch 1" << endl;
 				
 				// branch 1 (trivial approach): for each infected agent,
 				// try to spread infection to its immediate neighbours.
@@ -116,13 +118,13 @@ namespace epidemics {
 				for (size_t i = 0; i < current_infected; ++i) {
 					
 					size_t a = infected[i];
-					cout << "            Looking at agent " << a << endl;
+					LOG.log() << "            Looking at agent " << a << endl;
 					
 					const neighbourhood& Na = net.get_neighbours(a);
 					
 					// iterate through the neighbours of agent 'a'
 					for (size_t w : Na) {
-						cout << "                Agent tries to infect neighbour " << w << endl;
+						LOG.log() << "                Agent tries to infect neighbour " << w << endl;
 						
 						// if the neighbour is susceptible try to infect it
 						if (is_susceptible[w]) {
@@ -130,7 +132,7 @@ namespace epidemics {
 							double r = crg->get_uniform();
 							if (r <= beta) {
 								
-								cout << "                ... and succeeds" << endl;
+								LOG.log() << "                ... and succeeds" << endl;
 								
 								// neighbour becomes infected
 								
@@ -145,13 +147,13 @@ namespace epidemics {
 							}
 						}
 						else {
-							cout << "                ... but fails because it is not susceptible" << endl;
+							LOG.log() << "                ... but fails because it is not susceptible" << endl;
 						}
 					}
 				}
 			}
 			else {
-				cout << "        Branch 2" << endl;
+				LOG.log() << "        Branch 2" << endl;
 				
 				/*
 				branch 2: for each susceptible agent, count how many
@@ -193,7 +195,7 @@ namespace epidemics {
 						}
 					}
 					
-					cout << "            Susceptible agent " << sA
+					LOG.log() << "            Susceptible agent " << sA
 						 << " is surrounded by " << infected_neighs
 						 << " infected agents" << endl;
 					
@@ -206,7 +208,7 @@ namespace epidemics {
 						
 						// 3. if r >= 1 then agent becomes infected
 						if (binom_val >= 1) {
-							cout << "            ... and it became infected" << endl;
+							LOG.log() << "            ... and it became infected" << endl;
 							
 							// agent becomes infected
 							
@@ -217,21 +219,21 @@ namespace epidemics {
 							infected.add(sA);
 						}
 						else {
-							cout << "            ... and survives the attempt" << endl;
+							LOG.log() << "            ... and survives the attempt" << endl;
 						}
 					}
 					else {
-						cout << "            ... and survives the attempt" << endl;
+						LOG.log() << "            ... and survives the attempt" << endl;
 					}
 				}
 				
 			}
 			
-			cout << "-------------------------------" << endl;
-			cout << "|   Population:" << endl;
-			cout << "|       Susceptible: " << susceptible << endl;
-			cout << "|       Infected:    " << infected << endl;
-			cout << "-------------------------------" << endl;
+			LOG.log() << "-------------------------------" << endl;
+			LOG.log() << "|   Population:" << endl;
+			LOG.log() << "|       Susceptible: " << susceptible << endl;
+			LOG.log() << "|       Infected:    " << infected << endl;
+			LOG.log() << "-------------------------------" << endl;
 			
 			n_inf[t] = infected.n_elems();
 			n_sus[t] = susceptible.n_elems();

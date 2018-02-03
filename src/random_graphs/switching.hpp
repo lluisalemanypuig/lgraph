@@ -12,6 +12,7 @@ using namespace std;
 /// Custom includes
 #include "data_structures/random_generator.hpp"
 #include "data_structures/graph.hpp"
+#include "utils/logger.hpp"
 
 namespace dsa {
 namespace networks {
