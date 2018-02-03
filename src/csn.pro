@@ -31,7 +31,8 @@ HEADERS +=												\
 	metrics/centralities.hpp							\
 	epidemics/models.hpp								\
 		epidemics/sir.cpp								\
-		epidemics/sis.cpp
+		epidemics/sis.cpp								\
+	utils/logger.hpp
 
 SOURCES +=							\
 	complex_social_networks.cpp		\
