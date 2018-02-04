@@ -29,6 +29,7 @@ HEADERS +=												\
 		random_graphs/switching.cpp						\
 	metrics/clustering.hpp								\
 	metrics/centralities.hpp							\
+	metrics/distance.hpp								\
 	epidemics/models.hpp								\
 		epidemics/sir.cpp								\
 		epidemics/sis.cpp								\
@@ -38,4 +39,5 @@ SOURCES +=							\
 	complex_social_networks.cpp		\
 	data_structures/graph.cpp		\
 	metrics/clustering.cpp			\
-	metrics/centralities.cpp
+	metrics/centralities.cpp		\
+	metrics/distance.cpp
