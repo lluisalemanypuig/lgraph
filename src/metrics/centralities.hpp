@@ -16,10 +16,19 @@ namespace metrics {
 namespace centralities {
 	
 	/*
-	Returns the degree centrality of each node.
-	dc[i] denotes the degree centrality of the i-th vertex.
+	Returns the normalised degree centrality of each node.
 	*/
 	void degree(const graph& G, vector<double>& dc);
+	
+	/*
+	Returns the closeness centrality of each node.
+	*/
+	void closeness(const graph& G, vector<double>& cc);
+	
+	/*
+	Returns the betweenness centrality of each node.
+	*/
+	void betweenness(const graph& G, vector<double>& bc);
 	
 } // -- namespace centralities
 } // -- namespace metrics

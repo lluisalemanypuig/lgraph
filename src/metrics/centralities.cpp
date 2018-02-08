@@ -26,6 +26,12 @@ namespace centralities {
 		);
 	}
 	
+	void closeness(const graph& G, vector<double>& cc) {
+	}
+	
+	void betweenness(const graph& G, vector<double>& bc) {
+	}
+	
 } // -- namespace centralities
 } // -- namespace metrics
 } // -- namespace networks	
