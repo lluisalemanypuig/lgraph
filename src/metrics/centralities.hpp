@@ -2,6 +2,7 @@
 
 /// C++ incldues
 #include <algorithm>
+#include <limits>
 #include <vector>
 using namespace std;
 
@@ -22,8 +23,11 @@ namespace centralities {
 	
 	/*
 	Returns the closeness centrality of each node.
+	The second function admits the all-to-all distances
+	of the nodes in the graph
 	*/
 	void closeness(const graph& G, vector<double>& cc);
+	void closeness(const graph& G, const vector<vector<size_t> >& atad, vector<double>& cc);
 	
 	/*
 	Returns the betweenness centrality of each node.
