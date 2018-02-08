@@ -1,5 +1,4 @@
-bin/
-Makefile
-csn
-csn-debug
 log.txt
+build-debug/
+build-release/
+src/csn.pro.user
