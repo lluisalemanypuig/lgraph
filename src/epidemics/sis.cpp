@@ -1,3 +1,4 @@
+#include "models.hpp"
 
 namespace dsa {
 namespace networks {

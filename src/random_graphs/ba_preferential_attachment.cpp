@@ -1,3 +1,4 @@
+#include "barabasi_albert.hpp"
 
 namespace dsa {
 namespace networks {

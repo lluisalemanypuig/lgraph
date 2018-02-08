@@ -1,3 +1,4 @@
+#include "random_generator.hpp"
 
 namespace dsa {
 namespace utils {

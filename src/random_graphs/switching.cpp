@@ -1,3 +1,4 @@
+#include "switching.hpp"
 
 namespace dsa {
 namespace networks {
