@@ -3,7 +3,13 @@
 namespace dsa {
 namespace networks {
 namespace metrics {
-namespace centralities {
+namespace distance {
+
+	size_t max_distance(const graph& G) {
+		vector<vector<size_t> > ds;
+		G.dist_all_to_all(ds);
+		return max_distance(G, ds);
+	}
 
 	size_t max_distance(const graph& G, const vector<vector<size_t> >& ds) {
 		const size_t N = G.n_nodes();
@@ -16,6 +22,12 @@ namespace centralities {
 			}
 		}
 		return D;
+	}
+
+	double mean_distance(const graph& G) {
+		vector<vector<size_t> > ds;
+		G.dist_all_to_all(ds);
+		return mean_distance(G, ds);
 	}
 
 	double mean_distance(const graph& G, const vector<vector<size_t> >& ds) {
@@ -42,6 +54,12 @@ namespace centralities {
 		return m/N;
 	}
 	
+	double mcc(const graph& G) {
+		vector<double> cc;
+		centralities::closeness(G, cc);
+		return mcc(G, cc);
+	}
+
 	double mcc(const graph& G, const vector<double>& cc) {
 		double S = std::accumulate(cc.begin(), cc.end(), 0.0);
 		return S/G.n_nodes();
