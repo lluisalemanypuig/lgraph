@@ -15,6 +15,7 @@ using namespace std;
 #include "random_graphs/switching.hpp"
 #include "metrics/centralities.hpp"
 #include "metrics/clustering.hpp"
+#include "metrics/distance.hpp"
 #include "epidemics/models.hpp"
 #include "utils/logger.hpp"
 using namespace dsa;
@@ -33,8 +34,12 @@ size_t Q = 1;
 
 bool clust_gcc = false;
 bool clust_mlcc = false;
+bool dist_mgc = false;
+bool dist_diam = false;
+bool dist_mcc = false;
 
 bool cent_degree = false;
+bool cent_closeness = false;
 
 bool epid_sir = false;
 bool epid_sis = false;
@@ -77,10 +82,14 @@ void print_usage() {
 	cout << "* Evaluating networks:" << endl;
 	cout << "    --gcc: compute Global Clustering Coeficient (Newman 2010)" << endl;
 	cout << "    --mlcc: compute Mean Local Clustering Coeficient (Watts & Strogatz 1998)" << endl;
+	cout << "    --mgd: mean geodesic distance (average shortest distance between all pairs of nodes)" << endl;
+	cout << "    --diam: diameter of the network" << endl;
+	cout << "    --mcc: mean closeness centrality" << endl;
 	cout << endl;
 	cout << endl;
 	cout << "* Evaluate importance of nodes:" << endl;
 	cout << "    --dc: degree centrality" << endl;
+	cout << "    --cc: closeness centrality" << endl;
 	cout << endl;
 	cout << endl;
 	cout << "* Simulation of the spread of an infection:" << endl;
@@ -110,6 +119,15 @@ void print_metrics(const graph& Gs) {
 		if (clust_mlcc) {
 			cout << "    Mean local clustering coefficient: " << networks::metrics::clustering::mlcc(Gs) << endl;
 		}
+		if (dist_mgc) {
+			cout << "    Mean geodesic distance: " << networks::metrics::distance::mean_distance(Gs) << endl;
+		}
+		if (dist_diam) {
+			cout << "    Mean geodesic distance: " << networks::metrics::distance::max_distance(Gs) << endl;
+		}
+		if (dist_mcc) {
+			cout << "    Mean geodesic distance: " << networks::metrics::distance::mcc(Gs) << endl;
+		}
 		cout << endl;
 	}
 }
@@ -124,6 +142,30 @@ void print_degree_centrality(const graph& Gs) {
 	}
 	
 	cout << endl;
+}
+
+void print_closeness_centrality(const graph& Gs) {
+	cout << "    Closeness centrality:" << endl;
+
+	vector<double> close_cen;
+	networks::metrics::centralities::closeness(Gs, close_cen);
+	for (size_t u = 0; u < close_cen.size(); ++u) {
+		cout << "    Node " << u << ": " << close_cen[u] << endl;
+	}
+
+	cout << endl;
+}
+
+void print_centralities(const graph& Gs) {
+	if (cent_degree or cent_closeness) {
+		cout << "Centralities:" << endl;
+		if (cent_degree) {
+			print_degree_centrality(Gs);
+		}
+		if (cent_closeness) {
+			print_closeness_centrality(Gs);
+		}
+	}
 }
 
 void display_epid_information
@@ -259,8 +301,20 @@ int parse_options(int argc, char *argv[]) {
 		else if (strcmp(argv[i], "--mlcc") == 0) {
 			clust_mlcc = true;
 		}
+		else if (strcmp(argv[i], "--mgc") == 0) {
+			dist_mgc = true;
+		}
+		else if (strcmp(argv[i], "--diam") == 0) {
+			dist_diam = true;
+		}
+		else if (strcmp(argv[i], "--mcc") == 0) {
+			dist_mcc = true;
+		}
 		else if (strcmp(argv[i], "--dc") == 0) {
 			cent_degree = true;
+		}
+		else if (strcmp(argv[i], "--cc") == 0) {
+			cent_closeness = true;
 		}
 		else if (strcmp(argv[i], "--sir") == 0) {
 			epid_sir = true;
@@ -325,12 +379,7 @@ int main(int argc, char *argv[]) {
 	
 	print_metrics(Gs);
 	
-	if (cent_degree) {
-		cout << "Centralities:" << endl;
-		if (cent_degree) {
-			print_degree_centrality(Gs);
-		}
-	}
+	print_centralities(Gs);
 	
 	if (epid_sir or epid_sis) {
 		execute_epidemic_models(Gs);
