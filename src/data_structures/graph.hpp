@@ -8,6 +8,9 @@
 #include <map>
 using namespace std;
 
+/// Custom includes
+#include "utils/definitions.hpp"
+
 namespace dsa {
 namespace utils {
 
@@ -103,6 +106,8 @@ class graph {
 		
 		// Returns the number of neighbours of u
 		size_t degree(node u) const;
+
+		/// CHARCATERISTICS OF THE GRAPH
 		
 		// Returns the degree sequence of the graph
 		// pairs: degree, amount
@@ -110,6 +115,16 @@ class graph {
 		
 		// Returns the number of triangles in this graph
 		size_t n_triangles() const;
+
+		/*
+		Returns the all-to-all (shortest) distances.
+		'atad' will be set to a symmetric matrix of size NxN, the
+		diagonal being 0 and the rest begin a positive number (> 0)
+		or infinite (see numeric_limits<size_t>::max()).
+		Uses the Floyd-Warshall algorithm
+		(see https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm)
+		*/
+		void dist_all_to_all(vector<vector<size_t> >& atad) const;
 };
 
 } // -- namespace utils

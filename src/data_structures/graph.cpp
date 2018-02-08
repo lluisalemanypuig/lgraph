@@ -173,6 +173,8 @@ size_t graph::degree(node u) const {
 	return adjacency_list[u].size();
 }
 
+/// CHARCATERISTICS OF THE GRAPH
+
 void graph::get_degree_sequence(map<node, node>& deg_seq) const {
 	for (size_t u = 0; u < adjacency_list.size(); ++u) {
 		size_t deg = degree(u);
@@ -205,6 +207,35 @@ size_t graph::n_triangles() const {
 	
 	// Each triangle is counted three times
 	return tris/3;
+}
+
+void graph::dist_all_to_all(vector<vector<size_t> >& dist) const {
+	const size_t N = adjacency_list.size();
+	dist = vector<vector<size_t> >(N, vector<size_t>(N, utils::inf));
+
+	// initialise with edge weights (here always 1)
+	for (size_t u = 0; u < N; ++u) {
+		const neighbourhood& Nu = get_neighbours(u);
+		for (size_t v : Nu) {
+			dist[u][v] = 1;
+		}
+	}
+
+	// find the all-to-all distance (N^3)
+	for (size_t w = 0; w < N; ++w) {
+		// distance from a vertex to itself is 0
+		dist[w][w] = 0;
+
+		for (size_t v = 0; v < N; ++v) {
+			for (size_t u = 0; u < N; ++u) {
+
+				if (dist[u][v] > dist[u][w]  + dist[w][v]) {
+					dist[u][v] = dist[u][w]  + dist[w][v];
+				}
+			}
+		}
+	}
+
 }
 
 } // -- namespace utils
