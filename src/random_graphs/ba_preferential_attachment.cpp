@@ -10,53 +10,54 @@ namespace Barabasi_Albert {
 		
 		// function for debugging
 		inline void print_stubs(const graph& G, const vector<size_t>& stubs, size_t max_idx, const string& tab = "") {
+			logger<null_stream>& LOG = logger<null_stream>::get_logger();
 			
-			cout << tab << "max_idx= " << max_idx << endl;
-			cout << tab;
+			LOG.log() << tab << "max_idx= " << max_idx << endl;
+			LOG.log() << tab;
 			for (size_t i = 0; i < stubs.size(); ++i) {
 				size_t pos_length = std::to_string(i).length();
 				size_t stub_length = std::to_string(stubs[i]).length();
 				size_t degree_length = std::to_string(G.degree(stubs[i])).length();
 				size_t max_length = max(pos_length, max(stub_length, degree_length));
 				
-				cout << setw(max_length) << i << " ";
+				LOG.log() << setw(max_length) << i << " ";
 			}
-			cout << endl;
+			LOG.log() << endl;
 			
-			cout << tab;
+			LOG.log() << tab;
 			for (size_t i = 0; i < stubs.size(); ++i) {
 				size_t pos_length = std::to_string(i).length();
 				size_t stub_length = std::to_string(stubs[i]).length();
 				size_t degree_length = std::to_string(G.degree(stubs[i])).length();
 				size_t max_length = max(pos_length, max(stub_length, degree_length));
 				
-				cout << setw(max_length) << stubs[i] << " ";
+				LOG.log() << setw(max_length) << stubs[i] << " ";
 			}
-			cout << endl;
+			LOG.log() << endl;
 			
-			cout << tab;
+			LOG.log() << tab;
 			for (size_t i = 0; i < stubs.size(); ++i) {
 				size_t pos_length = std::to_string(i).length();
 				size_t stub_length = std::to_string(stubs[i]).length();
 				size_t degree_length = std::to_string(G.degree(stubs[i])).length();
 				size_t max_length = max(pos_length, max(stub_length, degree_length));
 				
-				cout << setw(max_length) << G.degree(stubs[i]) << " ";
+				LOG.log() << setw(max_length) << G.degree(stubs[i]) << " ";
 			}
-			cout << endl;
+			LOG.log() << endl;
 			
-			cout << tab;
+			LOG.log() << tab;
 			for (size_t i = 0; i < max_idx; ++i) {
 				size_t pos_length = std::to_string(i).length();
 				size_t stub_length = std::to_string(stubs[i]).length();
 				size_t max_length = max(pos_length, stub_length);
 				
-				cout << setw(max_length) << " " << " ";
+				LOG.log() << setw(max_length) << " " << " ";
 			}
 			size_t pos_length = std::to_string(max_idx).length();
 			size_t stub_length = std::to_string(stubs[max_idx]).length();
 			size_t max_length = max(pos_length, stub_length);
-			cout << setw(max_length) << "^" << endl;
+			LOG.log() << setw(max_length) << "^" << endl;
 		}
 		
 		// G: the graph

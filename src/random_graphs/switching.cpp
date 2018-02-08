@@ -159,7 +159,7 @@ namespace switching {
 			max_idx = all_edges.size() - 1;
 		}
 		
-		cout << "Building the resulting graph..." << endl;
+		LOG.log() << "Building the resulting graph..." << endl;
 		
 		// clear the current graph and build a new one
 		// with the switched edges
