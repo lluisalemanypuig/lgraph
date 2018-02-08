@@ -211,7 +211,7 @@ size_t graph::n_triangles() const {
 
 void graph::dist_all_to_all(vector<vector<size_t> >& dist) const {
 	const size_t N = adjacency_list.size();
-	logger<ofstream>& LOG = logger<ofstream>::get_logger();
+	logger<null_stream>& LOG = logger<null_stream>::get_logger();
 
 	auto print_dist_matrix = [&]() {
 
