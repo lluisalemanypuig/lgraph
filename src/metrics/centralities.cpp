@@ -35,6 +35,7 @@ namespace centralities {
 
 	void closeness(const graph& G, const vector<vector<size_t> >& ds, vector<double>& cc) {
 		const size_t N = G.n_nodes();
+		cc = vector<double>(N);
 
 		for (size_t i = 0; i < N; ++i) {
 			cc[i] = std::accumulate
