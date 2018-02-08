@@ -1,0 +1,5 @@
+#ifndef DEFINITIONS_HPP
+#define DEFINITIONS_HPP
+
+#endif // DEFINITIONS_HPP
+
