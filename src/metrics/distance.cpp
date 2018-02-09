@@ -39,7 +39,7 @@ namespace distance {
 			double li = std::accumulate
 			(
 				ds[i].begin(), ds[i].end(), 0.0,
-				[](size_t acc, size_t d) {
+				[](double acc, size_t d) {
 					if (d != utils::inf) {
 						acc += d;
 					}
