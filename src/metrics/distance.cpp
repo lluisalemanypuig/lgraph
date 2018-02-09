@@ -15,11 +15,17 @@ namespace distance {
 		const size_t N = G.n_nodes();
 		size_t D = 0;
 		for (size_t i = 0; i < N; ++i) {
-			for (size_t j = i + 1; j < N; ++j) {
-				if (ds[i][j] != utils::inf) {
-					D = max(D, ds[i][j]);
+			D = accumulate
+			(
+				ds[i].begin() + i + 1, ds[i].end(), D,
+				[](size_t M, size_t d) {
+					if (d != utils::inf) {
+						M = max(M, d);
+					}
+					return M;
 				}
-			}
+			);
+
 		}
 		return D;
 	}
@@ -36,7 +42,7 @@ namespace distance {
 		for (size_t i = 0; i < N; ++i) {
 
 			// sum values only if they are not infinite
-			double li = std::accumulate
+			double li = accumulate
 			(
 				ds[i].begin(), ds[i].end(), 0.0,
 				[](double acc, size_t d) {
