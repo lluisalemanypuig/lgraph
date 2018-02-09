@@ -111,7 +111,7 @@ void print_usage() {
 }
 
 void print_metrics(const graph& Gs) {
-	if (clust_gcc or clust_mlcc) {
+	if (clust_gcc or clust_mlcc or dist_mgc or dist_diam or dist_mcc) {
 		cout << "Metrics:" << endl;
 		if (clust_gcc) {
 			cout << "    Global clustering coefficient:     " << networks::metrics::clustering::gcc(Gs) << endl;
@@ -123,10 +123,10 @@ void print_metrics(const graph& Gs) {
 			cout << "    Mean geodesic distance: " << networks::metrics::distance::mean_distance(Gs) << endl;
 		}
 		if (dist_diam) {
-			cout << "    Mean geodesic distance: " << networks::metrics::distance::max_distance(Gs) << endl;
+			cout << "    Maximum geodesic distance: " << networks::metrics::distance::max_distance(Gs) << endl;
 		}
 		if (dist_mcc) {
-			cout << "    Mean geodesic distance: " << networks::metrics::distance::mcc(Gs) << endl;
+			cout << "    Mean closeness centrality: " << networks::metrics::distance::mcc(Gs) << endl;
 		}
 		cout << endl;
 	}
