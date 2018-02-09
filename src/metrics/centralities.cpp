@@ -35,22 +35,30 @@ namespace centralities {
 
 	void closeness(const graph& G, const vector<vector<size_t> >& ds, vector<double>& cc) {
 		const size_t N = G.n_nodes();
-		cc = vector<double>(N);
 
-		for (size_t i = 0; i < N; ++i) {
-			cc[i] = std::accumulate
-			(
-				ds[i].begin(), ds[i].end(), 0.0,
-				[](double acc, size_t d) {
-					if (d != utils::inf and d > 0) {
-						acc += 1.0/d;
+		transform(
+			// iterate through all nodes
+			ds.begin(), ds.end(),
+
+			// append value at the back of cc
+			back_inserter(cc),
+
+			// calculate closeness centrality
+			[&](const vector<size_t>& ds_i) {
+				double sum = std::accumulate
+				(
+					ds_i.begin(), ds_i.end(), 0.0,
+					[](double acc, size_t d) {
+						if (d != utils::inf and d > 0) {
+							acc += 1.0/d;
+						}
+						return acc;
 					}
-					return acc;
-				}
-			);
+				);
 
-			cc[i] /= (N - 1);
-		}
+				return sum/(N - 1);
+			}
+		);
 	}
 	
 	void betweenness(const graph& G, vector<double>& bc) {
