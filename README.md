@@ -16,9 +16,14 @@ It includes a few algorithms for Complex and Social Networks:
 	- Clustering metrics:
 		- Newman's global clustering coefficient
 		- Watts & Strogatz's mean local clustering coefficient
+	- Distance metrics:
+		- Diameter
+		- Mean vertex-vertex distance
+		- Mean closeness centrality
 
-+ To measure the importance of nodes (centralities)
++ To measure the importance of nodes (centrality measures)
 	- Degree centrality
+	- Closeness centrality
 
 + To simulate the spread of an infection over a network:
 	- Model SIR
@@ -45,11 +50,12 @@ The project may be compiled using the qmake tool.
 	a value to Q to determine the number of steps of the switching model algorithm.
 		- ./csn (..) -sw --Q 10 
 
-	5. Centrality  and clustering metrics can be calculated if the appropriate
+	5. Centrality and clustering metrics can be calculated if the appropriate
 	parameters are passed to the program.
 		- ./csn (..) --gcc		: Global Clustering Coefficient (Newman 2010)
 		- ./csn (..) --mlcc		: Mean Local Clustering Coefficient (Watts & Strogatz 1998)
 		- ./csn (..) --dc		: degree centrality
+		- ./csn (..) --cc		: closeness centrality
 
 	6. One can also execute the epidemic models on the generated network.
 	The selection of the model is done by adding --sir or --sis for the
