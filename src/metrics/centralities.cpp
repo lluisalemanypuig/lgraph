@@ -41,8 +41,8 @@ namespace centralities {
 			cc[i] = std::accumulate
 			(
 				ds[i].begin(), ds[i].end(), 0.0,
-				[](size_t acc, size_t d) {
-					if (d != utils::inf) {
+				[](double acc, size_t d) {
+					if (d != utils::inf and d > 0) {
 						acc += 1.0/d;
 					}
 					return acc;
