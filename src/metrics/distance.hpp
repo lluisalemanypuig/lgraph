@@ -10,6 +10,7 @@ using namespace std;
 #include "data_structures/graph.hpp"
 #include "metrics/centralities.hpp"
 #include "utils/definitions.hpp"
+#include "graph_traversal/traversal.hpp"
 
 namespace dsa {
 using namespace utils;

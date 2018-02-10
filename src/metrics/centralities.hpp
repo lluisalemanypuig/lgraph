@@ -8,6 +8,7 @@ using namespace std;
 
 /// Custom includes
 #include "data_structures/graph.hpp"
+#include "graph_traversal/traversal.hpp"
 
 namespace dsa {
 using namespace utils;

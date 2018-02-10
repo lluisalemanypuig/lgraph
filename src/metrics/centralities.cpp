@@ -29,7 +29,7 @@ namespace centralities {
 	
 	void closeness(const graph& G, vector<double>& cc) {
 		vector<vector<size_t> > ds;
-		G.dist_all_to_all(ds);
+		traversal::distances(G, ds);
 		return closeness(G, ds, cc);
 	}
 

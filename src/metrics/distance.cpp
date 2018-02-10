@@ -7,7 +7,7 @@ namespace distance {
 
 	size_t max_distance(const graph& G) {
 		vector<vector<size_t> > ds;
-		G.dist_all_to_all(ds);
+		traversal::distances(G, ds);
 		return max_distance(G, ds);
 	}
 
@@ -32,7 +32,7 @@ namespace distance {
 
 	double mean_distance(const graph& G) {
 		vector<vector<size_t> > ds;
-		G.dist_all_to_all(ds);
+		traversal::distances(G, ds);
 		return mean_distance(G, ds);
 	}
 

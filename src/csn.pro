@@ -26,11 +26,14 @@ HEADERS += \
         epidemics/sir.cpp \
         epidemics/sis.cpp \
     utils/logger.hpp \
-    utils/definitions.hpp
+    utils/definitions.hpp \
+    graph_traversal/traversal.hpp
 
 SOURCES += \
     complex_social_networks.cpp \
     data_structures/graph.cpp \
     metrics/clustering.cpp \
     metrics/centralities.cpp \
-    metrics/distance.cpp
+    metrics/distance.cpp \
+    graph_traversal/bfs.cpp \
+    graph_traversal/graph_distances.cpp
