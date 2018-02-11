@@ -65,8 +65,9 @@ namespace traversal {
 		// current distance from source to u
 		size_t current_dist;
 
-		// distance from source to target
-		size_t st_dist = 0;
+		// distance from source to target. Set to infinite
+		// for those targets not reachable from source.
+		size_t st_dist = utils::inf;
 
 		function<void (const graph& G, node u, const vector<bool>& vis)> process_current =
 		[&distances, &st_dist, &current_dist, &target](const graph&, node u, const vector<bool>&)
