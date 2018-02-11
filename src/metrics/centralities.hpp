@@ -18,15 +18,17 @@ namespace metrics {
 namespace centralities {
 	
 	/*
-	Returns the normalised degree centrality of each node.
+	Returns the normalised degree centrality of a single node or of all nodes.
 	*/
+	double degree(const graph& G, node u);
 	void degree(const graph& G, vector<double>& dc);
 	
 	/*
-	Returns the closeness centrality of each node.
-	The second function admits the all-to-all distances
+	Returns the closeness centrality of a node or of all nodes.
+	The last function admits the all-to-all distances
 	of the nodes in the graph
 	*/
+	double closeness(const graph& G, node u);
 	void closeness(const graph& G, vector<double>& cc);
 	void closeness(const graph& G, const vector<vector<size_t> >& atad, vector<double>& cc);
 	
