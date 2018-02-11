@@ -42,9 +42,9 @@ namespace traversal {
 	16.	endwhile
 
 	This algorithm is implemented in a way generic enough so that function:
-	- proces_current() is called before the if line 6 (and after removing
-		the current node from the queue in line 5) that checks the termination
-		condition.
+	- proces_current() is called before the 'if' in line 6 (and after removing
+		the current node from the queue in line 5) used to perform some operation
+		on the current node of the traversal.
 		This function admits 3 parameters:
 			* the graph being traversed
 			* the node at the front of the queue ('v' in the pseudocode, line 4)
@@ -54,8 +54,8 @@ namespace traversal {
 			* the graph being traversed
 			* the node at the front of the queue ('v' in the pseudocode, line 4)
 			* the set of visited nodes, as a vector<bool>
-	- process_neighbour() is called between the for loop in line 9 and the
-		if in line 10, used to perform some operation on each of the neighbours.
+	- process_neighbour() is called between the 'for' loop in line 9 and the
+		'if' in line 10, used to perform some operation on each of the neighbours.
 		This function admits 4 parameters:
 			* the graph being traversed
 			* the node at the front of the queue ('v' in the pseudocode, line 4)
@@ -70,11 +70,10 @@ namespace traversal {
 	(
 		const graph& G,
 		node source,
-		function<bool (const graph&, node, const vector<bool>&)> terminate				 = [](const graph&, node, const vector<bool>&) -> bool { return false; },
-		function<void (const graph&, node, const vector<bool>&)> process_current		 = [](const graph&, node, const vector<bool>&) -> void {},
+		function<bool (const graph&, node,       const vector<bool>&)> terminate		 = [](const graph&, node, const vector<bool>&) -> bool { return false; },
+		function<void (const graph&, node,       const vector<bool>&)> process_current	 = [](const graph&, node, const vector<bool>&) -> void {},
 		function<void (const graph&, node, node, const vector<bool>&)> process_neighbour = [](const graph&, node, node, const vector<bool>&) -> void {}
 	);
-
 
 	/* Functions that compute the distances:
 	 * - vertex-to-vertex	(BFS)

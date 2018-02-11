@@ -44,13 +44,16 @@ namespace traversal {
 				LOG.log() << "Iterate through neighbours of " << v << endl;
 
 				for (node w : Nv) {
+					LOG.log() << "    Neighbour " << w << endl;
+					LOG.log() << "    ... processing ...";
+
+					process_neighbour(G, v, w, vis);
+
+					LOG.log() << " processed." << endl;
+
 					if (not vis[w]) {
-						LOG.log() << "    Neighbour " << w << " not visited before" << endl;
-						LOG.log() << "    ... processing ...";
 
-						process_neighbour(G, v, w, vis);
-
-						LOG.log() << " processed." << endl;
+						LOG.log() << "    Neighbour " << w << " was not visited before" << endl;
 
 						Q.push(w);
 						vis[w] = true;
