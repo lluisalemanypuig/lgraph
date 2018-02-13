@@ -40,5 +40,5 @@ SOURCES += \
     graph_traversal/graph_paths.cpp
 
 DISTFILES += \
-    update-to-master \
-    TODO
+    TODO \
+    changelog
