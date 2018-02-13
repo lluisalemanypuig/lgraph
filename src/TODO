@@ -1,0 +1,14 @@
+TODO LIST
+=========
+
+13/02/2018
+[] Implement betweennes centrality metric
+	[] For a single vertex
+	[] For all vertices of a graph
+[] Implement two classes that implement paths as
+	[] List of vertices
+	[] Bitsets (a vertex is in the path if the corresponding bit
+		is set to 1)
+[] Implement all-to-all path finding
+[] Add option to read graphs in edge list format in main file
+[] Debug path-finding with BFS
