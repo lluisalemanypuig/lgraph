@@ -50,15 +50,28 @@ class graph {
 		/// OPERATORS
 		
 		inline friend
-		ostream& operator<< (ostream& os, const graph& d) {
-			for (size_t i = 0; i < d.adjacency_list.size(); ++i) {
+		ostream& operator<< (ostream& os, const graph& g) {
+			for (size_t i = 0; i < g.adjacency_list.size(); ++i) {
 				os << i << ":";
-				lcit begin = d.adjacency_list[i].begin();
-				lcit end = d.adjacency_list[i].end();
+				lcit begin = g.adjacency_list[i].begin();
+				lcit end = g.adjacency_list[i].end();
 				for (lcit it = begin; it != end; ++it) os << " " << *it;
-				if (i < d.adjacency_list.size() - 1) os << endl;
+				if (i < g.adjacency_list.size() - 1) os << endl;
 			}
 			return os;
+		}
+
+		inline friend
+		istream& operator>> (istream& is, graph& g) {
+			size_t n_verts, n_edges;
+			is >> n_verts >> n_edges;
+			g.init(n_verts);
+			for (size_t e = 0; e < n_edges; ++e) {
+				size_t u, v;
+				is >> u >> v;
+				g.add_edge(u, v);
+			}
+			return is;
 		}
 		
 		graph& operator= (const graph& g);
