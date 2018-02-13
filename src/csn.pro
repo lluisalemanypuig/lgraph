@@ -38,3 +38,6 @@ SOURCES += \
     graph_traversal/bfs.cpp \
     graph_traversal/graph_distances.cpp \
     graph_traversal/graph_paths.cpp
+
+DISTFILES += \
+    update-to-master
