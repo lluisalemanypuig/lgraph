@@ -79,11 +79,27 @@ namespace traversal {
 	 * - vertex-to-vertex	(BFS)
 	 * - vertex-to-all		(BFS)
 	 * - all-to-all			(Floyd-Warshall)
+	 *
+	 * The distance from one vertex to another is defined as the number
+	 * of edges in the shortest path between the two.
 	 */
 	size_t distance(const graph& G, node source, node target);
 	void distance(const graph& G, node source, vector<size_t>& distances);
 	void distances(const graph& G, vector<vector<size_t> >& ds);
 
+	/* Functions that compute the paths:
+	 * - vertex-to-vertex	(BFS)
+	 * - vertex-to-all		(BFS)
+	 *
+	 * A path from vertex 'u' to vertex 'v' is defined as the shortest list of vertices
+	 * (u, ..., v) where '...' is a list of vertices v1, v2, ... , vn  such that v1 is a
+	 * neighbour of u, v2 is a neighbour of v1, ..., vn is a neighbout of vn-1 and v is
+	 * a neighbour of vn. n may be 0.
+	 *
+	 * Its length is the number of edges in the path. Also, the number of vertices in it minus 1.
+	 */
+	void path(const graph& G, node source, node target, vector<node>& paths);
+	void path(const graph& G, node source, vector<vector<node> >& paths);
 
 } // -- namespace traversal
 } // -- namespace dsa

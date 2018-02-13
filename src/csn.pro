@@ -36,4 +36,5 @@ SOURCES += \
     metrics/centralities.cpp \
     metrics/distance.cpp \
     graph_traversal/bfs.cpp \
-    graph_traversal/graph_distances.cpp
+    graph_traversal/graph_distances.cpp \
+    graph_traversal/graph_paths.cpp
