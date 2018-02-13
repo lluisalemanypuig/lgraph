@@ -2,6 +2,8 @@
 Changes on 13/02/2018
 	graph_traversal/traversal.hpp
 	graph_traversal/graph_paths.cpp
-	src/csn.pro
 	data_structures/graph.hpp
+	data_structures/graph.cpp
+	src/complex_social_networks.cpp
+	src/csn.pro
 	src/TODO
