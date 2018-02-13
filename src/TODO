@@ -10,5 +10,5 @@ TODO LIST
 	[] Bitsets (a vertex is in the path if the corresponding bit
 		is set to 1)
 [] Implement all-to-all path finding
-[] Add option to read graphs in edge list format in main file
 [] Debug path-finding with BFS
+[x] (13/02/2018) Add option to read graphs in edge list format in main file

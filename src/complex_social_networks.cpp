@@ -24,6 +24,8 @@ using namespace utils;
 
 /// </Global variables (only used here)>
 string model = "none";
+string variant = "none";
+string from_file = "none";
 	
 size_t n0 = 10;
 size_t m0 = 5;
@@ -57,9 +59,14 @@ crandom_generator<> *crg;
 void print_usage() {
 	cout << "Help of this program" << endl;
 	cout << "    [-h, --help]: show the usage of this program" << endl;
+	cout << "* Reading a network from a file:" << endl;
+	cout << "    [-i, --input]: reads a network from the specified file. The format must be" << endl;
+	cout << "        a list of edges (pairs of vertices spaced)" << endl;
 	cout << "* Generating random networks" << endl;
 	cout << "    Model selection parameters:" << endl;
-	cout << "        -pa: Generate Barabasi-Albert model with preferential attachment" << endl;
+	cout << "    --barabasi-albert: generate a Barabasi-Albert model" << endl;
+	cout << "        Use one of the following parameters to specify a variant" << endl;
+	cout << "        -pa: Generate Barabasi-Albert model with preferential attachment (default)" << endl;
 	cout << "        -ra: Generate Barabasi-Albert model with random attachment" << endl;
 	cout << "        -ng: Generate Barabasi-Albert model without vertex growth" << endl;
 	cout << endl;
@@ -248,14 +255,21 @@ int parse_options(int argc, char *argv[]) {
 			print_usage();
 			return 1;
 		}
+		else if (strcmp(argv[i], "-i") == 0 or strcmp(argv[i], "--input") == 0) {
+			from_file = string(argv[i + 1]);
+			++i;
+		}
+		else if (strcmp(argv[i], "--barabasi-alber") == 0) {
+			model = "barabasi-albert";
+		}
 		else if (strcmp(argv[i], "-pa") == 0) {
-			model = "preferential";
+			variant = "preferential";
 		}
 		else if (strcmp(argv[i], "-ra") == 0) {
-			model = "random";
+			variant = "random";
 		}
 		else if (strcmp(argv[i], "-ng") == 0) {
-			model = "no-growth";
+			variant = "no-growth";
 		}
 		else if (strcmp(argv[i], "-sw") == 0) {
 			apply_switching = true;
@@ -344,8 +358,8 @@ int main(int argc, char *argv[]) {
 		return 1;
 	}
 	
-	if (model == "none") {
-		cerr << "Error: no model selected." << endl;
+	if (model == "none" and from_file == "none") {
+		cerr << "Error: no model selected nor a file was specified." << endl;
 		cerr << "    Use [-h, --help] to see the usage" << endl;
 		return 1;
 	}
@@ -359,14 +373,27 @@ int main(int argc, char *argv[]) {
 	
 	graph Gs;
 	
-	if (model == "preferential") {
-		networks::random::Barabasi_Albert::preferential_attachment(n0, m0, T, drg, Gs);
+	if (model == "barabasi-albert") {
+		if (variant == "preferential") {
+			networks::random::Barabasi_Albert::preferential_attachment(n0, m0, T, drg, Gs);
+		}
+		else if (variant == "random") {
+			networks::random::Barabasi_Albert::random_attachment(n0, m0, T, drg, Gs);
+		}
+		else if (variant == "no-growth") {
+			networks::random::Barabasi_Albert::no_vertex_growth(n0, m0, T, drg, Gs);
+		}
 	}
-	else if (model == "random") {
-		networks::random::Barabasi_Albert::random_attachment(n0, m0, T, drg, Gs);
-	}
-	else if (model == "no-growth") {
-		networks::random::Barabasi_Albert::no_vertex_growth(n0, m0, T, drg, Gs);
+	else {
+		// a file must have been specified
+		ifstream fin;
+		fin.open(from_file.c_str());
+		if (not fin.is_open()) {
+			cerr << "Error: file '" << from_file << "' could not be opened" << endl;
+			return 1;
+		}
+		fin >> Gs;
+		fin.close();
 	}
 	
 	if (apply_switching) {

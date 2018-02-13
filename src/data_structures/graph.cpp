@@ -70,6 +70,12 @@ void graph::add_edge(const edge& e) {
 	add_edge(e.first, e.second);
 }
 
+void graph::add_edges(const vector<edge>& edge_list) {
+	for (const edge& E : edge_list) {
+		add_edge(E);
+	}
+}
+
 void graph::add_edge(node u, node v) {
 	adjacency_list[u].push_back(v);
 	adjacency_list[v].push_back(u);

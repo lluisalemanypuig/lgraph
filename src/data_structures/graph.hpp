@@ -63,14 +63,16 @@ class graph {
 
 		inline friend
 		istream& operator>> (istream& is, graph& g) {
-			size_t n_verts, n_edges;
-			is >> n_verts >> n_edges;
-			g.init(n_verts);
-			for (size_t e = 0; e < n_edges; ++e) {
-				size_t u, v;
-				is >> u >> v;
-				g.add_edge(u, v);
+			size_t max_vert_idx = 0;
+			vector<edge> edge_list;
+			size_t u, v;
+			while (is >> u >> v) {
+				edge_list.push_back(edge(u, v));
+				max_vert_idx = max(max_vert_idx, u);
+				max_vert_idx = max(max_vert_idx, v);
 			}
+			g.init(max_vert_idx + 1);
+			g.add_edges(edge_list);
 			return is;
 		}
 		
@@ -87,6 +89,7 @@ class graph {
 		// Adds a directed edge between nodes u and v assuming it does
 		// not exist.
 		void add_edge(const edge& e);
+		void add_edges(const vector<edge>& edge_list);
 		void add_edge(node u, node v);
 		
 		// Removes the edge (u, v) from the graph.
