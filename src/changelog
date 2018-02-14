@@ -1,4 +1,9 @@
 
+Changes on 14/02/2018
+	data_structures/graph.hpp
+	data_structures/graph.cpp
+	src/complex_social_networks.cpp
+
 Changes on 13/02/2018
 	graph_traversal/traversal.hpp
 	graph_traversal/graph_paths.cpp
