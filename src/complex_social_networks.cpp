@@ -386,14 +386,7 @@ int main(int argc, char *argv[]) {
 	}
 	else {
 		// a file must have been specified
-		ifstream fin;
-		fin.open(from_file.c_str());
-		if (not fin.is_open()) {
-			cerr << "Error: file '" << from_file << "' could not be opened" << endl;
-			return 1;
-		}
-		fin >> Gs;
-		fin.close();
+		Gs.read_from_file(from_file);
 	}
 	
 	if (apply_switching) {

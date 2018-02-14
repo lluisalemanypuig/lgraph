@@ -25,6 +25,23 @@ lit graph::get_neighbour_position(neighbourhood& n, node u) {
 	return it;
 }
 
+void graph::get_unique_edges(set<edge>& unique_edges) const {
+	// insert all edges into a set to get only those that are unique
+	for (size_t i = 0; i < adjacency_list.size(); ++i) {
+		lcit it = adjacency_list[i].begin();
+		while (it != adjacency_list[i].end()) {
+
+			edge e;
+			if (i < *it) e = edge(i, *it);
+			else e = edge(*it, i);
+
+			bool new_edge = unique_edges.find(e) == unique_edges.end();
+			if (new_edge) unique_edges.insert(e);
+			++it;
+		}
+	}
+}
+
 /// PUBLIC
 
 graph::graph() {
@@ -143,21 +160,7 @@ void graph::nodes(vector<node>& all_nodes) const {
 
 void graph::edges(vector<edge>& all_edges) const {
 	set<edge> unique_edges;
-	
-	// insert all edges into a set to get only those that are unique
-	for (size_t i = 0; i < adjacency_list.size(); ++i) {
-		lcit it = adjacency_list[i].begin();
-		while (it != adjacency_list[i].end()) {
-			
-			edge e;
-			if (i < *it) e = edge(i, *it);
-			else e = edge(*it, i);
-			
-			bool new_edge = unique_edges.find(e) == unique_edges.end();
-			if (new_edge) unique_edges.insert(e);
-			++it;
-		}
-	}
+	get_unique_edges(unique_edges);
 	
 	// Dump all unique edges from the set into the vector 'all_edges'.
 	// The size of the vector is equal to 'num_edges'
@@ -177,6 +180,60 @@ const neighbourhood& graph::get_neighbours(node u) const {
 
 size_t graph::degree(node u) const {
 	return adjacency_list[u].size();
+}
+
+/// I/O
+
+bool graph::read_from_file(const string& filename) {
+	return read_from_file(filename.c_str());
+}
+
+bool graph::read_from_file(const char *filename) {
+	ifstream fin;
+	fin.open(filename);
+
+	// file could not be opened. return "error"
+	if (not fin.is_open()) {
+		return false;
+	}
+
+	size_t max_vert_idx = 0;
+	vector<edge> edge_list;
+	size_t u, v;
+	while (fin >> u >> v) {
+		edge_list.push_back(edge(u, v));
+		max_vert_idx = max(max_vert_idx, u);
+		max_vert_idx = max(max_vert_idx, v);
+	}
+	init(max_vert_idx + 1);
+	add_edges(edge_list);
+
+	fin.close();
+
+	return true;
+}
+
+bool graph::store_in_file(const string& filename) {
+	return store_in_file(filename.c_str());
+}
+
+bool graph::store_in_file(const char *filename) {
+	ofstream fout;
+	fout.open(filename);
+
+	// file could not be opened. return "error"
+	if (not fout.is_open()) {
+		return false;
+	}
+
+	set<edge> unique_edges;
+	get_unique_edges(unique_edges);
+	for (const edge& e : unique_edges) {
+		fout << e.first << " " << e.second << endl;
+	}
+
+	fout.close();
+	return true;
 }
 
 /// CHARCATERISTICS OF THE GRAPH

@@ -38,6 +38,9 @@ class graph {
 		// node in the graph.
 		lit get_neighbour_position(neighbourhood& n, node u);
 		
+		// computes the set of unique edges (remember: this is an undirected graph)
+		void get_unique_edges(set<edge>& s) const;
+
 	public:
 		graph();
 		graph(size_t n); // n: number of nodes
@@ -61,21 +64,6 @@ class graph {
 			return os;
 		}
 
-		inline friend
-		istream& operator>> (istream& is, graph& g) {
-			size_t max_vert_idx = 0;
-			vector<edge> edge_list;
-			size_t u, v;
-			while (is >> u >> v) {
-				edge_list.push_back(edge(u, v));
-				max_vert_idx = max(max_vert_idx, u);
-				max_vert_idx = max(max_vert_idx, v);
-			}
-			g.init(max_vert_idx + 1);
-			g.add_edges(edge_list);
-			return is;
-		}
-		
 		graph& operator= (const graph& g);
 		
 		/// SETTERS
@@ -124,6 +112,13 @@ class graph {
 		
 		// Returns the number of neighbours of u
 		size_t degree(node u) const;
+
+		/// I/O
+
+		bool read_from_file(const string& filename);
+		bool read_from_file(const char *filename);
+		bool store_in_file(const string& filename);
+		bool store_in_file(const char *filename);
 
 		/// CHARCATERISTICS OF THE GRAPH
 		
