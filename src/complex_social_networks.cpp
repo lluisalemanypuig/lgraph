@@ -22,7 +22,7 @@ using namespace dsa;
 using namespace networks;
 using namespace utils;
 
-/// </Global variables (only used here)>
+/// <Global variables (only used here)>
 string model = "none";
 string variant = "none";
 string from_file = "none";
@@ -54,7 +54,7 @@ bool seed = false;
 
 drandom_generator<> *drg;
 crandom_generator<> *crg;
-/// <Global variables>
+/// </Global variables>
 
 void print_usage() {
 	cout << "Help of this program" << endl;
@@ -259,7 +259,7 @@ int parse_options(int argc, char *argv[]) {
 			from_file = string(argv[i + 1]);
 			++i;
 		}
-		else if (strcmp(argv[i], "--barabasi-alber") == 0) {
+		else if (strcmp(argv[i], "--barabasi-albert") == 0) {
 			model = "barabasi-albert";
 		}
 		else if (strcmp(argv[i], "-pa") == 0) {
