@@ -84,7 +84,7 @@ namespace traversal {
 
 	void paths(const graph& G, vector<vector<node_path> >& all_paths) {
 		const size_t N = G.n_nodes();
-		logger<ofstream>& LOG = logger<ofstream>::get_logger();
+		logger<null_stream>& LOG = logger<null_stream>::get_logger();
 
 		vector<vector<size_t> > dist(N, vector<size_t>(N, utils::inf));
 		all_paths = vector<vector<node_path> >(N, vector<node_path>(N));
@@ -92,7 +92,9 @@ namespace traversal {
 		// initialise paths
 		for (size_t u = 0; u < N; ++u) {
 			for (size_t v = 0; v < N; ++v) {
-				all_paths[u][v].push_back(u);
+				if (G.degree(u) > 0 or u == v) {
+					all_paths[u][v].push_back(u);
+				}
 			}
 		}
 		// initialise with edge weights (here always 1)
