@@ -3,51 +3,6 @@
 namespace dsa {
 namespace traversal {
 
-	// private namespace
-	namespace _traversal {
-		void print_distance_matrix(const vector<vector<size_t> >& dist) {
-			logger<null_stream>& LOG = logger<null_stream>::get_logger();
-			const size_t N = dist.size();
-
-			const size_t max_node_length = std::to_string(N - 1).length();
-			vector<size_t> max_column(N, 0);
-			for (size_t u = 0; u < N; ++u) {
-				for (size_t v = 0; v < N; ++v) {
-					size_t dist_length = std::to_string(dist[v][u]).length();
-					if (dist[v][u] == utils::inf) {
-						dist_length = 2; // use '-1'
-					}
-
-					max_column[u] = max(max_column[u], dist_length);
-				}
-				max_column[u] = max(max_column[u], std::to_string(u).length());
-			}
-			LOG.log() << "Distance information:" << endl;
-			LOG.log() << setw(max_node_length) << " " << " ";
-			for (size_t u = 0; u < N; ++u) {
-				LOG.log() << setw(max_column[u]) << u << " ";
-			}
-			LOG.log() << endl;
-
-			for (size_t u = 0; u < N; ++u) {
-				LOG.log() << setw(max_node_length) << u << " ";
-				for (size_t v = 0; v < N; ++v) {
-					LOG.log() << setw(max_column[v]);
-					if (dist[u][v] == utils::inf) {
-						LOG.log() << -1;
-					}
-					else {
-						LOG.log() << dist[u][v];
-					}
-
-					LOG.log() << " ";
-				}
-				LOG.log() << endl;
-			}
-			LOG.log() << endl;
-		}
-	}
-
 	size_t distance(const graph& G, node source, node target) {
 
 		// DO terminate when target node is found. BFS guarantees that when this happens
@@ -124,7 +79,6 @@ namespace traversal {
 
 	void distances(const graph& G, vector<vector<size_t> >& dist) {
 		const size_t N = G.n_nodes();
-		logger<null_stream>& LOG = logger<null_stream>::get_logger();
 
 		dist = vector<vector<size_t> >(N, vector<size_t>(N, utils::inf));
 
@@ -136,18 +90,16 @@ namespace traversal {
 			}
 		}
 
-		LOG.log() << "After initialisation" << endl;
-		_traversal::print_distance_matrix(dist);
-
 		// find the all-to-all distance (N^3)
 		for (size_t w = 0; w < N; ++w) {
 			// distance from a vertex to itself is 0
 			dist[w][w] = 0;
 
-			for (size_t v = 0; v < N; ++v) {
-				for (size_t u = 0; u < N; ++u) {
+			for (size_t u = 0; u < N; ++u) {
+				for (size_t v = 0; v < N; ++v) {
 
-					if (dist[u][w] == utils::inf or dist[w][v] == utils::inf) continue;
+					if (dist[v][w] == utils::inf or dist[w][u] == utils::inf) continue;
+					if (u == v) continue;
 
 					if (dist[u][v] > dist[u][w] + dist[w][v]) {
 						dist[u][v] = dist[u][w] + dist[w][v];
@@ -155,8 +107,6 @@ namespace traversal {
 				}
 			}
 		}
-
-		_traversal::print_distance_matrix(dist);
 	}
 
 } // -- namespace traversal

@@ -10,6 +10,7 @@ using namespace std;
 
 /// Custom includes
 #include "data_structures/graph.hpp"
+#include "data_structures/graph_path.hpp"
 #include "utils/logger.hpp"
 
 namespace dsa {
@@ -90,6 +91,7 @@ namespace traversal {
 	/* Functions that compute the paths:
 	 * - vertex-to-vertex	(BFS)
 	 * - vertex-to-all		(BFS)
+	 * - all-to-all			(Floyd-Warshall modified)
 	 *
 	 * A path from vertex 'u' to vertex 'v' is defined as the shortest list of vertices
 	 * (u, ..., v) where '...' is a list of vertices v1, v2, ... , vn  such that v1 is a
@@ -98,8 +100,9 @@ namespace traversal {
 	 *
 	 * Its length is the number of edges in the path. Also, the number of vertices in it minus 1.
 	 */
-	void path(const graph& G, node source, node target, vector<node>& paths);
-	void path(const graph& G, node source, vector<vector<node> >& paths);
+	void path(const graph& G, node source, node target, node_path& p);
+	void path(const graph& G, node source, vector<node_path>& ps);
+	void paths(const graph& G, vector<vector<node_path> >& ps);
 
 } // -- namespace traversal
 } // -- namespace dsa

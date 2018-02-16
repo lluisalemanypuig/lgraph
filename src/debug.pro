@@ -27,7 +27,8 @@ HEADERS += \
         epidemics/sis.cpp \
     utils/logger.hpp \
     utils/definitions.hpp \
-    graph_traversal/traversal.hpp
+    graph_traversal/traversal.hpp \
+    data_structures/graph_path.hpp
 
 SOURCES += \
     data_structures/graph.cpp \
@@ -35,9 +36,10 @@ SOURCES += \
     metrics/centralities.cpp \
     metrics/distance.cpp \
     graph_traversal/bfs.cpp \
-    graph_traversal/graph_distances.cpp \
-    graph_traversal/graph_paths.cpp \
-    debug.cpp
+    debug.cpp \
+    data_structures/graph_path.cpp \
+    graph_traversal/paths.cpp \
+    graph_traversal/distances.cpp
 
 DISTFILES += \
     TODO \
