@@ -44,7 +44,7 @@ The project may be compiled using the qmake tool.
 	3. In order to build a social network following the Barabási-Albert
 	model with Preferential Attachment, issue the specified command.
 	The other variants of the same model can be found in the usage.
-		- ./csn --seed -pa --n0 10 --m0 4 --T 20
+		- ./csn --seed --barabasi-albert -pa --n0 10 --m0 4 --T 20
 	
 	4. Applying the switching model is also easy: use the option -sw and give
 	a value to Q to determine the number of steps of the switching model algorithm.
@@ -60,4 +60,8 @@ The project may be compiled using the qmake tool.
 	6. One can also execute the epidemic models on the generated network.
 	The selection of the model is done by adding --sir or --sis for the
 	SIR and SIS models. Their configuration is done in the same way:
-		- ./csn (..) --p0 0.1 --beta 0.7 --gamma 0.55 --T-epidemics 1000
+		--p0 0.1 --beta 0.7 --gamma 0.55 --T-epidemics 1000
+	To simulate the SIR model, issue the command:
+		./csn (..) --sir --p0 0.1 --beta 0.7 --gamma 0.55 --T-epidemics 1000
+	To simulate the SIS model, issue the command:
+		./csn (..) --sis --p0 0.1 --beta 0.7 --gamma 0.55 --T-epidemics 1000
