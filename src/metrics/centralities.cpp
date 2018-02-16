@@ -90,6 +90,7 @@ namespace centralities {
 	/// BETWEENNESS
 
 	double betweenness(const graph& G, node u) {
+		return 0.0;
 	}
 
 	void betweenness(const graph& G, vector<double>& bc) {
