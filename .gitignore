@@ -2,3 +2,4 @@ log.txt
 build-debug/
 build-release/
 src/csn.pro.user
+src/debug.pro.user
