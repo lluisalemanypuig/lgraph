@@ -5,6 +5,8 @@ namespace networks {
 namespace metrics {
 namespace centralities {
 	
+	/// DEGREE
+
 	double degree(const graph& G, node u) {
 		// number of nodes minus 1
 		const double nm1 = G.n_nodes() - 1;
@@ -32,6 +34,8 @@ namespace centralities {
 			}
 		);
 	}
+
+	/// CLOSENESS
 	
 	double closeness(const graph& G, node u) {
 		vector<size_t> ds;
@@ -48,7 +52,7 @@ namespace centralities {
 			}
 		);
 
-		return sum/(G.n_nodes() - 1);
+		return 1.0/(sum/(G.n_nodes() - 1));
 	}
 
 	void closeness(const graph& G, vector<double>& cc) {
@@ -58,8 +62,6 @@ namespace centralities {
 	}
 
 	void closeness(const graph& G, const vector<vector<size_t> >& ds, vector<double>& cc) {
-		const size_t N = G.n_nodes();
-
 		transform(
 			// iterate through all nodes
 			ds.begin(), ds.end(),
@@ -80,11 +82,16 @@ namespace centralities {
 					}
 				);
 
-				return sum/(N - 1);
+				return 1.0/(sum/(G.n_nodes() - 1));
 			}
 		);
 	}
-	
+
+	/// BETWEENNESS
+
+	double betweenness(const graph& G, node u) {
+	}
+
 	void betweenness(const graph& G, vector<double>& bc) {
 	}
 	

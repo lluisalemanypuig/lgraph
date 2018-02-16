@@ -8,6 +8,7 @@ using namespace std;
 
 /// Custom includes
 #include "data_structures/graph.hpp"
+#include "data_structures/graph_path.hpp"
 #include "graph_traversal/traversal.hpp"
 
 namespace dsa {
@@ -32,6 +33,11 @@ namespace centralities {
 	void closeness(const graph& G, vector<double>& cc);
 	void closeness(const graph& G, const vector<vector<size_t> >& atad, vector<double>& cc);
 	
+	/*
+	Returns the betweenness centrality of a single node.
+	*/
+	double betweenness(const graph& G, node u);
+
 	/*
 	Returns the betweenness centrality of each node.
 	*/
