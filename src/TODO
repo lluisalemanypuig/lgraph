@@ -1,14 +1,63 @@
 TODO LIST
 =========
 
+
+---------------------------------
+16/02/2018
+[]
+Reimplement distance and path-finding methods using Dijkstra
+
+
+[]
+Implement generic Dijkstra
+
+
+[]
+Implement generic DFS
+
+
+[]
+Implement the boolean path using actual bitsets (not vector<bool>)
+
+
+[]
+Implement betweennes centrality metric (that uses a path as a bitset)
+
+	[]
+	For a single vertex
+
+	[]
+	For all vertices of a graph
+
+
+---------------------------------
 13/02/2018
-[] Implement betweennes centrality metric
-	[] For a single vertex
-	[] For all vertices of a graph
-[] Implement two classes that implement paths as
-	[] List of vertices
-	[] Bitsets (a vertex is in the path if the corresponding bit
-		is set to 1)
-[] Implement all-to-all path finding
-[] Debug path-finding with BFS
-[x] (13/02/2018) Add option to read graphs in edge list format in main file
+[]
+Implement betweennes centrality metric (that uses a path as a list of vertices)
+
+	[]
+	For a single vertex
+
+	[]
+	For all vertices of a graph
+
+
+[v] (16/02/2018)
+Implement two classes that implement paths as
+	[v] (16/02/2018)
+	List of vertices
+
+	[v] (16/02/2018)
+	Bitsets (a vertex is in the path if the corresponding bit is set to 1)
+
+
+[v] (16/02/2018)
+Debug path-finding with BFS
+
+
+[v] (16/02/2018)
+Implement all-to-all path finding
+
+
+[v] (13/02/2018)
+Add option to read graphs in edge list format in main file
