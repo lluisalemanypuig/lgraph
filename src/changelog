@@ -1,5 +1,7 @@
 
 Changes to upload to master:
+	metrics/centralities.hpp
+	metrics/centralities.cpp
 	graph_traversal/traversal.hpp
 	graph_traversal/paths.cpp
 	graph_traversal/distances.cpp
@@ -9,4 +11,3 @@ Changes to upload to master:
 	data_structures/graph_path.cpp
 	src/complex_social_networks.cpp
 	src/csn.pro
-	src/TODO
