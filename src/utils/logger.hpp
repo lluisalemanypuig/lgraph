@@ -3,14 +3,13 @@
 /// C++ includes
 #include <iostream>
 #include <fstream>
-using namespace std;
 
 namespace dsa {
 namespace utils {
 
 class null_stream {
 	public:
-		void open(const char *, const ios_base::openmode& ) { }
+		void open(const char *, const std::ios_base::openmode& ) { }
 		
 		// this is the type of std::cout
 		typedef std::basic_ostream<char, std::char_traits<char> > cout_type;
@@ -28,7 +27,31 @@ class null_stream {
 		{ return *this; }
 };
 
-template<class out_stream = ofstream>
+class cout_stream {
+	public:
+		void open(const char *, const std::ios_base::openmode& ) { }
+
+		// this is the type of std::cout
+		typedef std::basic_ostream<char, std::char_traits<char> > cout_type;
+
+		// this is the function signature of std::endl
+		typedef cout_type& (*standard_endl)(cout_type&);
+
+		// define an operator<< to take in std::endl
+		cout_stream& operator<< (const standard_endl&) {
+			std::cout << endl;
+			return *this;
+		}
+
+		// operator<< for any printable type
+		template<class t_printable>
+		cout_stream& operator<< (const t_printable& t) {
+			std::cout << t;
+			return *this;
+		}
+};
+
+template<class out_stream = std::ofstream>
 class logger {
 	private:
 		out_stream fout;
@@ -43,11 +66,11 @@ class logger {
 			return fout;
 		}
 		
-		static logger& get_logger(const string& o = "log.txt") {
+		static logger& get_logger(const std::string& o = "log.txt") {
 			static logger<out_stream> L;
 			
 			if (not L.opened) {
-				L.fout.open(o.c_str(), ios_base::app);
+				L.fout.open(o.c_str(), std::ios_base::app);
 				L.opened = true;
 			}
 			
