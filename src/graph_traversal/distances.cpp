@@ -107,7 +107,7 @@ namespace traversal {
 			size_t d = ds[u] + 1;
 			if (d < ds[v]) {
 				ds[v] = d;
-				n_paths[v] = 1;
+				n_paths[v] = n_paths[u];
 			}
 			else if (d == ds[v]) {
 				++n_paths[v];
@@ -152,7 +152,7 @@ namespace traversal {
 	}
 
 	void distances(const graph& G, vector<vector<size_t> >& dist, vector<vector<size_t> >& n_paths) {
-		logger<ofstream>& LOG = logger<ofstream>::get_logger();
+		logger<null_stream>& LOG = logger<null_stream>::get_logger();
 
 		const size_t N = G.n_nodes();
 
