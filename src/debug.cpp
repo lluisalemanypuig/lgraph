@@ -71,6 +71,7 @@ void read_graph(graph& G) {
 }
 
 void deb_distances(const graph& G, size_t source, size_t target) {
+	const size_t N = G.n_nodes();
 	logger<ofstream>& LOG = logger<ofstream>::get_logger();
 
 	LOG.log() << "DISTANCES:" << endl;
@@ -85,13 +86,18 @@ void deb_distances(const graph& G, size_t source, size_t target) {
 
 	// vertex-all
 	vector<size_t> ds;
-	distance(G, source, ds);
+	vector<size_t> n_paths;
+	distance(G, source, ds, &n_paths);
 	LOG.log() << "- node to all" << endl;
-	for (size_t i = 0; i < G.n_nodes(); ++i) {
+	for (size_t i = 0; i < N; ++i) {
 		LOG.log() << "    Distance from " << source << " to " << i << ": ";
 		if (ds[i] == utils::inf) LOG.log() << "-1";
 		else LOG.log() << ds[i];
 		LOG.log() << endl;
+	}
+	for (size_t i = 0; i < N; ++i) {
+		LOG.log() << "    Number of paths from " << source
+				  << " to " << i << ": " << n_paths[i] << endl;
 	}
 
 	// all-all
