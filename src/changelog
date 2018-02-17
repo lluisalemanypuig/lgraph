@@ -1,3 +1,4 @@
 
 Changes to upload to master:
-
+	graph_traversal/traversal.hpp
+	graph_traversal/distances.cpp
