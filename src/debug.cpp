@@ -19,6 +19,7 @@ void print_distance_matrix(const vector<vector<size_t> >& dist, const vector<vec
 
 	const size_t max_node_length = std::to_string(N - 1).length();
 	vector<size_t> max_column(N, 0);
+	size_t row_width = 1;
 	for (size_t u = 0; u < N; ++u) {
 		for (size_t v = 0; v < N; ++v) {
 			size_t length_dist = std::to_string(dist[v][u]).length();
@@ -34,6 +35,7 @@ void print_distance_matrix(const vector<vector<size_t> >& dist, const vector<vec
 			max_column[u] = max(max_column[u], cell_length);
 		}
 		max_column[u] = max(max_column[u], 2 + std::to_string(u).length());
+		row_width += max_column[u] + 1;
 	}
 
 	LOG.log() << setw(max_node_length) << " " << " ";
@@ -41,6 +43,8 @@ void print_distance_matrix(const vector<vector<size_t> >& dist, const vector<vec
 		LOG.log() << left << setw(max_column[u]) << "| " + std::to_string(u) << " ";
 	}
 	LOG.log() << endl;
+
+	LOG.log() << string(row_width, '-') << endl;
 
 	setiosflags(ios::left);
 	for (size_t u = 0; u < N; ++u) {
