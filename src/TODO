@@ -41,16 +41,16 @@ Implement algorithm to count the number of shortest pahts:
 	[v] 16/02/2018 -> 17/02/2018
 	From a node to the rest
 
-	[] 16/02/2018 ->
+	[v] 16/02/2018 -> 17/02/2018
 	From a any node to any other node
 
 [v] 13/02/2018 -> 16/02/2018
 Implement two classes that implement paths as
 
-	[v] (16/02/2018)
+	[v] 16/02/2018 -> 16/02/2018
 	List of vertices
 
-	[v] (16/02/2018)
+	[v] 16/02/2018 -> 16/02/2018
 	Bitsets (a vertex is in the path if the corresponding bit is set to 1)
 
 [v] 13/02/2018 -> 16/02/2018
