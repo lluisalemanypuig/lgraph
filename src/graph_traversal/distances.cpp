@@ -159,8 +159,6 @@ namespace traversal {
 	}
 
 	void distances(const graph& G, vector<vector<size_t> >& dist, vector<vector<size_t> >& n_paths) {
-		logger<null_stream>& LOG = logger<null_stream>::get_logger();
-
 		const size_t N = G.n_nodes();
 
 		// initialise data
@@ -190,52 +188,16 @@ namespace traversal {
 
 					size_t d = dist[u][w] + dist[w][v];
 					if (d < dist[u][v]) {
-						LOG.log() << "------------------------" << endl;
-						LOG.log() << "shorter distance (before):" << endl;
-						LOG.log() << "    dist[u][v] = dist[" << u << "][" << v << "]= " << dist[u][v] << endl;
-						LOG.log() << "        dist[u][w] = dist[" << u << "][" << w << "]= " << dist[u][w] << endl;
-						LOG.log() << "        dist[w][v] = dist[" << w << "][" << v << "]= " << dist[w][v] << endl;
-						LOG.log() << "    n_paths[u][v] = n_paths[" << u << "][" << v << "]= " << n_paths[u][v] << endl;
-						LOG.log() << "        n_paths[u][w] = n_paths[" << u << "][" << w << "]= " << n_paths[u][w] << endl;
-						LOG.log() << "        n_paths[w][v] = n_paths[" << w << "][" << v << "]= " << n_paths[w][v] << endl;
-
 						dist[u][v] = dist[u][w] + dist[w][v];
 
 						if (u != w and w != v) {
 							n_paths[u][v] = n_paths[u][w]*n_paths[w][v];
 						}
-
-						LOG.log() << "shorter distance (after):" << endl;
-						LOG.log() << "    dist[u][v] = dist[" << u << "][" << v << "]= " << dist[u][v] << endl;
-						LOG.log() << "        dist[u][w] = dist[" << u << "][" << w << "]= " << dist[u][w] << endl;
-						LOG.log() << "        dist[w][v] = dist[" << w << "][" << v << "]= " << dist[w][v] << endl;
-						LOG.log() << "    n_paths[u][v] = n_paths[" << u << "][" << v << "]= " << n_paths[u][v] << endl;
-						LOG.log() << "        n_paths[u][w] = n_paths[" << u << "][" << w << "]= " << n_paths[u][w] << endl;
-						LOG.log() << "        n_paths[w][v] = n_paths[" << w << "][" << v << "]= " << n_paths[w][v] << endl;
-						LOG.log() << "------------------------" << endl;
 					}
 					else if (d == dist[u][v]) {
-						LOG.log() << "------------------------" << endl;
-						LOG.log() << "equal distance (before):" << endl;
-						LOG.log() << "    dist[u][v] = dist[" << u << "][" << v << "]= " << dist[u][v] << endl;
-						LOG.log() << "        dist[u][w] = dist[" << u << "][" << w << "]= " << dist[u][w] << endl;
-						LOG.log() << "        dist[w][v] = dist[" << w << "][" << v << "]= " << dist[w][v] << endl;
-						LOG.log() << "    n_paths[u][v] = n_paths[" << u << "][" << v << "]= " << n_paths[u][v] << endl;
-						LOG.log() << "        n_paths[u][w] = n_paths[" << u << "][" << w << "]= " << n_paths[u][w] << endl;
-						LOG.log() << "        n_paths[w][v] = n_paths[" << w << "][" << v << "]= " << n_paths[w][v] << endl;
-
 						if (u != w and w != v) {
 							n_paths[u][v] += n_paths[u][w]*n_paths[w][v];
 						}
-
-						LOG.log() << "equal distance (after):" << endl;
-						LOG.log() << "    dist[u][v] = dist[" << u << "][" << v << "]= " << dist[u][v] << endl;
-						LOG.log() << "        dist[u][w] = dist[" << u << "][" << w << "]= " << dist[u][w] << endl;
-						LOG.log() << "        dist[w][v] = dist[" << w << "][" << v << "]= " << dist[w][v] << endl;
-						LOG.log() << "    n_paths[u][v] = n_paths[" << u << "][" << v << "]= " << n_paths[u][v] << endl;
-						LOG.log() << "        n_paths[u][w] = n_paths[" << u << "][" << w << "]= " << n_paths[u][w] << endl;
-						LOG.log() << "        n_paths[w][v] = n_paths[" << w << "][" << v << "]= " << n_paths[w][v] << endl;
-						LOG.log() << "------------------------" << endl;
 					}
 				}
 			}
