@@ -25,7 +25,7 @@ namespace traversal {
 		size_t st_dist = utils::inf;
 
 		function<void (const graph& G, node u, const vector<bool>& vis)> process_current =
-		[&distances, &st_dist, &current_dist, &target](const graph&, node u, const vector<bool>&)
+		[&distances, &current_dist, &target, &st_dist](const graph&, node u, const vector<bool>&)
 		{
 			current_dist = distances.front();
 			distances.pop();
@@ -46,6 +46,13 @@ namespace traversal {
 		BFS(G, source, terminate, process_current, process_neighbour);
 
 		return st_dist;
+	}
+
+	size_t distance(const graph& G, node source, node target, size_t& n_paths) {
+		vector<size_t> distances, paths;
+		distance(G, source, distances, paths);
+		n_paths = paths[target];
+		return distances[target];
 	}
 
 	void distance(const graph& G, node source, vector<size_t>& ds) {

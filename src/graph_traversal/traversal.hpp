@@ -85,6 +85,7 @@ namespace traversal {
 	 * of edges in the shortest path between the two.
 	 */
 	size_t distance(const graph& G, node source, node target);
+	size_t distance(const graph& G, node source, node target, size_t& n_paths);
 	void distance(const graph& G, node source, vector<size_t>& distances);
 	void distance(const graph& G, node source, vector<size_t>& distances, vector<size_t>& n_paths);
 	void distances(const graph& G, vector<vector<size_t> >& ds);
