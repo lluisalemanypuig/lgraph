@@ -20,7 +20,7 @@ class node_path : public vector<node> {
 		node_path(size_t n, node u);
 
 		inline friend
-		ostream& operator<< (ostream& os, node_path& np) {
+		ostream& operator<< (ostream& os, const node_path& np) {
 			if (np.size() > 0) {
 				os << np[0];
 				for (size_t i = 1; i < np.size(); ++i) {
