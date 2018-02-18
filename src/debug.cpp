@@ -14,7 +14,7 @@ using namespace dsa;
 using namespace traversal;
 
 void print_distance_matrix(const vector<vector<size_t> >& dist, const vector<vector<size_t> >& n_paths) {
-	logger<ofstream>& LOG = logger<ofstream>::get_logger();
+	logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
 	const size_t N = dist.size();
 
 	const size_t max_node_length = std::to_string(N - 1).length();
@@ -82,7 +82,7 @@ void read_graph(graph& G) {
 
 void deb_distances(const graph& G, size_t source, size_t target) {
 	const size_t N = G.n_nodes();
-	logger<ofstream>& LOG = logger<ofstream>::get_logger();
+	logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
 
 	LOG.log() << "DISTANCES:" << endl;
 
@@ -113,7 +113,7 @@ void deb_distances(const graph& G, size_t source, size_t target) {
 }
 
 void deb_paths(const graph& G, size_t source, size_t target) {
-	logger<ofstream>& LOG = logger<ofstream>::get_logger();
+	logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
 
 	LOG.log() << "PATHS:" << endl;
 
