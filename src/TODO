@@ -32,10 +32,10 @@ Implement betweennes centrality metric
 	[] 13/02/2018 ->
 	For all vertices of a graph
 
-[] 16/02/2018 ->
+[v] 16/02/2018 -> 18/02/2018
 Implement algorithm to count the number of shortest pahts:
 
-	[] 16/02/2018 ->
+	[v] 16/02/2018 -> 18/02/2018
 	Between two nodes
 
 	[v] 16/02/2018 -> 17/02/2018
