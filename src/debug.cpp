@@ -87,12 +87,13 @@ void deb_distances(const graph& G, size_t source, size_t target) {
 	LOG.log() << "DISTANCES:" << endl;
 
 	// vertex-vertex
-	size_t d = distance(G, source, target);
+	size_t n_paths;
+	size_t d = distance(G, source, target, n_paths);
 	LOG.log() << "- node to node" << endl;
 	LOG.log() << "    Distance from " << source << " to " << target << ": ";
 	if (d == utils::inf) LOG.log() << "-1";
 	else LOG.log() << d;
-	LOG.log() << endl;
+	LOG.log() << " (" << n_paths << ")" << endl;
 
 	// vertex-all
 	vector<size_t> ds, va_n_paths;
