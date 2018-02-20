@@ -155,31 +155,61 @@ void deb_paths(const graph& G, size_t source, size_t target) {
 void deb_all_paths(const graph& G, size_t source, size_t target) {
 	logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
 
-	LOG.log() << "PATHS:" << endl;
+	LOG.log() << "ALL SHORTEST PATHS:" << endl;
 
 	// vertex-vertex
+	node_path_set node_node_ps;
+	path(G, source, target, node_node_ps);
+	LOG.log() << "- node to node" << endl;
+	LOG.log() << "    paths from " << source << " to " << target << ": ";
+	if (node_node_ps.size() == 0) {
+		LOG.log() << "No paths" << endl;
+	}
+	else {
+		LOG.log() << endl;
+		for (const node_path& path : node_node_ps) {
+			LOG.log() << "        " << path << endl;
+		}
+	}
 
 	// vertex-all
-	vector<vector<node_path> > ps;
-	path(G, source, ps);
+	vector<node_path_set> node_all_ps;
+	path(G, source, node_all_ps);
 	LOG.log() << "- node to all" << endl;
 	for (node target = 0; target < G.n_nodes(); ++target) {
 		LOG.log() << "    Paths from " << source << " to " << target << ": ";
-		if (ps[target].size() == 0) {
+		const node_path_set& paths_to_target = node_all_ps[target];
+		if (paths_to_target.size() == 0) {
 			LOG.log() << "No paths" << endl;
 		}
 		else {
 			LOG.log() << endl;
-			for (const node_path& path : ps[target]) {
+			for (const node_path& path : paths_to_target) {
 				LOG.log() << string(8, ' ') << path << endl;
 			}
 		}
-
-		LOG.log() << endl;
 	}
 
 	// all-all
+	vector<vector<node_path_set> > all_all_paths;
+	paths(G, all_all_paths);
+	LOG.log() << "- all to all" << endl;
+	for (node source = 0; source < G.n_nodes(); ++source) {
+		for (node target = 0; target < G.n_nodes(); ++target) {
 
+			LOG.log() << "    Paths from " << source << " to " << target << ": ";
+			const node_path_set& paths_to_target = all_all_paths[source][target];
+			if (paths_to_target.size() == 0) {
+				LOG.log() << "No paths" << endl;
+			}
+			else {
+				LOG.log() << endl;
+				for (const node_path& path : paths_to_target) {
+					LOG.log() << string(8, ' ') << path << endl;
+				}
+			}
+		}
+	}
 }
 
 int main(int argc, char *argv[]) {
