@@ -46,6 +46,10 @@ namespace traversal {
 		BFS(G, source, terminate, process_current, process_neighbour);
 	}
 
+	void path(const graph& G, node source, node target, vector<node_path>& ps) {
+
+	}
+
 	void path(const graph& G, node source, vector<node_path>& ps) {
 		const size_t N = G.n_nodes();
 
@@ -73,9 +77,76 @@ namespace traversal {
 			// number of edges
 			size_t d_v = ps[v].size() - 1;
 			if (d_u < d_v) {
-				node_path new_path = ps[u];
-				new_path.push_back(v);
-				ps[v] = new_path;
+				ps[v] = ps[u];
+				ps[v].push_back(v);
+			}
+		};
+
+		BFS(G, source, terminate, process_current, process_neighbour);
+	}
+
+	void path(const graph& G, node source, vector<vector<node_path> >& ps) {
+		logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
+		const size_t N = G.n_nodes();
+
+		function<bool (const graph&, node, const vector<bool>&)> terminate =
+		[](const graph&, node, const vector<bool>&)
+		{
+			return false;
+		};
+
+		// all paths from source to a target
+		ps = vector<vector<node_path> >(N);
+
+		// only one path from source to source
+		ps[source] = vector<node_path>(1);
+		ps[source][0] = node_path(1, source);
+
+		function<void (const graph& G, node u, const vector<bool>& vis)> process_current =
+		[](const graph&, node, const vector<bool>&)
+		{ };
+
+		// function to compute the shortest distance from source to node v
+		function<void (const graph&, node, node, const vector<bool>&)> process_neighbour =
+		[&ps, &LOG](const graph&, node u, node v, const vector<bool>&)
+		{
+			// distance from source to 'u'
+			size_t d_u;
+			if (ps[u].size() == 0) {
+				d_u = utils::inf;
+			}
+			else {
+				// add one node, count the number of edges,
+				// path from 'source' to 'u' to 'v'
+				d_u = ps[u][0].size() + 1 - 1;
+			}
+
+			// distance from source to 'v'
+			size_t d_v;
+			if (ps[v].size() == 0) {
+				d_v = utils::inf;
+			}
+			else {
+				// number of edges
+				// path from 'source' to 'v'
+				d_v = ps[v][0].size() - 1;
+			}
+
+			if (d_u < d_v) {
+				// if shorter path found, clear all paths to 'v' and add the new ones.
+				ps[v].clear();
+				ps[v] = ps[u];
+				for (node_path& np : ps[v]) {
+					np.push_back(v);
+				}
+			}
+			else if (d_u == d_v) {
+				// if the path found is as long as the shortest, just add it
+				size_t prev_size = ps[v].size();
+				ps[v].insert( ps[v].end(), ps[u].begin(), ps[u].end() );
+				for (size_t i = prev_size; i < ps[v].size(); ++i) {
+					ps[v][i].push_back(v);
+				}
 			}
 		};
 
@@ -141,6 +212,10 @@ namespace traversal {
 				}
 			}
 		}
+	}
+
+	void paths(const graph& G, vector<vector<vector<node_path> > >& ps) {
+
 	}
 
 } // -- namespace traversal
