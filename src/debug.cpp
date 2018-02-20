@@ -152,6 +152,36 @@ void deb_paths(const graph& G, size_t source, size_t target) {
 	}
 }
 
+void deb_all_paths(const graph& G, size_t source, size_t target) {
+	logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
+
+	LOG.log() << "PATHS:" << endl;
+
+	// vertex-vertex
+
+	// vertex-all
+	vector<vector<node_path> > ps;
+	path(G, source, ps);
+	LOG.log() << "- node to all" << endl;
+	for (node target = 0; target < G.n_nodes(); ++target) {
+		LOG.log() << "    Paths from " << source << " to " << target << ": ";
+		if (ps[target].size() == 0) {
+			LOG.log() << "No paths" << endl;
+		}
+		else {
+			LOG.log() << endl;
+			for (const node_path& path : ps[target]) {
+				LOG.log() << string(15, ' ') << path << endl;
+			}
+		}
+
+		LOG.log() << endl;
+	}
+
+	// all-all
+
+}
+
 int main(int argc, char *argv[]) {
 	graph G;
 	read_graph(G);
@@ -170,6 +200,7 @@ int main(int argc, char *argv[]) {
 	}
 
 	deb_distances(G, S, T);
-	//deb_paths(G, S, T);
+	deb_paths(G, S, T);
+	deb_all_paths(G, S, T);
 }
 
