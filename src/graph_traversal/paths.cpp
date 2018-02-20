@@ -88,7 +88,6 @@ namespace traversal {
 	}
 
 	void path(const graph& G, node source, vector<node_path_set>& ps) {
-		logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
 		const size_t N = G.n_nodes();
 
 		function<bool (const graph&, node, const vector<bool>&)> terminate =
@@ -110,7 +109,7 @@ namespace traversal {
 
 		// function to compute the shortest distance from source to node v
 		function<void (const graph&, node, node, const vector<bool>&)> process_neighbour =
-		[&ps, &LOG](const graph&, node u, node v, const vector<bool>&)
+		[&ps](const graph&, node u, node v, const vector<bool>&)
 		{
 			// distance from 'source' to 'u'
 			size_t d_u;
