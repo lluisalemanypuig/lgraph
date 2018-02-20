@@ -2,6 +2,10 @@ TODO LIST
 =========
 
 [] 20/02/2018 ->
+Do not use a vertex-all method to count the number of shortest paths
+from node to node.
+
+[] 20/02/2018 ->
 Use sparse matrixes to implement adjacency matrix when needed
 
 [] 20/02/2018 ->
