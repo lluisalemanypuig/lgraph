@@ -37,9 +37,8 @@ Implement betweennes centrality metric
 	[] 13/02/2018 ->
 	For all vertices of a graph
 
-[] 20/02/2018 ->
-Do not use a vertex-all method to count the number of shortest paths
-from node to node.
+[X] 20/02/2018 -> 20/02/2018
+Do not use a vertex-all method to count the number of shortest paths from node to node.
 
 [] 20/02/2018 ->
 Implement algorithm to enumerate all shortest paths:
@@ -56,16 +55,16 @@ Implement algorithm to enumerate all shortest paths:
         [] 20/02/2018 ->
 		From a any node to any other node
 
-    [] 20/02/2018 ->
+	[v] 20/02/2018 -> 20/02/2018
 	As node paths
 
-        [] 20/02/2018 ->
+		[v] 20/02/2018 -> 20/02/2018
 		Between two nodes
 
-        [] 20/02/2018 ->
+		[v] 20/02/2018 -> 20/02/2018
 		From a node to the rest
 
-        [] 20/02/2018 ->
+		[v] 20/02/2018 -> 20/02/2018
 		From a any node to any other node
 
 [v] 16/02/2018 -> 18/02/2018
