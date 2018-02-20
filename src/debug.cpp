@@ -171,7 +171,7 @@ void deb_all_paths(const graph& G, size_t source, size_t target) {
 		else {
 			LOG.log() << endl;
 			for (const node_path& path : ps[target]) {
-				LOG.log() << string(15, ' ') << path << endl;
+				LOG.log() << string(8, ' ') << path << endl;
 			}
 		}
 
