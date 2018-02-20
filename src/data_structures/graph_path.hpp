@@ -11,6 +11,8 @@ using namespace std;
 namespace dsa {
 namespace utils {
 
+/// NODE PATH
+
 // A path in a graph seen as a list of nodes
 class node_path : public vector<node> {
 	private:
@@ -29,19 +31,27 @@ class node_path : public vector<node> {
 			}
 			return os;
 		}
+
+		// Adds the path p at the end of this path (without the first one).
+		// This path's last node and the first node of p must be the same.
+		void concatenate(const node_path& p);
 };
+
+typedef vector<node_path> node_path_set;
+
+/// BOOLEAN PATH
 
 // A path in a graph seen as a list of Boolean values.
 // The i-th position of this path is 1 if, and only if,
 // the i-th vertex is in the path
-class boolean_node_path {
+class boolean_path {
 	private:
 		vector<bool> nodes_in_path;
 		size_t n_nodes;
 
 	public:
-		boolean_node_path();
-		~boolean_node_path();
+		boolean_path();
+		~boolean_path();
 
 		// initialises the path to an empty path of n nodes
 		void init(size_t n);
@@ -67,6 +77,8 @@ class boolean_node_path {
 		// If 'u' is the first node in the path, set 'prev' to '-1'
 		node next(const graph& G, node prev, node u) const;
 };
+
+typedef vector<boolean_path> boolean_path_set;
 
 } // -- namespace utils
 } // -- namespace dsa
