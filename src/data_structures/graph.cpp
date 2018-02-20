@@ -182,6 +182,17 @@ size_t graph::degree(node u) const {
 	return adjacency_list[u].size();
 }
 
+void graph::get_adjacency_matrix(vector<vector<bool> >& adj_mat) const {
+    const size_t N = n_nodes();
+    adj_mat = vector<vector<bool> >(N, vector<bool>(N, false));
+    for (size_t u = 0; u < N; ++u) {
+        const neighbourhood& Nu = get_neighbours(u);
+        for (size_t v : Nu) {
+            adj_mat[u][v] = true;
+        }
+    }
+}
+
 /// I/O
 
 bool graph::read_from_file(const string& filename) {

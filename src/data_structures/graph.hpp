@@ -113,6 +113,9 @@ class graph {
 		// Returns the number of neighbours of u
 		size_t degree(node u) const;
 
+        // Returns the adjacency matrix of this graph
+        void get_adjacency_matrix(vector<vector<bool> >& adj_mat) const;
+
 		/// I/O
 
 		bool read_from_file(const string& filename);
