@@ -103,11 +103,11 @@ namespace traversal {
 	 * Its length is the number of edges in the path. Also, the number of vertices in it minus 1.
 	 */
 	void path(const graph& G, node source, node target, node_path& p);
-	void path(const graph& G, node source, node target, vector<node_path>& ps);
+	void path(const graph& G, node source, node target, node_path_set& ps);
 	void path(const graph& G, node source, vector<node_path>& ps);
-	void path(const graph& G, node source, vector<vector<node_path> >& ps);
+	void path(const graph& G, node source, vector<node_path_set>& ps);
 	void paths(const graph& G, vector<vector<node_path> >& ps);
-	void paths(const graph& G, vector<vector<vector<node_path> > >& ps);
+	void paths(const graph& G, vector<vector<node_path_set> >& ps);
 
 } // -- namespace traversal
 } // -- namespace dsa

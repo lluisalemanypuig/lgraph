@@ -4,7 +4,6 @@ namespace dsa {
 namespace traversal {
 
 	size_t distance(const graph& G, node source, node target) {
-
 		// DO terminate when target node is found. BFS guarantees that when this happens
 		// the shortest distance was found
 		function<bool (const graph& g, node u, const vector<bool>& vis)> terminate =
@@ -165,7 +164,8 @@ namespace traversal {
 		dist = vector<vector<size_t> >(N, vector<size_t>(N, utils::inf));
 		n_paths = vector<vector<size_t> >(N, vector<size_t>(N, 0));
 
-		// initialise with edge weights (here always 1)
+		// initialise with edge weights (here always 1) the distance and the
+		// number of shortest-paths from u to all its neighbours
 		for (size_t u = 0; u < N; ++u) {
 			const neighbourhood& Nu = G.get_neighbours(u);
 			for (size_t v : Nu) {
@@ -188,6 +188,7 @@ namespace traversal {
 
 					size_t d = dist[u][w] + dist[w][v];
 					if (d < dist[u][v]) {
+						// this is a shorter path than the shortest found so far
 						dist[u][v] = dist[u][w] + dist[w][v];
 
 						if (u != w and w != v) {
@@ -195,6 +196,7 @@ namespace traversal {
 						}
 					}
 					else if (d == dist[u][v]) {
+						// this is a path as short as the shortest found so far
 						if (u != w and w != v) {
 							n_paths[u][v] += n_paths[u][w]*n_paths[w][v];
 						}
