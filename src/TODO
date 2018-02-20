@@ -1,6 +1,11 @@
 TODO LIST
 =========
 
+[] 20/02/2018 ->
+Use sparse matrixes to implement adjacency matrix when needed
+
+[] 20/02/2018 ->
+Implement sparse matrix class.
 
 [] 16/02/2018 ->
 Reimplement distance and path-finding methods using Dijkstra
@@ -15,7 +20,7 @@ Implement generic DFS
 Implement the boolean path using actual bitsets (not vector<bool>)
 
 [] 16/02/2018 ->
-Implement betweennes centrality metric (that uses a path as a bitset)
+Implement betweennes centrality metric (that uses a boolean path)
 
 	[] 16/02/2018 ->
 	For a single vertex
@@ -31,6 +36,33 @@ Implement betweennes centrality metric
 
 	[] 13/02/2018 ->
 	For all vertices of a graph
+
+[] 20/02/2018 ->
+Implement algorithm to enumerate all shortest paths:
+
+    [] 20/02/2018 ->
+	As boolean paths
+
+        [] 20/02/2018 ->
+		Between two nodes
+
+        [] 20/02/2018 ->
+		From a node to the rest
+
+        [] 20/02/2018 ->
+		From a any node to any other node
+
+    [] 20/02/2018 ->
+	As node paths
+
+        [] 20/02/2018 ->
+		Between two nodes
+
+        [] 20/02/2018 ->
+		From a node to the rest
+
+        [] 20/02/2018 ->
+		From a any node to any other node
 
 [v] 16/02/2018 -> 18/02/2018
 Implement algorithm to count the number of shortest pahts:
