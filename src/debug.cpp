@@ -232,5 +232,25 @@ int main(int argc, char *argv[]) {
 	deb_distances(G, S, T);
 	deb_paths(G, S, T);
 	deb_all_paths(G, S, T);
+
+	// dumb debug of boolean_path
+	boolean_path bp;
+	bp.init(G.n_nodes());
+	bp.add_node(0);
+	bp.add_node(4);
+	bp.add_node(1);
+	bp.add_node(7);
+	bp.add_node(8);
+
+	cout << bp.next(G, -1, 0) << endl;
+	cout << bp.next(G, 0, 4) << endl;
+	cout << bp.next(G, 4, 1) << endl;
+	cout << bp.next(G, 1, 7) << endl;
+	cout << bp.next(G, 7, 8) << endl;
+
+	cout << bp << endl;
+	cout << bp.to_node_path(G, 0) << endl;
+	cout << bp.to_string() << endl;
+	cout << bp.pretty_string() << endl;
 }
 
