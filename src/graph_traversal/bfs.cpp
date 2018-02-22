@@ -7,9 +7,9 @@ namespace traversal {
 	(
 		const graph& G,
 		node source,
-		function<bool (const graph&, node, const vector<bool>&)> terminate,
-		function<void (const graph&, node, const vector<bool>&)> process_current,
-		function<void (const graph&, node, node, const vector<bool>&)> process_neighbour
+		bfs_terminate terminate,
+		bfs_process_current process_current,
+		bfs_process_neighbour process_neighbour
 	)
 	{
 		logger<null_stream>& LOG = logger<null_stream>::get_logger();

@@ -6,7 +6,7 @@ namespace traversal {
 	size_t distance(const graph& G, node source, node target) {
 		// DO terminate when target node is found. BFS guarantees that when this happens
 		// the shortest distance was found
-		function<bool (const graph& g, node u, const vector<bool>& vis)> terminate =
+		bfs_terminate terminate =
 		[&target](const graph&, node u, const vector<bool>&)
 		{
 			return u == target;
@@ -23,7 +23,7 @@ namespace traversal {
 		// for those targets not reachable from source.
 		size_t st_dist = utils::inf;
 
-		function<void (const graph& G, node u, const vector<bool>& vis)> process_current =
+		bfs_process_current process_current =
 		[&distances, &current_dist, &target, &st_dist](const graph&, node u, const vector<bool>&)
 		{
 			current_dist = distances.front();
@@ -34,7 +34,7 @@ namespace traversal {
 		};
 
 		// function to compute the shortest distance from source to node v
-		function<void (const graph&, node, node, const vector<bool>&)> process_neighbour =
+		bfs_process_neighbour process_neighbour =
 		[&distances, &current_dist](const graph&, node, node v, const vector<bool>& vis)
 		{
 			if (not vis[v]) {
@@ -58,14 +58,14 @@ namespace traversal {
 		const size_t N = G.n_nodes();
 
 		// do NOT terminate: iterate through all nodes
-		function<bool (const graph&, node, const vector<bool>&)> terminate =
+		bfs_terminate terminate =
 		[](const graph&, node, const vector<bool>&)
 		{
 			return false;
 		};
 
 		// don't need to process the currently visited node
-		function<void (const graph&, node, const vector<bool>&)> process_current =
+		bfs_process_current process_current =
 		[](const graph&, node, const vector<bool>&) { };
 
 		// distance from source to all nodes
@@ -73,7 +73,7 @@ namespace traversal {
 		ds[source] = 0;
 
 		// function to compute the shortest distance from source to node v
-		function<void (const graph&, node u, node v, const vector<bool>&)> process_neighbour =
+		bfs_process_neighbour process_neighbour =
 		[&ds](const graph&, node u, node v, const vector<bool>&)
 		{
 			size_t d = ds[u] + 1;
@@ -89,14 +89,14 @@ namespace traversal {
 		const size_t N = G.n_nodes();
 
 		// do NOT terminate: iterate through all nodes
-		function<bool (const graph&, node, const vector<bool>&)> terminate =
+		bfs_terminate terminate =
 		[](const graph&, node, const vector<bool>&)
 		{
 			return false;
 		};
 
 		// don't need to process the currently visited node
-		function<void (const graph&, node, const vector<bool>&)> process_current =
+		bfs_process_current process_current =
 		[](const graph&, node, const vector<bool>&) { };
 
 		// distance from source to all nodes
@@ -107,7 +107,7 @@ namespace traversal {
 		n_paths[source] = 1;
 
 		// function to compute the shortest distance from source to node v
-		function<void (const graph&, node u, node v, const vector<bool>&)> process_neighbour =
+		bfs_process_neighbour process_neighbour =
 		[&ds, &n_paths](const graph&, node u, node v, const vector<bool>&)
 		{
 			size_t d = ds[u] + 1;

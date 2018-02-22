@@ -66,13 +66,18 @@ namespace traversal {
 	- size_t distance(const graph& G, node source, node target);
 	- void distance(const graph& G, node source, vector<size_t>& distances);
 	*/
+
+	typedef function<bool (const graph&, node,       const vector<bool>&)> bfs_terminate;
+	typedef function<void (const graph&, node,       const vector<bool>&)> bfs_process_current;
+	typedef function<void (const graph&, node, node, const vector<bool>&)> bfs_process_neighbour;
+
 	void BFS
 	(
 		const graph& G,
 		node source,
-		function<bool (const graph&, node,       const vector<bool>&)> terminate		 = [](const graph&, node, const vector<bool>&) -> bool { return false; },
-		function<void (const graph&, node,       const vector<bool>&)> process_current	 = [](const graph&, node, const vector<bool>&) -> void {},
-		function<void (const graph&, node, node, const vector<bool>&)> process_neighbour = [](const graph&, node, node, const vector<bool>&) -> void {}
+		bfs_terminate terminate					= [](const graph&, node, const vector<bool>&) -> bool { return false; },
+		bfs_process_current process_current		= [](const graph&, node, const vector<bool>&) -> void {},
+		bfs_process_neighbour process_neighbour	= [](const graph&, node, node, const vector<bool>&) -> void {}
 	);
 
 	/* Functions that compute the distances:
