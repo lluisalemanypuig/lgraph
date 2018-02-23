@@ -46,7 +46,8 @@ SOURCES += \
     debug.cpp \
     data_structures/graph_path.cpp \
     graph_traversal/paths.cpp \
-    graph_traversal/distances.cpp
+    graph_traversal/distances.cpp \
+    graph_traversal/boolean_paths.cpp
 
 DISTFILES += \
     TODO \

@@ -43,8 +43,16 @@ typedef vector<node_path> node_path_set;
 /// BOOLEAN PATH
 
 // A path in a graph seen as a list of Boolean values.
-// The i-th position of this path is 1 if, and only if,
-// the i-th vertex is in the path
+// The i-th position of this path is 1 if, and only if, the i-th vertex is in the path.
+// This is intended to be used ONLY for shortest paths.
+//
+// Therefore: any boolean_path can be converted into a node_path under the following conditions:
+// - no vertex in the path has three neighbours in it
+// - if p(u) is the position of vertex 'u' in the node path then:
+//    * if u has only one neighbour 'v' then either p(v) < p(u) or p(u) < p(v)
+//    * if u has two neighbours 'v', 'w' then either p(v) < p(u) < p(w) or p(w) < p(u) < p(v)
+// Any other boolean path not following the previous two conventions is not guaranteed to be
+// able to be converted into an object of type 'node_path'.
 class boolean_path {
 	private:
 		vector<bool> nodes_in_path;
@@ -97,20 +105,12 @@ class boolean_path {
 		// different from prev). If the only neighbour of 'u'
 		// in the path is 'prev' then the function returns 'u'.
 		// If 'u' is the first node in the path, set 'prev' to '-1'
-		//
-		// This boolean path is assumed to be minimal in the number
-		// of nodes it contains, that is, u cannot have two of its
-		// neighbours in the path.
 		node next(const graph& G, node prev, node u) const;
 
 		/// CONVERSIONS
 
 		// Converts this boolean path into a node_path. The path
 		// is assumed to start at s.
-		//
-		// This boolean path is assumed to be minimal in the number
-		// of nodes it contains, that is, u cannot have two of its
-		// neighbours in the path.
 		node_path to_node_path(const graph& G, node s) const;
 		void to_node_path(const graph& G, node s, node_path& np) const;
 

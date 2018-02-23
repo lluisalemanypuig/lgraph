@@ -88,10 +88,19 @@ namespace traversal {
 	 * The distance from one vertex to another is defined as the number
 	 * of edges in the shortest path between the two.
 	 */
+
+	/// VERTEX-VERTEX
+
 	size_t distance(const graph& G, node source, node target);
 	size_t distance(const graph& G, node source, node target, size_t& n_paths);
+
+	/// VERTEX-ALL
+
 	void distance(const graph& G, node source, vector<size_t>& distances);
 	void distance(const graph& G, node source, vector<size_t>& distances, vector<size_t>& n_paths);
+
+	/// ALL-ALL
+
 	void distances(const graph& G, vector<vector<size_t> >& ds);
 	void distances(const graph& G, vector<vector<size_t> >& ds, vector<vector<size_t> >& n_paths);
 
@@ -107,12 +116,27 @@ namespace traversal {
 	 *
 	 * Its length is the number of edges in the path. Also, the number of vertices in it minus 1.
 	 */
+
+	/// VERTEX-VERTEX
+
 	void path(const graph& G, node source, node target, node_path& p);
 	void path(const graph& G, node source, node target, node_path_set& ps);
+	void path(const graph& G, node source, node target, boolean_path& p);
+	void path(const graph& G, node source, node target, boolean_path_set& ps);
+
+	/// VERTEX-ALL
+
 	void path(const graph& G, node source, vector<node_path>& ps);
 	void path(const graph& G, node source, vector<node_path_set>& ps);
+	void path(const graph& G, node source, vector<boolean_path>& ps);
+	void path(const graph& G, node source, vector<boolean_path_set>& ps);
+
+	/// ALL-ALL
+
 	void paths(const graph& G, vector<vector<node_path> >& ps);
 	void paths(const graph& G, vector<vector<node_path_set> >& ps);
+	void paths(const graph& G, vector<vector<boolean_path> >& ps);
+	void paths(const graph& G, vector<vector<boolean_path_set> >& ps);
 
 } // -- namespace traversal
 } // -- namespace dsa

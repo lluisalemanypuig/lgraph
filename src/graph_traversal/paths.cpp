@@ -3,6 +3,8 @@
 namespace dsa {
 namespace traversal {
 
+	/// VERTEX-VERTEX
+
 	void path(const graph& G, node source, node target, node_path& p) {
 		// terminate when target is found
 		bfs_terminate terminate =
@@ -51,6 +53,8 @@ namespace traversal {
 		path(G, source, node_all_paths);
 		ps = node_all_paths[target];
 	}
+
+	/// VERTEX-ALL
 
 	void path(const graph& G, node source, vector<node_path>& ps) {
 		const size_t N = G.n_nodes();
@@ -158,6 +162,8 @@ namespace traversal {
 
 		BFS(G, source, terminate, process_current, process_neighbour);
 	}
+
+	/// ALL-ALL
 
 	void paths(const graph& G, vector<vector<node_path> >& all_all_paths) {
 		const size_t N = G.n_nodes();

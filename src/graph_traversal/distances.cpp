@@ -3,6 +3,8 @@
 namespace dsa {
 namespace traversal {
 
+	/// VERTEX-VERTEX
+
 	size_t distance(const graph& G, node source, node target) {
 		// DO terminate when target node is found. BFS guarantees that when this happens
 		// the shortest distance was found
@@ -53,6 +55,8 @@ namespace traversal {
 		n_paths = paths[target];
 		return distances[target];
 	}
+
+	/// VERTEX-ALL
 
 	void distance(const graph& G, node source, vector<size_t>& ds) {
 		const size_t N = G.n_nodes();
@@ -122,6 +126,8 @@ namespace traversal {
 
 		BFS(G, source, terminate, process_current, process_neighbour);
 	}
+
+	/// ALL-ALL
 
 	void distances(const graph& G, vector<vector<size_t> >& dist) {
 		const size_t N = G.n_nodes();
