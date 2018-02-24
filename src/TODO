@@ -1,6 +1,12 @@
 TODO LIST
 =========
 
+[] 24/02/2018 ->
+Move current algorithm to a namespace
+Implement triangle counting algorithm using adjacency matrix
+Paper:			http://www.d.umn.edu/math/Technical%20Reports/Technical%20Reports%202007-/TR%202012/yang.pdf
+Implementation:	https://www.geeksforgeeks.org/number-of-triangles-in-a-undirected-graph/
+
 [] 20/02/2018 ->
 Use sparse matrixes to implement adjacency matrix when needed
 
