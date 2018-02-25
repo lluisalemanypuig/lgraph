@@ -6,14 +6,6 @@ namespace traversal {
 	/// VERTEX-VERTEX
 
 	size_t distance(const graph& G, node source, node target) {
-		// DO terminate when target node is found. BFS guarantees that when this happens
-		// the shortest distance was found
-		bfs_terminate terminate =
-		[&target](const graph&, node u, const vector<bool>&)
-		{
-			return u == target;
-		};
-
 		// distances from source to nodes
 		queue<size_t> distances;
 		distances.push(0);
@@ -24,6 +16,14 @@ namespace traversal {
 		// distance from source to target. Set to infinite
 		// for those targets not reachable from source.
 		size_t st_dist = utils::inf;
+
+		// DO terminate when target node is found. BFS guarantees that when this happens
+		// the shortest distance was found
+		bfs_terminate terminate =
+		[&target](const graph&, node u, const vector<bool>&)
+		{
+			return u == target;
+		};
 
 		bfs_process_current process_current =
 		[&distances, &current_dist, &target, &st_dist](const graph&, node u, const vector<bool>&)
@@ -61,6 +61,10 @@ namespace traversal {
 	void distance(const graph& G, node source, vector<size_t>& ds) {
 		const size_t N = G.n_nodes();
 
+		// distance from source to all nodes
+		ds = vector<size_t>(N, inf);
+		ds[source] = 0;
+
 		// do NOT terminate: iterate through all nodes
 		bfs_terminate terminate =
 		[](const graph&, node, const vector<bool>&)
@@ -71,10 +75,6 @@ namespace traversal {
 		// don't need to process the currently visited node
 		bfs_process_current process_current =
 		[](const graph&, node, const vector<bool>&) { };
-
-		// distance from source to all nodes
-		ds = vector<size_t>(N, inf);
-		ds[source] = 0;
 
 		// function to compute the shortest distance from source to node v
 		bfs_process_neighbour process_neighbour =
@@ -92,6 +92,13 @@ namespace traversal {
 	void distance(const graph& G, node source, vector<size_t>& ds, vector<size_t>& n_paths) {
 		const size_t N = G.n_nodes();
 
+		// distance from source to all nodes
+		ds = vector<size_t>(N, inf);
+		ds[source] = 0;
+		// number of paths between each pair of nodes
+		n_paths = vector<size_t>(N, 0);
+		n_paths[source] = 1;
+
 		// do NOT terminate: iterate through all nodes
 		bfs_terminate terminate =
 		[](const graph&, node, const vector<bool>&)
@@ -102,13 +109,6 @@ namespace traversal {
 		// don't need to process the currently visited node
 		bfs_process_current process_current =
 		[](const graph&, node, const vector<bool>&) { };
-
-		// distance from source to all nodes
-		ds = vector<size_t>(N, inf);
-		ds[source] = 0;
-		// number of paths between each pair of nodes
-		n_paths = vector<size_t>(N, 0);
-		n_paths[source] = 1;
 
 		// function to compute the shortest distance from source to node v
 		bfs_process_neighbour process_neighbour =

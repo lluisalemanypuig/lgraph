@@ -3,6 +3,7 @@
 namespace dsa {
 namespace utils {
 
+	/// -----------
 /// CLASS node_path
 
 node_path::node_path() : vector<size_t>() {
@@ -24,9 +25,11 @@ void node_path::concatenate(const node_path& p) {
 	);
 }
 
+/// -----------------------
 /// CLASS boolean_node_path
 
-boolean_path::boolean_path() {
+boolean_path::boolean_path(size_t n) {
+	init(n);
 }
 
 boolean_path::~boolean_path() {
@@ -56,15 +59,25 @@ void boolean_path::clear() {
 
 void boolean_path::add_node(node u) {
 	if (not nodes_in_path[u]) {
-		++n_nodes;
 		nodes_in_path[u] = true;
+		++n_nodes;
 	}
 }
 
 void boolean_path::remove_node(node u) {
 	if (nodes_in_path[u]) {
-		--n_nodes;
 		nodes_in_path[u] = false;
+		--n_nodes;
+	}
+}
+
+void boolean_path::concatenate(const boolean_path& bp) {
+	if (bp.size() > 0) {
+		for (size_t i = 0; i < bp.potential_length(); ++i) {
+			if (bp.nodes_in_path[i]) {
+				add_node(i);
+			}
+		}
 	}
 }
 
@@ -74,9 +87,15 @@ bool boolean_path::operator[] (size_t i) const {
 	return nodes_in_path[i];
 }
 
+boolean_path& boolean_path::operator= (const boolean_path& bp) {
+	n_nodes = bp.n_nodes;
+	nodes_in_path = bp.nodes_in_path;
+	return *this;
+}
+
 /// GETTERS
 
-size_t boolean_path::path_length() const {
+size_t boolean_path::size() const {
 	return n_nodes;
 }
 
@@ -111,6 +130,11 @@ node_path boolean_path::to_node_path(const graph& G, node s) const {
 }
 
 void boolean_path::to_node_path(const graph& G, node s, node_path& np) const {
+	if (n_nodes == 0) {
+		// no vertices in the path
+		return;
+	}
+
 	np = node_path(0);
 	np.push_back(s);
 

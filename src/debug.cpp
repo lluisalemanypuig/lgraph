@@ -212,6 +212,105 @@ void deb_all_paths(const graph& G, size_t source, size_t target) {
 	}
 }
 
+void deb_bpaths(const graph& G, size_t source, size_t target) {
+	logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
+
+	LOG.log() << "PATHS:" << endl;
+
+	// vertex-vertex
+	boolean_path p;
+	path(G, source, target, p);
+	LOG.log() << "- node to node" << endl;
+	LOG.log() << "    Path from " << source << " to " << target << ": ";
+	if (p.size() > 0) LOG.log() << p.to_node_path(G, source);
+	else LOG.log() << "No path!";
+	LOG.log() << endl;
+
+	// vertex-all
+	vector<boolean_path> ps;
+	path(G, source, ps);
+	LOG.log() << "- node to all" << endl;
+	for (node TARGET = 0; TARGET < G.n_nodes(); ++TARGET) {
+		LOG.log() << "    Path from " << source << " to " << TARGET << ": ";
+		if (ps[TARGET].size() > 0) LOG.log() << ps[TARGET].to_node_path(G, source);
+		else LOG.log() << "No path!";
+		LOG.log() << endl;
+	}
+
+	// all-all
+	vector<vector<boolean_path> > all_ps;
+	paths(G, all_ps);
+	LOG.log() << "- all to all" << endl;
+	for (node SOURCE = 0; SOURCE < G.n_nodes(); ++SOURCE) {
+		for (node TARGET = 0; TARGET < G.n_nodes(); ++TARGET) {
+			LOG.log() << "    Path from " << SOURCE << " to " << TARGET << ": ";
+			if (all_ps[SOURCE][TARGET].size() > 0) LOG.log() << all_ps[SOURCE][TARGET].to_node_path(G, SOURCE);
+			else LOG.log() << "No path!";
+			LOG.log() << endl;
+		}
+	}
+}
+
+void deb_all_bpaths(const graph& G, size_t source, size_t target) {
+	logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
+
+	LOG.log() << "ALL SHORTEST PATHS:" << endl;
+
+	// vertex-vertex
+	boolean_path_set node_node_paths;
+	path(G, source, target, node_node_paths);
+	LOG.log() << "- node to node" << endl;
+	LOG.log() << "    paths from " << source << " to " << target << ": ";
+	if (node_node_paths.size() == 0) {
+		LOG.log() << "No paths" << endl;
+	}
+	else {
+		LOG.log() << endl;
+		for (const boolean_path& path : node_node_paths) {
+			LOG.log() << "        " << path.to_node_path(G, source) << endl;
+		}
+	}
+
+	// vertex-all
+	vector<boolean_path_set> node_all_paths;
+	path(G, source, node_all_paths);
+	LOG.log() << "- node to all" << endl;
+	for (node TARGET = 0; TARGET < G.n_nodes(); ++TARGET) {
+		LOG.log() << "    Paths from " << source << " to " << TARGET << ": ";
+		const boolean_path_set& paths_to_target = node_all_paths[TARGET];
+		if (paths_to_target.size() == 0) {
+			LOG.log() << "No paths" << endl;
+		}
+		else {
+			LOG.log() << endl;
+			for (const boolean_path& path : paths_to_target) {
+				LOG.log() << string(8, ' ') << path.to_node_path(G, source) << endl;
+			}
+		}
+	}
+
+	// all-all
+	vector<vector<boolean_path_set> > all_all_paths;
+	paths(G, all_all_paths);
+	LOG.log() << "- all to all" << endl;
+	for (node SOURCE = 0; SOURCE < G.n_nodes(); ++SOURCE) {
+		for (node TARGET = 0; TARGET < G.n_nodes(); ++TARGET) {
+
+			LOG.log() << "    Paths from " << SOURCE << " to " << TARGET << ": ";
+			const boolean_path_set& paths_to_target = all_all_paths[SOURCE][TARGET];
+			if (paths_to_target.size() == 0) {
+				LOG.log() << "No paths" << endl;
+			}
+			else {
+				LOG.log() << endl;
+				for (const boolean_path& path : paths_to_target) {
+					LOG.log() << string(8, ' ') << path.to_node_path(G, SOURCE) << endl;
+				}
+			}
+		}
+	}
+}
+
 int main(int argc, char *argv[]) {
 	graph G;
 	read_graph(G);
@@ -230,27 +329,10 @@ int main(int argc, char *argv[]) {
 	}
 
 	deb_distances(G, S, T);
-	deb_paths(G, S, T);
-	deb_all_paths(G, S, T);
+	//deb_paths(G, S, T);
+	//deb_all_paths(G, S, T);
 
-	// dumb debug of boolean_path
-	boolean_path bp;
-	bp.init(G.n_nodes());
-	bp.add_node(0);
-	bp.add_node(4);
-	bp.add_node(1);
-	bp.add_node(7);
-	bp.add_node(8);
-
-	cout << bp.next(G, -1, 0) << endl;
-	cout << bp.next(G, 0, 4) << endl;
-	cout << bp.next(G, 4, 1) << endl;
-	cout << bp.next(G, 1, 7) << endl;
-	cout << bp.next(G, 7, 8) << endl;
-
-	cout << bp << endl;
-	cout << bp.to_node_path(G, 0) << endl;
-	cout << bp.to_string() << endl;
-	cout << bp.pretty_string() << endl;
+	deb_bpaths(G, S, T);
+	deb_all_bpaths(G, S, T);
 }
 

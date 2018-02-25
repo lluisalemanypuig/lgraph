@@ -5,23 +5,23 @@ namespace traversal {
 
 	/// VERTEX-VERTEX
 
-	void path(const graph& G, node source, node target, node_path& p) {
+	void path(const graph& G, node source, node target, boolean_path& p) {
+		const size_t N = G.n_nodes();
+
 		// path from source to target starts at source
-		p.push_back(source);
+		p.init(N);
+		p.add_node(source);
 
 		// distances from source to nodes
-		queue<node_path> paths;
+		queue<boolean_path> paths;
 		paths.push(p);
 
 		// current distance from source to u
-		node_path current_path;
+		boolean_path current_path;
 
 		// terminate when target is found
 		bfs_terminate terminate =
-		[&target](const graph&, node u, const vector<bool>&)
-		{
-			return u == target;
-		};
+		[&target](const graph&, node u, const vector<bool>&) { return u == target; };
 
 		bfs_process_current process_current =
 		[&paths, &p, &current_path, &target](const graph&, node u, const vector<bool>&)
@@ -39,8 +39,8 @@ namespace traversal {
 		[&paths, &current_path](const graph&, node, node v, const vector<bool>& vis)
 		{
 			if (not vis[v]) {
-				node_path path_to_v = current_path;
-				path_to_v.push_back(v);
+				boolean_path path_to_v = current_path;
+				path_to_v.add_node(v);
 				paths.push(path_to_v);
 			}
 		};
@@ -48,31 +48,27 @@ namespace traversal {
 		BFS(G, source, terminate, process_current, process_neighbour);
 	}
 
-	void path(const graph& G, node source, node target, node_path_set& ps) {
-		vector<node_path_set> node_all_paths;
-		path(G, source, node_all_paths);
-		ps = node_all_paths[target];
+	void path(const graph& G, node source, node target, boolean_path_set& ps) {
+		vector<boolean_path_set> boolean_all_paths;
+		path(G, source, boolean_all_paths);
+		ps = boolean_all_paths[target];
 	}
 
 	/// VERTEX-ALL
 
-	void path(const graph& G, node source, vector<node_path>& ps) {
+	void path(const graph& G, node source, vector<boolean_path>& ps) {
 		const size_t N = G.n_nodes();
 
 		// path from source to target
-		ps = vector<node_path>(N);
-		ps[source] = node_path(1);
-		ps[source][0] = source;
+		ps = vector<boolean_path>(N);
+		ps[source].init(N);
+		ps[source].add_node(source);
 
 		bfs_terminate terminate =
-		[](const graph&, node, const vector<bool>&)
-		{
-			return false;
-		};
+		[](const graph&, node, const vector<bool>&) { return false; };
 
 		bfs_process_current process_current =
-		[](const graph&, node, const vector<bool>&)
-		{ };
+		[](const graph&, node, const vector<bool>&) { };
 
 		// function to compute the shortest distance from source to node v
 		bfs_process_neighbour process_neighbour =
@@ -84,22 +80,23 @@ namespace traversal {
 			size_t d_v = ps[v].size() - 1;
 			if (d_u < d_v) {
 				ps[v] = ps[u];
-				ps[v].push_back(v);
+				ps[v].add_node(v);
 			}
 		};
 
 		BFS(G, source, terminate, process_current, process_neighbour);
 	}
 
-	void path(const graph& G, node source, vector<node_path_set>& ps) {
+	void path(const graph& G, node source, vector<boolean_path_set>& ps) {
 		const size_t N = G.n_nodes();
 
 		// all paths from source to a target
-		ps = vector<node_path_set>(N);
+		ps = vector<boolean_path_set>(N);
 
 		// only one path from source to source
-		ps[source] = node_path_set(1);
-		ps[source][0] = node_path(1, source);
+		ps[source] = boolean_path_set(1);
+		ps[source][0].init(N);
+		ps[source][0].add_node(source);
 
 		bfs_terminate terminate =
 		[](const graph&, node, const vector<bool>&) { return false; };
@@ -142,8 +139,8 @@ namespace traversal {
 			if (d_u < d_v) {
 				// if shorter path found, clear all paths to 'v' and add the new ones.
 				ps[v] = ps[u];
-				for (node_path& np : ps[v]) {
-					np.push_back(v);
+				for (boolean_path& np : ps[v]) {
+					np.add_node(v);
 				}
 			}
 			else if (d_u == d_v) {
@@ -155,7 +152,7 @@ namespace traversal {
 
 				// add another vertex to the newly added paths
 				for (size_t i = prev_size; i < ps[v].size(); ++i) {
-					ps[v][i].push_back(v);
+					ps[v][i].add_node(v);
 				}
 			}
 		};
@@ -165,12 +162,12 @@ namespace traversal {
 
 	/// ALL-ALL
 
-	void paths(const graph& G, vector<node_path_set>& all_all_paths) {
+	void paths(const graph& G, vector<boolean_path_set>& all_all_paths) {
 		const size_t N = G.n_nodes();
 
 		// allocate memory...
 		vector<vector<size_t> > dist(N, vector<size_t>(N, utils::inf));
-		all_all_paths = vector<node_path_set >(N, node_path_set(N));
+		all_all_paths = vector<boolean_path_set>(N, boolean_path_set(N, boolean_path(N)));
 
 		// initialise data
 		for (size_t u = 0; u < N; ++u) {
@@ -178,7 +175,7 @@ namespace traversal {
 			// all paths starting at a node with degree > 0 start with that node
 			for (size_t v = 0; v < N; ++v) {
 				if (G.degree(u) > 0 or u == v) {
-					all_all_paths[u][v].push_back(u);
+					all_all_paths[u][v].add_node(u);
 				}
 			}
 
@@ -186,11 +183,11 @@ namespace traversal {
 			const neighbourhood& Nu = G.get_neighbours(u);
 			for (size_t v : Nu) {
 				dist[u][v] = 1;
-				all_all_paths[u][v].push_back(v);
+				all_all_paths[u][v].add_node(v);
 			}
 		}
 
-		// find the all-to-all shortest paths (N^3)
+		// find the all-to-all paths (N^3)
 		for (size_t w = 0; w < N; ++w) {
 			// distance from a vertex to itself is 0
 			dist[w][w] = 0;
@@ -212,12 +209,12 @@ namespace traversal {
 		}
 	}
 
-	void paths(const graph& G, vector<vector<node_path_set> >& all_all_paths) {
+	void paths(const graph& G, vector<vector<boolean_path_set> >& all_all_paths) {
 		const size_t N = G.n_nodes();
 
 		// allocate memory...
 		vector<vector<size_t> > dist(N, vector<size_t>(N, utils::inf));
-		all_all_paths = vector<vector<node_path_set> >(N, vector<node_path_set>(N));
+		all_all_paths = vector<vector<boolean_path_set> >(N, vector<boolean_path_set>(N));
 
 		// initialise with edge weights (here always 1) the distance and the
 		// shortest-path from u to all its neighbours with {u,v}
@@ -225,9 +222,10 @@ namespace traversal {
 			const neighbourhood& Nu = G.get_neighbours(u);
 			for (size_t v : Nu) {
 				dist[u][v] = 1;
-				all_all_paths[u][v] = node_path_set(1);
-				all_all_paths[u][v][0].push_back(u);
-				all_all_paths[u][v][0].push_back(v);
+				all_all_paths[u][v] = boolean_path_set(1);
+				all_all_paths[u][v][0].init(N);
+				all_all_paths[u][v][0].add_node(u);
+				all_all_paths[u][v][0].add_node(v);
 			}
 		}
 
@@ -235,7 +233,9 @@ namespace traversal {
 		for (size_t w = 0; w < N; ++w) {
 			// distance from a vertex to itself is 0, the path just {w}
 			dist[w][w] = 0;
-			all_all_paths[w][w] = node_path_set(1, node_path(1, w));
+			all_all_paths[w][w] = boolean_path_set(1);
+			all_all_paths[w][w][0].init(N);
+			all_all_paths[w][w][0].add_node(w);
 
 			for (size_t u = 0; u < N; ++u) {
 				for (size_t v = 0; v < N; ++v) {
@@ -254,7 +254,7 @@ namespace traversal {
 
 							size_t n_uw = all_all_paths[u][w].size();
 							size_t n_wv = all_all_paths[w][v].size();
-							all_all_paths[u][v] = node_path_set( n_uw*n_wv );
+							all_all_paths[u][v] = boolean_path_set( n_uw*n_wv );
 
 							size_t uv = 0;
 							for (size_t uw = 0; uw < n_uw; ++uw) {

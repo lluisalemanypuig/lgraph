@@ -59,7 +59,7 @@ class boolean_path {
 		size_t n_nodes;
 
 	public:
-		boolean_path();
+		boolean_path(size_t n = 0);
 		~boolean_path();
 
 		/// INITIALISERS
@@ -81,6 +81,9 @@ class boolean_path {
 		void add_node(node u);
 		void remove_node(node u);
 
+		// Adds to this paths all nodes from bp
+		void concatenate(const boolean_path& bp);
+
 		/// OPERATORS
 
 		inline friend
@@ -92,10 +95,12 @@ class boolean_path {
 		// Check if the i-th node is in the path
 		bool operator[] (size_t i) const;
 
+		boolean_path& operator= (const boolean_path& bp);
+
 		/// GETTERS
 
 		// Returns the number of nodes in the path
-		size_t path_length() const;
+		size_t size() const;
 
 		// Returns the maximum number of nodes that
 		// could be in the path. The size used to initialise it.

@@ -1,7 +1,3 @@
 
 Changes to upload to master:
-	src/data_structures/graph_path.hpp
-	src/graph_traversal/boolean_paths.cpp
-	src/graph_traversal/distances.cpp
-	src/graph_traversal/paths.cpp
-	src/graph_traversal/traversal.hpp
+
