@@ -47,8 +47,4 @@ SOURCES += \
 	graph_traversal/distances.cpp \
 	graph_traversal/paths.cpp \
 	data_structures/graph_path.cpp \
-    graph_traversal/boolean_paths.cpp
-
-DISTFILES += \
-	TODO \
-	changelog
+    graph_traversal/paths_boolean.cpp
