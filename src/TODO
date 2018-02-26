@@ -32,20 +32,23 @@ Implement generic DFS
 [] 16/02/2018 ->
 Implement the boolean path using actual bitsets (not vector<bool>)
 
+[v] 26/02/2018 ->
+Implement betweennes centrality metric (that uses a boolean path)
+
+	[] 26/02/2018 ->
+	For a single edge
+	
+	[] 26/02/2018 ->
+	For all edges of a graph
+
 [v] 16/02/2018 -> 26/02/2018
 Implement betweennes centrality metric (that uses a boolean path)
 
 	[v] 16/02/2018 -> 26/02/2018
 	For a single vertex
 
-	[v] 26/02/2018 -> 26/02/2018
-	For a single edge
-
 	[v] 16/02/2018 -> 26/02/2018
 	For all vertices of a graph
-	
-	[v] 26/02/2018 -> 26/02/2018
-	For all edges of a graph
 
 [X] 13/02/2018 ->
 Implement betweennes centrality metric
