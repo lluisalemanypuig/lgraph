@@ -32,7 +32,7 @@ Implement generic DFS
 [] 16/02/2018 ->
 Implement the boolean path using actual bitsets (not vector<bool>)
 
-[v] 26/02/2018 ->
+[] 26/02/2018 ->
 Implement betweennes centrality metric (that uses a boolean path)
 
 	[] 26/02/2018 ->
