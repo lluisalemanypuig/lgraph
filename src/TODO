@@ -2,6 +2,10 @@ TODO LIST
 =========
 
 [] 26/02/2018 ->
+Implement an algorithm to find all connected components of a graph.
+Use it to improve betweenness centrality calculation?
+
+[] 26/02/2018 ->
 Use class 'svector' to implement the adjacency list of the graph data structure.
 
 [] 24/02/2018 ->
@@ -28,34 +32,36 @@ Implement generic DFS
 [] 16/02/2018 ->
 Implement the boolean path using actual bitsets (not vector<bool>)
 
-[] 16/02/2018 ->
+[v] 16/02/2018 -> 26/02/2018
 Implement betweennes centrality metric (that uses a boolean path)
 
-	[] 16/02/2018 ->
+	[v] 16/02/2018 -> 26/02/2018
 	For a single vertex
 
-	[] 16/02/2018 ->
-	For all vertices of a graph
-
-[] 13/02/2018 ->
-Implement betweennes centrality metric
-
-	[] 13/02/2018 ->
-	For a single vertex
-	
-	[] 26/02/2018 ->
+	[v] 26/02/2018 -> 26/02/2018
 	For a single edge
 
-	[] 13/02/2018 ->
+	[v] 16/02/2018 -> 26/02/2018
 	For all vertices of a graph
 	
-	[] 26/02/2018 ->
+	[v] 26/02/2018 -> 26/02/2018
 	For all edges of a graph
+
+[X] 13/02/2018 ->
+Implement betweennes centrality metric
+** This is solved when using boolean paths
+
+	[X] 13/02/2018 ->
+	For a single vertex
+
+	[X] 13/02/2018 ->
+	For all vertices of a graph
 
 [X] 20/02/2018 -> 20/02/2018
 Do not use a vertex-all method to count the number of shortest paths from node to node.
+** We need to traverse all the graph apparently
 
-[] 20/02/2018 -> 25/02/2018
+[v] 20/02/2018 -> 25/02/2018
 Implement algorithm to enumerate all shortest paths:
 
     [v] 20/02/2018 -> 25/02/2018

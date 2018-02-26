@@ -13,20 +13,19 @@ namespace switching {
 		}
 		
 		inline void print_edges(const vector<edge>& edges, size_t max_idx, const string& tab = "") {
-			logger<null_stream>& LOG = logger<null_stream>::get_logger();
+			logger<ofstream>& LOG = logger<ofstream>::get_logger();
 			
 			LOG.log() << tab;
 			for (size_t i = 0; i < edges.size(); ++i) {
 				string str_edge = edge_to_string(edges[i]);
 				string str_idx = std::to_string(i);
 				size_t max_len = max(str_edge.length(), str_idx.length());
-				
-				LOG.log() << setw(max_len) << str_idx;
+
 				if (i == max_idx) {
-					LOG.log() << "* ";
+					LOG.log() << setw(max_len + 1) << str_idx + "* ";
 				}
 				else {
-					LOG.log() << " ";
+					LOG.log() << setw(max_len) << str_idx << " ";
 				}
 			}
 			LOG.log() << endl;
@@ -51,7 +50,7 @@ namespace switching {
 	// The event of 'false' happens when all edges in the set share an
 	// endpoint with e1 (think of a star tree)
 	bool resort_edges(size_t e_idx, vector<edge>& all_edges, size_t& max_idx) {
-		logger<null_stream>& LOG = logger<null_stream>::get_logger();
+		logger<ofstream>& LOG = logger<ofstream>::get_logger();
 		
 		edge e = all_edges[e_idx];
 		
@@ -115,7 +114,7 @@ namespace switching {
 	
 	template<class G, typename dT>
 	void switching_model(size_t Q, drandom_generator<G,dT> *rg, graph& Gs) {
-		logger<null_stream>& LOG = logger<null_stream>::get_logger();
+		logger<ofstream>& LOG = logger<ofstream>::get_logger();
 		
 		vector<edge> all_edges;
 		Gs.edges(all_edges);

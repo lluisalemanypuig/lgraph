@@ -42,6 +42,7 @@ bool dist_mcc = false;
 
 bool cent_degree = false;
 bool cent_closeness = false;
+bool cent_betweenness = false;
 
 bool epid_sir = false;
 bool epid_sis = false;
@@ -97,6 +98,7 @@ void print_usage() {
 	cout << "* Evaluate importance of nodes:" << endl;
 	cout << "    --dc: degree centrality" << endl;
 	cout << "    --cc: closeness centrality" << endl;
+	cout << "    --bt: betweenness centrality" << endl;
 	cout << endl;
 	cout << endl;
 	cout << "* Simulation of the spread of an infection:" << endl;
@@ -163,14 +165,29 @@ void print_closeness_centrality(const graph& Gs) {
 	cout << endl;
 }
 
+void print_betweenness_centrality(const graph& Gs) {
+	cout << "    Betweenness centrality:" << endl;
+
+	vector<double> bt_cen;
+	networks::metrics::centralities::betweenness(Gs, bt_cen);
+	for (size_t u = 0; u < bt_cen.size(); ++u) {
+		cout << "    Node " << u << ": " << bt_cen[u] << endl;
+	}
+
+	cout << endl;
+}
+
 void print_centralities(const graph& Gs) {
-	if (cent_degree or cent_closeness) {
+	if (cent_degree or cent_closeness or cent_betweenness) {
 		cout << "Centralities:" << endl;
 		if (cent_degree) {
 			print_degree_centrality(Gs);
 		}
 		if (cent_closeness) {
 			print_closeness_centrality(Gs);
+		}
+		if (cent_betweenness) {
+			print_betweenness_centrality(Gs);
 		}
 	}
 }
@@ -330,6 +347,9 @@ int parse_options(int argc, char *argv[]) {
 		else if (strcmp(argv[i], "--cc") == 0) {
 			cent_closeness = true;
 		}
+		else if (strcmp(argv[i], "--bt") == 0) {
+			cent_betweenness = true;
+		}
 		else if (strcmp(argv[i], "--sir") == 0) {
 			epid_sir = true;
 		}
@@ -363,7 +383,12 @@ int main(int argc, char *argv[]) {
 		cerr << "    Use [-h, --help] to see the usage" << endl;
 		return 1;
 	}
-	
+	if (model != "none" and from_file != "none") {
+		cerr << "Error: both model and file were specified. Choose only one." << endl;
+		cerr << "    Use [-h, --help] to see the usage" << endl;
+		return 1;
+	}
+
 	drg = new drandom_generator<>();
 	crg = new crandom_generator<>();
 	if (seed) {
@@ -372,8 +397,12 @@ int main(int argc, char *argv[]) {
 	}
 	
 	graph Gs;
-	
-	if (model == "barabasi-albert") {
+
+	if (from_file != "none") {
+		// read graph from file
+		Gs.read_from_file(from_file);
+	}
+	else if (model == "barabasi-albert") {
 		if (variant == "preferential") {
 			networks::random::Barabasi_Albert::preferential_attachment(n0, m0, T, drg, Gs);
 		}
@@ -383,10 +412,6 @@ int main(int argc, char *argv[]) {
 		else if (variant == "no-growth") {
 			networks::random::Barabasi_Albert::no_vertex_growth(n0, m0, T, drg, Gs);
 		}
-	}
-	else {
-		// a file must have been specified
-		Gs.read_from_file(from_file);
 	}
 	
 	if (apply_switching) {

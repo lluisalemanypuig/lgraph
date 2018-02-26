@@ -90,10 +90,90 @@ namespace centralities {
 	/// BETWEENNESS
 
 	double betweenness(const graph& G, node u) {
-		return 0.0;
+		vector<vector<boolean_path_set> > all_to_all_paths;
+		traversal::paths(G, all_to_all_paths);
+		return betweenness(G, all_to_all_paths, u);
+	}
+
+	double betweenness(const graph& G, const vector<vector<boolean_path_set> >& paths, node u) {
+		double B = 0.0;
+
+		const size_t N = G.n_nodes();
+		for (node s = 0; s < N; ++s) {
+			for (node t = s; t < N; ++t) {
+				// amount of shortest paths between s and t
+				const double g_st = paths[s][t].size();
+
+				// don't do any more calculations if there are no paths from s to t
+				if (g_st == 0.0) continue;
+
+				// amount of shortest paths between s and t in which u lies on
+				size_t g_st_i = 0;
+				for (const boolean_path& bp : paths[s][t]) {
+					if (bp[u]) {
+						++g_st_i;
+					}
+				}
+
+				// calculate the "partial" centrality
+				B += g_st_i/g_st;
+			}
+		}
+
+		// normalise with "(n - 1) choose 2"
+		const size_t n_minus_1__chose_2 = ((N - 1)*(N - 2))/2;
+		B = B/n_minus_1__chose_2;
+		return B;
 	}
 
 	void betweenness(const graph& G, vector<double>& bc) {
+		vector<vector<boolean_path_set> > all_to_all_paths;
+		traversal::paths(G, all_to_all_paths);
+		betweenness(G, all_to_all_paths, bc);
+	}
+
+	void betweenness(const graph& G, const vector<vector<boolean_path_set> >& paths, vector<double>& bc) {
+		const size_t N = G.n_nodes();
+
+		// amount of shortest paths between s and t in
+		// which vertices of the graph lie on
+		vector<size_t> g_st_i(N);
+		// initialise data
+		bc = vector<double>(N, 0);
+
+		for (node s = 0; s < N; ++s) {
+			for (node t = s; t < N; ++t) {
+
+				// amount of shortest paths between s and t
+				const double g_st = paths[s][t].size();
+
+				// don't do any more calculations if there
+				// are no paths from s to t
+				if (g_st == 0.0) continue;
+
+				// set vector to 0
+				std::fill(g_st_i.begin(), g_st_i.end(), 0);
+
+				for (node u = 0; u < N; ++u) {
+					for (const boolean_path& bp : paths[s][t]) {
+						if (bp[u]) {
+							++g_st_i[u];
+						}
+					}
+				}
+
+				// calculate the "partial" centrality for each node
+				for (node u = 0; u < N; ++u) {
+					bc[u] += g_st_i[u]/g_st;
+				}
+			}
+		}
+
+		// normalise
+		const size_t n_minus_1__chose_2 = ((N - 1)*(N - 2))/2;
+		for (node u = 0; u < N; ++u) {
+			bc[u] /= n_minus_1__chose_2;
+		}
 	}
 	
 } // -- namespace centralities
