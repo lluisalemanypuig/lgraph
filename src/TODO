@@ -1,6 +1,9 @@
 TODO LIST
 =========
 
+[] 26/02/2018 ->
+Use class 'svector' to implement the adjacency list of the graph data structure.
+
 [] 24/02/2018 ->
 Move current algorithm to a namespace
 Implement triangle counting algorithm using adjacency matrix
@@ -39,26 +42,32 @@ Implement betweennes centrality metric
 
 	[] 13/02/2018 ->
 	For a single vertex
+	
+	[] 26/02/2018 ->
+	For a single edge
 
 	[] 13/02/2018 ->
 	For all vertices of a graph
+	
+	[] 26/02/2018 ->
+	For all edges of a graph
 
 [X] 20/02/2018 -> 20/02/2018
 Do not use a vertex-all method to count the number of shortest paths from node to node.
 
-[] 20/02/2018 ->
+[] 20/02/2018 -> 25/02/2018
 Implement algorithm to enumerate all shortest paths:
 
-    [] 20/02/2018 ->
+    [v] 20/02/2018 -> 25/02/2018
 	As boolean paths
 
-        [] 20/02/2018 ->
+        [v] 20/02/2018 -> 25/02/2018
 		Between two nodes
 
-        [] 20/02/2018 ->
+        [v] 20/02/2018 -> 25/02/2018
 		From a node to the rest
 
-        [] 20/02/2018 ->
+        [v] 20/02/2018 -> 25/02/2018
 		From a any node to any other node
 
 	[v] 20/02/2018 -> 20/02/2018
