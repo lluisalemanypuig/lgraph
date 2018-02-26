@@ -65,21 +65,6 @@ void print_distance_matrix(const vector<vector<size_t> >& dist, const vector<vec
 	LOG.log() << endl;
 }
 
-void read_graph(graph& G) {
-	size_t n_nodes;
-	cin >> n_nodes;
-
-	G.init(n_nodes);
-
-	size_t n_edges;
-	cin >> n_edges;
-	for (size_t i = 0; i < n_edges; ++i) {
-		node u, v;
-		cin >> u >> v;
-		G.add_edge(u, v);
-	}
-}
-
 void deb_distances(const graph& G, size_t source, size_t target) {
 	const size_t N = G.n_nodes();
 	logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
@@ -312,9 +297,7 @@ void deb_all_bpaths(const graph& G, size_t source, size_t target) {
 }
 
 int main(int argc, char *argv[]) {
-	graph G;
-	read_graph(G);
-	cout << G << endl;
+	string file = "none";
 
 	size_t S, T;
 	for (int i = 1; i < argc; ++i) {
@@ -326,7 +309,20 @@ int main(int argc, char *argv[]) {
 			T = atoi(argv[i + 1]);
 			++i;
 		}
+		else if (strcmp(argv[i], "-i") == 0 or strcmp(argv[i], "--input") == 0) {
+			file = string(argv[i + 1]);
+			++i;
+		}
 	}
+
+	if (file == "none") {
+		cerr << "No file specified!" << endl;
+		return 1;
+	}
+
+	graph G;
+	G.read_from_file(file);
+	cout << G << endl;
 
 	deb_distances(G, S, T);
 	//deb_paths(G, S, T);
