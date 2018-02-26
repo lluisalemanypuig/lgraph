@@ -87,7 +87,7 @@ namespace switching {
 				
 				// do not increment 'i' so that we can process the
 				// edge that was at the end of the interval and now
-				// place at the i-th position
+				// placed at the i-th position
 			}
 			else {
 				LOG.log() << "        No" << endl;
