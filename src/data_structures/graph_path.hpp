@@ -8,6 +8,7 @@ using namespace std;
 /// Custom includes
 #include "graph.hpp"
 #include "utils/definitions.hpp"
+#include "utils/static_bitset.hpp"
 
 namespace dsa {
 namespace utils {
@@ -55,7 +56,7 @@ typedef vector<node_path> node_path_set;
 // able to be converted into an object of type 'node_path'.
 class boolean_path {
 	private:
-		vector<bool> nodes_in_path;
+		static_bitset nodes_in_path;
 		size_t n_nodes;
 
 	public:

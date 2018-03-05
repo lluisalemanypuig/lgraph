@@ -6,17 +6,9 @@ namespace utils {
 	/// -----------
 /// CLASS node_path
 
-node_path::node_path() : vector<size_t>() {
-
-}
-
-node_path::node_path(size_t n) : vector<size_t>(n) {
-
-}
-
-node_path::node_path(size_t n, node u) : vector<size_t>(n, u) {
-
-}
+node_path::node_path() : vector<size_t>() { }
+node_path::node_path(size_t n) : vector<size_t>(n) { }
+node_path::node_path(size_t n, node u) : vector<size_t>(n, u) { }
 
 void node_path::concatenate(const node_path& p) {
 	insert(
@@ -39,7 +31,7 @@ boolean_path::~boolean_path() {
 /// INITIALISERS
 
 void boolean_path::init(size_t n) {
-	nodes_in_path = vector<bool>(n, false);
+	nodes_in_path.init_unset(n);
 	n_nodes = 0;
 }
 
@@ -59,14 +51,14 @@ void boolean_path::clear() {
 
 void boolean_path::add_node(node u) {
 	if (not nodes_in_path[u]) {
-		nodes_in_path[u] = true;
+		nodes_in_path.set_bit(u);
 		++n_nodes;
 	}
 }
 
 void boolean_path::remove_node(node u) {
 	if (nodes_in_path[u]) {
-		nodes_in_path[u] = false;
+		nodes_in_path.unset_bit(u);
 		--n_nodes;
 	}
 }
