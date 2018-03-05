@@ -9,6 +9,7 @@ Use it to improve betweenness centrality calculation?
 Use class 'svector' to implement the adjacency list of the graph data structure.
 
 [] 24/02/2018 ->
+Counting triangles:
 Move current algorithm to a namespace
 Implement triangle counting algorithm using adjacency matrix
 Paper:			http://www.d.umn.edu/math/Technical%20Reports/Technical%20Reports%202007-/TR%202012/yang.pdf
@@ -29,16 +30,18 @@ Implement generic Dijkstra
 [] 16/02/2018 ->
 Implement generic DFS
 
-[] 16/02/2018 ->
+[v] 16/02/2018 -> 05/03/2018
 Implement the boolean path using actual bitsets (not vector<bool>)
 
-[] 26/02/2018 ->
+[X] 26/02/2018 ->
 Implement betweennes centrality metric (that uses a boolean path)
+** Edge betweenness *may* be defined as an average of the betweenness
+centrality of its endpoints. Already solved.
 
-	[] 26/02/2018 ->
+	[X] 26/02/2018 ->
 	For a single edge
 	
-	[] 26/02/2018 ->
+	[X] 26/02/2018 ->
 	For all edges of a graph
 
 [v] 16/02/2018 -> 26/02/2018
