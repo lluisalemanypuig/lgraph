@@ -8,6 +8,8 @@ greaterThan(QT_MAJOR_VERSION, 4){
     QMAKE_CXXFLAGS += -std=c++0x
 }
 
+QMAKE_CXXFLAGS_RELEASE += -DNDEBUG
+
 CONFIG -= app_bundle
 CONFIG -= qt
 
