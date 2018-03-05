@@ -35,16 +35,18 @@ HEADERS += \
 		epidemics/sir.cpp \
 		epidemics/sis.cpp \
 	utils/logger.hpp \
-	utils/definitions.hpp
+        utils/definitions.hpp \
+        utils/static_bitset.hpp
 
 SOURCES += \
 	complex_social_networks.cpp \
 	data_structures/graph.cpp \
+        data_structures/graph_path.cpp \
 	metrics/clustering.cpp \
 	metrics/centralities.cpp \
 	metrics/distance.cpp \
 	graph_traversal/bfs.cpp \
 	graph_traversal/distances.cpp \
 	graph_traversal/paths.cpp \
-	data_structures/graph_path.cpp \
-    graph_traversal/paths_boolean.cpp
+        graph_traversal/paths_boolean.cpp \
+        utils/static_bitset.cpp

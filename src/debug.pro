@@ -13,6 +13,7 @@ CONFIG -= qt
 
 HEADERS += \
     data_structures/graph.hpp \
+    data_structures/graph_path.hpp \
     data_structures/random_generator.hpp \
         data_structures/random_generator.cpp \
         data_structures/drandom_generator.cpp \
@@ -34,20 +35,21 @@ HEADERS += \
         epidemics/sis.cpp \
     utils/logger.hpp \
     utils/definitions.hpp \
-    graph_traversal/traversal.hpp \
-    data_structures/graph_path.hpp
+    utils/static_bitset.hpp \
+    graph_traversal/traversal.hpp
 
 SOURCES += \
+    debug.cpp \
     data_structures/graph.cpp \
+    data_structures/graph_path.cpp \
     metrics/clustering.cpp \
     metrics/centralities.cpp \
     metrics/distance.cpp \
     graph_traversal/bfs.cpp \
-    debug.cpp \
-    data_structures/graph_path.cpp \
     graph_traversal/paths.cpp \
     graph_traversal/distances.cpp \
-    graph_traversal/paths_boolean.cpp
+    graph_traversal/paths_boolean.cpp \
+    utils/static_bitset.cpp
 
 DISTFILES += \
     TODO \
