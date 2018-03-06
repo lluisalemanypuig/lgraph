@@ -1,6 +1,9 @@
 TODO LIST
 =========
 
+[] 06/03/2018 ->
+Implement SIS and SIR with node immunity
+
 [] 26/02/2018 ->
 Implement an algorithm to find all connected components of a graph.
 Use it to improve betweenness centrality calculation?
