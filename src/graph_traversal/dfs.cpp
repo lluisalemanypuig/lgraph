@@ -15,15 +15,15 @@ namespace traversal {
 		logger<null_stream>& LOG = logger<null_stream>::get_logger();
 
 		vector<bool> vis(G.n_nodes(), false);
-		queue<node> Q;
+		stack<node> S;
 
 		vis[source] = true;
-		Q.push(source);
+		S.push(source);
 		bool term = false;
 
-		while (not Q.empty() and not term) {
-			node v = Q.front();
-			Q.pop();
+		while (not S.empty() and not term) {
+			node v = S.top();
+			S.pop();
 
 			LOG.log() << "Current node: " << v << endl;
 			LOG.log() << "... processing ...";
@@ -55,7 +55,7 @@ namespace traversal {
 
 						LOG.log() << "    Neighbour " << w << " was not visited before" << endl;
 
-						Q.push(w);
+						S.push(w);
 						vis[w] = true;
 					}
 					else {

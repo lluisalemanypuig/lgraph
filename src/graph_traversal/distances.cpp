@@ -19,13 +19,13 @@ namespace traversal {
 
 		// DO terminate when target node is found. BFS guarantees that when this happens
 		// the shortest distance was found
-		bfs_terminate terminate =
+		terminate terminate =
 		[&target](const graph&, node u, const vector<bool>&)
 		{
 			return u == target;
 		};
 
-		bfs_process_current process_current =
+		process_current process_current =
 		[&distances, &current_dist, &target, &st_dist](const graph&, node u, const vector<bool>&)
 		{
 			current_dist = distances.front();
@@ -36,7 +36,7 @@ namespace traversal {
 		};
 
 		// function to compute the shortest distance from source to node v
-		bfs_process_neighbour process_neighbour =
+		process_neighbour process_neighbour =
 		[&distances, &current_dist](const graph&, node, node v, const vector<bool>& vis)
 		{
 			if (not vis[v]) {
@@ -66,18 +66,18 @@ namespace traversal {
 		ds[source] = 0;
 
 		// do NOT terminate: iterate through all nodes
-		bfs_terminate terminate =
+		terminate terminate =
 		[](const graph&, node, const vector<bool>&)
 		{
 			return false;
 		};
 
 		// don't need to process the currently visited node
-		bfs_process_current process_current =
+		process_current process_current =
 		[](const graph&, node, const vector<bool>&) { };
 
 		// function to compute the shortest distance from source to node v
-		bfs_process_neighbour process_neighbour =
+		process_neighbour process_neighbour =
 		[&ds](const graph&, node u, node v, const vector<bool>&)
 		{
 			size_t d = ds[u] + 1;
@@ -100,18 +100,18 @@ namespace traversal {
 		n_paths[source] = 1;
 
 		// do NOT terminate: iterate through all nodes
-		bfs_terminate terminate =
+		terminate terminate =
 		[](const graph&, node, const vector<bool>&)
 		{
 			return false;
 		};
 
 		// don't need to process the currently visited node
-		bfs_process_current process_current =
+		process_current process_current =
 		[](const graph&, node, const vector<bool>&) { };
 
 		// function to compute the shortest distance from source to node v
-		bfs_process_neighbour process_neighbour =
+		process_neighbour process_neighbour =
 		[&ds, &n_paths](const graph&, node u, node v, const vector<bool>&)
 		{
 			size_t d = ds[u] + 1;

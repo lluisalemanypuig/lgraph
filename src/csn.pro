@@ -51,4 +51,5 @@ SOURCES += \
 	graph_traversal/distances.cpp \
 	graph_traversal/paths.cpp \
         graph_traversal/paths_boolean.cpp \
-        utils/static_bitset.cpp
+        utils/static_bitset.cpp \
+    graph_traversal/dfs.cpp

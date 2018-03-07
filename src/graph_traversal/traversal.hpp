@@ -6,6 +6,7 @@
 #include <iterator>
 #include <vector>
 #include <queue>
+#include <stack>
 using namespace std;
 
 /// Custom includes
@@ -67,17 +68,26 @@ namespace traversal {
 	- void distance(const graph& G, node source, vector<size_t>& distances);
 	*/
 
-	typedef function<bool (const graph&, node,       const vector<bool>&)> bfs_terminate;
-	typedef function<void (const graph&, node,       const vector<bool>&)> bfs_process_current;
-	typedef function<void (const graph&, node, node, const vector<bool>&)> bfs_process_neighbour;
+	typedef function<bool (const graph&, node,       const vector<bool>&)> terminate;
+	typedef function<void (const graph&, node,       const vector<bool>&)> process_current;
+	typedef function<void (const graph&, node, node, const vector<bool>&)> process_neighbour;
 
 	void BFS
 	(
 		const graph& G,
 		node source,
-		bfs_terminate terminate					= [](const graph&, node, const vector<bool>&) -> bool { return false; },
-		bfs_process_current process_current		= [](const graph&, node, const vector<bool>&) -> void {},
-		bfs_process_neighbour process_neighbour	= [](const graph&, node, node, const vector<bool>&) -> void {}
+		terminate terminate					= [](const graph&, node, const vector<bool>&) -> bool { return false; },
+		process_current process_current		= [](const graph&, node, const vector<bool>&) -> void {},
+		process_neighbour process_neighbour	= [](const graph&, node, node, const vector<bool>&) -> void {}
+	);
+
+	void DFS
+	(
+		const graph& G,
+		node source,
+		terminate terminate					= [](const graph&, node, const vector<bool>&) -> bool { return false; },
+		process_current process_current		= [](const graph&, node, const vector<bool>&) -> void {},
+		process_neighbour process_neighbour	= [](const graph&, node, node, const vector<bool>&) -> void {}
 	);
 
 	/* Functions that compute the distances:

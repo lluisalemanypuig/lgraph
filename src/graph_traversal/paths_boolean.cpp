@@ -20,10 +20,10 @@ namespace traversal {
 		boolean_path current_path;
 
 		// terminate when target is found
-		bfs_terminate terminate =
+		terminate terminate =
 		[&target](const graph&, node u, const vector<bool>&) { return u == target; };
 
-		bfs_process_current process_current =
+		process_current process_current =
 		[&paths, &p, &current_path, &target](const graph&, node u, const vector<bool>&)
 		{
 			current_path = paths.front();
@@ -35,7 +35,7 @@ namespace traversal {
 		};
 
 		// function to compute the shortest distance from source to node v
-		bfs_process_neighbour process_neighbour =
+		process_neighbour process_neighbour =
 		[&paths, &current_path](const graph&, node, node v, const vector<bool>& vis)
 		{
 			if (not vis[v]) {
@@ -64,14 +64,14 @@ namespace traversal {
 		ps[source].init(N);
 		ps[source].add_node(source);
 
-		bfs_terminate terminate =
+		terminate terminate =
 		[](const graph&, node, const vector<bool>&) { return false; };
 
-		bfs_process_current process_current =
+		process_current process_current =
 		[](const graph&, node, const vector<bool>&) { };
 
 		// function to compute the shortest distance from source to node v
-		bfs_process_neighbour process_neighbour =
+		process_neighbour process_neighbour =
 		[&ps](const graph&, node u, node v, const vector<bool>&)
 		{
 			// add one node, count the number of edges
@@ -98,14 +98,14 @@ namespace traversal {
 		ps[source][0].init(N);
 		ps[source][0].add_node(source);
 
-		bfs_terminate terminate =
+		terminate terminate =
 		[](const graph&, node, const vector<bool>&) { return false; };
 
-		bfs_process_current process_current =
+		process_current process_current =
 		[](const graph&, node, const vector<bool>&) { };
 
 		// function to compute the shortest distance from source to node v
-		bfs_process_neighbour process_neighbour =
+		process_neighbour process_neighbour =
 		[&ps](const graph&, node u, node v, const vector<bool>&)
 		{
 			// distance from 'source' to 'u'
