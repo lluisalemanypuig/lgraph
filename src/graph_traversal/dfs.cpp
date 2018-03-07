@@ -3,7 +3,7 @@
 namespace dsa {
 namespace traversal {
 
-	void BFS
+	void DFS
 	(
 		const graph& G,
 		node source,

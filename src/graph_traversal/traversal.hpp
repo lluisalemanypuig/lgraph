@@ -12,6 +12,7 @@ using namespace std;
 /// Custom includes
 #include "data_structures/graph.hpp"
 #include "data_structures/graph_path.hpp"
+#include "utils/logger.hpp"
 
 namespace dsa {
 using namespace utils;
