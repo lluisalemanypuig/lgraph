@@ -13,6 +13,8 @@ CONFIG -= qt
 
 HEADERS += \
     data_structures/graph.hpp \
+	data_structures/weighted_graph.hpp \
+		data_structures/weighted_graph.cpp \
     data_structures/graph_path.hpp \
     data_structures/random_generator.hpp \
         data_structures/random_generator.cpp \
@@ -36,7 +38,9 @@ HEADERS += \
     utils/logger.hpp \
     utils/definitions.hpp \
     utils/static_bitset.hpp \
-    graph_traversal/traversal.hpp
+	graph_traversal/traversal.hpp \
+	data_structures/abstract_graph.hpp \
+	data_structures/abstract_graph.cpp
 
 SOURCES += \
     debug.cpp \
@@ -49,8 +53,8 @@ SOURCES += \
     graph_traversal/paths.cpp \
     graph_traversal/distances.cpp \
     graph_traversal/paths_boolean.cpp \
-    utils/static_bitset.cpp \
-    graph_traversal/dfs.cpp
+	graph_traversal/dfs.cpp \
+	utils/static_bitset.cpp
 
 DISTFILES += \
     TODO \
