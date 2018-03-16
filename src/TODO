@@ -30,6 +30,9 @@ Reimplement distance and path-finding methods using Dijkstra
 [] 16/02/2018 ->
 Implement generic Dijkstra
 
+[] 16/03/2018 ->
+Implement weighted graph
+
 [v] 16/02/2018 -> 07/03/2018
 Implement generic DFS
 
