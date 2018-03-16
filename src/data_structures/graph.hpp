@@ -18,7 +18,7 @@ namespace dsa {
 namespace utils {
 
 /*
-Implementation of directed graphs as adjacency lists
+Implementation of undirected unweighted graphs with adjacency lists
 */
 class uugraph : public abstract_graph<> {
 	private:

@@ -128,11 +128,10 @@ bool uugraph::read_from_file(const char *filename) {
 		max_vert_idx = max(max_vert_idx, u);
 		max_vert_idx = max(max_vert_idx, v);
 	}
-	init(max_vert_idx + 1);
-	add_edges(edge_list);
-
 	fin.close();
 
+	init(max_vert_idx + 1);
+	add_edges(edge_list);
 	return true;
 }
 
