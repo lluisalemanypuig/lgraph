@@ -73,22 +73,26 @@ namespace traversal {
 	typedef function<void (const graph&, node,       const vector<bool>&)> process_current;
 	typedef function<void (const graph&, node, node, const vector<bool>&)> process_neighbour;
 
+	static const terminate EMPTY_TERM =					[](const graph&, node, const vector<bool>&) -> bool { return false; };
+	static const process_current EMPTY_PROC_CURR =		[](const graph&, node, const vector<bool>&) -> void {};
+	static const process_neighbour EMPTY_PROC_NEIGH =	[](const graph&, node, node, const vector<bool>&) -> void {};
+
 	void BFS
 	(
 		const graph& G,
 		node source,
-		terminate terminate					= [](const graph&, node, const vector<bool>&) -> bool { return false; },
-		process_current process_current		= [](const graph&, node, const vector<bool>&) -> void {},
-		process_neighbour process_neighbour	= [](const graph&, node, node, const vector<bool>&) -> void {}
+		terminate terminate					= EMPTY_TERM,
+		process_current process_current		= EMPTY_PROC_CURR,
+		process_neighbour process_neighbour	= EMPTY_PROC_NEIGH
 	);
 
 	void DFS
 	(
 		const graph& G,
 		node source,
-		terminate terminate					= [](const graph&, node, const vector<bool>&) -> bool { return false; },
-		process_current process_current		= [](const graph&, node, const vector<bool>&) -> void {},
-		process_neighbour process_neighbour	= [](const graph&, node, node, const vector<bool>&) -> void {}
+		terminate terminate					= EMPTY_TERM,
+		process_current process_current		= EMPTY_PROC_CURR,
+		process_neighbour process_neighbour	= EMPTY_PROC_NEIGH
 	);
 
 	/* Functions that compute the distances:
