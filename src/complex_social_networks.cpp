@@ -119,7 +119,7 @@ void print_usage() {
 	cout << "    --seed: Seed the random number generator" << endl;
 }
 
-void print_metrics(const graph& Gs) {
+void print_metrics(const uugraph& Gs) {
 	if (clust_gcc or clust_mlcc or dist_mgc or dist_diam or dist_mcc) {
 		cout << "Metrics:" << endl;
 		if (clust_gcc) {
@@ -141,7 +141,7 @@ void print_metrics(const graph& Gs) {
 	}
 }
 
-void print_degree_centrality(const graph& Gs) {
+void print_degree_centrality(const uugraph& Gs) {
 	cout << "    Degree centrality:" << endl;
 	
 	vector<double> deg_cen;
@@ -153,7 +153,7 @@ void print_degree_centrality(const graph& Gs) {
 	cout << endl;
 }
 
-void print_closeness_centrality(const graph& Gs) {
+void print_closeness_centrality(const uugraph& Gs) {
 	cout << "    Closeness centrality:" << endl;
 
 	vector<double> close_cen;
@@ -165,7 +165,7 @@ void print_closeness_centrality(const graph& Gs) {
 	cout << endl;
 }
 
-void print_betweenness_centrality(const graph& Gs) {
+void print_betweenness_centrality(const uugraph& Gs) {
 	cout << "    Betweenness centrality:" << endl;
 
 	vector<double> bt_cen;
@@ -177,7 +177,7 @@ void print_betweenness_centrality(const graph& Gs) {
 	cout << endl;
 }
 
-void print_centralities(const graph& Gs) {
+void print_centralities(const uugraph& Gs) {
 	if (cent_degree or cent_closeness or cent_betweenness) {
 		cout << "Centralities:" << endl;
 		if (cent_degree) {
@@ -231,7 +231,7 @@ void display_epid_information
 	}
 }
 
-void execute_epidemic_models(const graph& Gs) {
+void execute_epidemic_models(const uugraph& Gs) {
 	vector<size_t> n_rec, n_sus, n_inf;
 	
 	cout << "-- EPIDEMIC SIMULATION --" << endl;
@@ -396,10 +396,10 @@ int main(int argc, char *argv[]) {
 		crg->seed_random_engine();
 	}
 	
-	graph Gs;
+	uugraph Gs;
 
 	if (from_file != "none") {
-		// read graph from file
+		// read uugraph from file
 		Gs.read_from_file(from_file);
 	}
 	else if (model == "barabasi-albert") {

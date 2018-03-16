@@ -15,6 +15,10 @@ CONFIG -= qt
 
 HEADERS += \
 	data_structures/graph.hpp \
+	data_structures/abstract_graph.hpp \
+		data_structures/abstract_graph.cpp \
+	data_structures/weighted_graph.hpp \
+		data_structures/weighted_graph.cpp \
 	data_structures/graph_path.hpp \
 	data_structures/random_generator.hpp \
 		data_structures/random_generator.cpp \
@@ -38,7 +42,7 @@ HEADERS += \
 		epidemics/sis.cpp \
 	utils/logger.hpp \
         utils/definitions.hpp \
-        utils/static_bitset.hpp
+		utils/static_bitset.hpp
 
 SOURCES += \
 	complex_social_networks.cpp \
@@ -52,4 +56,4 @@ SOURCES += \
 	graph_traversal/paths.cpp \
         graph_traversal/paths_boolean.cpp \
         utils/static_bitset.cpp \
-    graph_traversal/dfs.cpp
+	graph_traversal/dfs.cpp
