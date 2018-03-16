@@ -59,7 +59,7 @@ using namespace utils;
 	void preferential_attachment(
 		size_t n0, size_t m0, size_t T,
 		drandom_generator<G,dT> *rg,
-		graph& Gs
+		uugraph& Gs
 	);
 	
 	template<
@@ -69,7 +69,7 @@ using namespace utils;
 	void random_attachment(
 		size_t n0, size_t m0, size_t T,
 		drandom_generator<G,dT> *rg,
-		graph& Gs
+		uugraph& Gs
 	);
 	
 	template<
@@ -79,7 +79,7 @@ using namespace utils;
 	void no_vertex_growth(
 		size_t n0, size_t m0, size_t T,
 		drandom_generator<G,dT> *rg,
-		graph& Gs
+		uugraph& Gs
 	);
 
 } // -- namespace Barabasi_Albert

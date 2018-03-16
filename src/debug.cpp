@@ -65,7 +65,7 @@ void print_distance_matrix(const vector<vector<size_t> >& dist, const vector<vec
 	LOG.log() << endl;
 }
 
-void deb_distances(const graph& G, size_t source, size_t target) {
+void deb_distances(const uugraph& G, size_t source, size_t target) {
 	const size_t N = G.n_nodes();
 	logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
 
@@ -98,7 +98,7 @@ void deb_distances(const graph& G, size_t source, size_t target) {
 	print_distance_matrix(all_ds, all_n_paths);
 }
 
-void deb_paths(const graph& G, size_t source, size_t target) {
+void deb_paths(const uugraph& G, size_t source, size_t target) {
 	logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
 
 	LOG.log() << "PATHS:" << endl;
@@ -137,7 +137,7 @@ void deb_paths(const graph& G, size_t source, size_t target) {
 	}
 }
 
-void deb_all_paths(const graph& G, size_t source, size_t target) {
+void deb_all_paths(const uugraph& G, size_t source, size_t target) {
 	logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
 
 	LOG.log() << "ALL SHORTEST PATHS:" << endl;
@@ -197,7 +197,7 @@ void deb_all_paths(const graph& G, size_t source, size_t target) {
 	}
 }
 
-void deb_bpaths(const graph& G, size_t source, size_t target) {
+void deb_bpaths(const uugraph& G, size_t source, size_t target) {
 	logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
 
 	LOG.log() << "PATHS:" << endl;
@@ -236,7 +236,7 @@ void deb_bpaths(const graph& G, size_t source, size_t target) {
 	}
 }
 
-void deb_all_bpaths(const graph& G, size_t source, size_t target) {
+void deb_all_bpaths(const uugraph& G, size_t source, size_t target) {
 	logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
 
 	LOG.log() << "ALL SHORTEST PATHS:" << endl;
@@ -320,7 +320,7 @@ int main(int argc, char *argv[]) {
 		return 1;
 	}
 
-	graph G;
+	uugraph G;
 	G.read_from_file(file);
 	cout << G << endl;
 

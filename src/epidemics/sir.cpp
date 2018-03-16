@@ -7,7 +7,7 @@ namespace epidemics {
 	template<class G, typename dT, typename cT>
 	void SIR
 	(
-		const graph& net,
+		const uugraph& net,
 		double p0, double beta, double gamma,
 		size_t T,
 		drandom_generator<G,dT> *drg,

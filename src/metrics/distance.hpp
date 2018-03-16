@@ -23,22 +23,22 @@ namespace distance {
 	Returns the largest distance between two vertices (diameter).
 	ds is the matrix that represents the all-to-all distances.
 	*/
-	size_t max_distance(const graph& G);
-	size_t max_distance(const graph& G, const vector<vector<size_t> >& ds);
+	size_t max_distance(const uugraph& G);
+	size_t max_distance(const uugraph& G, const vector<vector<size_t> >& ds);
 	
 	/*
 	Returns the mean geodesic distance between two vertices.
 	ds is the matrix that represents the all-to-all distances.
 	*/
-	double mean_distance(const graph& G);
-	double mean_distance(const graph& G, const vector<vector<size_t> >& ds);
+	double mean_distance(const uugraph& G);
+	double mean_distance(const uugraph& G, const vector<vector<size_t> >& ds);
 	
 	/*
 	Returns the mean closeness centrality of the network G.
 	cc is the vector with each vertex's closeness centrality.
 	*/
-	double mcc(const graph& G);
-	double mcc(const graph& G, const vector<double>& cc);
+	double mcc(const uugraph& G);
+	double mcc(const uugraph& G, const vector<double>& cc);
 	
 	
 } // -- namespace distance

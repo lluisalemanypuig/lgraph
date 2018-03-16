@@ -9,7 +9,7 @@ namespace Barabasi_Albert {
 	namespace _ng {
 		
 		// function for debugging
-		inline void print_stubs(const graph& G, const vector<size_t>& stubs, size_t max_idx, const string& tab = "") {
+		inline void print_stubs(const uugraph& G, const vector<size_t>& stubs, size_t max_idx, const string& tab = "") {
 			logger<null_stream>& LOG = logger<null_stream>::get_logger();
 
 			LOG.log() << tab << "max_idx= " << max_idx << endl;
@@ -67,7 +67,7 @@ namespace Barabasi_Albert {
 		// max_idx: upper bound of the range of the stubs vector
 		inline void update_stubs
 		(
-			const graph& G, size_t stub_idx,
+			const uugraph& G, size_t stub_idx,
 			vector<size_t>& stubs, size_t& max_idx
 		)
 		{
@@ -138,7 +138,7 @@ namespace Barabasi_Albert {
 		// Returns the maximum amount of new neighbours we can connect to u
 		inline size_t update_stubs_initial
 		(
-			const graph& G, size_t u, size_t m0,
+			const uugraph& G, size_t u, size_t m0,
 			vector<size_t>& stubs, size_t& max_idx
 		)
 		{
@@ -192,7 +192,7 @@ namespace Barabasi_Albert {
 		}
 
 		inline
-		void add_source_vertex(const graph& G, size_t u, size_t m0, vector<size_t>& stubs) {
+		void add_source_vertex(const uugraph& G, size_t u, size_t m0, vector<size_t>& stubs) {
 			if (G.degree(u) == 0) stubs.insert(stubs.end(), m0 - 1, u);
 			else stubs.insert(stubs.end(), m0, u);
 		}
@@ -204,7 +204,7 @@ namespace Barabasi_Albert {
 		size_t n0, size_t m0,
 		size_t T,
 		drandom_generator<G,dT> *rg,
-		graph& Gs
+		uugraph& Gs
 	)
 	{
 		// initialize sequences of graphs

@@ -95,7 +95,7 @@ size_t boolean_path::potential_length() const {
 	return nodes_in_path.size();
 }
 
-node boolean_path::next(const graph& G, node prev, node u) const {
+node boolean_path::next(const uugraph& G, node prev, node u) const {
 	node next = u;
 	bool found = false;
 
@@ -115,13 +115,13 @@ node boolean_path::next(const graph& G, node prev, node u) const {
 
 /// CONVERSIONS
 
-node_path boolean_path::to_node_path(const graph& G, node s) const {
+node_path boolean_path::to_node_path(const uugraph& G, node s) const {
 	node_path np;
 	to_node_path(G, s, np);
 	return np;
 }
 
-void boolean_path::to_node_path(const graph& G, node s, node_path& np) const {
+void boolean_path::to_node_path(const uugraph& G, node s, node_path& np) const {
 	if (n_nodes == 0) {
 		// no vertices in the path
 		return;

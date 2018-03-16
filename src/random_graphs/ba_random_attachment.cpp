@@ -11,7 +11,7 @@ namespace Barabasi_Albert {
 		size_t n0, size_t m0,
 		size_t T,
 		drandom_generator<G,dT> *rg,
-		graph& Gs
+		uugraph& Gs
 	)
 	{
 		// initialize sequences of graphs

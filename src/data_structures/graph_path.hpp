@@ -111,14 +111,14 @@ class boolean_path {
 		// different from prev). If the only neighbour of 'u'
 		// in the path is 'prev' then the function returns 'u'.
 		// If 'u' is the first node in the path, set 'prev' to '-1'
-		node next(const graph& G, node prev, node u) const;
+		node next(const uugraph& G, node prev, node u) const;
 
 		/// CONVERSIONS
 
 		// Converts this boolean path into a node_path. The path
 		// is assumed to start at s.
-		node_path to_node_path(const graph& G, node s) const;
-		void to_node_path(const graph& G, node s, node_path& np) const;
+		node_path to_node_path(const uugraph& G, node s) const;
+		void to_node_path(const uugraph& G, node s, node_path& np) const;
 
 		// If the path has some node in it, converts this boolean path into a
 		// formatted string

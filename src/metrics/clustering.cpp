@@ -5,7 +5,7 @@ namespace networks {
 namespace metrics {
 namespace clustering {
 
-	double gcc(const graph& G) {
+	double gcc(const uugraph& G) {
 		size_t T = 0;
 		size_t connected_triples = 0;
 		const size_t N = G.n_nodes();
@@ -37,7 +37,7 @@ namespace clustering {
 		return (1.0*T)/(connected_triples);
 	}
 	
-	double mlcc(const graph& G) {
+	double mlcc(const uugraph& G) {
 		double Cws = 0.0;
 		const size_t N = G.n_nodes();
 		

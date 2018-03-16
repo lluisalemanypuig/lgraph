@@ -62,7 +62,7 @@ namespace epidemics {
 	>
 	void SIR
 	(
-		const graph& net,
+		const uugraph& net,
 		double p0, double beta, double gamma,
 		size_t T,
 		drandom_generator<G,dT> *drg,
@@ -80,7 +80,7 @@ namespace epidemics {
 	>
 	void SIS
 	(
-		const graph& net,
+		const uugraph& net,
 		double p0, double beta, double gamma,
 		size_t T,
 		drandom_generator<G,dT> *drg,

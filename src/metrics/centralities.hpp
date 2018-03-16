@@ -24,8 +24,8 @@ namespace centralities {
 	Returns the normalised degree centrality of a single node or
 	of all nodes.
 	*/
-	double degree(const graph& G, node u);
-	void degree(const graph& G, vector<double>& dc);
+	double degree(const uugraph& G, node u);
+	void degree(const uugraph& G, vector<double>& dc);
 	
 	/// CLOSENESS CENTRALITY
 
@@ -34,9 +34,9 @@ namespace centralities {
 	all nodes. The last function admits the all-to-all distances
 	of the nodes in the graph
 	*/
-	double closeness(const graph& G, node u);
-	void closeness(const graph& G, vector<double>& cc);
-	void closeness(const graph& G, const vector<vector<size_t> >& atad, vector<double>& cc);
+	double closeness(const uugraph& G, node u);
+	void closeness(const uugraph& G, vector<double>& cc);
+	void closeness(const uugraph& G, const vector<vector<size_t> >& atad, vector<double>& cc);
 	
 	/// BETWEENNESS CENTRALITY
 
@@ -57,10 +57,10 @@ namespace centralities {
 	The second function of each pair admits a parameter giving all the shortest
 	paths between any two vertices of the graph as boolean paths.
 	*/
-	double betweenness(const graph& G, node u);
-	double betweenness(const graph& G, const vector<vector<boolean_path_set> >& paths, node u);
-	void betweenness(const graph& G, vector<double>& bc);
-	void betweenness(const graph& G, const vector<vector<boolean_path_set> >& paths, vector<double>& bc);
+	double betweenness(const uugraph& G, node u);
+	double betweenness(const uugraph& G, const vector<vector<boolean_path_set> >& paths, node u);
+	void betweenness(const uugraph& G, vector<double>& bc);
+	void betweenness(const uugraph& G, const vector<vector<boolean_path_set> >& paths, vector<double>& bc);
 	
 } // -- namespace centralities
 } // -- namespace metrics

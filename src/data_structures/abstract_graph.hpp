@@ -64,6 +64,7 @@ class abstract_graph {
 
 		// Removes the edge (u, v) from the graph.
 		virtual void remove_edge(const edge& e) = 0;
+		virtual void remove_edges(const vector<edge>& edge_list) = 0;
 		virtual void remove_edge(node u, node v) = 0;
 
 		// Deletes all memory used by the graph

@@ -69,17 +69,17 @@ namespace traversal {
 	- void distance(const graph& G, node source, vector<size_t>& distances);
 	*/
 
-	typedef function<bool (const graph&, node,       const vector<bool>&)> terminate;
-	typedef function<void (const graph&, node,       const vector<bool>&)> process_current;
-	typedef function<void (const graph&, node, node, const vector<bool>&)> process_neighbour;
+	typedef function<bool (const uugraph&, node,       const vector<bool>&)> terminate;
+	typedef function<void (const uugraph&, node,       const vector<bool>&)> process_current;
+	typedef function<void (const uugraph&, node, node, const vector<bool>&)> process_neighbour;
 
-	static const terminate EMPTY_TERM =					[](const graph&, node, const vector<bool>&) -> bool { return false; };
-	static const process_current EMPTY_PROC_CURR =		[](const graph&, node, const vector<bool>&) -> void {};
-	static const process_neighbour EMPTY_PROC_NEIGH =	[](const graph&, node, node, const vector<bool>&) -> void {};
+	static const terminate EMPTY_TERM =					[](const uugraph&, node, const vector<bool>&) -> bool { return false; };
+	static const process_current EMPTY_PROC_CURR =		[](const uugraph&, node, const vector<bool>&) -> void {};
+	static const process_neighbour EMPTY_PROC_NEIGH =	[](const uugraph&, node, node, const vector<bool>&) -> void {};
 
 	void BFS
 	(
-		const graph& G,
+		const uugraph& G,
 		node source,
 		terminate terminate					= EMPTY_TERM,
 		process_current process_current		= EMPTY_PROC_CURR,
@@ -88,7 +88,7 @@ namespace traversal {
 
 	void DFS
 	(
-		const graph& G,
+		const uugraph& G,
 		node source,
 		terminate terminate					= EMPTY_TERM,
 		process_current process_current		= EMPTY_PROC_CURR,
@@ -106,18 +106,18 @@ namespace traversal {
 
 	/// VERTEX-VERTEX
 
-	size_t distance(const graph& G, node source, node target);
-	size_t distance(const graph& G, node source, node target, size_t& n_paths);
+	size_t distance(const uugraph& G, node source, node target);
+	size_t distance(const uugraph& G, node source, node target, size_t& n_paths);
 
 	/// VERTEX-ALL
 
-	void distance(const graph& G, node source, vector<size_t>& distances);
-	void distance(const graph& G, node source, vector<size_t>& distances, vector<size_t>& n_paths);
+	void distance(const uugraph& G, node source, vector<size_t>& distances);
+	void distance(const uugraph& G, node source, vector<size_t>& distances, vector<size_t>& n_paths);
 
 	/// ALL-ALL
 
-	void distances(const graph& G, vector<vector<size_t> >& ds);
-	void distances(const graph& G, vector<vector<size_t> >& ds, vector<vector<size_t> >& n_paths);
+	void distances(const uugraph& G, vector<vector<size_t> >& ds);
+	void distances(const uugraph& G, vector<vector<size_t> >& ds, vector<vector<size_t> >& n_paths);
 
 	/* Functions that compute the paths:
 	 * - vertex-to-vertex	(BFS)
@@ -134,24 +134,24 @@ namespace traversal {
 
 	/// VERTEX-VERTEX
 
-	void path(const graph& G, node source, node target, node_path& p);
-	void path(const graph& G, node source, node target, node_path_set& ps);
-	void path(const graph& G, node source, node target, boolean_path& p);
-	void path(const graph& G, node source, node target, boolean_path_set& ps);
+	void path(const uugraph& G, node source, node target, node_path& p);
+	void path(const uugraph& G, node source, node target, node_path_set& ps);
+	void path(const uugraph& G, node source, node target, boolean_path& p);
+	void path(const uugraph& G, node source, node target, boolean_path_set& ps);
 
 	/// VERTEX-ALL
 
-	void path(const graph& G, node source, vector<node_path>& ps);
-	void path(const graph& G, node source, vector<node_path_set>& ps);
-	void path(const graph& G, node source, vector<boolean_path>& ps);
-	void path(const graph& G, node source, vector<boolean_path_set>& ps);
+	void path(const uugraph& G, node source, vector<node_path>& ps);
+	void path(const uugraph& G, node source, vector<node_path_set>& ps);
+	void path(const uugraph& G, node source, vector<boolean_path>& ps);
+	void path(const uugraph& G, node source, vector<boolean_path_set>& ps);
 
 	/// ALL-ALL
 
-	void paths(const graph& G, vector<vector<node_path> >& ps);
-	void paths(const graph& G, vector<vector<node_path_set> >& ps);
-	void paths(const graph& G, vector<vector<boolean_path> >& ps);
-	void paths(const graph& G, vector<vector<boolean_path_set> >& ps);
+	void paths(const uugraph& G, vector<vector<node_path> >& ps);
+	void paths(const uugraph& G, vector<vector<node_path_set> >& ps);
+	void paths(const uugraph& G, vector<vector<boolean_path> >& ps);
+	void paths(const uugraph& G, vector<vector<boolean_path_set> >& ps);
 
 } // -- namespace traversal
 } // -- namespace dsa

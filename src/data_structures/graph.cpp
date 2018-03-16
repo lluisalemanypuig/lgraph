@@ -5,17 +5,17 @@ namespace utils {
 
 /// PRIVATE
 
-void graph::__add_edge(const edge& e) {
+void uugraph::__add_edge(const edge& e) {
 	__add_edge(e.first, e.second);
 }
 
-void graph::__add_edges(const vector<edge>& edge_list) {
+void uugraph::__add_edges(const vector<edge>& edge_list) {
 	for (const edge& E : edge_list) {
 		__add_edge(E.first, E.second);
 	}
 }
 
-void graph::__add_edge(node u, node v) {
+void uugraph::__add_edge(node u, node v) {
 	adjacency_list[u].push_back(v);
 	adjacency_list[v].push_back(u);
 	++num_edges;
@@ -23,18 +23,18 @@ void graph::__add_edge(node u, node v) {
 
 /// PUBLIC
 
-graph::graph() : abstract_graph() {
+uugraph::uugraph() : abstract_graph() {
 }
 
-graph::graph(size_t n) : abstract_graph(n) {
+uugraph::uugraph(size_t n) : abstract_graph(n) {
 
 }
 
-graph::~graph() { }
+uugraph::~uugraph() { }
 
 /// OPERATORS
 
-graph& graph::operator= (const graph& g) {
+uugraph& uugraph::operator= (const uugraph& g) {
 	init(g.n_nodes());
 	for (size_t i = 0; i < adjacency_list.size(); ++i) {
 		adjacency_list[i] = g.adjacency_list[i];
@@ -45,23 +45,29 @@ graph& graph::operator= (const graph& g) {
 
 /// MODIFIERS
 
-void graph::add_edge(const edge& e, char w) {
+void uugraph::add_edge(const edge& e, char w) {
 	UNUSED(w); __add_edge(e);
 }
 
-void graph::add_edges(const vector<edge>& edge_list, const vector<char>& ws) {
+void uugraph::add_edges(const vector<edge>& edge_list, const vector<char>& ws) {
 	UNUSED(ws); __add_edges(edge_list);
 }
 
-void graph::add_edge(node u, node v, char w) {
+void uugraph::add_edge(node u, node v, char w) {
 	UNUSED(w); __add_edge(u, v);
 }
 
-void graph::remove_edge(const edge& e) {
+void uugraph::remove_edge(const edge& e) {
 	remove_edge(e.first, e.second);
 }
+
+void uugraph::remove_edges(const vector<edge>& edge_list) {
+	for (const edge& e : edge_list) {
+		remove_edge(e.first, e.second);
+	}
+}
 	
-void graph::remove_edge(node u, node v) {
+void uugraph::remove_edge(node u, node v) {
 	bool erased = false;
 	
 	neighbourhood& nu = adjacency_list[u];
@@ -81,7 +87,7 @@ void graph::remove_edge(node u, node v) {
 	num_edges -= erased;
 }
 
-void graph::clear() {
+void uugraph::clear() {
 	num_edges = 0;
 	for (size_t i = 0; i < adjacency_list.size(); ++i) {
 		adjacency_list[i].clear();
@@ -91,7 +97,7 @@ void graph::clear() {
 
 /// GETTERS
 
-bool graph::has_edge(node u, node v) const {
+bool uugraph::has_edge(node u, node v) const {
 	const neighbourhood& nu = adjacency_list[u];
 	const neighbourhood& nv = adjacency_list[v];
 
@@ -101,11 +107,11 @@ bool graph::has_edge(node u, node v) const {
 
 /// I/O
 
-bool graph::read_from_file(const string& filename) {
+bool uugraph::read_from_file(const string& filename) {
 	return read_from_file(filename.c_str());
 }
 
-bool graph::read_from_file(const char *filename) {
+bool uugraph::read_from_file(const char *filename) {
 	ifstream fin;
 	fin.open(filename);
 
@@ -130,11 +136,11 @@ bool graph::read_from_file(const char *filename) {
 	return true;
 }
 
-bool graph::store_in_file(const string& filename) {
+bool uugraph::store_in_file(const string& filename) {
 	return store_in_file(filename.c_str());
 }
 
-bool graph::store_in_file(const char *filename) {
+bool uugraph::store_in_file(const char *filename) {
 	ofstream fout;
 	fout.open(filename);
 

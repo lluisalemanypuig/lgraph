@@ -20,7 +20,7 @@ namespace utils {
 /*
 Implementation of directed graphs as adjacency lists
 */
-class graph : public abstract_graph<> {
+class uugraph : public abstract_graph<> {
 	private:
 
 		void __add_edge(const edge& e);
@@ -28,14 +28,14 @@ class graph : public abstract_graph<> {
 		void __add_edge(node u, node v);
 
 	public:
-		graph();
-		graph(size_t n); // n: number of nodes
-		~graph();
+		uugraph();
+		uugraph(size_t n); // n: number of nodes
+		~uugraph();
 
 		/// OPERATORS
 		
 		inline friend
-		ostream& operator<< (ostream& os, const graph& g) {
+		ostream& operator<< (ostream& os, const uugraph& g) {
 			for (size_t i = 0; i < g.adjacency_list.size(); ++i) {
 				os << i << ":";
 				lcit begin = g.adjacency_list[i].begin();
@@ -46,18 +46,19 @@ class graph : public abstract_graph<> {
 			return os;
 		}
 
-		graph& operator= (const graph& g);
+		uugraph& operator= (const uugraph& g);
 		
 		/// MODIFIERS
 
 		// Adds a directed edge between nodes u and v assuming it does
-		// not exist.
+		// not exist. The weight, if provided, is ignored.
 		void add_edge(const edge& e, char w = 0);
 		void add_edges(const vector<edge>& edge_list, const vector<char>& ws = vector<char>());
 		void add_edge(node u, node v, char w = 0);
 		
 		// Removes the edge (u, v) from the graph.
 		void remove_edge(const edge& e);
+		void remove_edges(const vector<edge>& edge_list);
 		void remove_edge(node u, node v);
 		
 		// Deletes all edges and nodes from the graph

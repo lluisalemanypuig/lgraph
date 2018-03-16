@@ -5,7 +5,7 @@ namespace traversal {
 
 	/// VERTEX-VERTEX
 
-	void path(const graph& G, node source, node target, node_path& p) {
+	void path(const uugraph& G, node source, node target, node_path& p) {
 		// path from source to target starts at source
 		p.push_back(source);
 
@@ -18,13 +18,13 @@ namespace traversal {
 
 		// terminate when target is found
 		terminate terminate =
-		[&target](const graph&, node u, const vector<bool>&)
+		[&target](const uugraph&, node u, const vector<bool>&)
 		{
 			return u == target;
 		};
 
 		process_current process_current =
-		[&paths, &p, &current_path, &target](const graph&, node u, const vector<bool>&)
+		[&paths, &p, &current_path, &target](const uugraph&, node u, const vector<bool>&)
 		{
 			current_path = paths.front();
 			paths.pop();
@@ -36,7 +36,7 @@ namespace traversal {
 
 		// function to compute the shortest distance from source to node v
 		process_neighbour process_neighbour =
-		[&paths, &current_path](const graph&, node, node v, const vector<bool>& vis)
+		[&paths, &current_path](const uugraph&, node, node v, const vector<bool>& vis)
 		{
 			if (not vis[v]) {
 				node_path path_to_v = current_path;
@@ -48,7 +48,7 @@ namespace traversal {
 		BFS(G, source, terminate, process_current, process_neighbour);
 	}
 
-	void path(const graph& G, node source, node target, node_path_set& ps) {
+	void path(const uugraph& G, node source, node target, node_path_set& ps) {
 		vector<node_path_set> node_all_paths;
 		path(G, source, node_all_paths);
 		ps = node_all_paths[target];
@@ -56,7 +56,7 @@ namespace traversal {
 
 	/// VERTEX-ALL
 
-	void path(const graph& G, node source, vector<node_path>& ps) {
+	void path(const uugraph& G, node source, vector<node_path>& ps) {
 		const size_t N = G.n_nodes();
 
 		// path from source to target
@@ -65,18 +65,18 @@ namespace traversal {
 		ps[source][0] = source;
 
 		terminate terminate =
-		[](const graph&, node, const vector<bool>&)
+		[](const uugraph&, node, const vector<bool>&)
 		{
 			return false;
 		};
 
 		process_current process_current =
-		[](const graph&, node, const vector<bool>&)
+		[](const uugraph&, node, const vector<bool>&)
 		{ };
 
 		// function to compute the shortest distance from source to node v
 		process_neighbour process_neighbour =
-		[&ps](const graph&, node u, node v, const vector<bool>&)
+		[&ps](const uugraph&, node u, node v, const vector<bool>&)
 		{
 			// add one node, count the number of edges
 			size_t d_u = ps[u].size() + 1 - 1;
@@ -91,7 +91,7 @@ namespace traversal {
 		BFS(G, source, terminate, process_current, process_neighbour);
 	}
 
-	void path(const graph& G, node source, vector<node_path_set>& ps) {
+	void path(const uugraph& G, node source, vector<node_path_set>& ps) {
 		const size_t N = G.n_nodes();
 
 		// all paths from source to a target
@@ -102,14 +102,14 @@ namespace traversal {
 		ps[source][0] = node_path(1, source);
 
 		terminate terminate =
-		[](const graph&, node, const vector<bool>&) { return false; };
+		[](const uugraph&, node, const vector<bool>&) { return false; };
 
 		process_current process_current =
-		[](const graph&, node, const vector<bool>&) { };
+		[](const uugraph&, node, const vector<bool>&) { };
 
 		// function to compute the shortest distance from source to node v
 		process_neighbour process_neighbour =
-		[&ps](const graph&, node u, node v, const vector<bool>&)
+		[&ps](const uugraph&, node u, node v, const vector<bool>&)
 		{
 			// distance from 'source' to 'u'
 			size_t d_u;
@@ -165,7 +165,7 @@ namespace traversal {
 
 	/// ALL-ALL
 
-	void paths(const graph& G, vector<node_path_set>& all_all_paths) {
+	void paths(const uugraph& G, vector<node_path_set>& all_all_paths) {
 		const size_t N = G.n_nodes();
 
 		// allocate memory...
@@ -212,7 +212,7 @@ namespace traversal {
 		}
 	}
 
-	void paths(const graph& G, vector<vector<node_path_set> >& all_all_paths) {
+	void paths(const uugraph& G, vector<vector<node_path_set> >& all_all_paths) {
 		const size_t N = G.n_nodes();
 
 		// allocate memory...

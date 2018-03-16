@@ -7,13 +7,13 @@ namespace centralities {
 	
 	/// DEGREE
 
-	double degree(const graph& G, node u) {
+	double degree(const uugraph& G, node u) {
 		// number of nodes minus 1
 		const double nm1 = G.n_nodes() - 1;
 		return G.degree(u)/nm1;
 	}
 
-	void degree(const graph& G, vector<double>& dc) {
+	void degree(const uugraph& G, vector<double>& dc) {
 		vector<node> nds;
 		G.nodes(nds);
 		
@@ -37,7 +37,7 @@ namespace centralities {
 
 	/// CLOSENESS
 	
-	double closeness(const graph& G, node u) {
+	double closeness(const uugraph& G, node u) {
 		vector<size_t> ds;
 		traversal::distance(G, u, ds);
 		double sum = std::accumulate
@@ -55,13 +55,13 @@ namespace centralities {
 		return 1.0/(sum/(G.n_nodes() - 1));
 	}
 
-	void closeness(const graph& G, vector<double>& cc) {
+	void closeness(const uugraph& G, vector<double>& cc) {
 		vector<vector<size_t> > ds;
 		traversal::distances(G, ds);
 		return closeness(G, ds, cc);
 	}
 
-	void closeness(const graph& G, const vector<vector<size_t> >& ds, vector<double>& cc) {
+	void closeness(const uugraph& G, const vector<vector<size_t> >& ds, vector<double>& cc) {
 		transform(
 			// iterate through all nodes
 			ds.begin(), ds.end(),
@@ -89,13 +89,13 @@ namespace centralities {
 
 	/// BETWEENNESS
 
-	double betweenness(const graph& G, node u) {
+	double betweenness(const uugraph& G, node u) {
 		vector<vector<boolean_path_set> > all_to_all_paths;
 		traversal::paths(G, all_to_all_paths);
 		return betweenness(G, all_to_all_paths, u);
 	}
 
-	double betweenness(const graph& G, const vector<vector<boolean_path_set> >& paths, node u) {
+	double betweenness(const uugraph& G, const vector<vector<boolean_path_set> >& paths, node u) {
 		double B = 0.0;
 
 		const size_t N = G.n_nodes();
@@ -126,13 +126,13 @@ namespace centralities {
 		return B;
 	}
 
-	void betweenness(const graph& G, vector<double>& bc) {
+	void betweenness(const uugraph& G, vector<double>& bc) {
 		vector<vector<boolean_path_set> > all_to_all_paths;
 		traversal::paths(G, all_to_all_paths);
 		betweenness(G, all_to_all_paths, bc);
 	}
 
-	void betweenness(const graph& G, const vector<vector<boolean_path_set> >& paths, vector<double>& bc) {
+	void betweenness(const uugraph& G, const vector<vector<boolean_path_set> >& paths, vector<double>& bc) {
 		const size_t N = G.n_nodes();
 
 		// amount of shortest paths between s and t in

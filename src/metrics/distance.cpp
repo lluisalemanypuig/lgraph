@@ -5,13 +5,13 @@ namespace networks {
 namespace metrics {
 namespace distance {
 
-	size_t max_distance(const graph& G) {
+	size_t max_distance(const uugraph& G) {
 		vector<vector<size_t> > ds;
 		traversal::distances(G, ds);
 		return max_distance(G, ds);
 	}
 
-	size_t max_distance(const graph& G, const vector<vector<size_t> >& ds) {
+	size_t max_distance(const uugraph& G, const vector<vector<size_t> >& ds) {
 		const size_t N = G.n_nodes();
 		size_t D = 0;
 		for (size_t i = 0; i < N; ++i) {
@@ -30,13 +30,13 @@ namespace distance {
 		return D;
 	}
 
-	double mean_distance(const graph& G) {
+	double mean_distance(const uugraph& G) {
 		vector<vector<size_t> > ds;
 		traversal::distances(G, ds);
 		return mean_distance(G, ds);
 	}
 
-	double mean_distance(const graph& G, const vector<vector<size_t> >& ds) {
+	double mean_distance(const uugraph& G, const vector<vector<size_t> >& ds) {
 		const size_t N = G.n_nodes();
 		double m = 0;
 		for (size_t i = 0; i < N; ++i) {
@@ -60,13 +60,13 @@ namespace distance {
 		return m/N;
 	}
 	
-	double mcc(const graph& G) {
+	double mcc(const uugraph& G) {
 		vector<double> cc;
 		centralities::closeness(G, cc);
 		return mcc(G, cc);
 	}
 
-	double mcc(const graph& G, const vector<double>& cc) {
+	double mcc(const uugraph& G, const vector<double>& cc) {
 		double S = std::accumulate(cc.begin(), cc.end(), 0.0);
 		return S/G.n_nodes();
 	}

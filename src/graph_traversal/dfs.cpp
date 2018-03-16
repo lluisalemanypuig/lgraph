@@ -5,7 +5,7 @@ namespace traversal {
 
 	void DFS
 	(
-		const graph& G,
+		const uugraph& G,
 		node source,
 		terminate terminate,
 		process_current process_current,

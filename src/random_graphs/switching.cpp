@@ -113,7 +113,7 @@ namespace switching {
 	}
 	
 	template<class G, typename dT>
-	void switching_model(size_t Q, drandom_generator<G,dT> *rg, graph& Gs) {
+	void switching_model(size_t Q, drandom_generator<G,dT> *rg, uugraph& Gs) {
 		logger<ofstream>& LOG = logger<ofstream>::get_logger();
 		
 		vector<edge> all_edges;

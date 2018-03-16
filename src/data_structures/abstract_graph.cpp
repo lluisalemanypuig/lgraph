@@ -69,8 +69,6 @@ void abstract_graph<T>::init(size_t n) {
 
 /// OPERATORS
 
-
-
 /// MODIFIERS
 
 template<class T>
