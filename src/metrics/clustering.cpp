@@ -14,9 +14,9 @@ namespace clustering {
 		for (size_t u = 0; u < N; ++u) {
 			
 			const neighbourhood& neigh_u = G.get_neighbours(u);
-			for (lcit v = neigh_u.begin(); v != neigh_u.end(); ++v) {
+			for (ncit v = neigh_u.begin(); v != neigh_u.end(); ++v) {
 				
-				lcit w = v; ++w;
+				ncit w = v; ++w;
 				for (; w != neigh_u.end(); ++w) {
 					// ... get two different neighbours of u (v, w) and
 					// check if they are connected. If so, we found a triangle
@@ -53,9 +53,9 @@ namespace clustering {
 				size_t T = 0;
 				
 				const neighbourhood& neigh_u = G.get_neighbours(u);
-				for (lcit v = neigh_u.begin(); v != neigh_u.end(); ++v) {
+				for (ncit v = neigh_u.begin(); v != neigh_u.end(); ++v) {
 					
-					lcit w = v; ++w;
+					ncit w = v; ++w;
 					for (; w != neigh_u.end(); ++w) {
 						// ... get two different neighbours of u (v, w) and
 						// check if there is a connection.

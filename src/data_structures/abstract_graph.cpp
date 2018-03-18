@@ -6,9 +6,9 @@ namespace utils {
 /// PROTECTED
 
 template<class T>
-lcit abstract_graph<T>::cget_neighbour_position(const neighbourhood& n, node u) const {
+ncit abstract_graph<T>::cget_neighbour_position(const neighbourhood& n, node u) const {
 	bool found = false;
-	lcit cit = n.begin();
+	ncit cit = n.begin();
 	while (cit != n.end() and not found) {
 		if (*cit == u) found = true;
 		else ++cit;
@@ -17,32 +17,14 @@ lcit abstract_graph<T>::cget_neighbour_position(const neighbourhood& n, node u) 
 }
 
 template<class T>
-lit abstract_graph<T>::get_neighbour_position(neighbourhood& n, node u) {
+nit abstract_graph<T>::get_neighbour_position(neighbourhood& n, node u) {
 	bool found = false;
-	lit it = n.begin();
+	nit it = n.begin();
 	while (it != n.end() and not found) {
 		if (*it == u) found = true;
 		else ++it;
 	}
 	return it;
-}
-
-template<class T>
-void abstract_graph<T>::get_unique_edges(set<edge>& unique_edges) const {
-	// insert all edges into a set to get only those that are unique
-	for (size_t i = 0; i < adjacency_list.size(); ++i) {
-		lcit it = adjacency_list[i].begin();
-		while (it != adjacency_list[i].end()) {
-
-			edge e;
-			if (i < *it) e = edge(i, *it);
-			else e = edge(*it, i);
-
-			bool new_edge = unique_edges.find(e) == unique_edges.end();
-			if (new_edge) unique_edges.insert(e);
-			++it;
-		}
-	}
 }
 
 /// PUBLIC
@@ -60,12 +42,6 @@ abstract_graph<T>::abstract_graph(size_t n) {
 
 template<class T>
 abstract_graph<T>::~abstract_graph() { }
-
-template<class T>
-void abstract_graph<T>::init(size_t n) {
-	clear();
-	adjacency_list = vector<neighbourhood>(n);
-}
 
 /// OPERATORS
 
@@ -109,23 +85,6 @@ void abstract_graph<T>::nodes(vector<node>& all_nodes) const {
 }
 
 template<class T>
-void abstract_graph<T>::edges(vector<edge>& all_edges) const {
-	set<edge> unique_edges;
-	get_unique_edges(unique_edges);
-
-	// Dump all unique edges from the set into the vector 'all_edges'.
-	// The size of the vector is equal to 'num_edges'
-	size_t i = 0;
-	all_edges.resize(unique_edges.size());
-	set<edge>::const_iterator it = unique_edges.begin();
-	while (it != unique_edges.end()) {
-		all_edges[i] = *it;
-		++it;
-		++i;
-	}
-}
-
-template<class T>
 const neighbourhood& abstract_graph<T>::get_neighbours(node u) const {
 	return adjacency_list[u];
 }
@@ -147,6 +106,8 @@ void abstract_graph<T>::get_adjacency_matrix(vector<vector<bool> >& adj_mat) con
 	}
 }
 
+/// I/O
+
 /// CHARCATERISTICS OF ALL GRAPHS
 
 template<class T>
@@ -166,10 +127,10 @@ size_t abstract_graph<T>::n_triangles() const {
 	for (size_t u = 0; u < N; ++u) {
 
 		const neighbourhood& Nu = get_neighbours(u);
-		lcit v = Nu.begin();
+		ncit v = Nu.begin();
 		for (; v != Nu.end(); ++v) {
 
-			lcit w = v; ++w;
+			ncit w = v; ++w;
 			for (; w != Nu.end(); ++w) {
 
 				// existing edges: (u, v), (u, w)

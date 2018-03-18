@@ -12,8 +12,8 @@ namespace utils {
 
 typedef size_t node;
 typedef vector<node> neighbourhood;
-typedef neighbourhood::const_iterator lcit;
-typedef neighbourhood::iterator lit;
+typedef neighbourhood::const_iterator ncit;
+typedef neighbourhood::iterator nit;
 typedef pair<node, node> edge;
 
 /*
@@ -28,23 +28,20 @@ class abstract_graph {
 
 		// Returns a constant iterator to node u in the neighbourhood n
 		// of some node in the graph.
-		lcit cget_neighbour_position(const neighbourhood& n, node u) const;
+		ncit cget_neighbour_position(const neighbourhood& n, node u) const;
 
 		// Returns an iterator to node u in the neighbourhood n of some
 		// node in the graph.
-		lit get_neighbour_position(neighbourhood& n, node u);
-
-		// computes the set of unique edges (remember: this is an undirected graph)
-		void get_unique_edges(set<edge>& s) const;
+		nit get_neighbour_position(neighbourhood& n, node u);
 
 	public:
 		abstract_graph();
 		abstract_graph(size_t n);
-		~abstract_graph();
+		virtual ~abstract_graph();
 
 		// Clears the graph and initializes it
 		// with an empty graph of 'n' nodes
-		void init(size_t n);
+		virtual void init(size_t n) = 0;
 
 		/// OPERATORS
 
@@ -86,9 +83,6 @@ class abstract_graph {
 
 		// Returns all nodes (as integers)
 		void nodes(vector<node>& all_nodes) const;
-
-		// Returns all edges as pairs of nodes
-		void edges(vector<edge>& e) const;
 
 		// Returns the neighbourhood of node u
 		const neighbourhood& get_neighbours(node u) const;

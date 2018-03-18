@@ -27,10 +27,14 @@ class uugraph : public abstract_graph<> {
 		void __add_edges(const vector<edge>& edge_list);
 		void __add_edge(node u, node v);
 
+		void get_unique_edges(set<edge>& edges) const;
+
 	public:
 		uugraph();
 		uugraph(size_t n); // n: number of nodes
 		~uugraph();
+
+		void init(size_t n);
 
 		/// OPERATORS
 		
@@ -38,9 +42,9 @@ class uugraph : public abstract_graph<> {
 		ostream& operator<< (ostream& os, const uugraph& g) {
 			for (size_t i = 0; i < g.adjacency_list.size(); ++i) {
 				os << i << ":";
-				lcit begin = g.adjacency_list[i].begin();
-				lcit end = g.adjacency_list[i].end();
-				for (lcit it = begin; it != end; ++it) os << " " << *it;
+				ncit begin = g.adjacency_list[i].begin();
+				ncit end = g.adjacency_list[i].end();
+				for (ncit it = begin; it != end; ++it) os << " " << *it;
 				if (i < g.adjacency_list.size() - 1) os << endl;
 			}
 			return os;
@@ -65,6 +69,9 @@ class uugraph : public abstract_graph<> {
 		void clear();
 		
 		/// GETTERS
+
+		// Returns all unique edges of this graph
+		void edges(vector<edge>& all_edges) const;
 
 		// Returns true if there is an undirected edge between nodes u and v
 		bool has_edge(node u, node v) const;
