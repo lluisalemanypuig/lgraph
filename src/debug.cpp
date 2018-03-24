@@ -337,32 +337,64 @@ int debug_path_finding(int argc, char *argv[]) {
 
 void debug_graphs() {
 	uwgraph<float> Gw;
+	uugraph Guw;
 
 	Gw.init(10);
-	Gw.add_edge(0, 1, 10);
-	Gw.add_edge(0, 9, 1);
-	Gw.add_edge(1, 2, 3);
-	Gw.add_edge(2, 3, -1);
-	Gw.add_edge(0, 7, 8);
-	Gw.add_edge(5, 4, 3.2);
+	Guw.init(10);
 
-	cout << "----------------------" << endl;
-	cout << Gw << endl;
-	cout << "----------------------" << endl;
+	string g, filename, option;
+	cin >> g;
 
-	cout << "Remove edge: (0, 9)" << endl;
-	Gw.remove_edge(0, 9);
+	size_t u, v;
+	float w;
 
-	cout << "----------------------" << endl;
-	cout << Gw << endl;
-	cout << "----------------------" << endl;
-
-	cout << "Remove edge: (0, 7)" << endl;
-	Gw.remove_edge(0, 7);
-
-	cout << "----------------------" << endl;
-	cout << Gw << endl;
-	cout << "----------------------" << endl;
+	while (cin >> option and option != "exit") {
+		if (option == "add-edge") {
+			cin >> u >> v;
+			if (g == "weighted") {
+				cin >> w;
+				Gw.add_edge(u, v, w);
+			}
+			else {
+				Guw.add_edge(u, v);
+			}
+		}
+		else if (option == "remove-edge") {
+			cin >> u >> v;
+			if (g == "weighted") {
+				Gw.remove_edge(u, v);
+			}
+			else {
+				Guw.remove_edge(u, v);
+			}
+		}
+		else if (option == "store") {
+			cin >> filename;
+			if (g == "weighted") {
+				Gw.store_in_file(filename);
+			}
+			else {
+				Guw.store_in_file(filename);
+			}
+		}
+		else if (option == "read") {
+			cin >> filename;
+			if (g == "weighted") {
+				Gw.read_from_file(filename);
+			}
+			else {
+				Guw.read_from_file(filename);
+			}
+		}
+		else if (option == "print") {
+			if (g == "weighted") {
+				cout << Gw << endl;
+			}
+			else {
+				cout << Guw << endl;
+			}
+		}
+	}
 }
 
 int main(int argc, char *argv[]) {
