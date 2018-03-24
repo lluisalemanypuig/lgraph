@@ -106,10 +106,27 @@ void uwgraph<T>::remove_edges(const vector<edge>& edge_list) {
 
 template<class T>
 void uwgraph<T>::remove_edge(node u, node v) {
+	bool erased = false;
 
-	cout << "void uwgraph<T>::remove_edge(node u, node v)" << endl;
-	cout << "    -> Method not implemented yet" << endl;
+	neighbourhood& nu = abstract_graph<T>::adjacency_list[u];
+	vector<T>& wu = weights[u];
+	nit it_u = abstract_graph<T>::get_neighbour_position(nu, v);
+	if (it_u != nu.end()) {
+		nu.erase(it_u);
+		wu.erase( wu.begin() + (it_u - nu.begin()) );
+		erased = true;
+	}
 
+	neighbourhood& nv = abstract_graph<T>::adjacency_list[v];
+	vector<T>& wv = weights[v];
+	nit it_v = abstract_graph<T>::get_neighbour_position(nv, u);
+	if (it_v != nv.end()) {
+		nv.erase(it_v);
+		wv.erase( wv.begin() + (it_v - nv.begin()) );
+		erased = true;
+	}
+
+	abstract_graph<T>::num_edges -= erased;
 }
 
 template<class T>
@@ -117,6 +134,7 @@ void uwgraph<T>::clear() {
 	abstract_graph<T>::num_edges = 0;
 	for (size_t i = 0; i < abstract_graph<T>::adjacency_list.size(); ++i) {
 		abstract_graph<T>::adjacency_list[i].clear();
+		weights[i].clear();
 	}
 	abstract_graph<T>::adjacency_list.clear();
 	weights.clear();
@@ -145,9 +163,28 @@ bool uwgraph<T>::read_from_file(const string& filename) {
 template<class T>
 bool uwgraph<T>::read_from_file(const char *filename) {
 
-	cout << "bool uwgraph<T>::read_from_file(const char *filename)" << endl;
-	cout << "    -> Method not implemented yet" << endl;
+	ifstream fin;
+	fin.open(filename);
+	if (not fin.is_open()) {
+		return false;
+	}
 
+	size_t max_vert_idx = 0;
+	vector<edge> edge_list;
+	vector<T> weights;
+	size_t u, v;
+	T w;
+	while (fin >> u >> v) {
+		fin >> w;
+		edge_list.push_back(edge(u, v));
+		weights.push_back(w);
+		max_vert_idx = max(max_vert_idx, u);
+		max_vert_idx = max(max_vert_idx, v);
+	}
+
+	init(max_vert_idx + 1);
+	add_edges(edge_list, weights);
+	fin.close();
 	return true;
 }
 
