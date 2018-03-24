@@ -16,6 +16,9 @@ void uugraph::__add_edges(const vector<edge>& edge_list) {
 }
 
 void uugraph::__add_edge(node u, node v) {
+	assert(u < adjacency_list.size());
+	assert(v < adjacency_list.size());
+
 	adjacency_list[u].push_back(v);
 	adjacency_list[v].push_back(u);
 	++num_edges;
@@ -96,15 +99,18 @@ void uugraph::remove_edges(const vector<edge>& edge_list) {
 }
 	
 void uugraph::remove_edge(node u, node v) {
+	assert(u < adjacency_list.size());
+	assert(v < adjacency_list.size());
+
 	bool erased = false;
-	
+
 	neighbourhood& nu = adjacency_list[u];
 	nit it_u = get_neighbour_position(nu, v);
 	if (it_u != nu.end()) {
 		nu.erase(it_u);
 		erased = true;
 	}
-	
+
 	neighbourhood& nv = adjacency_list[v];
 	nit it_v = get_neighbour_position(nv, u);
 	if (it_v != nv.end()) {

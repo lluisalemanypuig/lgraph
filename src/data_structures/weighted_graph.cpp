@@ -85,6 +85,11 @@ void uwgraph<T>::add_edges(const vector<edge>& edge_list, const vector<T>& ws) {
 
 template<class T>
 void uwgraph<T>::add_edge(node u, node v, T w) {
+	assert(u < abstract_graph<T>::adjacency_list.size());
+	assert(v < abstract_graph<T>::adjacency_list.size());
+	assert(u < weights.size());
+	assert(v < weights.size());
+
 	abstract_graph<T>::adjacency_list[u].push_back(v);
 	abstract_graph<T>::adjacency_list[v].push_back(u);
 
@@ -106,6 +111,11 @@ void uwgraph<T>::remove_edges(const vector<edge>& edge_list) {
 
 template<class T>
 void uwgraph<T>::remove_edge(node u, node v) {
+	assert(u < abstract_graph<T>::adjacency_list.size());
+	assert(v < abstract_graph<T>::adjacency_list.size());
+	assert(u < weights.size());
+	assert(v < weights.size());
+
 	bool erased = false;
 
 	neighbourhood& nu = abstract_graph<T>::adjacency_list[u];
