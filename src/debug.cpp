@@ -297,8 +297,7 @@ void deb_all_bpaths(const uugraph& G, size_t source, size_t target) {
 	}
 }
 
-int main(int argc, char *argv[]) {
-	/*
+int debug_path_finding(int argc, char *argv[]) {
 	string file = "none";
 
 	size_t S, T;
@@ -332,23 +331,41 @@ int main(int argc, char *argv[]) {
 
 	deb_bpaths(G, S, T);
 	deb_all_bpaths(G, S, T);
-	*/
 
+	return 0;
+}
+
+void debug_graphs() {
 	uwgraph<float> Gw;
+
 	Gw.init(10);
-
-	cout << "----------------------" << endl;
 	Gw.add_edge(0, 1, 10);
-	cout << Gw << endl;
-
-	cout << "----------------------" << endl;
 	Gw.add_edge(0, 9, 1);
 	Gw.add_edge(1, 2, 3);
 	Gw.add_edge(2, 3, -1);
 	Gw.add_edge(0, 7, 8);
 	Gw.add_edge(5, 4, 3.2);
-	cout << Gw << endl;
 
-	Gw.store_in_file("weighted.graph");
+	cout << "----------------------" << endl;
+	cout << Gw << endl;
+	cout << "----------------------" << endl;
+
+	cout << "Remove edge: (0, 9)" << endl;
+	Gw.remove_edge(0, 9);
+
+	cout << "----------------------" << endl;
+	cout << Gw << endl;
+	cout << "----------------------" << endl;
+
+	cout << "Remove edge: (0, 7)" << endl;
+	Gw.remove_edge(0, 7);
+
+	cout << "----------------------" << endl;
+	cout << Gw << endl;
+	cout << "----------------------" << endl;
+}
+
+int main(int argc, char *argv[]) {
+	debug_graphs();
 }
 
