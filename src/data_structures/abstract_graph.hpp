@@ -90,17 +90,21 @@ class abstract_graph {
 		// Returns the number of neighbours of u
 		size_t degree(node u) const;
 
-		// Returns the adjacency matrix of this graph
-		void get_adjacency_matrix(vector<vector<bool> >& adj_mat) const;
+		// Returns the weight of the existing edge (u,v)
+		virtual T weight(node u, node v) const = 0;
 
 		/// I/O
 
+		// Reads/writes the graph from/into the file with name 'filename'
 		virtual bool read_from_file(const string& filename) = 0;
 		virtual bool read_from_file(const char *filename) = 0;
 		virtual bool store_in_file(const string& filename) = 0;
 		virtual bool store_in_file(const char *filename) = 0;
 
-		/// CHARCATERISTICS OF ALL GRAPHS
+		/// GRAPH FEATURES
+
+		// Returns the adjacency matrix of this graph
+		void get_adjacency_matrix(vector<vector<bool> >& adj_mat) const;
 
 		// Returns the degree sequence of the graph
 		// pairs: degree, amount

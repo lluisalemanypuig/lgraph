@@ -11,6 +11,7 @@ using namespace std;
 
 /// Custom includes
 #include "abstract_graph.hpp"
+#include "utils/definitions.hpp"
 
 namespace dsa {
 namespace utils {
@@ -68,6 +69,9 @@ class uwgraph : public abstract_graph<T> {
 
 		// Deletes all edges and nodes from the graph
 		void clear();
+
+		// Returns the weight of the existing edge (u,v)
+		T weight(node u, node v) const;
 
 		/// GETTERS
 

@@ -94,6 +94,10 @@ size_t abstract_graph<T>::degree(node u) const {
 	return adjacency_list[u].size();
 }
 
+/// I/O
+
+/// FEATURES OF GRAPHS
+
 template<class T>
 void abstract_graph<T>::get_adjacency_matrix(vector<vector<bool> >& adj_mat) const {
 	const size_t N = n_nodes();
@@ -105,10 +109,6 @@ void abstract_graph<T>::get_adjacency_matrix(vector<vector<bool> >& adj_mat) con
 		}
 	}
 }
-
-/// I/O
-
-/// CHARCATERISTICS OF ALL GRAPHS
 
 template<class T>
 void abstract_graph<T>::get_degree_sequence(map<node, node>& deg_seq) const {

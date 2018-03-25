@@ -154,6 +154,9 @@ void uwgraph<T>::clear() {
 
 template<class T>
 bool uwgraph<T>::has_edge(node u, node v) const {
+	assert(u < abstract_graph<T>::adjacency_list.size());
+	assert(v < abstract_graph<T>::adjacency_list.size());
+
 	const neighbourhood& nu = abstract_graph<T>::adjacency_list[u];
 	const neighbourhood& nv = abstract_graph<T>::adjacency_list[v];
 
@@ -161,6 +164,39 @@ bool uwgraph<T>::has_edge(node u, node v) const {
 		return abstract_graph<T>::cget_neighbour_position(nu, v) != nu.end();
 	}
 	return abstract_graph<T>::cget_neighbour_position(nv, u) != nv.end();
+}
+
+template<class T>
+T uwgraph<T>::weight(node u, node v) const {
+	assert(u < abstract_graph<T>::adjacency_list.size());
+	assert(v < abstract_graph<T>::adjacency_list.size());
+	assert(u < weights.size());
+	assert(v < weights.size());
+
+	const neighbourhood& nu = abstract_graph<T>::adjacency_list[u];
+	const neighbourhood& nv = abstract_graph<T>::adjacency_list[v];
+
+	// find neighbour position in u's neighbourhood
+	if (nu.size() <= nv.size()) {
+		// find neighbour position
+		ncit cit_u = abstract_graph<T>::cget_neighbour_position(nu, v);
+
+		// even though it is assumed that edge (u,v) exists, it better check it anyway
+		assert(cit_u != nu.end());
+
+		const vector<T>& wu = weights[u];
+		return wu[cit_u - nu.begin()];
+	}
+
+	// find neighbour position in v's neighbourhood
+	ncit cit_v = abstract_graph<T>::cget_neighbour_position(nv, u);
+
+	// even though it is assumed that edge (u,v) exists, it better check it anyway
+	assert(cit_v != nv.end());
+
+	// return the weight
+	const vector<T>& wv = weights[v];
+	return wv[cit_v - nv.begin()];
 }
 
 /// I/O

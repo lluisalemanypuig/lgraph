@@ -79,6 +79,9 @@ class uugraph : public abstract_graph<> {
 		// Returns true if there is an undirected edge between nodes u and v
 		bool has_edge(node u, node v) const;
 
+		// Returns the weight of the existing edge (u,v)
+		char weight(node u, node v) const;
+
 		/// I/O
 
 		bool read_from_file(const string& filename);

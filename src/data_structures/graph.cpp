@@ -155,6 +155,20 @@ bool uugraph::has_edge(node u, node v) const {
 	return cget_neighbour_position(nv, u) != nv.end();
 }
 
+char uugraph::weight(node u, node v) const {
+	UNUSED(v);
+
+	assert(u < adjacency_list.size());
+
+	// even though it is assumed that edge (u,v) exists, it is better
+	// to check that it exists anyway
+	assert(cget_neighbour_position( adjacency_list[u] , v) != adjacency_list[u].end());
+
+	// unweighted graphs are assumed to actually have weight
+	// but all constant and equal to 1
+	return 1;
+}
+
 /// I/O
 
 bool uugraph::read_from_file(const string& filename) {
