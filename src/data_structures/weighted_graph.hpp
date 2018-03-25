@@ -71,7 +71,7 @@ class uwgraph : public abstract_graph<T> {
 		void clear();
 
 		// Returns the weight of the existing edge (u,v)
-		T weight(node u, node v) const;
+		T edge_weight(node u, node v) const;
 
 		/// GETTERS
 

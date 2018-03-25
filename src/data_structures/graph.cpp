@@ -155,7 +155,7 @@ bool uugraph::has_edge(node u, node v) const {
 	return cget_neighbour_position(nv, u) != nv.end();
 }
 
-char uugraph::weight(node u, node v) const {
+char uugraph::edge_weight(node u, node v) const {
 	UNUSED(v);
 
 	assert(u < adjacency_list.size());

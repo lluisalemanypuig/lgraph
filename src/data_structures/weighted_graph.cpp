@@ -167,7 +167,7 @@ bool uwgraph<T>::has_edge(node u, node v) const {
 }
 
 template<class T>
-T uwgraph<T>::weight(node u, node v) const {
+T uwgraph<T>::edge_weight(node u, node v) const {
 	assert(u < abstract_graph<T>::adjacency_list.size());
 	assert(v < abstract_graph<T>::adjacency_list.size());
 	assert(u < weights.size());

@@ -91,7 +91,7 @@ class abstract_graph {
 		size_t degree(node u) const;
 
 		// Returns the weight of the existing edge (u,v)
-		virtual T weight(node u, node v) const = 0;
+		virtual T edge_weight(node u, node v) const = 0;
 
 		/// I/O
 

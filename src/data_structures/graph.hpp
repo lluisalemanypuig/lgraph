@@ -80,7 +80,7 @@ class uugraph : public abstract_graph<> {
 		bool has_edge(node u, node v) const;
 
 		// Returns the weight of the existing edge (u,v)
-		char weight(node u, node v) const;
+		char edge_weight(node u, node v) const;
 
 		/// I/O
 
