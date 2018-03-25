@@ -371,10 +371,10 @@ void debug_graphs() {
 		else if (option == "get-weight") {
 			cin >> u >> v;
 			if (g == "weighted") {
-				cout << Gw.weight(u, v) << endl;
+				cout << Gw.edge_weight(u, v) << endl;
 			}
 			else {
-				cout << Guw.weight(u, v) << endl;
+				cout << Guw.edge_weight(u, v) << endl;
 			}
 		}
 		else if (option == "store") {
