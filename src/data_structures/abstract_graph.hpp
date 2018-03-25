@@ -20,7 +20,7 @@ typedef pair<node, node> edge;
 Generic interface of the adjacency list implementation of
 a graph, with a series of methods common to all of them.
 */
-template<class T = char>
+template<class T = size_t>
 class abstract_graph {
 	protected:
 		vector<neighbourhood> adjacency_list;
