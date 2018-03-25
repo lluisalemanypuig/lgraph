@@ -368,6 +368,15 @@ void debug_graphs() {
 				Guw.remove_edge(u, v);
 			}
 		}
+		else if (option == "get-weight") {
+			cin >> u >> v;
+			if (g == "weighted") {
+				cout << Gw.weight(u, v) << endl;
+			}
+			else {
+				cout << Guw.weight(u, v) << endl;
+			}
+		}
 		else if (option == "store") {
 			cin >> filename;
 			if (g == "weighted") {
