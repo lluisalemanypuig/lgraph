@@ -9,9 +9,9 @@ using namespace std;
 
 /// Custom includes
 #include "data_structures/random_generator.hpp"
-#include "data_structures/abstract_graph.hpp"
+#include "data_structures/xxgraph.hpp"
 #include "data_structures/svector.hpp"
-#include "data_structures/graph.hpp"
+#include "data_structures/uugraph.hpp"
 #include "random_graphs/barabasi_albert.hpp"
 #include "random_graphs/switching.hpp"
 #include "metrics/centralities.hpp"
