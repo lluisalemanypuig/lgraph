@@ -13,9 +13,8 @@
 using namespace std;
 
 /// Custom includes
-#include "abstract_graph.hpp"
+#include "uxgraph.hpp"
 #include "utils/definitions.hpp"
-#include "utils/logger.hpp"
 
 namespace dsa {
 namespace utils {
@@ -23,21 +22,34 @@ namespace utils {
 /*
 Implementation of undirected unweighted graphs with adjacency lists
 */
-class uugraph : public abstract_graph<> {
+class uugraph : public uxgraph<_new_> {
 	private:
 
-		void __add_edge(const edge& e);
-		void __add_edges(const vector<edge>& edge_list);
-		void __add_edge(node u, node v);
+		/// GETTERS
 
 		void get_unique_edges(set<edge>& edges) const;
+
+	private:
+
+		/// MODIFIERS
+
+		// Initialise the list of weights, if necessary
+		void initialise_weights(size_t n);
+
+		// Clear the list of weights, if necessary
+		void clear_weights();
+
+		// Adds the weight w to the specified node's list
+		void add_weight(node u, _new_ w);
+
+		// Removes the weight from the position 'p'
+		// of list of neighbours of node u
+		void remove_weight(node u, nit p);
 
 	public:
 		uugraph();
 		uugraph(size_t n); // n: number of nodes
 		~uugraph();
-
-		void init(size_t n);
 
 		/// OPERATORS
 		
@@ -57,20 +69,8 @@ class uugraph : public abstract_graph<> {
 		
 		/// MODIFIERS
 
-		// Adds a directed edge between nodes u and v assuming it does
-		// not exist. The weight, if provided, is ignored.
-		void add_edge(const edge& e, char w = 0);
-		void add_edges(const vector<edge>& edge_list, const vector<char>& ws = vector<char>());
-		void add_edge(node u, node v, char w = 0);
-		
-		// Removes the edge (u, v) from the graph.
-		void remove_edge(const edge& e);
-		void remove_edges(const vector<edge>& edge_list);
-		void remove_edge(node u, node v);
-		
-		// Deletes all edges and nodes from the graph
-		void clear();
-		
+		void add_edges(const vector<edge>& edge_list, const vector<_new_>& ws = vector<_new_>());
+
 		/// GETTERS
 
 		// Returns all unique edges of this graph
@@ -80,7 +80,11 @@ class uugraph : public abstract_graph<> {
 		bool has_edge(node u, node v) const;
 
 		// Returns the weight of the existing edge (u,v)
-		char edge_weight(node u, node v) const;
+		_new_ edge_weight(node u, node v) const;
+
+		// Returns the weights to all neighbours of node u
+		// Returns a list of degree-many 1's
+		void get_weights(node u, vector<_new_>& ws) const;
 
 		/// I/O
 

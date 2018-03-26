@@ -5,7 +5,9 @@ namespace traversal {
 
 	/// VERTEX-VERTEX
 
-	void path(const uugraph& G, node source, node target, boolean_path& p) {
+	template<class T>
+	void path(const xxgraph<T> *G, node source, node target, boolean_path<T>& p) {
+		/*
 		const size_t N = G.n_nodes();
 
 		// path from source to target starts at source
@@ -13,7 +15,7 @@ namespace traversal {
 		p.add_node(source);
 
 		// distances from source to nodes
-		queue<boolean_path> paths;
+		queue<boolean_path > paths;
 		paths.push(p);
 
 		// current distance from source to u
@@ -46,17 +48,23 @@ namespace traversal {
 		};
 
 		BFS(G, source, terminate, process_current, process_neighbour);
+		*/
 	}
 
-	void path(const uugraph& G, node source, node target, boolean_path_set& ps) {
+	template<class T>
+	void path(const xxgraph<T> *G, node source, node target, boolean_path_set<T>& ps) {
+		/*
 		vector<boolean_path_set> boolean_all_paths;
 		path(G, source, boolean_all_paths);
 		ps = boolean_all_paths[target];
+		*/
 	}
 
 	/// VERTEX-ALL
 
-	void path(const uugraph& G, node source, vector<boolean_path>& ps) {
+	template<class T>
+	void path(const xxgraph<T> *G, node source, vector<boolean_path<T> >& ps) {
+		/*
 		const size_t N = G.n_nodes();
 
 		// path from source to target
@@ -85,9 +93,12 @@ namespace traversal {
 		};
 
 		BFS(G, source, terminate, process_current, process_neighbour);
+		*/
 	}
 
-	void path(const uugraph& G, node source, vector<boolean_path_set>& ps) {
+	template<class T>
+	void path(const xxgraph<T> *G, node source, vector<boolean_path_set<T> >& ps) {
+		/*
 		const size_t N = G.n_nodes();
 
 		// all paths from source to a target
@@ -112,7 +123,7 @@ namespace traversal {
 			size_t d_u;
 			if (ps[u].size() == 0) {
 				// not a single path from 'source' to 'u'
-				d_u = utils::inf;
+				d_u = utils::z_inf;
 			}
 			else {
 				// at least one path from 'source' to 'u'
@@ -126,7 +137,7 @@ namespace traversal {
 			size_t d_v;
 			if (ps[v].size() == 0) {
 				// not a single path from 'source' to 'u'
-				d_v = utils::inf;
+				d_v = utils::z_inf;
 			}
 			else {
 				// at least one path from 'source' to 'u'
@@ -158,15 +169,18 @@ namespace traversal {
 		};
 
 		BFS(G, source, terminate, process_current, process_neighbour);
+		*/
 	}
 
 	/// ALL-ALL
 
-	void paths(const uugraph& G, vector<boolean_path_set>& all_all_paths) {
+	template<class T>
+	void paths(const xxgraph<T> *G, vector<boolean_path_set<T> >& all_all_paths) {
+		/*
 		const size_t N = G.n_nodes();
 
 		// allocate memory...
-		vector<vector<size_t> > dist(N, vector<size_t>(N, utils::inf));
+		vector<vector<size_t> > dist(N, vector<size_t>(N, utils::z_inf));
 		all_all_paths = vector<boolean_path_set>(N, boolean_path_set(N, boolean_path(N)));
 
 		// initialise data
@@ -195,7 +209,7 @@ namespace traversal {
 			for (size_t u = 0; u < N; ++u) {
 				for (size_t v = 0; v < N; ++v) {
 
-					if (dist[v][w] == utils::inf or dist[w][u] == utils::inf) continue;
+					if (dist[v][w] == utils::z_inf or dist[w][u] == utils::z_inf) continue;
 					if (u == v) continue;
 
 					if (dist[u][v] > dist[u][w] + dist[w][v]) {
@@ -207,13 +221,16 @@ namespace traversal {
 				}
 			}
 		}
+		*/
 	}
 
-	void paths(const uugraph& G, vector<vector<boolean_path_set> >& all_all_paths) {
+	template<class T>
+	void paths(const xxgraph<T> *G, vector<vector<boolean_path_set<T> > >& all_all_paths) {
+		/*
 		const size_t N = G.n_nodes();
 
 		// allocate memory...
-		vector<vector<size_t> > dist(N, vector<size_t>(N, utils::inf));
+		vector<vector<size_t> > dist(N, vector<size_t>(N, utils::z_inf));
 		all_all_paths = vector<vector<boolean_path_set> >(N, vector<boolean_path_set>(N));
 
 		// initialise with edge weights (here always 1) the distance and the
@@ -240,7 +257,7 @@ namespace traversal {
 			for (size_t u = 0; u < N; ++u) {
 				for (size_t v = 0; v < N; ++v) {
 
-					if (dist[u][w] == utils::inf or dist[w][v] == utils::inf) continue;
+					if (dist[u][w] == utils::z_inf or dist[w][v] == utils::z_inf) continue;
 					if (u == v) continue;
 
 					size_t d = dist[u][w] + dist[w][v];
@@ -298,6 +315,7 @@ namespace traversal {
 				}
 			}
 		}
+		*/
 	}
 
 } // -- namespace traversal

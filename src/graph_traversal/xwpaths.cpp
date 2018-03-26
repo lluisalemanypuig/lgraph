@@ -5,117 +5,143 @@ namespace traversal {
 
 	/// VERTEX-VERTEX
 
-	void path(const uugraph& G, node source, node target, node_path& p) {
-		// path from source to target starts at source
-		p.push_back(source);
+	template<class T>
+	void xwpath(const xxgraph<T> *G, node source, node target, node_path<T>& p) {
+		assert(G->has_node(source));
+		assert(G->has_node(target));
 
-		// distances from source to nodes
-		queue<node_path> paths;
-		paths.push(p);
+		const size_t N = G->n_nodes();
 
-		// current distance from source to u
-		node_path current_path;
+		// prev[v] = u: previous node of v in the path is u
+		vector<node> prev(N, N + 1);
+		vector<T> ds(N, utils::inf_t<T>());
+		ds[source] = 0;
 
 		// terminate when target is found
-		terminate terminate =
-		[&target](const uugraph&, node u, const vector<bool>&)
+		djka_terminate<T> terminate =
+		[&target](const xxgraph<T> *, const djka_dist_node<T>& u, const vector<bool>&) -> bool
 		{
-			return u == target;
+			return u.second == target;
 		};
 
-		process_current process_current =
-		[&paths, &p, &current_path, &target](const uugraph&, node u, const vector<bool>&)
-		{
-			current_path = paths.front();
-			paths.pop();
+		djka_process_current<T> proc_curr =
+		[] (const xxgraph<T> *, const djka_dist_node<T>&, const vector<bool>&) -> void { };
 
-			if (u == target) {
-				p = current_path;
+		// function to compute the shortest distance from node u to node v
+		djka_process_neighbour<T> proc_neig =
+		[&prev, &ds]
+		(const xxgraph<T> *, node u, node v, const T& w, const vector<bool>&) -> bool
+		{
+			bool add = false;
+			if (ds[u] + w < ds[v]) {
+				ds[v] = ds[u] + w;
+				prev[v] = u;
+				add = true;
 			}
+			return add;
 		};
 
-		// function to compute the shortest distance from source to node v
-		process_neighbour process_neighbour =
-		[&paths, &current_path](const uugraph&, node, node v, const vector<bool>& vis)
-		{
-			if (not vis[v]) {
-				node_path path_to_v = current_path;
-				path_to_v.push_back(v);
-				paths.push(path_to_v);
-			}
-		};
+		Dijkstra(G, source, terminate, proc_curr, proc_neig);
 
-		BFS(G, source, terminate, process_current, process_neighbour);
+		p.empty();
+		node l = target;
+		while (l != source) {
+			p.add_node(l);
+			l = prev[l];
+		}
+		p.add_node(source);
+		p.reverse();
+		p.set_length(ds[target]);
 	}
 
-	void path(const uugraph& G, node source, node target, node_path_set& ps) {
-		vector<node_path_set> node_all_paths;
-		path(G, source, node_all_paths);
+	template<class T>
+	void xwpath(const xxgraph<T> *G, node source, node target, node_path_set<T>& ps) {
+		// all paths from source to the other nodes
+		vector<node_path_set<T> > node_all_paths;
+		xwpath(G, source, node_all_paths);
 		ps = node_all_paths[target];
 	}
 
 	/// VERTEX-ALL
 
-	void path(const uugraph& G, node source, vector<node_path>& ps) {
-		const size_t N = G.n_nodes();
+	template<class T>
+	void xwpath(const xxgraph<T> *G, node source, vector<node_path<T> >& ps) {
+		assert(G->has_node(source));
 
-		// path from source to target
-		ps = vector<node_path>(N);
-		ps[source] = node_path(1);
-		ps[source][0] = source;
+		const size_t N = G->n_nodes();
 
-		terminate terminate =
-		[](const uugraph&, node, const vector<bool>&)
+		// prev[v] = u: previous node of v in the path is u
+		vector<node> prev(N, N + 1);
+		vector<T> ds(N, utils::inf_t<T>());
+		ds[source] = 0;
+
+		// terminate when target is found
+		djka_terminate<T> terminate =
+		[](const xxgraph<T> *, const djka_dist_node<T>&, const vector<bool>&) -> bool
+		{ return false; };
+
+		djka_process_current<T> proc_curr =
+		[] (const xxgraph<T> *, const djka_dist_node<T>&, const vector<bool>&) -> void { };
+
+		// function to compute the shortest distance from node u to node v
+		djka_process_neighbour<T> proc_neig =
+		[&prev, &ds]
+		(const xxgraph<T> *, node u, node v, const T& w, const vector<bool>&) -> bool
 		{
-			return false;
-		};
-
-		process_current process_current =
-		[](const uugraph&, node, const vector<bool>&)
-		{ };
-
-		// function to compute the shortest distance from source to node v
-		process_neighbour process_neighbour =
-		[&ps](const uugraph&, node u, node v, const vector<bool>&)
-		{
-			// add one node, count the number of edges
-			size_t d_u = ps[u].size() + 1 - 1;
-			// number of edges
-			size_t d_v = ps[v].size() - 1;
-			if (d_u < d_v) {
-				ps[v] = ps[u];
-				ps[v].push_back(v);
+			bool add = false;
+			if (ds[u] + w < ds[v]) {
+				ds[v] = ds[u] + w;
+				prev[v] = u;
+				add = true;
 			}
+			return add;
 		};
 
-		BFS(G, source, terminate, process_current, process_neighbour);
+		Dijkstra(G, source, terminate, proc_curr, proc_neig);
+
+		ps = vector<node_path<T> >(N);
+		for (node u = 0; u < N; ++u) {
+			node_path<T>& p = ps[u];
+
+			p.empty();
+			node l = u;
+			while (l != source) {
+				p.add_node(l);
+				l = prev[l];
+			}
+			p.add_node(source);
+			p.reverse();
+			p.set_length(ds[u]);
+		}
 	}
 
-	void path(const uugraph& G, node source, vector<node_path_set>& ps) {
-		const size_t N = G.n_nodes();
+	template<class T>
+	void xwpath(const xxgraph<T> *G, node source, vector<node_path_set<T> >& ps) {
+		/*
+		const size_t N = G->n_nodes();
 
 		// all paths from source to a target
-		ps = vector<node_path_set>(N);
+		ps = vector<node_path_set<T> >(N);
 
 		// only one path from source to source
-		ps[source] = node_path_set(1);
+		ps[source] = node_path_set<T>(1);
 		ps[source][0] = node_path(1, source);
 
-		terminate terminate =
-		[](const uugraph&, node, const vector<bool>&) { return false; };
+		function<bool (const abstract_graph<T> *, node, const vector<bool>&)> terminate =
+		[](const abstract_graph<T> *, node, const vector<bool>&) { return false; };
 
-		process_current process_current =
-		[](const uugraph&, node, const vector<bool>&) { };
+		function<void (const abstract_graph<T> *, node, const vector<bool>&)> proc_curr =
+		[](const abstract_graph<T> *, node, const vector<bool>&) { };
 
 		// function to compute the shortest distance from source to node v
-		process_neighbour process_neighbour =
-		[&ps](const uugraph&, node u, node v, const vector<bool>&)
+		function<void (const abstract_graph<T> *, node, node, const vector<bool>&)> proc_neig =
+		[&ps](const abstract_graph<T> *, node u, node v, const vector<bool>&)
 		{
 			// distance from 'source' to 'u'
-			size_t d_u;
+			T d_u;
 			if (ps[u].size() == 0) {
 				// not a single path from 'source' to 'u'
-				d_u = utils::inf;
+				d_u = utils::inf_t<T>();
 			}
 			else {
 				// at least one path from 'source' to 'u'
@@ -126,10 +152,10 @@ namespace traversal {
 			}
 
 			// distance from 'source' to 'v'
-			size_t d_v;
+			T d_v;
 			if (ps[v].size() == 0) {
 				// not a single path from 'source' to 'u'
-				d_v = utils::inf;
+				d_v = utils::z_inf;
 			}
 			else {
 				// at least one path from 'source' to 'u'
@@ -142,13 +168,13 @@ namespace traversal {
 			if (d_u < d_v) {
 				// if shorter path found, clear all paths to 'v' and add the new ones.
 				ps[v] = ps[u];
-				for (node_path& np : ps[v]) {
+				for (node_path<T>& np : ps[v]) {
 					np.push_back(v);
 				}
 			}
 			else if (d_u == d_v) {
 				// if the path found is as long as the shortest, just add it
-				size_t prev_size = ps[v].size();
+				T prev_size = ps[v].size();
 
 				// add all node paths found so far
 				ps[v].insert( ps[v].end(), ps[u].begin(), ps[u].end() );
@@ -160,17 +186,20 @@ namespace traversal {
 			}
 		};
 
-		BFS(G, source, terminate, process_current, process_neighbour);
+		BFS(G, source, terminate, proc_curr, proc_neig);
+		*/
 	}
 
 	/// ALL-ALL
 
-	void paths(const uugraph& G, vector<node_path_set>& all_all_paths) {
+	template<class T>
+	void xwpaths(const xxgraph<T> * G, vector<node_path_set<T> >& all_all_paths) {
+		/*
 		const size_t N = G.n_nodes();
 
 		// allocate memory...
-		vector<vector<size_t> > dist(N, vector<size_t>(N, utils::inf));
-		all_all_paths = vector<node_path_set >(N, node_path_set(N));
+		vector<vector<size_t> > dist(N, vector<size_t>(N, utils::z_inf));
+		all_all_paths = vector<node_path_set<T> >(N, node_path_set<T>(N));
 
 		// initialise data
 		for (size_t u = 0; u < N; ++u) {
@@ -198,7 +227,7 @@ namespace traversal {
 			for (size_t u = 0; u < N; ++u) {
 				for (size_t v = 0; v < N; ++v) {
 
-					if (dist[v][w] == utils::inf or dist[w][u] == utils::inf) continue;
+					if (dist[v][w] == utils::z_inf or dist[w][u] == utils::z_inf) continue;
 					if (u == v) continue;
 
 					if (dist[u][v] > dist[u][w] + dist[w][v]) {
@@ -210,14 +239,17 @@ namespace traversal {
 				}
 			}
 		}
+		*/
 	}
 
-	void paths(const uugraph& G, vector<vector<node_path_set> >& all_all_paths) {
+	template<class T>
+	void xwpaths(const xxgraph<T> *G, vector<vector<node_path_set<T> > >& all_all_paths) {
+		/*
 		const size_t N = G.n_nodes();
 
 		// allocate memory...
-		vector<vector<size_t> > dist(N, vector<size_t>(N, utils::inf));
-		all_all_paths = vector<vector<node_path_set> >(N, vector<node_path_set>(N));
+		vector<vector<size_t> > dist(N, vector<size_t>(N, utils::z_inf));
+		all_all_paths = vector<vector<node_path_set<T> > >(N, vector<node_path_set<T> >(N));
 
 		// initialise with edge weights (here always 1) the distance and the
 		// shortest-path from u to all its neighbours with {u,v}
@@ -225,7 +257,7 @@ namespace traversal {
 			const neighbourhood& Nu = G.get_neighbours(u);
 			for (size_t v : Nu) {
 				dist[u][v] = 1;
-				all_all_paths[u][v] = node_path_set(1);
+				all_all_paths[u][v] = node_path_set<T>(1);
 				all_all_paths[u][v][0].push_back(u);
 				all_all_paths[u][v][0].push_back(v);
 			}
@@ -235,12 +267,12 @@ namespace traversal {
 		for (size_t w = 0; w < N; ++w) {
 			// distance from a vertex to itself is 0, the path just {w}
 			dist[w][w] = 0;
-			all_all_paths[w][w] = node_path_set(1, node_path(1, w));
+			all_all_paths[w][w] = node_path_set<T>(1, node_path(1, w));
 
 			for (size_t u = 0; u < N; ++u) {
 				for (size_t v = 0; v < N; ++v) {
 
-					if (dist[u][w] == utils::inf or dist[w][v] == utils::inf) continue;
+					if (dist[u][w] == utils::z_inf or dist[w][v] == utils::z_inf) continue;
 					if (u == v) continue;
 
 					size_t d = dist[u][w] + dist[w][v];
@@ -254,7 +286,7 @@ namespace traversal {
 
 							size_t n_uw = all_all_paths[u][w].size();
 							size_t n_wv = all_all_paths[w][v].size();
-							all_all_paths[u][v] = node_path_set( n_uw*n_wv );
+							all_all_paths[u][v] = node_path_set<T>( n_uw*n_wv );
 
 							size_t uv = 0;
 							for (size_t uw = 0; uw < n_uw; ++uw) {
@@ -298,6 +330,7 @@ namespace traversal {
 				}
 			}
 		}
+		*/
 	}
 
 } // -- namespace traversal

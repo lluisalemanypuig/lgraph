@@ -7,6 +7,9 @@
 #include <map>
 using namespace std;
 
+/// Custom includes
+#include "utils/definitions.hpp"
+
 namespace dsa {
 namespace utils {
 
@@ -20,8 +23,8 @@ typedef pair<node, node> edge;
 Generic interface of the adjacency list implementation of
 a graph, with a series of methods common to all of them.
 */
-template<class T = size_t>
-class abstract_graph {
+template<class T>
+class xxgraph {
 	protected:
 		vector<neighbourhood> adjacency_list;
 		size_t num_edges;
@@ -34,14 +37,29 @@ class abstract_graph {
 		// node in the graph.
 		nit get_neighbour_position(neighbourhood& n, node u);
 
+	protected:
+
+		/// MODIFIERS
+
+		// Initialise the adjacency list
+		virtual void initialise_adjacency_list(size_t n) = 0;
+
+		// Initialise the list of weights, if necessary
+		virtual void initialise_weights(size_t n) = 0;
+
+		// Clear the adjacency list
+		virtual void clear_adjacency_list() = 0;
+
+		// Clear the list of weights, if necessary
+		virtual void clear_weights() = 0;
+
 	public:
-		abstract_graph();
-		abstract_graph(size_t n);
-		virtual ~abstract_graph();
+		xxgraph();
+		virtual ~xxgraph();
 
 		// Clears the graph and initializes it
 		// with an empty graph of 'n' nodes
-		virtual void init(size_t n) = 0;
+		void init(size_t n);
 
 		/// OPERATORS
 
@@ -53,11 +71,10 @@ class abstract_graph {
 		// Adds n nodes to the graph. Returns the index of the last node.
 		size_t add_n_nodes(size_t n);
 
-		// Adds a directed edge between nodes u and v assuming it does
-		// not exist.
-		virtual void add_edge(const edge& e, T w) = 0;
-		virtual void add_edges(const vector<edge>& edge_list, const vector<T>& ws) = 0;
-		virtual void add_edge(node u, node v, T w) = 0;
+		// Adds an edge between nodes u and v assuming it does not exist.
+		virtual void add_edge(const edge& e, T w = 0) = 0;
+		virtual void add_edges(const vector<edge>& edge_list, const vector<T>& ws = vector<T>()) = 0;
+		virtual void add_edge(node u, node v, T w = 0) = 0;
 
 		// Removes the edge (u, v) from the graph.
 		virtual void remove_edge(const edge& e) = 0;
@@ -65,7 +82,7 @@ class abstract_graph {
 		virtual void remove_edge(node u, node v) = 0;
 
 		// Deletes all memory used by the graph
-		virtual void clear() = 0;
+		void clear();
 
 		/// GETTERS
 
@@ -93,6 +110,9 @@ class abstract_graph {
 		// Returns the weight of the existing edge (u,v)
 		virtual T edge_weight(node u, node v) const = 0;
 
+		// Returns the weights to all neighbours of node u
+		virtual void get_weights(node u, vector<T>& ws) const = 0;
+
 		/// I/O
 
 		// Reads/writes the graph from/into the file with name 'filename'
@@ -117,4 +137,4 @@ class abstract_graph {
 } // -- namespace utils
 } // -- namespace dsa
 
-#include "abstract_graph.cpp"
+#include "xxgraph.cpp"

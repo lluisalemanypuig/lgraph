@@ -7,7 +7,7 @@
 using namespace std;
 
 /// Custom includes
-#include "data_structures/graph.hpp"
+#include "data_structures/uugraph.hpp"
 #include "metrics/centralities.hpp"
 #include "utils/definitions.hpp"
 #include "graph_traversal/traversal.hpp"

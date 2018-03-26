@@ -1,27 +1,28 @@
-#include "graph.hpp"
+#include "uugraph.hpp"
 
 namespace dsa {
 namespace utils {
 
 /// PRIVATE
 
-void uugraph::__add_edge(const edge& e) {
-	__add_edge(e.first, e.second);
+void uugraph::initialise_weights(size_t n) {
+	UNUSED(n);
+	// do nothing
 }
 
-void uugraph::__add_edges(const vector<edge>& edge_list) {
-	for (const edge& E : edge_list) {
-		__add_edge(E.first, E.second);
-	}
+void uugraph::clear_weights() {
+	// do nothing
 }
 
-void uugraph::__add_edge(node u, node v) {
-	assert(u < adjacency_list.size());
-	assert(v < adjacency_list.size());
+void uugraph::add_weight(node u, _new_ w) {
+	UNUSED(u);
+	UNUSED(w);
+	// do nothing
+}
 
-	adjacency_list[u].push_back(v);
-	adjacency_list[v].push_back(u);
-	++num_edges;
+void uugraph::remove_weight(node u, nit p) {
+	UNUSED(u);
+	UNUSED(p);
 }
 
 void uugraph::get_unique_edges(set<edge>& unique_edges) const {
@@ -49,19 +50,15 @@ void uugraph::get_unique_edges(set<edge>& unique_edges) const {
 
 /// PUBLIC
 
-uugraph::uugraph() : abstract_graph() {
+uugraph::uugraph() {
+	init(0);
 }
 
-uugraph::uugraph(size_t n) : abstract_graph(n) {
-
+uugraph::uugraph(size_t n) {
+	init(n);
 }
 
 uugraph::~uugraph() { }
-
-void uugraph::init(size_t n) {
-	clear();
-	adjacency_list = vector<neighbourhood>(n);
-}
 
 /// OPERATORS
 
@@ -76,57 +73,13 @@ uugraph& uugraph::operator= (const uugraph& g) {
 
 /// MODIFIERS
 
-void uugraph::add_edge(const edge& e, char w) {
-	UNUSED(w); __add_edge(e);
-}
+void uugraph::add_edges(const vector<edge>& edge_list, const vector<_new_>& ws) {
+	UNUSED(ws);
 
-void uugraph::add_edges(const vector<edge>& edge_list, const vector<char>& ws) {
-	UNUSED(ws); __add_edges(edge_list);
-}
-
-void uugraph::add_edge(node u, node v, char w) {
-	UNUSED(w); __add_edge(u, v);
-}
-
-void uugraph::remove_edge(const edge& e) {
-	remove_edge(e.first, e.second);
-}
-
-void uugraph::remove_edges(const vector<edge>& edge_list) {
-	for (const edge& e : edge_list) {
-		remove_edge(e.first, e.second);
+	for (size_t i = 0; i < edge_list.size(); ++i) {
+		const edge& e = edge_list[i];
+		add_edge(e.first, e.second);
 	}
-}
-	
-void uugraph::remove_edge(node u, node v) {
-	assert(u < adjacency_list.size());
-	assert(v < adjacency_list.size());
-
-	bool erased = false;
-
-	neighbourhood& nu = adjacency_list[u];
-	nit it_u = get_neighbour_position(nu, v);
-	if (it_u != nu.end()) {
-		nu.erase(it_u);
-		erased = true;
-	}
-
-	neighbourhood& nv = adjacency_list[v];
-	nit it_v = get_neighbour_position(nv, u);
-	if (it_v != nv.end()) {
-		nv.erase(it_v);
-		erased = true;
-	}
-	
-	num_edges -= erased;
-}
-
-void uugraph::clear() {
-	num_edges = 0;
-	for (size_t i = 0; i < adjacency_list.size(); ++i) {
-		adjacency_list[i].clear();
-	}
-	adjacency_list.clear();
 }
 
 /// GETTERS
@@ -155,8 +108,11 @@ bool uugraph::has_edge(node u, node v) const {
 	return cget_neighbour_position(nv, u) != nv.end();
 }
 
-char uugraph::edge_weight(node u, node v) const {
-	UNUSED(v);
+_new_ uugraph::edge_weight(node u, node v) const {
+	if (u == v) {
+		// weight is trivially 0: self-loop
+		return 0;
+	}
 
 	assert(u < adjacency_list.size());
 
@@ -167,6 +123,12 @@ char uugraph::edge_weight(node u, node v) const {
 	// unweighted graphs are assumed to actually have weight
 	// but all constant and equal to 1
 	return 1;
+}
+
+void uugraph::get_weights(node u, vector<_new_>& ws) const {
+	assert(this->has_node(u));
+
+	ws = vector<_new_>(degree(u), 1);
 }
 
 /// I/O

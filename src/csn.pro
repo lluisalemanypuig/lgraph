@@ -28,6 +28,10 @@ HEADERS += \
 	data_structures/svector.hpp \
 		data_structures/svector.cpp \
 	graph_traversal/traversal.hpp \
+		graph_traversal/dfs.cpp \
+		graph_traversal/bfs.cpp \
+		graph_traversal/distances.cpp \
+		graph_traversal/paths.cpp \
 	random_graphs/barabasi_albert.hpp \
 		random_graphs/ba_preferential_attachment.cpp \
 		random_graphs/ba_random_attachment.cpp \
@@ -51,9 +55,5 @@ SOURCES += \
 	metrics/clustering.cpp \
 	metrics/centralities.cpp \
 	metrics/distance.cpp \
-	graph_traversal/bfs.cpp \
-	graph_traversal/distances.cpp \
-	graph_traversal/paths.cpp \
-        graph_traversal/paths_boolean.cpp \
-        utils/static_bitset.cpp \
-	graph_traversal/dfs.cpp
+	graph_traversal/paths_boolean.cpp \
+		utils/static_bitset.cpp

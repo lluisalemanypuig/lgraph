@@ -33,8 +33,11 @@ Reimplement distance and path-finding methods using Dijkstra
 [] 16/02/2018 ->
 Implement generic Dijkstra
 
-[] 16/03/2018 ->
-Implement weighted graph
+[] 25/03/2018 ->
+Adapt functions in traversal namespace to admit abstract graphs.
+
+[v] 16/03/2018 -> 25/03/2018
+Implement undirected weighted graph
 
 [v] 16/02/2018 -> 07/03/2018
 Implement generic DFS

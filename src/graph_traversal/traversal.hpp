@@ -10,7 +10,7 @@
 using namespace std;
 
 /// Custom includes
-#include "data_structures/graph.hpp"
+#include "data_structures/uugraph.hpp"
 #include "data_structures/graph_path.hpp"
 #include "utils/logger.hpp"
 
@@ -63,37 +63,133 @@ namespace traversal {
 			* the node at the front of the queue ('v' in the pseudocode, line 4)
 			* the neighbour of 'v' being processed ('w' in the pseudocode, line 9)
 			* the set of visited nodes, as a vector<bool>
-
-	Find examples on how to use this function in the implementation of methods:
-	- size_t distance(const graph& G, node source, node target);
-	- void distance(const graph& G, node source, vector<size_t>& distances);
 	*/
 
-	typedef function<bool (const uugraph&, node,       const vector<bool>&)> terminate;
-	typedef function<void (const uugraph&, node,       const vector<bool>&)> process_current;
-	typedef function<void (const uugraph&, node, node, const vector<bool>&)> process_neighbour;
+	/* parameters:
+	 *	- input graph,
+	 *	- node at the front of the queue,
+	 *	- set of visited nodes
+	 */
+	template<class T = size_t>
+	using bfs_terminate = function<bool (const xxgraph<T> *, node, const vector<bool>&)>;
 
-	static const terminate EMPTY_TERM =					[](const uugraph&, node, const vector<bool>&) -> bool { return false; };
-	static const process_current EMPTY_PROC_CURR =		[](const uugraph&, node, const vector<bool>&) -> void {};
-	static const process_neighbour EMPTY_PROC_NEIGH =	[](const uugraph&, node, node, const vector<bool>&) -> void {};
+	/* parameters:
+	 *	- input graph,
+	 *	- node at the front of the queue,
+	 *	- set of visited nodes
+	 */
+	template<class T = size_t>
+	using bfs_process_current = function<void (const xxgraph<T> *, node, const vector<bool>&)>;
 
+	/* parameters:
+	 *	- input graph,
+	 *	- node at the front of the queue,
+	 *	- neighbour of node at the top of the queue,
+	 *	- set of visited nodes
+	 */
+	template<class T = size_t>
+	using bfs_process_neighbour = function<void (const xxgraph<T> *, node, node, const vector<bool>&)>;
+
+	template<class T>
 	void BFS
 	(
-		const uugraph& G,
+		const xxgraph<T> *G,
 		node source,
-		terminate terminate					= EMPTY_TERM,
-		process_current process_current		= EMPTY_PROC_CURR,
-		process_neighbour process_neighbour	= EMPTY_PROC_NEIGH
+		bfs_terminate<T> term =					[](const xxgraph<T> *, node, const vector<bool>&) -> bool { return false; },
+		bfs_process_current<T> proc_curr =		[](const xxgraph<T> *, node, const vector<bool>&) -> void {},
+		bfs_process_neighbour<T> proc_neig =	[](const xxgraph<T> *, node, node, const vector<bool>&) -> void {}
 	);
 
+	/* parameters:
+	 *	- input graph,
+	 *	- node at the front of the stack,
+	 *	- set of visited nodes
+	 */
+	template<class T = size_t>
+	using dfs_terminate = function<bool (const xxgraph<T> *, node, const vector<bool>&)>;
+
+	/* parameters:
+	 *	- input graph,
+	 *	- node at the front of the queue,
+	 *	- set of visited nodes
+	 */
+	template<class T = size_t>
+	using dfs_process_current = function<void (const xxgraph<T> *, node, const vector<bool>&)>;
+
+	/* parameters:
+	 *	- input graph,
+	 *	- node at the front of the queue,
+	 *	- neighbour of node at the top of the stack,
+	 *	- set of visited nodes
+	 */
+	template<class T = size_t>
+	using dfs_process_neighbour = function<void (const xxgraph<T> *, node, node, const vector<bool>&)>;
+
+	template<class T>
 	void DFS
 	(
-		const uugraph& G,
+		const xxgraph<T> *G,
 		node source,
-		terminate terminate					= EMPTY_TERM,
-		process_current process_current		= EMPTY_PROC_CURR,
-		process_neighbour process_neighbour	= EMPTY_PROC_NEIGH
+		dfs_terminate<T> term =					[](const xxgraph<T> *, node, const vector<bool>&) -> bool { return false; },
+		dfs_process_current<T> proc_curr =		[](const xxgraph<T> *, node, const vector<bool>&) -> void {},
+		dfs_process_neighbour<T> proc_neig =	[](const xxgraph<T> *, node, node, const vector<bool>&) -> void {}
 	);
+
+	template<class T>
+	using djka_dist_node = pair<T, node>;
+
+	/* parameters:
+	 *	- input graph,
+	 *	- first: shortest distance to that node,
+	 *	  second: node at the front of the priority queue
+	 *	- set of visited nodes
+	 */
+	template<class T = size_t>
+	using djka_terminate = function<bool (const xxgraph<T> *, const djka_dist_node<T>&, const vector<bool>&)>;
+
+	/* parameters:
+	 *	- input graph,
+	 *	- first: shortest distance to that node,
+	 *	  second: node at the front of the priority queue
+	 *	- set of visited nodes
+	 */
+	template<class T = size_t>
+	using djka_process_current = function<void (const xxgraph<T> *, const djka_dist_node<T>&, const vector<bool>&)>;
+
+	/* parameters:
+	 *	- input graph,
+	 *	- node at the front of the priority queue (u),
+	 *	- neighbour of node at the top of the priority queue (v),
+	 *	- weight of edge (u,v)
+	 *	- set of visited nodes
+	 *
+	 * Returns true or false n whether the next pair should be added or not
+	 */
+	template<class T = size_t>
+	using djka_process_neighbour = function<bool (const xxgraph<T> *, node, node, const T&, const vector<bool>&)>;
+
+	template<class T>
+	void Dijkstra
+	(
+		const xxgraph<T> *G,
+		node source,
+		djka_terminate<T> term =				[](const xxgraph<T> *, const djka_dist_node<T>&, const vector<bool>&) -> bool { return false; },
+		djka_process_current<T> proc_curr =		[](const xxgraph<T> *, const djka_dist_node<T>&, const vector<bool>&) -> void {},
+		djka_process_neighbour<T> proc_neig =	[](const xxgraph<T> *, node, node, const T&, const vector<bool>&) -> bool { return true; }
+	);
+
+	/* Functions that compute the distances:
+	 * - vertex-to-vertex	(Dijkstra)
+	 * - vertex-to-all		(Dijkstra)
+	 * - all-to-all			(Floyd-Warshall)
+	 *
+	 * The distance from one vertex to another is defined as the number
+	 * of edges in the shortest path between the two.
+	 */
+
+	/// ----------------------------------------------------------------
+	/// UNWEIGHTED FUNCTIONS (for directed/undirected unweighted graphs)
+	/// ----------------------------------------------------------------
 
 	/* Functions that compute the distances:
 	 * - vertex-to-vertex	(BFS)
@@ -106,18 +202,18 @@ namespace traversal {
 
 	/// VERTEX-VERTEX
 
-	size_t distance(const uugraph& G, node source, node target);
-	size_t distance(const uugraph& G, node source, node target, size_t& n_paths);
+	_new_ xudistance(const xxgraph<_new_> *G, node source, node target);
+	_new_ xudistance(const xxgraph<_new_> *G, node source, node target, size_t& n_paths);
 
 	/// VERTEX-ALL
 
-	void distance(const uugraph& G, node source, vector<size_t>& distances);
-	void distance(const uugraph& G, node source, vector<size_t>& distances, vector<size_t>& n_paths);
+	void xudistance(const xxgraph<_new_> *G, node source, vector<_new_>& xudistances);
+	void xudistance(const xxgraph<_new_> *G, node source, vector<_new_>& xudistances, vector<size_t>& n_paths);
 
 	/// ALL-ALL
 
-	void distances(const uugraph& G, vector<vector<size_t> >& ds);
-	void distances(const uugraph& G, vector<vector<size_t> >& ds, vector<vector<size_t> >& n_paths);
+	void xudistances(const xxgraph<_new_> *G, vector<vector<_new_> >& ds);
+	void xudistances(const xxgraph<_new_> *G, vector<vector<_new_> >& ds, vector<vector<size_t> >& n_paths);
 
 	/* Functions that compute the paths:
 	 * - vertex-to-vertex	(BFS)
@@ -134,24 +230,128 @@ namespace traversal {
 
 	/// VERTEX-VERTEX
 
-	void path(const uugraph& G, node source, node target, node_path& p);
-	void path(const uugraph& G, node source, node target, node_path_set& ps);
-	void path(const uugraph& G, node source, node target, boolean_path& p);
-	void path(const uugraph& G, node source, node target, boolean_path_set& ps);
+	void xupath(const xxgraph<_new_> *G, node source, node target, node_path<_new_>& p);
+	void xupath(const xxgraph<_new_> *G, node source, node target, node_path_set<_new_>& ps);
+	void xupath(const xxgraph<_new_> *G, node source, node target, boolean_path<_new_>& p);
+	void xupath(const xxgraph<_new_> *G, node source, node target, boolean_path_set<_new_>& ps);
 
 	/// VERTEX-ALL
 
-	void path(const uugraph& G, node source, vector<node_path>& ps);
-	void path(const uugraph& G, node source, vector<node_path_set>& ps);
-	void path(const uugraph& G, node source, vector<boolean_path>& ps);
-	void path(const uugraph& G, node source, vector<boolean_path_set>& ps);
+	void xupath(const xxgraph<_new_> *G, node source, vector<node_path<_new_> >& ps);
+	void xupath(const xxgraph<_new_> *G, node source, vector<node_path_set<_new_> >& ps);
+	void xupath(const xxgraph<_new_> *G, node source, vector<boolean_path<_new_> >& ps);
+	void xupath(const xxgraph<_new_> *G, node source, vector<boolean_path_set<_new_> >& ps);
 
 	/// ALL-ALL
 
-	void paths(const uugraph& G, vector<vector<node_path> >& ps);
-	void paths(const uugraph& G, vector<vector<node_path_set> >& ps);
-	void paths(const uugraph& G, vector<vector<boolean_path> >& ps);
-	void paths(const uugraph& G, vector<vector<boolean_path_set> >& ps);
+	void xupaths(const xxgraph<_new_> *G, vector<vector<node_path<_new_> > >& ps);
+	void xupaths(const xxgraph<_new_> *G, vector<vector<node_path_set<_new_> > >& ps);
+	void xupaths(const xxgraph<_new_> *G, vector<vector<boolean_path<_new_> > >& ps);
+	void xupaths(const xxgraph<_new_> *G, vector<vector<boolean_path_set<_new_> > >& ps);
+
+	/// ------------------------------------------------------------
+	/// WEIGHTED FUNCTIONS (for directed/undirected weighted graphs)
+	/// ------------------------------------------------------------
+
+	/// VERTEX-VERTEX
+
+	/* (1): distance from source to target.
+	 * (2): idem, and the number of shortest paths.
+	*/
+
+	template<class T>
+	T xwdistance(const xxgraph<T> *G, node source, node target);
+	template<class T>
+	T xwdistance(const xxgraph<T> *G, node source, node target, size_t& n_paths);
+
+	/// VERTEX-ALL
+
+	/* (1): distance from source to all other nodes in the graph.
+	 * (2): idem, and the number of shortest paths between them.
+	*/
+
+	template<class T>
+	void xwdistance(const xxgraph<T> *G, node source, vector<T>& xwdistances);
+	template<class T>
+	void xwdistance(const xxgraph<T> *G, node source, vector<T>& xwdistances, vector<size_t>& n_paths);
+
+	/// ALL-ALL
+
+	/* (1): distance from all nodes in the graph to all other nodes in the graph.
+	 * (2): idem, and the number of shortest paths between them.
+	*/
+
+	template<class T>
+	void xwdistances(const xxgraph<T> *G, vector<vector<T> >& ds);
+	template<class T>
+	void xwdistances(const xxgraph<T> *G, vector<vector<T> >& ds, vector<vector<size_t> >& n_paths);
+
+	/* Functions that compute the paths:
+	 * - vertex-to-vertex	(Dijkstra)
+	 * - vertex-to-all		(Dijkstra)
+	 * - all-to-all			(Floyd-Warshall modified)
+	 *
+	 * A path from vertex 'u' to vertex 'v' is defined as the shortest list of vertices
+	 * (u, ..., v) where '...' is a list of vertices v1, v2, ... , vn  such that v1 is a
+	 * neighbour of u, v2 is a neighbour of v1, ..., vn is a neighbout of vn-1 and v is
+	 * a neighbour of vn. n may be 0.
+	 *
+	 * Its length is the number of edges in the path. Also, the number of vertices in it minus 1.
+	 */
+
+	/// VERTEX-VERTEX
+
+	/* (1): one shortest path from source to target.
+	 * (2): all shortest paths from source to target.
+	*/
+
+	template<class T>
+	void xwpath(const xxgraph<T> *G, node source, node target, node_path<T>& p);
+	template<class T>
+	void xwpath(const xxgraph<T> *G, node source, node target, node_path_set<T>& ps);
+	template<class T>
+	void xwpath(const xxgraph<T> *G, node source, node target, boolean_path<T>& p);
+	template<class T>
+	void xwpath(const xxgraph<T> *G, node source, node target, boolean_path_set<T>& ps);
+
+	/// VERTEX-ALL
+
+	/* (1): one shortest path from source to all other nodes in the graph.
+	 * (2): all shortest paths from source to all other nodes in the graph.
+	*/
+
+	template<class T>
+	void xwpath(const xxgraph<T> *G, node source, vector<node_path<T> >& ps);
+	template<class T>
+	void xwpath(const xxgraph<T> *G, node source, vector<node_path_set<T> >& ps);
+	template<class T>
+	void xwpath(const xxgraph<T> *G, node source, vector<boolean_path<T> >& ps);
+	template<class T>
+	void xwpath(const xxgraph<T> *G, node source, vector<boolean_path_set<T> >& ps);
+
+	/// ALL-ALL
+
+	/* (1): one shortest path from all nodes in the graph to all other nodes in the graph.
+	 * (2): all shortest paths from all nodes in the graph to all other nodes in the graph.
+	*/
+
+	template<class T>
+	void xwpaths(const xxgraph<T> *G, vector<vector<node_path<T> > >& ps);
+	template<class T>
+	void xwpaths(const xxgraph<T> *G, vector<vector<node_path_set<T> > >& ps);
+	template<class T>
+	void xwpaths(const xxgraph<T> *G, vector<vector<boolean_path<T> > >& ps);
+	template<class T>
+	void xwpaths(const xxgraph<T> *G, vector<vector<boolean_path_set<T> > >& ps);
 
 } // -- namespace traversal
 } // -- namespace dsa
+
+#include "dfs.cpp"
+#include "bfs.cpp"
+#include "dijkstra.cpp"
+
+// assume weighted graphs
+#include "xwpaths.cpp"
+#include "xwdistances.cpp"
+#include "xwpaths_boolean.cpp"

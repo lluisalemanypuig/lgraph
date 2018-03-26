@@ -3,18 +3,20 @@
 namespace dsa {
 namespace traversal {
 
+	template<class T>
 	void BFS
 	(
-		const uugraph& G,
+		const xxgraph<T> *G,
 		node source,
-		terminate terminate,
-		process_current process_current,
-		process_neighbour process_neighbour
+		bfs_terminate<T> terminate,
+		bfs_process_current<T> proc_curr,
+		bfs_process_neighbour<T> proc_neig
 	)
 	{
 		logger<null_stream>& LOG = logger<null_stream>::get_logger();
+		LOG.log() << "BREADTH-FIRST SEARCH ALGORITHM" << endl;
 
-		vector<bool> vis(G.n_nodes(), false);
+		vector<bool> vis(G->n_nodes(), false);
 		queue<node> Q;
 
 		vis[source] = true;
@@ -22,44 +24,44 @@ namespace traversal {
 		bool term = false;
 
 		while (not Q.empty() and not term) {
-			node v = Q.front();
+			node u = Q.front();
 			Q.pop();
 
-			LOG.log() << "Current node: " << v << endl;
+			LOG.log() << "Current node: " << u << endl;
 			LOG.log() << "... processing ...";
 
-			process_current(G, v, vis);
+			proc_curr(G, u, vis);
 
 			LOG.log() << " processed." << endl;
 
-			if (terminate(G, v, vis)) {
+			if (terminate(G, u, vis)) {
 
-				LOG.log() << "! Termination condition true for node " << v << endl;
+				LOG.log() << "! Termination condition true for node " << u << endl;
 
 				term = true;
 			}
 			else {
-				const neighbourhood& Nv = G.get_neighbours(v);
+				const neighbourhood& Nu = G->get_neighbours(u);
 
-				LOG.log() << "Iterate through neighbours of " << v << endl;
+				LOG.log() << "Iterate through neighbours of " << u << endl;
 
-				for (node w : Nv) {
-					LOG.log() << "    Neighbour " << w << endl;
+				for (node v : Nu) {
+					LOG.log() << "    Neighbour " << v << endl;
 					LOG.log() << "    ... processing ...";
 
-					process_neighbour(G, v, w, vis);
+					proc_neig(G, u, v, vis);
 
 					LOG.log() << " processed." << endl;
 
-					if (not vis[w]) {
+					if (not vis[v]) {
 
-						LOG.log() << "    Neighbour " << w << " was not visited before" << endl;
+						LOG.log() << "    Neighbour " << v << " was not visited before" << endl;
 
-						Q.push(w);
-						vis[w] = true;
+						Q.push(v);
+						vis[v] = true;
 					}
 					else {
-						LOG.log() << "    Neighbour " << w << " already visited" << endl;
+						LOG.log() << "    Neighbour " << v << " already visited" << endl;
 					}
 				}
 			}

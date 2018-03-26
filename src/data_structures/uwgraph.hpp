@@ -10,25 +10,46 @@
 using namespace std;
 
 /// Custom includes
-#include "abstract_graph.hpp"
+#include "uxgraph.hpp"
 #include "utils/definitions.hpp"
 
 namespace dsa {
 namespace utils {
 
+/*
+Implementation of undirected weighted graphs with adjacency lists
+*/
+
 template<class T>
-class uwgraph : public abstract_graph<T> {
+class uwgraph : public uxgraph<T> {
 	private:
 		vector<vector<T> > weights;
 
+		/// GETTERS
+
 		void get_unique_edges(set<pair<edge, T> >& edges) const;
 
-	public:
-		uwgraph<T>();
-		uwgraph<T>(size_t n);
-		~uwgraph<T>();
+	private:
 
-		void init(size_t n);
+		/// MODIFIERS
+
+		// Initialise the list of weights
+		void initialise_weights(size_t n);
+
+		// Clear the list of weights
+		void clear_weights();
+
+		// Adds the weight w to the specified node's list
+		void add_weight(node u, T w);
+
+		// Removes the weight from the position 'p'
+		// of list of neighbours of node u
+		void remove_weight(node u, nit p);
+
+	public:
+		uwgraph();
+		uwgraph(size_t n);
+		~uwgraph();
 
 		/// OPERATORS
 
@@ -56,27 +77,15 @@ class uwgraph : public abstract_graph<T> {
 
 		/// MODIFIERS
 
-		// Adds a directed edge between nodes u and v assuming it does
-		// not exist. The weight, if provided, is ignored.
-		void add_edge(const edge& e, T w);
-		void add_edges(const vector<edge>& edge_list, const vector<T>& ws);
-		void add_edge(node u, node v, T w);
+		void add_edges(const vector<edge>& edge_list, const vector<T>& ws = vector<T>());
 
-		// Removes the edge (u, v) from the graph.
-		void remove_edge(const edge& e);
-		void remove_edges(const vector<edge>& edge_list);
-		void remove_edge(node u, node v);
-
-		// Deletes all edges and nodes from the graph
-		void clear();
+		/// GETTERS
 
 		// Returns the weight of the existing edge (u,v)
 		T edge_weight(node u, node v) const;
 
-		/// GETTERS
-
-		// Returns true if there is an undirected edge between nodes u and v
-		bool has_edge(node u, node v) const;
+		// Returns the weights to all neighbours of node u
+		void get_weights(node u, vector<T>& ws) const;
 
 		/// I/O
 
@@ -89,4 +98,4 @@ class uwgraph : public abstract_graph<T> {
 } // -- namespace utils
 } // -- namespace dsa
 
-#include "weighted_graph.cpp"
+#include "uwgraph.cpp"

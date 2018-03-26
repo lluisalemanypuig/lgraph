@@ -39,13 +39,13 @@ namespace centralities {
 	
 	double closeness(const uugraph& G, node u) {
 		vector<size_t> ds;
-		traversal::distance(G, u, ds);
+		traversal::xwdistance(&G, u, ds);
 		double sum = std::accumulate
 		(
 			ds.begin(), ds.end(), 0.0,
 			[](double acc, size_t d) {
 				// if d is infinite 1.0/d equals 0:n no need to divide
-				if (d != utils::inf and d > 0) {
+				if (d != utils::z_inf and d > 0) {
 					acc += 1.0/d;
 				}
 				return acc;
@@ -57,7 +57,7 @@ namespace centralities {
 
 	void closeness(const uugraph& G, vector<double>& cc) {
 		vector<vector<size_t> > ds;
-		traversal::distances(G, ds);
+		traversal::xwdistances(&G, ds);
 		return closeness(G, ds, cc);
 	}
 
@@ -75,7 +75,7 @@ namespace centralities {
 				(
 					ds_i.begin(), ds_i.end(), 0.0,
 					[](double acc, size_t d) {
-						if (d != utils::inf and d > 0) {
+						if (d != utils::z_inf and d > 0) {
 							acc += 1.0/d;
 						}
 						return acc;
@@ -90,12 +90,12 @@ namespace centralities {
 	/// BETWEENNESS
 
 	double betweenness(const uugraph& G, node u) {
-		vector<vector<boolean_path_set> > all_to_all_paths;
-		traversal::paths(G, all_to_all_paths);
+		vector<vector<boolean_path_set<_new_> > > all_to_all_paths;
+		traversal::xupaths(&G, all_to_all_paths);
 		return betweenness(G, all_to_all_paths, u);
 	}
 
-	double betweenness(const uugraph& G, const vector<vector<boolean_path_set> >& paths, node u) {
+	double betweenness(const uugraph& G, const vector<vector<boolean_path_set<_new_> > >& paths, node u) {
 		double B = 0.0;
 
 		const size_t N = G.n_nodes();
@@ -109,7 +109,7 @@ namespace centralities {
 
 				// amount of shortest paths between s and t in which u lies on
 				size_t g_st_i = 0;
-				for (const boolean_path& bp : paths[s][t]) {
+				for (const boolean_path<_new_>& bp : paths[s][t]) {
 					if (bp[u]) {
 						++g_st_i;
 					}
@@ -127,12 +127,12 @@ namespace centralities {
 	}
 
 	void betweenness(const uugraph& G, vector<double>& bc) {
-		vector<vector<boolean_path_set> > all_to_all_paths;
-		traversal::paths(G, all_to_all_paths);
+		vector<vector<boolean_path_set<_new_> > > all_to_all_paths;
+		traversal::xupaths(&G, all_to_all_paths);
 		betweenness(G, all_to_all_paths, bc);
 	}
 
-	void betweenness(const uugraph& G, const vector<vector<boolean_path_set> >& paths, vector<double>& bc) {
+	void betweenness(const uugraph& G, const vector<vector<boolean_path_set<_new_> > >& paths, vector<double>& bc) {
 		const size_t N = G.n_nodes();
 
 		// amount of shortest paths between s and t in
@@ -155,7 +155,7 @@ namespace centralities {
 				std::fill(g_st_i.begin(), g_st_i.end(), 0);
 
 				for (node u = 0; u < N; ++u) {
-					for (const boolean_path& bp : paths[s][t]) {
+					for (const boolean_path<_new_>& bp : paths[s][t]) {
 						if (bp[u]) {
 							++g_st_i[u];
 						}

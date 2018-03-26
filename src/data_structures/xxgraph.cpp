@@ -1,4 +1,4 @@
-#include "abstract_graph.hpp"
+#include "xxgraph.hpp"
 
 namespace dsa {
 namespace utils {
@@ -6,7 +6,7 @@ namespace utils {
 /// PROTECTED
 
 template<class T>
-ncit abstract_graph<T>::cget_neighbour_position(const neighbourhood& n, node u) const {
+ncit xxgraph<T>::cget_neighbour_position(const neighbourhood& n, node u) const {
 	bool found = false;
 	ncit cit = n.begin();
 	while (cit != n.end() and not found) {
@@ -17,7 +17,7 @@ ncit abstract_graph<T>::cget_neighbour_position(const neighbourhood& n, node u) 
 }
 
 template<class T>
-nit abstract_graph<T>::get_neighbour_position(neighbourhood& n, node u) {
+nit xxgraph<T>::get_neighbour_position(neighbourhood& n, node u) {
 	bool found = false;
 	nit it = n.begin();
 	while (it != n.end() and not found) {
@@ -30,67 +30,74 @@ nit abstract_graph<T>::get_neighbour_position(neighbourhood& n, node u) {
 /// PUBLIC
 
 template<class T>
-abstract_graph<T>::abstract_graph() {
+xxgraph<T>::xxgraph() {
 	num_edges = 0;
 }
 
 template<class T>
-abstract_graph<T>::abstract_graph(size_t n) {
-	num_edges = 0;
-	adjacency_list = vector<neighbourhood>(n);
-}
+xxgraph<T>::~xxgraph() { }
 
 template<class T>
-abstract_graph<T>::~abstract_graph() { }
+void xxgraph<T>::init(size_t n) {
+	num_edges = 0;
+	initialise_adjacency_list(n);
+	initialise_weights(n);
+}
 
 /// OPERATORS
 
 /// MODIFIERS
 
 template<class T>
-size_t abstract_graph<T>::add_node() {
+size_t xxgraph<T>::add_node() {
 	adjacency_list.push_back(neighbourhood());
 	return adjacency_list.size() - 1;
 }
 
 template<class T>
-size_t abstract_graph<T>::add_n_nodes(node n) {
+size_t xxgraph<T>::add_n_nodes(node n) {
 	adjacency_list.insert(adjacency_list.end(), n, neighbourhood());
 	return adjacency_list.size() - 1;
 }
 
 /// MODIFIERS
 
+template<class T>
+void xxgraph<T>::clear() {
+	clear_adjacency_list();
+	clear_weights();
+}
+
 /// GETTERS
 
 template<class T>
-bool abstract_graph<T>::has_node(node u) const {
+bool xxgraph<T>::has_node(node u) const {
 	return u < adjacency_list.size();
 }
 
 template<class T>
-size_t abstract_graph<T>::n_nodes() const {
+size_t xxgraph<T>::n_nodes() const {
 	return adjacency_list.size();
 }
 
 template<class T>
-size_t abstract_graph<T>::n_edges() const {
+size_t xxgraph<T>::n_edges() const {
 	return num_edges;
 }
 
 template<class T>
-void abstract_graph<T>::nodes(vector<node>& all_nodes) const {
+void xxgraph<T>::nodes(vector<node>& all_nodes) const {
 	all_nodes.resize(adjacency_list.size());
 	for (size_t u = 0; u < all_nodes.size(); ++u) all_nodes[u] = u;
 }
 
 template<class T>
-const neighbourhood& abstract_graph<T>::get_neighbours(node u) const {
+const neighbourhood& xxgraph<T>::get_neighbours(node u) const {
 	return adjacency_list[u];
 }
 
 template<class T>
-size_t abstract_graph<T>::degree(node u) const {
+size_t xxgraph<T>::degree(node u) const {
 	return adjacency_list[u].size();
 }
 
@@ -99,7 +106,7 @@ size_t abstract_graph<T>::degree(node u) const {
 /// FEATURES OF GRAPHS
 
 template<class T>
-void abstract_graph<T>::get_adjacency_matrix(vector<vector<bool> >& adj_mat) const {
+void xxgraph<T>::get_adjacency_matrix(vector<vector<bool> >& adj_mat) const {
 	const size_t N = n_nodes();
 	adj_mat = vector<vector<bool> >(N, vector<bool>(N, false));
 	for (size_t u = 0; u < N; ++u) {
@@ -111,7 +118,7 @@ void abstract_graph<T>::get_adjacency_matrix(vector<vector<bool> >& adj_mat) con
 }
 
 template<class T>
-void abstract_graph<T>::get_degree_sequence(map<node, node>& deg_seq) const {
+void xxgraph<T>::get_degree_sequence(map<node, node>& deg_seq) const {
 	for (size_t u = 0; u < adjacency_list.size(); ++u) {
 		size_t deg = degree(u);
 		if (deg_seq.find(deg) == deg_seq.end()) deg_seq[deg] = 1;
@@ -120,7 +127,7 @@ void abstract_graph<T>::get_degree_sequence(map<node, node>& deg_seq) const {
 }
 
 template<class T>
-size_t abstract_graph<T>::n_triangles() const {
+size_t xxgraph<T>::n_triangles() const {
 	size_t tris = 0;
 	const size_t N = n_nodes();
 

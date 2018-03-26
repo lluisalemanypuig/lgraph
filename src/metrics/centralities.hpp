@@ -7,7 +7,7 @@
 using namespace std;
 
 /// Custom includes
-#include "data_structures/graph.hpp"
+#include "data_structures/uugraph.hpp"
 #include "data_structures/graph_path.hpp"
 #include "graph_traversal/traversal.hpp"
 
@@ -58,9 +58,9 @@ namespace centralities {
 	paths between any two vertices of the graph as boolean paths.
 	*/
 	double betweenness(const uugraph& G, node u);
-	double betweenness(const uugraph& G, const vector<vector<boolean_path_set> >& paths, node u);
+	double betweenness(const uugraph& G, const vector<vector<boolean_path_set<> > >& paths, node u);
 	void betweenness(const uugraph& G, vector<double>& bc);
-	void betweenness(const uugraph& G, const vector<vector<boolean_path_set> >& paths, vector<double>& bc);
+	void betweenness(const uugraph& G, const vector<vector<boolean_path_set<> > >& paths, vector<double>& bc);
 	
 } // -- namespace centralities
 } // -- namespace metrics

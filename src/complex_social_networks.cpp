@@ -418,7 +418,7 @@ int main(int argc, char *argv[]) {
 	if (apply_switching) {
 		networks::random::switching::switching_model(Q, drg, Gs);
 	}
-	
+
 	cout << "Resulting network:" << endl;
 	cout << Gs << endl;
 	cout << endl;

@@ -5,7 +5,7 @@
 using namespace std;
 
 /// Custom includes
-#include "data_structures/graph.hpp"
+#include "data_structures/uugraph.hpp"
 
 namespace dsa {
 using namespace utils;
