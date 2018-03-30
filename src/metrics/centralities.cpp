@@ -20,14 +20,14 @@ namespace centralities {
 		// number of nodes minus 1
 		const double nm1 = G.n_nodes() - 1;
 		dc.clear();
-		
+
 		transform(
 			// iterate through all nodes
 			nds.begin(), nds.end(),
-			
+
 			// append value at the back of dc
 			back_inserter(dc),
-			
+
 			// calculate degree centrality
 			[&](node u) {
 				return G.degree(u)/nm1;
@@ -39,7 +39,7 @@ namespace centralities {
 	
 	double closeness(const uugraph& G, node u) {
 		vector<size_t> ds;
-		traversal::xwdistance(&G, u, ds);
+		traversal::xudistance(&G, u, ds);
 		double sum = std::accumulate
 		(
 			ds.begin(), ds.end(), 0.0,
@@ -57,7 +57,7 @@ namespace centralities {
 
 	void closeness(const uugraph& G, vector<double>& cc) {
 		vector<vector<size_t> > ds;
-		traversal::xwdistances(&G, ds);
+		traversal::xudistances(&G, ds);
 		return closeness(G, ds, cc);
 	}
 
