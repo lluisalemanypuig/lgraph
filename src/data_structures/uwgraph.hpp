@@ -86,6 +86,7 @@ class uwgraph : public uxgraph<T> {
 
 		// Returns the weights to all neighbours of node u
 		void get_weights(node u, vector<T>& ws) const;
+		const vector<T>& get_weights(node u) const;
 
 		/// I/O
 

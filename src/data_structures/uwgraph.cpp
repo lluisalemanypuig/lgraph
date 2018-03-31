@@ -136,9 +136,17 @@ T uwgraph<T>::edge_weight(node u, node v) const {
 template<class T>
 void uwgraph<T>::get_weights(node u, vector<T>& ws) const {
 	assert(this->has_node(u));
-	assert(u < ws.size());
+	assert(u < weights.size());
 
 	ws = weights[u];
+}
+
+template<class T>
+const vector<T>& uwgraph<T>::get_weights(node u) const {
+	assert(this->has_node(u));
+	assert(u < weights.size());
+
+	return weights[u];
 }
 
 /// I/O
