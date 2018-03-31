@@ -48,12 +48,17 @@ namespace traversal {
 				}
 				else {
 					const neighbourhood& Nu = G->get_neighbours(u.second);
+					vector<T> weights;
+					G->get_weights(u.second, weights);
 
 					LOG.log() << "Iterate through neighbours of " << u.second << endl;
+					LOG.log() << "    Node " << u.second << " has " << Nu.size() << " neighbours" << endl;
 
-					for (node v : Nu) {
-						LOG.log() << "    Neighbour " << v << endl;
-						T weight_uv = G->edge_weight(u.second, v);
+					for (size_t v_it = 0; v_it < Nu.size(); ++v_it) {
+						LOG.log() << "    Neighbour index: " << v_it << endl;
+
+						node v = Nu[v_it];
+						T weight_uv = weights[v_it];
 
 						LOG.log() << "    Neighbour " << v << " was not visited before" << endl;
 						LOG.log() << "        weight edge (" << u.second << "," << v << "): " << weight_uv << endl;

@@ -1,3 +1,9 @@
 
 Changes to upload to master:
 
+data_structures/uwgraph.cpp
+data_structures/uwgraph.hpp
+graph_traversal/dijkstra.cpp
+graph_traversal/traversal.hpp
+graph_traversal/xupaths.cpp
+graph_traversal/xwpaths.cpp

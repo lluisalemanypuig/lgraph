@@ -95,7 +95,8 @@ namespace traversal {
 		ps = vector<node_path_set<_new_> >(N);
 
 		// only one path from source to source
-		ps[source] = node_path_set<_new_>(source);
+		ps[source] = node_path_set<_new_>(1);
+		ps[source][0].add_node(source);
 
 		bfs_terminate<_new_> terminate =
 		[](const xxgraph<_new_> *, node, const vector<bool>&) { return false; };
