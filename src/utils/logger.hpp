@@ -51,6 +51,30 @@ class cout_stream {
 		}
 };
 
+class cerr_stream {
+	public:
+		void open(const char *, const std::ios_base::openmode& ) { }
+
+		// this is the type of std::cout
+		typedef std::basic_ostream<char, std::char_traits<char> > cerr_type;
+
+		// this is the function signature of std::endl
+		typedef cerr_type& (*standard_endl)(cerr_type&);
+
+		// define an operator<< to take in std::endl
+		cerr_stream& operator<< (const standard_endl&) {
+			std::cerr << endl;
+			return *this;
+		}
+
+		// operator<< for any printable type
+		template<class t_printable>
+		cerr_stream& operator<< (const t_printable& t) {
+			std::cerr << t;
+			return *this;
+		}
+};
+
 template<class out_stream = std::ofstream>
 class logger {
 	private:
