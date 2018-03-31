@@ -107,11 +107,9 @@ namespace traversal {
 		djka_process_current<T> proc_curr =
 		[](const xxgraph<T> *, const djka_dist_node<T>&, const vector<bool>&) { };
 
-		logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
-
 		// function to compute the shortest distance from source to node v
 		djka_process_neighbour<T> proc_neig =
-		[&ds, &n_paths, &LOG](const xxgraph<T> *, node u, node v, const T& w, const vector<bool>&) -> bool
+		[&ds, &n_paths](const xxgraph<T> *, node u, node v, const T& w, const vector<bool>&) -> bool
 		{
 			bool add = false;
 			T d = ds[u] + w;
@@ -155,16 +153,13 @@ namespace traversal {
 			for (size_t u = 0; u < N; ++u) {
 				for (size_t v = 0; v < N; ++v) {
 
-					if (dist[v][w] == utils::inf_t<T>() or dist[w][u] == utils::inf_t<T>()) {
-						continue;
-					}
-					if (u == v) {
-						continue;
-					}
+					if (u == v) continue;
+					if (dist[v][w] == utils::inf_t<T>()) continue;
+					if (dist[w][u] == utils::inf_t<T>()) continue;
 
 					T d = dist[u][w] + dist[w][v];
 					if (d < dist[u][v]) {
-						dist[u][v] = dist[u][w] + dist[w][v];
+						dist[u][v] = d;
 					}
 				}
 			}
@@ -198,17 +193,14 @@ namespace traversal {
 			for (size_t u = 0; u < N; ++u) {
 				for (size_t v = 0; v < N; ++v) {
 
-					if (dist[u][w] == utils::inf_t<T>() or dist[w][v] == utils::inf_t<T>()) {
-						continue;
-					}
-					if (u == v) {
-						continue;
-					}
+					if (u == v) continue;
+					if (dist[v][w] == utils::inf_t<T>()) continue;
+					if (dist[w][u] == utils::inf_t<T>()) continue;
 
 					T d = dist[u][w] + dist[w][v];
 					if (d < dist[u][v]) {
 						// this is a shorter path than the shortest found so far
-						dist[u][v] = dist[u][w] + dist[w][v];
+						dist[u][v] = d;
 
 						if (u != w and w != v) {
 							n_paths[u][v] = n_paths[u][w]*n_paths[w][v];
