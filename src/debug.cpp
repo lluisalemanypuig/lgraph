@@ -7,21 +7,28 @@ using namespace std;
 
 /// Custom includes
 #include "debug/debug.hpp"
+#include "utils/logger.hpp"
 using namespace dsa;
 using namespace traversal;
 
 int debug_path_finding(int argc, char *argv[]) {
+	logger<cout_stream>& outLOG = logger<cout_stream>::get_logger();
+	logger<cerr_stream>& errLOG = logger<cerr_stream>::get_logger();
+
 	string file = "none";
-	bool weighted = false;
+	bool source_set, target_set, weighted;
+	source_set = target_set = weighted = false;
 
 	node S, T;
 	for (int i = 1; i < argc; ++i) {
 		if (strcmp(argv[i], "--source") == 0) {
 			S = atoi(argv[i + 1]);
+			source_set = true;
 			++i;
 		}
 		else if (strcmp(argv[i], "--target") == 0) {
 			T = atoi(argv[i + 1]);
+			target_set = true;
 			++i;
 		}
 		else if (strcmp(argv[i], "-i") == 0 or strcmp(argv[i], "--input") == 0) {
@@ -34,17 +41,24 @@ int debug_path_finding(int argc, char *argv[]) {
 	}
 
 	if (file == "none") {
-		cerr << "No file specified!" << endl;
+		errLOG.log() << "No file specified!" << endl;
+		return 1;
+	}
+
+	if (not source_set or not target_set) {
+		errLOG.log() << "Error: source or target not specified" << endl;
 		return 1;
 	}
 
 	if (weighted) {
+		outLOG.log() << "Debugging weighted graphs" << endl;
+
 		uwgraph<float> G;
 
 		G.read_from_file(file);
-		cout << "graph read:" << endl;
-		cout << G << endl;
-		cout << endl;
+		outLOG.log() << "graph read:" << endl;
+		outLOG.log() << G << endl;
+		outLOG.log() << endl;
 
 		debug::deb_distances_t(&G, S, T);
 		debug::deb_paths_t(&G, S, T);
@@ -54,12 +68,14 @@ int debug_path_finding(int argc, char *argv[]) {
 		//debug::deb_all_bpaths(G, S, T);
 	}
 	else {
+		outLOG.log() << "Debugging unweighted graphs" << endl;
+
 		uugraph G;
 
 		G.read_from_file(file);
-		cout << "graph read:" << endl;
-		cout << G << endl;
-		cout << endl;
+		outLOG.log() << "graph read:" << endl;
+		outLOG.log() << G << endl;
+		outLOG.log() << endl;
 
 		debug::deb_distances(&G, S, T);
 		debug::deb_paths(&G, S, T);
@@ -72,6 +88,8 @@ int debug_path_finding(int argc, char *argv[]) {
 }
 
 void debug_graphs() {
+	logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
+
 	uwgraph<float> Gw;
 	uugraph Gu;
 
@@ -107,10 +125,10 @@ void debug_graphs() {
 		else if (option == "get-weight") {
 			cin >> u >> v;
 			if (g == "weighted") {
-				cout << Gw.edge_weight(u, v) << endl;
+				LOG.log() << Gw.edge_weight(u, v) << endl;
 			}
 			else {
-				cout << Gu.edge_weight(u, v) << endl;
+				LOG.log() << Gu.edge_weight(u, v) << endl;
 			}
 		}
 		else if (option == "store") {
@@ -133,10 +151,10 @@ void debug_graphs() {
 		}
 		else if (option == "print") {
 			if (g == "weighted") {
-				cout << Gw << endl;
+				LOG.log() << Gw << endl;
 			}
 			else {
-				cout << Gu << endl;
+				LOG.log() << Gu << endl;
 			}
 		}
 	}
