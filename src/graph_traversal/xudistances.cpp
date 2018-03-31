@@ -151,8 +151,12 @@ namespace traversal {
 				for (size_t u = 0; u < N; ++u) {
 					for (size_t v = 0; v < N; ++v) {
 
-						if (dist[v][w] == utils::inf_t<_new_>() or dist[w][u] == utils::inf_t<_new_>()) continue;
+						// ignore the cases where:
+						// the path is not moving
 						if (u == v) continue;
+						// the distances are infinite
+						if (dist[v][w] == utils::inf_t<_new_>()) continue;
+						if (dist[w][u] == utils::inf_t<_new_>()) continue;
 
 						size_t d = dist[u][w] + dist[w][v];
 						if (d < dist[u][v]) {
@@ -189,8 +193,12 @@ namespace traversal {
 				for (size_t u = 0; u < N; ++u) {
 					for (size_t v = 0; v < N; ++v) {
 
-						if (dist[u][w] == utils::inf_t<_new_>() or dist[w][v] == utils::inf_t<_new_>()) continue;
+						// ignore the cases where:
+						// the path is not moving
 						if (u == v) continue;
+						// the distances are infinite
+						if (dist[v][w] == utils::inf_t<_new_>()) continue;
+						if (dist[w][u] == utils::inf_t<_new_>()) continue;
 
 						size_t d = dist[u][w] + dist[w][v];
 						if (d < dist[u][v]) {

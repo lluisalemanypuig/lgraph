@@ -41,13 +41,12 @@ namespace traversal {
 			if (not vis[v]) {
 				node_path<_new_> path_to_v = current_path;
 				path_to_v.add_node(v);
+				path_to_v.add_length(1);
 				paths.push(path_to_v);
 			}
 		};
 
 		BFS(G, source, terminate, process_current, process_neighbour);
-
-		p.set_length(p.size() - 1);
 	}
 
 	void xupath(const xxgraph<_new_> *G, node source, node target, node_path_set<_new_>& ps) {
@@ -63,18 +62,13 @@ namespace traversal {
 
 		// path from source to target
 		ps = vector<node_path<_new_> >(N);
-		ps[source] = node_path<_new_>(1);
-		ps[source][0] = source;
+		ps[source] = node_path<_new_>(source); // start path at node 'source'
 
 		bfs_terminate<_new_> terminate =
-		[](const xxgraph<_new_> *, node, const vector<bool>&)
-		{
-			return false;
-		};
+		[](const xxgraph<_new_> *, node, const vector<bool>&) { return false; };
 
 		bfs_process_current<_new_> process_current =
-		[](const xxgraph<_new_> *, node, const vector<bool>&)
-		{ };
+		[](const xxgraph<_new_> *, node, const vector<bool>&) { };
 
 		// function to compute the shortest distance from source to node v
 		bfs_process_neighbour<_new_> process_neighbour =
@@ -87,14 +81,11 @@ namespace traversal {
 			if (d_u < d_v) {
 				ps[v] = ps[u];
 				ps[v].add_node(v);
+				ps[v].add_length(1);
 			}
 		};
 
 		BFS(G, source, terminate, process_current, process_neighbour);
-
-		for (node_path<_new_>& np : ps) {
-			np.set_length(np.size() - 1);
-		}
 	}
 
 	void xupath(const xxgraph<_new_> *G, node source, vector<node_path_set<_new_> >& ps) {
@@ -104,8 +95,7 @@ namespace traversal {
 		ps = vector<node_path_set<_new_> >(N);
 
 		// only one path from source to source
-		ps[source] = node_path_set<_new_>(1);
-		ps[source][0] = node_path<_new_>(source);
+		ps[source] = node_path_set<_new_>(source);
 
 		bfs_terminate<_new_> terminate =
 		[](const xxgraph<_new_> *, node, const vector<bool>&) { return false; };
@@ -150,6 +140,7 @@ namespace traversal {
 				ps[v] = ps[u];
 				for (node_path<_new_>& np : ps[v]) {
 					np.add_node(v);
+					np.add_length(1);
 				}
 			}
 			else if (d_u == d_v) {
@@ -162,17 +153,12 @@ namespace traversal {
 				// add another vertex to the newly added paths
 				for (size_t i = prev_size; i < ps[v].size(); ++i) {
 					ps[v][i].add_node(v);
+					ps[v][i].add_length(1);
 				}
 			}
 		};
 
 		BFS(G, source, terminate, process_current, process_neighbour);
-
-		for (node_path_set<_new_>& nps : ps) {
-			for (node_path<_new_>& np : nps) {
-				np.set_length(np.size() - 1);
-			}
-		}
 	}
 
 	/// ALL-ALL
@@ -199,6 +185,7 @@ namespace traversal {
 			for (size_t v : Nu) {
 				dist[u][v] = 1;
 				all_all_paths[u][v].add_node(v);
+				all_all_paths[u][v].add_length(1);
 			}
 		}
 
@@ -210,22 +197,21 @@ namespace traversal {
 			for (size_t u = 0; u < N; ++u) {
 				for (size_t v = 0; v < N; ++v) {
 
-					if (dist[v][w] == utils::inf_t<_new_>() or dist[w][u] == utils::inf_t<_new_>()) continue;
+					// ignore the cases where:
+					// the path is not moving
 					if (u == v) continue;
+					// the distances are infinite
+					if (dist[v][w] == utils::inf_t<_new_>()) continue;
+					if (dist[w][u] == utils::inf_t<_new_>()) continue;
 
-					if (dist[u][v] > dist[u][w] + dist[w][v]) {
-						dist[u][v] = dist[u][w] + dist[w][v];
+					_new_ d = dist[u][w] + dist[w][v];
+					if (d < dist[u][v]) {
+						dist[u][v] = d;
 
 						all_all_paths[u][v] = all_all_paths[u][w];
 						all_all_paths[u][v].concatenate(all_all_paths[w][v]);
 					}
 				}
-			}
-		}
-
-		for (node_path_set<_new_>& nps : all_all_paths) {
-			for (node_path<_new_>& np : nps) {
-				np.set_length(np.size() - 1);
 			}
 		}
 	}
@@ -246,6 +232,7 @@ namespace traversal {
 				all_all_paths[u][v] = node_path_set<_new_>(1);
 				all_all_paths[u][v][0].add_node(u);
 				all_all_paths[u][v][0].add_node(v);
+				all_all_paths[u][v][0].add_length(1);
 			}
 		}
 
@@ -313,14 +300,6 @@ namespace traversal {
 							}
 						}
 					}
-				}
-			}
-		}
-
-		for (vector<node_path_set<_new_> >& nps_parent : all_all_paths) {
-			for (node_path_set<_new_>& nps : nps_parent) {
-				for (node_path<_new_>& np : nps) {
-					np.set_length(np.size() - 1);
 				}
 			}
 		}

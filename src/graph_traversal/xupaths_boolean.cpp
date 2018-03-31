@@ -41,13 +41,12 @@ namespace traversal {
 			if (not vis[v]) {
 				boolean_path<_new_> path_to_v = current_path;
 				path_to_v.add_node(v);
+				path_to_v.add_length(1);
 				paths.push(path_to_v);
 			}
 		};
 
 		BFS(G, source, terminate, process_current, process_neighbour);
-
-		p.set_length(p.size() - 1);
 	}
 
 	void xupath(const xxgraph<_new_> *G, node source, node target, boolean_path_set<_new_>& ps) {
@@ -83,14 +82,11 @@ namespace traversal {
 			if (d_u < d_v) {
 				ps[v] = ps[u];
 				ps[v].add_node(v);
+				ps[v].add_length(1);
 			}
 		};
 
 		BFS(G, source, terminate, process_current, process_neighbour);
-
-		for (boolean_path<_new_>& bp : ps) {
-			bp.set_length(bp.size() - 1);
-		}
 	}
 
 	void xupath(const xxgraph<_new_> *G, node source, vector<boolean_path_set<_new_> >& ps) {
@@ -147,6 +143,7 @@ namespace traversal {
 				ps[v] = ps[u];
 				for (boolean_path<_new_>& np : ps[v]) {
 					np.add_node(v);
+					np.add_length(1);
 				}
 			}
 			else if (d_u == d_v) {
@@ -159,17 +156,12 @@ namespace traversal {
 				// add another vertex to the newly added paths
 				for (size_t i = prev_size; i < ps[v].size(); ++i) {
 					ps[v][i].add_node(v);
+					ps[v][i].add_length(1);
 				}
 			}
 		};
 
 		BFS(G, source, terminate, process_current, process_neighbour);
-
-		for (boolean_path_set<_new_>& bps : ps) {
-			for (boolean_path<_new_>& bp : bps) {
-				bp.set_length(bp.size() - 1);
-			}
-		}
 	}
 
 	/// ALL-ALL
@@ -196,6 +188,7 @@ namespace traversal {
 			for (size_t v : Nu) {
 				dist[u][v] = 1;
 				all_all_paths[u][v].add_node(v);
+				all_all_paths[u][v].add_length(1);
 			}
 		}
 
@@ -207,22 +200,21 @@ namespace traversal {
 			for (size_t u = 0; u < N; ++u) {
 				for (size_t v = 0; v < N; ++v) {
 
-					if (dist[v][w] == utils::inf_t<_new_>() or dist[w][u] == utils::inf_t<_new_>()) continue;
+					// ignore the cases where:
+					// the path is not moving
 					if (u == v) continue;
+					// the distances are infinite
+					if (dist[v][w] == utils::inf_t<_new_>()) continue;
+					if (dist[w][u] == utils::inf_t<_new_>()) continue;
 
-					if (dist[u][v] > dist[u][w] + dist[w][v]) {
-						dist[u][v] = dist[u][w] + dist[w][v];
+					_new_ d = dist[u][w] + dist[w][v];
+					if (d < dist[u][v]) {
+						dist[u][v] = d;
 
 						all_all_paths[u][v] = all_all_paths[u][w];
 						all_all_paths[u][v].concatenate(all_all_paths[w][v]);
 					}
 				}
-			}
-		}
-
-		for (boolean_path_set<_new_>& bps : all_all_paths) {
-			for (boolean_path<_new_>& bp : bps) {
-				bp.set_length(bp.size() - 1);
 			}
 		}
 	}
@@ -244,6 +236,7 @@ namespace traversal {
 				all_all_paths[u][v][0].init(N);
 				all_all_paths[u][v][0].add_node(u);
 				all_all_paths[u][v][0].add_node(v);
+				all_all_paths[u][v][0].add_length(1);
 			}
 		}
 
@@ -313,14 +306,6 @@ namespace traversal {
 							}
 						}
 					}
-				}
-			}
-		}
-
-		for (vector<boolean_path_set<_new_> >& bps_parent : all_all_paths) {
-			for (boolean_path_set<_new_>& bps : bps_parent) {
-				for (boolean_path<_new_>& bp : bps) {
-					bp.set_length(bp.size() - 1);
 				}
 			}
 		}
