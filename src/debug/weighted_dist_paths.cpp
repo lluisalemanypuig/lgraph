@@ -9,7 +9,7 @@ namespace debug {
 
 		LOG.log() << "DISTANCES:" << endl;
 
-		// vertex-vertex
+		// node-node
 		size_t n_paths;
 		T d1 = traversal::xwdistance(G, source, target);
 		T d2 = traversal::xwdistance(G, source, target, n_paths);
@@ -24,16 +24,21 @@ namespace debug {
 		}
 		LOG.log() << " (" << n_paths << ")" << endl;
 
-		// vertex-all
+		// node-all
 		vector<T> ds;
 		vector<size_t> va_n_paths;
 		traversal::xwdistance<T>(G, source, ds, va_n_paths);
 		LOG.log() << "- node to all" << endl;
-		for (size_t i = 0; i < N; ++i) {
-			LOG.log() << "    Distance from " << source << " to " << i << ": ";
-			if (ds[i] == utils::inf_t<T>()) LOG.log() << "inf";
-			else LOG.log() << ds[i] << " (" << va_n_paths[i] << ")";
-			LOG.log() << endl;
+		if (va_n_paths.size() > 0) {
+			for (size_t i = 0; i < N; ++i) {
+				LOG.log() << "    Distance from " << source << " to " << i << ": ";
+				if (ds[i] == utils::inf_t<T>()) LOG.log() << "inf";
+				else LOG.log() << ds[i] << " (" << va_n_paths[i] << ")";
+				LOG.log() << endl;
+			}
+		}
+		else {
+			LOG.log() << "EMPTY!" << endl;
 		}
 
 		// all-all
@@ -48,9 +53,9 @@ namespace debug {
 	void deb_paths_t(const xxgraph<T> *G, node source, node target) {
 		logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
 
-		LOG.log() << "PATHS:" << endl;
+		LOG.log() << "SINGLE NODE PATHS:" << endl;
 
-		// vertex-vertex
+		// node-node
 		node_path<T> p;
 		traversal::xwpath(G, source, target, p);
 		LOG.log() << "- node to node" << endl;
@@ -59,58 +64,50 @@ namespace debug {
 		else LOG.log() << "No path!";
 		LOG.log() << endl;
 
-		/*
-		// all vertex-vertex paths
-		node_path_set<T> vv_path;
-		path(G, source, target, vv_path);
-		LOG.log() << "- node to node" << endl;
-		LOG.log() << "    All paths from " << source << " to " << target << ": ";
-		if (vv_path.size() > 0) {
-			for (const node_path<T>& np : vv_path) {
-				LOG.log() << np << endl;
-			}
-		}
-		else LOG.log() << "No path!";
-		LOG.log() << endl;
-		*/
-
-		// vertex-all
+		// node-all
 		vector<node_path<T> > ps;
 		traversal::xwpath(G, source, ps);
 		LOG.log() << "- node to all" << endl;
-		for (node target = 0; target < G->n_nodes(); ++target) {
-			LOG.log() << "    Path from " << source << " to " << target << ": ";
-			if (ps[target].size() > 0) LOG.log() << ps[target];
-			else LOG.log() << "No path!";
-			LOG.log() << endl;
-		}
-
-		/*
-		// all-all
-		vector<vector<node_path> > all_ps;
-		paths(G, all_ps);
-		LOG.log() << "- all to all" << endl;
-		for (node source = 0; source < G.n_nodes(); ++source) {
-			for (node target = 0; target < G.n_nodes(); ++target) {
+		if (ps.size() > 0) {
+			for (node target = 0; target < G->n_nodes(); ++target) {
 				LOG.log() << "    Path from " << source << " to " << target << ": ";
-				if (all_ps[source][target].size() > 0) LOG.log() << all_ps[source][target];
+				if (ps[target].size() > 0) LOG.log() << ps[target];
 				else LOG.log() << "No path!";
 				LOG.log() << endl;
 			}
 		}
-		*/
+		else {
+			LOG.log() << "EMPTY!" << endl;
+		}
+
+		// all-all
+		vector<node_path_set<T> > all_ps;
+		traversal::xwpaths(G, all_ps);
+		LOG.log() << "- all to all" << endl;
+		if (all_ps.size() > 0) {
+			for (node source = 0; source < G->n_nodes(); ++source) {
+				for (node target = 0; target < G->n_nodes(); ++target) {
+					LOG.log() << "    Path from " << source << " to " << target << ": ";
+					if (all_ps[source][target].size() > 0) LOG.log() << all_ps[source][target];
+					else LOG.log() << "No path!";
+					LOG.log() << endl;
+				}
+			}
+		}
+		else {
+			LOG.log() << "    EMPTY!" << endl;
+		}
 	}
 
 	template<class T>
 	void deb_all_paths_t(const xxgraph<T> *G, node source, node target) {
-		/*
 		logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
 
-		LOG.log() << "ALL SHORTEST PATHS:" << endl;
+		LOG.log() << "ALL NODE SHORTEST PATHS:" << endl;
 
-		// vertex-vertex
-		node_path_set node_node_ps;
-		path(G, source, target, node_node_ps);
+		// node-node
+		node_path_set<T> node_node_ps;
+		traversal::xwpath(G, source, target, node_node_ps);
 		LOG.log() << "- node to node" << endl;
 		LOG.log() << "    paths from " << source << " to " << target << ": ";
 		if (node_node_ps.size() == 0) {
@@ -118,29 +115,30 @@ namespace debug {
 		}
 		else {
 			LOG.log() << endl;
-			for (const node_path& path : node_node_ps) {
+			for (const node_path<T>& path : node_node_ps) {
 				LOG.log() << "        " << path << endl;
 			}
 		}
 
-		// vertex-all
-		vector<node_path_set> node_all_ps;
-		path(G, source, node_all_ps);
+		// node-all
+		vector<node_path_set<T> > node_all_ps;
+		traversal::xwpath(G, source, node_all_ps);
 		LOG.log() << "- node to all" << endl;
-		for (node target = 0; target < G.n_nodes(); ++target) {
+		for (node target = 0; target < G->n_nodes(); ++target) {
 			LOG.log() << "    Paths from " << source << " to " << target << ": ";
-			const node_path_set& paths_to_target = node_all_ps[target];
+			const node_path_set<T>& paths_to_target = node_all_ps[target];
 			if (paths_to_target.size() == 0) {
 				LOG.log() << "No paths" << endl;
 			}
 			else {
 				LOG.log() << endl;
-				for (const node_path& path : paths_to_target) {
+				for (const node_path<T>& path : paths_to_target) {
 					LOG.log() << string(8, ' ') << path << endl;
 				}
 			}
 		}
 
+		/*
 		// all-all
 		vector<vector<node_path_set> > all_all_paths;
 		paths(G, all_all_paths);
@@ -161,7 +159,7 @@ namespace debug {
 				}
 			}
 		}
-		*/
+		//*/
 	}
 
 	template<class T>
@@ -169,9 +167,9 @@ namespace debug {
 		/*
 		logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
 
-		LOG.log() << "PATHS:" << endl;
+		LOG.log() << "SINGLE BOOLEAN PATHS:" << endl;
 
-		// vertex-vertex
+		// node-node
 		boolean_path p;
 		path(G, source, target, p);
 		LOG.log() << "- node to node" << endl;
@@ -180,7 +178,7 @@ namespace debug {
 		else LOG.log() << "No path!";
 		LOG.log() << endl;
 
-		// vertex-all
+		// node-all
 		vector<boolean_path> ps;
 		path(G, source, ps);
 		LOG.log() << "- node to all" << endl;
@@ -211,9 +209,9 @@ namespace debug {
 		/*
 		logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
 
-		LOG.log() << "ALL SHORTEST PATHS:" << endl;
+		LOG.log() << "ALL BOOLEAN SHORTEST PATHS:" << endl;
 
-		// vertex-vertex
+		// node-node
 		boolean_path_set node_node_paths;
 		path(G, source, target, node_node_paths);
 		LOG.log() << "- node to node" << endl;
@@ -228,7 +226,7 @@ namespace debug {
 			}
 		}
 
-		// vertex-all
+		// node-all
 		vector<boolean_path_set> node_all_paths;
 		path(G, source, node_all_paths);
 		LOG.log() << "- node to all" << endl;
