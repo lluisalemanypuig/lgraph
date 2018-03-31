@@ -1,15 +1,17 @@
 TODO LIST
 =========
 
-[] 24/03/2018 ->
-Add documentation with Doxygen
+[] 20/02/2018 ->
+Use sparse matrixes to implement adjacency matrix when needed
+
+[] 20/02/2018 ->
+Implement sparse matrix class.
 
 [] 06/03/2018 ->
 Implement SIS and SIR with node immunity
 
 [] 26/02/2018 ->
 Implement an algorithm to find all connected components of a graph.
-Use it to improve betweenness centrality calculation?
 
 [] 26/02/2018 ->
 Use class 'svector' to implement the adjacency list of the graph data structure.
@@ -21,19 +23,16 @@ Implement triangle counting algorithm using adjacency matrix
 Paper:			http://www.d.umn.edu/math/Technical%20Reports/Technical%20Reports%202007-/TR%202012/yang.pdf
 Implementation:	https://www.geeksforgeeks.org/number-of-triangles-in-a-undirected-graph/
 
-[] 20/02/2018 ->
-Use sparse matrixes to implement adjacency matrix when needed
-
-[] 20/02/2018 ->
-Implement sparse matrix class.
+[] 24/03/2018 ->
+Add documentation with Doxygen
 
 [] 16/02/2018 ->
-Reimplement distance and path-finding methods using Dijkstra
+Implement distance and path-finding methods using Dijkstra
 
-[] 16/02/2018 ->
+[v] 16/02/2018 -> 31/03/2018 (actually, before that date)
 Implement generic Dijkstra
 
-[] 25/03/2018 ->
+[v] 25/03/2018 -> 31/03/2018 (actually, before that date)
 Adapt functions in traversal namespace to admit abstract graphs.
 
 [v] 16/03/2018 -> 25/03/2018
