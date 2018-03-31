@@ -6,7 +6,7 @@ using namespace std;
 
 /// Custom includes
 #include "utils/logger.hpp"
-#include "data_structures/graph_path.hpp"
+#include "data_structures/boolean_path.hpp"
 #include "data_structures/uwgraph.hpp"
 #include "data_structures/uugraph.hpp"
 #include "graph_traversal/traversal.hpp"

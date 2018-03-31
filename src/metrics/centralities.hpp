@@ -8,7 +8,7 @@ using namespace std;
 
 /// Custom includes
 #include "data_structures/uugraph.hpp"
-#include "data_structures/graph_path.hpp"
+#include "data_structures/boolean_path.hpp"
 #include "graph_traversal/traversal.hpp"
 
 namespace dsa {
