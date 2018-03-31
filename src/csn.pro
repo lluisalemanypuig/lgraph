@@ -14,8 +14,10 @@ HEADERS += \
 		data_structures/uwgraph.hpp \
 		data_structures/uwgraph.cpp \
 		data_structures/uugraph.hpp \
-	data_structures/graph_path.hpp \
-		data_structures/graph_path.cpp \
+	data_structures/node_path.hpp \
+		data_structures/node_path.cpp \
+	data_structures/boolean_path.hpp \
+		data_structures/boolean_path.cpp \
 	data_structures/random_generator.hpp \
 		data_structures/random_generator.cpp \
 		data_structures/drandom_generator.cpp \
