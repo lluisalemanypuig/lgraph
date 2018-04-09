@@ -127,92 +127,12 @@ namespace traversal {
 
 	template<class T>
 	void xwpath(const xxgraph<T> *G, node source, vector<node_path_set<T> >& ps) {
-		const size_t N = G->n_nodes();
 
-		// all paths from source to a target
-		ps = vector<node_path_set<T> >(N);
+		logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
+		LOG.log() << "template<class T> void xwpath(const xxgraph<T> *G, node source, vector<node_path_set<T> >& ps)" << endl;
+		LOG.log() << "    no implementation of one-to-all shortest path" << endl;
 
-		// only one path from source to source
-		ps[source] = node_path_set<T>(1);
-		ps[source][0].add_node(source);
-
-		bfs_terminate<T> terminate =
-		[](const xxgraph<T> *, node, const vector<bool>&) -> bool
-		{ return false; };
-
-		bfs_process_current<T> process_current =
-		[](const xxgraph<T> *, const node, const vector<bool>&) ->void { };
-
-		// function to compute the shortest distance from source to node v
-		bfs_process_neighbour<T> process_neighbour =
-		[&ps](const xxgraph<T> *G, node u, node v, const vector<bool>&) -> void
-		{
-			// computed only if necessary in the
-			// 'else' of the first if statment
-			T weight_uv;
-
-			// distance from 'source' to 'u', to 'v'
-			T d_u;
-			if (ps[u].size() == 0) {
-				// not a single path from 'source' to 'u'
-				d_u = utils::inf_t<T>();
-			}
-			else {
-				// at least one path from 'source' to 'u'
-
-				// add one node and the distance to it.
-				// path from 'source' to 'u' to 'v'
-				weight_uv = G->edge_weight(u, v);
-				d_u = ps[u][0].get_length() + weight_uv;
-			}
-
-			// distance from 'source' to 'v'
-			T d_v;
-			if (ps[v].size() == 0) {
-				// not a single path from 'source' to 'u'
-				d_v = utils::inf_t<T>();
-			}
-			else {
-				// at least one path from 'source' to 'u'
-
-				// path from 'source' to 'v'
-				d_v = ps[v][0].get_length();
-			}
-
-			if (d_u < d_v) {
-				// if this condition is ever true then variable
-				// 'weight_uv' is initialised (because the condition
-				// being true implies d_u != inf_t and, thus,
-				// ps[u].size() > 0)
-
-				// if shorter path found, clear all
-				// paths to 'v' and add the new ones.
-				ps[v] = ps[u];
-				for (node_path<T>& np : ps[v]) {
-					np.add_node(v);
-					np.add_length(weight_uv);
-				}
-			}
-			else if (d_u == d_v) {
-				// about the variable 'weight_uv': same as before
-
-				// if the path found is as long as the shortest, just add it
-				size_t prev_size = ps[v].size();
-
-				// add all node paths found so far
-				ps[v].insert( ps[v].end(), ps[u].begin(), ps[u].end() );
-
-				// add another vertex to the newly added paths
-				for (size_t i = prev_size; i < ps[v].size(); ++i) {
-					ps[v][i].add_node(v);
-					ps[v][i].add_length(weight_uv);
-				}
-			}
-		};
-
-		cout << "hey" << endl;
-
-		BFS(G, source, terminate, process_current, process_neighbour);
+		ps = vector<node_path_set<T> >(G->n_nodes());
 	}
 
 	/// ALL-ALL
