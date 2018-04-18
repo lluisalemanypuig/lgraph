@@ -31,10 +31,12 @@ namespace traversal {
 			Q.pop();
 
 			LOG.log() << "Current node: " << u.second << endl;
-			LOG.log() << "    ... processing";
 
 			if (not vis[u.second]) {
 				vis[u.second] = true;
+
+				LOG.log() << "    ... processing";
+
 				proc_curr(G, u, vis);
 
 				LOG.log() << "    ... processed." << endl;
