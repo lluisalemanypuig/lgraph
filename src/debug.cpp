@@ -60,8 +60,8 @@ int debug_path_finding(int argc, char *argv[]) {
 		outLOG.log() << G << endl;
 		outLOG.log() << endl;
 
-		debug::deb_distances_t(&G, S, T);
-		debug::deb_paths_t(&G, S, T);
+		//debug::deb_distances_t(&G, S, T);
+		//debug::deb_paths_t(&G, S, T);
 		debug::deb_all_paths_t(&G, S, T);
 		//debug::deb_bpaths_t(&G, S, T);
 		//debug::deb_all_bpaths_t(&G, S, T);

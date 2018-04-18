@@ -61,10 +61,60 @@ namespace traversal {
 
 	template<class T>
 	void xwpath(const xxgraph<T> *G, node source, node target, node_path_set<T>& ps) {
-		// all paths from source to the other nodes
-		vector<node_path_set<T> > node_all_paths;
-		xwpath(G, source, node_all_paths);
-		ps = node_all_paths[target];
+		assert(G->has_node(source));
+		assert(G->has_node(target));
+
+		logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
+		const size_t N = G->n_nodes();
+
+		// prev[v] = u: previous node of v in the path is u
+		vector< vector<node> > prev(N);
+		vector<T> ds(N, utils::inf_t<T>());
+		ds[source] = 0;
+
+		// terminate when target is found
+		djka_terminate<T> terminate =
+		[&target](const xxgraph<T> *, const djka_dist_node<T>& u, const vector<bool>&) -> bool
+		{
+			return u.second == target;
+		};
+
+		djka_process_current<T> proc_curr =
+		[] (const xxgraph<T> *, const djka_dist_node<T>&, const vector<bool>&) -> void { };
+
+		// function to compute the shortest distance from node u to node v
+		djka_process_neighbour<T> proc_neig =
+		[&prev, &ds]
+		(const xxgraph<T> *, node u, node v, const T& w, const vector<bool>&) -> bool
+		{
+			bool add = false;
+			if (ds[u] + w < ds[v]) {
+				// shorter path from u to v
+				ds[v] = ds[u] + w;
+				prev[v] = vector<node>(1, u);
+				add = true;
+			}
+			else if (ds[u] + w == ds[v]) {
+				// equally long path from u to v
+				prev[v].push_back(u);
+			}
+			return add;
+		};
+
+		Dijkstra(G, source, terminate, proc_curr, proc_neig);
+
+		for (node u = 0; u < N; ++u) {
+			LOG.log() << "node " << u << " has previous nodes: {";
+
+			if (prev[u].size() > 0) {
+				LOG.log() << prev[u][0];
+				for (size_t it_v = 1; it_v < prev[u].size(); ++it_v) {
+					LOG.log() << "," << prev[u][it_v];
+				}
+			}
+			LOG.log() << "}" << endl;
+		}
+
 	}
 
 	/// NODE-ALL
