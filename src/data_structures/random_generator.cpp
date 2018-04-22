@@ -1,6 +1,6 @@
 #include "random_generator.hpp"
 
-namespace dsa {
+namespace lgraph {
 namespace utils {
 
 template<class G, typename T>

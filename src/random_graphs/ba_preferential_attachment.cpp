@@ -1,6 +1,6 @@
 #include "barabasi_albert.hpp"
 
-namespace dsa {
+namespace lgraph {
 namespace networks {
 namespace random {
 namespace Barabasi_Albert {

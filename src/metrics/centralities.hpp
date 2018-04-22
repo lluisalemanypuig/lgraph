@@ -11,7 +11,7 @@ using namespace std;
 #include "data_structures/boolean_path.hpp"
 #include "graph_traversal/traversal.hpp"
 
-namespace dsa {
+namespace lgraph {
 using namespace utils;
 
 namespace networks {

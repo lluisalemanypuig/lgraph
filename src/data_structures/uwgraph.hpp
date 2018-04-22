@@ -13,7 +13,7 @@ using namespace std;
 #include "uxgraph.hpp"
 #include "utils/definitions.hpp"
 
-namespace dsa {
+namespace lgraph {
 namespace utils {
 
 /*

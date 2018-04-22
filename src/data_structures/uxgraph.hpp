@@ -16,7 +16,7 @@ using namespace std;
 #include "xxgraph.hpp"
 #include "utils/definitions.hpp"
 
-namespace dsa {
+namespace lgraph {
 namespace utils {
 
 template<class T>

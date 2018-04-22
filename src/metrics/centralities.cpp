@@ -1,6 +1,6 @@
 #include "metrics/centralities.hpp"
 
-namespace dsa {
+namespace lgraph {
 namespace networks {
 namespace metrics {
 namespace centralities {

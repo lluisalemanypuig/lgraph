@@ -1,6 +1,6 @@
 #include "xxgraph.hpp"
 
-namespace dsa {
+namespace lgraph {
 namespace utils {
 
 /// PROTECTED

@@ -4,7 +4,7 @@
 #include <limits>
 using namespace std;
 
-namespace dsa {
+namespace lgraph {
 namespace utils {
 
 	template<class T> void UNUSED(const T& t) { (void)t; }

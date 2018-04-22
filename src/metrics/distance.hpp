@@ -12,7 +12,7 @@ using namespace std;
 #include "utils/definitions.hpp"
 #include "graph_traversal/traversal.hpp"
 
-namespace dsa {
+namespace lgraph {
 using namespace utils;
 
 namespace networks {

@@ -13,7 +13,7 @@ using namespace std;
 #include "data_structures/uugraph.hpp"
 #include "utils/logger.hpp"
 
-namespace dsa {
+namespace lgraph {
 namespace networks {
 namespace random {
 namespace Barabasi_Albert {

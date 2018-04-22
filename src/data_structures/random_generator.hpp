@@ -4,7 +4,7 @@
 #include <random>
 using namespace std;
 
-namespace dsa {
+namespace lgraph {
 namespace utils {
 
 /*

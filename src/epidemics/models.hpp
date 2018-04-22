@@ -10,7 +10,7 @@ using namespace std;
 #include "data_structures/uugraph.hpp"
 #include "utils/logger.hpp"
 
-namespace dsa {
+namespace lgraph {
 using namespace utils;
 
 namespace networks {

@@ -1,6 +1,6 @@
 #include "switching.hpp"
 
-namespace dsa {
+namespace lgraph {
 namespace networks {
 namespace random {
 namespace switching {

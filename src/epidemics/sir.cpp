@@ -1,6 +1,6 @@
 #include "models.hpp"
 
-namespace dsa {
+namespace lgraph {
 namespace networks {
 namespace epidemics {
 	

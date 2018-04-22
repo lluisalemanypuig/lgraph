@@ -19,7 +19,7 @@ using namespace std;
 #include "metrics/distance.hpp"
 #include "epidemics/models.hpp"
 #include "utils/logger.hpp"
-using namespace dsa;
+using namespace lgraph;
 using namespace networks;
 using namespace utils;
 

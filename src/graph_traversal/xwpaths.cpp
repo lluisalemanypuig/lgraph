@@ -1,6 +1,6 @@
 #include "traversal.hpp"
 
-namespace dsa {
+namespace lgraph {
 namespace traversal {
 
 	/// NODE-NODE

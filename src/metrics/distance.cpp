@@ -1,6 +1,6 @@
 #include "metrics/distance.hpp"
 
-namespace dsa {
+namespace lgraph {
 namespace networks {
 namespace metrics {
 namespace distance {

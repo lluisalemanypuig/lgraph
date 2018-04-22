@@ -4,7 +4,7 @@
 #include <iostream>
 #include <fstream>
 
-namespace dsa {
+namespace lgraph {
 namespace utils {
 
 class null_stream {

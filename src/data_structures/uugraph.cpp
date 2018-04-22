@@ -1,6 +1,6 @@
 #include "uugraph.hpp"
 
-namespace dsa {
+namespace lgraph {
 namespace utils {
 
 /// PRIVATE

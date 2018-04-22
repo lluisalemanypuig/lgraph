@@ -7,7 +7,7 @@ using namespace std;
 /// Custom includes
 #include "data_structures/uugraph.hpp"
 
-namespace dsa {
+namespace lgraph {
 using namespace utils;
 
 namespace networks {

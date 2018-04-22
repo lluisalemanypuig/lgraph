@@ -1,6 +1,6 @@
 #include "uwgraph.hpp"
 
-namespace dsa {
+namespace lgraph {
 namespace utils {
 
 /// PRIVATE

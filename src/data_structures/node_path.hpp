@@ -11,7 +11,7 @@ using namespace std;
 #include "xxgraph.hpp"
 #include "utils/definitions.hpp"
 
-namespace dsa {
+namespace lgraph {
 namespace utils {
 
 // A path in a graph seen as a list of nodes

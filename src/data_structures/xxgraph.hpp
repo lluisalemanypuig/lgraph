@@ -10,7 +10,7 @@ using namespace std;
 /// Custom includes
 #include "utils/definitions.hpp"
 
-namespace dsa {
+namespace lgraph {
 namespace utils {
 
 typedef size_t node;

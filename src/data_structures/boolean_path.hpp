@@ -14,7 +14,7 @@ using namespace std;
 #include "utils/logger.hpp"
 #include "node_path.hpp"
 
-namespace dsa {
+namespace lgraph {
 namespace utils {
 
 // A path in a graph seen as a list of Boolean values.

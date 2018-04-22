@@ -1,6 +1,6 @@
 #include "svector.hpp"
 
-namespace dsa {
+namespace lgraph {
 namespace utils {
 
 /// PUBLIC

@@ -1,6 +1,6 @@
 #include "boolean_path.hpp"
 
-namespace dsa {
+namespace lgraph {
 namespace utils {
 
 /// PUBLIC
