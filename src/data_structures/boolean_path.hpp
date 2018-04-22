@@ -11,6 +11,7 @@ using namespace std;
 #include "xxgraph.hpp"
 #include "utils/definitions.hpp"
 #include "utils/static_bitset.hpp"
+#include "utils/logger.hpp"
 #include "node_path.hpp"
 
 namespace dsa {
@@ -90,16 +91,21 @@ class boolean_path {
 		// could be in the path. The size used to initialise it.
 		size_t potential_length() const;
 
-		// Returns the node next to 'u' in the path (which is
-		// different from prev). If the only neighbour of 'u'
-		// in the path is 'prev' then the function returns 'u'.
+		// Stores in 'next' the closest next node to 'u' in the path
+		// (which must be different from 'prev'). If the only neighbour of 'u'
+		// in the path is 'prev' then the stores returns 'u' and returns false.
 		// If 'u' is the first node in the path, set 'prev' to '-1'
-		node next(const xxgraph<T> *G, node prev, node u) const;
+		// or any other invalid value
+		bool closest_next(const xxgraph<T> *G, node prev, node current, node& next) const;
+		// Same as before but in this case the function wil not return
+		// any node marked with true in 'prev'
+		bool closest_next(const xxgraph<T> *G, const vector<bool>& prev, node current, node& next) const;
 
 		/// CONVERSIONS
 
 		// Converts this boolean path into a node_path. The path
-		// is assumed to start at s.
+		// is assumed to start at s and to represent a 'shortest'
+		// path within the graph G
 		node_path<T> to_node_path(const xxgraph<T> *G, node s) const;
 		void to_node_path(const xxgraph<T> *G, node s, node_path<T>& np) const;
 

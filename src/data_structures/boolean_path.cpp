@@ -98,22 +98,47 @@ size_t boolean_path<T>::potential_length() const {
 }
 
 template<class T>
-node boolean_path<T>::next(const xxgraph<T> *G, node prev, node u) const {
-	node next = u;
+bool boolean_path<T>::closest_next(const xxgraph<T> *G, node prev, node curr, node& next) const {
 	bool found = false;
 
-	const neighbourhood& Nu = G->get_neighbours(u);
-	size_t i = 0;
-	while (i < Nu.size() and not found) {
+	const neighbourhood& Nu = G->get_neighbours(curr);
+	vector<T> weights;
+	G->get_weights(curr, weights);
+
+	T dist = utils::inf_t<T>();
+
+	for (size_t i = 0; i < Nu.size(); ++i) {
 		node v = Nu[i];
-		if (nodes_in_path[v] and v != prev) {
+		if (nodes_in_path[v] and v != prev and weights[i] < dist) {
 			next = v;
+			dist = weights[i];
 			found = true;
 		}
-		++i;
 	}
 
-	return next;
+	return found;
+}
+
+template<class T>
+bool boolean_path<T>::closest_next(const xxgraph<T> *G, const vector<bool>& prev, node curr, node& next) const {
+	bool found = false;
+
+	const neighbourhood& Nu = G->get_neighbours(curr);
+	vector<T> weights;
+	G->get_weights(curr, weights);
+
+	T dist = utils::inf_t<T>();
+
+	for (size_t i = 0; i < Nu.size(); ++i) {
+		node v = Nu[i];
+		if (nodes_in_path[v] and not prev[v] and weights[i] < dist) {
+			next = v;
+			dist = weights[i];
+			found = true;
+		}
+	}
+
+	return found;
 }
 
 /// CONVERSIONS
@@ -127,6 +152,9 @@ node_path<T> boolean_path<T>::to_node_path(const xxgraph<T> *G, node s) const {
 
 template<class T>
 void boolean_path<T>::to_node_path(const xxgraph<T> *G, node s, node_path<T>& np) const {
+	logger<null_stream>& LOG = logger<null_stream>::get_logger();
+	LOG.log() << endl;
+
 	if (n_nodes == 0) {
 		// no vertices in the path
 		return;
@@ -140,12 +168,23 @@ void boolean_path<T>::to_node_path(const xxgraph<T> *G, node s, node_path<T>& np
 	node current = s;
 	node next_node;
 
-	while ( (next_node = next(G, prev_node, current)) != current ) {
+	vector<bool> vis(G->n_nodes(), false);
+	vis[current] = true;
+
+	bool next = closest_next(G, vis, current, next_node);
+	while ( next ) {
+		LOG.log() << "prev node: " << prev_node << endl;
+		LOG.log() << "curr node: " << current << endl;
+		LOG.log() << "next node: " << next_node << endl;
+
 		np.add_node(next_node);
 		++added_nodes;
 
 		prev_node = current;
 		current = next_node;
+		vis[current] = true;
+
+		next = closest_next(G, vis, current, next_node);
 	}
 
 	np.set_length(path_length);
@@ -199,7 +238,7 @@ void boolean_path<T>::to_string(string& s) const {
 	void from_nps_to_bps(const node_path_set<T>& nps, size_t N, boolean_path_set<T>& bps) {
 		size_t n_paths = nps.size();
 
-		bps = boolean_path_set<_new_>(n_paths);
+		bps = boolean_path_set<T>(n_paths);
 		for (size_t j = 0; j < n_paths; ++j) {
 			bps[j].init(N, nps[j]);
 		}
