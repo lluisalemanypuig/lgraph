@@ -97,6 +97,6 @@ class uwgraph : public uxgraph<T> {
 };
 
 } // -- namespace utils
-} // -- namespace dsa
+} // -- namespace lgraph
 
 #include "uwgraph.cpp"

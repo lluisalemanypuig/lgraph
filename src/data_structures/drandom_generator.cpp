@@ -36,5 +36,5 @@ dT drandom_generator<G,dT>::get_binomial() {
 }
 	
 } // -- namespace utils
-} // -- namespace dsa
+} // -- namespace lgraph
 

@@ -185,5 +185,5 @@ bool uugraph::store_in_file(const char *filename) {
 }
 
 } // -- namespace utils
-} // -- namespace dsa
+} // -- namespace lgraph
 

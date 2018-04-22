@@ -240,5 +240,5 @@ namespace epidemics {
 	
 } // -- namespace epidemics
 } // -- namespace networks
-} // -- namespace dsa
+} // -- namespace lgraph
 

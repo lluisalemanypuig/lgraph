@@ -127,6 +127,6 @@ class boolean_path {
 	void from_nps_to_bps(const node_path_set<T>& nps, boolean_path_set<T>& bps);
 
 } // -- namespace utils
-} // -- namespace dsa
+} // -- namespace lgraph
 
 #include "boolean_path.cpp"

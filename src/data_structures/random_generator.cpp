@@ -18,5 +18,5 @@ void random_generator<G,T>::seed_random_engine() {
 }
 
 } // -- namespace utils
-} // -- namespace dsa
+} // -- namespace lgraph
 

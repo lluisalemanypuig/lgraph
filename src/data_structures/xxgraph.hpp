@@ -135,6 +135,6 @@ class xxgraph {
 };
 
 } // -- namespace utils
-} // -- namespace dsa
+} // -- namespace lgraph
 
 #include "xxgraph.cpp"

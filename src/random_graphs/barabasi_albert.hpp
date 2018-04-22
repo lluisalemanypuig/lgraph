@@ -85,7 +85,7 @@ using namespace utils;
 } // -- namespace Barabasi_Albert
 } // -- namespace random
 } // -- namespace networks
-} // -- namespace dsa
+} // -- namespace lgraph
 
 #include "ba_preferential_attachment.cpp"
 #include "ba_random_attachment.cpp"

@@ -86,6 +86,6 @@ class svector : public vector<T, Alloc> {
 };
 
 } // -- namespace utils
-} // -- namespace dsa
+} // -- namespace lgraph
 
 #include "svector.cpp"

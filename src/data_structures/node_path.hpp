@@ -92,6 +92,6 @@ template<class T = _new_>
 using node_path_set = vector<node_path<T> >;
 
 } // -- namespace utils
-} // -- namespace dsa
+} // -- namespace lgraph
 
 #include "node_path.cpp"

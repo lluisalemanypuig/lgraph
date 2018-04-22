@@ -65,5 +65,5 @@ namespace centralities {
 } // -- namespace centralities
 } // -- namespace metrics
 } // -- namespace networks	
-} // -- namespace dsa
+} // -- namespace lgraph
 

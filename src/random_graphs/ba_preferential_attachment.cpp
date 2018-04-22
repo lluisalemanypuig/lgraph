@@ -189,5 +189,5 @@ namespace Barabasi_Albert {
 } // -- namespace Barabasi_Albert
 } // -- namespace random
 } // -- namespace networks
-} // -- namespace dsa
+} // -- namespace lgraph
 

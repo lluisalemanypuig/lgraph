@@ -62,6 +62,6 @@ class uxgraph : public xxgraph<T> {
 };
 
 } // -- namespace utils
-} // -- namespace dsa
+} // -- namespace lgraph
 
 #include "uxgraph.cpp"

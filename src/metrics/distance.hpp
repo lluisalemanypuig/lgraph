@@ -44,5 +44,5 @@ namespace distance {
 } // -- namespace distance
 } // -- namespace metrics
 } // -- namespace networks	
-} // -- namespace dsa
+} // -- namespace lgraph
 

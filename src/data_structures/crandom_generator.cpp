@@ -25,5 +25,5 @@ cT crandom_generator<G,cT>::get_uniform() {
 }
 	
 } // -- namespace utils
-} // -- namespace dsa
+} // -- namespace lgraph
 

@@ -81,5 +81,5 @@ bool svector<T, Alloc>::position(const T& v, size_t& p) const {
 }
 	
 } // -- namespace utils
-} // -- namespace dsa
+} // -- namespace lgraph
 

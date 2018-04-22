@@ -114,4 +114,4 @@ const vector<node>& node_path<T>::get_nodes() const {
 }
 
 } // -- namespace utils
-} // -- namespace dsa
+} // -- namespace lgraph

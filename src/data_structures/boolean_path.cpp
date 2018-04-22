@@ -245,4 +245,4 @@ void boolean_path<T>::to_string(string& s) const {
 	}
 
 } // -- namespace utils
-} // -- namespace dsa
+} // -- namespace lgraph

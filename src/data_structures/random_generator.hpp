@@ -96,7 +96,7 @@ class crandom_generator : public random_generator<G,cT> {
 }; // -- class crandom_generator
 
 } // -- namespace utils
-} // -- namespace dsa
+} // -- namespace lgraph
 
 #include "random_generator.cpp"
 #include "drandom_generator.cpp"

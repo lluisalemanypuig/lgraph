@@ -94,7 +94,7 @@ namespace epidemics {
 	
 } // -- namespace epidemics
 } // -- namespace networks
-} // -- namespace dsa
+} // -- namespace lgraph
 
 #include "sir.cpp"
 #include "sis.cpp"

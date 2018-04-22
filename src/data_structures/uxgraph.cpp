@@ -104,4 +104,4 @@ bool uxgraph<T>::has_edge(node u, node v) const {
 
 
 } // -- namespace utils
-} // -- namespace dsa
+} // -- namespace lgraph

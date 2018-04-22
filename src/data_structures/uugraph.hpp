@@ -95,5 +95,5 @@ class uugraph : public uxgraph<_new_> {
 };
 
 } // -- namespace utils
-} // -- namespace dsa
+} // -- namespace lgraph
 

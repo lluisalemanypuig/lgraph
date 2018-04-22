@@ -154,4 +154,4 @@ size_t xxgraph<T>::n_triangles() const {
 }
 
 } // -- namespace utils
-} // -- namespace dsa
+} // -- namespace lgraph

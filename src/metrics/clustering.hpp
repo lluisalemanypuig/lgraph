@@ -27,5 +27,5 @@ namespace clustering {
 } // -- namespace clustering
 } // -- namespace metrics
 } // -- namespace networks	
-} // -- namespace dsa
+} // -- namespace lgraph
 

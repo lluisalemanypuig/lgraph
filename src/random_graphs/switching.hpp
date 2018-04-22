@@ -41,6 +41,6 @@ using namespace utils;
 } // -- namespace switching
 } // -- namespace random
 } // -- namespace networks
-} // -- namespace dsa
+} // -- namespace lgraph
 
 #include "switching.cpp"
