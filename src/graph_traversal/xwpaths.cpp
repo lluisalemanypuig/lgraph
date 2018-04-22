@@ -59,12 +59,38 @@ namespace traversal {
 		p.set_length(ds[target]);
 	}
 
+	// nidx: next node in the reversed path
+	template<class T>
+	void make_paths
+	(
+		node source,
+		const vector< vector<node> >& prev,
+		T st_dist,
+		node nidx,
+		node_path_set<T>& ps,
+		node_path<T>& path
+	)
+	{
+		path.add_node(nidx);
+		if (nidx == source) {
+			// path contains a list of nodes from target to source
+			ps.push_back(path);
+			ps.back().reverse();
+			return;
+		}
+
+		for (size_t i = 0; i < prev[nidx].size(); ++i) {
+			node prev_node = prev[nidx][i];
+			make_paths(source, prev, st_dist, prev_node, ps, path);
+			path.delete_last();
+		}
+	}
+
 	template<class T>
 	void xwpath(const xxgraph<T> *G, node source, node target, node_path_set<T>& ps) {
 		assert(G->has_node(source));
 		assert(G->has_node(target));
 
-		logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
 		const size_t N = G->n_nodes();
 
 		// prev[v] = u: previous node of v in the path is u
@@ -103,18 +129,9 @@ namespace traversal {
 
 		Dijkstra(G, source, terminate, proc_curr, proc_neig);
 
-		for (node u = 0; u < N; ++u) {
-			LOG.log() << "node " << u << " has previous nodes: {";
-
-			if (prev[u].size() > 0) {
-				LOG.log() << prev[u][0];
-				for (size_t it_v = 1; it_v < prev[u].size(); ++it_v) {
-					LOG.log() << "," << prev[u][it_v];
-				}
-			}
-			LOG.log() << "}" << endl;
-		}
-
+		node_path<T> empty_path;
+		empty_path.set_length(ds[target]);
+		make_paths(source, prev, ds[target], target, ps, empty_path);
 	}
 
 	/// NODE-ALL
@@ -177,12 +194,11 @@ namespace traversal {
 
 	template<class T>
 	void xwpath(const xxgraph<T> *G, node source, vector<node_path_set<T> >& ps) {
-
-		logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
-		LOG.log() << "template<class T> void xwpath(const xxgraph<T> *G, node source, vector<node_path_set<T> >& ps)" << endl;
-		LOG.log() << "    no implementation of one-to-all shortest path" << endl;
-
 		ps = vector<node_path_set<T> >(G->n_nodes());
+
+		for (node target = 0; target < G->n_nodes(); ++target) {
+			xwpath(G, source, target, ps[target]);
+		}
 	}
 
 	/// ALL-ALL
