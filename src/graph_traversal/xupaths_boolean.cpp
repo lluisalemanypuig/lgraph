@@ -73,7 +73,6 @@ namespace traversal {
 				from_nps_to_bps(all_all_node_paths[i][j], N, all_all_paths[i][j]);
 			}
 		}
-
 	}
 
 } // -- namespace traversal
