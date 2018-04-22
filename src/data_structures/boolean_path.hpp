@@ -40,10 +40,10 @@ class boolean_path {
 
 		/// INITIALISERS
 
-		// initialises the path to an empty path of n nodes
+		// initialises the path to an empty path within a graph of n nodes
 		void init(size_t n);
 
-		// initialises the path to a path of n nodes
+		// initialises the path to a path within a graph of n nodes
 		// with the nodes in vp
 		void init(size_t n, const node_path<T>& vp);
 
@@ -112,8 +112,13 @@ class boolean_path {
 		void to_string(string& s) const;
 };
 
-template<class T = size_t>
-using boolean_path_set = vector<boolean_path<T> >;
+	template<class T = size_t>
+	using boolean_path_set = vector<boolean_path<T> >;
+
+	// Conversion from a node path set to a boolean
+	// path set in a graph of N nodes
+	template<class T>
+	void from_nps_to_bps(const node_path_set<T>& nps, boolean_path_set<T>& bps);
 
 } // -- namespace utils
 } // -- namespace dsa

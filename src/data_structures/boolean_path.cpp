@@ -25,10 +25,10 @@ void boolean_path<T>::init(size_t n) {
 template<class T>
 void boolean_path<T>::init(size_t n, const node_path<T>& vp) {
 	init(n);
-	for (size_t u : vp) {
+	for (node u : vp.get_nodes()) {
 		add_node(u);
 	}
-	path_length = vp.path_length;
+	path_length = vp.get_length();
 }
 
 template<class T>
@@ -194,6 +194,16 @@ void boolean_path<T>::to_string(string& s) const {
 		}
 	}
 }
+
+	template<class T>
+	void from_nps_to_bps(const node_path_set<T>& nps, size_t N, boolean_path_set<T>& bps) {
+		size_t n_paths = nps.size();
+
+		bps = boolean_path_set<_new_>(n_paths);
+		for (size_t j = 0; j < n_paths; ++j) {
+			bps[j].init(N, nps[j]);
+		}
+	}
 
 } // -- namespace utils
 } // -- namespace dsa
