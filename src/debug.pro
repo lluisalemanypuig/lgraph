@@ -60,7 +60,3 @@ SOURCES += \
 	graph_traversal/xupaths.cpp \
 	graph_traversal/xupaths_boolean.cpp \
 	debug/unweighted_dist_paths.cpp
-
-DISTFILES += \
-    TODO \
-    changelog
