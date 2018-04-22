@@ -27,6 +27,7 @@ using namespace utils;
 string model = "none";
 string variant = "none";
 string from_file = "none";
+string to_file = "none";
 	
 size_t n0 = 10;
 size_t m0 = 5;
@@ -61,9 +62,11 @@ crandom_generator<> *crg;
 void print_usage() {
 	cout << "Help of this program" << endl;
 	cout << "    [-h, --help]: show the usage of this program" << endl;
-	cout << "* Reading a network from a file:" << endl;
+	cout << "* Reading/writing a network from/to a file:" << endl;
 	cout << "    [-i, --input]: reads a network from the specified file. The format must be" << endl;
 	cout << "        a list of edges (pairs of vertices spaced)" << endl;
+	cout << "    [-o, --output]: stores the generated network in the specified file" << endl;
+	cout << endl;
 	cout << "* Generating random networks" << endl;
 	cout << "    Model selection parameters:" << endl;
 	cout << "    --barabasi-albert: generate a Barabasi-Albert model" << endl;
@@ -277,6 +280,10 @@ int parse_options(int argc, char *argv[]) {
 			from_file = string(argv[i + 1]);
 			++i;
 		}
+		else if (strcmp(argv[i], "-o") == 0 or strcmp(argv[i], "--output") == 0) {
+			to_file = string(argv[i + 1]);
+			++i;
+		}
 		else if (strcmp(argv[i], "--barabasi-albert") == 0) {
 			model = "barabasi-albert";
 		}
@@ -429,6 +436,10 @@ int main(int argc, char *argv[]) {
 	
 	if (epid_sir or epid_sis) {
 		execute_epidemic_models(Gs);
+	}
+	
+	if (to_file != "none") {
+		Gs.store_in_file(to_file);
 	}
 	
 	// free memory
