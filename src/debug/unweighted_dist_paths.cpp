@@ -9,10 +9,10 @@ namespace debug {
 		LOG.log() << "DISTANCES:" << endl;
 
 		// vertex-vertex
+		LOG.log() << "- node to node" << endl;
 		size_t n_paths;
 		_new_ d1 = traversal::xudistance(G, source, target);
 		_new_ d2 = traversal::xudistance(G, source, target, n_paths);
-		LOG.log() << "- node to node" << endl;
 		LOG.log() << "    Distance from " << source << " to " << target << ": ";
 		if (d1 == utils::inf_t<_new_>() or d2 == utils::inf_t<_new_>()) LOG.log() << "inf";
 		else {
@@ -24,10 +24,10 @@ namespace debug {
 		LOG.log() << " (" << n_paths << ")" << endl;
 
 		// vertex-all
+		LOG.log() << "- node to all" << endl;
 		vector<_new_> ds;
 		vector<size_t> va_n_paths;
 		traversal::xudistance(G, source, ds, va_n_paths);
-		LOG.log() << "- node to all" << endl;
 		for (size_t i = 0; i < N; ++i) {
 			LOG.log() << "    Distance from " << source << " to " << i << ": ";
 			if (ds[i] == utils::inf_t<_new_>()) LOG.log() << "inf";
@@ -36,10 +36,10 @@ namespace debug {
 		}
 
 		// all-all
+		LOG.log() << "- all to all" << endl;
 		vector<vector<_new_> > all_ds;
 		vector<vector<size_t> > all_n_paths;
 		traversal::xudistances(G, all_ds, all_n_paths);
-		LOG.log() << "- all to all" << endl;
 		print_distance_matrix(all_ds, all_n_paths);
 	}
 
@@ -49,18 +49,18 @@ namespace debug {
 		LOG.log() << "SINGLE NODE PATHS:" << endl;
 
 		// vertex-vertex
+		LOG.log() << "- node to node" << endl;
 		node_path<_new_> p;
 		traversal::xupath(G, source, target, p);
-		LOG.log() << "- node to node" << endl;
 		LOG.log() << "    Path from " << source << " to " << target << ": ";
 		if (p.size() > 0) LOG.log() << p;
 		else LOG.log() << "No path!";
 		LOG.log() << endl;
 
 		// vertex-all
+		LOG.log() << "- node to all" << endl;
 		vector<node_path<_new_> > ps;
 		traversal::xupath(G, source, ps);
-		LOG.log() << "- node to all" << endl;
 		for (node target = 0; target < G->n_nodes(); ++target) {
 			LOG.log() << "    Path from " << source << " to " << target << ": ";
 			if (ps[target].size() > 0) LOG.log() << ps[target];
@@ -69,9 +69,9 @@ namespace debug {
 		}
 
 		// all-all
+		LOG.log() << "- all to all" << endl;
 		vector<vector<node_path<_new_> > > all_ps;
 		traversal::xupath(G, all_ps);
-		LOG.log() << "- all to all" << endl;
 		for (node source = 0; source < G->n_nodes(); ++source) {
 			for (node target = 0; target < G->n_nodes(); ++target) {
 				LOG.log() << "    Path from " << source << " to " << target << ": ";
@@ -88,9 +88,9 @@ namespace debug {
 		LOG.log() << "ALL NODE SHORTEST PATHS:" << endl;
 
 		// vertex-vertex
+		LOG.log() << "- node to node" << endl;
 		node_path_set<_new_> node_node_ps;
 		traversal::xupaths(G, source, target, node_node_ps);
-		LOG.log() << "- node to node" << endl;
 		LOG.log() << "    paths from " << source << " to " << target << ": ";
 		if (node_node_ps.size() == 0) {
 			LOG.log() << "No paths" << endl;
@@ -103,9 +103,9 @@ namespace debug {
 		}
 
 		// vertex-all
+		LOG.log() << "- node to all" << endl;
 		vector<node_path_set<_new_> > node_all_ps;
 		traversal::xupaths(G, source, node_all_ps);
-		LOG.log() << "- node to all" << endl;
 		for (node target = 0; target < G->n_nodes(); ++target) {
 			LOG.log() << "    Paths from " << source << " to " << target << ": ";
 			const node_path_set<_new_>& paths_to_target = node_all_ps[target];
@@ -121,9 +121,9 @@ namespace debug {
 		}
 
 		// all-all
+		LOG.log() << "- all to all" << endl;
 		vector<vector<node_path_set<_new_> > > all_all_paths;
 		traversal::xupaths(G, all_all_paths);
-		LOG.log() << "- all to all" << endl;
 		for (node source = 0; source < G->n_nodes(); ++source) {
 			for (node target = 0; target < G->n_nodes(); ++target) {
 
@@ -148,18 +148,18 @@ namespace debug {
 		LOG.log() << "SINGLE BOOLEAN PATHS:" << endl;
 
 		// vertex-vertex
+		LOG.log() << "- node to node" << endl;
 		boolean_path<_new_> p;
 		traversal::xupath(G, source, target, p);
-		LOG.log() << "- node to node" << endl;
 		LOG.log() << "    Path from " << source << " to " << target << ": ";
 		if (p.size() > 0) LOG.log() << p.to_node_path(G, source);
 		else LOG.log() << "No path!";
 		LOG.log() << endl;
 
 		// vertex-all
+		LOG.log() << "- node to all" << endl;
 		vector<boolean_path<_new_> > ps;
 		traversal::xupath(G, source, ps);
-		LOG.log() << "- node to all" << endl;
 		for (node TARGET = 0; TARGET < G->n_nodes(); ++TARGET) {
 			LOG.log() << "    Path from " << source << " to " << TARGET << ": ";
 			if (ps[TARGET].size() > 0) LOG.log() << ps[TARGET].to_node_path(G, source);
@@ -168,9 +168,9 @@ namespace debug {
 		}
 
 		// all-all
+		LOG.log() << "- all to all" << endl;
 		vector<vector<boolean_path<_new_> > > all_ps;
 		traversal::xupath(G, all_ps);
-		LOG.log() << "- all to all" << endl;
 		for (node SOURCE = 0; SOURCE < G->n_nodes(); ++SOURCE) {
 			for (node TARGET = 0; TARGET < G->n_nodes(); ++TARGET) {
 				LOG.log() << "    Path from " << SOURCE << " to " << TARGET << ": ";
@@ -187,9 +187,9 @@ namespace debug {
 		LOG.log() << "ALL BOOLEAN SHORTEST PATHS:" << endl;
 
 		// vertex-vertex
+		LOG.log() << "- node to node" << endl;
 		boolean_path_set<_new_> node_node_paths;
 		traversal::xupaths(G, source, target, node_node_paths);
-		LOG.log() << "- node to node" << endl;
 		LOG.log() << "    paths from " << source << " to " << target << ": ";
 		if (node_node_paths.size() == 0) {
 			LOG.log() << "No paths" << endl;
@@ -202,9 +202,9 @@ namespace debug {
 		}
 
 		// vertex-all
+		LOG.log() << "- node to all" << endl;
 		vector<boolean_path_set<_new_> > node_all_paths;
 		traversal::xupaths(G, source, node_all_paths);
-		LOG.log() << "- node to all" << endl;
 		for (node TARGET = 0; TARGET < G->n_nodes(); ++TARGET) {
 			LOG.log() << "    Paths from " << source << " to " << TARGET << ": ";
 			const boolean_path_set<_new_>& paths_to_target = node_all_paths[TARGET];
@@ -220,9 +220,9 @@ namespace debug {
 		}
 
 		// all-all
+		LOG.log() << "- all to all" << endl;
 		vector<vector<boolean_path_set<_new_> > > all_all_paths;
 		traversal::xupaths(G, all_all_paths);
-		LOG.log() << "- all to all" << endl;
 		for (node SOURCE = 0; SOURCE < G->n_nodes(); ++SOURCE) {
 			for (node TARGET = 0; TARGET < G->n_nodes(); ++TARGET) {
 
