@@ -1,4 +1,3 @@
-
 TEMPLATE = app
 CONFIG += console
 CONFIG += c++11
@@ -40,8 +39,11 @@ HEADERS += \
     utils/definitions.hpp \
     utils/static_bitset.hpp \
     graph_traversal/traversal.hpp \
+        graph_traversal/dfs.hpp \
         graph_traversal/dfs.cpp \
+        graph_traversal/bfs.hpp \
         graph_traversal/bfs.cpp \
+        graph_traversal/dijkstra.hpp \
         graph_traversal/dijkstra.cpp \
         graph_traversal/xwpaths.cpp \
         graph_traversal/xwdistances.cpp \
