@@ -5,6 +5,7 @@ namespace traversal {
 
 	/// VERTEX-VERTEX
 
+	// one path
 	void xupath(const xxgraph<_new_> *G, node source, node target, node_path<_new_>& p) {
 		// path from source to target starts at source
 		p.add_node(source);
@@ -49,14 +50,16 @@ namespace traversal {
 		BFS(G, source, terminate, process_current, process_neighbour);
 	}
 
-	void xupath(const xxgraph<_new_> *G, node source, node target, node_path_set<_new_>& ps) {
+	// all paths
+	void xupaths(const xxgraph<_new_> *G, node source, node target, node_path_set<_new_>& ps) {
 		vector<node_path_set<_new_> > node_all_paths;
-		xupath(G, source, node_all_paths);
+		xupaths(G, source, node_all_paths);
 		ps = node_all_paths[target];
 	}
 
 	/// VERTEX-ALL
 
+	// one path
 	void xupath(const xxgraph<_new_> *G, node source, vector<node_path<_new_> >& ps) {
 		const size_t N = G->n_nodes();
 
@@ -88,7 +91,8 @@ namespace traversal {
 		BFS(G, source, terminate, process_current, process_neighbour);
 	}
 
-	void xupath(const xxgraph<_new_> *G, node source, vector<node_path_set<_new_> >& ps) {
+	// all paths
+	void xupaths(const xxgraph<_new_> *G, node source, vector<node_path_set<_new_> >& ps) {
 		const size_t N = G->n_nodes();
 
 		// all paths from source to a target
@@ -164,7 +168,8 @@ namespace traversal {
 
 	/// ALL-ALL
 
-	void xupaths(const xxgraph<_new_> *G, vector<node_path_set<_new_> >& all_all_paths) {
+	// one path
+	void xupath(const xxgraph<_new_> *G, vector<node_path_set<_new_> >& all_all_paths) {
 		const size_t N = G->n_nodes();
 
 		// allocate memory...
@@ -217,6 +222,7 @@ namespace traversal {
 		}
 	}
 
+	// all paths
 	void xupaths(const xxgraph<_new_> *G, vector<vector<node_path_set<_new_> > >& all_all_paths) {
 		const size_t N = G->n_nodes();
 

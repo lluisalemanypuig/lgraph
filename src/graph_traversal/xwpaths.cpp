@@ -5,6 +5,7 @@ namespace traversal {
 
 	/// NODE-NODE
 
+	// one path
 	template<class T>
 	void xwpath(const xxgraph<T> *G, node source, node target, node_path<T>& p) {
 		assert(G->has_node(source));
@@ -86,8 +87,9 @@ namespace traversal {
 		}
 	}
 
+	// all paths
 	template<class T>
-	void xwpath(const xxgraph<T> *G, node source, node target, node_path_set<T>& ps) {
+	void xwpaths(const xxgraph<T> *G, node source, node target, node_path_set<T>& ps) {
 		assert(G->has_node(source));
 		assert(G->has_node(target));
 
@@ -136,6 +138,7 @@ namespace traversal {
 
 	/// NODE-ALL
 
+	// one path
 	template<class T>
 	void xwpath(const xxgraph<T> *G, node source, vector<node_path<T> >& ps) {
 		assert(G->has_node(source));
@@ -192,19 +195,21 @@ namespace traversal {
 		}
 	}
 
+	// all paths
 	template<class T>
-	void xwpath(const xxgraph<T> *G, node source, vector<node_path_set<T> >& ps) {
+	void xwpaths(const xxgraph<T> *G, node source, vector<node_path_set<T> >& ps) {
 		ps = vector<node_path_set<T> >(G->n_nodes());
 
 		for (node target = 0; target < G->n_nodes(); ++target) {
-			xwpath(G, source, target, ps[target]);
+			xwpaths(G, source, target, ps[target]);
 		}
 	}
 
 	/// ALL-ALL
 
+	// one path
 	template<class T>
-	void xwpaths(const xxgraph<T> *G, vector<vector<node_path<T> > >& all_all_paths) {
+	void xwpath(const xxgraph<T> *G, vector<vector<node_path<T> > >& all_all_paths) {
 		const size_t N = G->n_nodes();
 
 		// allocate memory...
@@ -262,6 +267,7 @@ namespace traversal {
 		}
 	}
 
+	// all paths
 	template<class T>
 	void xwpaths(const xxgraph<T> *G, vector<vector<node_path_set<T> > >& all_all_paths) {
 		const size_t N = G->n_nodes();
