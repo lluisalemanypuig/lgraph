@@ -82,7 +82,7 @@ namespace debug {
 
 		// all-all
 		vector<node_path_set<T> > all_ps;
-		traversal::xwpaths(G, all_ps);
+		traversal::xwpath(G, all_ps);
 		LOG.log() << "- all to all" << endl;
 		if (all_ps.size() > 0) {
 			for (node source = 0; source < G->n_nodes(); ++source) {
@@ -107,7 +107,7 @@ namespace debug {
 
 		// node-node
 		node_path_set<T> node_node_ps;
-		traversal::xwpath(G, source, target, node_node_ps);
+		traversal::xwpaths(G, source, target, node_node_ps);
 		LOG.log() << "- node to node" << endl;
 		LOG.log() << "    paths from " << source << " to " << target << ": ";
 		if (node_node_ps.size() == 0) {
@@ -122,7 +122,7 @@ namespace debug {
 
 		// node-all
 		vector<node_path_set<T> > node_all_ps;
-		traversal::xwpath(G, source, node_all_ps);
+		traversal::xwpaths(G, source, node_all_ps);
 		LOG.log() << "- node to all" << endl;
 		for (node target = 0; target < G->n_nodes(); ++target) {
 			LOG.log() << "    Paths from " << source << " to " << target << ": ";
@@ -138,10 +138,10 @@ namespace debug {
 			}
 		}
 
-		/*
 		// all-all
-		vector<vector<node_path_set> > all_all_paths;
-		paths(G, all_all_paths);
+		/*
+		vector<vector<node_path_set<T> > > all_all_paths;
+		traversal::xwpaths(G, all_all_paths);
 		LOG.log() << "- all to all" << endl;
 		for (node source = 0; source < G.n_nodes(); ++source) {
 			for (node target = 0; target < G.n_nodes(); ++target) {
@@ -159,7 +159,7 @@ namespace debug {
 				}
 			}
 		}
-		//*/
+		*/
 	}
 
 	template<class T>
