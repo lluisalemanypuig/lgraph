@@ -70,7 +70,7 @@ namespace debug {
 
 		// all-all
 		vector<vector<node_path<_new_> > > all_ps;
-		traversal::xupaths(G, all_ps);
+		traversal::xupath(G, all_ps);
 		LOG.log() << "- all to all" << endl;
 		for (node source = 0; source < G->n_nodes(); ++source) {
 			for (node target = 0; target < G->n_nodes(); ++target) {
@@ -89,7 +89,7 @@ namespace debug {
 
 		// vertex-vertex
 		node_path_set<_new_> node_node_ps;
-		traversal::xupath(G, source, target, node_node_ps);
+		traversal::xupaths(G, source, target, node_node_ps);
 		LOG.log() << "- node to node" << endl;
 		LOG.log() << "    paths from " << source << " to " << target << ": ";
 		if (node_node_ps.size() == 0) {
@@ -104,7 +104,7 @@ namespace debug {
 
 		// vertex-all
 		vector<node_path_set<_new_> > node_all_ps;
-		traversal::xupath(G, source, node_all_ps);
+		traversal::xupaths(G, source, node_all_ps);
 		LOG.log() << "- node to all" << endl;
 		for (node target = 0; target < G->n_nodes(); ++target) {
 			LOG.log() << "    Paths from " << source << " to " << target << ": ";
@@ -169,7 +169,7 @@ namespace debug {
 
 		// all-all
 		vector<vector<boolean_path<_new_> > > all_ps;
-		traversal::xupaths(G, all_ps);
+		traversal::xupath(G, all_ps);
 		LOG.log() << "- all to all" << endl;
 		for (node SOURCE = 0; SOURCE < G->n_nodes(); ++SOURCE) {
 			for (node TARGET = 0; TARGET < G->n_nodes(); ++TARGET) {
@@ -188,7 +188,7 @@ namespace debug {
 
 		// vertex-vertex
 		boolean_path_set<_new_> node_node_paths;
-		traversal::xupath(G, source, target, node_node_paths);
+		traversal::xupaths(G, source, target, node_node_paths);
 		LOG.log() << "- node to node" << endl;
 		LOG.log() << "    paths from " << source << " to " << target << ": ";
 		if (node_node_paths.size() == 0) {
@@ -203,7 +203,7 @@ namespace debug {
 
 		// vertex-all
 		vector<boolean_path_set<_new_> > node_all_paths;
-		traversal::xupath(G, source, node_all_paths);
+		traversal::xupaths(G, source, node_all_paths);
 		LOG.log() << "- node to all" << endl;
 		for (node TARGET = 0; TARGET < G->n_nodes(); ++TARGET) {
 			LOG.log() << "    Paths from " << source << " to " << TARGET << ": ";
