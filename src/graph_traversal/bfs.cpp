@@ -1,4 +1,4 @@
-#include "traversal.hpp"
+#include "bfs.hpp"
 
 namespace lgraph {
 namespace traversal {

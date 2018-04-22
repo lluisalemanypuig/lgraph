@@ -17,7 +17,7 @@ namespace traversal {
 		// DO terminate when target node is found. Dijkstra guarantees that
 		// when this happens the shortest distance was found
 		djka_terminate<T> terminate =
-		[&target](const xxgraph<T> *, const djka_dist_node<T>& u, const vector<bool>&) -> bool
+		[&target](const xxgraph<T> *, const djka_node<T>& u, const vector<bool>&) -> bool
 		{
 			return u.second == target;
 		};
@@ -25,7 +25,7 @@ namespace traversal {
 		// function to retrieve the shortest distance from source to node v
 		djka_process_current<T> proc_curr =
 		[&target, &st_dist]
-		(const xxgraph<T> *, const djka_dist_node<T>& u, const vector<bool>&)
+		(const xxgraph<T> *, const djka_node<T>& u, const vector<bool>&)
 		{
 			if (u.second == target) {
 				st_dist = u.first;
@@ -63,12 +63,12 @@ namespace traversal {
 
 		// do NOT terminate: iterate through all nodes
 		djka_terminate<T> terminate =
-		[](const xxgraph<T> *, const djka_dist_node<T>&, const vector<bool>&) -> bool
+		[](const xxgraph<T> *, const djka_node<T>&, const vector<bool>&) -> bool
 		{ return false; };
 
 		// don't need to process the currently visited node
 		djka_process_current<T> proc_curr =
-		[](const xxgraph<T> *, const djka_dist_node<T>&, const vector<bool>&) { };
+		[](const xxgraph<T> *, const djka_node<T>&, const vector<bool>&) { };
 
 		// function to compute the shortest distance from source to node v
 		djka_process_neighbour<T> proc_neig =
@@ -100,12 +100,12 @@ namespace traversal {
 
 		// do NOT terminate: iterate through all nodes
 		djka_terminate<T> terminate =
-		[](const xxgraph<T> *, const djka_dist_node<T>&, const vector<bool>&) -> bool
+		[](const xxgraph<T> *, const djka_node<T>&, const vector<bool>&) -> bool
 		{ return false; };
 
 		// don't need to process the currently visited node
 		djka_process_current<T> proc_curr =
-		[](const xxgraph<T> *, const djka_dist_node<T>&, const vector<bool>&) { };
+		[](const xxgraph<T> *, const djka_node<T>&, const vector<bool>&) { };
 
 		// function to compute the shortest distance from source to node v
 		djka_process_neighbour<T> proc_neig =

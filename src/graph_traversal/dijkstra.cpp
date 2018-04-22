@@ -1,4 +1,4 @@
-#include "traversal.hpp"
+#include "dijkstra.hpp"
 
 namespace lgraph {
 namespace traversal {
@@ -18,16 +18,16 @@ namespace traversal {
 
 		vector<bool> vis(G->n_nodes(), false);
 		priority_queue<
-			djka_dist_node<T>,				// -> elements' type,
-			vector<djka_dist_node<T> >,		// -> compare elements so that smaller distances
-			greater<djka_dist_node<T> >		// are at the top
+			djka_node<T>,			// -> elements' type,
+			vector<djka_node<T> >,	// -> compare elements so that smaller distances
+			greater<djka_node<T> >	// are at the top
 		> Q;
 
-		Q.push(djka_dist_node<T>(0, source));
+		Q.push(djka_node<T>(0, source));
 		bool term = false;
 
 		while (not Q.empty() and not term) {
-			djka_dist_node<T> u = Q.top();
+			djka_node<T> u = Q.top();
 			Q.pop();
 
 			LOG.log() << "Current node: " << u.second << endl;
@@ -70,7 +70,7 @@ namespace traversal {
 						LOG.log() << "        ... processed." << endl;
 
 						if (add_next) {
-							Q.push( djka_dist_node<T>(u.first + weight_uv, v) );
+							Q.push( djka_node<T>(u.first + weight_uv, v) );
 						}
 					}
 				}

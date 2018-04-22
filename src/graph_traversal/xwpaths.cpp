@@ -20,13 +20,13 @@ namespace traversal {
 
 		// terminate when target is found
 		djka_terminate<T> terminate =
-		[&target](const xxgraph<T> *, const djka_dist_node<T>& u, const vector<bool>&) -> bool
+		[&target](const xxgraph<T> *, const djka_node<T>& u, const vector<bool>&) -> bool
 		{
 			return u.second == target;
 		};
 
 		djka_process_current<T> proc_curr =
-		[] (const xxgraph<T> *, const djka_dist_node<T>&, const vector<bool>&) -> void { };
+		[] (const xxgraph<T> *, const djka_node<T>&, const vector<bool>&) -> void { };
 
 		// function to compute the shortest distance from node u to node v
 		djka_process_neighbour<T> proc_neig =
@@ -102,13 +102,13 @@ namespace traversal {
 
 		// terminate when target is found
 		djka_terminate<T> terminate =
-		[&target](const xxgraph<T> *, const djka_dist_node<T>& u, const vector<bool>&) -> bool
+		[&target](const xxgraph<T> *, const djka_node<T>& u, const vector<bool>&) -> bool
 		{
 			return u.second == target;
 		};
 
 		djka_process_current<T> proc_curr =
-		[] (const xxgraph<T> *, const djka_dist_node<T>&, const vector<bool>&) -> void { };
+		[] (const xxgraph<T> *, const djka_node<T>&, const vector<bool>&) -> void { };
 
 		// function to compute the shortest distance from node u to node v
 		djka_process_neighbour<T> proc_neig =
@@ -152,11 +152,11 @@ namespace traversal {
 
 		// terminate when target is found
 		djka_terminate<T> terminate =
-		[](const xxgraph<T> *, const djka_dist_node<T>&, const vector<bool>&) -> bool
+		[](const xxgraph<T> *, const djka_node<T>&, const vector<bool>&) -> bool
 		{ return false; };
 
 		djka_process_current<T> proc_curr =
-		[] (const xxgraph<T> *, const djka_dist_node<T>&, const vector<bool>&) -> void { };
+		[] (const xxgraph<T> *, const djka_node<T>&, const vector<bool>&) -> void { };
 
 		// function to compute the shortest distance from node u to node v
 		djka_process_neighbour<T> proc_neig =
