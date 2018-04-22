@@ -1,9 +1,29 @@
 
 Changes to upload to master:
 
+
 data_structures/uwgraph.cpp
 data_structures/uwgraph.hpp
+
+// 1. Added get_nodes() method
+data_structures/node_path.hpp
+data_structures/node_path.cpp
+
+// 1. renamed functions: add/remove 's' (plural) where necessary
 graph_traversal/dijkstra.cpp
 graph_traversal/traversal.hpp
 graph_traversal/xupaths.cpp
 graph_traversal/xwpaths.cpp
+
+// 1. Reuse code
+graph_traversal/xupaths_boolean.cpp
+
+// 1. add new option: -o, --output
+complex_social_networks.cpp
+
+// 1. better docs: clarified meaning of 'n' in methods init
+// 2. Fixed bugs in init(n, node_path) method
+// 3. Fixed bugs in to_node_path conversion
+data_structures/boolean_path.hpp
+data_structures/boolean_path.cpp
+
