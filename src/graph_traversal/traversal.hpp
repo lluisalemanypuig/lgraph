@@ -235,8 +235,8 @@ namespace traversal {
 	void xupath(const xxgraph<_new_> *G, node source, node target, boolean_path<_new_>& p);
 
 	// all shortest paths from a node to another node
-	void xupath(const xxgraph<_new_> *G, node source, node target, node_path_set<_new_>& ps);
-	void xupath(const xxgraph<_new_> *G, node source, node target, boolean_path_set<_new_>& ps);
+	void xupaths(const xxgraph<_new_> *G, node source, node target, node_path_set<_new_>& ps);
+	void xupaths(const xxgraph<_new_> *G, node source, node target, boolean_path_set<_new_>& ps);
 
 	/// NODE-ALL
 
@@ -245,14 +245,14 @@ namespace traversal {
 	void xupath(const xxgraph<_new_> *G, node source, vector<boolean_path<_new_> >& ps);
 
 	// all shortest paths from all nodes to a single node
-	void xupath(const xxgraph<_new_> *G, node source, vector<node_path_set<_new_> >& ps);
-	void xupath(const xxgraph<_new_> *G, node source, vector<boolean_path_set<_new_> >& ps);
+	void xupaths(const xxgraph<_new_> *G, node source, vector<node_path_set<_new_> >& ps);
+	void xupaths(const xxgraph<_new_> *G, node source, vector<boolean_path_set<_new_> >& ps);
 
 	/// ALL-ALL
 
 	// a shortest path from all nodes to all other nodes
-	void xupaths(const xxgraph<_new_> *G, vector<vector<node_path<_new_> > >& ps);
-	void xupaths(const xxgraph<_new_> *G, vector<vector<boolean_path<_new_> > >& ps);
+	void xupath(const xxgraph<_new_> *G, vector<vector<node_path<_new_> > >& ps);
+	void xupath(const xxgraph<_new_> *G, vector<vector<boolean_path<_new_> > >& ps);
 
 	// all shortest paths from all nodes to all other nodes
 	void xupaths(const xxgraph<_new_> *G, vector<vector<node_path_set<_new_> > >& ps);
@@ -316,11 +316,11 @@ namespace traversal {
 	template<class T>
 	void xwpath(const xxgraph<T> *G, node source, node target, boolean_path<T>& p);
 
-	// all shortest paths from a node to another node (particular case of usage of BFS)
+	// all shortest paths from a node to another node
 	template<class T>
-	void xwpath(const xxgraph<T> *G, node source, node target, node_path_set<T>& ps);
+	void xwpaths(const xxgraph<T> *G, node source, node target, node_path_set<T>& ps);
 	template<class T>
-	void xwpath(const xxgraph<T> *G, node source, node target, boolean_path_set<T>& ps);
+	void xwpaths(const xxgraph<T> *G, node source, node target, boolean_path_set<T>& ps);
 
 	/// NODE-ALL
 
@@ -332,17 +332,17 @@ namespace traversal {
 
 	// all shortest paths from all nodes to a single node
 	template<class T>
-	void xwpath(const xxgraph<T> *G, node source, vector<node_path_set<T> >& ps);
+	void xwpaths(const xxgraph<T> *G, node source, vector<node_path_set<T> >& ps);
 	template<class T>
-	void xwpath(const xxgraph<T> *G, node source, vector<boolean_path_set<T> >& ps);
+	void xwpaths(const xxgraph<T> *G, node source, vector<boolean_path_set<T> >& ps);
 
 	/// ALL-ALL
 
 	// a shortest path from all nodes to all other nodes
 	template<class T>
-	void xwpaths(const xxgraph<T> *G, vector<vector<node_path<T> > >& ps);
+	void xwpath(const xxgraph<T> *G, vector<vector<node_path<T> > >& ps);
 	template<class T>
-	void xwpaths(const xxgraph<T> *G, vector<vector<boolean_path<T> > >& ps);
+	void xwpath(const xxgraph<T> *G, vector<vector<boolean_path<T> > >& ps);
 
 	// all shortest paths from all nodes to all other nodes
 	template<class T>
