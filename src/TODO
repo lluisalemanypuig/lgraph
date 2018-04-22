@@ -26,7 +26,7 @@ Implementation:	https://www.geeksforgeeks.org/number-of-triangles-in-a-undirecte
 [] 24/03/2018 ->
 Add documentation with Doxygen
 
-[] 31/03/2018 ->
+[v] 31/03/2018 -> 22/04/2018
 Refactor code in traversal.hpp
 
 [v] 16/02/2018 -> 22/04/2018
