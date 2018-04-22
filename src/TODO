@@ -29,7 +29,7 @@ Add documentation with Doxygen
 [] 31/03/2018 ->
 Refactor code in traversal.hpp
 
-[] 16/02/2018 ->
+[v] 16/02/2018 -> 22/04/2018
 Implement distance and path-finding methods using Dijkstra
 
 [v] 16/02/2018 -> 31/03/2018 (actually, before that date)
