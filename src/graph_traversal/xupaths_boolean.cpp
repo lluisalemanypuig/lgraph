@@ -14,9 +14,9 @@ namespace traversal {
 
 	// all paths
 	void xupaths(const xxgraph<_new_> *G, node source, node target, boolean_path_set<_new_>& ps) {
-		vector<boolean_path_set<_new_> > boolean_all_paths;
-		xupaths(G, source, boolean_all_paths);
-		ps = boolean_all_paths[target];
+		node_path_set<_new_> node_all_paths;
+		xupaths(G, source, target, node_all_paths);
+		from_nps_to_bps(node_all_paths, G->n_nodes(), ps);
 	}
 
 	/// VERTEX-ALL
