@@ -83,6 +83,9 @@ class node_path {
 
 		// Returns the last node in this path
 		size_t last_node() const;
+
+		// Returns the list of nodes of this path
+		const vector<node>& get_nodes() const;
 };
 
 template<class T = _new_>

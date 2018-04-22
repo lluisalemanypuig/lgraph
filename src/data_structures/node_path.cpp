@@ -108,5 +108,10 @@ size_t node_path<T>::last_node() const {
 	return nodes.back();
 }
 
+template<class T>
+const vector<node>& node_path<T>::get_nodes() const {
+	return nodes;
+}
+
 } // -- namespace utils
 } // -- namespace dsa
