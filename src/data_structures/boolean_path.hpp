@@ -36,8 +36,8 @@ namespace utils {
  * The template parameter type is the type used to store this path's length
  * (see @ref path_length).
  *
- * The type used for the length must support comparisons and the C++'s output
- * operator <<.
+ * @param T The type used for the length. It must support comparisons and the
+ * C++'s output operator <<.
  */
 template<class T = _new_>
 class boolean_path {
@@ -97,6 +97,7 @@ class boolean_path {
 		 *
 		 * The corresponding position of @ref nodes_in_path is set to true.
 		 * @param u The node's index, between 0 and @ref n_nodes - 1
+		 * @post The length remains unchanged
 		*/
 		void add_node(node u);
 
@@ -114,15 +115,19 @@ class boolean_path {
 		void set_length(const T& l);
 
 		/**
-		 * @brief Adds to this paths all nodes from bp
+		 * @brief Adds to this paths all nodes from bp.
+		 *
+		 * All positions in @e bp set to true will be set to true in this path.
+		 *
 		 * @param bp The boolean path that will be concatenated to this.
+		 * @pre @e bp must have been initialised with the same value as this.
 		 */
 		void concatenate(const boolean_path<T>& bp);
 
 		/**
-		 * @brief Outputs this path on a \ref ostream object.
+		 * @brief Outputs this path on a @e ostream object.
 		 *
-		 * The format is this path as a string (see \ref to_string())
+		 * The format is this path as a string (see @ref to_string())
 		 * followed by '->' and this path's length.
 		 */
 		inline friend
@@ -136,8 +141,7 @@ class boolean_path {
 		 *
 		 * @param i The node's index.
 		 * @return Returns true if, and only if, @ref nodes_in_path[@e i] is set
-		 * to true.
-		 *
+		 *		to true.
 		 * @pre The node index @e i must satisfy @e i < @ref n_nodes
 		 */
 		bool operator[] (node i) const;
