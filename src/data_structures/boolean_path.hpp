@@ -17,25 +17,37 @@ using namespace std;
 namespace lgraph {
 namespace utils {
 
-// A path in a graph seen as a list of Boolean values.
-// The i-th position of this path is 1 if, and only if, the i-th vertex is in the path.
-// This is intended to be used ONLY for shortest paths.
-//
-// Therefore: any boolean_path can be converted into a node_path under the following conditions:
-// - no vertex in the path has three neighbours in it
-// - if p(u) is the position of vertex 'u' in the node path then:
-//    * if u has only one neighbour 'v' then either p(v) < p(u) or p(u) < p(v)
-//    * if u has two neighbours 'v', 'w' then either p(v) < p(u) < p(w) or p(w) < p(u) < p(v)
-// Any other boolean path not following the previous two conventions is not guaranteed to be
-// able to be converted into an object of type 'node_path'.
+/**
+ * \brief A path in a graph G seen as a list of Boolean values.
+ *
+ * The i-th position of this path is 1 if, and only if, the i-th node of G is in the path.
+ * This is intended to be used ONLY for shortest paths. Therefore, any boolean_path can be
+ * converted into a node_path under the following condition:
+ *	if p(u) is the position of node 'u' in the node path then:
+ *		+ if u has only one neighbour 'v' then either p(v) < p(u) or p(u) < p(v)
+ *		+ if u has two neighbours 'v', 'w' then either p(v) < p(u) < p(w) or p(w) < p(u) < p(v)
+ * Any other boolean path not following the previous two conventions is not guaranteed to be
+ * able to be converted into an object of type 'node_path'.
+ *
+ * The template parameter type is the type used to store this path's length.
+*/
 template<class T = _new_>
 class boolean_path {
 	private:
+		/// The list of Boolean values. nodes_in_path[i] = true if, and only
+		/// if, i-th node of the graph is in the path
 		static_bitset nodes_in_path;
+
+		/// Number of nodes in the path, i.e., the amount of values set to true.
 		size_t n_nodes;
+
+		/// The total weight of this path, i.e., if 'p' is the path as a list
+		/// of edges, then 'path_length' equals the sum of weights of all edges
+		/// in 'p'.
 		T path_length;
 
 	public:
+		//! Initialise this path with 'n' nodes
 		boolean_path(size_t n = 0);
 		~boolean_path();
 
