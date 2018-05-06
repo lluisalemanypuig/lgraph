@@ -13,12 +13,6 @@ using namespace std;
 namespace lgraph {
 namespace utils {
 
-typedef size_t node;
-typedef vector<node> neighbourhood;
-typedef neighbourhood::const_iterator ncit;
-typedef neighbourhood::iterator nit;
-typedef pair<node, node> edge;
-
 /*
 Generic interface of the adjacency list implementation of
 a graph, with a series of methods common to all of them.
@@ -69,7 +63,7 @@ class xxgraph {
 		size_t add_node();
 
 		// Adds n nodes to the graph. Returns the index of the last node.
-		size_t add_n_nodes(size_t n);
+		size_t add_n_nodes(node n);
 
 		// Adds an edge between nodes u and v assuming it does not exist.
 		virtual void add_edge(const edge& e, T w = 0) = 0;

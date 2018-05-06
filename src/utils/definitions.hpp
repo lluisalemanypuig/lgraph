@@ -1,11 +1,18 @@
 #pragma once
 
-/// C++ includes
+// C++ includes
+#include <cstdint>
 #include <limits>
 using namespace std;
 
 namespace lgraph {
 namespace utils {
+
+	typedef int32_t node;
+	typedef vector<node> neighbourhood;
+	typedef neighbourhood::const_iterator ncit;
+	typedef neighbourhood::iterator nit;
+	typedef pair<node, node> edge;
 
 	template<class T> void UNUSED(const T& t) { (void)t; }
 
