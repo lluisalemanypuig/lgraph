@@ -3,7 +3,7 @@
 namespace lgraph {
 namespace utils {
 
-/// PUBLIC
+// PUBLIC
 
 template<class T>
 node_path<T>::node_path() {
@@ -26,7 +26,7 @@ void node_path<T>::empty() {
 	path_length = 0;
 }
 
-/// OPERATORS
+// OPERATORS
 
 template<class T>
 node node_path<T>::operator[] (size_t i) const {
@@ -55,7 +55,7 @@ node_path<T>& node_path<T>::operator= (const node_path<T>& np) {
 	return *this;
 }
 
-/// MODIFIERS
+// MODIFIERS
 
 template<class T>
 void node_path<T>::concatenate(const node_path<T>& p) {
@@ -68,6 +68,7 @@ void node_path<T>::concatenate(const node_path<T>& p) {
 
 template<class T>
 void node_path<T>::add_node(node u) {
+	assert(u >= 0);
 	nodes.push_back(u);
 }
 
@@ -91,7 +92,7 @@ void node_path<T>::delete_last() {
 	nodes.pop_back();
 }
 
-/// GETTERS
+// GETTERS
 
 template<class T>
 size_t node_path<T>::size() const {
@@ -104,7 +105,7 @@ T node_path<T>::get_length() const {
 }
 
 template<class T>
-size_t node_path<T>::last_node() const {
+node node_path<T>::last_node() const {
 	return nodes.back();
 }
 
