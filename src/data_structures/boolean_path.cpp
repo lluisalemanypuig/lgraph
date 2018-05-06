@@ -3,17 +3,16 @@
 namespace lgraph {
 namespace utils {
 
-/// PUBLIC
+// PUBLIC
 
 template<class T>
-boolean_path<T>::boolean_path(size_t n) {
-	init(n);
+boolean_path<T>::boolean_path() {
 }
 
 template<class T>
 boolean_path<T>::~boolean_path() { }
 
-/// INITIALISERS
+// INITIALISERS
 
 template<class T>
 void boolean_path<T>::init(size_t n) {
@@ -38,10 +37,12 @@ void boolean_path<T>::clear() {
 	path_length = 0;
 }
 
-/// MODIFIERS
+// MODIFIERS
 
 template<class T>
 void boolean_path<T>::add_node(node u) {
+	assert((0 < u) and (u < n_nodes));
+
 	if (not nodes_in_path[u]) {
 		nodes_in_path.set_bit(u);
 		++n_nodes;
@@ -70,10 +71,10 @@ void boolean_path<T>::concatenate(const boolean_path<T>& bp) {
 	}
 }
 
-/// OPERATORS
+// OPERATORS
 
 template<class T>
-bool boolean_path<T>::operator[] (size_t i) const {
+bool boolean_path<T>::operator[] (node i) const {
 	return nodes_in_path[i];
 }
 
@@ -85,11 +86,16 @@ boolean_path<T>& boolean_path<T>::operator= (const boolean_path<T>& bp) {
 	return *this;
 }
 
-/// GETTERS
+// GETTERS
 
 template<class T>
 size_t boolean_path<T>::size() const {
 	return n_nodes;
+}
+
+template<class T>
+T boolean_path<T>::get_length() const {
+	return path_length;
 }
 
 template<class T>
@@ -99,6 +105,9 @@ size_t boolean_path<T>::potential_length() const {
 
 template<class T>
 bool boolean_path<T>::closest_next(const xxgraph<T> *G, node prev, node curr, node& next) const {
+	assert(G != nullptr);
+	assert((0 < curr) and (curr < nodes_in_path.size()));
+
 	bool found = false;
 
 	const neighbourhood& Nu = G->get_neighbours(curr);
@@ -121,6 +130,9 @@ bool boolean_path<T>::closest_next(const xxgraph<T> *G, node prev, node curr, no
 
 template<class T>
 bool boolean_path<T>::closest_next(const xxgraph<T> *G, const vector<bool>& prev, node curr, node& next) const {
+	assert(G != nullptr);
+	assert((0 < curr) and (curr < nodes_in_path.size()));
+
 	bool found = false;
 
 	const neighbourhood& Nu = G->get_neighbours(curr);
@@ -141,7 +153,7 @@ bool boolean_path<T>::closest_next(const xxgraph<T> *G, const vector<bool>& prev
 	return found;
 }
 
-/// CONVERSIONS
+// CONVERSIONS
 
 template<class T>
 node_path<T> boolean_path<T>::to_node_path(const xxgraph<T> *G, node s) const {
@@ -234,15 +246,15 @@ void boolean_path<T>::to_string(string& s) const {
 	}
 }
 
-	template<class T>
-	void from_nps_to_bps(const node_path_set<T>& nps, size_t N, boolean_path_set<T>& bps) {
-		size_t n_paths = nps.size();
+template<class T>
+void from_nps_to_bps(const node_path_set<T>& nps, size_t N, boolean_path_set<T>& bps) {
+	size_t n_paths = nps.size();
 
-		bps = boolean_path_set<T>(n_paths);
-		for (size_t j = 0; j < n_paths; ++j) {
-			bps[j].init(N, nps[j]);
-		}
+	bps = boolean_path_set<T>(n_paths);
+	for (size_t j = 0; j < n_paths; ++j) {
+		bps[j].init(N, nps[j]);
 	}
+}
 
 } // -- namespace utils
 } // -- namespace lgraph
