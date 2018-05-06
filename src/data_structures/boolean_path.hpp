@@ -45,7 +45,7 @@ class boolean_path {
 		/**
 		 * @brief The list of nodes as Boolean values.
 		 *
-		 * nodes_in_path[i] = true if, and only if, i-th node
+		 * @ref nodes_in_path[i] = true if, and only if, i-th node
 		 * of the graph is in the path
 		 */
 		static_bitset nodes_in_path;
@@ -273,15 +273,21 @@ class boolean_path {
 		void to_string(string& s) const;
 };
 
+//! Template for a list of boolean_path objects.
 template<class T = size_t>
 using boolean_path_set = vector<boolean_path<T> >;
 
 /**
  * @brief Shortcut to convert all node_path objects in a list to a list
  * of boolean_path objects.
+ *
+ * @param[in]	nps	The list of node_path objects to convert.
+ * @param[in]	N	The amount of nodes that the graph each node_path object traverses has.
+ * @param[out]	bps	A list with as many boolean_paths as node_paths are in @e bps.
+ *					The boolean path in @e bps[i]
  */
 template<class T>
-void from_nps_to_bps(const node_path_set<T>& nps, boolean_path_set<T>& bps);
+void from_nps_to_bps(const node_path_set<T>& nps, size_t N, boolean_path_set<T>& bps);
 
 } // -- namespace utils
 } // -- namespace lgraph
