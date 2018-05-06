@@ -2,11 +2,17 @@ Changes to upload to master:
 
 Documentation:
 	- boolean_path.hpp
+	- node_path.hpp
+	- random_generator.hpp
 
 Other changes:
 	- boolean_path.cpp:
 		Added several assertions.
 		Added implementation of get_length() metho (oops).
+	- node_path.cpp
+		Added some assertions.
+	- crandom_generator.cpp
+		Implemented methods with empty body for binomial distributions.
 	- definitions.hpp, xxgraph.hpp
 		Moved definition of
 			- node
