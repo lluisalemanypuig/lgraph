@@ -1,4 +1,21 @@
 Changes to upload to master:
 
-started coumentation:
+Documentation:
 	- boolean_path.hpp
+
+Other changes:
+	- boolean_path.cpp:
+		Added several assertions.
+		Added implementation of get_length() metho (oops).
+	- definitions.hpp, xxgraph.hpp
+		Moved definition of
+			- node
+			- neighbourhood
+			- iterators
+			- edge
+		to file definitions.hpp
+
+		'node' is now defined as a int32_t
+	- xxgraph.hpp
+		There was a method with type 'size_t' for a node index.
+		Changed it to 'node' defintion.
