@@ -116,7 +116,7 @@ class crandom_generator : public random_generator<G,cT> {
 		void init_uniform(cT a, cT b);
 
 		/// The CRNG leaves this method's body empty
-		void init_binomial(dT a, double p);
+		void init_binomial(cT a, double p);
 
 		cT get_uniform();
 
