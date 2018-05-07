@@ -4,6 +4,7 @@ Documentation:
 	- boolean_path.hpp
 	- node_path.hpp
 	- random_generator.hpp
+	- svector.hpp
 
 Other changes:
 	- boolean_path.cpp:
@@ -25,3 +26,11 @@ Other changes:
 	- xxgraph.hpp
 		There was a method with type 'size_t' for a node index.
 		Changed it to 'node' defintion.
+	
+	The change in the defintion of node from size_t to int32_t triggered
+	several compilation errors in the 'debug' project (and so to the csn
+	project). The files that had to be changed were:
+	- graph_traversal/xudistances.cpp
+	- metrics/centralities.cpp,.hpp
+	- metrics/distance.cpp,.hpp
+	- debug/debug.hpp
