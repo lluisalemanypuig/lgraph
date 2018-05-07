@@ -64,6 +64,7 @@ size_t xxgraph<T>::add_n_nodes(node n) {
 
 template<class T>
 void xxgraph<T>::clear() {
+	num_edges = 0;
 	clear_adjacency_list();
 	clear_weights();
 }
