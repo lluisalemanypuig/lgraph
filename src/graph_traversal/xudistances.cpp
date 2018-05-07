@@ -50,7 +50,8 @@ namespace traversal {
 		}
 
 		_new_ xudistance(const xxgraph<_new_> *G, node source, node target, size_t& n_paths) {
-			vector<size_t> distances, paths;
+			vector<_new_> distances;
+			vector<size_t> paths;
 			xudistance(G, source, distances, paths);
 			n_paths = paths[target];
 			return distances[target];
@@ -89,7 +90,7 @@ namespace traversal {
 			BFS(G, source, terminate, process_current, process_neighbour);
 		}
 
-		void xudistance(const xxgraph<_new_> *G, node source, vector<size_t>& ds, vector<size_t>& n_paths) {
+		void xudistance(const xxgraph<_new_> *G, node source, vector<_new_>& ds, vector<size_t>& n_paths) {
 			const size_t N = G->n_nodes();
 
 			// distance from source to all nodes
@@ -129,11 +130,11 @@ namespace traversal {
 
 		/// ALL-ALL
 
-		void xudistances(const xxgraph<_new_> *G, vector<vector<size_t> >& dist) {
+		void xudistances(const xxgraph<_new_> *G, vector<vector<_new_> >& dist) {
 			const size_t N = G->n_nodes();
 
 			// initialise data
-			dist = vector<vector<size_t> >(N, vector<size_t>(N, utils::inf_t<_new_>()));
+			dist = vector<vector<_new_> >(N, vector<_new_>(N, utils::inf_t<_new_>()));
 
 			// initialise with edge weights (here always 1)
 			for (size_t u = 0; u < N; ++u) {
@@ -167,11 +168,11 @@ namespace traversal {
 			}
 		}
 
-		void xudistances(const xxgraph<_new_> *G, vector<vector<size_t> >& dist, vector<vector<size_t> >& n_paths) {
+		void xudistances(const xxgraph<_new_> *G, vector<vector<_new_> >& dist, vector<vector<size_t> >& n_paths) {
 			const size_t N = G->n_nodes();
 
 			// initialise data
-			dist = vector<vector<size_t> >(N, vector<size_t>(N, utils::inf_t<_new_>()));
+			dist = vector<vector<_new_> >(N, vector<_new_>(N, utils::inf_t<_new_>()));
 			n_paths = vector<vector<size_t> >(N, vector<size_t>(N, 0));
 
 			// initialise with edge weights (here always 1) the distance and the

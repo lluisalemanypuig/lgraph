@@ -10,7 +10,7 @@ using namespace std;
 #include "data_structures/uwgraph.hpp"
 #include "data_structures/uugraph.hpp"
 #include "graph_traversal/traversal.hpp"
-using namespace dsa;
+using namespace lgraph;
 using namespace utils;
 
 namespace debug {

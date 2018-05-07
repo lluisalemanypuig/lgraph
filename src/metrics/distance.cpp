@@ -5,13 +5,13 @@ namespace networks {
 namespace metrics {
 namespace distance {
 
-	size_t max_distance(const uugraph& G) {
-		vector<vector<size_t> > ds;
+	_new_ max_distance(const uugraph& G) {
+		vector<vector<_new_> > ds;
 		traversal::xudistances(&G, ds);
 		return max_distance(G, ds);
 	}
 
-	size_t max_distance(const uugraph& G, const vector<vector<size_t> >& ds) {
+	_new_ max_distance(const uugraph& G, const vector<vector<_new_> >& ds) {
 		const size_t N = G.n_nodes();
 		size_t D = 0;
 		for (size_t i = 0; i < N; ++i) {
@@ -31,12 +31,12 @@ namespace distance {
 	}
 
 	double mean_distance(const uugraph& G) {
-		vector<vector<size_t> > ds;
+		vector<vector<_new_> > ds;
 		traversal::xudistances(&G, ds);
 		return mean_distance(G, ds);
 	}
 
-	double mean_distance(const uugraph& G, const vector<vector<size_t> >& ds) {
+	double mean_distance(const uugraph& G, const vector<vector<_new_> >& ds) {
 		const size_t N = G.n_nodes();
 		double m = 0;
 		for (size_t i = 0; i < N; ++i) {

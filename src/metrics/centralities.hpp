@@ -36,7 +36,7 @@ namespace centralities {
 	*/
 	double closeness(const uugraph& G, node u);
 	void closeness(const uugraph& G, vector<double>& cc);
-	void closeness(const uugraph& G, const vector<vector<size_t> >& atad, vector<double>& cc);
+	void closeness(const uugraph& G, const vector<vector<_new_> >& atad, vector<double>& cc);
 	
 	/// BETWEENNESS CENTRALITY
 
@@ -58,9 +58,9 @@ namespace centralities {
 	paths between any two vertices of the graph as boolean paths.
 	*/
 	double betweenness(const uugraph& G, node u);
-	double betweenness(const uugraph& G, const vector<vector<boolean_path_set<> > >& paths, node u);
+	double betweenness(const uugraph& G, const vector<vector<boolean_path_set<_new_> > >& paths, node u);
 	void betweenness(const uugraph& G, vector<double>& bc);
-	void betweenness(const uugraph& G, const vector<vector<boolean_path_set<> > >& paths, vector<double>& bc);
+	void betweenness(const uugraph& G, const vector<vector<boolean_path_set<_new_> > >& paths, vector<double>& bc);
 	
 } // -- namespace centralities
 } // -- namespace metrics

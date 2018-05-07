@@ -8,7 +8,7 @@ using namespace std;
 /// Custom includes
 #include "debug/debug.hpp"
 #include "utils/logger.hpp"
-using namespace dsa;
+using namespace lgraph;
 using namespace traversal;
 
 int debug_path_finding(int argc, char *argv[]) {
