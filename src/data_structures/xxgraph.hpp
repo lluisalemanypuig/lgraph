@@ -188,7 +188,7 @@ class xxgraph {
 		 * @brief Returns the number of edges
 		 * @return Returns the value @ref num_edges
 		 */
-		size_t num_edges() const;
+		size_t n_edges() const;
 
 		/// Returns all nodes (as integers)
 		void nodes(vector<node>& all_nodes) const;
@@ -203,6 +203,8 @@ class xxgraph {
 		/**
 		 * @brief Returns the number of neighbours of u
 		 * @param u The node whose neighbourhood size we want
+		 * @return Returns the size of the neighbourhood of @e u,
+		 * that is, the size of the list in @ref adjacency_list[u]
 		 * @pre @e u must be a node from the graph
 		 */
 		size_t degree(node u) const;
@@ -219,24 +221,31 @@ class xxgraph {
 		 */
 		virtual void get_weights(node u, vector<T>& ws) const = 0;
 
-		/// I/O
-
-		// Reads/writes the graph from/into the file with name 'filename'
+		/// Reads the graph from a file
 		virtual bool read_from_file(const string& filename) = 0;
+		/// Reads the graph from a file
 		virtual bool read_from_file(const char *filename) = 0;
+
+		/// Stores the graph in a file
 		virtual bool store_in_file(const string& filename) = 0;
+		/// Stores the graph in a file
 		virtual bool store_in_file(const char *filename) = 0;
 
-		/// GRAPH FEATURES
-
-		// Returns the adjacency matrix of this graph
+		/// Returns the adjacency matrix of this graph
 		void get_adjacency_matrix(vector<vector<bool> >& adj_mat) const;
 
-		// Returns the degree sequence of the graph
-		// pairs: degree, amount
-		void get_degree_sequence(map<node, node>& ds) const;
+		/**
+		 * @brief Returns the degree sequence of the graph
+		 * @param[out] ds A list of pairs: for each degree the amount
+		 * of nodes in this graph that have that degree. The degree
+		 * of a node is detailed in @ref degree
+		 */
+		void get_degree_sequence(map<size_t, size_t>& ds) const;
 
-		// Returns the number of triangles in this graph
+		/**
+		 * @brief Returns the number of triangles in this graph
+		 * @return Returns the number of cycles of length 3
+		 */
 		size_t n_triangles() const;
 };
 

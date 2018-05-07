@@ -3,7 +3,7 @@
 namespace lgraph {
 namespace utils {
 
-/// PROTECTED
+// PROTECTED
 
 template<class T>
 ncit xxgraph<T>::cget_neighbour_position(const neighbourhood& n, node u) const {
@@ -27,7 +27,7 @@ nit xxgraph<T>::get_neighbour_position(neighbourhood& n, node u) {
 	return it;
 }
 
-/// PUBLIC
+// PUBLIC
 
 template<class T>
 xxgraph<T>::xxgraph() {
@@ -44,9 +44,9 @@ void xxgraph<T>::init(size_t n) {
 	initialise_weights(n);
 }
 
-/// OPERATORS
+// OPERATORS
 
-/// MODIFIERS
+// MODIFIERS
 
 template<class T>
 size_t xxgraph<T>::add_node() {
@@ -60,7 +60,7 @@ size_t xxgraph<T>::add_n_nodes(node n) {
 	return adjacency_list.size() - 1;
 }
 
-/// MODIFIERS
+// MODIFIERS
 
 template<class T>
 void xxgraph<T>::clear() {
@@ -69,7 +69,7 @@ void xxgraph<T>::clear() {
 	clear_weights();
 }
 
-/// GETTERS
+// GETTERS
 
 template<class T>
 bool xxgraph<T>::has_node(node u) const {
@@ -102,9 +102,9 @@ size_t xxgraph<T>::degree(node u) const {
 	return adjacency_list[u].size();
 }
 
-/// I/O
+// I/O
 
-/// FEATURES OF GRAPHS
+// FEATURES OF GRAPHS
 
 template<class T>
 void xxgraph<T>::get_adjacency_matrix(vector<vector<bool> >& adj_mat) const {
@@ -119,7 +119,7 @@ void xxgraph<T>::get_adjacency_matrix(vector<vector<bool> >& adj_mat) const {
 }
 
 template<class T>
-void xxgraph<T>::get_degree_sequence(map<node, node>& deg_seq) const {
+void xxgraph<T>::get_degree_sequence(map<size_t, size_t>& deg_seq) const {
 	for (size_t u = 0; u < adjacency_list.size(); ++u) {
 		size_t deg = degree(u);
 		if (deg_seq.find(deg) == deg_seq.end()) deg_seq[deg] = 1;
