@@ -13,98 +13,210 @@ using namespace std;
 namespace lgraph {
 namespace utils {
 
-/*
-Generic interface of the adjacency list implementation of
-a graph, with a series of methods common to all of them.
-*/
+/**
+ * @brief Generic interface for the graph data structure.
+ *
+ * This interface requires the implementation of several methods
+ * to complete the implementation of a data structure for graphs
+ * that uses adjacency lists.
+ *
+ * @param T In case of weighted graphs, this parameter indicates
+ * the type of the edge weights
+ */
 template<class T>
 class xxgraph {
 	protected:
+		/// The neighbourhood of every node
 		vector<neighbourhood> adjacency_list;
+		/// The amount of edges in this graph
 		size_t num_edges;
 
-		// Returns a constant iterator to node u in the neighbourhood n
-		// of some node in the graph.
+		/**
+		 * @brief Returns a constant iterator to node @e u's position in the neighbourhood @e n
+		 *
+		 * If the iterator returned is not at the end of the list then @e u is in the list.
+		 * Performs a linear search to find it.
+		 * @param n The neighbourhood of a node in the graph
+		 * @param u The node to look for in the neighbourhood
+		 * @return Returns a constant iterator to @e n.end() if @e u is not in the list.
+		 * Returns a constant iterator to the position of @e u if otherwise.
+		 */
 		ncit cget_neighbour_position(const neighbourhood& n, node u) const;
 
-		// Returns an iterator to node u in the neighbourhood n of some
-		// node in the graph.
+		/**
+		 * @brief Returns a non-constant iterator to node @e u's position in the neighbourhood @e n
+		 *
+		 * If the iterator returned is not at the end of the list then @e u is in the list.
+		 * Performs a linear search to find it.
+		 * @param n The neighbourhood of a node in the graph
+		 * @param u The node to look for in the neighbourhood
+		 * @return Returns a non-constant iterator to @e n.end() if @e u is not in the list.
+		 * Returns a non-constant iterator to the position of @e u if otherwise.
+		 */
 		nit get_neighbour_position(neighbourhood& n, node u);
 
 	protected:
 
-		/// MODIFIERS
-
-		// Initialise the adjacency list
+		/// Initialise the list of neighbourhoods with @e n instances
 		virtual void initialise_adjacency_list(size_t n) = 0;
 
-		// Initialise the list of weights, if necessary
+		/**
+		 * @brief Initialise the list of list of weights
+		 *
+		 * A subclass representing an unweighted graph may leave the body empty.
+		 */
 		virtual void initialise_weights(size_t n) = 0;
 
-		// Clear the adjacency list
+		/// Clear the list of neighbourhoods
 		virtual void clear_adjacency_list() = 0;
 
-		// Clear the list of weights, if necessary
+		/**
+		 * @brief Clear the list of weights
+		 *
+		 * A subclass representing an unweighted graph may leave the body empty.
+		 */
 		virtual void clear_weights() = 0;
 
 	public:
+		/// Constructor
 		xxgraph();
+		/// Destructor
 		virtual ~xxgraph();
 
-		// Clears the graph and initializes it
-		// with an empty graph of 'n' nodes
+		/**
+		 * @brief Initialises the attributes of a graph with @e n nodes
+		 *
+		 * First, it clears all the memory allocated so far. Then, initialises all
+		 * the attributes so that it can store all the necessary information.
+		 * @param n Number of nodes of the graph
+		 */
 		void init(size_t n);
 
-		/// OPERATORS
-
-		/// MODIFIERS
-
-		// Adds one node to the graph. Returns the index of the new node.
+		/**
+		 * @brief Adds one node to the graph
+		 *
+		 * @return Returns the index of the new node
+		 */
 		size_t add_node();
 
-		// Adds n nodes to the graph. Returns the index of the last node.
+		/**
+		 * @brief Adds @e n nodes to the graph
+		 *
+		 * The nodes are assigned consecutive, increasing values.
+		 * @return Returns the index of the last node.
+		 */
 		size_t add_n_nodes(node n);
 
-		// Adds an edge between nodes u and v assuming it does not exist.
+		/**
+		 * @brief Adds an edge to this graph.
+		 *
+		 * The attribute @ref num_edges is incremented by one.
+		 * @param e A pair of nodes
+		 * @param w The weight of the edge
+		 */
 		virtual void add_edge(const edge& e, T w = 0) = 0;
+
+		/**
+		 * @brief Adds all edges taken from a list
+		 *
+		 * The attribute @ref num_edges is incremented as many times
+		 * as elements there are in @e edge_list.
+		 * @param edge_list A list of pairs of nodes
+		 * @param ws A list of weights. The i-th edge has weight @ref ws[i].
+		 */
 		virtual void add_edges(const vector<edge>& edge_list, const vector<T>& ws = vector<T>()) = 0;
+
+		/**
+		 * @brief Adds an edge between nodes @e u and @e v
+		 *
+		 * The attribute @ref num_edges is incremented by one.
+		 *
+		 * @param u The fist node of the edge
+		 * @param v The second node of the edge
+		 * @param w The weight of the edge
+		 */
 		virtual void add_edge(node u, node v, T w = 0) = 0;
 
-		// Removes the edge (u, v) from the graph.
+		/**
+		 * @brief Removes an edge from this graph.
+		 *
+		 * The attribute @ref num_edges is decremented by one.
+		 * @param e A pair of nodes
+		 */
 		virtual void remove_edge(const edge& e) = 0;
+
+		/**
+		 * @brief Removes all edges taken from a list
+		 *
+		 * The attribute @ref num_edges is decremented by one.
+		 * @param edge_list A list of edges
+		 */
 		virtual void remove_edges(const vector<edge>& edge_list) = 0;
+
+		/**
+		 * @brief Removes an edge from this graph.
+		 *
+		 * The attribute @ref num_edges is decremented by one.
+		 * @param u The fist node of the edge
+		 * @param v The second node of the edge
+		 */
 		virtual void remove_edge(node u, node v) = 0;
 
-		// Deletes all memory used by the graph
+		/**
+		 * @brief Deletes all memory used by the graph
+		 *
+		 * The value @ref num_edges is set to 0.
+		 */
 		void clear();
 
-		/// GETTERS
-
-		// Returns true if node 'u' is in this graph.
+		/// Returns true if node @e u is in this graph.
 		bool has_node(node u) const;
 
-		// Returns true if there is an undirected edge between nodes u and v
+		/**
+		 * @brief Returns true if there is an edge between nodes @e u and @e v
+		 * @pre @e u and @e v must be in the graph
+		 */
 		virtual bool has_edge(node u, node v) const = 0;
 
-		// Returns the number of ndoes
+		/**
+		 * @brief Returns the number of nodes
+		 * @return Returns the size of @ref adjacency_list
+		 */
 		size_t n_nodes() const;
 
-		// Returns the number of edges
-		size_t n_edges() const;
+		/**
+		 * @brief Returns the number of edges
+		 * @return Returns the value @ref num_edges
+		 */
+		size_t num_edges() const;
 
-		// Returns all nodes (as integers)
+		/// Returns all nodes (as integers)
 		void nodes(vector<node>& all_nodes) const;
 
-		// Returns the neighbourhood of node u
+		/**
+		 * @brief Returns the neighbourhood of node u
+		 * @param u The node whose neighbourhood we want
+		 * @pre @e u must be a node from the graph
+		 */
 		const neighbourhood& get_neighbours(node u) const;
 
-		// Returns the number of neighbours of u
+		/**
+		 * @brief Returns the number of neighbours of u
+		 * @param u The node whose neighbourhood size we want
+		 * @pre @e u must be a node from the graph
+		 */
 		size_t degree(node u) const;
 
-		// Returns the weight of the existing edge (u,v)
+		/**
+		 * @brief Returns the weight of the edge (@e u, @e v)
+		 * @pre The edge (@e u, @e v) must be in the graph
+		 */
 		virtual T edge_weight(node u, node v) const = 0;
 
-		// Returns the weights to all neighbours of node u
+		/**
+		 * @brief Returns the weights to all neighbours of node @e u
+		 * @pre @e u must be in the graph
+		 */
 		virtual void get_weights(node u, vector<T>& ws) const = 0;
 
 		/// I/O
