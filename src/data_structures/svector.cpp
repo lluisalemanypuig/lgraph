@@ -3,7 +3,7 @@
 namespace lgraph {
 namespace utils {
 
-/// PUBLIC
+// PUBLIC
 
 template<class T, class Alloc>
 svector<T, Alloc>::svector() : vector<T, Alloc>() {
@@ -23,7 +23,7 @@ svector<T, Alloc>::svector(size_t n, const T& v) : vector<T, Alloc>(n, v) {
 template<class T, class Alloc>
 svector<T, Alloc>::~svector() { }
 
-/// Modifiers
+// Modifiers
 
 template<class T, class Alloc>
 void svector<T, Alloc>::add(const T& v) {
@@ -47,7 +47,7 @@ void svector<T, Alloc>::sort() {
 	std::sort(this->begin(), this->begin() + idx);
 }
 
-/// Getters
+// Getters
 
 template<class T, class Alloc>
 size_t svector<T, Alloc>::n_elems() const {
