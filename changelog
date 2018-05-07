@@ -5,7 +5,7 @@ Documentation:
 	- node_path.hpp
 	- random_generator.hpp
 	- svector.hpp
-	- xxgraph.hpp (NOT FINISHED)
+	- xxgraph.hpp
 
 Other changes:
 	- boolean_path.cpp:
