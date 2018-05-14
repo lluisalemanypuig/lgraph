@@ -6,6 +6,8 @@ Documentation:
 	- random_generator.hpp
 	- svector.hpp
 	- xxgraph.hpp
+	- uxgraph.hpp
+	- uwgraph.hpp
 
 Other changes:
 	- boolean_path.cpp:
