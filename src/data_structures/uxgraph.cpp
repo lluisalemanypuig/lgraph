@@ -3,9 +3,9 @@
 namespace lgraph {
 namespace utils {
 
-/// PROTECTED
+// PROTECTED
 
-/// MODIFIERS
+// MODIFIERS
 
 template<class T>
 void uxgraph<T>::initialise_adjacency_list(size_t n) {
@@ -17,7 +17,7 @@ void uxgraph<T>::clear_adjacency_list() {
 	xxgraph<T>::adjacency_list.clear();
 }
 
-/// PUBLIC
+// PUBLIC
 
 template<class T>
 uxgraph<T>::uxgraph() : xxgraph<T>() { }
@@ -27,9 +27,9 @@ uxgraph<T>::~uxgraph() {
 
 }
 
-/// OPERATORS
+// OPERATORS
 
-/// MODIFIERS
+// MODIFIERS
 
 template<class T>
 void uxgraph<T>::add_edge(const edge& e, T w) {
@@ -88,7 +88,7 @@ void uxgraph<T>::remove_edge(node u, node v) {
 	xxgraph<T>::num_edges -= erased;
 }
 
-/// GETTERS
+// GETTERS
 
 template<class T>
 bool uxgraph<T>::has_edge(node u, node v) const {

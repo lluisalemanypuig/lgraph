@@ -1,37 +1,57 @@
 #pragma once
 
-/// C includes
+// C includes
 #include <assert.h>
 
-/// C++ includes
+// C++ includes
 #include <fstream>
 #include <utility>
 #include <vector>
 using namespace std;
 
-/// Custom includes
+// Custom includes
 #include "uxgraph.hpp"
 #include "utils/definitions.hpp"
 
 namespace lgraph {
 namespace utils {
 
-/*
-Implementation of undirected weighted graphs with adjacency lists
-*/
-
+/**
+ * @brief Implementation of undirected weighted (uw) graphs.
+ *
+ * @param T In case of weighted graphs, this parameter indicates
+ * the type of the edge weights
+ */
 template<class T>
 class uwgraph : public uxgraph<T> {
 	private:
+		/**
+		 * @brief Weight list for each node
+		 *
+		 * @ref weights[u] is a list of values of type @e T
+		 * where @ref weights[u][v] represents the weight of
+		 * edge between nodes @e u and @e v.
+		 */
 		vector<vector<T> > weights;
 
-		/// GETTERS
+		// GETTERS
 
+		/**
+		 * @brief Computes the list of unique weighted edges of this graph
+		 *
+		 * Since this graph is undirected, the edge (u,v) is the same
+		 * as (v,u). This method computes the list of edges so that the
+		 * result is lexicographically sorted.
+		 *
+		 * @param[out] edges The collection of weighted edges
+		 * @return Stores in @ref edges the lexicographically sorted list of
+		 * weighted edges of this graph
+		 */
 		void get_unique_edges(set<pair<edge, T> >& edges) const;
 
 	private:
 
-		/// MODIFIERS
+		// MODIFIERS
 
 		// Initialise the list of weights
 		void initialise_weights(size_t n);
@@ -48,11 +68,23 @@ class uwgraph : public uxgraph<T> {
 
 	public:
 		uwgraph();
+
+		/**
+		 * @brief Constructor: create a grpah with @e n nodes
+		 *
+		 * Calls the method init with value @e n
+		 * @param n Number of nodes for this graph
+		 */
 		uwgraph(size_t n);
 		~uwgraph();
 
-		/// OPERATORS
+		// OPERATORS
 
+		/**
+		 * @brief Outputs to the ostream @e os this graph
+		 * @param os The ostream object to output to.
+		 * @param g THe graph to be output.
+		 */
 		inline friend
 		ostream& operator<< (ostream& os, const uwgraph<T>& g) {
 			for (size_t i = 0; i < g.adjacency_list.size(); ++i) {
@@ -73,22 +105,37 @@ class uwgraph : public uxgraph<T> {
 			return os;
 		}
 
+		/**
+		 * @brief Assignation operator for undirected weighted graphs
+		 *
+		 * The contents of this object are first cleared. Then, the contents
+		 * of @e g are copied into this.
+		 *
+		 * @param g The graph to be copied
+		 * @return Returns a reference to the copy of @e g
+		 */
 		uwgraph& operator= (const uwgraph& g);
 
-		/// MODIFIERS
+		// MODIFIERS
 
 		void add_edges(const vector<edge>& edge_list, const vector<T>& ws = vector<T>());
 
-		/// GETTERS
+		// GETTERS
 
 		// Returns the weight of the existing edge (u,v)
 		T edge_weight(node u, node v) const;
 
 		// Returns the weights to all neighbours of node u
 		void get_weights(node u, vector<T>& ws) const;
+
+		/**
+		 * @brief Returns a constant reference to all the weights of node @e u
+		 * @param u The node whose weight list is requested
+		 * @return The weight list of node @e u
+		 */
 		const vector<T>& get_weights(node u) const;
 
-		/// I/O
+		// I/O
 
 		bool read_from_file(const string& filename);
 		bool read_from_file(const char *filename);

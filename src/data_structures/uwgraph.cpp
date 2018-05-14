@@ -3,7 +3,7 @@
 namespace lgraph {
 namespace utils {
 
-/// PRIVATE
+// PRIVATE
 
 template<class T>
 void uwgraph<T>::get_unique_edges(set<pair<edge, T> >& unique_edges) const {
@@ -31,7 +31,7 @@ void uwgraph<T>::get_unique_edges(set<pair<edge, T> >& unique_edges) const {
 	}
 }
 
-/// MODIFIERS
+// MODIFIERS
 
 template<class T>
 void uwgraph<T>::initialise_weights(size_t n) {
@@ -58,7 +58,7 @@ void uwgraph<T>::remove_weight(node u, nit it) {
 	weights[u].erase( weights[u].begin() + pos );
 }
 
-/// PUBLIC
+// PUBLIC
 
 template<class T>
 uwgraph<T>::uwgraph() : uxgraph<T>() {
@@ -73,7 +73,7 @@ uwgraph<T>::uwgraph(size_t n) {
 template<class T>
 uwgraph<T>::~uwgraph() { }
 
-/// OPERATORS
+// OPERATORS
 
 template<class T>
 uwgraph<T>& uwgraph<T>::operator= (const uwgraph& g) {
@@ -86,7 +86,7 @@ uwgraph<T>& uwgraph<T>::operator= (const uwgraph& g) {
 	return *this;
 }
 
-/// MODIFIERS
+// MODIFIERS
 
 template<class T>
 void uwgraph<T>::add_edges(const vector<edge>& edge_list, const vector<T>& ws) {
@@ -98,7 +98,7 @@ void uwgraph<T>::add_edges(const vector<edge>& edge_list, const vector<T>& ws) {
 	}
 }
 
-/// GETTERS
+// GETTERS
 
 template<class T>
 T uwgraph<T>::edge_weight(node u, node v) const {
@@ -149,7 +149,7 @@ const vector<T>& uwgraph<T>::get_weights(node u) const {
 	return weights[u];
 }
 
-/// I/O
+// I/O
 
 template<class T>
 bool uwgraph<T>::read_from_file(const string& filename) {

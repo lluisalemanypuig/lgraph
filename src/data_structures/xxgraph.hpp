@@ -1,24 +1,28 @@
 #pragma once
 
-/// C++ includes
+// C++ includes
 #include <string>
 #include <vector>
 #include <set>
 #include <map>
 using namespace std;
 
-/// Custom includes
+// Custom includes
 #include "utils/definitions.hpp"
 
 namespace lgraph {
 namespace utils {
 
 /**
- * @brief Generic interface for the graph data structure.
+ * @brief Abstract class for the graph data structure.
  *
  * This interface requires the implementation of several methods
  * to complete the implementation of a data structure for graphs
- * that uses adjacency lists.
+ * that uses adjacency lists. It has only two attributes: @ref adjacency_list,
+ * that stores the adjacency list of each node, and @ref num_edges
+ * that contains the number of edges in the graph. Depending on
+ * the type of graph implemented these two attributes should be
+ * modified accordingly.
  *
  * @param T In case of weighted graphs, this parameter indicates
  * the type of the edge weights
