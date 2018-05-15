@@ -8,8 +8,12 @@ Documentation:
 	- xxgraph.hpp
 	- uxgraph.hpp
 	- uwgraph.hpp
+	- uugraph.hpp
+	- logger.hpp
 
 Other changes:
+	- static_bitset.{hpp,cpp}:
+		Moved this class to the lgraph::utils namespace
 	- boolean_path.cpp:
 		Added several assertions.
 		Added implementation of get_length() metho (oops).

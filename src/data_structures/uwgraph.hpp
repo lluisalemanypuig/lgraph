@@ -17,7 +17,7 @@ namespace lgraph {
 namespace utils {
 
 /**
- * @brief Implementation of undirected weighted (uw) graphs.
+ * @brief Undirected weighted (uw) graphs.
  *
  * @param T In case of weighted graphs, this parameter indicates
  * the type of the edge weights

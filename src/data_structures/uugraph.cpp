@@ -3,7 +3,7 @@
 namespace lgraph {
 namespace utils {
 
-/// PRIVATE
+// PRIVATE
 
 void uugraph::initialise_weights(size_t n) {
 	UNUSED(n);
@@ -48,7 +48,7 @@ void uugraph::get_unique_edges(set<edge>& unique_edges) const {
 	}
 }
 
-/// PUBLIC
+// PUBLIC
 
 uugraph::uugraph() {
 	init(0);
@@ -60,7 +60,7 @@ uugraph::uugraph(size_t n) {
 
 uugraph::~uugraph() { }
 
-/// OPERATORS
+// OPERATORS
 
 uugraph& uugraph::operator= (const uugraph& g) {
 	init(g.n_nodes());
@@ -71,7 +71,7 @@ uugraph& uugraph::operator= (const uugraph& g) {
 	return *this;
 }
 
-/// MODIFIERS
+// MODIFIERS
 
 void uugraph::add_edges(const vector<edge>& edge_list, const vector<_new_>& ws) {
 	UNUSED(ws);
@@ -82,7 +82,7 @@ void uugraph::add_edges(const vector<edge>& edge_list, const vector<_new_>& ws) 
 	}
 }
 
-/// GETTERS
+// GETTERS
 
 void uugraph::edges(vector<edge>& all_edges) const {
 	set<edge> unique_edges;
@@ -131,7 +131,7 @@ void uugraph::get_weights(node u, vector<_new_>& ws) const {
 	ws = vector<_new_>(degree(u), 1);
 }
 
-/// I/O
+// I/O
 
 bool uugraph::read_from_file(const string& filename) {
 	return read_from_file(filename.c_str());

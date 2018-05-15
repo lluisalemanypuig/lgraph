@@ -1,9 +1,9 @@
 #pragma once
 
-/// C includes
+// C includes
 #include <assert.h>
 
-/// C++ includes
+// C++ includes
 #include <iostream>
 #include <fstream>
 #include <iomanip>
@@ -12,26 +12,29 @@
 #include <map>
 using namespace std;
 
-/// Custom includes
+// Custom includes
 #include "uxgraph.hpp"
 #include "utils/definitions.hpp"
 
 namespace lgraph {
 namespace utils {
 
-/*
-Implementation of undirected unweighted graphs with adjacency lists
-*/
+/**
+ * @brief Undirected unweighted (uu) graphs.
+ *
+ * This class is not a template since it lacks weights. Implements
+ * undirecected unweighted graphs implemented with adjacency lists.
+ */
 class uugraph : public uxgraph<_new_> {
 	private:
 
-		/// GETTERS
+		// GETTERS
 
 		void get_unique_edges(set<edge>& edges) const;
 
 	private:
 
-		/// MODIFIERS
+		// MODIFIERS
 
 		// Initialise the list of weights, if necessary
 		void initialise_weights(size_t n);
@@ -51,7 +54,7 @@ class uugraph : public uxgraph<_new_> {
 		uugraph(size_t n); // n: number of nodes
 		~uugraph();
 
-		/// OPERATORS
+		// OPERATORS
 		
 		inline friend
 		ostream& operator<< (ostream& os, const uugraph& g) {
@@ -67,11 +70,11 @@ class uugraph : public uxgraph<_new_> {
 
 		uugraph& operator= (const uugraph& g);
 		
-		/// MODIFIERS
+		// MODIFIERS
 
 		void add_edges(const vector<edge>& edge_list, const vector<_new_>& ws = vector<_new_>());
 
-		/// GETTERS
+		// GETTERS
 
 		// Returns all unique edges of this graph
 		void edges(vector<edge>& all_edges) const;
@@ -86,7 +89,7 @@ class uugraph : public uxgraph<_new_> {
 		// Returns a list of degree-many 1's
 		void get_weights(node u, vector<_new_>& ws) const;
 
-		/// I/O
+		// I/O
 
 		bool read_from_file(const string& filename);
 		bool read_from_file(const char *filename);

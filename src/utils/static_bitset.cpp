@@ -1,6 +1,6 @@
 #include "static_bitset.hpp"
 
-/// MACROS
+// MACROS
 
 #define mod_8(i) (i & 0x07)
 #define div_8(i) (i >> 3)
@@ -28,9 +28,12 @@
 // bits then the last byte's bits are:  111* **** and returns 0000 0111
 #define last_byte(val, nbits) (val >> (8 - mod_8(nbits)))
 
-/// PRIVATE
+// PRIVATE
 
-/// PUBLIC
+// PUBLIC
+
+namespace lgraph {
+namespace utils {
 
 static_bitset::static_bitset() {
 	bytes = nullptr;
@@ -59,7 +62,7 @@ static_bitset::~static_bitset() {
 	clear();
 }
 
-/// INITIALIZERS
+// INITIALIZERS
 
 void static_bitset::init(size_t b) {
 	// k_bytes = # bytes to be reserved
@@ -111,7 +114,7 @@ void static_bitset::clear() {
 	}
 }
 
-/// OPERATORS
+// OPERATORS
 
 static_bitset& static_bitset::operator= (const static_bitset& bs) {
 	init(bs.n_bits);
@@ -196,7 +199,7 @@ static_bitset& static_bitset::operator^= (const static_bitset& bs) {
 	return *this;
 }
 
-/// SETTERS
+// SETTERS
 
 void static_bitset::set_all() {
 	for (size_t i = 0; i < n_bytes; ++i) bytes[i] = 0xff;
@@ -226,7 +229,7 @@ void static_bitset::swap(static_bitset& bs) {
 	}
 }
 
-/// GETTERS
+// GETTERS
 
 size_t static_bitset::size() const {
 	return n_bits;
@@ -376,3 +379,6 @@ string static_bitset::to_string(const string& sep) const {
 	else s += "0";
 	return s;
 }
+
+} // -- namespace utils
+} // -- namespace lgraph
