@@ -1,10 +1,10 @@
 #pragma once
 
-/// C++ includes
+// C++ includes
 #include <vector>
 using namespace std;
 
-/// Custom includes
+// Custom includes
 #include "data_structures/random_generator.hpp"
 #include "data_structures/svector.hpp"
 #include "data_structures/uugraph.hpp"
@@ -15,46 +15,29 @@ using namespace utils;
 
 namespace networks {
 namespace epidemics {
-	
-	/*
-	Implementation of algorithms to simulate the spread of an infection
-	over a network. We say that a non-infected agent is healhy.
-	
-	Epidemic models implemented are:
-	- SIR: Susceptible -> Infected -> Recovered
-	- SIS: Susceptible -> Infected -> Susceptible
-	
-	
-	All methods follow the same convention for their input parameters:
-	- G: the network over which the infection spreads
-	- p0: initial proportion of infected individuals.
-		0 <= p0 <= 1
-	- beta: rate of infection of an individual with a single neighbour.
-		0 <= beta <= 1
-	- gamma: rate of recovery of an individual.
-		0 <= gamma <= 1
-	- T: maximum number of steps of the simulation. The steps performed
-		have index 1,2,...,T.
-	- rg: the random generator used to generate real uniform numbers
-		between 0 and 1.
-	
-	Likewise for their output parameters:
-	- n_rec: n_rec[i] contains the number of recoverd agents after the
-		i-th step is completed. n_rec[0] always has a zero and is not a
-		valid value.
-		Size at the end of the population T + 1.
-	- n_sus: n_sus[i] contains the number of susceptible agents after
-		the i-th step is completed. n_sus[0] contains the amount of agents
-		susceptible of infection after infecting a proportion of p0 agents
-		of the population.
-		Size at the end of the population T + 1.
-	- n_inf: n_inf[i] contains the number of infected agents after the
-		i-th step is completed. n_inf[0] contains the amount of agents
-		susceptible of infection after infecting a proportion of p0 agents
-		of the population.
-		Size at the end of the population T + 1.
-	*/
-	
+
+	/**
+	 * @brief SIR (Susceptible, Infected, Recovered) epidemic model
+	 *
+	 * @param[in] net The network the epidemic model is applied on
+	 * @param[in] p0 Initial proportion of infected individuals
+	 * @param[in] beta Rate of infection of an individual with a single neighbour
+	 * @param[in] gamma Rate of recovery of an individual
+	 * @param[in] T Maximum number of steps of the simulation. The steps performed have index 1,2,...,@e T
+	 * @param[in] drg The discrete random generator used for algorithm optimisation
+	 * @param[in] crg The continuous random generator used to generate numbers between 0 and 1
+	 *
+	 * @param[out] n_rec n_rec[i] contains the amount of recoverd agents after the i-th step is completed.
+	 *		@e n_rec[0] always has a zero and is not a valid value. Its size at the end of the simulation @e T + 1.
+	 *
+	 * @param[out] n_sus n_sus[i] contains the amount of susceptible agents after the i-th step is completed.
+	 *		@e n_sus[0] contains the amount of agents susceptible of infection after infecting a
+	 *		proportion @e of p0 agents of the population. Its size at the end of the simulation is @e T + 1.
+	 *
+	 * @param[out] n_inf n_inf[i] contains the amount of infected agents after the i-th step is completed.
+	 *		n_inf[0] contains the amount of agents susceptible of infection after infecting a
+	 *		proportion of @e p0 agents of the population. Its size at the end of the simulation @e T + 1.
+	 */
 	template<
 		class G = default_random_engine,
 		typename dT = size_t,
@@ -73,6 +56,28 @@ namespace epidemics {
 		vector<size_t>& n_inf
 	);
 	
+	/**
+	 * @brief SIS (Susceptible, Infected, Susceptible) epidemic model
+	 *
+	 * @param[in] net The network the epidemic model is applied on
+	 * @param[in] p0 Initial proportion of infected individuals
+	 * @param[in] beta Rate of infection of an individual with a single neighbour
+	 * @param[in] gamma Rate of recovery of an individual
+	 * @param[in] T Maximum number of steps of the simulation. The steps performed have index 1,2,...,@e T
+	 * @param[in] drg The discrete random generator used for algorithm optimisation
+	 * @param[in] crg The continuous random generator used to generate numbers between 0 and 1
+	 *
+	 * @param[out] n_rec n_rec[i] contains the amount of recoverd agents after the i-th step is completed.
+	 *		@e n_rec[0] always has a zero and is not a valid value. Its size at the end of the simulation @e T + 1.
+	 *
+	 * @param[out] n_sus n_sus[i] contains the amount of susceptible agents after the i-th step is completed.
+	 *		@e n_sus[0] contains the amount of agents susceptible of infection after infecting a
+	 *		proportion @e of p0 agents of the population. Its size at the end of the simulation is @e T + 1.
+	 *
+	 * @param[out] n_inf n_inf[i] contains the amount of infected agents after the i-th step is completed.
+	 *		n_inf[0] contains the amount of agents susceptible of infection after infecting a
+	 *		proportion of @e p0 agents of the population. Its size at the end of the simulation @e T + 1.
+	 */
 	template<
 		class G = default_random_engine,
 		typename dT = size_t,
@@ -90,7 +95,6 @@ namespace epidemics {
 		vector<size_t>& n_sus,
 		vector<size_t>& n_inf
 	);
-	
 	
 } // -- namespace epidemics
 } // -- namespace networks
