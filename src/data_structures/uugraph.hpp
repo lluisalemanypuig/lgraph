@@ -30,6 +30,19 @@ class uugraph : public uxgraph<_new_> {
 
 		// GETTERS
 
+		/**
+		 * @brief Computes the list of unique unweighted edges of this graph
+		 *
+		 * Since this graph is undirected, the edge (u,v) is the same
+		 * as (v,u). This method computes the list of edges so that the
+		 * result is lexicographically sorted. An edge is a pair of two indices.
+		 * Each index is within the interval [0,@e n) where @e n is the
+		 * number of nodes of this graph.
+		 *
+		 * @param[out] edges The collection of unweighted edges
+		 * @return Stores in @ref edges the lexicographically sorted list of
+		 * unweighted edges of this graph
+		 */
 		void get_unique_edges(set<edge>& edges) const;
 
 	private:
@@ -51,7 +64,15 @@ class uugraph : public uxgraph<_new_> {
 
 	public:
 		uugraph();
-		uugraph(size_t n); // n: number of nodes
+
+		/**
+		 * @brief Constructor: create a grpah with @e n nodes
+		 *
+		 * Calls the method init with value @e n
+		 * @param n Number of nodes for this graph
+		 */
+		uugraph(size_t n);
+
 		~uugraph();
 
 		// OPERATORS
@@ -68,6 +89,15 @@ class uugraph : public uxgraph<_new_> {
 			return os;
 		}
 
+		/**
+		 * @brief Assignation operator for undirected unweighted graphs
+		 *
+		 * The contents of this object are first cleared. Then, the contents
+		 * of @e g are copied into this.
+		 *
+		 * @param g The graph to be copied
+		 * @return Returns a reference to the copy of @e g
+		 */
 		uugraph& operator= (const uugraph& g);
 		
 		// MODIFIERS
@@ -76,7 +106,11 @@ class uugraph : public uxgraph<_new_> {
 
 		// GETTERS
 
-		// Returns all unique edges of this graph
+		/**
+		 * @brief Returns all unique edges of this graph
+		 *
+		 * See method @ref get_unique_edges(set<edge>&)const for details.
+		 */
 		void edges(vector<edge>& all_edges) const;
 
 		// Returns true if there is an undirected edge between nodes u and v

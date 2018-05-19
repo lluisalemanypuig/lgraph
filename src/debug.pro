@@ -47,7 +47,8 @@ HEADERS += \
 		graph_traversal/xwpaths_boolean.cpp \
 		debug/debug.hpp \
 		debug/display.cpp \
-		debug/weighted_dist_paths.cpp
+		debug/weighted_dist_paths.cpp \
+    namespaces.hpp
 
 SOURCES += \
     debug.cpp \

@@ -102,8 +102,7 @@ class svector : public vector<T, Alloc> {
 		 * @return Returns the value of @ref idx
 		 */
 		size_t n_elems() const;
-		
-		// Returns true if value 'v' is in this container. Linear search.
+
 		/**
 		 * @brief Looks for an element equal to @e v in the vector.
 		 *
@@ -112,9 +111,7 @@ class svector : public vector<T, Alloc> {
 		 * @return Returns true if there is an element equal to @e v in the vector.
 		 */
 		bool contains(const T& v) const;
-		
-		// Stores the position of value 'v' if it exists and returns true
-		// or stores 'n_elems() + 1' and returns false if otherwise.
+
 		/**
 		 * @brief Looks for an element @e v in the vector and stores its position in @e pos
 		 * @param[in]	v The element to be searched

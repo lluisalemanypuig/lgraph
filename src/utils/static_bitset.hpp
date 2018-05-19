@@ -15,27 +15,6 @@ using namespace std;
 // order: 7654 3210
 // byte:  0110 1001
 
-/*
-Useful boolean operations used to implement methods
-of this class:
-
-* Difference of bitsets:
-	a b | d(a, b) = a & (-b)
-	-------------
-	0 0 | 0
-	0 1 | 0
-	1 0 | 1
-	1 1 | 0
-
-* Inclusion of bitsets:
-	a b | lt(a, b) = -a | b = -d(a, b)
-	--------------
-	0 0 | 1
-	0 1 | 1
-	1 0 | 0
-	1 1 | 1
-*/
-
 namespace lgraph {
 namespace utils {
 

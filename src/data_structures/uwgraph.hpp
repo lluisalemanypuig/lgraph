@@ -41,7 +41,10 @@ class uwgraph : public uxgraph<T> {
 		 *
 		 * Since this graph is undirected, the edge (u,v) is the same
 		 * as (v,u). This method computes the list of edges so that the
-		 * result is lexicographically sorted.
+		 * result is lexicographically sorted. A weighted edge is a pair
+		 * of two elements: an edge (a pair of two indices) and a weight.
+		 * Each index is within the interval [0,@e n) where @e n is the
+		 * number of nodes of this graph.
 		 *
 		 * @param[out] edges The collection of weighted edges
 		 * @return Stores in @ref edges the lexicographically sorted list of

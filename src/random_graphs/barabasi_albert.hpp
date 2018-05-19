@@ -1,6 +1,6 @@
 #pragma once
 
-/// C++ includes
+// C++ includes
 #include <algorithm>
 #include <iostream>
 #include <iterator>
@@ -9,6 +9,7 @@
 #include <vector>
 using namespace std;
 
+// Custom includes
 #include "data_structures/random_generator.hpp"
 #include "data_structures/uugraph.hpp"
 #include "utils/logger.hpp"
@@ -16,42 +17,34 @@ using namespace std;
 namespace lgraph {
 namespace networks {
 namespace random {
+
+/**
+ * @brief Implementation of a number of variants of the Barabasi-Albert model.
+ *
+ * These variants are:
+ *	* Preferential Attachment
+ *	* Random Attachment
+ *	* No growth variant
+ */
 namespace Barabasi_Albert {
 
 using namespace utils;
 
-	/*
-	Implementation of the three main variants of the Barabasi-Albert model:
-	
-		- Preferential Attachment: builds a graph with n0 + T vertices.
-			The first step is to build an empty graph with n0 vertices.
-			Then add T new vertices, each of which is connected to m0
-			already existing vertices of the graph each with a probability
-			proportional to their degree.
-			
-		- Random Attachment: similar to the preferential attachment model.
-			However, at each step, the m0 connections are made with
-			probabilities uniformly at random.
-			
-		- No growth variant: similar to the preferential attachment model.
-			This time, it differs from it in that the initial graph has
-			the same number of vertices as the final graph: n0. The T steps
-			are used to make m0 connections at each step. More precisely:
-			1. Create an empty graph with n0 vertices
-			2. For step ti = 1 to T
-				2.1. Choose a vertex with probability proportional to its
-					 degree. Let u be that vertex.
-				2.2. Make m0 connections with some of the other vertices
-					 in the graph. Each edge (u, v) is added with probability
-					 proportional to the degree of v.
-	
-	Parameters:
-	- n0: number of initial vertices
-	- m0: edges to add at each step
-	- T: number of steps
-	- Gs: resulting graph
-	*/
-	
+	/**
+	 * @brief Barabasi-Albert model: Preferentail attachment variant
+	 *
+	 * Builds a graph with @e n0 + @e T vertices. The first step is to build an
+	 * empty graph with @e n0 vertices.
+	 *
+	 * Then add @e T new vertices, each of which is connected to @e m0 already
+	 * existing vertices of the graph each with a probability proportional to their degree.
+	 *
+	 * @param[in] n0 The initial number of vertices
+	 * @param[in] m0 The number of edges to connect each vertex to
+	 * @param[in] T The number of steps of the algorithm
+	 * @param[in] rg The random number generator used
+	 * @param[out] Gs The resulting graph following this Barabasi-Albert model variant
+	 */
 	template<
 		class G = default_random_engine,
 		typename dT = size_t
@@ -62,6 +55,21 @@ using namespace utils;
 		uugraph& Gs
 	);
 	
+	/**
+	 * @brief Barabasi-Albert model: Random attachment variant
+	 *
+	 * Similar to the @ref preferential_attachment model.
+	 *
+	 *
+	 * However, at each step, the m0 connections are made with
+	 * probabilities uniformly at random.
+	 *
+	 * @param[in] n0 The initial number of vertices
+	 * @param[in] m0 The number of edges to connect each vertex to
+	 * @param[in] T The number of steps of the algorithm
+	 * @param[in] rg The random number generator used
+	 * @param[out] Gs The resulting graph following this Barabasi-Albert model variant
+	 */
 	template<
 		class G = default_random_engine,
 		typename dT = size_t
@@ -72,6 +80,29 @@ using namespace utils;
 		uugraph& Gs
 	);
 	
+	/**
+	 * @brief Barabasi-Albert model: No vertex growth variant
+	 *
+	 * Similar to the @ref preferential_attachment model. This time, it
+	 * differs from it in that the initial graph has the same number of
+	 * vertices as the final graph: @e n0.
+	 *
+	 * The @e T steps are used to make @e m0 connections at each step.
+	 * More precisely:
+	 *	- Create an empty graph with @e n0 vertices
+	 *	- For step ti = 1 to @e T
+	 *		- Choose a vertex with probability proportional to its
+	 *		degree. Let u be that vertex.
+	 *		- Make @e m0 connections with some of the other vertices
+	 *		in the graph. Each edge (u, v) is added with probability
+	 *		proportional to the degree of v.
+	 *
+	 * @param[in] n0 The total number of vertices
+	 * @param[in] m0 The number of edges to connect each vertex to
+	 * @param[in] T The number of steps of the algorithm
+	 * @param[in] rg The random number generator used
+	 * @param[out] Gs The resulting graph following this Barabasi-Albert model variant
+	 */
 	template<
 		class G = default_random_engine,
 		typename dT = size_t
