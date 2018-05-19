@@ -1,6 +1,7 @@
 Changes to upload to master:
 
 Documentation:
+	- namespaces.hpp
 	- boolean_path.hpp
 	- node_path.hpp
 	- random_generator.hpp
@@ -10,8 +11,14 @@ Documentation:
 	- uwgraph.hpp
 	- uugraph.hpp
 	- logger.hpp
+	- static_bitset.hpp
+	- switching.hpp
+	- barabasi_albert.hpp
 
 Other changes:
+	- switching.cpp
+		Added assertion: a graph must have at least 2 edges to
+		have the switching algorithm applied on
 	- static_bitset.{hpp,cpp}:
 		Moved this class to the lgraph::utils namespace
 	- boolean_path.cpp:
