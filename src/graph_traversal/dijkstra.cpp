@@ -2,6 +2,7 @@
 
 namespace lgraph {
 namespace traversal {
+namespace dijkstra {
 
 	template<class T>
 	void Dijkstra
@@ -80,5 +81,6 @@ namespace traversal {
 		}
 	}
 
+} // -- namespace dijkstra
 } // -- namespace traversal
 } // -- namespace lgraph

@@ -22,6 +22,8 @@ namespace lgraph {
 using namespace utils;
 
 namespace traversal {
+using namespace bfs;
+using namespace dijkstra;
 
 	/// ----------------------------------------------------------------
 	/// UNWEIGHTED FUNCTIONS (for directed/undirected unweighted graphs)

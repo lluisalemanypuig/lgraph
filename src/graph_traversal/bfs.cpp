@@ -2,6 +2,7 @@
 
 namespace lgraph {
 namespace traversal {
+namespace bfs {
 
 	template<class T>
 	void BFS
@@ -68,5 +69,6 @@ namespace traversal {
 		}
 	}
 
+} // -- namespace bfs
 } // -- namespace traversal
 } // -- namespace lgraph

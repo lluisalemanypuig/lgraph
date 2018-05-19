@@ -2,6 +2,7 @@
 
 namespace lgraph {
 namespace traversal {
+namespace dfs {
 
 	template<class T>
 	void DFS
@@ -68,5 +69,6 @@ namespace traversal {
 		}
 	}
 
+} // -- namespace dfs
 } // -- namespace traversal
 } // -- namespace lgraph
