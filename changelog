@@ -14,8 +14,14 @@ Documentation:
 	- static_bitset.hpp
 	- switching.hpp
 	- barabasi_albert.hpp
+	- models.hpp
+	- bfs.{hpp,cpp}
+	- dfs.{hpp,cpp}
+	- dijkstra.{hpp,cpp}
 
 Other changes:
+	- bfs,dfs,dijkstra:
+		Made their own namespace
 	- switching.cpp
 		Added assertion: a graph must have at least 2 edges to
 		have the switching algorithm applied on
