@@ -16,7 +16,11 @@ namespace lgraph {
 	 * path-finding (shortest path from a node to another node, from
 	 * a node to all other nodes of the same graph, ...)
 	 */
-	namespace traversal {}
+	namespace traversal {
+		namespace bfs {}
+		namespace dfs {}
+		namespace dijkstra {}
+	}
 
 	/// Methods to be applied to networks
 	namespace networks {
