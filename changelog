@@ -1,6 +1,9 @@
 Changes to upload to master:
 
 Documentation:
+	- centralities.hpp
+	- clustering.hpp
+	- distance.hpp
 	- namespaces.hpp
 	- boolean_path.hpp
 	- node_path.hpp
@@ -20,6 +23,8 @@ Documentation:
 	- dijkstra.{hpp,cpp}
 
 Other changes:
+	- metrics/centralities.cpp
+		Changed variable type
 	- bfs,dfs,dijkstra:
 		Made their own namespace
 	- switching.cpp
