@@ -145,11 +145,11 @@ namespace centralities {
 			for (node t = s; t < N; ++t) {
 
 				// amount of shortest paths between s and t
-				const double g_st = paths[s][t].size();
+				const size_t g_st = paths[s][t].size();
 
 				// don't do any more calculations if there
 				// are no paths from s to t
-				if (g_st == 0.0) continue;
+				if (g_st == 0) continue;
 
 				// set vector to 0
 				std::fill(g_st_i.begin(), g_st_i.end(), 0);
