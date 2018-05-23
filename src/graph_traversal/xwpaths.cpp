@@ -3,7 +3,7 @@
 namespace lgraph {
 namespace traversal {
 
-	/// NODE-NODE
+	/* NODE-NODE */
 
 	// one path
 	template<class T>
@@ -60,7 +60,7 @@ namespace traversal {
 		p.set_length(ds[target]);
 	}
 
-	// nidx: next node in the reversed path
+	/// Make a list of paths given a matrix of precendes
 	template<class T>
 	void make_paths
 	(
@@ -136,7 +136,7 @@ namespace traversal {
 		make_paths(source, prev, ds[target], target, ps, empty_path);
 	}
 
-	/// NODE-ALL
+	/* NODE-ALL */
 
 	// one path
 	template<class T>
@@ -205,7 +205,7 @@ namespace traversal {
 		}
 	}
 
-	/// ALL-ALL
+	/* ALL-ALL */
 
 	// one path
 	template<class T>

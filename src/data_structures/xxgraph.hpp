@@ -126,7 +126,7 @@ class xxgraph {
 		 * The attribute @ref num_edges is incremented as many times
 		 * as elements there are in @e edge_list.
 		 * @param edge_list A list of pairs of nodes
-		 * @param ws A list of weights. The i-th edge has weight @ref ws[i].
+		 * @param ws A list of weights. The i-th edge has weight @e ws[i].
 		 */
 		virtual void add_edges(const vector<edge>& edge_list, const vector<T>& ws = vector<T>()) = 0;
 

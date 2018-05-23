@@ -3,7 +3,7 @@
 namespace lgraph {
 namespace traversal {
 
-	/// VERTEX-VERTEX
+	/* VERTEX-VERTEX */
 
 	_new_ xudistance(const xxgraph<_new_> *G, node source, node target) {
 		// distances from source to nodes
@@ -57,7 +57,7 @@ namespace traversal {
 		return distances[target];
 	}
 
-	/// VERTEX-ALL
+	/* VERTEX-ALL */
 
 	void xudistance(const xxgraph<_new_> *G, node source, vector<_new_>& ds) {
 		const size_t N = G->n_nodes();
@@ -128,7 +128,7 @@ namespace traversal {
 		BFS(G, source, terminate, process_current, process_neighbour);
 	}
 
-	/// ALL-ALL
+	/* ALL-ALL */
 
 	void xudistances(const xxgraph<_new_> *G, vector<vector<_new_> >& dist) {
 		const size_t N = G->n_nodes();

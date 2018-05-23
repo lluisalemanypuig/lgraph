@@ -3,7 +3,7 @@
 namespace lgraph {
 namespace traversal {
 
-	/// VERTEX-VERTEX
+	/* VERTEX-VERTEX */
 
 	// one path
 	void xupath(const xxgraph<_new_> *G, node source, node target, node_path<_new_>& p) {
@@ -57,7 +57,7 @@ namespace traversal {
 		ps = node_all_paths[target];
 	}
 
-	/// VERTEX-ALL
+	/* VERTEX-ALL */
 
 	// one path
 	void xupath(const xxgraph<_new_> *G, node source, vector<node_path<_new_> >& ps) {
@@ -166,10 +166,10 @@ namespace traversal {
 		BFS(G, source, terminate, process_current, process_neighbour);
 	}
 
-	/// ALL-ALL
+	/* ALL-ALL */
 
 	// one path
-	void xupath(const xxgraph<_new_> *G, vector<node_path_set<_new_> >& all_all_paths) {
+	void xupath(const xxgraph<_new_> *G, vector<vector<node_path<_new_> > >& all_all_paths) {
 		const size_t N = G->n_nodes();
 
 		// allocate memory...

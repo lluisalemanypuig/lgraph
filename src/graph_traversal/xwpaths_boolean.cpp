@@ -3,7 +3,7 @@
 namespace lgraph {
 namespace traversal {
 
-	/// VERTEX-VERTEX
+	/* VERTEX-VERTEX */
 
 	// one path
 	template<class T>
@@ -21,7 +21,7 @@ namespace traversal {
 		from_nps_to_bps(node_all_paths, G->n_nodes(), ps);
 	}
 
-	/// VERTEX-ALL
+	/* VERTEX-ALL */
 
 	// one path
 	template<class T>
@@ -48,11 +48,11 @@ namespace traversal {
 		}
 	}
 
-	/// ALL-ALL
+	/* ALL-ALL */
 
 	// one path
 	template<class T>
-	void xwpath(const xxgraph<T> *G, vector<boolean_path_set<T> >& all_all_paths) {
+	void xwpath(const xxgraph<T> *G, vector<vector<boolean_path<T> > >& all_all_paths) {
 		const size_t N = G->n_nodes();
 
 		vector<node_path_set<T> > node_ps;

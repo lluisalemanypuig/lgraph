@@ -3,7 +3,7 @@
 namespace lgraph {
 namespace traversal {
 
-	/// VERTEX-VERTEX
+	/* VERTEX-VERTEX */
 
 	template<class T>
 	T xwdistance(const xxgraph<T> *G, node source, node target) {
@@ -49,7 +49,7 @@ namespace traversal {
 		return distances[target];
 	}
 
-	/// VERTEX-ALL
+	/* VERTEX-ALL */
 
 	template<class T>
 	void xwdistance(const xxgraph<T> *G, node source, vector<T>& ds) {
@@ -128,7 +128,7 @@ namespace traversal {
 		Dijkstra(G, source, terminate, proc_curr, proc_neig);
 	}
 
-	/// ALL-ALL
+	/* ALL-ALL */
 
 	template<class T>
 	void xwdistances(const xxgraph<T> *G, vector<vector<T> >& dist) {
