@@ -1,6 +1,2 @@
-Compile the sources as a library
-Added an examples directory containing the old 'csn' project
-Renamed the old 'debug' project as 'path-finding'
-Renamed directory 'src' to 'lgraph'
-All includes now take <lgraph/..>. Changed all *.hpp!
-Compile the examples statically against the library
+Moved original README.md to examples/complex-social-networks example.
+
