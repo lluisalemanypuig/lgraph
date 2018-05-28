@@ -9,7 +9,8 @@ namespace Barabasi_Albert {
 	namespace _ng {
 		
 		// function for debugging
-		inline void print_stubs(const uugraph& G, const vector<size_t>& stubs, size_t max_idx, const string& tab = "") {
+		inline
+		void print_stubs(const uugraph& G, const vector<size_t>& stubs, size_t max_idx, const string& tab = "") {
 			logger<null_stream>& LOG = logger<null_stream>::get_logger();
 
 			LOG.log() << tab << "max_idx= " << max_idx << endl;
@@ -65,12 +66,8 @@ namespace Barabasi_Albert {
 		// stub_idx: the index of the vertex chosen
 		// stubs: a reference to the vector of stubs
 		// max_idx: upper bound of the range of the stubs vector
-		inline void update_stubs
-		(
-			const uugraph& G, size_t stub_idx,
-			vector<size_t>& stubs, size_t& max_idx
-		)
-		{
+		inline
+		void update_stubs(const uugraph& G, size_t stub_idx, vector<size_t>& stubs, size_t& max_idx) {
 			const size_t v = stubs[stub_idx];
 			
 			if (G.degree(v) == 0) {	
@@ -117,7 +114,9 @@ namespace Barabasi_Albert {
 			// most dificult case: it is time to copy memory.. carefully!
 			
 			size_t next_pos = stub_idx;
-			while (next_pos < max_idx and stubs[next_pos] == v) ++next_pos;
+			while (next_pos < max_idx and stubs[next_pos] == v) {
+				++next_pos;
+			}
 			
 			size_t last_pos = next_pos - G.degree(v);
 			
@@ -136,19 +135,17 @@ namespace Barabasi_Albert {
 
 		// Builds the stubs needed for the random choice of vertices.
 		// Returns the maximum amount of new neighbours we can connect to u
-		inline size_t update_stubs_initial
-		(
-			const uugraph& G, size_t u, size_t m0,
-			vector<size_t>& stubs, size_t& max_idx
-		)
-		{
+		inline
+		size_t update_stubs_initial(const uugraph& G, size_t u, size_t m0, vector<size_t>& stubs, size_t& max_idx) {
 			// put vertices that are not neighbours of u at the beginning
 			
 			size_t stubs_so_far = 0;
 			for (size_t v = 0; v < G.n_nodes(); ++v) {
 				if (v != u and not G.has_edge(u, v)) {
 					size_t stubs_v = G.degree(v);
-					if (stubs_v == 0) ++stubs_v;
+					if (stubs_v == 0) {
+						++stubs_v;
+					}
 					
 					size_t begin_v = stubs_so_far;
 					size_t end_v = begin_v + stubs_v;
@@ -164,7 +161,9 @@ namespace Barabasi_Albert {
 			const neighbourhood& N = G.get_neighbours(u);
 			for (size_t v : N) {
 				size_t stubs_v = G.degree(v);
-				if (stubs_v == 0) ++stubs_v;
+				if (stubs_v == 0) {
+					++stubs_v;
+				}
 				
 				size_t begin_v = stubs_so_far;
 				size_t end_v = begin_v + stubs_v;
@@ -175,19 +174,24 @@ namespace Barabasi_Albert {
 			
 			// stubs before creating m0 edges
 			size_t stubs_u = G.degree(u);
-			if (G.degree(u) == 0) ++stubs_u;
+			if (G.degree(u) == 0) {
+				++stubs_u;
+			}
 			
 			size_t begin_u = stubs_so_far;
 			size_t end_u = begin_u + stubs_u;
 			fill(stubs.begin() + begin_u, stubs.begin() + end_u, u);
 			
 			// Add new stubs
-			if (G.n_nodes() - N.size() - 1 < m0) m0 = G.n_nodes() - N.size() - 1;
+			if (G.n_nodes() - N.size() - 1 < m0) {
+				m0 = G.n_nodes() - N.size() - 1;
+			}
 			size_t new_stubs_u = m0;
-			if (G.degree(u) == 0) --new_stubs_u;
+			if (G.degree(u) == 0) {
+				--new_stubs_u;
+			}
 			
 			stubs.insert(stubs.end(), new_stubs_u, u);
-			
 			return m0;
 		}
 

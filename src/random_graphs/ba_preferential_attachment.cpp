@@ -65,12 +65,8 @@ namespace Barabasi_Albert {
 		// stub_idx: the index of the vertex chosen
 		// stubs: a reference to the vector of stubs
 		// max_idx: upper bound of the range of the stubs vector
-		inline void update_stubs
-		(
-			const uugraph& G, size_t stub_idx,
-			vector<size_t>& stubs, size_t& max_idx
-		)
-		{
+		inline
+		void update_stubs(const uugraph& G, size_t stub_idx, vector<size_t>& stubs, size_t& max_idx) {
 			const size_t v = stubs[stub_idx];
 			
 			if (G.degree(v) == 0) {
@@ -117,7 +113,9 @@ namespace Barabasi_Albert {
 			// most dificult case: it is time to copy memory.. carefully!
 			
 			size_t next_pos = stub_idx;
-			while (next_pos < max_idx and stubs[next_pos] == v) ++next_pos;
+			while (next_pos < max_idx and stubs[next_pos] == v) {
+				++next_pos;
+			}
 			
 			size_t last_pos = next_pos - G.degree(v);
 			
