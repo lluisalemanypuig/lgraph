@@ -8,17 +8,16 @@
 using namespace std;
 
 // Custom includes
-#include "data_structures/random_generator.hpp"
-#include "data_structures/xxgraph.hpp"
-#include "data_structures/svector.hpp"
-#include "data_structures/uugraph.hpp"
-#include "random_graphs/barabasi_albert.hpp"
-#include "random_graphs/switching.hpp"
-#include "metrics/centralities.hpp"
-#include "metrics/clustering.hpp"
-#include "metrics/distance.hpp"
-#include "epidemics/models.hpp"
-#include "utils/logger.hpp"
+#include <lgraph/data_structures/random_generator.hpp>
+#include <lgraph/data_structures/xxgraph.hpp>
+#include <lgraph/data_structures/svector.hpp>
+#include <lgraph/data_structures/uugraph.hpp>
+#include <lgraph/random_graphs/barabasi_albert.hpp>
+#include <lgraph/random_graphs/switching.hpp>
+#include <lgraph/metrics/centralities.hpp>
+#include <lgraph/metrics/clustering.hpp>
+#include <lgraph/metrics/distance.hpp>
+#include <lgraph/epidemics/models.hpp>
 using namespace lgraph;
 using namespace networks;
 using namespace utils;

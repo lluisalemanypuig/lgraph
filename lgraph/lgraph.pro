@@ -3,8 +3,10 @@ TEMPLATE = lib
 CONFIG += c++11
 CONFIG -= app_bundle
 CONFIG -= qt
+CONFIG += staticlib
 
 QMAKE_CXXFLAGS_RELEASE += -DNDEBUG
+INCLUDEPATH += ..
 
 HEADERS += \
     data_structures/xxgraph.hpp \

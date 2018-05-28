@@ -10,8 +10,8 @@
 using namespace std;
 
 // Custom includes
-#include "data_structures/xxgraph.hpp"
-#include "utils/logger.hpp"
+#include <lgraph/data_structures/xxgraph.hpp>
+#include <lgraph/utils/logger.hpp>
 
 namespace lgraph {
 using namespace utils;

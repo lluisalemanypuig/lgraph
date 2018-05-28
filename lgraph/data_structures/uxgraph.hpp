@@ -13,8 +13,8 @@
 using namespace std;
 
 // Custom includes
-#include "xxgraph.hpp"
-#include "utils/definitions.hpp"
+#include <lgraph/data_structures/xxgraph.hpp>
+#include <lgraph/utils/definitions.hpp>
 
 namespace lgraph {
 namespace utils {

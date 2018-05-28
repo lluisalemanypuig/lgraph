@@ -5,10 +5,10 @@
 using namespace std;
 
 // Custom includes
-#include "data_structures/boolean_path.hpp"
-#include "data_structures/uwgraph.hpp"
-#include "data_structures/uugraph.hpp"
-#include "graph_traversal/traversal.hpp"
+#include <lgraph/data_structures/boolean_path.hpp>
+#include <lgraph/data_structures/uwgraph.hpp>
+#include <lgraph/data_structures/uugraph.hpp>
+#include <lgraph/graph_traversal/traversal.hpp>
 using namespace lgraph;
 using namespace utils;
 

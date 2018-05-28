@@ -5,10 +5,10 @@
 using namespace std;
 
 // Custom includes
-#include "data_structures/random_generator.hpp"
-#include "data_structures/svector.hpp"
-#include "data_structures/uugraph.hpp"
-#include "utils/logger.hpp"
+#include <lgraph/data_structures/random_generator.hpp>
+#include <lgraph/data_structures/svector.hpp>
+#include <lgraph/data_structures/uugraph.hpp>
+#include <lgraph/utils/logger.hpp>
 
 namespace lgraph {
 using namespace utils;

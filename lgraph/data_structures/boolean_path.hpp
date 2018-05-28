@@ -10,12 +10,12 @@
 #include <vector>
 using namespace std;
 
-// Custom includes
-#include "xxgraph.hpp"
-#include "utils/definitions.hpp"
-#include "utils/static_bitset.hpp"
-#include "utils/logger.hpp"
-#include "node_path.hpp"
+// lgraph includes
+#include <lgraph/data_structures/node_path.hpp>
+#include <lgraph/data_structures/xxgraph.hpp>
+#include <lgraph/utils/definitions.hpp>
+#include <lgraph/utils/static_bitset.hpp>
+#include <lgraph/utils/logger.hpp>
 
 namespace lgraph {
 namespace utils {

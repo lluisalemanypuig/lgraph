@@ -8,7 +8,7 @@ CONFIG -= qt
 QMAKE_LFLAGS += -static
 QMAKE_CXXFLAGS_RELEASE += -DNDEBUG
 
-INCLUDEPATH += ../../src
+INCLUDEPATH += ../..
 
 CONFIG(release, debug|release) {
     LIBS += -L../../build-lgraph-release/ -llgraph

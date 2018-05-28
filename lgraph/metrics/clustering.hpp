@@ -5,7 +5,7 @@
 using namespace std;
 
 // Custom includes
-#include "data_structures/uugraph.hpp"
+#include <lgraph/data_structures/uugraph.hpp>
 
 namespace lgraph {
 using namespace utils;

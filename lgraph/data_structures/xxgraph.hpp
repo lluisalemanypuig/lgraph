@@ -8,7 +8,7 @@
 using namespace std;
 
 // Custom includes
-#include "utils/definitions.hpp"
+#include <lgraph/utils/definitions.hpp>
 
 namespace lgraph {
 namespace utils {

@@ -1,16 +1,16 @@
 #pragma once
 
-/// C++ incldues
+// C++ incldues
 #include <functional>
 #include <numeric>
 #include <vector>
 using namespace std;
 
-/// Custom includes
-#include "data_structures/uugraph.hpp"
-#include "metrics/centralities.hpp"
-#include "utils/definitions.hpp"
-#include "graph_traversal/traversal.hpp"
+// Custom includes
+#include <lgraph/graph_traversal/traversal.hpp>
+#include <lgraph/data_structures/uugraph.hpp>
+#include <lgraph/metrics/centralities.hpp>
+#include <lgraph/utils/definitions.hpp>
 
 namespace lgraph {
 using namespace utils;

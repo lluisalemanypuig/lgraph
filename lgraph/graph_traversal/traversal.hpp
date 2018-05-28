@@ -10,13 +10,13 @@
 using namespace std;
 
 // Custom includes
-#include "data_structures/xxgraph.hpp"
-#include "data_structures/boolean_path.hpp"
-#include "data_structures/node_path.hpp"
-#include "utils/logger.hpp"
-#include "bfs.hpp"
-#include "dfs.hpp"
-#include "dijkstra.hpp"
+#include <lgraph/data_structures/boolean_path.hpp>
+#include <lgraph/data_structures/node_path.hpp>
+#include <lgraph/data_structures/xxgraph.hpp>
+#include <lgraph/graph_traversal/dijkstra.hpp>
+#include <lgraph/graph_traversal/bfs.hpp>
+#include <lgraph/graph_traversal/dfs.hpp>
+#include <lgraph/utils/logger.hpp>
 
 namespace lgraph {
 using namespace utils;
