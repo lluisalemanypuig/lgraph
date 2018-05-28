@@ -373,12 +373,6 @@ int parse_options(int argc, char *argv[]) {
 }
 
 int main(int argc, char *argv[]) {
-	logger<ofstream>& log_out = logger<ofstream>::get_logger();
-	logger<null_stream>& no_out = logger<null_stream>::get_logger();
-	
-	(void)log_out;
-	(void)no_out;
-	
 	int r = parse_options(argc, argv);
 	if (r == 1) {
 		// an error occurred or --help was used
