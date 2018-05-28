@@ -1,42 +1,40 @@
-#include "debug.hpp"
+#include "functions.hpp"
 
-namespace debug {
+namespace functions {
 
 	void deb_distances(const xxgraph<_new_> *G, node source, node target) {
 		const _new_ N = G->n_nodes();
-		logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
-
-		LOG.log() << "DISTANCES:" << endl;
+		cout << "DISTANCES:" << endl;
 
 		// vertex-vertex
-		LOG.log() << "- node to node" << endl;
+		cout << "- node to node" << endl;
 		size_t n_paths;
 		_new_ d1 = traversal::xudistance(G, source, target);
 		_new_ d2 = traversal::xudistance(G, source, target, n_paths);
-		LOG.log() << "    Distance from " << source << " to " << target << ": ";
-		if (d1 == utils::inf_t<_new_>() or d2 == utils::inf_t<_new_>()) LOG.log() << "inf";
+		cout << "    Distance from " << source << " to " << target << ": ";
+		if (d1 == utils::inf_t<_new_>() or d2 == utils::inf_t<_new_>()) cout << "inf";
 		else {
-			LOG.log() << d1 << " -- " << d2;
+			cout << d1 << " -- " << d2;
 			if (d1 != d2) {
 				cout << " distances disagree! " << endl;
 			}
 		}
-		LOG.log() << " (" << n_paths << ")" << endl;
+		cout << " (" << n_paths << ")" << endl;
 
 		// vertex-all
-		LOG.log() << "- node to all" << endl;
+		cout << "- node to all" << endl;
 		vector<_new_> ds;
 		vector<size_t> va_n_paths;
 		traversal::xudistance(G, source, ds, va_n_paths);
 		for (size_t i = 0; i < N; ++i) {
-			LOG.log() << "    Distance from " << source << " to " << i << ": ";
-			if (ds[i] == utils::inf_t<_new_>()) LOG.log() << "inf";
-			else LOG.log() << ds[i] << " (" << va_n_paths[i] << ")";
-			LOG.log() << endl;
+			cout << "    Distance from " << source << " to " << i << ": ";
+			if (ds[i] == utils::inf_t<_new_>()) cout << "inf";
+			else cout << ds[i] << " (" << va_n_paths[i] << ")";
+			cout << endl;
 		}
 
 		// all-all
-		LOG.log() << "- all to all" << endl;
+		cout << "- all to all" << endl;
 		vector<vector<_new_> > all_ds;
 		vector<vector<size_t> > all_n_paths;
 		traversal::xudistances(G, all_ds, all_n_paths);
@@ -44,98 +42,94 @@ namespace debug {
 	}
 
 	void deb_paths(const xxgraph<_new_> *G, node source, node target) {
-		logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
-
-		LOG.log() << "SINGLE NODE PATHS:" << endl;
+		cout << "SINGLE NODE PATHS:" << endl;
 
 		// vertex-vertex
-		LOG.log() << "- node to node" << endl;
+		cout << "- node to node" << endl;
 		node_path<_new_> p;
 		traversal::xupath(G, source, target, p);
-		LOG.log() << "    Path from " << source << " to " << target << ": ";
-		if (p.size() > 0) LOG.log() << p;
-		else LOG.log() << "No path!";
-		LOG.log() << endl;
+		cout << "    Path from " << source << " to " << target << ": ";
+		if (p.size() > 0) cout << p;
+		else cout << "No path!";
+		cout << endl;
 
 		// vertex-all
-		LOG.log() << "- node to all" << endl;
+		cout << "- node to all" << endl;
 		vector<node_path<_new_> > ps;
 		traversal::xupath(G, source, ps);
 		for (node target = 0; target < G->n_nodes(); ++target) {
-			LOG.log() << "    Path from " << source << " to " << target << ": ";
-			if (ps[target].size() > 0) LOG.log() << ps[target];
-			else LOG.log() << "No path!";
-			LOG.log() << endl;
+			cout << "    Path from " << source << " to " << target << ": ";
+			if (ps[target].size() > 0) cout << ps[target];
+			else cout << "No path!";
+			cout << endl;
 		}
 
 		// all-all
-		LOG.log() << "- all to all" << endl;
+		cout << "- all to all" << endl;
 		vector<vector<node_path<_new_> > > all_ps;
 		traversal::xupath(G, all_ps);
 		for (node source = 0; source < G->n_nodes(); ++source) {
 			for (node target = 0; target < G->n_nodes(); ++target) {
-				LOG.log() << "    Path from " << source << " to " << target << ": ";
-				if (all_ps[source][target].size() > 0) LOG.log() << all_ps[source][target];
-				else LOG.log() << "No path!";
-				LOG.log() << endl;
+				cout << "    Path from " << source << " to " << target << ": ";
+				if (all_ps[source][target].size() > 0) cout << all_ps[source][target];
+				else cout << "No path!";
+				cout << endl;
 			}
 		}
 	}
 
 	void deb_all_paths(const xxgraph<_new_> *G, node source, node target) {
-		logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
-
-		LOG.log() << "ALL NODE SHORTEST PATHS:" << endl;
+		cout << "ALL NODE SHORTEST PATHS:" << endl;
 
 		// vertex-vertex
-		LOG.log() << "- node to node" << endl;
+		cout << "- node to node" << endl;
 		node_path_set<_new_> node_node_ps;
 		traversal::xupaths(G, source, target, node_node_ps);
-		LOG.log() << "    paths from " << source << " to " << target << ": ";
+		cout << "    paths from " << source << " to " << target << ": ";
 		if (node_node_ps.size() == 0) {
-			LOG.log() << "No paths" << endl;
+			cout << "No paths" << endl;
 		}
 		else {
-			LOG.log() << endl;
+			cout << endl;
 			for (const node_path<_new_>& path : node_node_ps) {
-				LOG.log() << "        " << path << endl;
+				cout << "        " << path << endl;
 			}
 		}
 
 		// vertex-all
-		LOG.log() << "- node to all" << endl;
+		cout << "- node to all" << endl;
 		vector<node_path_set<_new_> > node_all_ps;
 		traversal::xupaths(G, source, node_all_ps);
 		for (node target = 0; target < G->n_nodes(); ++target) {
-			LOG.log() << "    Paths from " << source << " to " << target << ": ";
+			cout << "    Paths from " << source << " to " << target << ": ";
 			const node_path_set<_new_>& paths_to_target = node_all_ps[target];
 			if (paths_to_target.size() == 0) {
-				LOG.log() << "No paths" << endl;
+				cout << "No paths" << endl;
 			}
 			else {
-				LOG.log() << endl;
+				cout << endl;
 				for (const node_path<_new_>& path : paths_to_target) {
-					LOG.log() << string(8, ' ') << path << endl;
+					cout << string(8, ' ') << path << endl;
 				}
 			}
 		}
 
 		// all-all
-		LOG.log() << "- all to all" << endl;
+		cout << "- all to all" << endl;
 		vector<vector<node_path_set<_new_> > > all_all_paths;
 		traversal::xupaths(G, all_all_paths);
 		for (node source = 0; source < G->n_nodes(); ++source) {
 			for (node target = 0; target < G->n_nodes(); ++target) {
 
-				LOG.log() << "    Paths from " << source << " to " << target << ": ";
+				cout << "    Paths from " << source << " to " << target << ": ";
 				const node_path_set<_new_>& paths_to_target = all_all_paths[source][target];
 				if (paths_to_target.size() == 0) {
-					LOG.log() << "No paths" << endl;
+					cout << "No paths" << endl;
 				}
 				else {
-					LOG.log() << endl;
+					cout << endl;
 					for (const node_path<_new_>& path : paths_to_target) {
-						LOG.log() << string(8, ' ') << path << endl;
+						cout << string(8, ' ') << path << endl;
 					}
 				}
 			}
@@ -143,98 +137,94 @@ namespace debug {
 	}
 
 	void deb_bpaths(const xxgraph<_new_> *G, node source, node target) {
-		logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
-
-		LOG.log() << "SINGLE BOOLEAN PATHS:" << endl;
+		cout << "SINGLE BOOLEAN PATHS:" << endl;
 
 		// vertex-vertex
-		LOG.log() << "- node to node" << endl;
+		cout << "- node to node" << endl;
 		boolean_path<_new_> p;
 		traversal::xupath(G, source, target, p);
-		LOG.log() << "    Path from " << source << " to " << target << ": ";
-		if (p.size() > 0) LOG.log() << p.to_node_path(G, source);
-		else LOG.log() << "No path!";
-		LOG.log() << endl;
+		cout << "    Path from " << source << " to " << target << ": ";
+		if (p.size() > 0) cout << p.to_node_path(G, source);
+		else cout << "No path!";
+		cout << endl;
 
 		// vertex-all
-		LOG.log() << "- node to all" << endl;
+		cout << "- node to all" << endl;
 		vector<boolean_path<_new_> > ps;
 		traversal::xupath(G, source, ps);
 		for (node TARGET = 0; TARGET < G->n_nodes(); ++TARGET) {
-			LOG.log() << "    Path from " << source << " to " << TARGET << ": ";
-			if (ps[TARGET].size() > 0) LOG.log() << ps[TARGET].to_node_path(G, source);
-			else LOG.log() << "No path!";
-			LOG.log() << endl;
+			cout << "    Path from " << source << " to " << TARGET << ": ";
+			if (ps[TARGET].size() > 0) cout << ps[TARGET].to_node_path(G, source);
+			else cout << "No path!";
+			cout << endl;
 		}
 
 		// all-all
-		LOG.log() << "- all to all" << endl;
+		cout << "- all to all" << endl;
 		vector<vector<boolean_path<_new_> > > all_ps;
 		traversal::xupath(G, all_ps);
 		for (node SOURCE = 0; SOURCE < G->n_nodes(); ++SOURCE) {
 			for (node TARGET = 0; TARGET < G->n_nodes(); ++TARGET) {
-				LOG.log() << "    Path from " << SOURCE << " to " << TARGET << ": ";
-				if (all_ps[SOURCE][TARGET].size() > 0) LOG.log() << all_ps[SOURCE][TARGET].to_node_path(G, SOURCE);
-				else LOG.log() << "No path!";
-				LOG.log() << endl;
+				cout << "    Path from " << SOURCE << " to " << TARGET << ": ";
+				if (all_ps[SOURCE][TARGET].size() > 0) cout << all_ps[SOURCE][TARGET].to_node_path(G, SOURCE);
+				else cout << "No path!";
+				cout << endl;
 			}
 		}
 	}
 
 	void deb_all_bpaths(const xxgraph<_new_> *G, node source, node target) {
-		logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
-
-		LOG.log() << "ALL BOOLEAN SHORTEST PATHS:" << endl;
+		cout << "ALL BOOLEAN SHORTEST PATHS:" << endl;
 
 		// vertex-vertex
-		LOG.log() << "- node to node" << endl;
+		cout << "- node to node" << endl;
 		boolean_path_set<_new_> node_node_paths;
 		traversal::xupaths(G, source, target, node_node_paths);
-		LOG.log() << "    paths from " << source << " to " << target << ": ";
+		cout << "    paths from " << source << " to " << target << ": ";
 		if (node_node_paths.size() == 0) {
-			LOG.log() << "No paths" << endl;
+			cout << "No paths" << endl;
 		}
 		else {
-			LOG.log() << endl;
+			cout << endl;
 			for (const boolean_path<_new_>& path : node_node_paths) {
-				LOG.log() << "        " << path.to_node_path(G, source) << endl;
+				cout << "        " << path.to_node_path(G, source) << endl;
 			}
 		}
 
 		// vertex-all
-		LOG.log() << "- node to all" << endl;
+		cout << "- node to all" << endl;
 		vector<boolean_path_set<_new_> > node_all_paths;
 		traversal::xupaths(G, source, node_all_paths);
 		for (node TARGET = 0; TARGET < G->n_nodes(); ++TARGET) {
-			LOG.log() << "    Paths from " << source << " to " << TARGET << ": ";
+			cout << "    Paths from " << source << " to " << TARGET << ": ";
 			const boolean_path_set<_new_>& paths_to_target = node_all_paths[TARGET];
 			if (paths_to_target.size() == 0) {
-				LOG.log() << "No paths" << endl;
+				cout << "No paths" << endl;
 			}
 			else {
-				LOG.log() << endl;
+				cout << endl;
 				for (const boolean_path<_new_>& path : paths_to_target) {
-					LOG.log() << string(8, ' ') << path.to_node_path(G, source) << endl;
+					cout << string(8, ' ') << path.to_node_path(G, source) << endl;
 				}
 			}
 		}
 
 		// all-all
-		LOG.log() << "- all to all" << endl;
+		cout << "- all to all" << endl;
 		vector<vector<boolean_path_set<_new_> > > all_all_paths;
 		traversal::xupaths(G, all_all_paths);
 		for (node SOURCE = 0; SOURCE < G->n_nodes(); ++SOURCE) {
 			for (node TARGET = 0; TARGET < G->n_nodes(); ++TARGET) {
 
-				LOG.log() << "    Paths from " << SOURCE << " to " << TARGET << ": ";
+				cout << "    Paths from " << SOURCE << " to " << TARGET << ": ";
 				const boolean_path_set<_new_>& paths_to_target = all_all_paths[SOURCE][TARGET];
 				if (paths_to_target.size() == 0) {
-					LOG.log() << "No paths" << endl;
+					cout << "No paths" << endl;
 				}
 				else {
-					LOG.log() << endl;
+					cout << endl;
 					for (const boolean_path<_new_>& path : paths_to_target) {
-						LOG.log() << string(8, ' ') << path.to_node_path(G, SOURCE) << endl;
+						cout << string(8, ' ') << path.to_node_path(G, SOURCE) << endl;
 					}
 				}
 			}

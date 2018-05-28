@@ -1,10 +1,9 @@
-#include "debug.hpp"
+#include "functions.hpp"
 
-namespace debug {
+namespace functions {
 
 	template<class T>
 	void print_distance_matrix(const vector<vector<T> >& dist, const vector<vector<size_t> >& n_paths) {
-		logger<cout_stream>& LOG = logger<cout_stream>::get_logger();
 		const size_t N = dist.size();
 
 		const size_t max_node_length = std::to_string(N - 1).length();
@@ -28,31 +27,31 @@ namespace debug {
 			row_width += max_column[u] + 1;
 		}
 
-		LOG.log() << setw(max_node_length) << " " << " ";
+		cout << setw(max_node_length) << " " << " ";
 		for (size_t u = 0; u < N; ++u) {
-			LOG.log() << left << setw(max_column[u]) << "| " + std::to_string(u) << " ";
+			cout << left << setw(max_column[u]) << "| " + std::to_string(u) << " ";
 		}
-		LOG.log() << endl;
+		cout << endl;
 
-		LOG.log() << string(row_width, '-') << endl;
+		cout << string(row_width, '-') << endl;
 
 		setiosflags(ios::left);
 		for (size_t u = 0; u < N; ++u) {
-			LOG.log() << setw(max_node_length) << u << " ";
+			cout << setw(max_node_length) << u << " ";
 			for (size_t v = 0; v < N; ++v) {
-				LOG.log() << setw(max_column[v]);
+				cout << setw(max_column[v]);
 
 				if (dist[u][v] == utils::inf_t<T>()) {
-					LOG.log() << "| inf (" + std::to_string(n_paths[u][v]) + ")";
+					cout << "| inf (" + std::to_string(n_paths[u][v]) + ")";
 				}
 				else {
-					LOG.log() << "| " + std::to_string(dist[u][v]) + " (" + std::to_string(n_paths[u][v]) + ")";
+					cout << "| " + std::to_string(dist[u][v]) + " (" + std::to_string(n_paths[u][v]) + ")";
 				}
-				LOG.log() << " ";
+				cout << " ";
 			}
-			LOG.log() << endl;
+			cout << endl;
 		}
-		LOG.log() << endl;
+		cout << endl;
 	}
 
 }

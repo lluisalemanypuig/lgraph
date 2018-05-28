@@ -1,13 +1,13 @@
-/// C includes
+// C includes
 #include <string.h>
 
-/// C++ includes
+// C++ includes
 #include <iostream>
 #include <iomanip>
 #include <map>
 using namespace std;
 
-/// Custom includes
+// Custom includes
 #include "data_structures/random_generator.hpp"
 #include "data_structures/xxgraph.hpp"
 #include "data_structures/svector.hpp"
@@ -23,7 +23,7 @@ using namespace lgraph;
 using namespace networks;
 using namespace utils;
 
-/// <Global variables (only used here)>
+// <Global variables (only used here)>
 string model = "none";
 string variant = "none";
 string from_file = "none";
@@ -57,7 +57,7 @@ bool seed = false;
 
 drandom_generator<> *drg;
 crandom_generator<> *crg;
-/// </Global variables>
+// </Global variables>
 
 void print_usage() {
 	cout << "Help of this program" << endl;

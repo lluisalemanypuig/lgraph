@@ -1,0 +1,7 @@
+complex-social-networks/csn.pro.user
+build-csn-debug/
+build-csn-release/
+
+path-finding/path-finding.pro.user
+build-path-finding-debug/
+build-path-finding-release/
