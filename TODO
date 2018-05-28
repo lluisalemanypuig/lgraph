@@ -30,7 +30,7 @@ Implement triangle counting algorithm using adjacency matrix
 Paper:			http://www.d.umn.edu/math/Technical%20Reports/Technical%20Reports%202007-/TR%202012/yang.pdf
 Implementation:	https://www.geeksforgeeks.org/number-of-triangles-in-a-undirected-graph/
 
-[] 24/03/2018 ->
+[v] 24/03/2018 -> 28/05/2018
 Add documentation with Doxygen
 
 [v] 31/03/2018 -> 22/04/2018
