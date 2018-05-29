@@ -24,7 +24,7 @@ main README.md file, while in the directory examples/ issue the following comman
 The usage is very simple. This example takes only four parameters:
 
 - _[-i, --input] file_: indicate the file where the graph is stored
-- _source_, _--target_: indicate the source and target for node-node shortest
+- _--source_, _--target_: indicate the source and target for node-node shortest
 paths.
 - _[-w, --weighted]_: indicate whether the input graph is weighted or not.
 
