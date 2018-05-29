@@ -11,10 +11,10 @@ QMAKE_CXXFLAGS_RELEASE += -DNDEBUG
 INCLUDEPATH += ../..
 
 CONFIG(debug, debug|release) {
-    LIBS += -L../../build-lgraph-debug/ -llgraph
+    LIBS += -L../../lgraph-debug/ -llgraph
 }
 CONFIG(release, debug|release) {
-    LIBS += -L../../build-lgraph-release/ -llgraph
+    LIBS += -L../../lgraph-release/ -llgraph
 }
 
 HEADERS += \
