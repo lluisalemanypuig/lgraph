@@ -6,7 +6,7 @@ unweighted) graphs, and algorithms to find the value of several network metrics.
 
 ## Documentation
 
-The documentation can be generated using Doxygen (version >= 1.8.11) by ussing the following commands
+The documentation can be generated using Doxygen (version >= 1.8.11) by issuing the following commands
 
 		cd /path/to/the/repository
 		doxygen doxygen/doxyconfig
