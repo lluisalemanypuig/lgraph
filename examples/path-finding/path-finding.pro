@@ -23,5 +23,5 @@ HEADERS += \
     functions.hpp
 
 SOURCES += \
-    path-finding.cpp \
-    unweighted_dist_paths.cpp
+    unweighted_dist_paths.cpp \
+    path_finding.cpp

@@ -5,7 +5,7 @@ namespace networks {
 namespace metrics {
 namespace centralities {
 	
-	/// DEGREE
+	/* DEGREE */
 
 	double degree(const uugraph& G, node u) {
 		// number of nodes minus 1
@@ -35,7 +35,7 @@ namespace centralities {
 		);
 	}
 
-	/// CLOSENESS
+	/* CLOSENESS */
 	
 	double closeness(const uugraph& G, node u) {
 		vector<_new_> ds;
@@ -87,7 +87,7 @@ namespace centralities {
 		);
 	}
 
-	/// BETWEENNESS
+	/* BETWEENNES */
 
 	double betweenness(const uugraph& G, node u) {
 		vector<vector<boolean_path_set<_new_> > > all_to_all_paths;
