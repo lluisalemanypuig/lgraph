@@ -339,7 +339,7 @@ int parse_options(int argc, char *argv[]) {
 		else if (strcmp(argv[i], "--mlcc") == 0) {
 			clust_mlcc = true;
 		}
-		else if (strcmp(argv[i], "--mgc") == 0) {
+		else if (strcmp(argv[i], "--mgd") == 0) {
 			dist_mgc = true;
 		}
 		else if (strcmp(argv[i], "--diam") == 0) {

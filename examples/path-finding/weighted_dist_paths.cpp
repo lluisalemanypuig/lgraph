@@ -3,15 +3,15 @@
 namespace functions {
 
 	template<class T>
-	void deb_distances_t(const xxgraph<T> *G, node source, node target) {
+	void deb_distances_t(const wxgraph<T> *G, node source, node target) {
 		const T N = G->n_nodes();
 		cout << "DISTANCES:" << endl;
 
 		// node-node
 		cout << "- node to node" << endl;
 		size_t n_paths;
-		T d1 = traversal::xwdistance(G, source, target);
-		T d2 = traversal::xwdistance(G, source, target, n_paths);
+		T d1 = traversal::wxdistance(G, source, target);
+		T d2 = traversal::wxdistance(G, source, target, n_paths);
 		cout << "    Distance from " << source << " to " << target << ": ";
 		if (d1 == utils::inf_t<T>() or d2 == utils::inf_t<T>()) cout << "inf";
 		else {
@@ -26,7 +26,7 @@ namespace functions {
 		cout << "- node to all" << endl;
 		vector<T> ds;
 		vector<size_t> va_n_paths;
-		traversal::xwdistance<T>(G, source, ds, va_n_paths);
+		traversal::wxdistance<T>(G, source, ds, va_n_paths);
 		if (va_n_paths.size() > 0) {
 			for (size_t i = 0; i < N; ++i) {
 				cout << "    Distance from " << source << " to " << i << ": ";
@@ -42,19 +42,19 @@ namespace functions {
 		// all-all
 		vector<vector<T> > all_ds;
 		vector<vector<size_t> > all_n_paths;
-		traversal::xwdistances(G, all_ds, all_n_paths);
+		traversal::wxdistances(G, all_ds, all_n_paths);
 		cout << "- all to all" << endl;
 		print_distance_matrix(all_ds, all_n_paths);
 	}
 
 	template<class T>
-	void deb_paths_t(const xxgraph<T> *G, node source, node target) {
+	void deb_paths_t(const wxgraph<T> *G, node source, node target) {
 		cout << "SINGLE NODE PATHS:" << endl;
 
 		// node-node
 		cout << "- node to node" << endl;
 		node_path<T> p;
-		traversal::xwpath(G, source, target, p);
+		traversal::wxpath(G, source, target, p);
 		cout << "    Path from " << source << " to " << target << ": ";
 		if (p.size() > 0) cout << p;
 		else cout << "No path!";
@@ -63,7 +63,7 @@ namespace functions {
 		// node-all
 		cout << "- node to all" << endl;
 		vector<node_path<T> > ps;
-		traversal::xwpath(G, source, ps);
+		traversal::wxpath(G, source, ps);
 		if (ps.size() > 0) {
 			for (node target = 0; target < G->n_nodes(); ++target) {
 				cout << "    Path from " << source << " to " << target << ": ";
@@ -79,7 +79,7 @@ namespace functions {
 		// all-all
 		cout << "- all to all" << endl;
 		vector<node_path_set<T> > all_ps;
-		traversal::xwpath(G, all_ps);
+		traversal::wxpath(G, all_ps);
 		if (all_ps.size() > 0) {
 			for (node source = 0; source < G->n_nodes(); ++source) {
 				for (node target = 0; target < G->n_nodes(); ++target) {
@@ -96,13 +96,13 @@ namespace functions {
 	}
 
 	template<class T>
-	void deb_all_paths_t(const xxgraph<T> *G, node source, node target) {
+	void deb_all_paths_t(const wxgraph<T> *G, node source, node target) {
 		cout << "ALL NODE SHORTEST PATHS:" << endl;
 
 		// node-node
 		cout << "- node to node" << endl;
 		node_path_set<T> node_node_ps;
-		traversal::xwpaths(G, source, target, node_node_ps);
+		traversal::wxpaths(G, source, target, node_node_ps);
 		cout << "    paths from " << source << " to " << target << ": ";
 		if (node_node_ps.size() == 0) {
 			cout << "No paths" << endl;
@@ -117,7 +117,7 @@ namespace functions {
 		// node-all
 		cout << "- node to all" << endl;
 		vector<node_path_set<T> > node_all_ps;
-		traversal::xwpaths(G, source, node_all_ps);
+		traversal::wxpaths(G, source, node_all_ps);
 		for (node target = 0; target < G->n_nodes(); ++target) {
 			cout << "    Paths from " << source << " to " << target << ": ";
 			const node_path_set<T>& paths_to_target = node_all_ps[target];
@@ -135,7 +135,7 @@ namespace functions {
 		// all-all
 		cout << "- all to all" << endl;
 		vector<vector<node_path_set<T> > > all_all_paths;
-		traversal::xwpaths(G, all_all_paths);
+		traversal::wxpaths(G, all_all_paths);
 		for (node source = 0; source < G->n_nodes(); ++source) {
 			for (node target = 0; target < G->n_nodes(); ++target) {
 
@@ -155,13 +155,13 @@ namespace functions {
 	}
 
 	template<class T>
-	void deb_bpaths_t(const xxgraph<T> *G, node source, node target) {
+	void deb_bpaths_t(const wxgraph<T> *G, node source, node target) {
 		cout << "SINGLE BOOLEAN PATHS:" << endl;
 
 		// node-node
 		cout << "- node to node" << endl;
 		boolean_path<T> p;
-		traversal::xwpath(G, source, target, p);
+		traversal::wxpath(G, source, target, p);
 		cout << "    Path from " << source << " to " << target << ": ";
 		if (p.size() > 0) {
 			cout << p.to_node_path(G, source);
@@ -174,7 +174,7 @@ namespace functions {
 		// node-all
 		cout << "- node to all" << endl;
 		vector<boolean_path<T> > ps;
-		traversal::xwpath(G, source, ps);
+		traversal::wxpath(G, source, ps);
 		for (node TARGET = 0; TARGET < G->n_nodes(); ++TARGET) {
 			cout << "    Path from " << source << " to " << TARGET << ": ";
 			if (ps[TARGET].size() > 0) {
@@ -189,7 +189,7 @@ namespace functions {
 		// all-all
 		cout << "- all to all" << endl;
 		vector<vector<boolean_path<T> > > all_ps;
-		traversal::xwpath(G, all_ps);
+		traversal::wxpath(G, all_ps);
 		for (node SOURCE = 0; SOURCE < G->n_nodes(); ++SOURCE) {
 			for (node TARGET = 0; TARGET < G->n_nodes(); ++TARGET) {
 				cout << "    Path from " << SOURCE << " to " << TARGET << ": ";
@@ -205,13 +205,13 @@ namespace functions {
 	}
 
 	template<class T>
-	void deb_all_bpaths_t(const xxgraph<T> *G, node source, node target) {
+	void deb_all_bpaths_t(const wxgraph<T> *G, node source, node target) {
 		cout << "ALL BOOLEAN SHORTEST PATHS:" << endl;
 
 		// node-node
 		cout << "- node to node" << endl;
 		boolean_path_set<T> node_node_paths;
-		traversal::xwpaths(G, source, target, node_node_paths);
+		traversal::wxpaths(G, source, target, node_node_paths);
 		cout << "    paths from " << source << " to " << target << ": ";
 		if (node_node_paths.size() == 0) {
 			cout << "No paths" << endl;
@@ -226,7 +226,7 @@ namespace functions {
 		// node-all
 		cout << "- node to all" << endl;
 		vector<boolean_path_set<T> > node_all_paths;
-		traversal::xwpaths(G, source, node_all_paths);
+		traversal::wxpaths(G, source, node_all_paths);
 		for (node TARGET = 0; TARGET < G->n_nodes(); ++TARGET) {
 			cout << "    Paths from " << source << " to " << TARGET << ": ";
 			const boolean_path_set<T>& paths_to_target = node_all_paths[TARGET];
@@ -244,7 +244,7 @@ namespace functions {
 		// all-all
 		cout << "- all to all" << endl;
 		vector<vector<boolean_path_set<T> > > all_all_paths;
-		traversal::xwpaths(G, all_all_paths);
+		traversal::wxpaths(G, all_all_paths);
 		for (node SOURCE = 0; SOURCE < G->n_nodes(); ++SOURCE) {
 			for (node TARGET = 0; TARGET < G->n_nodes(); ++TARGET) {
 

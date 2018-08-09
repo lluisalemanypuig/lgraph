@@ -5,19 +5,49 @@
 #include <iostream>
 using namespace std;
 
+// lgraph includes
+#include <lgraph/data_structures/wugraph.hpp>
+#include <lgraph/data_structures/uugraph.hpp>
+
 // Custom includes
 #include "functions.hpp"
 using namespace lgraph;
 using namespace traversal;
 
+void print_usage() {
+	cout << "Path finding debugger" << endl;
+	cout << "Finds:" << endl;
+	cout << "    -> one path between a source and a target nodes" << endl;
+	cout << "    -> all paths between a source and a target nodes" << endl;
+	cout << "    -> one path between a source node and the rest of nodes" << endl;
+	cout << "    -> all paths between a source node and the rest of nodes" << endl;
+	cout << "    -> one path between all pairs of nodes in the graph" << endl;
+	cout << "    -> all paths between all pairs of nodes in the graph" << endl;
+	cout << endl;
+	cout << "Options:" << endl;
+	cout << "    [-h, --help]: prints this usage and exits" << endl;
+	cout << "    --source: indicate source node" << endl;
+	cout << "    --target: indicate target node" << endl;
+	cout << "    [-i, --input]: indicate input file with the graph" << endl;
+	cout << "    --weighted: indicate the graph is weighted" << endl;
+	cout << "    --unweighted: indicate the graph is weighted" << endl;
+	cout << endl;
+}
+
 int main(int argc, char *argv[]) {
 	string file = "none";
-	bool source_set, target_set, weighted;
+	bool source_set;
+	bool target_set;
+	bool weighted;
 	source_set = target_set = weighted = false;
 
 	node S, T;
 	for (int i = 1; i < argc; ++i) {
-		if (strcmp(argv[i], "--source") == 0) {
+		if (strcmp(argv[i], "-h") == 0 or strcmp(argv[i], "--help") == 0) {
+			print_usage();
+			return 0;
+		}
+		else if (strcmp(argv[i], "--source") == 0) {
 			S = atoi(argv[i + 1]);
 			source_set = true;
 			++i;
@@ -31,8 +61,11 @@ int main(int argc, char *argv[]) {
 			file = string(argv[i + 1]);
 			++i;
 		}
-		else if (strcmp(argv[i], "-w") == 0 or strcmp(argv[i], "--weighted") == 0) {
+		else if (strcmp(argv[i], "--weighted") == 0) {
 			weighted = true;
+		}
+		else if (strcmp(argv[i], "--unweighted") == 0) {
+			weighted = false;
 		}
 	}
 
@@ -41,15 +74,19 @@ int main(int argc, char *argv[]) {
 		return 1;
 	}
 
-	if (not source_set or not target_set) {
-		cerr << "Error: source or target not specified" << endl;
+	if (not source_set) {
+		cerr << "Error: source not specified" << endl;
+		return 1;
+	}
+	if (not target_set) {
+		cerr << "Error: target not specified" << endl;
 		return 1;
 	}
 
 	if (weighted) {
 		cout << "Debugging weighted graphs" << endl;
 
-		uwgraph<float> G;
+		wugraph<float> G;
 
 		G.read_from_file(file);
 		cout << "graph read:" << endl;
