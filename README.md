@@ -6,12 +6,13 @@ unweighted) graphs, and algorithms to find the value of several network metrics.
 
 ## Documentation
 
-The documentation can be generated using Doxygen (version >= 1.8.11) by issuing the following commands
+The documentation can be generated using Doxygen (version >= 1.8.11) by ussing the following commands
 
 		cd /path/to/the/repository
 		doxygen doxygen/doxyconfig
 
-The files can be viewed by opening the _docs/index.html_ file with any web browser.
+However, the files have already been generated and can be found
+[here](https://github.com/lluisalemanypuig/lgraph/tree/master/docs/).
 
 ## Contents of the repository
 
@@ -39,3 +40,4 @@ commands:
 		cd lgraph-release && make
 
 This will generate the .a file necessary for static compilation.
+
