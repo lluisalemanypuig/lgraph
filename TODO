@@ -1,13 +1,6 @@
 TODO LIST
 =========
 
-[] 15/05/2018 ->
-Unweighted graphs could be speeded up by adding a constant
-weight list of as many values as nodes in the graph. This
-way the method
-const vector<T> get_weights(node u) const;
-can be implemented in both weighted and unweighted graphs.
-
 [] 20/02/2018 ->
 Use sparse matrixes to implement adjacency matrix when needed
 
