@@ -23,7 +23,7 @@ svector<T, Alloc>::svector(size_t n, const T& v) : vector<T, Alloc>(n, v) {
 template<class T, class Alloc>
 svector<T, Alloc>::~svector() { }
 
-// Modifiers
+// MODIFIERS
 
 template<class T, class Alloc>
 void svector<T, Alloc>::add(const T& v) {
@@ -38,7 +38,7 @@ void svector<T, Alloc>::add(const T& v) {
 
 template<class T, class Alloc>
 void svector<T, Alloc>::remove(size_t i) {
-	swap( (*this)[i], (*this)[idx - 1] );
+	std::swap( (*this)[i], (*this)[idx - 1] );
 	--idx;
 }
 
@@ -47,7 +47,7 @@ void svector<T, Alloc>::sort() {
 	std::sort(this->begin(), this->begin() + idx);
 }
 
-// Getters
+// GETTERS
 
 template<class T, class Alloc>
 size_t svector<T, Alloc>::n_elems() const {

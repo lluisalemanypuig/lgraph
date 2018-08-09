@@ -55,6 +55,8 @@ class svector : public vector<T, Alloc> {
 		/// Destructor
 		~svector();
 
+		// OPERATORS
+
 		/**
 		 * @brief Outputs in an ostream object the contents of this vector.
 		 *
@@ -71,6 +73,8 @@ class svector : public vector<T, Alloc> {
 			}
 			return os;
 		}
+
+		// MODIFIERS
 
 		/**
 		 * @brief Adds an element to this vector
@@ -96,6 +100,8 @@ class svector : public vector<T, Alloc> {
 		 * Sorts the elements in positions [0,..,@ref idx)
 		 */
 		void sort();
+
+		// GETTERS
 
 		/**
 		 * @brief Returns the number of elements in this vector

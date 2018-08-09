@@ -19,7 +19,9 @@ namespace Barabasi_Albert {
 		
 		// initialize vertices to choose from
 		vector<size_t> idxs(n0);
-		for (size_t i = 0; i < idxs.size(); ++i) idxs[i] = i;
+		for (size_t i = 0; i < idxs.size(); ++i) {
+			idxs[i] = i;
+		}
 		
 		// at each time step t (1 <= t <= T) add one vertex to G
 		// connected to m0 vertices chosen u.a.r. making sure that

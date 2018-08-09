@@ -149,7 +149,9 @@ namespace Barabasi_Albert {
 		// many stubs as the degree of the node. However, if the node
 		// has degree 0, the list will have 1 stub for that node.
 		vector<size_t> stubs(n0);
-		for (size_t i = 0; i < stubs.size(); ++i) stubs[i] = i;
+		for (size_t i = 0; i < stubs.size(); ++i) {
+			stubs[i] = i;
+		}
 		
 		// at each time step t (1 <= t <= T) add one vertex to G
 		// connected to m0 vertices chosen following the preferential

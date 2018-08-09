@@ -69,10 +69,14 @@ void static_bitset::init(size_t b) {
 	size_t k_bytes = (is_div_8(b) ? div_8(b) : div_8(b) + 1);
 
 	// if we already have as many bytes as k_bytes do nothing
-	if (n_bytes == k_bytes) n_bits = b;
+	if (n_bytes == k_bytes) {
+		n_bits = b;
+	}
 	else {
 		// destroy the currently used memory if necessary ...
-		if (bytes != nullptr) clear();
+		if (bytes != nullptr) {
+			clear();
+		}
 
 		// ... and reserve the new space
 		n_bits = b;
@@ -83,27 +87,39 @@ void static_bitset::init(size_t b) {
 
 void static_bitset::init_set(size_t n_bits) {
 	init(n_bits);
-	for (size_t i = 0; i < n_bytes; ++i) bytes[i] = 0xff;
+	for (size_t i = 0; i < n_bytes; ++i) {
+		bytes[i] = 0xff;
+	}
 }
 
 void static_bitset::init_unset(size_t n_bits) {
 	init(n_bits);
-	for (size_t i = 0; i < n_bytes; ++i) bytes[i] = 0;
+	for (size_t i = 0; i < n_bytes; ++i) {
+		bytes[i] = 0;
+	}
 }
 
 void static_bitset::init(const string& string_bits) {
 	init_unset(string_bits.length());
 	for (size_t i = 0; i < n_bits; ++i) {
-		if (string_bits[i] == '1') bytes[byte(i)] = set_bit_(bytes[byte(i)], i);
-		else bytes[byte(i)] = unset_bit_(bytes[byte(i)], i);
+		if (string_bits[i] == '1') {
+			bytes[byte(i)] = set_bit_(bytes[byte(i)], i);
+		}
+		else {
+			bytes[byte(i)] = unset_bit_(bytes[byte(i)], i);
+		}
 	}
 }
 
 void static_bitset::init(const vector<bool>& bits) {
 	init_unset(bits.size());
 	for (size_t i = 0; i < n_bits; ++i) {
-		if (bits[i]) bytes[byte(i)] = set_bit_(bytes[byte(i)], i);
-		else bytes[byte(i)] = unset_bit_(bytes[byte(i)], i);
+		if (bits[i]) {
+			bytes[byte(i)] = set_bit_(bytes[byte(i)], i);
+		}
+		else {
+			bytes[byte(i)] = unset_bit_(bytes[byte(i)], i);
+		}
 	}
 }
 
@@ -202,11 +218,15 @@ static_bitset& static_bitset::operator^= (const static_bitset& bs) {
 // SETTERS
 
 void static_bitset::set_all() {
-	for (size_t i = 0; i < n_bytes; ++i) bytes[i] = 0xff;
+	for (size_t i = 0; i < n_bytes; ++i) {
+		bytes[i] = 0xff;
+	}
 }
 
 void static_bitset::unset_all() {
-	for (size_t i = 0; i < n_bytes; ++i) bytes[i] = 0;
+	for (size_t i = 0; i < n_bytes; ++i) {
+		bytes[i] = 0;
+	}
 }
 
 void static_bitset::set_bit(size_t i) {
@@ -248,7 +268,9 @@ bool static_bitset::equal(const static_bitset& bs) const {
 		//return true;
 		return b >= n_bytes;
 	}
-	if (b < n_bytes - check_last) return false;
+	if (b < n_bytes - check_last) {
+		return false;
+	}
 
 	unsigned char last_this = last_byte(bytes[n_bytes - 1], n_bits);
 	unsigned char last_bs = last_byte(bs.bytes[bs.n_bytes - 1], n_bits);
@@ -265,8 +287,12 @@ bool static_bitset::included(const static_bitset& bs) const {
 		++b;
 	}
 
-	if (IN != 0xff) return false;
-	if (check_last == 0) return IN;
+	if (IN != 0xff) {
+		return false;
+	}
+	if (check_last == 0) {
+		return IN;
+	}
 
 	unsigned char last_this = last_byte(bytes[n_bytes - 1], n_bits);
 	unsigned char last_bs = last_byte(bs.bytes[bs.n_bytes - 1], n_bits);
@@ -287,7 +313,9 @@ bool static_bitset::all() const {
 		//return true;
 		return b >= n_bytes;
 	}
-	if (b < n_bytes - check_last) return false;
+	if (b < n_bytes - check_last) {
+		return false;
+	}
 
 	unsigned char last = last_byte(bytes[n_bytes - 1], n_bits);
 	unsigned char sign = (1 << mod_8(n_bits)) - 1;
@@ -307,7 +335,9 @@ bool static_bitset::any() const {
 		//return false;
 		return b < n_bytes;
 	}
-	if (b < n_bytes - check_last) return true;
+	if (b < n_bytes - check_last) {
+		return true;
+	}
 
 	// the last byte may no be complete: 9 bits are: 1 byte and 1 bit
 	return last_byte(bytes[n_bytes - 1], n_bits) != 0x00;
@@ -326,7 +356,9 @@ bool static_bitset::none() const {
 		//return true;
 		return b == n_bytes;
 	}
-	if (b < n_bytes - check_last) return false;
+	if (b < n_bytes - check_last) {
+		return false;
+	}
 
 	// the last byte may no be complete: 9 bits are: 1 byte and 1 bit
 	return last_byte(bytes[n_bytes - 1], n_bits) == 0x00;
@@ -335,7 +367,9 @@ bool static_bitset::none() const {
 void static_bitset::which(vector<size_t>& w) const {
 	w.resize(0);
 	for (size_t b = 0; b < n_bits; ++b) {
-		if (get_bit(bytes[byte(b)], b)) w.push_back(b);
+		if (get_bit(bytes[byte(b)], b)) {
+			w.push_back(b);
+		}
 	}
 }
 
@@ -375,8 +409,12 @@ string static_bitset::to_string(const string& sep) const {
 		else s += "0";
 		s += sep;
 	}
-	if (get_bit(bytes[n_bytes - 1], (n_bits - 1))) s += "1";
-	else s += "0";
+	if (get_bit(bytes[n_bytes - 1], (n_bits - 1))) {
+		s += "1";
+	}
+	else {
+		s += "0";
+	}
 	return s;
 }
 

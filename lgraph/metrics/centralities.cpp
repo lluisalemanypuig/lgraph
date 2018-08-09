@@ -105,7 +105,9 @@ namespace centralities {
 				const double g_st = paths[s][t].size();
 
 				// don't do any more calculations if there are no paths from s to t
-				if (g_st == 0.0) continue;
+				if (g_st == 0.0) {
+					continue;
+				}
 
 				// amount of shortest paths between s and t in which u lies on
 				size_t g_st_i = 0;
@@ -149,7 +151,9 @@ namespace centralities {
 
 				// don't do any more calculations if there
 				// are no paths from s to t
-				if (g_st == 0) continue;
+				if (g_st == 0) {
+					continue;
+				}
 
 				// set vector to 0
 				std::fill(g_st_i.begin(), g_st_i.end(), 0);
