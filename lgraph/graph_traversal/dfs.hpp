@@ -10,7 +10,7 @@
 using namespace std;
 
 // Custom includes
-#include <lgraph/data_structures/xxgraph.hpp>
+#include <lgraph/data_structures/uxgraph.hpp>
 #include <lgraph/utils/logger.hpp>
 
 namespace lgraph {
@@ -36,8 +36,7 @@ namespace dfs {
 	 * @param u The node at the top of the stack of the algorithm
 	 * @param vis The set of visited nodes
 	 */
-	template<class T = size_t>
-	using dfs_terminate = function<bool (const xxgraph<T> *G, node u, const vector<bool>& vis)>;
+	typedef function<bool (const uxgraph *G, node u, const vector<bool>& vis)> dfs_terminate;
 
 	/**
 	 * @brief Node processing function
@@ -49,8 +48,7 @@ namespace dfs {
 	 * @param u The node at the top of the stack of the algorithm
 	 * @param vis The set of visited nodes
 	 */
-	template<class T = size_t>
-	using dfs_process_current = function<void (const xxgraph<T> *G, node u, const vector<bool>& vis)>;
+	typedef function<void (const uxgraph *G, node u, const vector<bool>& vis)> dfs_process_current;
 
 	/**
 	 * @brief Node processing function
@@ -63,8 +61,7 @@ namespace dfs {
 	 * @param v The node neighbour of @e u visited by the algorithm
 	 * @param vis The set of visited nodes
 	 */
-	template<class T = size_t>
-	using dfs_process_neighbour = function<void (const xxgraph<T> *G, node u, node v, const vector<bool>& vis)>;
+	typedef function<void (const uxgraph *G, node u, node v, const vector<bool>& vis)> dfs_process_neighbour;
 
 	/**
 	 * @brief Generic Depth-First search algorithm
@@ -102,18 +99,16 @@ namespace dfs {
 	 * @param proc_neigh It is called in line 11 used to perform some operation on each of the
 	 *	neighbours.
 	 */
-	template<class T>
 	void DFS
 	(
-		const xxgraph<T> *G,
+		const uxgraph *G,
 		node source,
-		dfs_terminate<T> term =					[](const xxgraph<T> *, node, const vector<bool>&) -> bool { return false; },
-		dfs_process_current<T> proc_curr =		[](const xxgraph<T> *, node, const vector<bool>&) -> void {},
-		dfs_process_neighbour<T> proc_neig =	[](const xxgraph<T> *, node, node, const vector<bool>&) -> void {}
+		dfs_terminate term =				[](const uxgraph *, node, const vector<bool>&) -> bool { return false; },
+		dfs_process_current proc_curr =		[](const uxgraph *, node, const vector<bool>&) -> void {},
+		dfs_process_neighbour proc_neig =	[](const uxgraph *, node, node, const vector<bool>&) -> void {}
 	);
 
 } // -- namespace dfs
 } // -- namespace traversal
 } // -- namespace lgraph
 
-#include "dfs.cpp"

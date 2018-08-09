@@ -3,103 +3,99 @@
 namespace lgraph {
 namespace utils {
 
-// PROTECTED
-
-// MODIFIERS
-
-template<class T>
-void uxgraph<T>::initialise_adjacency_list(size_t n) {
-	xxgraph<T>::adjacency_list = vector<neighbourhood>(n);
-}
-
-template<class T>
-void uxgraph<T>::clear_adjacency_list() {
-	xxgraph<T>::adjacency_list.clear();
-}
-
 // PUBLIC
 
-template<class T>
-uxgraph<T>::uxgraph() : xxgraph<T>() { }
+uxgraph::uxgraph() { }
+uxgraph::~uxgraph() { }
 
-template<class T>
-uxgraph<T>::~uxgraph() {
-
+void uxgraph::init(size_t n) {
+	initialise_parent_graph(n);
 }
 
 // OPERATORS
 
+uxgraph& uxgraph::operator= (const uxgraph& g) {
+	adjacency_list = g.adjacency_list;
+	num_edges = g.num_edges;
+	return *this;
+}
+
+
 // MODIFIERS
 
-template<class T>
-void uxgraph<T>::add_edge(const edge& e, T w) {
-	add_edge(e.first, e.second, w);
+void uxgraph::add_edges(const vector<edge>& edge_list) {
+	for (const edge& e : edge_list) {
+		add_edge(e.first, e.second);
+	}
 }
 
-template<class T>
-void uxgraph<T>::add_edge(node u, node v, T w) {
-	assert(u < xxgraph<T>::adjacency_list.size());
-	assert(v < xxgraph<T>::adjacency_list.size());
-
-	xxgraph<T>::adjacency_list[u].push_back(v);
-	xxgraph<T>::adjacency_list[v].push_back(u);
-	++(xxgraph<T>::num_edges);
-
-	add_weight(u, w);
-	add_weight(v, w);
-}
-
-template<class T>
-void uxgraph<T>::remove_edge(const edge& e) {
-	remove_edge(e.first, e.second);
-}
-
-template<class T>
-void uxgraph<T>::remove_edges(const vector<edge>& edge_list) {
-	for (size_t i = 0; i < edge_list.size(); ++i) {
-		const edge& e = edge_list[i];
+void uxgraph::remove_edges(const vector<edge>& edge_list) {
+	for (const edge& e : edge_list) {
 		remove_edge(e.first, e.second);
 	}
 }
 
-template<class T>
-void uxgraph<T>::remove_edge(node u, node v) {
-	assert(u < xxgraph<T>::adjacency_list.size());
-	assert(v < xxgraph<T>::adjacency_list.size());
-
-	bool erased = false;
-
-	neighbourhood& nu = xxgraph<T>::adjacency_list[u];
-	nit it_u = xxgraph<T>::get_neighbour_position(nu, v);
-	if (it_u != nu.end()) {
-		nu.erase(it_u);
-		remove_weight(u, it_u);
-		erased = true;
-	}
-
-	neighbourhood& nv = xxgraph<T>::adjacency_list[v];
-	nit it_v = xxgraph<T>::get_neighbour_position(nv, u);
-	if (it_v != nv.end()) {
-		nv.erase(it_v);
-		remove_weight(v, it_v);
-		erased = true;
-	}
-
-	xxgraph<T>::num_edges -= erased;
+void uxgraph::clear() {
+	clear_parent_graph();
 }
 
 // GETTERS
 
-template<class T>
-bool uxgraph<T>::has_edge(node u, node v) const {
-	assert(u < xxgraph<T>::adjacency_list.size());
-	assert(v < xxgraph<T>::adjacency_list.size());
+bool uxgraph::is_weighted() const {
+	return false;
+}
 
-	const vector<neighbourhood>& al = xxgraph<T>::adjacency_list;
-	if (al[u].size() <= al[v].size()) {
-		return xxgraph<T>::cget_neighbour_position(al[u], v) != al[u].end();
+// I/O
+
+bool uxgraph::read_from_file(const string& filename) {
+	return read_from_file(filename.c_str());
+}
+
+bool uxgraph::read_from_file(const char *filename) {
+	ifstream fin;
+	fin.open(filename);
+
+	// file could not be opened. return "error"
+	if (not fin.is_open()) {
+		return false;
 	}
-	return xxgraph<T>::cget_neighbour_position(al[v], u) != al[v].end();
+
+	size_t max_vert_idx = 0;
+	vector<edge> edge_list;
+	size_t u, v;
+	while (fin >> u >> v) {
+		edge_list.push_back(edge(u, v));
+		max_vert_idx = max(max_vert_idx, u);
+		max_vert_idx = max(max_vert_idx, v);
+	}
+	fin.close();
+
+	init(max_vert_idx + 1);
+	add_edges(edge_list);
+	return true;
+}
+
+bool uxgraph::store_in_file(const string& filename) {
+	return store_in_file(filename.c_str());
+}
+
+bool uxgraph::store_in_file(const char *filename) {
+	ofstream fout;
+	fout.open(filename);
+
+	// file could not be opened. return "error"
+	if (not fout.is_open()) {
+		return false;
+	}
+
+	set<edge> unique_edges;
+	get_unique_edges(unique_edges);
+	for (const edge& e : unique_edges) {
+		fout << e.first << " " << e.second << endl;
+	}
+
+	fout.close();
+	return true;
 }
 
 

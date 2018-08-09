@@ -1,5 +1,8 @@
 #pragma once
 
+// C includes
+#include <assert.h>
+
 // C++ includes
 #include <string>
 #include <vector>
@@ -23,11 +26,7 @@ namespace utils {
  * that contains the number of edges in the graph. Depending on
  * the type of graph implemented these two attributes should be
  * modified accordingly.
- *
- * @param T In case of weighted graphs, this parameter indicates
- * the type of the edge weights
  */
-template<class T>
 class xxgraph {
 	protected:
 		/// The neighbourhood of every node
@@ -59,27 +58,25 @@ class xxgraph {
 		 */
 		nit get_neighbour_position(neighbourhood& n, node u);
 
-	protected:
-
 		/// Initialise the list of neighbourhoods with @e n instances
-		virtual void initialise_adjacency_list(size_t n) = 0;
-
-		/**
-		 * @brief Initialise the list of list of weights
-		 *
-		 * A subclass representing an unweighted graph may leave the body empty.
-		 */
-		virtual void initialise_weights(size_t n) = 0;
+		void initialise_adjacency_list(size_t n);
 
 		/// Clear the list of neighbourhoods
-		virtual void clear_adjacency_list() = 0;
+		void clear_adjacency_list();
 
 		/**
-		 * @brief Clear the list of weights
+		 * @brief Initialise the adjacency list of this graph.
 		 *
-		 * A subclass representing an unweighted graph may leave the body empty.
+		 * The value @ref num_edges is set to 0.
 		 */
-		virtual void clear_weights() = 0;
+		void initialise_parent_graph(size_t n);
+
+		/**
+		 * @brief Clear the adjacency list of this graph.
+		 *
+		 * The value @ref num_edges is set to 0.
+		 */
+		void clear_parent_graph();
 
 	public:
 		/// Constructor
@@ -94,7 +91,9 @@ class xxgraph {
 		 * the attributes so that it can store all the necessary information.
 		 * @param n Number of nodes of the graph
 		 */
-		void init(size_t n);
+		virtual void init(size_t n) = 0;
+
+		// MODIFIERS
 
 		/**
 		 * @brief Adds one node to the graph
@@ -111,67 +110,7 @@ class xxgraph {
 		 */
 		size_t add_n_nodes(node n);
 
-		/**
-		 * @brief Adds an edge to this graph.
-		 *
-		 * The attribute @ref num_edges is incremented by one.
-		 * @param e A pair of nodes
-		 * @param w The weight of the edge
-		 */
-		virtual void add_edge(const edge& e, T w = 0) = 0;
-
-		/**
-		 * @brief Adds all edges taken from a list
-		 *
-		 * The attribute @ref num_edges is incremented as many times
-		 * as elements there are in @e edge_list.
-		 * @param edge_list A list of pairs of nodes
-		 * @param ws A list of weights. The i-th edge has weight @e ws[i].
-		 */
-		virtual void add_edges(const vector<edge>& edge_list, const vector<T>& ws = vector<T>()) = 0;
-
-		/**
-		 * @brief Adds an edge between nodes @e u and @e v
-		 *
-		 * The attribute @ref num_edges is incremented by one.
-		 *
-		 * @param u The fist node of the edge
-		 * @param v The second node of the edge
-		 * @param w The weight of the edge
-		 */
-		virtual void add_edge(node u, node v, T w = 0) = 0;
-
-		/**
-		 * @brief Removes an edge from this graph.
-		 *
-		 * The attribute @ref num_edges is decremented by one.
-		 * @param e A pair of nodes
-		 */
-		virtual void remove_edge(const edge& e) = 0;
-
-		/**
-		 * @brief Removes all edges taken from a list
-		 *
-		 * The attribute @ref num_edges is decremented by one.
-		 * @param edge_list A list of edges
-		 */
-		virtual void remove_edges(const vector<edge>& edge_list) = 0;
-
-		/**
-		 * @brief Removes an edge from this graph.
-		 *
-		 * The attribute @ref num_edges is decremented by one.
-		 * @param u The fist node of the edge
-		 * @param v The second node of the edge
-		 */
-		virtual void remove_edge(node u, node v) = 0;
-
-		/**
-		 * @brief Deletes all memory used by the graph
-		 *
-		 * The value @ref num_edges is set to 0.
-		 */
-		void clear();
+		// GETTERS
 
 		/// Returns true if node @e u is in this graph.
 		bool has_node(node u) const;
@@ -180,7 +119,7 @@ class xxgraph {
 		 * @brief Returns true if there is an edge between nodes @e u and @e v
 		 * @pre @e u and @e v must be in the graph
 		 */
-		virtual bool has_edge(node u, node v) const = 0;
+		bool has_edge(node u, node v) const;
 
 		/**
 		 * @brief Returns the number of nodes
@@ -214,16 +153,13 @@ class xxgraph {
 		size_t degree(node u) const;
 
 		/**
-		 * @brief Returns the weight of the edge (@e u, @e v)
-		 * @pre The edge (@e u, @e v) must be in the graph
+		 * @brief Returns whether the graph is weighted or unweighted
+		 *
+		 * @return Returns true if the graph is weighted. Returns false if otherwise.
 		 */
-		virtual T edge_weight(node u, node v) const = 0;
+		virtual bool is_weighted() const = 0;
 
-		/**
-		 * @brief Returns the weights to all neighbours of node @e u
-		 * @pre @e u must be in the graph
-		 */
-		virtual void get_weights(node u, vector<T>& ws) const = 0;
+		// I/O
 
 		/// Reads the graph from a file
 		virtual bool read_from_file(const string& filename) = 0;
@@ -234,6 +170,8 @@ class xxgraph {
 		virtual bool store_in_file(const string& filename) = 0;
 		/// Stores the graph in a file
 		virtual bool store_in_file(const char *filename) = 0;
+
+		// GRAPH FEATURES
 
 		/// Returns the adjacency matrix of this graph
 		void get_adjacency_matrix(vector<vector<bool> >& adj_mat) const;
@@ -255,5 +193,3 @@ class xxgraph {
 
 } // -- namespace utils
 } // -- namespace lgraph
-
-#include "xxgraph.cpp"

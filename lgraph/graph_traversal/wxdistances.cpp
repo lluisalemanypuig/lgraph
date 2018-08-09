@@ -6,7 +6,7 @@ namespace traversal {
 	/* VERTEX-VERTEX */
 
 	template<class T>
-	T xwdistance(const xxgraph<T> *G, node source, node target) {
+	T wxdistance(const wxgraph<T> *G, node source, node target) {
 		assert(G->has_node(source));
 		assert(G->has_node(target));
 
@@ -17,7 +17,7 @@ namespace traversal {
 		// DO terminate when target node is found. Dijkstra guarantees that
 		// when this happens the shortest distance was found
 		djka_terminate<T> terminate =
-		[&target](const xxgraph<T> *, const djka_node<T>& u, const vector<bool>&) -> bool
+		[&target](const wxgraph<T> *, const djka_node<T>& u, const vector<bool>&) -> bool
 		{
 			return u.second == target;
 		};
@@ -25,7 +25,7 @@ namespace traversal {
 		// function to retrieve the shortest distance from source to node v
 		djka_process_current<T> proc_curr =
 		[&target, &st_dist]
-		(const xxgraph<T> *, const djka_node<T>& u, const vector<bool>&)
+		(const wxgraph<T> *, const djka_node<T>& u, const vector<bool>&)
 		{
 			if (u.second == target) {
 				st_dist = u.first;
@@ -38,13 +38,13 @@ namespace traversal {
 	}
 
 	template<class T>
-	T xwdistance(const xxgraph<T> *G, node source, node target, size_t& n_paths) {
+	T wxdistance(const wxgraph<T> *G, node source, node target, size_t& n_paths) {
 		assert(G->has_node(source));
 		assert(G->has_node(target));
 
 		vector<T> distances;
 		vector<size_t> paths;
-		xwdistance(G, source, distances, paths);
+		wxdistance(G, source, distances, paths);
 		n_paths = paths[target];
 		return distances[target];
 	}
@@ -52,7 +52,7 @@ namespace traversal {
 	/* VERTEX-ALL */
 
 	template<class T>
-	void xwdistance(const xxgraph<T> *G, node source, vector<T>& ds) {
+	void wxdistance(const wxgraph<T> *G, node source, vector<T>& ds) {
 		assert(G->has_node(source));
 
 		const size_t N = G->n_nodes();
@@ -63,16 +63,16 @@ namespace traversal {
 
 		// do NOT terminate: iterate through all nodes
 		djka_terminate<T> terminate =
-		[](const xxgraph<T> *, const djka_node<T>&, const vector<bool>&) -> bool
+		[](const wxgraph<T> *, const djka_node<T>&, const vector<bool>&) -> bool
 		{ return false; };
 
 		// don't need to process the currently visited node
 		djka_process_current<T> proc_curr =
-		[](const xxgraph<T> *, const djka_node<T>&, const vector<bool>&) { };
+		[](const wxgraph<T> *, const djka_node<T>&, const vector<bool>&) { };
 
 		// function to compute the shortest distance from source to node v
 		djka_process_neighbour<T> proc_neig =
-		[&ds](const xxgraph<T> *, node u, node v, T w, const vector<bool>&) -> bool
+		[&ds](const wxgraph<T> *, node u, node v, T w, const vector<bool>&) -> bool
 		{
 			bool add = false;
 			if (ds[u] + w < ds[v]) {
@@ -86,7 +86,7 @@ namespace traversal {
 	}
 
 	template<class T>
-	void xwdistance(const xxgraph<T> *G, node source, vector<T>& ds, vector<size_t>& n_paths) {
+	void wxdistance(const wxgraph<T> *G, node source, vector<T>& ds, vector<size_t>& n_paths) {
 		assert(G->has_node(source));
 
 		const size_t N = G->n_nodes();
@@ -100,16 +100,16 @@ namespace traversal {
 
 		// do NOT terminate: iterate through all nodes
 		djka_terminate<T> terminate =
-		[](const xxgraph<T> *, const djka_node<T>&, const vector<bool>&) -> bool
+		[](const wxgraph<T> *, const djka_node<T>&, const vector<bool>&) -> bool
 		{ return false; };
 
 		// don't need to process the currently visited node
 		djka_process_current<T> proc_curr =
-		[](const xxgraph<T> *, const djka_node<T>&, const vector<bool>&) { };
+		[](const wxgraph<T> *, const djka_node<T>&, const vector<bool>&) { };
 
 		// function to compute the shortest distance from source to node v
 		djka_process_neighbour<T> proc_neig =
-		[&ds, &n_paths](const xxgraph<T> *, node u, node v, const T& w, const vector<bool>&) -> bool
+		[&ds, &n_paths](const wxgraph<T> *, node u, node v, const T& w, const vector<bool>&) -> bool
 		{
 			bool add = false;
 			T d = ds[u] + w;
@@ -131,7 +131,7 @@ namespace traversal {
 	/* ALL-ALL */
 
 	template<class T>
-	void xwdistances(const xxgraph<T> *G, vector<vector<T> >& dist) {
+	void wxdistances(const wxgraph<T> *G, vector<vector<T> >& dist) {
 		const size_t N = G->n_nodes();
 
 		// initialise data
@@ -167,7 +167,7 @@ namespace traversal {
 	}
 
 	template<class T>
-	void xwdistances(const xxgraph<T> *G, vector<vector<T> >& dist, vector<vector<size_t> >& n_paths) {
+	void wxdistances(const wxgraph<T> *G, vector<vector<T> >& dist, vector<vector<size_t> >& n_paths) {
 		const size_t N = G->n_nodes();
 
 		// initialise data

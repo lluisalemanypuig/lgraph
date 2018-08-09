@@ -7,7 +7,7 @@ namespace dijkstra {
 	template<class T>
 	void Dijkstra
 	(
-		const xxgraph<T> *G,
+		const wxgraph<T> *G,
 		node source,
 		djka_terminate<T> terminate,
 		djka_process_current<T> proc_curr,
@@ -51,8 +51,7 @@ namespace dijkstra {
 				}
 				else {
 					const neighbourhood& Nu = G->get_neighbours(u.second);
-					vector<T> weights;
-					G->get_weights(u.second, weights);
+					const vector<T>& weights = G->get_weights(u.second);
 
 					LOG.log() << "Iterate through neighbours of " << u.second << endl;
 					LOG.log() << "    Node " << u.second << " has " << Nu.size() << " neighbours" << endl;

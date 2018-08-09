@@ -10,11 +10,11 @@ INCLUDEPATH += ..
 
 HEADERS += \
     data_structures/xxgraph.hpp \
-        data_structures/xxgraph.cpp \
+        data_structures/wxgraph.hpp \
+        data_structures/wxgraph.cpp \
+        data_structures/wugraph.hpp \
+        data_structures/wugraph.cpp \
         data_structures/uxgraph.hpp \
-        data_structures/uxgraph.cpp \
-        data_structures/uwgraph.hpp \
-        data_structures/uwgraph.cpp \
         data_structures/uugraph.hpp \
     data_structures/node_path.hpp \
         data_structures/node_path.cpp \
@@ -43,21 +43,23 @@ HEADERS += \
     utils/static_bitset.hpp \
     graph_traversal/traversal.hpp \
         graph_traversal/dfs.hpp \
-        graph_traversal/dfs.cpp \
         graph_traversal/bfs.hpp \
-        graph_traversal/bfs.cpp \
         graph_traversal/dijkstra.hpp \
         graph_traversal/dijkstra.cpp \
-        graph_traversal/xwpaths.cpp \
-        graph_traversal/xwdistances.cpp \
-        graph_traversal/xwpaths_boolean.cpp
+        graph_traversal/wxdistances.cpp \
+        graph_traversal/wxpaths.cpp \
+        graph_traversal/wxpaths_boolean.cpp \
 
 SOURCES += \
     metrics/clustering.cpp \
     metrics/centralities.cpp \
     metrics/distance.cpp \
     utils/static_bitset.cpp \
+    data_structures/xxgraph.cpp \
+    data_structures/uxgraph.cpp \
     data_structures/uugraph.cpp \
-    graph_traversal/xudistances.cpp \
-    graph_traversal/xupaths.cpp \
-    graph_traversal/xupaths_boolean.cpp
+    graph_traversal/bfs.cpp \
+    graph_traversal/dfs.cpp \
+    graph_traversal/uxdistances.cpp \
+    graph_traversal/uxpaths.cpp \
+    graph_traversal/uxpaths_boolean.cpp

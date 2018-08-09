@@ -5,100 +5,108 @@ namespace utils {
 
 // PROTECTED
 
-template<class T>
-ncit xxgraph<T>::cget_neighbour_position(const neighbourhood& n, node u) const {
+ncit xxgraph::cget_neighbour_position(const neighbourhood& n, node u) const {
 	bool found = false;
 	ncit cit = n.begin();
 	while (cit != n.end() and not found) {
-		if (*cit == u) found = true;
-		else ++cit;
+		if (*cit == u) {
+			found = true;
+		}
+		else {
+			++cit;
+		}
 	}
 	return cit;
 }
 
-template<class T>
-nit xxgraph<T>::get_neighbour_position(neighbourhood& n, node u) {
+nit xxgraph::get_neighbour_position(neighbourhood& n, node u) {
 	bool found = false;
 	nit it = n.begin();
 	while (it != n.end() and not found) {
-		if (*it == u) found = true;
-		else ++it;
+		if (*it == u) {
+			found = true;
+		}
+		else {
+			++it;
+		}
 	}
 	return it;
 }
 
+void xxgraph::initialise_adjacency_list(size_t n) {
+	adjacency_list = vector<neighbourhood>(n);
+}
+
+void xxgraph::clear_adjacency_list() {
+	adjacency_list.clear();
+}
+
+void xxgraph::initialise_parent_graph(size_t n) {
+	initialise_adjacency_list(n);
+	num_edges = 0;
+}
+
+void xxgraph::clear_parent_graph() {
+	clear_adjacency_list();
+	num_edges = 0;
+}
+
 // PUBLIC
 
-template<class T>
-xxgraph<T>::xxgraph() {
+xxgraph::xxgraph() {
 	num_edges = 0;
 }
 
-template<class T>
-xxgraph<T>::~xxgraph() { }
-
-template<class T>
-void xxgraph<T>::init(size_t n) {
-	num_edges = 0;
-	initialise_adjacency_list(n);
-	initialise_weights(n);
-}
+xxgraph::~xxgraph() { }
 
 // OPERATORS
 
 // MODIFIERS
 
-template<class T>
-size_t xxgraph<T>::add_node() {
+size_t xxgraph::add_node() {
 	adjacency_list.push_back(neighbourhood());
 	return adjacency_list.size() - 1;
 }
 
-template<class T>
-size_t xxgraph<T>::add_n_nodes(node n) {
+size_t xxgraph::add_n_nodes(node n) {
 	adjacency_list.insert(adjacency_list.end(), n, neighbourhood());
 	return adjacency_list.size() - 1;
 }
 
-// MODIFIERS
-
-template<class T>
-void xxgraph<T>::clear() {
-	num_edges = 0;
-	clear_adjacency_list();
-	clear_weights();
-}
-
 // GETTERS
 
-template<class T>
-bool xxgraph<T>::has_node(node u) const {
+bool xxgraph::has_node(node u) const {
 	return u < adjacency_list.size();
 }
 
-template<class T>
-size_t xxgraph<T>::n_nodes() const {
+bool xxgraph::has_edge(node u, node v) const {
+	assert( has_node(u) );
+	assert( has_node(v) );
+
+	const neighbourhood& nu = get_neighbours(u);
+	return cget_neighbour_position(nu, v) != nu.end();
+}
+
+size_t xxgraph::n_nodes() const {
 	return adjacency_list.size();
 }
 
-template<class T>
-size_t xxgraph<T>::n_edges() const {
+size_t xxgraph::n_edges() const {
 	return num_edges;
 }
 
-template<class T>
-void xxgraph<T>::nodes(vector<node>& all_nodes) const {
+void xxgraph::nodes(vector<node>& all_nodes) const {
 	all_nodes.resize(adjacency_list.size());
-	for (size_t u = 0; u < all_nodes.size(); ++u) all_nodes[u] = u;
+	for (size_t u = 0; u < all_nodes.size(); ++u) {
+		all_nodes[u] = u;
+	}
 }
 
-template<class T>
-const neighbourhood& xxgraph<T>::get_neighbours(node u) const {
+const neighbourhood& xxgraph::get_neighbours(node u) const {
 	return adjacency_list[u];
 }
 
-template<class T>
-size_t xxgraph<T>::degree(node u) const {
+size_t xxgraph::degree(node u) const {
 	return adjacency_list[u].size();
 }
 
@@ -106,8 +114,7 @@ size_t xxgraph<T>::degree(node u) const {
 
 // FEATURES OF GRAPHS
 
-template<class T>
-void xxgraph<T>::get_adjacency_matrix(vector<vector<bool> >& adj_mat) const {
+void xxgraph::get_adjacency_matrix(vector<vector<bool> >& adj_mat) const {
 	const size_t N = n_nodes();
 	adj_mat = vector<vector<bool> >(N, vector<bool>(N, false));
 	for (size_t u = 0; u < N; ++u) {
@@ -118,8 +125,7 @@ void xxgraph<T>::get_adjacency_matrix(vector<vector<bool> >& adj_mat) const {
 	}
 }
 
-template<class T>
-void xxgraph<T>::get_degree_sequence(map<size_t, size_t>& deg_seq) const {
+void xxgraph::get_degree_sequence(map<size_t, size_t>& deg_seq) const {
 	for (size_t u = 0; u < adjacency_list.size(); ++u) {
 		size_t deg = degree(u);
 		if (deg_seq.find(deg) == deg_seq.end()) deg_seq[deg] = 1;
@@ -127,8 +133,7 @@ void xxgraph<T>::get_degree_sequence(map<size_t, size_t>& deg_seq) const {
 	}
 }
 
-template<class T>
-size_t xxgraph<T>::n_triangles() const {
+size_t xxgraph::n_triangles() const {
 	size_t tris = 0;
 	const size_t N = n_nodes();
 

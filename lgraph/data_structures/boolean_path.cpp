@@ -41,7 +41,7 @@ void boolean_path<T>::clear() {
 
 template<class T>
 void boolean_path<T>::add_node(node u) {
-	assert((0 < u) and (u < n_nodes));
+	assert((0 <= u) and (u < nodes_in_path.size()));
 
 	if (not nodes_in_path[u]) {
 		nodes_in_path.set_bit(u);
@@ -104,66 +104,90 @@ size_t boolean_path<T>::potential_length() const {
 }
 
 template<class T>
-bool boolean_path<T>::closest_next(const xxgraph<T> *G, node prev, node curr, node& next) const {
+bool boolean_path<T>::closest_next(const xxgraph *G, node prev, node curr, node& next) const {
 	assert(G != nullptr);
-	assert((0 < curr) and (curr < nodes_in_path.size()));
+	assert((0 <= curr) and (curr < nodes_in_path.size()));
 
 	bool found = false;
 
 	const neighbourhood& Nu = G->get_neighbours(curr);
-	vector<T> weights;
-	G->get_weights(curr, weights);
+	if (G->is_weighted()) {
+		vector<T> weights;
+		(static_cast<const wxgraph<T> *>(G))->get_weights(curr, weights);
+		T dist = utils::inf_t<T>();
 
-	T dist = utils::inf_t<T>();
-
-	for (size_t i = 0; i < Nu.size(); ++i) {
-		node v = Nu[i];
-		if (nodes_in_path[v] and v != prev and weights[i] < dist) {
-			next = v;
-			dist = weights[i];
-			found = true;
+		for (size_t i = 0; i < Nu.size(); ++i) {
+			node v = Nu[i];
+			if (nodes_in_path[v] and v != prev and weights[i] < dist) {
+				next = v;
+				dist = weights[i];
+				found = true;
+			}
 		}
 	}
+	else {
+		_new_ dist = utils::inf_t<_new_>();
 
+		for (size_t i = 0; i < Nu.size(); ++i) {
+			node v = Nu[i];
+			if (nodes_in_path[v] and v != prev and 1 < dist) {
+				next = v;
+				dist = 1;
+				found = true;
+			}
+		}
+	}
 	return found;
 }
 
 template<class T>
-bool boolean_path<T>::closest_next(const xxgraph<T> *G, const vector<bool>& prev, node curr, node& next) const {
+bool boolean_path<T>::closest_next(const xxgraph *G, const vector<bool>& prev, node curr, node& next) const {
 	assert(G != nullptr);
-	assert((0 < curr) and (curr < nodes_in_path.size()));
+	assert((0 <= curr) and (curr < nodes_in_path.size()));
 
 	bool found = false;
 
 	const neighbourhood& Nu = G->get_neighbours(curr);
-	vector<T> weights;
-	G->get_weights(curr, weights);
+	if (G->is_weighted()) {
+		vector<T> weights;
+		(static_cast<const wxgraph<T> *>(G))->get_weights(curr, weights);
+		T dist = utils::inf_t<T>();
 
-	T dist = utils::inf_t<T>();
-
-	for (size_t i = 0; i < Nu.size(); ++i) {
-		node v = Nu[i];
-		if (nodes_in_path[v] and not prev[v] and weights[i] < dist) {
-			next = v;
-			dist = weights[i];
-			found = true;
+		for (size_t i = 0; i < Nu.size(); ++i) {
+			node v = Nu[i];
+			if (nodes_in_path[v] and not prev[v] and weights[i] < dist) {
+				next = v;
+				dist = weights[i];
+				found = true;
+			}
 		}
 	}
+	else {
+		_new_ dist = utils::inf_t<_new_>();
 
+		for (size_t i = 0; i < Nu.size(); ++i) {
+			node v = Nu[i];
+			if (nodes_in_path[v] and not prev[v] and 1 < dist) {
+				next = v;
+				dist = 1;
+				found = true;
+			}
+		}
+	}
 	return found;
 }
 
 // CONVERSIONS
 
 template<class T>
-node_path<T> boolean_path<T>::to_node_path(const xxgraph<T> *G, node s) const {
+node_path<T> boolean_path<T>::to_node_path(const xxgraph *G, node s) const {
 	node_path<T> np;
 	to_node_path(G, s, np);
 	return np;
 }
 
 template<class T>
-void boolean_path<T>::to_node_path(const xxgraph<T> *G, node s, node_path<T>& np) const {
+void boolean_path<T>::to_node_path(const xxgraph *G, node s, node_path<T>& np) const {
 	logger<null_stream>& LOG = logger<null_stream>::get_logger();
 	LOG.log() << endl;
 

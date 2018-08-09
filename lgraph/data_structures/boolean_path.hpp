@@ -13,6 +13,7 @@ using namespace std;
 // lgraph includes
 #include <lgraph/data_structures/node_path.hpp>
 #include <lgraph/data_structures/xxgraph.hpp>
+#include <lgraph/data_structures/wxgraph.hpp>
 #include <lgraph/utils/definitions.hpp>
 #include <lgraph/utils/static_bitset.hpp>
 #include <lgraph/utils/logger.hpp>
@@ -193,7 +194,7 @@ class boolean_path {
 		 * @param[out] next		The value of the next node in the path, if it exists.
 		 * @return Returns true if there actually exists a "next" node in the path.
 		 */
-		bool closest_next(const xxgraph<T> *G, node previous, node current, node& next) const;
+		bool closest_next(const xxgraph *G, node previous, node current, node& next) const;
 
 		/**
 		 * @brief Looks for the next node in this path taking as a reference the
@@ -214,7 +215,7 @@ class boolean_path {
 		 * @return Returns true if there actually exists a "next" node in the path.
 		 */
 		bool closest_next
-		(const xxgraph<T> *G, const vector<bool>& previous, node current, node& next) const;
+		(const xxgraph *G, const vector<bool>& previous, node current, node& next) const;
 
 		/**
 		 * @brief Converts this boolean_path to an object of type node_path.
@@ -226,7 +227,7 @@ class boolean_path {
 		 * @param s The node where this path starts at.
 		 * @return Returns a node_path object equivalent to this boolean path.
 		 */
-		node_path<T> to_node_path(const xxgraph<T> *G, node s) const;
+		node_path<T> to_node_path(const xxgraph *G, node s) const;
 
 		/**
 		 * @brief Converts this boolean_path to an object of type node_path.
@@ -238,7 +239,7 @@ class boolean_path {
 		 * @param[in]	s	The node where this path starts at.
 		 * @param[out]	np	The path seen as a list of nodes.
 		 */
-		void to_node_path(const xxgraph<T> *G, node s, node_path<T>& np) const;
+		void to_node_path(const xxgraph *G, node s, node_path<T>& np) const;
 
 		/**
 		 * @brief Formats this path into a string with a 'pretty' format.

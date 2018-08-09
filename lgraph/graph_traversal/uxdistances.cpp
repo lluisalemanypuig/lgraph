@@ -5,7 +5,7 @@ namespace traversal {
 
 	/* VERTEX-VERTEX */
 
-	_new_ xudistance(const xxgraph<_new_> *G, node source, node target) {
+	_new_ uxdistance(const uxgraph *G, node source, node target) {
 		// distances from source to nodes
 		queue<_new_> distances;
 		distances.push(0);
@@ -19,14 +19,14 @@ namespace traversal {
 
 		// DO terminate when target node is found. BFS guarantees that when this happens
 		// the shortest distance was found
-		bfs_terminate<_new_> terminate =
-		[&target](const xxgraph<_new_> *, node u, const vector<bool>&)
+		bfs_terminate terminate =
+		[&target](const uxgraph *, node u, const vector<bool>&)
 		{
 			return u == target;
 		};
 
-		bfs_process_current<_new_> process_current =
-		[&distances, &current_dist, &target, &st_dist](const xxgraph<_new_> *, node u, const vector<bool>&)
+		bfs_process_current process_current =
+		[&distances, &current_dist, &target, &st_dist](const uxgraph *, node u, const vector<bool>&)
 		{
 			current_dist = distances.front();
 			distances.pop();
@@ -36,8 +36,8 @@ namespace traversal {
 		};
 
 		// function to compute the shortest distance from source to node v
-		bfs_process_neighbour<_new_> process_neighbour =
-		[&distances, &current_dist](const xxgraph<_new_> *, node, node v, const vector<bool>& vis)
+		bfs_process_neighbour process_neighbour =
+		[&distances, &current_dist](const uxgraph *, node, node v, const vector<bool>& vis)
 		{
 			if (not vis[v]) {
 				distances.push(current_dist + 1);
@@ -49,17 +49,17 @@ namespace traversal {
 		return st_dist;
 	}
 
-	_new_ xudistance(const xxgraph<_new_> *G, node source, node target, size_t& n_paths) {
+	_new_ uxdistance(const uxgraph *G, node source, node target, size_t& n_paths) {
 		vector<_new_> distances;
 		vector<size_t> paths;
-		xudistance(G, source, distances, paths);
+		uxdistance(G, source, distances, paths);
 		n_paths = paths[target];
 		return distances[target];
 	}
 
 	/* VERTEX-ALL */
 
-	void xudistance(const xxgraph<_new_> *G, node source, vector<_new_>& ds) {
+	void uxdistance(const uxgraph *G, node source, vector<_new_>& ds) {
 		const size_t N = G->n_nodes();
 
 		// distance from source to all nodes
@@ -67,19 +67,19 @@ namespace traversal {
 		ds[source] = 0;
 
 		// do NOT terminate: iterate through all nodes
-		bfs_terminate<_new_> terminate =
-		[](const xxgraph<_new_> *, node, const vector<bool>&)
+		bfs_terminate terminate =
+		[](const uxgraph *, node, const vector<bool>&)
 		{
 			return false;
 		};
 
 		// don't need to process the currently visited node
-		bfs_process_current<_new_> process_current =
-		[](const xxgraph<_new_> *, node, const vector<bool>&) { };
+		bfs_process_current process_current =
+		[](const uxgraph *, node, const vector<bool>&) { };
 
 		// function to compute the shortest distance from source to node v
-		bfs_process_neighbour<_new_> process_neighbour =
-		[&ds](const xxgraph<_new_> *, node u, node v, const vector<bool>&)
+		bfs_process_neighbour process_neighbour =
+		[&ds](const uxgraph *, node u, node v, const vector<bool>&)
 		{
 			size_t d = ds[u] + 1;
 			if (d < ds[v]) {
@@ -90,7 +90,7 @@ namespace traversal {
 		BFS(G, source, terminate, process_current, process_neighbour);
 	}
 
-	void xudistance(const xxgraph<_new_> *G, node source, vector<_new_>& ds, vector<size_t>& n_paths) {
+	void uxdistance(const uxgraph *G, node source, vector<_new_>& ds, vector<size_t>& n_paths) {
 		const size_t N = G->n_nodes();
 
 		// distance from source to all nodes
@@ -101,19 +101,19 @@ namespace traversal {
 		n_paths[source] = 1;
 
 		// do NOT terminate: iterate through all nodes
-		bfs_terminate<_new_> terminate =
-		[](const xxgraph<_new_> *, node, const vector<bool>&)
+		bfs_terminate terminate =
+		[](const uxgraph *, node, const vector<bool>&)
 		{
 			return false;
 		};
 
 		// don't need to process the currently visited node
-		bfs_process_current<_new_> process_current =
-		[](const xxgraph<_new_> *, node, const vector<bool>&) { };
+		bfs_process_current process_current =
+		[](const uxgraph *, node, const vector<bool>&) { };
 
 		// function to compute the shortest distance from source to node v
-		bfs_process_neighbour<_new_> process_neighbour =
-		[&ds, &n_paths](const xxgraph<_new_> *, node u, node v, const vector<bool>&)
+		bfs_process_neighbour process_neighbour =
+		[&ds, &n_paths](const uxgraph *, node u, node v, const vector<bool>&)
 		{
 			size_t d = ds[u] + 1;
 			if (d < ds[v]) {
@@ -130,7 +130,7 @@ namespace traversal {
 
 	/* ALL-ALL */
 
-	void xudistances(const xxgraph<_new_> *G, vector<vector<_new_> >& dist) {
+	void uxdistances(const uxgraph *G, vector<vector<_new_> >& dist) {
 		const size_t N = G->n_nodes();
 
 		// initialise data
@@ -168,7 +168,7 @@ namespace traversal {
 		}
 	}
 
-	void xudistances(const xxgraph<_new_> *G, vector<vector<_new_> >& dist, vector<vector<size_t> >& n_paths) {
+	void uxdistances(const uxgraph *G, vector<vector<_new_> >& dist, vector<vector<size_t> >& n_paths) {
 		const size_t N = G->n_nodes();
 
 		// initialise data

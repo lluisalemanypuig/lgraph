@@ -7,7 +7,7 @@ namespace distance {
 
 	_new_ max_distance(const uugraph& G) {
 		vector<vector<_new_> > ds;
-		traversal::xudistances(&G, ds);
+		traversal::uxdistances(&G, ds);
 		return max_distance(G, ds);
 	}
 
@@ -32,7 +32,7 @@ namespace distance {
 
 	double mean_distance(const uugraph& G) {
 		vector<vector<_new_> > ds;
-		traversal::xudistances(&G, ds);
+		traversal::uxdistances(&G, ds);
 		return mean_distance(G, ds);
 	}
 

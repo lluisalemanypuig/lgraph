@@ -6,7 +6,7 @@ namespace traversal {
 	/* VERTEX-VERTEX */
 
 	// one path
-	void xupath(const xxgraph<_new_> *G, node source, node target, node_path<_new_>& p) {
+	void uxpath(const uxgraph *G, node source, node target, node_path<_new_>& p) {
 		// path from source to target starts at source
 		p.add_node(source);
 
@@ -18,14 +18,14 @@ namespace traversal {
 		node_path<_new_> current_path;
 
 		// terminate when target is found
-		bfs_terminate<_new_> terminate =
-		[&target](const xxgraph<_new_> *, node u, const vector<bool>&)
+		bfs_terminate terminate =
+		[&target](const uxgraph *, node u, const vector<bool>&)
 		{
 			return u == target;
 		};
 
-		bfs_process_current<_new_> process_current =
-		[&paths, &p, &current_path, &target](const xxgraph<_new_> *, node u, const vector<bool>&)
+		bfs_process_current process_current =
+		[&paths, &p, &current_path, &target](const uxgraph *, node u, const vector<bool>&)
 		{
 			current_path = paths.front();
 			paths.pop();
@@ -36,8 +36,8 @@ namespace traversal {
 		};
 
 		// function to compute the shortest distance from source to node v
-		bfs_process_neighbour<_new_> process_neighbour =
-		[&paths, &current_path](const xxgraph<_new_> *, node, node v, const vector<bool>& vis)
+		bfs_process_neighbour process_neighbour =
+		[&paths, &current_path](const uxgraph *, node, node v, const vector<bool>& vis)
 		{
 			if (not vis[v]) {
 				node_path<_new_> path_to_v = current_path;
@@ -51,31 +51,31 @@ namespace traversal {
 	}
 
 	// all paths
-	void xupaths(const xxgraph<_new_> *G, node source, node target, node_path_set<_new_>& ps) {
+	void uxpaths(const uxgraph *G, node source, node target, node_path_set<_new_>& ps) {
 		vector<node_path_set<_new_> > node_all_paths;
-		xupaths(G, source, node_all_paths);
+		uxpaths(G, source, node_all_paths);
 		ps = node_all_paths[target];
 	}
 
 	/* VERTEX-ALL */
 
 	// one path
-	void xupath(const xxgraph<_new_> *G, node source, vector<node_path<_new_> >& ps) {
+	void uxpath(const uxgraph *G, node source, vector<node_path<_new_> >& ps) {
 		const size_t N = G->n_nodes();
 
 		// path from source to target
 		ps = vector<node_path<_new_> >(N);
 		ps[source] = node_path<_new_>(source); // start path at node 'source'
 
-		bfs_terminate<_new_> terminate =
-		[](const xxgraph<_new_> *, node, const vector<bool>&) { return false; };
+		bfs_terminate terminate =
+		[](const uxgraph *, node, const vector<bool>&) { return false; };
 
-		bfs_process_current<_new_> process_current =
-		[](const xxgraph<_new_> *, node, const vector<bool>&) { };
+		bfs_process_current process_current =
+		[](const uxgraph *, node, const vector<bool>&) { };
 
 		// function to compute the shortest distance from source to node v
-		bfs_process_neighbour<_new_> process_neighbour =
-		[&ps](const xxgraph<_new_> *, node u, node v, const vector<bool>&)
+		bfs_process_neighbour process_neighbour =
+		[&ps](const uxgraph *, node u, node v, const vector<bool>&)
 		{
 			// add one node, count the number of edges
 			size_t d_u = ps[u].size() + 1 - 1;
@@ -92,7 +92,7 @@ namespace traversal {
 	}
 
 	// all paths
-	void xupaths(const xxgraph<_new_> *G, node source, vector<node_path_set<_new_> >& ps) {
+	void uxpaths(const uxgraph *G, node source, vector<node_path_set<_new_> >& ps) {
 		const size_t N = G->n_nodes();
 
 		// all paths from source to a target
@@ -102,15 +102,15 @@ namespace traversal {
 		ps[source] = node_path_set<_new_>(1);
 		ps[source][0].add_node(source);
 
-		bfs_terminate<_new_> terminate =
-		[](const xxgraph<_new_> *, node, const vector<bool>&) { return false; };
+		bfs_terminate terminate =
+		[](const uxgraph *, node, const vector<bool>&) { return false; };
 
-		bfs_process_current<_new_> process_current =
-		[](const xxgraph<_new_> *, node, const vector<bool>&) { };
+		bfs_process_current process_current =
+		[](const uxgraph *, node, const vector<bool>&) { };
 
 		// function to compute the shortest distance from source to node v
-		bfs_process_neighbour<_new_> process_neighbour =
-		[&ps](const xxgraph<_new_> *, node u, node v, const vector<bool>&)
+		bfs_process_neighbour process_neighbour =
+		[&ps](const uxgraph *, node u, node v, const vector<bool>&)
 		{
 			// distance from 'source' to 'u'
 			size_t d_u;
@@ -169,7 +169,7 @@ namespace traversal {
 	/* ALL-ALL */
 
 	// one path
-	void xupath(const xxgraph<_new_> *G, vector<vector<node_path<_new_> > >& all_all_paths) {
+	void uxpath(const uxgraph *G, vector<vector<node_path<_new_> > >& all_all_paths) {
 		const size_t N = G->n_nodes();
 
 		// allocate memory...
@@ -223,7 +223,7 @@ namespace traversal {
 	}
 
 	// all paths
-	void xupaths(const xxgraph<_new_> *G, vector<vector<node_path_set<_new_> > >& all_all_paths) {
+	void uxpaths(const uxgraph *G, vector<vector<node_path_set<_new_> > >& all_all_paths) {
 		const size_t N = G->n_nodes();
 
 		// allocate memory...

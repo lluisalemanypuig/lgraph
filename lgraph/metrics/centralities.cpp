@@ -39,7 +39,7 @@ namespace centralities {
 	
 	double closeness(const uugraph& G, node u) {
 		vector<_new_> ds;
-		traversal::xudistance(&G, u, ds);
+		traversal::uxdistance(&G, u, ds);
 		double sum = std::accumulate
 		(
 			ds.begin(), ds.end(), 0.0,
@@ -57,7 +57,7 @@ namespace centralities {
 
 	void closeness(const uugraph& G, vector<double>& cc) {
 		vector<vector<_new_> > ds;
-		traversal::xudistances(&G, ds);
+		traversal::uxdistances(&G, ds);
 		return closeness(G, ds, cc);
 	}
 
@@ -91,7 +91,7 @@ namespace centralities {
 
 	double betweenness(const uugraph& G, node u) {
 		vector<vector<boolean_path_set<_new_> > > all_to_all_paths;
-		traversal::xupaths(&G, all_to_all_paths);
+		traversal::uxpaths(&G, all_to_all_paths);
 		return betweenness(G, all_to_all_paths, u);
 	}
 
@@ -128,7 +128,7 @@ namespace centralities {
 
 	void betweenness(const uugraph& G, vector<double>& bc) {
 		vector<vector<boolean_path_set<_new_> > > all_to_all_paths;
-		traversal::xupaths(&G, all_to_all_paths);
+		traversal::uxpaths(&G, all_to_all_paths);
 		betweenness(G, all_to_all_paths, bc);
 	}
 

@@ -4,14 +4,13 @@ namespace lgraph {
 namespace traversal {
 namespace dfs {
 
-	template<class T>
 	void DFS
 	(
-		const xxgraph<T> *G,
+		const uxgraph *G,
 		node source,
-		dfs_terminate<T> terminate,
-		dfs_process_current<T> proc_curr,
-		dfs_process_neighbour<T> proc_neig
+		dfs_terminate terminate,
+		dfs_process_current proc_curr,
+		dfs_process_neighbour proc_neig
 	)
 	{
 		logger<null_stream>& LOG = logger<null_stream>::get_logger();
