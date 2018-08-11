@@ -7,6 +7,8 @@ namespace utils {
 
 template<class T>
 boolean_path<T>::boolean_path() {
+	n_nodes = 0;
+	path_length = T(0);
 }
 
 template<class T>
