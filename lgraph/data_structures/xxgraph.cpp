@@ -57,7 +57,8 @@ xxgraph::xxgraph() {
 	num_edges = 0;
 }
 
-xxgraph::~xxgraph() { }
+xxgraph::~xxgraph() {
+}
 
 // OPERATORS
 

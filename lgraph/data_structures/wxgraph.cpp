@@ -33,10 +33,14 @@ void wxgraph<T>::remove_weight(node u, nit it) {
 // PUBLIC
 
 template<class T>
-wxgraph<T>::wxgraph() : xxgraph() { }
+wxgraph<T>::wxgraph() : xxgraph() {
+	weights = vector<vector<T> >();
+}
 
 template<class T>
-wxgraph<T>::~wxgraph() { }
+wxgraph<T>::~wxgraph() {
+
+}
 
 template<class T>
 void wxgraph<T>::init(size_t n) {

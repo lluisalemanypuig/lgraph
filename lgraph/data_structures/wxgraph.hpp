@@ -29,6 +29,15 @@ template<class T>
 class wxgraph : public xxgraph {
 	protected:
 
+		/**
+		 * @brief Weight list for each node
+		 *
+		 * @ref weights[u] is a list of values of type @e T
+		 * where @ref weights[u][v] represents the weight of
+		 * edge between nodes @e u and @e v.
+		 */
+		vector<vector<T> > weights;
+
 		// MODIFIERS
 
 		/// Initialises the list of weights
@@ -50,16 +59,6 @@ class wxgraph : public xxgraph {
 		 * @param it The weight's position to be deleted
 		 */
 		void remove_weight(node u, nit p);
-
-	protected:
-		/**
-		 * @brief Weight list for each node
-		 *
-		 * @ref weights[u] is a list of values of type @e T
-		 * where @ref weights[u][v] represents the weight of
-		 * edge between nodes @e u and @e v.
-		 */
-		vector<vector<T> > weights;
 
 		/**
 		 * @brief Computes the list of unique weighted edges of this graph

@@ -30,7 +30,7 @@ void uugraph::get_unique_edges(set<edge>& unique_edges) const {
 
 // PUBLIC
 
-uugraph::uugraph() { }
+uugraph::uugraph() : uxgraph() { }
 uugraph::~uugraph() { }
 
 // MODIFIERS

@@ -5,7 +5,7 @@ namespace utils {
 
 // PUBLIC
 
-uxgraph::uxgraph() { }
+uxgraph::uxgraph() : xxgraph() { }
 uxgraph::~uxgraph() { }
 
 void uxgraph::init(size_t n) {
