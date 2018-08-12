@@ -52,15 +52,18 @@ class \hyperlink{classlgraph_1_1utils_1_1xxgraph}{xxgraph}
 typedef int32\+\_\+t \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node}\hypertarget{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{}\label{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}
 
 \begin{DoxyCompactList}\small\item\em Typedef for a graph node\textquotesingle{}s index. \end{DoxyCompactList}\item 
-typedef vector$<$ \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} $>$ \hyperlink{namespacelgraph_1_1utils_ac52fa2c52f47820841e83a3da5d308bc}{neighbourhood}\hypertarget{namespacelgraph_1_1utils_ac52fa2c52f47820841e83a3da5d308bc}{}\label{namespacelgraph_1_1utils_ac52fa2c52f47820841e83a3da5d308bc}
+typedef \hyperlink{classlgraph_1_1utils_1_1svector}{svector}$<$ \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} $>$ \hyperlink{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{neighbourhood}\hypertarget{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{}\label{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}
 
 \begin{DoxyCompactList}\small\item\em Typedef for a list of nodes. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\using \hyperlink{namespacelgraph_1_1utils_a11e7963f3637ea13778b8d3e69d2c17f}{weight\+\_\+list} = \hyperlink{classlgraph_1_1utils_1_1svector}{svector}$<$ T $>$\hypertarget{namespacelgraph_1_1utils_a11e7963f3637ea13778b8d3e69d2c17f}{}\label{namespacelgraph_1_1utils_a11e7963f3637ea13778b8d3e69d2c17f}
+
+\begin{DoxyCompactList}\small\item\em Typedef for a list of weights. \end{DoxyCompactList}\item 
 typedef neighbourhood\+::const\+\_\+iterator \hyperlink{namespacelgraph_1_1utils_a7207b078932845778282f5e2e373575b}{ncit}\hypertarget{namespacelgraph_1_1utils_a7207b078932845778282f5e2e373575b}{}\label{namespacelgraph_1_1utils_a7207b078932845778282f5e2e373575b}
 
-\begin{DoxyCompactList}\small\item\em Typedef for a constant iterator through a \hyperlink{namespacelgraph_1_1utils_ac52fa2c52f47820841e83a3da5d308bc}{neighbourhood}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Typedef for a constant iterator through a \hyperlink{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{neighbourhood}. \end{DoxyCompactList}\item 
 typedef neighbourhood\+::iterator \hyperlink{namespacelgraph_1_1utils_af5daf6fe356a9014746bdb507787ae01}{nit}\hypertarget{namespacelgraph_1_1utils_af5daf6fe356a9014746bdb507787ae01}{}\label{namespacelgraph_1_1utils_af5daf6fe356a9014746bdb507787ae01}
 
-\begin{DoxyCompactList}\small\item\em Typedef for a non-\/constant iterator through a \hyperlink{namespacelgraph_1_1utils_ac52fa2c52f47820841e83a3da5d308bc}{neighbourhood}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Typedef for a non-\/constant iterator through a \hyperlink{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{neighbourhood}. \end{DoxyCompactList}\item 
 typedef pair$<$ \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node}, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} $>$ \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge}\hypertarget{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{}\label{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}
 
 \begin{DoxyCompactList}\small\item\em Typedef for an edge of a graph. \end{DoxyCompactList}\item 
@@ -100,7 +103,7 @@ Includes the data structures for\+:
 \item wrappers for random number generators (see \hyperlink{classlgraph_1_1utils_1_1random__generator}{random\+\_\+generator})
 \end{DoxyItemize}
 
-plus definitions for the types to represent a \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node}, the \hyperlink{namespacelgraph_1_1utils_ac52fa2c52f47820841e83a3da5d308bc}{neighbourhood} of a node in a graph, an \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge}, ... 
+plus definitions for the types to represent a \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node}, the \hyperlink{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{neighbourhood} of a node in a graph, an \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge}, ... 
 
 \subsection{Function Documentation}
 \index{lgraph\+::utils@{lgraph\+::utils}!from\+\_\+nps\+\_\+to\+\_\+bps@{from\+\_\+nps\+\_\+to\+\_\+bps}}

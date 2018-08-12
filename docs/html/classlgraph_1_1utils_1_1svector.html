@@ -107,15 +107,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Inheritance diagram for lgraph::utils::svector&lt; T, Alloc &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classlgraph_1_1utils_1_1svector__inherit__graph.png" border="0" usemap="#lgraph_1_1utils_1_1svector_3_01T_00_01Alloc_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="lgraph_1_1utils_1_1svector_3_01T_00_01Alloc_01_4_inherit__map" id="lgraph_1_1utils_1_1svector_3_01T_00_01Alloc_01_4_inherit__map">
-</map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for lgraph::utils::svector&lt; T, Alloc &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classlgraph_1_1utils_1_1svector__coll__graph.png" border="0" usemap="#lgraph_1_1utils_1_1svector_3_01T_00_01Alloc_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="lgraph_1_1utils_1_1svector_3_01T_00_01Alloc_01_4_coll__map" id="lgraph_1_1utils_1_1svector_3_01T_00_01Alloc_01_4_coll__map">
-</map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -154,6 +150,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aed55a2e91d3ba407b5268ba339dddd81"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1svector.html#aed55a2e91d3ba407b5268ba339dddd81">position</a> (const T &amp;v, size_t &amp;pos) const </td></tr>
 <tr class="memdesc:aed55a2e91d3ba407b5268ba339dddd81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Looks for an element <em>v</em> in the vector and stores its position in <em>pos</em>.  <a href="#aed55a2e91d3ba407b5268ba339dddd81">More...</a><br /></td></tr>
 <tr class="separator:aed55a2e91d3ba407b5268ba339dddd81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a801e9a3208655c4bbb21a7db75c58f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1svector.html#a8a801e9a3208655c4bbb21a7db75c58f">as_vector</a> (vector&lt; T &gt; &amp;v) const </td></tr>
+<tr class="memdesc:a8a801e9a3208655c4bbb21a7db75c58f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts this shortened vector into a regular C++'s vector.  <a href="#a8a801e9a3208655c4bbb21a7db75c58f">More...</a><br /></td></tr>
+<tr class="separator:a8a801e9a3208655c4bbb21a7db75c58f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -205,6 +204,27 @@ template&lt;class T , class Alloc &gt; </div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a8a801e9a3208655c4bbb21a7db75c58f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T, class Alloc = allocator&lt;T&gt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classlgraph_1_1utils_1_1svector.html">lgraph::utils::svector</a>&lt; T, Alloc &gt;::as_vector </td>
+          <td>(</td>
+          <td class="paramtype">vector&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts this shortened vector into a regular C++'s vector. </p>
+<p>Makes a vector&lt;T&gt; with all the elements in this shortened vector in the positions [0,..,<a class="el" href="classlgraph_1_1utils_1_1svector.html#a7ef963c079c7dc8a6a559ceef81a241f">idx</a>). </p>
 
 </div>
 </div>
@@ -344,7 +364,7 @@ template&lt;class T , class Alloc &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class T , class Alloc  = allocator&lt;T&gt;&gt; </div>
+template&lt;class T, class Alloc = allocator&lt;T&gt;&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -384,7 +404,7 @@ template&lt;class T , class Alloc  = allocator&lt;T&gt;&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class T , class Alloc  = allocator&lt;T&gt;&gt; </div>
+template&lt;class T, class Alloc = allocator&lt;T&gt;&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -401,7 +421,9 @@ template&lt;class T , class Alloc  = allocator&lt;T&gt;&gt; </div>
 </div><div class="memdoc">
 
 <p>Pointer to the next position available in the vector. </p>
-<p>For example: \/ contents: 0 1 2 3 __ <a class="el" href="classlgraph_1_1utils_1_1svector.html#a7ef963c079c7dc8a6a559ceef81a241f">idx</a> points at the position after element 3 any new element added will be stored in the position pointed by <a class="el" href="classlgraph_1_1utils_1_1svector.html#a7ef963c079c7dc8a6a559ceef81a241f">idx</a> </p>
+<p>For example: </p><pre class="fragment">*                   \/
+* contents: 0 1 2 3 __
+* </pre><p> <a class="el" href="classlgraph_1_1utils_1_1svector.html#a7ef963c079c7dc8a6a559ceef81a241f">idx</a> points at the position after element 3. The next new element added will be stored in the position pointed by <a class="el" href="classlgraph_1_1utils_1_1svector.html#a7ef963c079c7dc8a6a559ceef81a241f">idx</a>. </p>
 
 </div>
 </div>

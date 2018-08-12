@@ -6,8 +6,8 @@ var searchData=
   ['add_5flength',['add_length',['../classlgraph_1_1utils_1_1boolean__path.html#aef98e91742556f0089bc6eb0e4c856a9',1,'lgraph::utils::boolean_path::add_length()'],['../classlgraph_1_1utils_1_1node__path.html#a400ebcaf58927f3a22a5fbb91f1fe3a6',1,'lgraph::utils::node_path::add_length()']]],
   ['add_5fn_5fnodes',['add_n_nodes',['../classlgraph_1_1utils_1_1xxgraph.html#af4f3782c1a55f73c6f34f2f2c26fb404',1,'lgraph::utils::xxgraph']]],
   ['add_5fnode',['add_node',['../classlgraph_1_1utils_1_1boolean__path.html#a2b01b133b57845543234d6c48281160f',1,'lgraph::utils::boolean_path::add_node()'],['../classlgraph_1_1utils_1_1node__path.html#afdbba890740d013c8fcca7081461b240',1,'lgraph::utils::node_path::add_node()'],['../classlgraph_1_1utils_1_1xxgraph.html#af41baf2c098e872731ad646aeec1b382',1,'lgraph::utils::xxgraph::add_node()']]],
-  ['add_5fweight',['add_weight',['../classlgraph_1_1utils_1_1wxgraph.html#acf01186519ef4b3f2f77b6d928382957',1,'lgraph::utils::wxgraph']]],
   ['adjacency_5flist',['adjacency_list',['../classlgraph_1_1utils_1_1xxgraph.html#a1d5fda0d5aa89340f997428b982f966f',1,'lgraph::utils::xxgraph']]],
   ['all',['all',['../classlgraph_1_1utils_1_1static__bitset.html#a7dd02f04251cc020b8f24085e2bc33d3',1,'lgraph::utils::static_bitset']]],
-  ['any',['any',['../classlgraph_1_1utils_1_1static__bitset.html#ad0da7d9a48299308d4567bb5199d3f5b',1,'lgraph::utils::static_bitset']]]
+  ['any',['any',['../classlgraph_1_1utils_1_1static__bitset.html#ad0da7d9a48299308d4567bb5199d3f5b',1,'lgraph::utils::static_bitset']]],
+  ['as_5fvector',['as_vector',['../classlgraph_1_1utils_1_1svector.html#a8a801e9a3208655c4bbb21a7db75c58f',1,'lgraph::utils::svector']]]
 ];

@@ -7,7 +7,7 @@ var searchData=
   ['n_5fnodes',['n_nodes',['../classlgraph_1_1utils_1_1boolean__path.html#a9798bc25ba71adebcd38abe36db471ca',1,'lgraph::utils::boolean_path::n_nodes()'],['../classlgraph_1_1utils_1_1xxgraph.html#ad345f1fbf1dee34e1579b5aea9aef9b2',1,'lgraph::utils::xxgraph::n_nodes()']]],
   ['n_5ftriangles',['n_triangles',['../classlgraph_1_1utils_1_1xxgraph.html#ad4f25a8b29c6f26bc1567cb9c5a564ba',1,'lgraph::utils::xxgraph']]],
   ['ncit',['ncit',['../namespacelgraph_1_1utils.html#a7207b078932845778282f5e2e373575b',1,'lgraph::utils']]],
-  ['neighbourhood',['neighbourhood',['../namespacelgraph_1_1utils.html#ac52fa2c52f47820841e83a3da5d308bc',1,'lgraph::utils']]],
+  ['neighbourhood',['neighbourhood',['../namespacelgraph_1_1utils.html#a0f2ef47028a466d26841709e705390ac',1,'lgraph::utils']]],
   ['nit',['nit',['../namespacelgraph_1_1utils.html#af5daf6fe356a9014746bdb507787ae01',1,'lgraph::utils']]],
   ['no_5fvertex_5fgrowth',['no_vertex_growth',['../namespacelgraph_1_1networks_1_1random_1_1Barabasi__Albert.html#a96015bc94f64c7318d8ed1dc7c4d693a',1,'lgraph::networks::random::Barabasi_Albert']]],
   ['node',['node',['../namespacelgraph_1_1utils.html#ab9c6b34241f0b68372c55f34c460e863',1,'lgraph::utils']]],

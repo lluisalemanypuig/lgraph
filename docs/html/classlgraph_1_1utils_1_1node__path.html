@@ -167,6 +167,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 const vector&lt; <a class="el" href="namespacelgraph_1_1utils.html#ab9c6b34241f0b68372c55f34c460e863">node</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1node__path.html#a9c5553326f2ffaaf6727b90b1363222a">get_nodes</a> () const </td></tr>
 <tr class="memdesc:a9c5553326f2ffaaf6727b90b1363222a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant reference to the list of nodes. <br /></td></tr>
 <tr class="separator:a9c5553326f2ffaaf6727b90b1363222a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab71d9301f2d5c93083a1ef875fa6c3ab"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1node__path.html#ab71d9301f2d5c93083a1ef875fa6c3ab">to_string</a> () const </td></tr>
+<tr class="memdesc:ab71d9301f2d5c93083a1ef875fa6c3ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats this path into a string with a plain format.  <a href="#ab71d9301f2d5c93083a1ef875fa6c3ab">More...</a><br /></td></tr>
+<tr class="separator:ab71d9301f2d5c93083a1ef875fa6c3ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa35035a582b89ccb21e7c18a86c3ada2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1node__path.html#aa35035a582b89ccb21e7c18a86c3ada2">to_string</a> (string &amp;s) const </td></tr>
+<tr class="memdesc:aa35035a582b89ccb21e7c18a86c3ada2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats this path into a string with a plain format.  <a href="#aa35035a582b89ccb21e7c18a86c3ada2">More...</a><br /></td></tr>
+<tr class="separator:aa35035a582b89ccb21e7c18a86c3ada2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -467,6 +473,52 @@ template&lt;class T &gt; </div>
 
 <p>Returns the number of nodes in this path. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the size of <a class="el" href="classlgraph_1_1utils_1_1node__path.html#af0067294d0390cef2c11ece4b080257c">nodes</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab71d9301f2d5c93083a1ef875fa6c3ab"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">string <a class="el" href="classlgraph_1_1utils_1_1node__path.html">lgraph::utils::node_path</a>&lt; T &gt;::to_string </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Formats this path into a string with a plain format. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns this path as a list of indexes, each representing a node. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa35035a582b89ccb21e7c18a86c3ada2"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classlgraph_1_1utils_1_1node__path.html">lgraph::utils::node_path</a>&lt; T &gt;::to_string </td>
+          <td>(</td>
+          <td class="paramtype">string &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Formats this path into a string with a plain format. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">s</td><td>Stores this path as a list of indexes, each representing a node. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

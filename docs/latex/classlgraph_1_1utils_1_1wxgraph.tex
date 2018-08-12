@@ -11,8 +11,7 @@ Abstract class for weighted (ux) graphs.
 
 
 
-Inheritance diagram for lgraph\+:\+:utils\+:\+:wxgraph$<$ T $>$\+:
-\nopagebreak
+Inheritance diagram for lgraph\+:\+:utils\+:\+:wxgraph$<$ T $>$\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,8 +20,7 @@ Inheritance diagram for lgraph\+:\+:utils\+:\+:wxgraph$<$ T $>$\+:
 \end{figure}
 
 
-Collaboration diagram for lgraph\+:\+:utils\+:\+:wxgraph$<$ T $>$\+:
-\nopagebreak
+Collaboration diagram for lgraph\+:\+:utils\+:\+:wxgraph$<$ T $>$\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -61,10 +59,10 @@ bool \hyperlink{classlgraph_1_1utils_1_1wxgraph_adda596cfbf72080d46ab445679fe092
 \begin{DoxyCompactList}\small\item\em Returns whether this graph is weighted or not (returns true). \end{DoxyCompactList}\item 
 T \hyperlink{classlgraph_1_1utils_1_1wxgraph_a1ec5455d64fb001903d3d0d1b5d8c7f2}{edge\+\_\+weight} (\hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} u, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} v) const 
 \begin{DoxyCompactList}\small\item\em Returns the weight of the edge ({\itshape u}, {\itshape v}) \end{DoxyCompactList}\item 
-void \hyperlink{classlgraph_1_1utils_1_1wxgraph_a36cc09578d49b326c3573b723536ea33}{get\+\_\+weights} (\hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} u, vector$<$ T $>$ \&ws) const 
-\begin{DoxyCompactList}\small\item\em Returns the weights to all neighbours of node {\itshape u}. \end{DoxyCompactList}\item 
 const vector$<$ T $>$ \& \hyperlink{classlgraph_1_1utils_1_1wxgraph_ab52419fcc456987ee266104de356acc8}{get\+\_\+weights} (\hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} u) const 
 \begin{DoxyCompactList}\small\item\em Returns a constant reference to all the weights of node {\itshape u}. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1wxgraph_a36cc09578d49b326c3573b723536ea33}{get\+\_\+weights} (\hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} u, vector$<$ T $>$ \&ws) const 
+\begin{DoxyCompactList}\small\item\em Returns the weights to all neighbours of node {\itshape u}. \end{DoxyCompactList}\item 
 virtual void \hyperlink{classlgraph_1_1utils_1_1wxgraph_acbe42102887d02b8942ee4657573581f}{edges} (vector$<$ pair$<$ \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge}, T $>$ $>$ \&all\+\_\+edges) const =0
 \begin{DoxyCompactList}\small\item\em Returns all unique edges of this graph. \end{DoxyCompactList}\item 
 size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1xxgraph_af41baf2c098e872731ad646aeec1b382}{add\+\_\+node} ()
@@ -83,7 +81,7 @@ size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1xxgraph_af3f7c3835406c2cbf70479ae
 void \hyperlink{classlgraph_1_1utils_1_1xxgraph_a99f83387aa9f59b861e675251be5a3ad}{nodes} (vector$<$ \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} $>$ \&all\+\_\+nodes) const \hypertarget{classlgraph_1_1utils_1_1xxgraph_a99f83387aa9f59b861e675251be5a3ad}{}\label{classlgraph_1_1utils_1_1xxgraph_a99f83387aa9f59b861e675251be5a3ad}
 
 \begin{DoxyCompactList}\small\item\em Returns all nodes (as integers) \end{DoxyCompactList}\item 
-const \hyperlink{namespacelgraph_1_1utils_ac52fa2c52f47820841e83a3da5d308bc}{neighbourhood} \& \hyperlink{classlgraph_1_1utils_1_1xxgraph_a2c5332c4663c2d52828893f095a68202}{get\+\_\+neighbours} (\hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} u) const 
+const \hyperlink{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{neighbourhood} \& \hyperlink{classlgraph_1_1utils_1_1xxgraph_a2c5332c4663c2d52828893f095a68202}{get\+\_\+neighbours} (\hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} u) const 
 \begin{DoxyCompactList}\small\item\em Returns the neighbourhood of node u. \end{DoxyCompactList}\item 
 size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1xxgraph_af588aa4c68004a31aa143024cdb6dcc9}{degree} (\hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} u) const 
 \begin{DoxyCompactList}\small\item\em Returns the number of neighbours of u. \end{DoxyCompactList}\item 
@@ -115,15 +113,11 @@ void \hyperlink{classlgraph_1_1utils_1_1wxgraph_a0b0c0b54acbc7816eb5b9958e61805c
 void \hyperlink{classlgraph_1_1utils_1_1wxgraph_a145f81ae3609af5ec038ace8b4413fad}{clear\+\_\+weights} ()\hypertarget{classlgraph_1_1utils_1_1wxgraph_a145f81ae3609af5ec038ace8b4413fad}{}\label{classlgraph_1_1utils_1_1wxgraph_a145f81ae3609af5ec038ace8b4413fad}
 
 \begin{DoxyCompactList}\small\item\em Clears the list of weights. \end{DoxyCompactList}\item 
-void \hyperlink{classlgraph_1_1utils_1_1wxgraph_acf01186519ef4b3f2f77b6d928382957}{add\+\_\+weight} (\hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} u, T w)
-\begin{DoxyCompactList}\small\item\em Adds a weight to a weight list. \end{DoxyCompactList}\item 
-void \hyperlink{classlgraph_1_1utils_1_1wxgraph_a7bfdfc64a1d44cc6c85da1cc1f8165f4}{remove\+\_\+weight} (\hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} u, \hyperlink{namespacelgraph_1_1utils_af5daf6fe356a9014746bdb507787ae01}{nit} p)
-\begin{DoxyCompactList}\small\item\em Removes the weight at a certain position of a weight list. \end{DoxyCompactList}\item 
 virtual void \hyperlink{classlgraph_1_1utils_1_1wxgraph_ae49fda28107ce983b8f0d641468e9a75}{get\+\_\+unique\+\_\+edges} (set$<$ pair$<$ \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge}, T $>$ $>$ \&\hyperlink{classlgraph_1_1utils_1_1wxgraph_acbe42102887d02b8942ee4657573581f}{edges}) const =0
 \begin{DoxyCompactList}\small\item\em Computes the list of unique weighted edges of this graph. \end{DoxyCompactList}\item 
-\hyperlink{namespacelgraph_1_1utils_a7207b078932845778282f5e2e373575b}{ncit} \hyperlink{classlgraph_1_1utils_1_1xxgraph_af72476b0919eacd6e9b044f7c5528c1e}{cget\+\_\+neighbour\+\_\+position} (const \hyperlink{namespacelgraph_1_1utils_ac52fa2c52f47820841e83a3da5d308bc}{neighbourhood} \&n, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} u) const 
+\hyperlink{namespacelgraph_1_1utils_a7207b078932845778282f5e2e373575b}{ncit} \hyperlink{classlgraph_1_1utils_1_1xxgraph_af72476b0919eacd6e9b044f7c5528c1e}{cget\+\_\+neighbour\+\_\+position} (const \hyperlink{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{neighbourhood} \&n, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} u) const 
 \begin{DoxyCompactList}\small\item\em Returns a constant iterator to node {\itshape u\textquotesingle{}s} position in the neighbourhood {\itshape n}. \end{DoxyCompactList}\item 
-\hyperlink{namespacelgraph_1_1utils_af5daf6fe356a9014746bdb507787ae01}{nit} \hyperlink{classlgraph_1_1utils_1_1xxgraph_ab2ac2eb4cdc6c369cde7c71a1c3b8858}{get\+\_\+neighbour\+\_\+position} (\hyperlink{namespacelgraph_1_1utils_ac52fa2c52f47820841e83a3da5d308bc}{neighbourhood} \&n, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} u)
+\hyperlink{namespacelgraph_1_1utils_af5daf6fe356a9014746bdb507787ae01}{nit} \hyperlink{classlgraph_1_1utils_1_1xxgraph_ab2ac2eb4cdc6c369cde7c71a1c3b8858}{get\+\_\+neighbour\+\_\+position} (\hyperlink{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{neighbourhood} \&n, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} u)
 \begin{DoxyCompactList}\small\item\em Returns a non-\/constant iterator to node {\itshape u\textquotesingle{}s} position in the neighbourhood {\itshape n}. \end{DoxyCompactList}\item 
 void \hyperlink{classlgraph_1_1utils_1_1xxgraph_a2201aaff5e9ffa29a9b3abfde705dd46}{initialise\+\_\+adjacency\+\_\+list} (size\+\_\+t n)\hypertarget{classlgraph_1_1utils_1_1xxgraph_a2201aaff5e9ffa29a9b3abfde705dd46}{}\label{classlgraph_1_1utils_1_1xxgraph_a2201aaff5e9ffa29a9b3abfde705dd46}
 
@@ -132,15 +126,15 @@ void \hyperlink{classlgraph_1_1utils_1_1xxgraph_a6523402d0ec66918b95de23d2bee38f
 
 \begin{DoxyCompactList}\small\item\em Clear the list of neighbourhoods. \end{DoxyCompactList}\item 
 void \hyperlink{classlgraph_1_1utils_1_1xxgraph_abd983125be7f2f2b9c812326a4a39e6d}{initialise\+\_\+parent\+\_\+graph} (size\+\_\+t n)
-\begin{DoxyCompactList}\small\item\em Initialise the adjacency list of this graph. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Initialises the adjacency list of this graph. \end{DoxyCompactList}\item 
 void \hyperlink{classlgraph_1_1utils_1_1xxgraph_a8d213a8dfe716d344dd51d1bd37c0e2c}{clear\+\_\+parent\+\_\+graph} ()
-\begin{DoxyCompactList}\small\item\em Clear the adjacency list of this graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Clears the adjacency list of this graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-vector$<$ vector$<$ T $>$ $>$ \hyperlink{classlgraph_1_1utils_1_1wxgraph_a45b1e502729d1297b5930f5d10159f1e}{weights}
+vector$<$ \hyperlink{namespacelgraph_1_1utils_a11e7963f3637ea13778b8d3e69d2c17f}{weight\+\_\+list}$<$ T $>$ $>$ \hyperlink{classlgraph_1_1utils_1_1wxgraph_a15569c8c0fccb641709dc81eb0e29c94}{weights}
 \begin{DoxyCompactList}\small\item\em Weight list for each node. \end{DoxyCompactList}\item 
-vector$<$ \hyperlink{namespacelgraph_1_1utils_ac52fa2c52f47820841e83a3da5d308bc}{neighbourhood} $>$ \hyperlink{classlgraph_1_1utils_1_1xxgraph_a1d5fda0d5aa89340f997428b982f966f}{adjacency\+\_\+list}\hypertarget{classlgraph_1_1utils_1_1xxgraph_a1d5fda0d5aa89340f997428b982f966f}{}\label{classlgraph_1_1utils_1_1xxgraph_a1d5fda0d5aa89340f997428b982f966f}
+vector$<$ \hyperlink{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{neighbourhood} $>$ \hyperlink{classlgraph_1_1utils_1_1xxgraph_a1d5fda0d5aa89340f997428b982f966f}{adjacency\+\_\+list}\hypertarget{classlgraph_1_1utils_1_1xxgraph_a1d5fda0d5aa89340f997428b982f966f}{}\label{classlgraph_1_1utils_1_1xxgraph_a1d5fda0d5aa89340f997428b982f966f}
 
 \begin{DoxyCompactList}\small\item\em The neighbourhood of every node. \end{DoxyCompactList}\item 
 size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1xxgraph_a217ebb1cd8946fedfbf94a9b22f7da48}{num\+\_\+edges}\hypertarget{classlgraph_1_1utils_1_1xxgraph_a217ebb1cd8946fedfbf94a9b22f7da48}{}\label{classlgraph_1_1utils_1_1xxgraph_a217ebb1cd8946fedfbf94a9b22f7da48}
@@ -267,25 +261,6 @@ Adds one node to the graph.
 \begin{DoxyReturn}{Returns}
 Returns the index of the new node 
 \end{DoxyReturn}
-\index{lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}!add\+\_\+weight@{add\+\_\+weight}}
-\index{add\+\_\+weight@{add\+\_\+weight}!lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}}
-\subsubsection[{\texorpdfstring{add\+\_\+weight(node u, T w)}{add_weight(node u, T w)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf lgraph\+::utils\+::wxgraph}$<$ T $>$\+::add\+\_\+weight (
-\begin{DoxyParamCaption}
-\item[{{\bf node}}]{u, }
-\item[{T}]{w}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classlgraph_1_1utils_1_1wxgraph_acf01186519ef4b3f2f77b6d928382957}{}\label{classlgraph_1_1utils_1_1wxgraph_acf01186519ef4b3f2f77b6d928382957}
-
-
-Adds a weight to a weight list. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em u} & The node whose weight list will be modified \\
-\hline
-{\em w} & The weight to be added \\
-\hline
-\end{DoxyParams}
 \index{lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}!cget\+\_\+neighbour\+\_\+position@{cget\+\_\+neighbour\+\_\+position}}
 \index{cget\+\_\+neighbour\+\_\+position@{cget\+\_\+neighbour\+\_\+position}!lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}}
 \subsubsection[{\texorpdfstring{cget\+\_\+neighbour\+\_\+position(const neighbourhood \&n, node u) const }{cget_neighbour_position(const neighbourhood &n, node u) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ncit} lgraph\+::utils\+::xxgraph\+::cget\+\_\+neighbour\+\_\+position (
@@ -328,7 +303,7 @@ The value \hyperlink{classlgraph_1_1utils_1_1xxgraph_a217ebb1cd8946fedfbf94a9b22
 )\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}\hypertarget{classlgraph_1_1utils_1_1xxgraph_a8d213a8dfe716d344dd51d1bd37c0e2c}{}\label{classlgraph_1_1utils_1_1xxgraph_a8d213a8dfe716d344dd51d1bd37c0e2c}
 
 
-Clear the adjacency list of this graph. 
+Clears the adjacency list of this graph. 
 
 The value \hyperlink{classlgraph_1_1utils_1_1xxgraph_a217ebb1cd8946fedfbf94a9b22f7da48}{num\+\_\+edges} is set to 0. \index{lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}!degree@{degree}}
 \index{degree@{degree}!lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}}
@@ -466,21 +441,6 @@ Implemented in \hyperlink{classlgraph_1_1utils_1_1wugraph_a365789840be9490091e6d
 
 \index{lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}!get\+\_\+weights@{get\+\_\+weights}}
 \index{get\+\_\+weights@{get\+\_\+weights}!lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}}
-\subsubsection[{\texorpdfstring{get\+\_\+weights(node u, vector$<$ T $>$ \&ws) const }{get_weights(node u, vector< T > &ws) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf lgraph\+::utils\+::wxgraph}$<$ T $>$\+::get\+\_\+weights (
-\begin{DoxyParamCaption}
-\item[{{\bf node}}]{u, }
-\item[{vector$<$ T $>$ \&}]{ws}
-\end{DoxyParamCaption}
-) const}\hypertarget{classlgraph_1_1utils_1_1wxgraph_a36cc09578d49b326c3573b723536ea33}{}\label{classlgraph_1_1utils_1_1wxgraph_a36cc09578d49b326c3573b723536ea33}
-
-
-Returns the weights to all neighbours of node {\itshape u}. 
-
-\begin{DoxyPrecond}{Precondition}
-{\itshape u} must be in the graph 
-\end{DoxyPrecond}
-\index{lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}!get\+\_\+weights@{get\+\_\+weights}}
-\index{get\+\_\+weights@{get\+\_\+weights}!lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}}
 \subsubsection[{\texorpdfstring{get\+\_\+weights(node u) const }{get_weights(node u) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ const vector$<$ T $>$ \& {\bf lgraph\+::utils\+::wxgraph}$<$ T $>$\+::get\+\_\+weights (
 \begin{DoxyParamCaption}
 \item[{{\bf node}}]{u}
@@ -498,6 +458,21 @@ Returns a constant reference to all the weights of node {\itshape u}.
 \begin{DoxyReturn}{Returns}
 The weight list of node {\itshape u} 
 \end{DoxyReturn}
+\index{lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}!get\+\_\+weights@{get\+\_\+weights}}
+\index{get\+\_\+weights@{get\+\_\+weights}!lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}}
+\subsubsection[{\texorpdfstring{get\+\_\+weights(node u, vector$<$ T $>$ \&ws) const }{get_weights(node u, vector< T > &ws) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf lgraph\+::utils\+::wxgraph}$<$ T $>$\+::get\+\_\+weights (
+\begin{DoxyParamCaption}
+\item[{{\bf node}}]{u, }
+\item[{vector$<$ T $>$ \&}]{ws}
+\end{DoxyParamCaption}
+) const}\hypertarget{classlgraph_1_1utils_1_1wxgraph_a36cc09578d49b326c3573b723536ea33}{}\label{classlgraph_1_1utils_1_1wxgraph_a36cc09578d49b326c3573b723536ea33}
+
+
+Returns the weights to all neighbours of node {\itshape u}. 
+
+\begin{DoxyPrecond}{Precondition}
+{\itshape u} must be in the graph 
+\end{DoxyPrecond}
 \index{lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}!has\+\_\+edge@{has\+\_\+edge}}
 \index{has\+\_\+edge@{has\+\_\+edge}!lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}}
 \subsubsection[{\texorpdfstring{has\+\_\+edge(node u, node v) const }{has_edge(node u, node v) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool lgraph\+::utils\+::xxgraph\+::has\+\_\+edge (
@@ -542,7 +517,7 @@ Implements \hyperlink{classlgraph_1_1utils_1_1xxgraph_a2ac8b3e71fa0550248c692a19
 )\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}\hypertarget{classlgraph_1_1utils_1_1xxgraph_abd983125be7f2f2b9c812326a4a39e6d}{}\label{classlgraph_1_1utils_1_1xxgraph_abd983125be7f2f2b9c812326a4a39e6d}
 
 
-Initialise the adjacency list of this graph. 
+Initialises the adjacency list of this graph. 
 
 The value \hyperlink{classlgraph_1_1utils_1_1xxgraph_a217ebb1cd8946fedfbf94a9b22f7da48}{num\+\_\+edges} is set to 0. \index{lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}!n\+\_\+edges@{n\+\_\+edges}}
 \index{n\+\_\+edges@{n\+\_\+edges}!lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}}
@@ -666,25 +641,6 @@ The attribute \hyperlink{classlgraph_1_1utils_1_1xxgraph_a217ebb1cd8946fedfbf94a
 {\em edge\+\_\+list} & A list of edges \\
 \hline
 \end{DoxyParams}
-\index{lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}!remove\+\_\+weight@{remove\+\_\+weight}}
-\index{remove\+\_\+weight@{remove\+\_\+weight}!lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}}
-\subsubsection[{\texorpdfstring{remove\+\_\+weight(node u, nit p)}{remove_weight(node u, nit p)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf lgraph\+::utils\+::wxgraph}$<$ T $>$\+::remove\+\_\+weight (
-\begin{DoxyParamCaption}
-\item[{{\bf node}}]{u, }
-\item[{{\bf nit}}]{p}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classlgraph_1_1utils_1_1wxgraph_a7bfdfc64a1d44cc6c85da1cc1f8165f4}{}\label{classlgraph_1_1utils_1_1wxgraph_a7bfdfc64a1d44cc6c85da1cc1f8165f4}
-
-
-Removes the weight at a certain position of a weight list. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em u} & The node whose weight list will be modified \\
-\hline
-{\em it} & The weight\textquotesingle{}s position to be deleted \\
-\hline
-\end{DoxyParams}
 
 
 \subsection{Friends And Related Function Documentation}
@@ -712,12 +668,12 @@ Outputs to the ostream {\itshape os} this graph.
 \subsection{Member Data Documentation}
 \index{lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}!weights@{weights}}
 \index{weights@{weights}!lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}}
-\subsubsection[{\texorpdfstring{weights}{weights}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ vector$<$vector$<$T$>$ $>$ {\bf lgraph\+::utils\+::wxgraph}$<$ T $>$\+::weights\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classlgraph_1_1utils_1_1wxgraph_a45b1e502729d1297b5930f5d10159f1e}{}\label{classlgraph_1_1utils_1_1wxgraph_a45b1e502729d1297b5930f5d10159f1e}
+\subsubsection[{\texorpdfstring{weights}{weights}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ vector$<${\bf weight\+\_\+list}$<$T$>$ $>$ {\bf lgraph\+::utils\+::wxgraph}$<$ T $>$\+::weights\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classlgraph_1_1utils_1_1wxgraph_a15569c8c0fccb641709dc81eb0e29c94}{}\label{classlgraph_1_1utils_1_1wxgraph_a15569c8c0fccb641709dc81eb0e29c94}
 
 
 Weight list for each node. 
 
-\hyperlink{classlgraph_1_1utils_1_1wxgraph_a45b1e502729d1297b5930f5d10159f1e}{weights}\mbox{[}u\mbox{]} is a list of values of type {\itshape T} where \hyperlink{classlgraph_1_1utils_1_1wxgraph_a45b1e502729d1297b5930f5d10159f1e}{weights}\mbox{[}u\mbox{]}\mbox{[}v\mbox{]} represents the weight of edge between nodes {\itshape u} and {\itshape v}. 
+\hyperlink{classlgraph_1_1utils_1_1wxgraph_a15569c8c0fccb641709dc81eb0e29c94}{weights}\mbox{[}u\mbox{]} is a list of values of type {\itshape T} where \hyperlink{classlgraph_1_1utils_1_1wxgraph_a15569c8c0fccb641709dc81eb0e29c94}{weights}\mbox{[}u\mbox{]}\mbox{[}v\mbox{]} represents the weight of edge between nodes {\itshape u} and {\itshape v}. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

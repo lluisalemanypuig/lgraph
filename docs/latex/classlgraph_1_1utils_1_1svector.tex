@@ -11,8 +11,7 @@ Shortened vector.
 
 
 
-Inheritance diagram for lgraph\+:\+:utils\+:\+:svector$<$ T, Alloc $>$\+:
-\nopagebreak
+Inheritance diagram for lgraph\+:\+:utils\+:\+:svector$<$ T, Alloc $>$\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,8 +20,7 @@ Inheritance diagram for lgraph\+:\+:utils\+:\+:svector$<$ T, Alloc $>$\+:
 \end{figure}
 
 
-Collaboration diagram for lgraph\+:\+:utils\+:\+:svector$<$ T, Alloc $>$\+:
-\nopagebreak
+Collaboration diagram for lgraph\+:\+:utils\+:\+:svector$<$ T, Alloc $>$\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -55,7 +53,9 @@ size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1svector_a36428d7450874d526ced6f1e
 bool \hyperlink{classlgraph_1_1utils_1_1svector_ab17c14abafd02d01a0e1f8230ed23680}{contains} (const T \&v) const 
 \begin{DoxyCompactList}\small\item\em Looks for an element equal to {\itshape v} in the vector. \end{DoxyCompactList}\item 
 bool \hyperlink{classlgraph_1_1utils_1_1svector_aed55a2e91d3ba407b5268ba339dddd81}{position} (const T \&v, size\+\_\+t \&pos) const 
-\begin{DoxyCompactList}\small\item\em Looks for an element {\itshape v} in the vector and stores its position in {\itshape pos}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Looks for an element {\itshape v} in the vector and stores its position in {\itshape pos}. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1svector_a8a801e9a3208655c4bbb21a7db75c58f}{as\+\_\+vector} (vector$<$ T $>$ \&v) const 
+\begin{DoxyCompactList}\small\item\em Converts this shortened vector into a regular C++\textquotesingle{}s vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -104,7 +104,18 @@ If \hyperlink{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}
 {\em v} & Value to be added \\
 \hline
 \end{DoxyParams}
-\index{lgraph\+::utils\+::svector@{lgraph\+::utils\+::svector}!contains@{contains}}
+\index{lgraph\+::utils\+::svector@{lgraph\+::utils\+::svector}!as\+\_\+vector@{as\+\_\+vector}}
+\index{as\+\_\+vector@{as\+\_\+vector}!lgraph\+::utils\+::svector@{lgraph\+::utils\+::svector}}
+\subsubsection[{\texorpdfstring{as\+\_\+vector(vector$<$ T $>$ \&v) const }{as_vector(vector< T > &v) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T, class Alloc = allocator$<$\+T$>$$>$ void {\bf lgraph\+::utils\+::svector}$<$ T, Alloc $>$\+::as\+\_\+vector (
+\begin{DoxyParamCaption}
+\item[{vector$<$ T $>$ \&}]{v}
+\end{DoxyParamCaption}
+) const}\hypertarget{classlgraph_1_1utils_1_1svector_a8a801e9a3208655c4bbb21a7db75c58f}{}\label{classlgraph_1_1utils_1_1svector_a8a801e9a3208655c4bbb21a7db75c58f}
+
+
+Converts this shortened vector into a regular C++\textquotesingle{}s vector. 
+
+Makes a vector$<$\+T$>$ with all the elements in this shortened vector in the positions \mbox{[}0,..,\hyperlink{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}{idx}). \index{lgraph\+::utils\+::svector@{lgraph\+::utils\+::svector}!contains@{contains}}
 \index{contains@{contains}!lgraph\+::utils\+::svector@{lgraph\+::utils\+::svector}}
 \subsubsection[{\texorpdfstring{contains(const T \&v) const }{contains(const T &v) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , class Alloc $>$ bool {\bf lgraph\+::utils\+::svector}$<$ T, Alloc $>$\+::contains (
 \begin{DoxyParamCaption}
@@ -191,7 +202,7 @@ Sorts the elements in positions \mbox{[}0,..,\hyperlink{classlgraph_1_1utils_1_1
 \subsection{Friends And Related Function Documentation}
 \index{lgraph\+::utils\+::svector@{lgraph\+::utils\+::svector}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!lgraph\+::utils\+::svector@{lgraph\+::utils\+::svector}}
-\subsubsection[{\texorpdfstring{operator$<$$<$}{operator<<}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , class Alloc  = allocator$<$\+T$>$$>$ ostream\& operator$<$$<$ (
+\subsubsection[{\texorpdfstring{operator$<$$<$}{operator<<}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T, class Alloc = allocator$<$\+T$>$$>$ ostream\& operator$<$$<$ (
 \begin{DoxyParamCaption}
 \item[{ostream \&}]{os, }
 \item[{const {\bf svector}$<$ T, Alloc $>$ \&}]{v}
@@ -206,12 +217,15 @@ The contents passed to the ostream object are all those elements whose index is 
 \subsection{Member Data Documentation}
 \index{lgraph\+::utils\+::svector@{lgraph\+::utils\+::svector}!idx@{idx}}
 \index{idx@{idx}!lgraph\+::utils\+::svector@{lgraph\+::utils\+::svector}}
-\subsubsection[{\texorpdfstring{idx}{idx}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , class Alloc  = allocator$<$\+T$>$$>$ size\+\_\+t {\bf lgraph\+::utils\+::svector}$<$ T, Alloc $>$\+::idx\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}{}\label{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}
+\subsubsection[{\texorpdfstring{idx}{idx}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T, class Alloc = allocator$<$\+T$>$$>$ size\+\_\+t {\bf lgraph\+::utils\+::svector}$<$ T, Alloc $>$\+::idx\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}{}\label{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}
 
 
 Pointer to the next position available in the vector. 
 
-For example\+: \textbackslash{}/ contents\+: 0 1 2 3 \+\_\+\+\_\+ \hyperlink{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}{idx} points at the position after element 3 any new element added will be stored in the position pointed by \hyperlink{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}{idx} 
+For example\+: \begin{DoxyVerb}*                   \/
+* contents: 0 1 2 3 __
+* \end{DoxyVerb}
+ \hyperlink{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}{idx} points at the position after element 3. The next new element added will be stored in the position pointed by \hyperlink{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}{idx}. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
