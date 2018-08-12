@@ -53,6 +53,9 @@ namespace graph_driver {
 		cout << "-------------------------------------" << endl;
 		cout << "MISCELLANEA" << endl;
 		cout << endl;
+		cout << "    * has-edge U V: outputs YES or NO depending on whether the graph" << endl;
+		cout << "        has edge (U,V) or not" << endl;
+		cout << endl;
 		cout << "    * clear: clear the graph." << endl;
 		cout << endl;
 		cout << "    * print: for each node, print its neighbourhood into standard output." << endl;
@@ -108,6 +111,12 @@ namespace graph_driver {
 					cin >> w;
 					G->add_edge(u, v, w);
 				}
+			}
+			else if (option == "has-edge") {
+				node u,v;
+				cin >> u >> v;
+				cout << "Does graph has edge (" << u << "," << v << ")? "
+					 << (G->has_edge(u,v) ? "Yes" : "No") << endl;
 			}
 			else if (option == "remove-edge") {
 				node u,v;
