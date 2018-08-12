@@ -1,0 +1,152 @@
+\hypertarget{namespacelgraph_1_1traversal_1_1dijkstra}{}\section{lgraph\+:\+:traversal\+:\+:dijkstra Namespace Reference}
+\label{namespacelgraph_1_1traversal_1_1dijkstra}\index{lgraph\+::traversal\+::dijkstra@{lgraph\+::traversal\+::dijkstra}}
+
+
+Grouping of the Dijkstra\textquotesingle{}s algorithm for path finding generic functions.  
+
+
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T $>$ }\\using \hyperlink{namespacelgraph_1_1traversal_1_1dijkstra_a06495bda19735564a02a6e98198a0980}{djka\+\_\+node} = pair$<$ T, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} $>$\hypertarget{namespacelgraph_1_1traversal_1_1dijkstra_a06495bda19735564a02a6e98198a0980}{}\label{namespacelgraph_1_1traversal_1_1dijkstra_a06495bda19735564a02a6e98198a0980}
+
+\begin{DoxyCompactList}\small\item\em A pair encoding the distance to a node, and that node. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T  = size\+\_\+t$>$ }\\using \hyperlink{namespacelgraph_1_1traversal_1_1dijkstra_a275e9ff05e4d3199245b9642cc88fc74}{djka\+\_\+terminate} = function$<$ bool(const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, const \hyperlink{namespacelgraph_1_1traversal_1_1dijkstra_a06495bda19735564a02a6e98198a0980}{djka\+\_\+node}$<$ T $>$ \&u, const vector$<$ bool $>$ \&vis)$>$
+\begin{DoxyCompactList}\small\item\em Terminating function. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T  = size\+\_\+t$>$ }\\using \hyperlink{namespacelgraph_1_1traversal_1_1dijkstra_a1b15b8b987d2eea35dd01676ba1d3b35}{djka\+\_\+process\+\_\+current} = function$<$ void(const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, const \hyperlink{namespacelgraph_1_1traversal_1_1dijkstra_a06495bda19735564a02a6e98198a0980}{djka\+\_\+node}$<$ T $>$ \&u, const vector$<$ bool $>$ \&vis)$>$
+\begin{DoxyCompactList}\small\item\em Node processing function. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T  = size\+\_\+t$>$ }\\using \hyperlink{namespacelgraph_1_1traversal_1_1dijkstra_abd266610f7bab0d52a202238ca539d38}{djka\+\_\+process\+\_\+neighbour} = function$<$ bool(const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} u, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} v, const T \&w, const vector$<$ bool $>$ \&vis)$>$
+\begin{DoxyCompactList}\small\item\em Node processing function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{namespacelgraph_1_1traversal_1_1dijkstra_acb68be0fd5a51010ba509150bc9c8c90}{Dijkstra} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} source, \hyperlink{namespacelgraph_1_1traversal_1_1dijkstra_a275e9ff05e4d3199245b9642cc88fc74}{djka\+\_\+terminate}$<$ T $>$ term=\mbox{[}$\,$\mbox{]}(const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$, const \hyperlink{namespacelgraph_1_1traversal_1_1dijkstra_a06495bda19735564a02a6e98198a0980}{djka\+\_\+node}$<$ T $>$ \&, const vector$<$ bool $>$ \&) -\/$>$ bool\{return false;\}, \hyperlink{namespacelgraph_1_1traversal_1_1dijkstra_a1b15b8b987d2eea35dd01676ba1d3b35}{djka\+\_\+process\+\_\+current}$<$ T $>$ proc\+\_\+curr=\mbox{[}$\,$\mbox{]}(const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$, const \hyperlink{namespacelgraph_1_1traversal_1_1dijkstra_a06495bda19735564a02a6e98198a0980}{djka\+\_\+node}$<$ T $>$ \&, const vector$<$ bool $>$ \&) -\/$>$ void\{\}, \hyperlink{namespacelgraph_1_1traversal_1_1dijkstra_abd266610f7bab0d52a202238ca539d38}{djka\+\_\+process\+\_\+neighbour}$<$ T $>$ proc\+\_\+neig=\mbox{[}$\,$\mbox{]}(const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node}, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node}, const T \&, const vector$<$ bool $>$ \&) -\/$>$ bool\{return true;\})
+\begin{DoxyCompactList}\small\item\em Generic Dijkstra algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Grouping of the Dijkstra\textquotesingle{}s algorithm for path finding generic functions. 
+
+Contains a generic Dijkstra algorithm for shortest-\/path and several functions used to guide it. 
+
+\subsection{Typedef Documentation}
+\index{lgraph\+::traversal\+::dijkstra@{lgraph\+::traversal\+::dijkstra}!djka\+\_\+process\+\_\+current@{djka\+\_\+process\+\_\+current}}
+\index{djka\+\_\+process\+\_\+current@{djka\+\_\+process\+\_\+current}!lgraph\+::traversal\+::dijkstra@{lgraph\+::traversal\+::dijkstra}}
+\subsubsection[{\texorpdfstring{djka\+\_\+process\+\_\+current}{djka_process_current}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T  = size\+\_\+t$>$ using {\bf lgraph\+::traversal\+::dijkstra\+::djka\+\_\+process\+\_\+current} = typedef function$<$void (const {\bf wxgraph}$<$T$>$ $\ast$G, const {\bf djka\+\_\+node}$<$T$>$\& u, const vector$<$bool$>$\& vis)$>$}\hypertarget{namespacelgraph_1_1traversal_1_1dijkstra_a1b15b8b987d2eea35dd01676ba1d3b35}{}\label{namespacelgraph_1_1traversal_1_1dijkstra_a1b15b8b987d2eea35dd01676ba1d3b35}
+
+
+Node processing function. 
+
+Processes the current node visited. For more details on when it is called see \hyperlink{namespacelgraph_1_1traversal_1_1dijkstra_acb68be0fd5a51010ba509150bc9c8c90}{Dijkstra}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em G} & The graph being traversed \\
+\hline
+{\em u} & The node at the front of the queue of the algorithm and the distance to it. \\
+\hline
+{\em vis} & The set of visited nodes \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal\+::dijkstra@{lgraph\+::traversal\+::dijkstra}!djka\+\_\+process\+\_\+neighbour@{djka\+\_\+process\+\_\+neighbour}}
+\index{djka\+\_\+process\+\_\+neighbour@{djka\+\_\+process\+\_\+neighbour}!lgraph\+::traversal\+::dijkstra@{lgraph\+::traversal\+::dijkstra}}
+\subsubsection[{\texorpdfstring{djka\+\_\+process\+\_\+neighbour}{djka_process_neighbour}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T  = size\+\_\+t$>$ using {\bf lgraph\+::traversal\+::dijkstra\+::djka\+\_\+process\+\_\+neighbour} = typedef function$<$bool (const {\bf wxgraph}$<$T$>$ $\ast$G, {\bf node} u, {\bf node} v, const T\& w, const vector$<$bool$>$\& vis)$>$}\hypertarget{namespacelgraph_1_1traversal_1_1dijkstra_abd266610f7bab0d52a202238ca539d38}{}\label{namespacelgraph_1_1traversal_1_1dijkstra_abd266610f7bab0d52a202238ca539d38}
+
+
+Node processing function. 
+
+Processes the next visited node. For more details on when it is called see \hyperlink{namespacelgraph_1_1traversal_1_1dijkstra_acb68be0fd5a51010ba509150bc9c8c90}{Dijkstra}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em G} & The graph being traversed \\
+\hline
+{\em u} & The node at the front of the queue of the algorithm \\
+\hline
+{\em v} & The node neighbour of {\itshape u} visited by the algorithm \\
+\hline
+{\em w} & weight of edge (u,v) \\
+\hline
+{\em vis} & The set of visited nodes\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true or false whether the next pair of (distance,node) should be added or not 
+\end{DoxyReturn}
+\index{lgraph\+::traversal\+::dijkstra@{lgraph\+::traversal\+::dijkstra}!djka\+\_\+terminate@{djka\+\_\+terminate}}
+\index{djka\+\_\+terminate@{djka\+\_\+terminate}!lgraph\+::traversal\+::dijkstra@{lgraph\+::traversal\+::dijkstra}}
+\subsubsection[{\texorpdfstring{djka\+\_\+terminate}{djka_terminate}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T  = size\+\_\+t$>$ using {\bf lgraph\+::traversal\+::dijkstra\+::djka\+\_\+terminate} = typedef function$<$bool (const {\bf wxgraph}$<$T$>$ $\ast$G, const {\bf djka\+\_\+node}$<$T$>$\& u, const vector$<$bool$>$\& vis)$>$}\hypertarget{namespacelgraph_1_1traversal_1_1dijkstra_a275e9ff05e4d3199245b9642cc88fc74}{}\label{namespacelgraph_1_1traversal_1_1dijkstra_a275e9ff05e4d3199245b9642cc88fc74}
+
+
+Terminating function. 
+
+Returns true if the \hyperlink{namespacelgraph_1_1traversal_1_1dijkstra_acb68be0fd5a51010ba509150bc9c8c90}{Dijkstra} algorithm should terminate. For more details on when it is called see \hyperlink{namespacelgraph_1_1traversal_1_1dijkstra_acb68be0fd5a51010ba509150bc9c8c90}{Dijkstra}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em G} & The graph being traversed \\
+\hline
+{\em u} & The node at the front of the queue of the algorithm and the distance to it. \\
+\hline
+{\em vis} & The set of visited nodes \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Function Documentation}
+\index{lgraph\+::traversal\+::dijkstra@{lgraph\+::traversal\+::dijkstra}!Dijkstra@{Dijkstra}}
+\index{Dijkstra@{Dijkstra}!lgraph\+::traversal\+::dijkstra@{lgraph\+::traversal\+::dijkstra}}
+\subsubsection[{\texorpdfstring{Dijkstra(const wxgraph$<$ T $>$ $\ast$\+G, node source, djka\+\_\+terminate$<$ T $>$ term=[](const wxgraph$<$ T $>$ $\ast$, const djka\+\_\+node$<$ T $>$ \&, const vector$<$ bool $>$ \&) -\/$>$ bool\lcurly{}return false;\rcurly{}, djka\+\_\+process\+\_\+current$<$ T $>$ proc\+\_\+curr=[](const wxgraph$<$ T $>$ $\ast$, const djka\+\_\+node$<$ T $>$ \&, const vector$<$ bool $>$ \&) -\/$>$ void\lcurly{}\rcurly{}, djka\+\_\+process\+\_\+neighbour$<$ T $>$ proc\+\_\+neig=[](const wxgraph$<$ T $>$ $\ast$, node, node, const T \&, const vector$<$ bool $>$ \&) -\/$>$ bool\lcurly{}return true;\rcurly{})}{Dijkstra(const wxgraph< T > *G, node source, djka_terminate< T > term=[](const wxgraph< T > *, const djka_node< T > &, const vector< bool > &) -> bool\{return false;\}, djka_process_current< T > proc_curr=[](const wxgraph< T > *, const djka_node< T > &, const vector< bool > &) -> void\{\}, djka_process_neighbour< T > proc_neig=[](const wxgraph< T > *, node, node, const T &, const vector< bool > &) -> bool\{return true;\})}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void lgraph\+::traversal\+::dijkstra\+::\+Dijkstra (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{{\bf node}}]{source, }
+\item[{{\bf djka\+\_\+terminate}$<$ T $>$}]{term = {\ttfamily \mbox{[}\mbox{]}(const~{\bf wxgraph}$<$~T~$>$~$\ast$,~const~{\bf djka\+\_\+node}$<$~T~$>$~\&,~const~vector$<$~bool~$>$~\&)~-\/$>$~bool\{return~false;\}}, }
+\item[{{\bf djka\+\_\+process\+\_\+current}$<$ T $>$}]{proc\+\_\+curr = {\ttfamily \mbox{[}\mbox{]}(const~{\bf wxgraph}$<$~T~$>$~$\ast$,~const~{\bf djka\+\_\+node}$<$~T~$>$~\&,~const~vector$<$~bool~$>$~\&)~-\/$>$~void\{\}}, }
+\item[{{\bf djka\+\_\+process\+\_\+neighbour}$<$ T $>$}]{proc\+\_\+neig = {\ttfamily \mbox{[}\mbox{]}(const~{\bf wxgraph}$<$~T~$>$~$\ast$,~{\bf node},~{\bf node},~const~T~\&,~const~vector$<$~bool~$>$~\&)~-\/$>$~bool\{return~true;\}}}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_1_1dijkstra_acb68be0fd5a51010ba509150bc9c8c90}{}\label{namespacelgraph_1_1traversal_1_1dijkstra_acb68be0fd5a51010ba509150bc9c8c90}
+
+
+Generic Dijkstra algorithm. 
+
+The procedure applied for this algorithm here for traversing through a graph from a source node to a target node is as follows\+:
+
+
+\begin{DoxyPre}
+Dijkstra(graph, source, target):
+  1.    vis = \{false\}   // set of |V(graph)| bits set to false
+  2.    Q = empty       // empty priority queue of (distance,node)
+  3.    while Q is not empty do
+  4.        (wu,u) = Q.front
+  5.        remove Q's front
+  6.        if u is not visited then
+  7.            proc\_curr(G,u,vis)
+  8         if terminate(G,u,vis) then terminate
+  9.            else
+ 10.                Nu = neighbourhood of u
+ 11.                for each v in Nu do
+ 12.                    wv := weight edge (u,v)
+ 13.                    add\_next := proc\_neigh(G, u,v, wv, vis)
+ 14.                    if add\_next then
+ 15.                        push w into Q
+ 16.                    endif
+ 17.                endfor
+ 18.            endif
+ 19.        endif
+ 20.    endwhile
+\end{DoxyPre}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em G} & The graph being traversed \\
+\hline
+{\em source} & The node where the algorithm starts at \\
+\hline
+{\em term} & The terminating function. It is used as a termination condition in line 8. \\
+\hline
+{\em proc\+\_\+curr} & The function to process the currently visited node. It is called in line 7 used to perform some operation on the current node of the traversal. \\
+\hline
+{\em proc\+\_\+neigh} & It is called between the \textquotesingle{}for\textquotesingle{} loop in line 13 and the used to perform some operation on each of the neighbours. \\
+\hline
+\end{DoxyParams}

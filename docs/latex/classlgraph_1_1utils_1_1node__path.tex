@@ -1,0 +1,315 @@
+\hypertarget{classlgraph_1_1utils_1_1node__path}{}\section{lgraph\+:\+:utils\+:\+:node\+\_\+path$<$ T $>$ Class Template Reference}
+\label{classlgraph_1_1utils_1_1node__path}\index{lgraph\+::utils\+::node\+\_\+path$<$ T $>$@{lgraph\+::utils\+::node\+\_\+path$<$ T $>$}}
+
+
+A path through a grpah seen as a list of nodes.  
+
+
+
+
+{\ttfamily \#include $<$node\+\_\+path.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classlgraph_1_1utils_1_1node__path_a480b23324e337e2a895c33a444e04e72}{node\+\_\+path} ()\hypertarget{classlgraph_1_1utils_1_1node__path_a480b23324e337e2a895c33a444e04e72}{}\label{classlgraph_1_1utils_1_1node__path_a480b23324e337e2a895c33a444e04e72}
+
+\begin{DoxyCompactList}\small\item\em Empty constructor. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1node__path_a3d2fbb25f163d99a643c8a3d61c5749f}{node\+\_\+path} (\hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} n)
+\begin{DoxyCompactList}\small\item\em Initialise a path starting at node {\itshape n}. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1node__path_a5d652d22c59d4e538de4d483de4fef7d}{empty} ()
+\begin{DoxyCompactList}\small\item\em Empties this path. \end{DoxyCompactList}\item 
+\hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} \hyperlink{classlgraph_1_1utils_1_1node__path_ad182d2c41a3833585841deed101f203d}{operator\mbox{[}$\,$\mbox{]}} (size\+\_\+t i) const 
+\begin{DoxyCompactList}\small\item\em Acces the {\itshape i-\/th} node of this path. \end{DoxyCompactList}\item 
+\hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} \& \hyperlink{classlgraph_1_1utils_1_1node__path_aa2191c4a123c0b7dbf55ae7f407045bf}{operator\mbox{[}$\,$\mbox{]}} (size\+\_\+t i)
+\begin{DoxyCompactList}\small\item\em Acces the {\itshape i-\/th} node of this path. \end{DoxyCompactList}\item 
+bool \hyperlink{classlgraph_1_1utils_1_1node__path_ad0be002c0ecfafcd29f2332f4fae07a3}{operator$<$} (const \hyperlink{classlgraph_1_1utils_1_1node__path}{node\+\_\+path}$<$ T $>$ \&p) const \hypertarget{classlgraph_1_1utils_1_1node__path_ad0be002c0ecfafcd29f2332f4fae07a3}{}\label{classlgraph_1_1utils_1_1node__path_ad0be002c0ecfafcd29f2332f4fae07a3}
+
+\begin{DoxyCompactList}\small\item\em Compares two nodes using only their length. \end{DoxyCompactList}\item 
+bool \hyperlink{classlgraph_1_1utils_1_1node__path_a50387915894923c9e999c157da6e4812}{operator$>$} (const \hyperlink{classlgraph_1_1utils_1_1node__path}{node\+\_\+path}$<$ T $>$ \&p) const \hypertarget{classlgraph_1_1utils_1_1node__path_a50387915894923c9e999c157da6e4812}{}\label{classlgraph_1_1utils_1_1node__path_a50387915894923c9e999c157da6e4812}
+
+\begin{DoxyCompactList}\small\item\em Compares two nodes using only their length. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1node__path}{node\+\_\+path}$<$ T $>$ \& \hyperlink{classlgraph_1_1utils_1_1node__path_a394176d986b6f7c3f3f51978dde52172}{operator=} (const \hyperlink{classlgraph_1_1utils_1_1node__path}{node\+\_\+path}$<$ T $>$ \&np)\hypertarget{classlgraph_1_1utils_1_1node__path_a394176d986b6f7c3f3f51978dde52172}{}\label{classlgraph_1_1utils_1_1node__path_a394176d986b6f7c3f3f51978dde52172}
+
+\begin{DoxyCompactList}\small\item\em Assigns the contents of {\itshape np} to this path. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1node__path_a0c5109bd203149e8e99b9f0b3790fb8f}{concatenate} (const \hyperlink{classlgraph_1_1utils_1_1node__path}{node\+\_\+path} \&p)
+\begin{DoxyCompactList}\small\item\em Concatenates the two paths. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1node__path_afdbba890740d013c8fcca7081461b240}{add\+\_\+node} (\hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} u)
+\begin{DoxyCompactList}\small\item\em Adds a node to the path. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1node__path_a400ebcaf58927f3a22a5fbb91f1fe3a6}{add\+\_\+length} (const T \&l)
+\begin{DoxyCompactList}\small\item\em Accumulates to the current length of the the path the value l. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1node__path_a0b64dae8a7d12cbf85452e697e5cde34}{set\+\_\+length} (const T \&l)
+\begin{DoxyCompactList}\small\item\em Sets the current length of the the path the value l. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1node__path_ae7e803a3945812e692804bfbcb85423c}{reverse} ()\hypertarget{classlgraph_1_1utils_1_1node__path_ae7e803a3945812e692804bfbcb85423c}{}\label{classlgraph_1_1utils_1_1node__path_ae7e803a3945812e692804bfbcb85423c}
+
+\begin{DoxyCompactList}\small\item\em Reverses the order of the nodes of this path. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1node__path_a3fa7b2c4aca2bc9edfdabf8f7c6c1434}{delete\+\_\+last} ()
+\begin{DoxyCompactList}\small\item\em Deletes the last node of this path. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1node__path_a8f2480fc8be847b42513c40e86fb3df4}{size} () const 
+\begin{DoxyCompactList}\small\item\em Returns the number of nodes in this path. \end{DoxyCompactList}\item 
+T \hyperlink{classlgraph_1_1utils_1_1node__path_a9e620f75025d76beecded0d771acbca6}{get\+\_\+length} () const 
+\begin{DoxyCompactList}\small\item\em Returns the length of this path. \end{DoxyCompactList}\item 
+\hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} \hyperlink{classlgraph_1_1utils_1_1node__path_a74b2525643c2804885a94d7e6fa50ee2}{last\+\_\+node} () const \hypertarget{classlgraph_1_1utils_1_1node__path_a74b2525643c2804885a94d7e6fa50ee2}{}\label{classlgraph_1_1utils_1_1node__path_a74b2525643c2804885a94d7e6fa50ee2}
+
+\begin{DoxyCompactList}\small\item\em Return the last node of this path. \end{DoxyCompactList}\item 
+const vector$<$ \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} $>$ \& \hyperlink{classlgraph_1_1utils_1_1node__path_a9c5553326f2ffaaf6727b90b1363222a}{get\+\_\+nodes} () const \hypertarget{classlgraph_1_1utils_1_1node__path_a9c5553326f2ffaaf6727b90b1363222a}{}\label{classlgraph_1_1utils_1_1node__path_a9c5553326f2ffaaf6727b90b1363222a}
+
+\begin{DoxyCompactList}\small\item\em Returns a constant reference to the list of nodes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} $>$ \hyperlink{classlgraph_1_1utils_1_1node__path_af0067294d0390cef2c11ece4b080257c}{nodes}\hypertarget{classlgraph_1_1utils_1_1node__path_af0067294d0390cef2c11ece4b080257c}{}\label{classlgraph_1_1utils_1_1node__path_af0067294d0390cef2c11ece4b080257c}
+
+\begin{DoxyCompactList}\small\item\em The list of nodes of this path. \end{DoxyCompactList}\item 
+T \hyperlink{classlgraph_1_1utils_1_1node__path_a43d91c7647402a07b896d74cb4a7a783}{path\+\_\+length}
+\begin{DoxyCompactList}\small\item\em The total weight of this path. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \hyperlink{classlgraph_1_1utils_1_1node__path_aaa2ab8603e9a2ab44dd473a2a4a722b0}{operator$<$$<$} (ostream \&os, const \hyperlink{classlgraph_1_1utils_1_1node__path}{node\+\_\+path}$<$ T $>$ \&np)
+\begin{DoxyCompactList}\small\item\em Outputs this path on a {\itshape ostream} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T = \+\_\+new\+\_\+$>$\\*
+class lgraph\+::utils\+::node\+\_\+path$<$ T $>$}
+
+A path through a grpah seen as a list of nodes. 
+
+It simply stores a list of nodes in which every pair of consecutive nodes form an edge in a graph. If all consecutive pairs of nodes make a path in a graph {\itshape G} then this object stores a path within {\itshape G}.
+
+It also stores the length of the path, that is, the sum of all the edges in this path.
+
+
+\begin{DoxyParams}{Parameters}
+{\em T} & The type used for the length. It must support comparisons and the C++\textquotesingle{}s output operator $<$$<$. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{lgraph\+::utils\+::node\+\_\+path@{lgraph\+::utils\+::node\+\_\+path}!node\+\_\+path@{node\+\_\+path}}
+\index{node\+\_\+path@{node\+\_\+path}!lgraph\+::utils\+::node\+\_\+path@{lgraph\+::utils\+::node\+\_\+path}}
+\subsubsection[{\texorpdfstring{node\+\_\+path(node n)}{node_path(node n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf lgraph\+::utils\+::node\+\_\+path}$<$ T $>$\+::{\bf node\+\_\+path} (
+\begin{DoxyParamCaption}
+\item[{{\bf node}}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1node__path_a3d2fbb25f163d99a643c8a3d61c5749f}{}\label{classlgraph_1_1utils_1_1node__path_a3d2fbb25f163d99a643c8a3d61c5749f}
+
+
+Initialise a path starting at node {\itshape n}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The first node of this path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+{\itshape n} $>$= 0 
+\end{DoxyPrecond}
+
+
+\subsection{Member Function Documentation}
+\index{lgraph\+::utils\+::node\+\_\+path@{lgraph\+::utils\+::node\+\_\+path}!add\+\_\+length@{add\+\_\+length}}
+\index{add\+\_\+length@{add\+\_\+length}!lgraph\+::utils\+::node\+\_\+path@{lgraph\+::utils\+::node\+\_\+path}}
+\subsubsection[{\texorpdfstring{add\+\_\+length(const T \&l)}{add_length(const T &l)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf lgraph\+::utils\+::node\+\_\+path}$<$ T $>$\+::add\+\_\+length (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{l}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1node__path_a400ebcaf58927f3a22a5fbb91f1fe3a6}{}\label{classlgraph_1_1utils_1_1node__path_a400ebcaf58927f3a22a5fbb91f1fe3a6}
+
+
+Accumulates to the current length of the the path the value l. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & The value to be accumulated to \hyperlink{classlgraph_1_1utils_1_1node__path_a43d91c7647402a07b896d74cb4a7a783}{path\+\_\+length} \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::utils\+::node\+\_\+path@{lgraph\+::utils\+::node\+\_\+path}!add\+\_\+node@{add\+\_\+node}}
+\index{add\+\_\+node@{add\+\_\+node}!lgraph\+::utils\+::node\+\_\+path@{lgraph\+::utils\+::node\+\_\+path}}
+\subsubsection[{\texorpdfstring{add\+\_\+node(node u)}{add_node(node u)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf lgraph\+::utils\+::node\+\_\+path}$<$ T $>$\+::add\+\_\+node (
+\begin{DoxyParamCaption}
+\item[{{\bf node}}]{u}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1node__path_afdbba890740d013c8fcca7081461b240}{}\label{classlgraph_1_1utils_1_1node__path_afdbba890740d013c8fcca7081461b240}
+
+
+Adds a node to the path. 
+
+The new node is added at the back of \hyperlink{classlgraph_1_1utils_1_1node__path_af0067294d0390cef2c11ece4b080257c}{nodes} 
+\begin{DoxyParams}{Parameters}
+{\em u} & The node\textquotesingle{}s index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+u $>$= 0 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The length remains unchanged 
+\end{DoxyPostcond}
+\index{lgraph\+::utils\+::node\+\_\+path@{lgraph\+::utils\+::node\+\_\+path}!concatenate@{concatenate}}
+\index{concatenate@{concatenate}!lgraph\+::utils\+::node\+\_\+path@{lgraph\+::utils\+::node\+\_\+path}}
+\subsubsection[{\texorpdfstring{concatenate(const node\+\_\+path \&p)}{concatenate(const node_path &p)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf lgraph\+::utils\+::node\+\_\+path}$<$ T $>$\+::concatenate (
+\begin{DoxyParamCaption}
+\item[{const {\bf node\+\_\+path}$<$ T $>$ \&}]{p}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1node__path_a0c5109bd203149e8e99b9f0b3790fb8f}{}\label{classlgraph_1_1utils_1_1node__path_a0c5109bd203149e8e99b9f0b3790fb8f}
+
+
+Concatenates the two paths. 
+
+Adds at the end of this path all nodes in {\itshape p} except for the first. The length of {\itshape p} will be accumulated to this path\textquotesingle{}s length.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & The path to be appended to this. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+This path\textquotesingle{}s last node and the first node of p must be the same. 
+\end{DoxyPrecond}
+\index{lgraph\+::utils\+::node\+\_\+path@{lgraph\+::utils\+::node\+\_\+path}!delete\+\_\+last@{delete\+\_\+last}}
+\index{delete\+\_\+last@{delete\+\_\+last}!lgraph\+::utils\+::node\+\_\+path@{lgraph\+::utils\+::node\+\_\+path}}
+\subsubsection[{\texorpdfstring{delete\+\_\+last()}{delete_last()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf lgraph\+::utils\+::node\+\_\+path}$<$ T $>$\+::delete\+\_\+last (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1node__path_a3fa7b2c4aca2bc9edfdabf8f7c6c1434}{}\label{classlgraph_1_1utils_1_1node__path_a3fa7b2c4aca2bc9edfdabf8f7c6c1434}
+
+
+Deletes the last node of this path. 
+
+\begin{DoxyPostcond}{Postcondition}
+The length remains unchanged 
+\end{DoxyPostcond}
+\index{lgraph\+::utils\+::node\+\_\+path@{lgraph\+::utils\+::node\+\_\+path}!empty@{empty}}
+\index{empty@{empty}!lgraph\+::utils\+::node\+\_\+path@{lgraph\+::utils\+::node\+\_\+path}}
+\subsubsection[{\texorpdfstring{empty()}{empty()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf lgraph\+::utils\+::node\+\_\+path}$<$ T $>$\+::empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1node__path_a5d652d22c59d4e538de4d483de4fef7d}{}\label{classlgraph_1_1utils_1_1node__path_a5d652d22c59d4e538de4d483de4fef7d}
+
+
+Empties this path. 
+
+Frees the memory occupied by the currently existing nodes. Sets \hyperlink{classlgraph_1_1utils_1_1node__path_a43d91c7647402a07b896d74cb4a7a783}{path\+\_\+length} to 0. \index{lgraph\+::utils\+::node\+\_\+path@{lgraph\+::utils\+::node\+\_\+path}!get\+\_\+length@{get\+\_\+length}}
+\index{get\+\_\+length@{get\+\_\+length}!lgraph\+::utils\+::node\+\_\+path@{lgraph\+::utils\+::node\+\_\+path}}
+\subsubsection[{\texorpdfstring{get\+\_\+length() const }{get_length() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ T {\bf lgraph\+::utils\+::node\+\_\+path}$<$ T $>$\+::get\+\_\+length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classlgraph_1_1utils_1_1node__path_a9e620f75025d76beecded0d771acbca6}{}\label{classlgraph_1_1utils_1_1node__path_a9e620f75025d76beecded0d771acbca6}
+
+
+Returns the length of this path. 
+
+\begin{DoxyReturn}{Returns}
+Returns the value \hyperlink{classlgraph_1_1utils_1_1node__path_a43d91c7647402a07b896d74cb4a7a783}{path\+\_\+length} 
+\end{DoxyReturn}
+\index{lgraph\+::utils\+::node\+\_\+path@{lgraph\+::utils\+::node\+\_\+path}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!lgraph\+::utils\+::node\+\_\+path@{lgraph\+::utils\+::node\+\_\+path}}
+\subsubsection[{\texorpdfstring{operator[](size\+\_\+t i) const }{operator[](size_t i) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf node} {\bf lgraph\+::utils\+::node\+\_\+path}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{i}
+\end{DoxyParamCaption}
+) const}\hypertarget{classlgraph_1_1utils_1_1node__path_ad182d2c41a3833585841deed101f203d}{}\label{classlgraph_1_1utils_1_1node__path_ad182d2c41a3833585841deed101f203d}
+
+
+Acces the {\itshape i-\/th} node of this path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index of the list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A copy of the node at the i-\/th position 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+0 $<$= {\itshape i} $<$ {\itshape n} with {\itshape n} the amount of nodes in this path 
+\end{DoxyPrecond}
+\index{lgraph\+::utils\+::node\+\_\+path@{lgraph\+::utils\+::node\+\_\+path}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!lgraph\+::utils\+::node\+\_\+path@{lgraph\+::utils\+::node\+\_\+path}}
+\subsubsection[{\texorpdfstring{operator[](size\+\_\+t i)}{operator[](size_t i)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf node} \& {\bf lgraph\+::utils\+::node\+\_\+path}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{i}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1node__path_aa2191c4a123c0b7dbf55ae7f407045bf}{}\label{classlgraph_1_1utils_1_1node__path_aa2191c4a123c0b7dbf55ae7f407045bf}
+
+
+Acces the {\itshape i-\/th} node of this path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index of the list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the node at the i-\/th position 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+0 $<$= {\itshape i} $<$ {\itshape n} with {\itshape n} the amount of nodes in this path 
+\end{DoxyPrecond}
+\index{lgraph\+::utils\+::node\+\_\+path@{lgraph\+::utils\+::node\+\_\+path}!set\+\_\+length@{set\+\_\+length}}
+\index{set\+\_\+length@{set\+\_\+length}!lgraph\+::utils\+::node\+\_\+path@{lgraph\+::utils\+::node\+\_\+path}}
+\subsubsection[{\texorpdfstring{set\+\_\+length(const T \&l)}{set_length(const T &l)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf lgraph\+::utils\+::node\+\_\+path}$<$ T $>$\+::set\+\_\+length (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{l}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1node__path_a0b64dae8a7d12cbf85452e697e5cde34}{}\label{classlgraph_1_1utils_1_1node__path_a0b64dae8a7d12cbf85452e697e5cde34}
+
+
+Sets the current length of the the path the value l. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & The value that will replace the current value of \hyperlink{classlgraph_1_1utils_1_1node__path_a43d91c7647402a07b896d74cb4a7a783}{path\+\_\+length} \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::utils\+::node\+\_\+path@{lgraph\+::utils\+::node\+\_\+path}!size@{size}}
+\index{size@{size}!lgraph\+::utils\+::node\+\_\+path@{lgraph\+::utils\+::node\+\_\+path}}
+\subsubsection[{\texorpdfstring{size() const }{size() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ size\+\_\+t {\bf lgraph\+::utils\+::node\+\_\+path}$<$ T $>$\+::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classlgraph_1_1utils_1_1node__path_a8f2480fc8be847b42513c40e86fb3df4}{}\label{classlgraph_1_1utils_1_1node__path_a8f2480fc8be847b42513c40e86fb3df4}
+
+
+Returns the number of nodes in this path. 
+
+\begin{DoxyReturn}{Returns}
+Returns the size of \hyperlink{classlgraph_1_1utils_1_1node__path_af0067294d0390cef2c11ece4b080257c}{nodes} 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\index{lgraph\+::utils\+::node\+\_\+path@{lgraph\+::utils\+::node\+\_\+path}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!lgraph\+::utils\+::node\+\_\+path@{lgraph\+::utils\+::node\+\_\+path}}
+\subsubsection[{\texorpdfstring{operator$<$$<$}{operator<<}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T = \+\_\+new\+\_\+$>$ ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{os, }
+\item[{const {\bf node\+\_\+path}$<$ T $>$ \&}]{np}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classlgraph_1_1utils_1_1node__path_aaa2ab8603e9a2ab44dd473a2a4a722b0}{}\label{classlgraph_1_1utils_1_1node__path_aaa2ab8603e9a2ab44dd473a2a4a722b0}
+
+
+Outputs this path on a {\itshape ostream} object. 
+
+The format is a space-\/separated list of indices (one for each node) followed by \textquotesingle{}-\/$>$\textquotesingle{} and this path\textquotesingle{}s length. 
+
+\subsection{Member Data Documentation}
+\index{lgraph\+::utils\+::node\+\_\+path@{lgraph\+::utils\+::node\+\_\+path}!path\+\_\+length@{path\+\_\+length}}
+\index{path\+\_\+length@{path\+\_\+length}!lgraph\+::utils\+::node\+\_\+path@{lgraph\+::utils\+::node\+\_\+path}}
+\subsubsection[{\texorpdfstring{path\+\_\+length}{path_length}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T = \+\_\+new\+\_\+$>$ T {\bf lgraph\+::utils\+::node\+\_\+path}$<$ T $>$\+::path\+\_\+length\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classlgraph_1_1utils_1_1node__path_a43d91c7647402a07b896d74cb4a7a783}{}\label{classlgraph_1_1utils_1_1node__path_a43d91c7647402a07b896d74cb4a7a783}
+
+
+The total weight of this path. 
+
+If \textquotesingle{}p\textquotesingle{} is the path as a list of edges, then \textquotesingle{}path\+\_\+length\textquotesingle{} equals the sum of weights of all edges in \textquotesingle{}p\textquotesingle{}. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lgraph/data\+\_\+structures/node\+\_\+path.\+hpp\item 
+lgraph/data\+\_\+structures/node\+\_\+path.\+cpp\end{DoxyCompactItemize}

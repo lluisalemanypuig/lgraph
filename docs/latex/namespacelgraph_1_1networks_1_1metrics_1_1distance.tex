@@ -1,0 +1,151 @@
+\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1distance}{}\section{lgraph\+:\+:networks\+:\+:metrics\+:\+:distance Namespace Reference}
+\label{namespacelgraph_1_1networks_1_1metrics_1_1distance}\index{lgraph\+::networks\+::metrics\+::distance@{lgraph\+::networks\+::metrics\+::distance}}
+
+
+Distance metrics.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1distance_a8cf3894730f48400e043e09845aa9382}{max\+\_\+distance} (const \hyperlink{classlgraph_1_1utils_1_1uugraph}{uugraph} \&G)
+\begin{DoxyCompactList}\small\item\em Diameter of a graph. \end{DoxyCompactList}\item 
+\hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1distance_aac4e62e4a403a765c30404c0384bacec}{max\+\_\+distance} (const \hyperlink{classlgraph_1_1utils_1_1uugraph}{uugraph} \&G, const vector$<$ vector$<$ \hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} $>$ $>$ \&ds)
+\begin{DoxyCompactList}\small\item\em Diameter of a graph. \end{DoxyCompactList}\item 
+double \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1distance_a8f6f4a9b19b9a93c37a6ed9a27418440}{mean\+\_\+distance} (const \hyperlink{classlgraph_1_1utils_1_1uugraph}{uugraph} \&G)
+\begin{DoxyCompactList}\small\item\em Mean distance between all pairs of nodes. \end{DoxyCompactList}\item 
+double \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1distance_af6fb63e1dd2c925bf8a79123e2b382de}{mean\+\_\+distance} (const \hyperlink{classlgraph_1_1utils_1_1uugraph}{uugraph} \&G, const vector$<$ vector$<$ \hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} $>$ $>$ \&ds)
+\begin{DoxyCompactList}\small\item\em Mean distance between all pairs of nodes. \end{DoxyCompactList}\item 
+double \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1distance_ab678a9f333b41833a1aad86cad1331fe}{mcc} (const \hyperlink{classlgraph_1_1utils_1_1uugraph}{uugraph} \&G)
+\begin{DoxyCompactList}\small\item\em Mean closeness centrality of a graph. \end{DoxyCompactList}\item 
+double \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1distance_a562199da66c2d9838b43e2e7684d2caa}{mcc} (const \hyperlink{classlgraph_1_1utils_1_1uugraph}{uugraph} \&G, const vector$<$ double $>$ \&cc)
+\begin{DoxyCompactList}\small\item\em Mean closeness centrality of a graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Distance metrics. 
+
+\subsection{Function Documentation}
+\index{lgraph\+::networks\+::metrics\+::distance@{lgraph\+::networks\+::metrics\+::distance}!max\+\_\+distance@{max\+\_\+distance}}
+\index{max\+\_\+distance@{max\+\_\+distance}!lgraph\+::networks\+::metrics\+::distance@{lgraph\+::networks\+::metrics\+::distance}}
+\subsubsection[{\texorpdfstring{max\+\_\+distance(const uugraph \&\+G)}{max_distance(const uugraph &G)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+new\+\_\+} lgraph\+::networks\+::metrics\+::distance\+::max\+\_\+distance (
+\begin{DoxyParamCaption}
+\item[{const {\bf uugraph} \&}]{G}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1distance_a8cf3894730f48400e043e09845aa9382}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1distance_a8cf3894730f48400e043e09845aa9382}
+
+
+Diameter of a graph. 
+
+Computes the distance between all pairs of nodes. 
+\begin{DoxyParams}{Parameters}
+{\em G} & The graph to be evaluated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the largest distance between all pairs of nodes 
+\end{DoxyReturn}
+\index{lgraph\+::networks\+::metrics\+::distance@{lgraph\+::networks\+::metrics\+::distance}!max\+\_\+distance@{max\+\_\+distance}}
+\index{max\+\_\+distance@{max\+\_\+distance}!lgraph\+::networks\+::metrics\+::distance@{lgraph\+::networks\+::metrics\+::distance}}
+\subsubsection[{\texorpdfstring{max\+\_\+distance(const uugraph \&\+G, const vector$<$ vector$<$ \+\_\+new\+\_\+ $>$ $>$ \&ds)}{max_distance(const uugraph &G, const vector< vector< _new_ > > &ds)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+new\+\_\+} lgraph\+::networks\+::metrics\+::distance\+::max\+\_\+distance (
+\begin{DoxyParamCaption}
+\item[{const {\bf uugraph} \&}]{G, }
+\item[{const vector$<$ vector$<$ {\bf \+\_\+new\+\_\+} $>$ $>$ \&}]{ds}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1distance_aac4e62e4a403a765c30404c0384bacec}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1distance_aac4e62e4a403a765c30404c0384bacec}
+
+
+Diameter of a graph. 
+
+Uses the parameter {\itshape ds} to avoid computing the distance between all pairs of nodes. 
+\begin{DoxyParams}{Parameters}
+{\em G} & The graph to be evaluated \\
+\hline
+{\em ds} & {\itshape ds}\mbox{[}u\mbox{]}\mbox{[}v\mbox{]} contains the distance between nodes {\itshape u} and {\itshape v} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the largest distance between all pairs of nodes 
+\end{DoxyReturn}
+\index{lgraph\+::networks\+::metrics\+::distance@{lgraph\+::networks\+::metrics\+::distance}!mcc@{mcc}}
+\index{mcc@{mcc}!lgraph\+::networks\+::metrics\+::distance@{lgraph\+::networks\+::metrics\+::distance}}
+\subsubsection[{\texorpdfstring{mcc(const uugraph \&\+G)}{mcc(const uugraph &G)}}]{\setlength{\rightskip}{0pt plus 5cm}double lgraph\+::networks\+::metrics\+::distance\+::mcc (
+\begin{DoxyParamCaption}
+\item[{const {\bf uugraph} \&}]{G}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1distance_ab678a9f333b41833a1aad86cad1331fe}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1distance_ab678a9f333b41833a1aad86cad1331fe}
+
+
+Mean closeness centrality of a graph. 
+
+Computes the closeness centrality of each node. 
+\begin{DoxyParams}{Parameters}
+{\em G} & The graph to be evaluated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the average of the closeness centralities 
+\end{DoxyReturn}
+\index{lgraph\+::networks\+::metrics\+::distance@{lgraph\+::networks\+::metrics\+::distance}!mcc@{mcc}}
+\index{mcc@{mcc}!lgraph\+::networks\+::metrics\+::distance@{lgraph\+::networks\+::metrics\+::distance}}
+\subsubsection[{\texorpdfstring{mcc(const uugraph \&\+G, const vector$<$ double $>$ \&cc)}{mcc(const uugraph &G, const vector< double > &cc)}}]{\setlength{\rightskip}{0pt plus 5cm}double lgraph\+::networks\+::metrics\+::distance\+::mcc (
+\begin{DoxyParamCaption}
+\item[{const {\bf uugraph} \&}]{G, }
+\item[{const vector$<$ double $>$ \&}]{cc}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1distance_a562199da66c2d9838b43e2e7684d2caa}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1distance_a562199da66c2d9838b43e2e7684d2caa}
+
+
+Mean closeness centrality of a graph. 
+
+Uses the parameter {\itshape cc} to avoid computing the closeness centrality of each node. 
+\begin{DoxyParams}{Parameters}
+{\em G} & The graph to be evaluated \\
+\hline
+{\em cc} & {\itshape cc}\mbox{[}u\mbox{]} contains the closeness centrality of node {\itshape u} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the average of the closeness centralities 
+\end{DoxyReturn}
+\index{lgraph\+::networks\+::metrics\+::distance@{lgraph\+::networks\+::metrics\+::distance}!mean\+\_\+distance@{mean\+\_\+distance}}
+\index{mean\+\_\+distance@{mean\+\_\+distance}!lgraph\+::networks\+::metrics\+::distance@{lgraph\+::networks\+::metrics\+::distance}}
+\subsubsection[{\texorpdfstring{mean\+\_\+distance(const uugraph \&\+G)}{mean_distance(const uugraph &G)}}]{\setlength{\rightskip}{0pt plus 5cm}double lgraph\+::networks\+::metrics\+::distance\+::mean\+\_\+distance (
+\begin{DoxyParamCaption}
+\item[{const {\bf uugraph} \&}]{G}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1distance_a8f6f4a9b19b9a93c37a6ed9a27418440}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1distance_a8f6f4a9b19b9a93c37a6ed9a27418440}
+
+
+Mean distance between all pairs of nodes. 
+
+Computes the distance between all pairs of nodes. 
+\begin{DoxyParams}{Parameters}
+{\em G} & The graph to be evaluated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the average of the distance between all pairs of nodes 
+\end{DoxyReturn}
+\index{lgraph\+::networks\+::metrics\+::distance@{lgraph\+::networks\+::metrics\+::distance}!mean\+\_\+distance@{mean\+\_\+distance}}
+\index{mean\+\_\+distance@{mean\+\_\+distance}!lgraph\+::networks\+::metrics\+::distance@{lgraph\+::networks\+::metrics\+::distance}}
+\subsubsection[{\texorpdfstring{mean\+\_\+distance(const uugraph \&\+G, const vector$<$ vector$<$ \+\_\+new\+\_\+ $>$ $>$ \&ds)}{mean_distance(const uugraph &G, const vector< vector< _new_ > > &ds)}}]{\setlength{\rightskip}{0pt plus 5cm}double lgraph\+::networks\+::metrics\+::distance\+::mean\+\_\+distance (
+\begin{DoxyParamCaption}
+\item[{const {\bf uugraph} \&}]{G, }
+\item[{const vector$<$ vector$<$ {\bf \+\_\+new\+\_\+} $>$ $>$ \&}]{ds}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1distance_af6fb63e1dd2c925bf8a79123e2b382de}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1distance_af6fb63e1dd2c925bf8a79123e2b382de}
+
+
+Mean distance between all pairs of nodes. 
+
+Uses the parameter {\itshape ds} to avoid computing the distance between all pairs of nodes. 
+\begin{DoxyParams}{Parameters}
+{\em G} & The graph to be evaluated \\
+\hline
+{\em ds} & {\itshape ds}\mbox{[}u\mbox{]}\mbox{[}v\mbox{]} contains the distance between nodes {\itshape u} and {\itshape v} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the average of the distance between all pairs of nodes 
+\end{DoxyReturn}

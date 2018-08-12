@@ -1,0 +1,142 @@
+\hypertarget{namespacelgraph_1_1traversal_1_1dfs}{}\section{lgraph\+:\+:traversal\+:\+:dfs Namespace Reference}
+\label{namespacelgraph_1_1traversal_1_1dfs}\index{lgraph\+::traversal\+::dfs@{lgraph\+::traversal\+::dfs}}
+
+
+Grouping of the D\+F\+S-\/related functions.  
+
+
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef function$<$ bool(const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} u, const vector$<$ bool $>$ \&vis)$>$ \hyperlink{namespacelgraph_1_1traversal_1_1dfs_a41b39b9a31fd3665c970a6eb70564765}{dfs\+\_\+terminate}
+\begin{DoxyCompactList}\small\item\em Terminating function. \end{DoxyCompactList}\item 
+typedef function$<$ void(const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} u, const vector$<$ bool $>$ \&vis)$>$ \hyperlink{namespacelgraph_1_1traversal_1_1dfs_a918161e9face694d4ebdc4ba13cdd5ac}{dfs\+\_\+process\+\_\+current}
+\begin{DoxyCompactList}\small\item\em Node processing function. \end{DoxyCompactList}\item 
+typedef function$<$ void(const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} u, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} v, const vector$<$ bool $>$ \&vis)$>$ \hyperlink{namespacelgraph_1_1traversal_1_1dfs_af04d72933b75432a505b1235d173da4b}{dfs\+\_\+process\+\_\+neighbour}
+\begin{DoxyCompactList}\small\item\em Node processing function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespacelgraph_1_1traversal_1_1dfs_a94225efb9081d9240d716d96b3e99a2f}{D\+FS} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} source, \hyperlink{namespacelgraph_1_1traversal_1_1dfs_a41b39b9a31fd3665c970a6eb70564765}{dfs\+\_\+terminate} term=\mbox{[}$\,$\mbox{]}(const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node}, const vector$<$ bool $>$ \&) -\/$>$ bool\{return false;\}, \hyperlink{namespacelgraph_1_1traversal_1_1dfs_a918161e9face694d4ebdc4ba13cdd5ac}{dfs\+\_\+process\+\_\+current} proc\+\_\+curr=\mbox{[}$\,$\mbox{]}(const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node}, const vector$<$ bool $>$ \&) -\/$>$ void\{\}, \hyperlink{namespacelgraph_1_1traversal_1_1dfs_af04d72933b75432a505b1235d173da4b}{dfs\+\_\+process\+\_\+neighbour} proc\+\_\+neig=\mbox{[}$\,$\mbox{]}(const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node}, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node}, const vector$<$ bool $>$ \&) -\/$>$ void\{\})
+\begin{DoxyCompactList}\small\item\em Generic Depth-\/\+First search algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Grouping of the D\+F\+S-\/related functions. 
+
+Contains a generic D\+FS algorithm and several functions used to guide it. 
+
+\subsection{Typedef Documentation}
+\index{lgraph\+::traversal\+::dfs@{lgraph\+::traversal\+::dfs}!dfs\+\_\+process\+\_\+current@{dfs\+\_\+process\+\_\+current}}
+\index{dfs\+\_\+process\+\_\+current@{dfs\+\_\+process\+\_\+current}!lgraph\+::traversal\+::dfs@{lgraph\+::traversal\+::dfs}}
+\subsubsection[{\texorpdfstring{dfs\+\_\+process\+\_\+current}{dfs_process_current}}]{\setlength{\rightskip}{0pt plus 5cm}typedef function$<$void (const {\bf uxgraph} $\ast$G, {\bf node} u, const vector$<$bool$>$\& vis)$>$ {\bf lgraph\+::traversal\+::dfs\+::dfs\+\_\+process\+\_\+current}}\hypertarget{namespacelgraph_1_1traversal_1_1dfs_a918161e9face694d4ebdc4ba13cdd5ac}{}\label{namespacelgraph_1_1traversal_1_1dfs_a918161e9face694d4ebdc4ba13cdd5ac}
+
+
+Node processing function. 
+
+Processes the current node visited. For more details on when it is called see \hyperlink{namespacelgraph_1_1traversal_1_1dfs_a94225efb9081d9240d716d96b3e99a2f}{D\+FS}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em G} & The graph being traversed \\
+\hline
+{\em u} & The node at the top of the stack of the algorithm \\
+\hline
+{\em vis} & The set of visited nodes \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal\+::dfs@{lgraph\+::traversal\+::dfs}!dfs\+\_\+process\+\_\+neighbour@{dfs\+\_\+process\+\_\+neighbour}}
+\index{dfs\+\_\+process\+\_\+neighbour@{dfs\+\_\+process\+\_\+neighbour}!lgraph\+::traversal\+::dfs@{lgraph\+::traversal\+::dfs}}
+\subsubsection[{\texorpdfstring{dfs\+\_\+process\+\_\+neighbour}{dfs_process_neighbour}}]{\setlength{\rightskip}{0pt plus 5cm}typedef function$<$void (const {\bf uxgraph} $\ast$G, {\bf node} u, {\bf node} v, const vector$<$bool$>$\& vis)$>$ {\bf lgraph\+::traversal\+::dfs\+::dfs\+\_\+process\+\_\+neighbour}}\hypertarget{namespacelgraph_1_1traversal_1_1dfs_af04d72933b75432a505b1235d173da4b}{}\label{namespacelgraph_1_1traversal_1_1dfs_af04d72933b75432a505b1235d173da4b}
+
+
+Node processing function. 
+
+Processes the next visited node. For more details on when it is called see \hyperlink{namespacelgraph_1_1traversal_1_1dfs_a94225efb9081d9240d716d96b3e99a2f}{D\+FS}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em G} & The graph being traversed \\
+\hline
+{\em u} & The node at the top of the stack of the algorithm \\
+\hline
+{\em v} & The node neighbour of {\itshape u} visited by the algorithm \\
+\hline
+{\em vis} & The set of visited nodes \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal\+::dfs@{lgraph\+::traversal\+::dfs}!dfs\+\_\+terminate@{dfs\+\_\+terminate}}
+\index{dfs\+\_\+terminate@{dfs\+\_\+terminate}!lgraph\+::traversal\+::dfs@{lgraph\+::traversal\+::dfs}}
+\subsubsection[{\texorpdfstring{dfs\+\_\+terminate}{dfs_terminate}}]{\setlength{\rightskip}{0pt plus 5cm}typedef function$<$bool (const {\bf uxgraph} $\ast$G, {\bf node} u, const vector$<$bool$>$\& vis)$>$ {\bf lgraph\+::traversal\+::dfs\+::dfs\+\_\+terminate}}\hypertarget{namespacelgraph_1_1traversal_1_1dfs_a41b39b9a31fd3665c970a6eb70564765}{}\label{namespacelgraph_1_1traversal_1_1dfs_a41b39b9a31fd3665c970a6eb70564765}
+
+
+Terminating function. 
+
+Returns true if the \hyperlink{namespacelgraph_1_1traversal_1_1dfs_a94225efb9081d9240d716d96b3e99a2f}{D\+FS} algorithm should terminate. For more details on when it is called see \hyperlink{namespacelgraph_1_1traversal_1_1dfs_a94225efb9081d9240d716d96b3e99a2f}{D\+FS}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em G} & The graph being traversed \\
+\hline
+{\em u} & The node at the top of the stack of the algorithm \\
+\hline
+{\em vis} & The set of visited nodes \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Function Documentation}
+\index{lgraph\+::traversal\+::dfs@{lgraph\+::traversal\+::dfs}!D\+FS@{D\+FS}}
+\index{D\+FS@{D\+FS}!lgraph\+::traversal\+::dfs@{lgraph\+::traversal\+::dfs}}
+\subsubsection[{\texorpdfstring{D\+F\+S(const uxgraph $\ast$\+G, node source, dfs\+\_\+terminate term=[](const uxgraph $\ast$, node, const vector$<$ bool $>$ \&) -\/$>$ bool\lcurly{}return false;\rcurly{}, dfs\+\_\+process\+\_\+current proc\+\_\+curr=[](const uxgraph $\ast$, node, const vector$<$ bool $>$ \&) -\/$>$ void\lcurly{}\rcurly{}, dfs\+\_\+process\+\_\+neighbour proc\+\_\+neig=[](const uxgraph $\ast$, node, node, const vector$<$ bool $>$ \&) -\/$>$ void\lcurly{}\rcurly{})}{DFS(const uxgraph *G, node source, dfs_terminate term=[](const uxgraph *, node, const vector< bool > &) -> bool\{return false;\}, dfs_process_current proc_curr=[](const uxgraph *, node, const vector< bool > &) -> void\{\}, dfs_process_neighbour proc_neig=[](const uxgraph *, node, node, const vector< bool > &) -> void\{\})}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::traversal\+::dfs\+::\+D\+FS (
+\begin{DoxyParamCaption}
+\item[{const {\bf uxgraph} $\ast$}]{G, }
+\item[{{\bf node}}]{source, }
+\item[{{\bf dfs\+\_\+terminate}}]{term = {\ttfamily \mbox{[}\mbox{]}(const~{\bf uxgraph}~$\ast$,~{\bf node},~const~vector$<$~bool~$>$~\&)~-\/$>$~bool\{return~false;\}}, }
+\item[{{\bf dfs\+\_\+process\+\_\+current}}]{proc\+\_\+curr = {\ttfamily \mbox{[}\mbox{]}(const~{\bf uxgraph}~$\ast$,~{\bf node},~const~vector$<$~bool~$>$~\&)~-\/$>$~void\{\}}, }
+\item[{{\bf dfs\+\_\+process\+\_\+neighbour}}]{proc\+\_\+neig = {\ttfamily \mbox{[}\mbox{]}(const~{\bf uxgraph}~$\ast$,~{\bf node},~{\bf node},~const~vector$<$~bool~$>$~\&)~-\/$>$~void\{\}}}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_1_1dfs_a94225efb9081d9240d716d96b3e99a2f}{}\label{namespacelgraph_1_1traversal_1_1dfs_a94225efb9081d9240d716d96b3e99a2f}
+
+
+Generic Depth-\/\+First search algorithm. 
+
+The usual procedure of this algorithm for traversing through a graph from a source node to a target node is as follows\+:
+
+
+\begin{DoxyPre}
+DFS(graph, source, target):
+  1.    vis = \{false\}   // set of |V(graph)| bits set to false
+  2.    S = empty       // empty stack
+  3.    while S is not empty do
+  4.        v = S.top
+  5.        remove S's top
+  6.        proc\_curr(G,v,vis)
+  7.        if terminate(G,v,vis) then terminate
+  8.        else
+  9.            Nv = neighbourhood of v
+ 10.            for each w in Nv do
+ 11.                proc\_neigh(G,u,w,vis)
+ 12.                if w not visited before then
+ 13.                    push w onto S
+ 14.                    mark w as visited in vis
+ 15.                endif
+ 16.            endfor
+ 17.        endif
+ 18.    endwhile
+\end{DoxyPre}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em G} & The graph being traversed \\
+\hline
+{\em source} & The node where the algorithm starts at \\
+\hline
+{\em term} & The terminating function. It is used as a termination condition in line 7. \\
+\hline
+{\em proc\+\_\+curr} & The function to process the currently visited node. It is called in line 6 used to perform some operation on the current node of the traversal. \\
+\hline
+{\em proc\+\_\+neigh} & It is called in line 11 used to perform some operation on each of the neighbours. \\
+\hline
+\end{DoxyParams}

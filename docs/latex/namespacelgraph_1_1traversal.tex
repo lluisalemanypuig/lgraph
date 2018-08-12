@@ -1,0 +1,936 @@
+\hypertarget{namespacelgraph_1_1traversal}{}\section{lgraph\+:\+:traversal Namespace Reference}
+\label{namespacelgraph_1_1traversal}\index{lgraph\+::traversal@{lgraph\+::traversal}}
+
+
+Collection of path-\/finding algorithms.  
+
+
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacelgraph_1_1traversal_1_1bfs}{bfs}
+\begin{DoxyCompactList}\small\item\em Grouping of the B\+F\+S-\/related functions. \end{DoxyCompactList}\item 
+ \hyperlink{namespacelgraph_1_1traversal_1_1dfs}{dfs}
+\begin{DoxyCompactList}\small\item\em Grouping of the D\+F\+S-\/related functions. \end{DoxyCompactList}\item 
+ \hyperlink{namespacelgraph_1_1traversal_1_1dijkstra}{dijkstra}
+\begin{DoxyCompactList}\small\item\em Grouping of the Dijkstra\textquotesingle{}s algorithm for path finding generic functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} \hyperlink{namespacelgraph_1_1traversal_a73bb6b5984fc97e12576ca4f16344fbf}{uxdistance} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} source, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} target)
+\begin{DoxyCompactList}\small\item\em Directed/\+Undirected distance between two nodes. \end{DoxyCompactList}\item 
+\hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} \hyperlink{namespacelgraph_1_1traversal_a084aa7ff13d10613c411ff8d4a2dc4c8}{uxdistance} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} source, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} target, size\+\_\+t \&n\+\_\+paths)
+\begin{DoxyCompactList}\small\item\em Directed/\+Undirected distance between two nodes. \end{DoxyCompactList}\item 
+void \hyperlink{namespacelgraph_1_1traversal_aa21660a600fa553678d686341226f8e0}{uxdistance} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} source, vector$<$ \hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} $>$ \&\hyperlink{namespacelgraph_1_1traversal_ab04202d9a05b39b38e5e8f35475b1665}{uxdistances})
+\begin{DoxyCompactList}\small\item\em Directed/\+Undirected distance between a node to the rest of the graph\textquotesingle{}s nodes. \end{DoxyCompactList}\item 
+void \hyperlink{namespacelgraph_1_1traversal_a8b5060314b2349de4757d1509560f9c6}{uxdistance} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} source, vector$<$ \hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} $>$ \&\hyperlink{namespacelgraph_1_1traversal_ab04202d9a05b39b38e5e8f35475b1665}{uxdistances}, vector$<$ size\+\_\+t $>$ \&n\+\_\+paths)
+\begin{DoxyCompactList}\small\item\em Directed/\+Undirected distance between a node to the rest of the graph\textquotesingle{}s nodes. \end{DoxyCompactList}\item 
+void \hyperlink{namespacelgraph_1_1traversal_ab04202d9a05b39b38e5e8f35475b1665}{uxdistances} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, vector$<$ vector$<$ \hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} $>$ $>$ \&ds)
+\begin{DoxyCompactList}\small\item\em Directed/\+Undirected distance between all pairs of nodes. \end{DoxyCompactList}\item 
+void \hyperlink{namespacelgraph_1_1traversal_a03137bf22fbff273ab60ec13db244ad5}{uxdistances} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, vector$<$ vector$<$ \hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} $>$ $>$ \&ds, vector$<$ vector$<$ size\+\_\+t $>$ $>$ \&n\+\_\+paths)
+\begin{DoxyCompactList}\small\item\em Directed/\+Undirected distance between all pairs of nodes. \end{DoxyCompactList}\item 
+void \hyperlink{namespacelgraph_1_1traversal_a143fd991f5e035c64c94b2ac8d84b08c}{uxpath} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} source, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} target, \hyperlink{classlgraph_1_1utils_1_1node__path}{node\+\_\+path}$<$ \hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} $>$ \&p)
+\begin{DoxyCompactList}\small\item\em A directed/undirected path between two nodes. \end{DoxyCompactList}\item 
+void \hyperlink{namespacelgraph_1_1traversal_a5873d9c87596daa9002ee537e1ac0252}{uxpath} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} source, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} target, \hyperlink{classlgraph_1_1utils_1_1boolean__path}{boolean\+\_\+path}$<$ \hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} $>$ \&p)
+\begin{DoxyCompactList}\small\item\em A directed/undirected path between two nodes. \end{DoxyCompactList}\item 
+void \hyperlink{namespacelgraph_1_1traversal_a16078c9a8e08e18e017590e6e13860ec}{uxpaths} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} source, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} target, \hyperlink{namespacelgraph_1_1utils_a723c115f9865edfab11a90377b9abef4}{node\+\_\+path\+\_\+set}$<$ \hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} $>$ \&ps)
+\begin{DoxyCompactList}\small\item\em All directed/undirected path between two nodes. \end{DoxyCompactList}\item 
+void \hyperlink{namespacelgraph_1_1traversal_a7421bd43fdc27c34609cb21b6ca99f84}{uxpaths} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} source, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} target, \hyperlink{namespacelgraph_1_1utils_aaf50131e15d771a45620336d6e7a77f8}{boolean\+\_\+path\+\_\+set}$<$ \hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} $>$ \&ps)
+\begin{DoxyCompactList}\small\item\em All directed/undirected path between two nodes. \end{DoxyCompactList}\item 
+void \hyperlink{namespacelgraph_1_1traversal_a1487fb3fc594632e35001a895b31bb8a}{uxpath} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} source, vector$<$ \hyperlink{classlgraph_1_1utils_1_1node__path}{node\+\_\+path}$<$ \hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} $>$ $>$ \&ps)
+\begin{DoxyCompactList}\small\item\em A directed/undirected path between a source node and any other node in the graph. \end{DoxyCompactList}\item 
+void \hyperlink{namespacelgraph_1_1traversal_ad5c153d51abaa62dc1da6fe47302fabf}{uxpath} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} source, vector$<$ \hyperlink{classlgraph_1_1utils_1_1boolean__path}{boolean\+\_\+path}$<$ \hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} $>$ $>$ \&ps)
+\begin{DoxyCompactList}\small\item\em A directed/undirected path between a source node and any other node in the graph. \end{DoxyCompactList}\item 
+void \hyperlink{namespacelgraph_1_1traversal_a9761cc456130e95d8a883d14854a0c44}{uxpaths} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} source, vector$<$ \hyperlink{namespacelgraph_1_1utils_a723c115f9865edfab11a90377b9abef4}{node\+\_\+path\+\_\+set}$<$ \hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} $>$ $>$ \&ps)
+\begin{DoxyCompactList}\small\item\em All directed/undirected paths between a source node and any other node in the graph. \end{DoxyCompactList}\item 
+void \hyperlink{namespacelgraph_1_1traversal_a8f2b9cea0611501020f210a067878f2c}{uxpaths} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} source, vector$<$ \hyperlink{namespacelgraph_1_1utils_aaf50131e15d771a45620336d6e7a77f8}{boolean\+\_\+path\+\_\+set}$<$ \hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} $>$ $>$ \&ps)
+\begin{DoxyCompactList}\small\item\em All directed/undirected paths between a source node and any other node in the graph. \end{DoxyCompactList}\item 
+void \hyperlink{namespacelgraph_1_1traversal_a42e351d7e0c1943141917348116f5f32}{uxpath} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, vector$<$ vector$<$ \hyperlink{classlgraph_1_1utils_1_1node__path}{node\+\_\+path}$<$ \hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} $>$ $>$ $>$ \&ps)
+\begin{DoxyCompactList}\small\item\em A directed/undirected path between all pairs of nodes in the graph. \end{DoxyCompactList}\item 
+void \hyperlink{namespacelgraph_1_1traversal_a1f1940b51aef98c8b5be34aa3bc4a371}{uxpath} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, vector$<$ vector$<$ \hyperlink{classlgraph_1_1utils_1_1boolean__path}{boolean\+\_\+path}$<$ \hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} $>$ $>$ $>$ \&ps)
+\begin{DoxyCompactList}\small\item\em A directed/undirected path between all pairs of nodes in the graph. \end{DoxyCompactList}\item 
+void \hyperlink{namespacelgraph_1_1traversal_a39a8bbdf96f484154d50e40f23021249}{uxpaths} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, vector$<$ vector$<$ \hyperlink{namespacelgraph_1_1utils_a723c115f9865edfab11a90377b9abef4}{node\+\_\+path\+\_\+set}$<$ \hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} $>$ $>$ $>$ \&ps)
+\begin{DoxyCompactList}\small\item\em All directed/undirected paths between all pairs of nodes in the graph. \end{DoxyCompactList}\item 
+void \hyperlink{namespacelgraph_1_1traversal_a0e29db8163072d41c0dcc1b2e342d4bd}{uxpaths} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, vector$<$ vector$<$ \hyperlink{namespacelgraph_1_1utils_aaf50131e15d771a45620336d6e7a77f8}{boolean\+\_\+path\+\_\+set}$<$ \hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} $>$ $>$ $>$ \&ps)
+\begin{DoxyCompactList}\small\item\em All directed/undirected paths between all pairs of nodes in the graph. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\T \hyperlink{namespacelgraph_1_1traversal_a6f7355bc246be223e074d737810f2fb4}{wxdistance} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} source, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} target)
+\begin{DoxyCompactList}\small\item\em Directed/\+Undirected distance between two nodes. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\T \hyperlink{namespacelgraph_1_1traversal_a39a6c5e2fa275d28c02051dbbd934e39}{wxdistance} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} source, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} target, size\+\_\+t \&n\+\_\+paths)
+\begin{DoxyCompactList}\small\item\em Directed/\+Undirected distance between two nodes. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{namespacelgraph_1_1traversal_a386f294701634911e0c62fdbacb4a976}{wxdistance} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} source, vector$<$ T $>$ \&\hyperlink{namespacelgraph_1_1traversal_a4d673389e0b2135edfb4fbf0e8dec386}{wxdistances})
+\begin{DoxyCompactList}\small\item\em Directed/\+Undirected distance between a node to the rest of the graph\textquotesingle{}s nodes. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{namespacelgraph_1_1traversal_a7a1170b8673e281f64d4987c6986e41f}{wxdistance} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} source, vector$<$ T $>$ \&\hyperlink{namespacelgraph_1_1traversal_a4d673389e0b2135edfb4fbf0e8dec386}{wxdistances}, vector$<$ size\+\_\+t $>$ \&n\+\_\+paths)
+\begin{DoxyCompactList}\small\item\em Directed/\+Undirected distance between a node to the rest of the graph\textquotesingle{}s nodes. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{namespacelgraph_1_1traversal_a4d673389e0b2135edfb4fbf0e8dec386}{wxdistances} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, vector$<$ vector$<$ T $>$ $>$ \&ds)
+\begin{DoxyCompactList}\small\item\em Directed/\+Undirected distance between all pairs of nodes. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{namespacelgraph_1_1traversal_a793eff57b1bb9b9a43fe7de0da68c7c9}{wxdistances} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, vector$<$ vector$<$ T $>$ $>$ \&ds, vector$<$ vector$<$ size\+\_\+t $>$ $>$ \&n\+\_\+paths)
+\begin{DoxyCompactList}\small\item\em Directed/\+Undirected distance between all pairs of nodes. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{namespacelgraph_1_1traversal_acb255be04a53f1d3863f7beaeda2dde0}{wxpath} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} source, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} target, \hyperlink{classlgraph_1_1utils_1_1node__path}{node\+\_\+path}$<$ T $>$ \&p)
+\begin{DoxyCompactList}\small\item\em A directed/undirected path between two nodes. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{namespacelgraph_1_1traversal_a2e3286cb7b83c0a47820b1d7256231ab}{wxpath} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} source, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} target, \hyperlink{classlgraph_1_1utils_1_1boolean__path}{boolean\+\_\+path}$<$ T $>$ \&p)
+\begin{DoxyCompactList}\small\item\em A directed/undirected path between two nodes. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{namespacelgraph_1_1traversal_a97b92a041fa93b26f26d60d11f717dc5}{wxpaths} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} source, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} target, \hyperlink{namespacelgraph_1_1utils_a723c115f9865edfab11a90377b9abef4}{node\+\_\+path\+\_\+set}$<$ T $>$ \&ps)
+\begin{DoxyCompactList}\small\item\em All directed/undirected path between two nodes. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{namespacelgraph_1_1traversal_af4f6d2630d596387b4ba4891c55a3773}{wxpaths} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} source, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} target, \hyperlink{namespacelgraph_1_1utils_aaf50131e15d771a45620336d6e7a77f8}{boolean\+\_\+path\+\_\+set}$<$ T $>$ \&ps)
+\begin{DoxyCompactList}\small\item\em All directed/undirected path between two nodes. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{namespacelgraph_1_1traversal_ac7a89afe8623b7e0d90fe4c5441d3e28}{wxpath} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} source, vector$<$ \hyperlink{classlgraph_1_1utils_1_1node__path}{node\+\_\+path}$<$ T $>$ $>$ \&ps)
+\begin{DoxyCompactList}\small\item\em A directed/undirected path between a source node and any other node in the graph. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{namespacelgraph_1_1traversal_af06a18e5ed57978bb1313deb1a32b8a1}{wxpath} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} source, vector$<$ \hyperlink{classlgraph_1_1utils_1_1boolean__path}{boolean\+\_\+path}$<$ T $>$ $>$ \&ps)
+\begin{DoxyCompactList}\small\item\em A directed/undirected path between a source node and any other node in the graph. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{namespacelgraph_1_1traversal_a55b574228440d721aa23669dc221e0f3}{wxpaths} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} source, vector$<$ \hyperlink{namespacelgraph_1_1utils_a723c115f9865edfab11a90377b9abef4}{node\+\_\+path\+\_\+set}$<$ T $>$ $>$ \&ps)
+\begin{DoxyCompactList}\small\item\em All directed/undirected paths between a source node and any other node in the graph. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{namespacelgraph_1_1traversal_a93c3d0fc761980ddfc4e8235279e9601}{wxpaths} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} source, vector$<$ \hyperlink{namespacelgraph_1_1utils_aaf50131e15d771a45620336d6e7a77f8}{boolean\+\_\+path\+\_\+set}$<$ T $>$ $>$ \&ps)
+\begin{DoxyCompactList}\small\item\em All directed/undirected paths between a source node and any other node in the graph. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{namespacelgraph_1_1traversal_a52e87298a02bf95e82074041bd459446}{wxpath} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, vector$<$ vector$<$ \hyperlink{classlgraph_1_1utils_1_1node__path}{node\+\_\+path}$<$ T $>$ $>$ $>$ \&ps)
+\begin{DoxyCompactList}\small\item\em A directed/undirected path between all pairs of nodes in the graph. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{namespacelgraph_1_1traversal_a69cf3d811b6f551c765d5a2cce69b3b2}{wxpath} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, vector$<$ vector$<$ \hyperlink{classlgraph_1_1utils_1_1boolean__path}{boolean\+\_\+path}$<$ T $>$ $>$ $>$ \&ps)
+\begin{DoxyCompactList}\small\item\em A directed/undirected path between all pairs of nodes in the graph. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{namespacelgraph_1_1traversal_a8901a21aa64dadd3483606b4c047e6a1}{wxpaths} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, vector$<$ vector$<$ \hyperlink{namespacelgraph_1_1utils_a723c115f9865edfab11a90377b9abef4}{node\+\_\+path\+\_\+set}$<$ T $>$ $>$ $>$ \&ps)
+\begin{DoxyCompactList}\small\item\em All directed/undirected paths between all pairs of nodes in the graph. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{namespacelgraph_1_1traversal_a8c0b0ebe4cbc4c84d4680727df88d307}{wxpaths} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, vector$<$ vector$<$ \hyperlink{namespacelgraph_1_1utils_aaf50131e15d771a45620336d6e7a77f8}{boolean\+\_\+path\+\_\+set}$<$ T $>$ $>$ $>$ \&ps)
+\begin{DoxyCompactList}\small\item\em All directed/undirected paths between all pairs of nodes in the graph. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{namespacelgraph_1_1traversal_a4e9d55395fdaa0ee831766decb20760b}{make\+\_\+paths} (\hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} source, const vector$<$ vector$<$ \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} $>$ $>$ \&prev, T st\+\_\+dist, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} nidx, \hyperlink{namespacelgraph_1_1utils_a723c115f9865edfab11a90377b9abef4}{node\+\_\+path\+\_\+set}$<$ T $>$ \&ps, \hyperlink{classlgraph_1_1utils_1_1node__path}{node\+\_\+path}$<$ T $>$ \&path)\hypertarget{namespacelgraph_1_1traversal_a4e9d55395fdaa0ee831766decb20760b}{}\label{namespacelgraph_1_1traversal_a4e9d55395fdaa0ee831766decb20760b}
+
+\begin{DoxyCompactList}\small\item\em Make a list of paths given a matrix of precendes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Collection of path-\/finding algorithms. 
+
+Includes generic algorithms for graph traversal (see B\+FS, D\+FS, Dijkstra) and their application to graphs for path-\/finding (shortest path from a node to another node, from a node to all other nodes of the same graph, ...) 
+
+\subsection{Function Documentation}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!uxdistance@{uxdistance}}
+\index{uxdistance@{uxdistance}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{uxdistance(const uxgraph $\ast$\+G, node source, node target)}{uxdistance(const uxgraph *G, node source, node target)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+new\+\_\+} lgraph\+::traversal\+::uxdistance (
+\begin{DoxyParamCaption}
+\item[{const {\bf uxgraph} $\ast$}]{G, }
+\item[{{\bf node}}]{source, }
+\item[{{\bf node}}]{target}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a73bb6b5984fc97e12576ca4f16344fbf}{}\label{namespacelgraph_1_1traversal_a73bb6b5984fc97e12576ca4f16344fbf}
+
+
+Directed/\+Undirected distance between two nodes. 
+
+Applies a Breadth-\/\+First Search algorithm. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected unweighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt in}  & {\em target} & The target node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The shortest distance between {\itshape source} and {\itshape target} 
+\end{DoxyReturn}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!uxdistance@{uxdistance}}
+\index{uxdistance@{uxdistance}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{uxdistance(const uxgraph $\ast$\+G, node source, node target, size\+\_\+t \&n\+\_\+paths)}{uxdistance(const uxgraph *G, node source, node target, size_t &n_paths)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+new\+\_\+} lgraph\+::traversal\+::uxdistance (
+\begin{DoxyParamCaption}
+\item[{const {\bf uxgraph} $\ast$}]{G, }
+\item[{{\bf node}}]{source, }
+\item[{{\bf node}}]{target, }
+\item[{size\+\_\+t \&}]{n\+\_\+paths}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a084aa7ff13d10613c411ff8d4a2dc4c8}{}\label{namespacelgraph_1_1traversal_a084aa7ff13d10613c411ff8d4a2dc4c8}
+
+
+Directed/\+Undirected distance between two nodes. 
+
+Applies a Breadth-\/\+First Search algorithm. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected unweighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt in}  & {\em target} & The target node \\
+\hline
+\mbox{\tt out}  & {\em n\+\_\+paths} & The number of shortest paths between {\itshape source} and {\itshape target} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The shortest distance between {\itshape source} and {\itshape target} 
+\end{DoxyReturn}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!uxdistance@{uxdistance}}
+\index{uxdistance@{uxdistance}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{uxdistance(const uxgraph $\ast$\+G, node source, vector$<$ \+\_\+new\+\_\+ $>$ \&uxdistances)}{uxdistance(const uxgraph *G, node source, vector< _new_ > &uxdistances)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::traversal\+::uxdistance (
+\begin{DoxyParamCaption}
+\item[{const {\bf uxgraph} $\ast$}]{G, }
+\item[{{\bf node}}]{source, }
+\item[{vector$<$ {\bf \+\_\+new\+\_\+} $>$ \&}]{uxdistances}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_aa21660a600fa553678d686341226f8e0}{}\label{namespacelgraph_1_1traversal_aa21660a600fa553678d686341226f8e0}
+
+
+Directed/\+Undirected distance between a node to the rest of the graph\textquotesingle{}s nodes. 
+
+Applies a Breadth-\/\+First Search algorithm. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected unweighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt in}  & {\em target} & The target node \\
+\hline
+\mbox{\tt out}  & {\em xudistances} & The i-\/th position contains the directed/undirected distance between the source node and the i-\/th node of the graph. \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!uxdistance@{uxdistance}}
+\index{uxdistance@{uxdistance}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{uxdistance(const uxgraph $\ast$\+G, node source, vector$<$ \+\_\+new\+\_\+ $>$ \&uxdistances, vector$<$ size\+\_\+t $>$ \&n\+\_\+paths)}{uxdistance(const uxgraph *G, node source, vector< _new_ > &uxdistances, vector< size_t > &n_paths)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::traversal\+::uxdistance (
+\begin{DoxyParamCaption}
+\item[{const {\bf uxgraph} $\ast$}]{G, }
+\item[{{\bf node}}]{source, }
+\item[{vector$<$ {\bf \+\_\+new\+\_\+} $>$ \&}]{uxdistances, }
+\item[{vector$<$ size\+\_\+t $>$ \&}]{n\+\_\+paths}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a8b5060314b2349de4757d1509560f9c6}{}\label{namespacelgraph_1_1traversal_a8b5060314b2349de4757d1509560f9c6}
+
+
+Directed/\+Undirected distance between a node to the rest of the graph\textquotesingle{}s nodes. 
+
+Applies a Breadth-\/\+First Search algorithm. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected unweighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt in}  & {\em target} & The target node \\
+\hline
+\mbox{\tt out}  & {\em xudistances} & The i-\/th position contains the directed/undirected distance between the source node and the i-\/th node of the graph. \\
+\hline
+\mbox{\tt out}  & {\em n\+\_\+paths} & The i-\/th position contains the number of shortest paths between the source node and the i-\/th node. \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!uxdistances@{uxdistances}}
+\index{uxdistances@{uxdistances}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{uxdistances(const uxgraph $\ast$\+G, vector$<$ vector$<$ \+\_\+new\+\_\+ $>$ $>$ \&ds)}{uxdistances(const uxgraph *G, vector< vector< _new_ > > &ds)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::traversal\+::uxdistances (
+\begin{DoxyParamCaption}
+\item[{const {\bf uxgraph} $\ast$}]{G, }
+\item[{vector$<$ vector$<$ {\bf \+\_\+new\+\_\+} $>$ $>$ \&}]{ds}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_ab04202d9a05b39b38e5e8f35475b1665}{}\label{namespacelgraph_1_1traversal_ab04202d9a05b39b38e5e8f35475b1665}
+
+
+Directed/\+Undirected distance between all pairs of nodes. 
+
+Applies the Floyd-\/\+Warshall algorithm. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected unweighted graph \\
+\hline
+\mbox{\tt out}  & {\em ds} & The shortest directed/undirected distance between all pairs of nodes. \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!uxdistances@{uxdistances}}
+\index{uxdistances@{uxdistances}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{uxdistances(const uxgraph $\ast$\+G, vector$<$ vector$<$ \+\_\+new\+\_\+ $>$ $>$ \&ds, vector$<$ vector$<$ size\+\_\+t $>$ $>$ \&n\+\_\+paths)}{uxdistances(const uxgraph *G, vector< vector< _new_ > > &ds, vector< vector< size_t > > &n_paths)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::traversal\+::uxdistances (
+\begin{DoxyParamCaption}
+\item[{const {\bf uxgraph} $\ast$}]{G, }
+\item[{vector$<$ vector$<$ {\bf \+\_\+new\+\_\+} $>$ $>$ \&}]{ds, }
+\item[{vector$<$ vector$<$ size\+\_\+t $>$ $>$ \&}]{n\+\_\+paths}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a03137bf22fbff273ab60ec13db244ad5}{}\label{namespacelgraph_1_1traversal_a03137bf22fbff273ab60ec13db244ad5}
+
+
+Directed/\+Undirected distance between all pairs of nodes. 
+
+Applies the Floyd-\/\+Warshall algorithm. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected unweighted graph \\
+\hline
+\mbox{\tt out}  & {\em ds} & The shortest directed/undirected distance between all pairs of nodes. \\
+\hline
+\mbox{\tt out}  & {\em n\+\_\+paths} & The number of shortest paths between each pair of nodes. \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!uxpath@{uxpath}}
+\index{uxpath@{uxpath}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{uxpath(const uxgraph $\ast$\+G, node source, node target, node\+\_\+path$<$ \+\_\+new\+\_\+ $>$ \&p)}{uxpath(const uxgraph *G, node source, node target, node_path< _new_ > &p)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::traversal\+::uxpath (
+\begin{DoxyParamCaption}
+\item[{const {\bf uxgraph} $\ast$}]{G, }
+\item[{{\bf node}}]{source, }
+\item[{{\bf node}}]{target, }
+\item[{{\bf node\+\_\+path}$<$ {\bf \+\_\+new\+\_\+} $>$ \&}]{p}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a143fd991f5e035c64c94b2ac8d84b08c}{}\label{namespacelgraph_1_1traversal_a143fd991f5e035c64c94b2ac8d84b08c}
+
+
+A directed/undirected path between two nodes. 
+
+Applies a Breadth-\/\+First Search algorithm. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected unweighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt in}  & {\em target} & The target node \\
+\hline
+\mbox{\tt out}  & {\em p} & A path between the nodes \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!uxpath@{uxpath}}
+\index{uxpath@{uxpath}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{uxpath(const uxgraph $\ast$\+G, node source, node target, boolean\+\_\+path$<$ \+\_\+new\+\_\+ $>$ \&p)}{uxpath(const uxgraph *G, node source, node target, boolean_path< _new_ > &p)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::traversal\+::uxpath (
+\begin{DoxyParamCaption}
+\item[{const {\bf uxgraph} $\ast$}]{G, }
+\item[{{\bf node}}]{source, }
+\item[{{\bf node}}]{target, }
+\item[{{\bf boolean\+\_\+path}$<$ {\bf \+\_\+new\+\_\+} $>$ \&}]{p}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a5873d9c87596daa9002ee537e1ac0252}{}\label{namespacelgraph_1_1traversal_a5873d9c87596daa9002ee537e1ac0252}
+
+
+A directed/undirected path between two nodes. 
+
+Applies a Breadth-\/\+First Search algorithm. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected unweighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt in}  & {\em target} & The target node \\
+\hline
+\mbox{\tt out}  & {\em p} & A path between the nodes \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!uxpath@{uxpath}}
+\index{uxpath@{uxpath}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{uxpath(const uxgraph $\ast$\+G, node source, vector$<$ node\+\_\+path$<$ \+\_\+new\+\_\+ $>$ $>$ \&ps)}{uxpath(const uxgraph *G, node source, vector< node_path< _new_ > > &ps)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::traversal\+::uxpath (
+\begin{DoxyParamCaption}
+\item[{const {\bf uxgraph} $\ast$}]{G, }
+\item[{{\bf node}}]{source, }
+\item[{vector$<$ {\bf node\+\_\+path}$<$ {\bf \+\_\+new\+\_\+} $>$ $>$ \&}]{ps}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a1487fb3fc594632e35001a895b31bb8a}{}\label{namespacelgraph_1_1traversal_a1487fb3fc594632e35001a895b31bb8a}
+
+
+A directed/undirected path between a source node and any other node in the graph. 
+
+Applies a Breadth-\/\+First Search algorithm. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected unweighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt out}  & {\em ps} & A path between the nodes \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!uxpath@{uxpath}}
+\index{uxpath@{uxpath}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{uxpath(const uxgraph $\ast$\+G, node source, vector$<$ boolean\+\_\+path$<$ \+\_\+new\+\_\+ $>$ $>$ \&ps)}{uxpath(const uxgraph *G, node source, vector< boolean_path< _new_ > > &ps)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::traversal\+::uxpath (
+\begin{DoxyParamCaption}
+\item[{const {\bf uxgraph} $\ast$}]{G, }
+\item[{{\bf node}}]{source, }
+\item[{vector$<$ {\bf boolean\+\_\+path}$<$ {\bf \+\_\+new\+\_\+} $>$ $>$ \&}]{ps}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_ad5c153d51abaa62dc1da6fe47302fabf}{}\label{namespacelgraph_1_1traversal_ad5c153d51abaa62dc1da6fe47302fabf}
+
+
+A directed/undirected path between a source node and any other node in the graph. 
+
+Applies a Breadth-\/\+First Search algorithm. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected unweighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt out}  & {\em ps} & A path between the nodes \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!uxpath@{uxpath}}
+\index{uxpath@{uxpath}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{uxpath(const uxgraph $\ast$\+G, vector$<$ vector$<$ node\+\_\+path$<$ \+\_\+new\+\_\+ $>$ $>$ $>$ \&ps)}{uxpath(const uxgraph *G, vector< vector< node_path< _new_ > > > &ps)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::traversal\+::uxpath (
+\begin{DoxyParamCaption}
+\item[{const {\bf uxgraph} $\ast$}]{G, }
+\item[{vector$<$ vector$<$ {\bf node\+\_\+path}$<$ {\bf \+\_\+new\+\_\+} $>$ $>$ $>$ \&}]{ps}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a42e351d7e0c1943141917348116f5f32}{}\label{namespacelgraph_1_1traversal_a42e351d7e0c1943141917348116f5f32}
+
+
+A directed/undirected path between all pairs of nodes in the graph. 
+
+Applies Floyd-\/\+Warshall\textquotesingle{}s algorithm. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected unweighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt out}  & {\em ps} & A path between the nodes \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!uxpath@{uxpath}}
+\index{uxpath@{uxpath}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{uxpath(const uxgraph $\ast$\+G, vector$<$ vector$<$ boolean\+\_\+path$<$ \+\_\+new\+\_\+ $>$ $>$ $>$ \&ps)}{uxpath(const uxgraph *G, vector< vector< boolean_path< _new_ > > > &ps)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::traversal\+::uxpath (
+\begin{DoxyParamCaption}
+\item[{const {\bf uxgraph} $\ast$}]{G, }
+\item[{vector$<$ vector$<$ {\bf boolean\+\_\+path}$<$ {\bf \+\_\+new\+\_\+} $>$ $>$ $>$ \&}]{ps}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a1f1940b51aef98c8b5be34aa3bc4a371}{}\label{namespacelgraph_1_1traversal_a1f1940b51aef98c8b5be34aa3bc4a371}
+
+
+A directed/undirected path between all pairs of nodes in the graph. 
+
+Applies Floyd-\/\+Warshall\textquotesingle{}s algorithm. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected unweighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt out}  & {\em ps} & A path between the nodes \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!uxpaths@{uxpaths}}
+\index{uxpaths@{uxpaths}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{uxpaths(const uxgraph $\ast$\+G, node source, node target, node\+\_\+path\+\_\+set$<$ \+\_\+new\+\_\+ $>$ \&ps)}{uxpaths(const uxgraph *G, node source, node target, node_path_set< _new_ > &ps)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::traversal\+::uxpaths (
+\begin{DoxyParamCaption}
+\item[{const {\bf uxgraph} $\ast$}]{G, }
+\item[{{\bf node}}]{source, }
+\item[{{\bf node}}]{target, }
+\item[{{\bf node\+\_\+path\+\_\+set}$<$ {\bf \+\_\+new\+\_\+} $>$ \&}]{ps}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a16078c9a8e08e18e017590e6e13860ec}{}\label{namespacelgraph_1_1traversal_a16078c9a8e08e18e017590e6e13860ec}
+
+
+All directed/undirected path between two nodes. 
+
+Applies a Breadth-\/\+First Search algorithm. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected unweighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt in}  & {\em target} & The target node \\
+\hline
+\mbox{\tt out}  & {\em ps} & The paths between the nodes \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!uxpaths@{uxpaths}}
+\index{uxpaths@{uxpaths}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{uxpaths(const uxgraph $\ast$\+G, node source, node target, boolean\+\_\+path\+\_\+set$<$ \+\_\+new\+\_\+ $>$ \&ps)}{uxpaths(const uxgraph *G, node source, node target, boolean_path_set< _new_ > &ps)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::traversal\+::uxpaths (
+\begin{DoxyParamCaption}
+\item[{const {\bf uxgraph} $\ast$}]{G, }
+\item[{{\bf node}}]{source, }
+\item[{{\bf node}}]{target, }
+\item[{{\bf boolean\+\_\+path\+\_\+set}$<$ {\bf \+\_\+new\+\_\+} $>$ \&}]{ps}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a7421bd43fdc27c34609cb21b6ca99f84}{}\label{namespacelgraph_1_1traversal_a7421bd43fdc27c34609cb21b6ca99f84}
+
+
+All directed/undirected path between two nodes. 
+
+Applies a Breadth-\/\+First Search algorithm. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected unweighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt in}  & {\em target} & The target node \\
+\hline
+\mbox{\tt out}  & {\em ps} & The paths between the nodes \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!uxpaths@{uxpaths}}
+\index{uxpaths@{uxpaths}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{uxpaths(const uxgraph $\ast$\+G, node source, vector$<$ node\+\_\+path\+\_\+set$<$ \+\_\+new\+\_\+ $>$ $>$ \&ps)}{uxpaths(const uxgraph *G, node source, vector< node_path_set< _new_ > > &ps)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::traversal\+::uxpaths (
+\begin{DoxyParamCaption}
+\item[{const {\bf uxgraph} $\ast$}]{G, }
+\item[{{\bf node}}]{source, }
+\item[{vector$<$ {\bf node\+\_\+path\+\_\+set}$<$ {\bf \+\_\+new\+\_\+} $>$ $>$ \&}]{ps}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a9761cc456130e95d8a883d14854a0c44}{}\label{namespacelgraph_1_1traversal_a9761cc456130e95d8a883d14854a0c44}
+
+
+All directed/undirected paths between a source node and any other node in the graph. 
+
+Applies a Breadth-\/\+First Search algorithm. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected unweighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt out}  & {\em ps} & All paths between the source node and all other nodes in the graph \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!uxpaths@{uxpaths}}
+\index{uxpaths@{uxpaths}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{uxpaths(const uxgraph $\ast$\+G, node source, vector$<$ boolean\+\_\+path\+\_\+set$<$ \+\_\+new\+\_\+ $>$ $>$ \&ps)}{uxpaths(const uxgraph *G, node source, vector< boolean_path_set< _new_ > > &ps)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::traversal\+::uxpaths (
+\begin{DoxyParamCaption}
+\item[{const {\bf uxgraph} $\ast$}]{G, }
+\item[{{\bf node}}]{source, }
+\item[{vector$<$ {\bf boolean\+\_\+path\+\_\+set}$<$ {\bf \+\_\+new\+\_\+} $>$ $>$ \&}]{ps}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a8f2b9cea0611501020f210a067878f2c}{}\label{namespacelgraph_1_1traversal_a8f2b9cea0611501020f210a067878f2c}
+
+
+All directed/undirected paths between a source node and any other node in the graph. 
+
+Applies a Breadth-\/\+First Search algorithm. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected unweighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt out}  & {\em ps} & All paths between the source node and all other nodes in the graph \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!uxpaths@{uxpaths}}
+\index{uxpaths@{uxpaths}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{uxpaths(const uxgraph $\ast$\+G, vector$<$ vector$<$ node\+\_\+path\+\_\+set$<$ \+\_\+new\+\_\+ $>$ $>$ $>$ \&ps)}{uxpaths(const uxgraph *G, vector< vector< node_path_set< _new_ > > > &ps)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::traversal\+::uxpaths (
+\begin{DoxyParamCaption}
+\item[{const {\bf uxgraph} $\ast$}]{G, }
+\item[{vector$<$ vector$<$ {\bf node\+\_\+path\+\_\+set}$<$ {\bf \+\_\+new\+\_\+} $>$ $>$ $>$ \&}]{ps}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a39a8bbdf96f484154d50e40f23021249}{}\label{namespacelgraph_1_1traversal_a39a8bbdf96f484154d50e40f23021249}
+
+
+All directed/undirected paths between all pairs of nodes in the graph. 
+
+Applies Floyd-\/\+Warshall\textquotesingle{}s algorithm. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected unweighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt out}  & {\em ps} & A path between the nodes \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!uxpaths@{uxpaths}}
+\index{uxpaths@{uxpaths}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{uxpaths(const uxgraph $\ast$\+G, vector$<$ vector$<$ boolean\+\_\+path\+\_\+set$<$ \+\_\+new\+\_\+ $>$ $>$ $>$ \&ps)}{uxpaths(const uxgraph *G, vector< vector< boolean_path_set< _new_ > > > &ps)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::traversal\+::uxpaths (
+\begin{DoxyParamCaption}
+\item[{const {\bf uxgraph} $\ast$}]{G, }
+\item[{vector$<$ vector$<$ {\bf boolean\+\_\+path\+\_\+set}$<$ {\bf \+\_\+new\+\_\+} $>$ $>$ $>$ \&}]{ps}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a0e29db8163072d41c0dcc1b2e342d4bd}{}\label{namespacelgraph_1_1traversal_a0e29db8163072d41c0dcc1b2e342d4bd}
+
+
+All directed/undirected paths between all pairs of nodes in the graph. 
+
+Applies Floyd-\/\+Warshall\textquotesingle{}s algorithm. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected unweighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt out}  & {\em ps} & A path between the nodes \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!wxdistance@{wxdistance}}
+\index{wxdistance@{wxdistance}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{wxdistance(const wxgraph$<$ T $>$ $\ast$\+G, node source, node target)}{wxdistance(const wxgraph< T > *G, node source, node target)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ T lgraph\+::traversal\+::wxdistance (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{{\bf node}}]{source, }
+\item[{{\bf node}}]{target}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a6f7355bc246be223e074d737810f2fb4}{}\label{namespacelgraph_1_1traversal_a6f7355bc246be223e074d737810f2fb4}
+
+
+Directed/\+Undirected distance between two nodes. 
+
+Applies Dijkstra\textquotesingle{}s algorithm for shortest-\/path finding. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected weighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt in}  & {\em target} & The target node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The shortest distance between {\itshape source} and {\itshape target} 
+\end{DoxyReturn}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!wxdistance@{wxdistance}}
+\index{wxdistance@{wxdistance}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{wxdistance(const wxgraph$<$ T $>$ $\ast$\+G, node source, node target, size\+\_\+t \&n\+\_\+paths)}{wxdistance(const wxgraph< T > *G, node source, node target, size_t &n_paths)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ T lgraph\+::traversal\+::wxdistance (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{{\bf node}}]{source, }
+\item[{{\bf node}}]{target, }
+\item[{size\+\_\+t \&}]{n\+\_\+paths}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a39a6c5e2fa275d28c02051dbbd934e39}{}\label{namespacelgraph_1_1traversal_a39a6c5e2fa275d28c02051dbbd934e39}
+
+
+Directed/\+Undirected distance between two nodes. 
+
+Applies a Breadth-\/\+First Search algorithm. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected weighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt in}  & {\em target} & The target node \\
+\hline
+\mbox{\tt out}  & {\em n\+\_\+paths} & The number of shortest paths between {\itshape source} and {\itshape target} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The shortest distance between {\itshape source} and {\itshape target} 
+\end{DoxyReturn}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!wxdistance@{wxdistance}}
+\index{wxdistance@{wxdistance}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{wxdistance(const wxgraph$<$ T $>$ $\ast$\+G, node source, vector$<$ T $>$ \&wxdistances)}{wxdistance(const wxgraph< T > *G, node source, vector< T > &wxdistances)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void lgraph\+::traversal\+::wxdistance (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{{\bf node}}]{source, }
+\item[{vector$<$ T $>$ \&}]{wxdistances}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a386f294701634911e0c62fdbacb4a976}{}\label{namespacelgraph_1_1traversal_a386f294701634911e0c62fdbacb4a976}
+
+
+Directed/\+Undirected distance between a node to the rest of the graph\textquotesingle{}s nodes. 
+
+Applies a Breadth-\/\+First Search algorithm. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected weighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt in}  & {\em target} & The target node \\
+\hline
+\mbox{\tt out}  & {\em xwdistances} & The i-\/th position contains the directed/undirected distance between the source node and the i-\/th node of the graph. \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!wxdistance@{wxdistance}}
+\index{wxdistance@{wxdistance}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{wxdistance(const wxgraph$<$ T $>$ $\ast$\+G, node source, vector$<$ T $>$ \&wxdistances, vector$<$ size\+\_\+t $>$ \&n\+\_\+paths)}{wxdistance(const wxgraph< T > *G, node source, vector< T > &wxdistances, vector< size_t > &n_paths)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void lgraph\+::traversal\+::wxdistance (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{{\bf node}}]{source, }
+\item[{vector$<$ T $>$ \&}]{wxdistances, }
+\item[{vector$<$ size\+\_\+t $>$ \&}]{n\+\_\+paths}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a7a1170b8673e281f64d4987c6986e41f}{}\label{namespacelgraph_1_1traversal_a7a1170b8673e281f64d4987c6986e41f}
+
+
+Directed/\+Undirected distance between a node to the rest of the graph\textquotesingle{}s nodes. 
+
+Applies a Breadth-\/\+First Search algorithm. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected weighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt in}  & {\em target} & The target node \\
+\hline
+\mbox{\tt out}  & {\em xwdistances} & The i-\/th position contains the directed/undirected distance between the source node and the i-\/th node of the graph. \\
+\hline
+\mbox{\tt out}  & {\em n\+\_\+paths} & The i-\/th position contains the number of shortest paths between the source node and the i-\/th node. \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!wxdistances@{wxdistances}}
+\index{wxdistances@{wxdistances}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{wxdistances(const wxgraph$<$ T $>$ $\ast$\+G, vector$<$ vector$<$ T $>$ $>$ \&ds)}{wxdistances(const wxgraph< T > *G, vector< vector< T > > &ds)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void lgraph\+::traversal\+::wxdistances (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{vector$<$ vector$<$ T $>$ $>$ \&}]{ds}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a4d673389e0b2135edfb4fbf0e8dec386}{}\label{namespacelgraph_1_1traversal_a4d673389e0b2135edfb4fbf0e8dec386}
+
+
+Directed/\+Undirected distance between all pairs of nodes. 
+
+Applies the Floyd-\/\+Warshall algorithm. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected weighted graph \\
+\hline
+\mbox{\tt out}  & {\em ds} & The shortest directed/undirected distance between all pairs of nodes. \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!wxdistances@{wxdistances}}
+\index{wxdistances@{wxdistances}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{wxdistances(const wxgraph$<$ T $>$ $\ast$\+G, vector$<$ vector$<$ T $>$ $>$ \&ds, vector$<$ vector$<$ size\+\_\+t $>$ $>$ \&n\+\_\+paths)}{wxdistances(const wxgraph< T > *G, vector< vector< T > > &ds, vector< vector< size_t > > &n_paths)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void lgraph\+::traversal\+::wxdistances (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{vector$<$ vector$<$ T $>$ $>$ \&}]{ds, }
+\item[{vector$<$ vector$<$ size\+\_\+t $>$ $>$ \&}]{n\+\_\+paths}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a793eff57b1bb9b9a43fe7de0da68c7c9}{}\label{namespacelgraph_1_1traversal_a793eff57b1bb9b9a43fe7de0da68c7c9}
+
+
+Directed/\+Undirected distance between all pairs of nodes. 
+
+Applies the Floyd-\/\+Warshall algorithm. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected weighted graph \\
+\hline
+\mbox{\tt out}  & {\em ds} & The shortest directed/undirected distance between all pairs of nodes. \\
+\hline
+\mbox{\tt out}  & {\em n\+\_\+paths} & The number of shortest paths between each pair of nodes. \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!wxpath@{wxpath}}
+\index{wxpath@{wxpath}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{wxpath(const wxgraph$<$ T $>$ $\ast$\+G, node source, node target, node\+\_\+path$<$ T $>$ \&p)}{wxpath(const wxgraph< T > *G, node source, node target, node_path< T > &p)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void lgraph\+::traversal\+::wxpath (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{{\bf node}}]{source, }
+\item[{{\bf node}}]{target, }
+\item[{{\bf node\+\_\+path}$<$ T $>$ \&}]{p}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_acb255be04a53f1d3863f7beaeda2dde0}{}\label{namespacelgraph_1_1traversal_acb255be04a53f1d3863f7beaeda2dde0}
+
+
+A directed/undirected path between two nodes. 
+
+Applies Dijkstra\textquotesingle{}s algorithm for shortest-\/path finding. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected weighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt in}  & {\em target} & The target node \\
+\hline
+\mbox{\tt out}  & {\em p} & A path between the nodes \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!wxpath@{wxpath}}
+\index{wxpath@{wxpath}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{wxpath(const wxgraph$<$ T $>$ $\ast$\+G, node source, node target, boolean\+\_\+path$<$ T $>$ \&p)}{wxpath(const wxgraph< T > *G, node source, node target, boolean_path< T > &p)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void lgraph\+::traversal\+::wxpath (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{{\bf node}}]{source, }
+\item[{{\bf node}}]{target, }
+\item[{{\bf boolean\+\_\+path}$<$ T $>$ \&}]{p}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a2e3286cb7b83c0a47820b1d7256231ab}{}\label{namespacelgraph_1_1traversal_a2e3286cb7b83c0a47820b1d7256231ab}
+
+
+A directed/undirected path between two nodes. 
+
+Applies Dijkstra\textquotesingle{}s algorithm for shortest-\/path finding. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected weighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt in}  & {\em target} & The target node \\
+\hline
+\mbox{\tt out}  & {\em p} & A path between the nodes \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!wxpath@{wxpath}}
+\index{wxpath@{wxpath}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{wxpath(const wxgraph$<$ T $>$ $\ast$\+G, node source, vector$<$ node\+\_\+path$<$ T $>$ $>$ \&ps)}{wxpath(const wxgraph< T > *G, node source, vector< node_path< T > > &ps)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void lgraph\+::traversal\+::wxpath (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{{\bf node}}]{source, }
+\item[{vector$<$ {\bf node\+\_\+path}$<$ T $>$ $>$ \&}]{ps}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_ac7a89afe8623b7e0d90fe4c5441d3e28}{}\label{namespacelgraph_1_1traversal_ac7a89afe8623b7e0d90fe4c5441d3e28}
+
+
+A directed/undirected path between a source node and any other node in the graph. 
+
+Applies Dijkstra\textquotesingle{}s algorithm for shortest-\/path finding. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected weighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt out}  & {\em ps} & A path between the nodes \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!wxpath@{wxpath}}
+\index{wxpath@{wxpath}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{wxpath(const wxgraph$<$ T $>$ $\ast$\+G, node source, vector$<$ boolean\+\_\+path$<$ T $>$ $>$ \&ps)}{wxpath(const wxgraph< T > *G, node source, vector< boolean_path< T > > &ps)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void lgraph\+::traversal\+::wxpath (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{{\bf node}}]{source, }
+\item[{vector$<$ {\bf boolean\+\_\+path}$<$ T $>$ $>$ \&}]{ps}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_af06a18e5ed57978bb1313deb1a32b8a1}{}\label{namespacelgraph_1_1traversal_af06a18e5ed57978bb1313deb1a32b8a1}
+
+
+A directed/undirected path between a source node and any other node in the graph. 
+
+Applies Dijkstra\textquotesingle{}s algorithm for shortest-\/path finding. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected weighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt out}  & {\em ps} & A path between the nodes \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!wxpath@{wxpath}}
+\index{wxpath@{wxpath}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{wxpath(const wxgraph$<$ T $>$ $\ast$\+G, vector$<$ vector$<$ node\+\_\+path$<$ T $>$ $>$ $>$ \&ps)}{wxpath(const wxgraph< T > *G, vector< vector< node_path< T > > > &ps)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void lgraph\+::traversal\+::wxpath (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{vector$<$ vector$<$ {\bf node\+\_\+path}$<$ T $>$ $>$ $>$ \&}]{ps}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a52e87298a02bf95e82074041bd459446}{}\label{namespacelgraph_1_1traversal_a52e87298a02bf95e82074041bd459446}
+
+
+A directed/undirected path between all pairs of nodes in the graph. 
+
+Applies Floyd-\/\+Warshall\textquotesingle{}s algorithm. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected weighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt out}  & {\em ps} & A path between the nodes \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!wxpath@{wxpath}}
+\index{wxpath@{wxpath}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{wxpath(const wxgraph$<$ T $>$ $\ast$\+G, vector$<$ vector$<$ boolean\+\_\+path$<$ T $>$ $>$ $>$ \&ps)}{wxpath(const wxgraph< T > *G, vector< vector< boolean_path< T > > > &ps)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void lgraph\+::traversal\+::wxpath (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{vector$<$ vector$<$ {\bf boolean\+\_\+path}$<$ T $>$ $>$ $>$ \&}]{ps}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a69cf3d811b6f551c765d5a2cce69b3b2}{}\label{namespacelgraph_1_1traversal_a69cf3d811b6f551c765d5a2cce69b3b2}
+
+
+A directed/undirected path between all pairs of nodes in the graph. 
+
+Applies Floyd-\/\+Warshall\textquotesingle{}s algorithm. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected weighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt out}  & {\em ps} & A path between the nodes \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!wxpaths@{wxpaths}}
+\index{wxpaths@{wxpaths}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{wxpaths(const wxgraph$<$ T $>$ $\ast$\+G, node source, node target, node\+\_\+path\+\_\+set$<$ T $>$ \&ps)}{wxpaths(const wxgraph< T > *G, node source, node target, node_path_set< T > &ps)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void lgraph\+::traversal\+::wxpaths (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{{\bf node}}]{source, }
+\item[{{\bf node}}]{target, }
+\item[{{\bf node\+\_\+path\+\_\+set}$<$ T $>$ \&}]{ps}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a97b92a041fa93b26f26d60d11f717dc5}{}\label{namespacelgraph_1_1traversal_a97b92a041fa93b26f26d60d11f717dc5}
+
+
+All directed/undirected path between two nodes. 
+
+Applies Dijkstra\textquotesingle{}s algorithm for shortest-\/path finding. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected weighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt in}  & {\em target} & The target node \\
+\hline
+\mbox{\tt out}  & {\em ps} & The paths between the nodes \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!wxpaths@{wxpaths}}
+\index{wxpaths@{wxpaths}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{wxpaths(const wxgraph$<$ T $>$ $\ast$\+G, node source, node target, boolean\+\_\+path\+\_\+set$<$ T $>$ \&ps)}{wxpaths(const wxgraph< T > *G, node source, node target, boolean_path_set< T > &ps)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void lgraph\+::traversal\+::wxpaths (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{{\bf node}}]{source, }
+\item[{{\bf node}}]{target, }
+\item[{{\bf boolean\+\_\+path\+\_\+set}$<$ T $>$ \&}]{ps}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_af4f6d2630d596387b4ba4891c55a3773}{}\label{namespacelgraph_1_1traversal_af4f6d2630d596387b4ba4891c55a3773}
+
+
+All directed/undirected path between two nodes. 
+
+Applies Dijkstra\textquotesingle{}s algorithm for shortest-\/path finding. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected weighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt in}  & {\em target} & The target node \\
+\hline
+\mbox{\tt out}  & {\em ps} & The paths between the nodes \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!wxpaths@{wxpaths}}
+\index{wxpaths@{wxpaths}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{wxpaths(const wxgraph$<$ T $>$ $\ast$\+G, node source, vector$<$ node\+\_\+path\+\_\+set$<$ T $>$ $>$ \&ps)}{wxpaths(const wxgraph< T > *G, node source, vector< node_path_set< T > > &ps)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void lgraph\+::traversal\+::wxpaths (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{{\bf node}}]{source, }
+\item[{vector$<$ {\bf node\+\_\+path\+\_\+set}$<$ T $>$ $>$ \&}]{ps}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a55b574228440d721aa23669dc221e0f3}{}\label{namespacelgraph_1_1traversal_a55b574228440d721aa23669dc221e0f3}
+
+
+All directed/undirected paths between a source node and any other node in the graph. 
+
+Applies Dijkstra\textquotesingle{}s algorithm for shortest-\/path finding. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected weighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt out}  & {\em ps} & All paths between the source node and all other nodes in the graph \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!wxpaths@{wxpaths}}
+\index{wxpaths@{wxpaths}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{wxpaths(const wxgraph$<$ T $>$ $\ast$\+G, node source, vector$<$ boolean\+\_\+path\+\_\+set$<$ T $>$ $>$ \&ps)}{wxpaths(const wxgraph< T > *G, node source, vector< boolean_path_set< T > > &ps)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void lgraph\+::traversal\+::wxpaths (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{{\bf node}}]{source, }
+\item[{vector$<$ {\bf boolean\+\_\+path\+\_\+set}$<$ T $>$ $>$ \&}]{ps}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a93c3d0fc761980ddfc4e8235279e9601}{}\label{namespacelgraph_1_1traversal_a93c3d0fc761980ddfc4e8235279e9601}
+
+
+All directed/undirected paths between a source node and any other node in the graph. 
+
+Applies Dijkstra\textquotesingle{}s algorithm for shortest-\/path finding. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected weighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt out}  & {\em ps} & All paths between the source node and all other nodes in the graph \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!wxpaths@{wxpaths}}
+\index{wxpaths@{wxpaths}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{wxpaths(const wxgraph$<$ T $>$ $\ast$\+G, vector$<$ vector$<$ node\+\_\+path\+\_\+set$<$ T $>$ $>$ $>$ \&ps)}{wxpaths(const wxgraph< T > *G, vector< vector< node_path_set< T > > > &ps)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void lgraph\+::traversal\+::wxpaths (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{vector$<$ vector$<$ {\bf node\+\_\+path\+\_\+set}$<$ T $>$ $>$ $>$ \&}]{ps}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a8901a21aa64dadd3483606b4c047e6a1}{}\label{namespacelgraph_1_1traversal_a8901a21aa64dadd3483606b4c047e6a1}
+
+
+All directed/undirected paths between all pairs of nodes in the graph. 
+
+Applies Floyd-\/\+Warshall\textquotesingle{}s algorithm. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected weighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt out}  & {\em ps} & A path between the nodes \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::traversal@{lgraph\+::traversal}!wxpaths@{wxpaths}}
+\index{wxpaths@{wxpaths}!lgraph\+::traversal@{lgraph\+::traversal}}
+\subsubsection[{\texorpdfstring{wxpaths(const wxgraph$<$ T $>$ $\ast$\+G, vector$<$ vector$<$ boolean\+\_\+path\+\_\+set$<$ T $>$ $>$ $>$ \&ps)}{wxpaths(const wxgraph< T > *G, vector< vector< boolean_path_set< T > > > &ps)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void lgraph\+::traversal\+::wxpaths (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{vector$<$ vector$<$ {\bf boolean\+\_\+path\+\_\+set}$<$ T $>$ $>$ $>$ \&}]{ps}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1traversal_a8c0b0ebe4cbc4c84d4680727df88d307}{}\label{namespacelgraph_1_1traversal_a8c0b0ebe4cbc4c84d4680727df88d307}
+
+
+All directed/undirected paths between all pairs of nodes in the graph. 
+
+Applies Floyd-\/\+Warshall\textquotesingle{}s algorithm. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & A directed/undirected weighted graph \\
+\hline
+\mbox{\tt in}  & {\em source} & The source node \\
+\hline
+\mbox{\tt out}  & {\em ps} & A path between the nodes \\
+\hline
+\end{DoxyParams}

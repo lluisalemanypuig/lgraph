@@ -16,7 +16,6 @@ using namespace std;
 #include <lgraph/data_structures/wxgraph.hpp>
 #include <lgraph/utils/definitions.hpp>
 #include <lgraph/utils/static_bitset.hpp>
-#include <lgraph/utils/logger.hpp>
 
 namespace lgraph {
 namespace utils {

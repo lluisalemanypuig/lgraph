@@ -1,0 +1,219 @@
+\hypertarget{classlgraph_1_1utils_1_1svector}{}\section{lgraph\+:\+:utils\+:\+:svector$<$ T, Alloc $>$ Class Template Reference}
+\label{classlgraph_1_1utils_1_1svector}\index{lgraph\+::utils\+::svector$<$ T, Alloc $>$@{lgraph\+::utils\+::svector$<$ T, Alloc $>$}}
+
+
+Shortened vector.  
+
+
+
+
+{\ttfamily \#include $<$svector.\+hpp$>$}
+
+
+
+Inheritance diagram for lgraph\+:\+:utils\+:\+:svector$<$ T, Alloc $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=185pt]{classlgraph_1_1utils_1_1svector__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for lgraph\+:\+:utils\+:\+:svector$<$ T, Alloc $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=185pt]{classlgraph_1_1utils_1_1svector__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classlgraph_1_1utils_1_1svector_ae2587ed7933a70b8367e178dd61f90f9}{svector} ()\hypertarget{classlgraph_1_1utils_1_1svector_ae2587ed7933a70b8367e178dd61f90f9}{}\label{classlgraph_1_1utils_1_1svector_ae2587ed7933a70b8367e178dd61f90f9}
+
+\begin{DoxyCompactList}\small\item\em Empty constructor. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1svector_aae71cfdb8e4d66c25a255b4a6bc7ad1c}{svector} (size\+\_\+t n)\hypertarget{classlgraph_1_1utils_1_1svector_aae71cfdb8e4d66c25a255b4a6bc7ad1c}{}\label{classlgraph_1_1utils_1_1svector_aae71cfdb8e4d66c25a255b4a6bc7ad1c}
+
+\begin{DoxyCompactList}\small\item\em Construct a shortened vector that holds {\itshape n} elements. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1svector_a350de4ad59381c976905881480b0ed05}{svector} (size\+\_\+t n, const T \&v)\hypertarget{classlgraph_1_1utils_1_1svector_a350de4ad59381c976905881480b0ed05}{}\label{classlgraph_1_1utils_1_1svector_a350de4ad59381c976905881480b0ed05}
+
+\begin{DoxyCompactList}\small\item\em Construct a shortened vector that holds {\itshape n} elements, all of them being {\itshape v}. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1svector_a32558a0ffa1a78f192d4294e37922cbe}{$\sim$svector} ()\hypertarget{classlgraph_1_1utils_1_1svector_a32558a0ffa1a78f192d4294e37922cbe}{}\label{classlgraph_1_1utils_1_1svector_a32558a0ffa1a78f192d4294e37922cbe}
+
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1svector_a14ffd05a33eeae26ddb0909d8f64ad28}{add} (const T \&v)
+\begin{DoxyCompactList}\small\item\em Adds an element to this vector. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1svector_a9d377cbaa26f09a862334363e2d889cc}{remove} (size\+\_\+t i)
+\begin{DoxyCompactList}\small\item\em Removes the element in the i-\/th position of this vector. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1svector_ac2199e164429f7469decfa9d8f033069}{sort} ()
+\begin{DoxyCompactList}\small\item\em Sorts the elements of this vector. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1svector_a36428d7450874d526ced6f1e8e0fe353}{n\+\_\+elems} () const 
+\begin{DoxyCompactList}\small\item\em Returns the number of elements in this vector. \end{DoxyCompactList}\item 
+bool \hyperlink{classlgraph_1_1utils_1_1svector_ab17c14abafd02d01a0e1f8230ed23680}{contains} (const T \&v) const 
+\begin{DoxyCompactList}\small\item\em Looks for an element equal to {\itshape v} in the vector. \end{DoxyCompactList}\item 
+bool \hyperlink{classlgraph_1_1utils_1_1svector_aed55a2e91d3ba407b5268ba339dddd81}{position} (const T \&v, size\+\_\+t \&pos) const 
+\begin{DoxyCompactList}\small\item\em Looks for an element {\itshape v} in the vector and stores its position in {\itshape pos}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}{idx}
+\begin{DoxyCompactList}\small\item\em Pointer to the next position available in the vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \hyperlink{classlgraph_1_1utils_1_1svector_a57b29ed979371b1ad0a9ba9932f6531c}{operator$<$$<$} (ostream \&os, const \hyperlink{classlgraph_1_1utils_1_1svector}{svector} \&v)
+\begin{DoxyCompactList}\small\item\em Outputs in an ostream object the contents of this vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T, class Alloc = allocator$<$\+T$>$$>$\\*
+class lgraph\+::utils\+::svector$<$ T, Alloc $>$}
+
+Shortened vector. 
+
+This class implements a little shortcut in vectors for the ease of inserting/deleting elements without having to use iterators.
+
+A pointer determines the position next to the last element of the vector. Any element added to the vector is placed where \hyperlink{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}{idx} points at and then \hyperlink{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}{idx} is incremented. Any element removed is moved at the position before \hyperlink{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}{idx} and then \hyperlink{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}{idx} is decremented.
+
+
+\begin{DoxyParams}{Parameters}
+{\em T} & The type of the elements stored. Must implement the \textquotesingle{}=\textquotesingle{} operator. \\
+\hline
+{\em Alloc} & The allocator for the elements of type {\itshape T}. See the documentation for C++\textquotesingle{}s vectors for more details (\href{http://en.cppreference.com/w/cpp/container/vector}{\tt http\+://en.\+cppreference.\+com/w/cpp/container/vector}) \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{lgraph\+::utils\+::svector@{lgraph\+::utils\+::svector}!add@{add}}
+\index{add@{add}!lgraph\+::utils\+::svector@{lgraph\+::utils\+::svector}}
+\subsubsection[{\texorpdfstring{add(const T \&v)}{add(const T &v)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , class Alloc $>$ void {\bf lgraph\+::utils\+::svector}$<$ T, Alloc $>$\+::add (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{v}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1svector_a14ffd05a33eeae26ddb0909d8f64ad28}{}\label{classlgraph_1_1utils_1_1svector_a14ffd05a33eeae26ddb0909d8f64ad28}
+
+
+Adds an element to this vector. 
+
+If \hyperlink{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}{idx} is equal to size() then the method push\+\_\+back() is called. Otherwise, element {\itshape v} is copied to the position pointed by \hyperlink{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}{idx} and then \hyperlink{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}{idx} is incremented. 
+\begin{DoxyParams}{Parameters}
+{\em v} & Value to be added \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::utils\+::svector@{lgraph\+::utils\+::svector}!contains@{contains}}
+\index{contains@{contains}!lgraph\+::utils\+::svector@{lgraph\+::utils\+::svector}}
+\subsubsection[{\texorpdfstring{contains(const T \&v) const }{contains(const T &v) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , class Alloc $>$ bool {\bf lgraph\+::utils\+::svector}$<$ T, Alloc $>$\+::contains (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{v}
+\end{DoxyParamCaption}
+) const}\hypertarget{classlgraph_1_1utils_1_1svector_ab17c14abafd02d01a0e1f8230ed23680}{}\label{classlgraph_1_1utils_1_1svector_ab17c14abafd02d01a0e1f8230ed23680}
+
+
+Looks for an element equal to {\itshape v} in the vector. 
+
+Performs a linear search on the contents of the vector. 
+\begin{DoxyParams}{Parameters}
+{\em v} & T\+He element to be searched \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if there is an element equal to {\itshape v} in the vector. 
+\end{DoxyReturn}
+\index{lgraph\+::utils\+::svector@{lgraph\+::utils\+::svector}!n\+\_\+elems@{n\+\_\+elems}}
+\index{n\+\_\+elems@{n\+\_\+elems}!lgraph\+::utils\+::svector@{lgraph\+::utils\+::svector}}
+\subsubsection[{\texorpdfstring{n\+\_\+elems() const }{n_elems() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , class Alloc $>$ size\+\_\+t {\bf lgraph\+::utils\+::svector}$<$ T, Alloc $>$\+::n\+\_\+elems (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classlgraph_1_1utils_1_1svector_a36428d7450874d526ced6f1e8e0fe353}{}\label{classlgraph_1_1utils_1_1svector_a36428d7450874d526ced6f1e8e0fe353}
+
+
+Returns the number of elements in this vector. 
+
+\begin{DoxyReturn}{Returns}
+Returns the value of \hyperlink{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}{idx} 
+\end{DoxyReturn}
+\index{lgraph\+::utils\+::svector@{lgraph\+::utils\+::svector}!position@{position}}
+\index{position@{position}!lgraph\+::utils\+::svector@{lgraph\+::utils\+::svector}}
+\subsubsection[{\texorpdfstring{position(const T \&v, size\+\_\+t \&pos) const }{position(const T &v, size_t &pos) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , class Alloc $>$ bool {\bf lgraph\+::utils\+::svector}$<$ T, Alloc $>$\+::position (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{v, }
+\item[{size\+\_\+t \&}]{pos}
+\end{DoxyParamCaption}
+) const}\hypertarget{classlgraph_1_1utils_1_1svector_aed55a2e91d3ba407b5268ba339dddd81}{}\label{classlgraph_1_1utils_1_1svector_aed55a2e91d3ba407b5268ba339dddd81}
+
+
+Looks for an element {\itshape v} in the vector and stores its position in {\itshape pos}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em v} & The element to be searched \\
+\hline
+\mbox{\tt out}  & {\em pos} & The position of {\itshape v} in the vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if {\itshape v} is in the vector. 
+\end{DoxyReturn}
+\index{lgraph\+::utils\+::svector@{lgraph\+::utils\+::svector}!remove@{remove}}
+\index{remove@{remove}!lgraph\+::utils\+::svector@{lgraph\+::utils\+::svector}}
+\subsubsection[{\texorpdfstring{remove(size\+\_\+t i)}{remove(size_t i)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , class Alloc $>$ void {\bf lgraph\+::utils\+::svector}$<$ T, Alloc $>$\+::remove (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{i}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1svector_a9d377cbaa26f09a862334363e2d889cc}{}\label{classlgraph_1_1utils_1_1svector_a9d377cbaa26f09a862334363e2d889cc}
+
+
+Removes the element in the i-\/th position of this vector. 
+
+Places the element in the {\itshape i-\/th} position of this vector and then decrements the value of \hyperlink{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}{idx}. 
+\begin{DoxyParams}{Parameters}
+{\em i} & The index of the element to be removed. \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::utils\+::svector@{lgraph\+::utils\+::svector}!sort@{sort}}
+\index{sort@{sort}!lgraph\+::utils\+::svector@{lgraph\+::utils\+::svector}}
+\subsubsection[{\texorpdfstring{sort()}{sort()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , class Alloc $>$ void {\bf lgraph\+::utils\+::svector}$<$ T, Alloc $>$\+::sort (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1svector_ac2199e164429f7469decfa9d8f033069}{}\label{classlgraph_1_1utils_1_1svector_ac2199e164429f7469decfa9d8f033069}
+
+
+Sorts the elements of this vector. 
+
+Sorts the elements in positions \mbox{[}0,..,\hyperlink{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}{idx}) 
+
+\subsection{Friends And Related Function Documentation}
+\index{lgraph\+::utils\+::svector@{lgraph\+::utils\+::svector}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!lgraph\+::utils\+::svector@{lgraph\+::utils\+::svector}}
+\subsubsection[{\texorpdfstring{operator$<$$<$}{operator<<}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , class Alloc  = allocator$<$\+T$>$$>$ ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{os, }
+\item[{const {\bf svector}$<$ T, Alloc $>$ \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classlgraph_1_1utils_1_1svector_a57b29ed979371b1ad0a9ba9932f6531c}{}\label{classlgraph_1_1utils_1_1svector_a57b29ed979371b1ad0a9ba9932f6531c}
+
+
+Outputs in an ostream object the contents of this vector. 
+
+The contents passed to the ostream object are all those elements whose index is strictly below \hyperlink{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}{idx}. 
+
+\subsection{Member Data Documentation}
+\index{lgraph\+::utils\+::svector@{lgraph\+::utils\+::svector}!idx@{idx}}
+\index{idx@{idx}!lgraph\+::utils\+::svector@{lgraph\+::utils\+::svector}}
+\subsubsection[{\texorpdfstring{idx}{idx}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , class Alloc  = allocator$<$\+T$>$$>$ size\+\_\+t {\bf lgraph\+::utils\+::svector}$<$ T, Alloc $>$\+::idx\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}{}\label{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}
+
+
+Pointer to the next position available in the vector. 
+
+For example\+: \textbackslash{}/ contents\+: 0 1 2 3 \+\_\+\+\_\+ \hyperlink{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}{idx} points at the position after element 3 any new element added will be stored in the position pointed by \hyperlink{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}{idx} 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lgraph/data\+\_\+structures/svector.\+hpp\item 
+lgraph/data\+\_\+structures/svector.\+cpp\end{DoxyCompactItemize}

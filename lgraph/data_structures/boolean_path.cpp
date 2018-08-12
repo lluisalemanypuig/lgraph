@@ -190,9 +190,6 @@ node_path<T> boolean_path<T>::to_node_path(const xxgraph *G, node s) const {
 
 template<class T>
 void boolean_path<T>::to_node_path(const xxgraph *G, node s, node_path<T>& np) const {
-	logger<null_stream>& LOG = logger<null_stream>::get_logger();
-	LOG.log() << endl;
-
 	if (n_nodes == 0) {
 		// no vertices in the path
 		return;
@@ -211,10 +208,6 @@ void boolean_path<T>::to_node_path(const xxgraph *G, node s, node_path<T>& np) c
 
 	bool next = closest_next(G, vis, current, next_node);
 	while ( next ) {
-		LOG.log() << "prev node: " << prev_node << endl;
-		LOG.log() << "curr node: " << current << endl;
-		LOG.log() << "next node: " << next_node << endl;
-
 		np.add_node(next_node);
 		++added_nodes;
 

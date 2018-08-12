@@ -1,0 +1,577 @@
+\hypertarget{classlgraph_1_1utils_1_1static__bitset}{}\section{lgraph\+:\+:utils\+:\+:static\+\_\+bitset Class Reference}
+\label{classlgraph_1_1utils_1_1static__bitset}\index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+
+
+Bitset class.  
+
+
+
+
+{\ttfamily \#include $<$static\+\_\+bitset.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classlgraph_1_1utils_1_1static__bitset_a6bd7edf22c70684b97eed197bb8fcda5}{static\+\_\+bitset} ()\hypertarget{classlgraph_1_1utils_1_1static__bitset_a6bd7edf22c70684b97eed197bb8fcda5}{}\label{classlgraph_1_1utils_1_1static__bitset_a6bd7edf22c70684b97eed197bb8fcda5}
+
+\begin{DoxyCompactList}\small\item\em Empty constructor. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1static__bitset_afe3f6ba5ee2e9483cd25fe4f263bc798}{static\+\_\+bitset} (const string \&bs)
+\begin{DoxyCompactList}\small\item\em Construct a bitset from a string of zeros and ones. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1static__bitset_a6427ac8de435bc7c4dec36373b0b7e65}{static\+\_\+bitset} (const vector$<$ bool $>$ \&bits)
+\begin{DoxyCompactList}\small\item\em Construct a bitset from a list of Boolean values. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1static__bitset_a683aec1377830f07c5d5f53f969be569}{static\+\_\+bitset} (const \hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \&bs)\hypertarget{classlgraph_1_1utils_1_1static__bitset_a683aec1377830f07c5d5f53f969be569}{}\label{classlgraph_1_1utils_1_1static__bitset_a683aec1377830f07c5d5f53f969be569}
+
+\begin{DoxyCompactList}\small\item\em Copy-\/constructor. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1static__bitset_aabbb46d8283fffa38b39204b204999be}{$\sim$static\+\_\+bitset} ()\hypertarget{classlgraph_1_1utils_1_1static__bitset_aabbb46d8283fffa38b39204b204999be}{}\label{classlgraph_1_1utils_1_1static__bitset_aabbb46d8283fffa38b39204b204999be}
+
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1static__bitset_afad1ede9e08c9d59b641150d2203edca}{init} (size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1static__bitset_aebc02986838d70f13d3c10f390d11211}{n\+\_\+bits})
+\begin{DoxyCompactList}\small\item\em Initialise the bitset with {\itshape n\+\_\+bits} bits. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1static__bitset_a706ac4c15ed634b9087582cacc107acc}{init\+\_\+set} (size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1static__bitset_aebc02986838d70f13d3c10f390d11211}{n\+\_\+bits})
+\begin{DoxyCompactList}\small\item\em Initialise the bitset with {\itshape n\+\_\+bits} bits all of them set to 1. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1static__bitset_a6fb4d66f266593fe9c65451bf6212591}{init\+\_\+unset} (size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1static__bitset_aebc02986838d70f13d3c10f390d11211}{n\+\_\+bits})
+\begin{DoxyCompactList}\small\item\em Initialise the bitset with {\itshape n\+\_\+bits} bits all of them set to 0. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1static__bitset_a29e5c03c1895adbae2acc04f9cfb6a0f}{init} (const string \&bits)
+\begin{DoxyCompactList}\small\item\em Initialise the bitset from a string of zeros and ones. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1static__bitset_a761950dac63d9e43b1a7fb8a842e1ee8}{init} (const vector$<$ bool $>$ \&bits)
+\begin{DoxyCompactList}\small\item\em Initialise the bitset from a list of Boolean values. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1static__bitset_a6013f8230ae37554328dfe0884d89c71}{clear} ()
+\begin{DoxyCompactList}\small\item\em Frees the memory occupied by the bitset. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \& \hyperlink{classlgraph_1_1utils_1_1static__bitset_a3215c8066fffcd8eed871914d42c40b8}{operator=} (const \hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \&bs)
+\begin{DoxyCompactList}\small\item\em Asigns the contents of {\itshape bs} to this bitset. \end{DoxyCompactList}\item 
+bool \hyperlink{classlgraph_1_1utils_1_1static__bitset_addaadcc59dd1f73eaf5d95095c22b7be}{operator\mbox{[}$\,$\mbox{]}} (size\+\_\+t i) const \hypertarget{classlgraph_1_1utils_1_1static__bitset_addaadcc59dd1f73eaf5d95095c22b7be}{}\label{classlgraph_1_1utils_1_1static__bitset_addaadcc59dd1f73eaf5d95095c22b7be}
+
+\begin{DoxyCompactList}\small\item\em Returns the value of the i-\/th bit. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \hyperlink{classlgraph_1_1utils_1_1static__bitset_a8c1e2397655865931a61dac90603e107}{operator$<$=} (const \hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \&bs) const 
+\begin{DoxyCompactList}\small\item\em Inclusion operator. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \hyperlink{classlgraph_1_1utils_1_1static__bitset_a1cbeed2b62a4b9fe5eecf61d498a39ae}{operator$\sim$} () const 
+\begin{DoxyCompactList}\small\item\em Unary not operator. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \hyperlink{classlgraph_1_1utils_1_1static__bitset_a9042acb0366c5a9bfe0dc629b3bdd08a}{operator-\/} (const \hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \&bs) const 
+\begin{DoxyCompactList}\small\item\em Bitser difference operator. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \hyperlink{classlgraph_1_1utils_1_1static__bitset_a312e62c57a19b230fae738aadd184df0}{operator\&} (const \hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \&bs) const 
+\begin{DoxyCompactList}\small\item\em And operator. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \hyperlink{classlgraph_1_1utils_1_1static__bitset_a08f50dadf7a22b4372e8d7e1d57c0670}{operator$\vert$} (const \hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \&bs) const 
+\begin{DoxyCompactList}\small\item\em Or operator. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \hyperlink{classlgraph_1_1utils_1_1static__bitset_ad1073ab23820db5711c279ef5d3fce67}{operator$^\wedge$} (const \hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \&bs) const 
+\begin{DoxyCompactList}\small\item\em Exclusive-\/or operator. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \hyperlink{classlgraph_1_1utils_1_1static__bitset_a8217792890f175c8f83ca5c9aae96b34}{operator==} (const \hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \&bs) const 
+\begin{DoxyCompactList}\small\item\em Equality operator. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \& \hyperlink{classlgraph_1_1utils_1_1static__bitset_af4f4a29642e50b6efa406d5f772a0e69}{operator-\/=} (const \hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \&bs)
+\begin{DoxyCompactList}\small\item\em Difference operator. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \& \hyperlink{classlgraph_1_1utils_1_1static__bitset_aa85ff92bfb53eb3ed2fb2e1bc932ac98}{operator\&=} (const \hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \&bs)
+\begin{DoxyCompactList}\small\item\em And operator. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \& \hyperlink{classlgraph_1_1utils_1_1static__bitset_a62330084392296754cfc5e525d99cab2}{operator$\vert$=} (const \hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \&bs)
+\begin{DoxyCompactList}\small\item\em Or operator. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \& \hyperlink{classlgraph_1_1utils_1_1static__bitset_a2f07c03e35d9a5661cf573ed1eb379a6}{operator$^\wedge$=} (const \hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \&bs)
+\begin{DoxyCompactList}\small\item\em Exclusive-\/or operator. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1static__bitset_a95f2e92b2b44f7e84e0131a7bf04402d}{set\+\_\+all} ()\hypertarget{classlgraph_1_1utils_1_1static__bitset_a95f2e92b2b44f7e84e0131a7bf04402d}{}\label{classlgraph_1_1utils_1_1static__bitset_a95f2e92b2b44f7e84e0131a7bf04402d}
+
+\begin{DoxyCompactList}\small\item\em Sets all bits to 1. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1static__bitset_a38f34197224e168f40b5370c23c4243d}{unset\+\_\+all} ()\hypertarget{classlgraph_1_1utils_1_1static__bitset_a38f34197224e168f40b5370c23c4243d}{}\label{classlgraph_1_1utils_1_1static__bitset_a38f34197224e168f40b5370c23c4243d}
+
+\begin{DoxyCompactList}\small\item\em Sets all bits to 0. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1static__bitset_ac78088fe22921e615bbe49f05c4d794a}{set\+\_\+bit} (size\+\_\+t i)\hypertarget{classlgraph_1_1utils_1_1static__bitset_ac78088fe22921e615bbe49f05c4d794a}{}\label{classlgraph_1_1utils_1_1static__bitset_ac78088fe22921e615bbe49f05c4d794a}
+
+\begin{DoxyCompactList}\small\item\em Sets the {\itshape i-\/th} bit to 1. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1static__bitset_af5f2d8f8f9d244e8f4768678ed8a7077}{unset\+\_\+bit} (size\+\_\+t i)\hypertarget{classlgraph_1_1utils_1_1static__bitset_af5f2d8f8f9d244e8f4768678ed8a7077}{}\label{classlgraph_1_1utils_1_1static__bitset_af5f2d8f8f9d244e8f4768678ed8a7077}
+
+\begin{DoxyCompactList}\small\item\em Sets the {\itshape i-\/th} bit to 0. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1static__bitset_a430b19330c6f2a77f6ee15c3d652a2d6}{flip} ()
+\begin{DoxyCompactList}\small\item\em Flips the values of the bits. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1static__bitset_ae1737eb8f5aed69b6dd69c75334ef23a}{swap} (\hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \&bs)
+\begin{DoxyCompactList}\small\item\em Swaps the contents of this bitset and {\itshape bs\textquotesingle{}s}. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1static__bitset_a5e48518dc9d46c06338166c85f5f2cc3}{size} () const 
+\begin{DoxyCompactList}\small\item\em Returns the number of bits. \end{DoxyCompactList}\item 
+bool \hyperlink{classlgraph_1_1utils_1_1static__bitset_a071225c9851b9e3bbfdb778b9e20f303}{equal} (const \hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \&bs) const 
+\begin{DoxyCompactList}\small\item\em Returns whether the two bitsets are equal. \end{DoxyCompactList}\item 
+bool \hyperlink{classlgraph_1_1utils_1_1static__bitset_a789f2ac0b02c7ecc2e18f6e7a5374869}{included} (const \hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \&bs) const 
+\begin{DoxyCompactList}\small\item\em Returns true if this bitset is included in {\itshape bs}. \end{DoxyCompactList}\item 
+bool \hyperlink{classlgraph_1_1utils_1_1static__bitset_a7dd02f04251cc020b8f24085e2bc33d3}{all} () const \hypertarget{classlgraph_1_1utils_1_1static__bitset_a7dd02f04251cc020b8f24085e2bc33d3}{}\label{classlgraph_1_1utils_1_1static__bitset_a7dd02f04251cc020b8f24085e2bc33d3}
+
+\begin{DoxyCompactList}\small\item\em Returns true if all bits in this bitset are 1. \end{DoxyCompactList}\item 
+bool \hyperlink{classlgraph_1_1utils_1_1static__bitset_ad0da7d9a48299308d4567bb5199d3f5b}{any} () const \hypertarget{classlgraph_1_1utils_1_1static__bitset_ad0da7d9a48299308d4567bb5199d3f5b}{}\label{classlgraph_1_1utils_1_1static__bitset_ad0da7d9a48299308d4567bb5199d3f5b}
+
+\begin{DoxyCompactList}\small\item\em Returns true if at least one bit in this bitset is 1. \end{DoxyCompactList}\item 
+bool \hyperlink{classlgraph_1_1utils_1_1static__bitset_ada662ae7a76fca5dd0fb85e134c17647}{none} () const \hypertarget{classlgraph_1_1utils_1_1static__bitset_ada662ae7a76fca5dd0fb85e134c17647}{}\label{classlgraph_1_1utils_1_1static__bitset_ada662ae7a76fca5dd0fb85e134c17647}
+
+\begin{DoxyCompactList}\small\item\em Returns true if no bit is 1. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1static__bitset_a53dbca923e8976bbcd23e46dc9691c3c}{which} (vector$<$ size\+\_\+t $>$ \&w) const 
+\begin{DoxyCompactList}\small\item\em Returns the indexes of the bits set to 1. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1static__bitset_a8d848c930956cd1ec5b378e64dd3e274}{count} () const \hypertarget{classlgraph_1_1utils_1_1static__bitset_a8d848c930956cd1ec5b378e64dd3e274}{}\label{classlgraph_1_1utils_1_1static__bitset_a8d848c930956cd1ec5b378e64dd3e274}
+
+\begin{DoxyCompactList}\small\item\em Returns the number of bits set to 1. \end{DoxyCompactList}\item 
+string \hyperlink{classlgraph_1_1utils_1_1static__bitset_a05804b57e80d7f81af80b10e1fcd3cab}{to\+\_\+string} (const string \&sep=\char`\"{} \char`\"{}) const 
+\begin{DoxyCompactList}\small\item\em Returns this bitset as a string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1static__bitset_aa3f7a6d10e41df757ca86e3636cb85d4}{n\+\_\+bytes}\hypertarget{classlgraph_1_1utils_1_1static__bitset_aa3f7a6d10e41df757ca86e3636cb85d4}{}\label{classlgraph_1_1utils_1_1static__bitset_aa3f7a6d10e41df757ca86e3636cb85d4}
+
+\begin{DoxyCompactList}\small\item\em The number of bytes (or of chars) of this bitset. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1static__bitset_aebc02986838d70f13d3c10f390d11211}{n\+\_\+bits}\hypertarget{classlgraph_1_1utils_1_1static__bitset_aebc02986838d70f13d3c10f390d11211}{}\label{classlgraph_1_1utils_1_1static__bitset_aebc02986838d70f13d3c10f390d11211}
+
+\begin{DoxyCompactList}\small\item\em The number of bits this bitset stores. \end{DoxyCompactList}\item 
+unsigned char $\ast$ \hyperlink{classlgraph_1_1utils_1_1static__bitset_a56d277fc22bbf71a27fca530a133c9bd}{bytes}\hypertarget{classlgraph_1_1utils_1_1static__bitset_a56d277fc22bbf71a27fca530a133c9bd}{}\label{classlgraph_1_1utils_1_1static__bitset_a56d277fc22bbf71a27fca530a133c9bd}
+
+\begin{DoxyCompactList}\small\item\em The bits of this bitset, grouped by bytes (chars) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \hyperlink{classlgraph_1_1utils_1_1static__bitset_a5411e42c0490c3035daa55e92a709303}{operator$<$$<$} (ostream \&os, const \hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset} \&bitset)\hypertarget{classlgraph_1_1utils_1_1static__bitset_a5411e42c0490c3035daa55e92a709303}{}\label{classlgraph_1_1utils_1_1static__bitset_a5411e42c0490c3035daa55e92a709303}
+
+\begin{DoxyCompactList}\small\item\em Outputs this bitset formatted in a string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Bitset class. 
+
+Alternative to the bitset$<$\+T$>$ class from the C++\textquotesingle{}s Standard Library, whose size must be known at compilation time.
+
+Basically, allows to store as many bits as indicated in one of the \hyperlink{classlgraph_1_1utils_1_1static__bitset_afad1ede9e08c9d59b641150d2203edca}{init} methods. These bits are stored in a C array of elements of type \textquotesingle{}char\textquotesingle{}. For b bits
+\begin{DoxyItemize}
+\item b $<$= 8, the bitset allocates 1 char,
+\item 8 $<$ b $<$= 16, the bitset allocates 2 chars,
+\item 16 $<$ b $<$= 24, the bitset allocates 3 chars,
+\item ...
+\end{DoxyItemize}
+
+This class implements logical operations between two bitsets, like the bit-\/wise and, or, xor, difference, equality, negation, ...
+
+This class must be first initialised before its use, using one of the \hyperlink{classlgraph_1_1utils_1_1static__bitset_afad1ede9e08c9d59b641150d2203edca}{init} methods.
+
+Assuming the bits store are 0110 1001, the
+\begin{DoxyItemize}
+\item 0th bit is 0
+\item 1st bit is 1
+\item 2nd bit is 1
+\item 3rd bit is 0
+\item 4th bit is 1
+\item 5th bit is 0
+\item 6th bit is 0
+\item 7th bit is 1
+\end{DoxyItemize}
+
+If we interpreted \textquotesingle{}0110 1001\textquotesingle{} as a number in binary, then there is a fundamental difference between this way of accessing the bits and the way we would do it in base-\/2 numbers\+: the order is reversed\+:
+\begin{DoxyItemize}
+\item 0th bit is 1
+\item 1st bit is 0
+\item 2nd bit is 0
+\item 3rd bit is 1
+\item 4th bit is 0
+\item 5th bit is 1
+\item 6th bit is 1
+\item 7th bit is 0
+\end{DoxyItemize}
+
+However, a bitset is not a number in base 2.
+
+In the following methods, it will be assumed that\+:
+\begin{DoxyItemize}
+\item $\sim$ represents the unary N\+OT operator
+\item $\vert$,\&,$^\wedge$ represent the logical operations or,and,exclusive-\/or, respectively 
+\end{DoxyItemize}
+
+\subsection{Constructor \& Destructor Documentation}
+\index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}!static\+\_\+bitset@{static\+\_\+bitset}}
+\index{static\+\_\+bitset@{static\+\_\+bitset}!lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+\subsubsection[{\texorpdfstring{static\+\_\+bitset(const string \&bs)}{static_bitset(const string &bs)}}]{\setlength{\rightskip}{0pt plus 5cm}lgraph\+::utils\+::static\+\_\+bitset\+::static\+\_\+bitset (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{bs}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1static__bitset_afe3f6ba5ee2e9483cd25fe4f263bc798}{}\label{classlgraph_1_1utils_1_1static__bitset_afe3f6ba5ee2e9483cd25fe4f263bc798}
+
+
+Construct a bitset from a string of zeros and ones. 
+
+\hyperlink{classlgraph_1_1utils_1_1static__bitset_a56d277fc22bbf71a27fca530a133c9bd}{bytes}\mbox{[}i\mbox{]} = {\itshape bs}\mbox{[}i\mbox{]} \index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}!static\+\_\+bitset@{static\+\_\+bitset}}
+\index{static\+\_\+bitset@{static\+\_\+bitset}!lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+\subsubsection[{\texorpdfstring{static\+\_\+bitset(const vector$<$ bool $>$ \&bits)}{static_bitset(const vector< bool > &bits)}}]{\setlength{\rightskip}{0pt plus 5cm}lgraph\+::utils\+::static\+\_\+bitset\+::static\+\_\+bitset (
+\begin{DoxyParamCaption}
+\item[{const vector$<$ bool $>$ \&}]{bits}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1static__bitset_a6427ac8de435bc7c4dec36373b0b7e65}{}\label{classlgraph_1_1utils_1_1static__bitset_a6427ac8de435bc7c4dec36373b0b7e65}
+
+
+Construct a bitset from a list of Boolean values. 
+
+\hyperlink{classlgraph_1_1utils_1_1static__bitset_a56d277fc22bbf71a27fca530a133c9bd}{bytes}\mbox{[}i\mbox{]} = {\itshape bits}\mbox{[}i\mbox{]} 
+
+\subsection{Member Function Documentation}
+\index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}!clear@{clear}}
+\index{clear@{clear}!lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+\subsubsection[{\texorpdfstring{clear()}{clear()}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::utils\+::static\+\_\+bitset\+::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1static__bitset_a6013f8230ae37554328dfe0884d89c71}{}\label{classlgraph_1_1utils_1_1static__bitset_a6013f8230ae37554328dfe0884d89c71}
+
+
+Frees the memory occupied by the bitset. 
+
+The values \hyperlink{classlgraph_1_1utils_1_1static__bitset_aa3f7a6d10e41df757ca86e3636cb85d4}{n\+\_\+bytes} and \hyperlink{classlgraph_1_1utils_1_1static__bitset_aebc02986838d70f13d3c10f390d11211}{n\+\_\+bits} are set to 0, and the pointer \hyperlink{classlgraph_1_1utils_1_1static__bitset_a56d277fc22bbf71a27fca530a133c9bd}{bytes} to null. \index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}!equal@{equal}}
+\index{equal@{equal}!lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+\subsubsection[{\texorpdfstring{equal(const static\+\_\+bitset \&bs) const }{equal(const static_bitset &bs) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool lgraph\+::utils\+::static\+\_\+bitset\+::equal (
+\begin{DoxyParamCaption}
+\item[{const {\bf static\+\_\+bitset} \&}]{bs}
+\end{DoxyParamCaption}
+) const}\hypertarget{classlgraph_1_1utils_1_1static__bitset_a071225c9851b9e3bbfdb778b9e20f303}{}\label{classlgraph_1_1utils_1_1static__bitset_a071225c9851b9e3bbfdb778b9e20f303}
+
+
+Returns whether the two bitsets are equal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bs} & The bitset to be compared against \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if all bits in this bitset are the same as the bits in {\itshape bs}. Equivalent to \hyperlink{classlgraph_1_1utils_1_1static__bitset_a8217792890f175c8f83ca5c9aae96b34}{operator==}.($\ast$this, bs).\hyperlink{classlgraph_1_1utils_1_1static__bitset_a7dd02f04251cc020b8f24085e2bc33d3}{all()} but faster. 
+\end{DoxyReturn}
+\index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}!flip@{flip}}
+\index{flip@{flip}!lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+\subsubsection[{\texorpdfstring{flip()}{flip()}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::utils\+::static\+\_\+bitset\+::flip (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1static__bitset_a430b19330c6f2a77f6ee15c3d652a2d6}{}\label{classlgraph_1_1utils_1_1static__bitset_a430b19330c6f2a77f6ee15c3d652a2d6}
+
+
+Flips the values of the bits. 
+
+All 0 bits are set to 1, and all 1 bits are set to 0. \index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}!included@{included}}
+\index{included@{included}!lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+\subsubsection[{\texorpdfstring{included(const static\+\_\+bitset \&bs) const }{included(const static_bitset &bs) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool lgraph\+::utils\+::static\+\_\+bitset\+::included (
+\begin{DoxyParamCaption}
+\item[{const {\bf static\+\_\+bitset} \&}]{bs}
+\end{DoxyParamCaption}
+) const}\hypertarget{classlgraph_1_1utils_1_1static__bitset_a789f2ac0b02c7ecc2e18f6e7a5374869}{}\label{classlgraph_1_1utils_1_1static__bitset_a789f2ac0b02c7ecc2e18f6e7a5374869}
+
+
+Returns true if this bitset is included in {\itshape bs}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bs} & The bitset to be compared against \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if all set bits in this bitset are also set in {\itshape bs}. Equivalent to \hyperlink{classlgraph_1_1utils_1_1static__bitset_a8c1e2397655865931a61dac90603e107}{operator$<$=}.($\ast$this, bs).\hyperlink{classlgraph_1_1utils_1_1static__bitset_a7dd02f04251cc020b8f24085e2bc33d3}{all()} but faster. 
+\end{DoxyReturn}
+\index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}!init@{init}}
+\index{init@{init}!lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+\subsubsection[{\texorpdfstring{init(size\+\_\+t n\+\_\+bits)}{init(size_t n_bits)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::utils\+::static\+\_\+bitset\+::init (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{n\+\_\+bits}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1static__bitset_afad1ede9e08c9d59b641150d2203edca}{}\label{classlgraph_1_1utils_1_1static__bitset_afad1ede9e08c9d59b641150d2203edca}
+
+
+Initialise the bitset with {\itshape n\+\_\+bits} bits. 
+
+Initialises this bitset so that it allocates enough space for {\itshape n\+\_\+bits} bits 
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+bits} & The number of bits to allocate \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}!init@{init}}
+\index{init@{init}!lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+\subsubsection[{\texorpdfstring{init(const string \&bits)}{init(const string &bits)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::utils\+::static\+\_\+bitset\+::init (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{bits}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1static__bitset_a29e5c03c1895adbae2acc04f9cfb6a0f}{}\label{classlgraph_1_1utils_1_1static__bitset_a29e5c03c1895adbae2acc04f9cfb6a0f}
+
+
+Initialise the bitset from a string of zeros and ones. 
+
+\hyperlink{classlgraph_1_1utils_1_1static__bitset_a56d277fc22bbf71a27fca530a133c9bd}{bytes}\mbox{[}i\mbox{]} = {\itshape bits}\mbox{[}i\mbox{]} \index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}!init@{init}}
+\index{init@{init}!lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+\subsubsection[{\texorpdfstring{init(const vector$<$ bool $>$ \&bits)}{init(const vector< bool > &bits)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::utils\+::static\+\_\+bitset\+::init (
+\begin{DoxyParamCaption}
+\item[{const vector$<$ bool $>$ \&}]{bits}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1static__bitset_a761950dac63d9e43b1a7fb8a842e1ee8}{}\label{classlgraph_1_1utils_1_1static__bitset_a761950dac63d9e43b1a7fb8a842e1ee8}
+
+
+Initialise the bitset from a list of Boolean values. 
+
+\hyperlink{classlgraph_1_1utils_1_1static__bitset_a56d277fc22bbf71a27fca530a133c9bd}{bytes}\mbox{[}i\mbox{]} = {\itshape bits}\mbox{[}i\mbox{]} \index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}!init\+\_\+set@{init\+\_\+set}}
+\index{init\+\_\+set@{init\+\_\+set}!lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+\subsubsection[{\texorpdfstring{init\+\_\+set(size\+\_\+t n\+\_\+bits)}{init_set(size_t n_bits)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::utils\+::static\+\_\+bitset\+::init\+\_\+set (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{n\+\_\+bits}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1static__bitset_a706ac4c15ed634b9087582cacc107acc}{}\label{classlgraph_1_1utils_1_1static__bitset_a706ac4c15ed634b9087582cacc107acc}
+
+
+Initialise the bitset with {\itshape n\+\_\+bits} bits all of them set to 1. 
+
+Initialises this bitset so that it allocates enough space for {\itshape n\+\_\+bits} bits all of them set to 1. 
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+bits} & The number of bits to allocate \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}!init\+\_\+unset@{init\+\_\+unset}}
+\index{init\+\_\+unset@{init\+\_\+unset}!lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+\subsubsection[{\texorpdfstring{init\+\_\+unset(size\+\_\+t n\+\_\+bits)}{init_unset(size_t n_bits)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::utils\+::static\+\_\+bitset\+::init\+\_\+unset (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{n\+\_\+bits}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1static__bitset_a6fb4d66f266593fe9c65451bf6212591}{}\label{classlgraph_1_1utils_1_1static__bitset_a6fb4d66f266593fe9c65451bf6212591}
+
+
+Initialise the bitset with {\itshape n\+\_\+bits} bits all of them set to 0. 
+
+Initialises this bitset so that it allocates enough space for {\itshape n\+\_\+bits} bits all of them set to 0. 
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+bits} & The number of bits to allocate \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}!operator\&@{operator\&}}
+\index{operator\&@{operator\&}!lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+\subsubsection[{\texorpdfstring{operator\&(const static\+\_\+bitset \&bs) const }{operator&(const static_bitset &bs) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf static\+\_\+bitset} lgraph\+::utils\+::static\+\_\+bitset\+::operator\& (
+\begin{DoxyParamCaption}
+\item[{const {\bf static\+\_\+bitset} \&}]{bs}
+\end{DoxyParamCaption}
+) const}\hypertarget{classlgraph_1_1utils_1_1static__bitset_a312e62c57a19b230fae738aadd184df0}{}\label{classlgraph_1_1utils_1_1static__bitset_a312e62c57a19b230fae738aadd184df0}
+
+
+And operator. 
+
+\begin{DoxyReturn}{Returns}
+Returns a bitset s where the i-\/th bit of s, s\mbox{[}i\mbox{]}, is s\mbox{[}i\mbox{]} \+:= this\mbox{[}i\mbox{]} \& bs\mbox{[}i\mbox{]}\+: 
+\end{DoxyReturn}
+\index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}!operator\&=@{operator\&=}}
+\index{operator\&=@{operator\&=}!lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+\subsubsection[{\texorpdfstring{operator\&=(const static\+\_\+bitset \&bs)}{operator&=(const static_bitset &bs)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf static\+\_\+bitset} \& lgraph\+::utils\+::static\+\_\+bitset\+::operator\&= (
+\begin{DoxyParamCaption}
+\item[{const {\bf static\+\_\+bitset} \&}]{bs}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1static__bitset_aa85ff92bfb53eb3ed2fb2e1bc932ac98}{}\label{classlgraph_1_1utils_1_1static__bitset_aa85ff92bfb53eb3ed2fb2e1bc932ac98}
+
+
+And operator. 
+
+See \hyperlink{classlgraph_1_1utils_1_1static__bitset_a312e62c57a19b230fae738aadd184df0}{operator\&} for details \index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+\subsubsection[{\texorpdfstring{operator-\/(const static\+\_\+bitset \&bs) const }{operator-(const static_bitset &bs) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf static\+\_\+bitset} lgraph\+::utils\+::static\+\_\+bitset\+::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf static\+\_\+bitset} \&}]{bs}
+\end{DoxyParamCaption}
+) const}\hypertarget{classlgraph_1_1utils_1_1static__bitset_a9042acb0366c5a9bfe0dc629b3bdd08a}{}\label{classlgraph_1_1utils_1_1static__bitset_a9042acb0366c5a9bfe0dc629b3bdd08a}
+
+
+Bitser difference operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bs} & Bitset to be operated with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a bitset s where the i-\/th bit of s, s\mbox{[}i\mbox{]}, is s\mbox{[}i\mbox{]} = this\mbox{[}i\mbox{]} \& $\sim$bs\mbox{[}i\mbox{]}\+:
+\end{DoxyReturn}
+
+\begin{DoxyItemize}
+\item 1 -\/ 0 = 1
+\item 1 -\/ 1 = 1
+\item 0 -\/ . = 0 
+\end{DoxyItemize}\index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+\subsubsection[{\texorpdfstring{operator-\/=(const static\+\_\+bitset \&bs)}{operator-=(const static_bitset &bs)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf static\+\_\+bitset} \& lgraph\+::utils\+::static\+\_\+bitset\+::operator-\/= (
+\begin{DoxyParamCaption}
+\item[{const {\bf static\+\_\+bitset} \&}]{bs}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1static__bitset_af4f4a29642e50b6efa406d5f772a0e69}{}\label{classlgraph_1_1utils_1_1static__bitset_af4f4a29642e50b6efa406d5f772a0e69}
+
+
+Difference operator. 
+
+See \hyperlink{classlgraph_1_1utils_1_1static__bitset_a9042acb0366c5a9bfe0dc629b3bdd08a}{operator-\/} for details \index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+\subsubsection[{\texorpdfstring{operator$<$=(const static\+\_\+bitset \&bs) const }{operator<=(const static_bitset &bs) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf static\+\_\+bitset} lgraph\+::utils\+::static\+\_\+bitset\+::operator$<$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf static\+\_\+bitset} \&}]{bs}
+\end{DoxyParamCaption}
+) const}\hypertarget{classlgraph_1_1utils_1_1static__bitset_a8c1e2397655865931a61dac90603e107}{}\label{classlgraph_1_1utils_1_1static__bitset_a8c1e2397655865931a61dac90603e107}
+
+
+Inclusion operator. 
+
+Applies an element-\/wise implication operation 
+\begin{DoxyParams}{Parameters}
+{\em bs} & Bitset to be compared again \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a bitset s where the i-\/th bit of s, s\mbox{[}i\mbox{]}, is s\mbox{[}i\mbox{]} = $\sim$(this\mbox{[}i\mbox{]}) $\vert$ bs\mbox{[}i\mbox{]} = this\mbox{[}i\mbox{]} -\/$>$ bs\mbox{[}i\mbox{]}
+\end{DoxyReturn}
+
+\begin{DoxyItemize}
+\item 0 $<$= 0\+: 1
+\item 0 $<$= 1\+: 1
+\item 1 $<$= 0\+: 0
+\item 1 $<$= 1\+: 1 
+\end{DoxyItemize}\index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}!operator=@{operator=}}
+\index{operator=@{operator=}!lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+\subsubsection[{\texorpdfstring{operator=(const static\+\_\+bitset \&bs)}{operator=(const static_bitset &bs)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf static\+\_\+bitset} \& lgraph\+::utils\+::static\+\_\+bitset\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf static\+\_\+bitset} \&}]{bs}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1static__bitset_a3215c8066fffcd8eed871914d42c40b8}{}\label{classlgraph_1_1utils_1_1static__bitset_a3215c8066fffcd8eed871914d42c40b8}
+
+
+Asigns the contents of {\itshape bs} to this bitset. 
+
+In case this bitset has different size from {\itshape bs\textquotesingle{}s} then its memory is freed and reallocated. In case the sizes are equal then the contents are overriden with {\itshape bs\textquotesingle{}s}. 
+\begin{DoxyParams}{Parameters}
+{\em bs} & The bitset to be copied \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a reference to this bitset 
+\end{DoxyReturn}
+\index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}!operator==@{operator==}}
+\index{operator==@{operator==}!lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+\subsubsection[{\texorpdfstring{operator==(const static\+\_\+bitset \&bs) const }{operator==(const static_bitset &bs) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf static\+\_\+bitset} lgraph\+::utils\+::static\+\_\+bitset\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf static\+\_\+bitset} \&}]{bs}
+\end{DoxyParamCaption}
+) const}\hypertarget{classlgraph_1_1utils_1_1static__bitset_a8217792890f175c8f83ca5c9aae96b34}{}\label{classlgraph_1_1utils_1_1static__bitset_a8217792890f175c8f83ca5c9aae96b34}
+
+
+Equality operator. 
+
+\begin{DoxyReturn}{Returns}
+Returns a bitset s where the i-\/th bit of s is set to 1 if, and only if, the i-\/th bit of this bitset and the i-\/th of {\itshape bs} are equal. (s\mbox{[}i\mbox{]} \+:= $\sim$(this\mbox{[}i\mbox{]}$^\wedge$bs\mbox{[}i\mbox{]}) 
+\end{DoxyReturn}
+\index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}!operator$^\wedge$@{operator$^\wedge$}}
+\index{operator$^\wedge$@{operator$^\wedge$}!lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+\subsubsection[{\texorpdfstring{operator$^\wedge$(const static\+\_\+bitset \&bs) const }{operator^(const static_bitset &bs) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf static\+\_\+bitset} lgraph\+::utils\+::static\+\_\+bitset\+::operator$^\wedge$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf static\+\_\+bitset} \&}]{bs}
+\end{DoxyParamCaption}
+) const}\hypertarget{classlgraph_1_1utils_1_1static__bitset_ad1073ab23820db5711c279ef5d3fce67}{}\label{classlgraph_1_1utils_1_1static__bitset_ad1073ab23820db5711c279ef5d3fce67}
+
+
+Exclusive-\/or operator. 
+
+\begin{DoxyReturn}{Returns}
+Returns a bitset s where the i-\/th bit of s, s\mbox{[}i\mbox{]}, is s\mbox{[}i\mbox{]} \+:= this\mbox{[}i\mbox{]} $^\wedge$ bs\mbox{[}i\mbox{]}\+: 
+\end{DoxyReturn}
+\index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}!operator$^\wedge$=@{operator$^\wedge$=}}
+\index{operator$^\wedge$=@{operator$^\wedge$=}!lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+\subsubsection[{\texorpdfstring{operator$^\wedge$=(const static\+\_\+bitset \&bs)}{operator^=(const static_bitset &bs)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf static\+\_\+bitset} \& lgraph\+::utils\+::static\+\_\+bitset\+::operator$^\wedge$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf static\+\_\+bitset} \&}]{bs}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1static__bitset_a2f07c03e35d9a5661cf573ed1eb379a6}{}\label{classlgraph_1_1utils_1_1static__bitset_a2f07c03e35d9a5661cf573ed1eb379a6}
+
+
+Exclusive-\/or operator. 
+
+See \hyperlink{classlgraph_1_1utils_1_1static__bitset_ad1073ab23820db5711c279ef5d3fce67}{operator$^\wedge$} for details \index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}!operator\texttt{"|}@{operator\texttt{"|}}}
+\index{operator\texttt{"|}@{operator\texttt{"|}}!lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+\subsubsection[{\texorpdfstring{operator\texttt{"|}(const static\+\_\+bitset \&bs) const }{operator|(const static_bitset &bs) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf static\+\_\+bitset} lgraph\+::utils\+::static\+\_\+bitset\+::operator$\vert$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf static\+\_\+bitset} \&}]{bs}
+\end{DoxyParamCaption}
+) const}\hypertarget{classlgraph_1_1utils_1_1static__bitset_a08f50dadf7a22b4372e8d7e1d57c0670}{}\label{classlgraph_1_1utils_1_1static__bitset_a08f50dadf7a22b4372e8d7e1d57c0670}
+
+
+Or operator. 
+
+\begin{DoxyReturn}{Returns}
+Returns a bitset s where the i-\/th bit of s, s\mbox{[}i\mbox{]}, is s\mbox{[}i\mbox{]} \+:= this\mbox{[}i\mbox{]} $\vert$ bs\mbox{[}i\mbox{]}\+: 
+\end{DoxyReturn}
+\index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}!operator\texttt{"|}=@{operator\texttt{"|}=}}
+\index{operator\texttt{"|}=@{operator\texttt{"|}=}!lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+\subsubsection[{\texorpdfstring{operator\texttt{"|}=(const static\+\_\+bitset \&bs)}{operator|=(const static_bitset &bs)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf static\+\_\+bitset} \& lgraph\+::utils\+::static\+\_\+bitset\+::operator$\vert$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf static\+\_\+bitset} \&}]{bs}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1static__bitset_a62330084392296754cfc5e525d99cab2}{}\label{classlgraph_1_1utils_1_1static__bitset_a62330084392296754cfc5e525d99cab2}
+
+
+Or operator. 
+
+See \hyperlink{classlgraph_1_1utils_1_1static__bitset_a08f50dadf7a22b4372e8d7e1d57c0670}{operator$\vert$} for details \index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}!operator````~@{operator$\sim$}}
+\index{operator````~@{operator$\sim$}!lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+\subsubsection[{\texorpdfstring{operator$\sim$() const }{operator~() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf static\+\_\+bitset} lgraph\+::utils\+::static\+\_\+bitset\+::operator$\sim$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classlgraph_1_1utils_1_1static__bitset_a1cbeed2b62a4b9fe5eecf61d498a39ae}{}\label{classlgraph_1_1utils_1_1static__bitset_a1cbeed2b62a4b9fe5eecf61d498a39ae}
+
+
+Unary not operator. 
+
+\begin{DoxyReturn}{Returns}
+Returns the bits of this bitset flipped (what was a 1 is now a 0, and viceversa). 
+\end{DoxyReturn}
+\index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}!size@{size}}
+\index{size@{size}!lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+\subsubsection[{\texorpdfstring{size() const }{size() const }}]{\setlength{\rightskip}{0pt plus 5cm}size\+\_\+t lgraph\+::utils\+::static\+\_\+bitset\+::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classlgraph_1_1utils_1_1static__bitset_a5e48518dc9d46c06338166c85f5f2cc3}{}\label{classlgraph_1_1utils_1_1static__bitset_a5e48518dc9d46c06338166c85f5f2cc3}
+
+
+Returns the number of bits. 
+
+\begin{DoxyReturn}{Returns}
+Returns the value of \hyperlink{classlgraph_1_1utils_1_1static__bitset_aebc02986838d70f13d3c10f390d11211}{n\+\_\+bits} 
+\end{DoxyReturn}
+\index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}!swap@{swap}}
+\index{swap@{swap}!lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+\subsubsection[{\texorpdfstring{swap(static\+\_\+bitset \&bs)}{swap(static_bitset &bs)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::utils\+::static\+\_\+bitset\+::swap (
+\begin{DoxyParamCaption}
+\item[{{\bf static\+\_\+bitset} \&}]{bs}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1static__bitset_ae1737eb8f5aed69b6dd69c75334ef23a}{}\label{classlgraph_1_1utils_1_1static__bitset_ae1737eb8f5aed69b6dd69c75334ef23a}
+
+
+Swaps the contents of this bitset and {\itshape bs\textquotesingle{}s}. 
+
+\begin{DoxyPrecond}{Precondition}
+Both bitsets must have been initialised 
+\end{DoxyPrecond}
+\index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}!to\+\_\+string@{to\+\_\+string}}
+\index{to\+\_\+string@{to\+\_\+string}!lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+\subsubsection[{\texorpdfstring{to\+\_\+string(const string \&sep="" "") const }{to_string(const string &sep=" ") const }}]{\setlength{\rightskip}{0pt plus 5cm}string lgraph\+::utils\+::static\+\_\+bitset\+::to\+\_\+string (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{sep = {\ttfamily \char`\"{}~\char`\"{}}}
+\end{DoxyParamCaption}
+) const}\hypertarget{classlgraph_1_1utils_1_1static__bitset_a05804b57e80d7f81af80b10e1fcd3cab}{}\label{classlgraph_1_1utils_1_1static__bitset_a05804b57e80d7f81af80b10e1fcd3cab}
+
+
+Returns this bitset as a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sep} & A string used as spacing between the bits \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}!which@{which}}
+\index{which@{which}!lgraph\+::utils\+::static\+\_\+bitset@{lgraph\+::utils\+::static\+\_\+bitset}}
+\subsubsection[{\texorpdfstring{which(vector$<$ size\+\_\+t $>$ \&w) const }{which(vector< size_t > &w) const }}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::utils\+::static\+\_\+bitset\+::which (
+\begin{DoxyParamCaption}
+\item[{vector$<$ size\+\_\+t $>$ \&}]{w}
+\end{DoxyParamCaption}
+) const}\hypertarget{classlgraph_1_1utils_1_1static__bitset_a53dbca923e8976bbcd23e46dc9691c3c}{}\label{classlgraph_1_1utils_1_1static__bitset_a53dbca923e8976bbcd23e46dc9691c3c}
+
+
+Returns the indexes of the bits set to 1. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em w} & A vector where w\mbox{[}i\mbox{]} = j if, and only if, the j-\/th bit of the bitset is set to 1. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lgraph/utils/static\+\_\+bitset.\+hpp\item 
+lgraph/utils/static\+\_\+bitset.\+cpp\end{DoxyCompactItemize}

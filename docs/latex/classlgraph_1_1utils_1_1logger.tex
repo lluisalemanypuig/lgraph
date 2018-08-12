@@ -1,0 +1,120 @@
+\hypertarget{classlgraph_1_1utils_1_1logger}{}\section{lgraph\+:\+:utils\+:\+:logger$<$ out\+\_\+stream $>$ Class Template Reference}
+\label{classlgraph_1_1utils_1_1logger}\index{lgraph\+::utils\+::logger$<$ out\+\_\+stream $>$@{lgraph\+::utils\+::logger$<$ out\+\_\+stream $>$}}
+
+
+Class for message display.  
+
+
+
+
+{\ttfamily \#include $<$logger.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+out\+\_\+stream \& \hyperlink{classlgraph_1_1utils_1_1logger_aa5458017ffc7b65faff47f55a056c2c5}{log} ()
+\begin{DoxyCompactList}\small\item\em Returns the stream to output information to. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1logger_ad1e8cb0e83b2d9a90cbcd57e59fcca32}{logger} (const \hyperlink{classlgraph_1_1utils_1_1logger}{logger} \&L)=delete\hypertarget{classlgraph_1_1utils_1_1logger_ad1e8cb0e83b2d9a90cbcd57e59fcca32}{}\label{classlgraph_1_1utils_1_1logger_ad1e8cb0e83b2d9a90cbcd57e59fcca32}
+
+\begin{DoxyCompactList}\small\item\em Deleted copy-\/constructor. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1logger_aabccbc9d1ef5c0eb431eca9f08e4af12}{operator=} (const \hyperlink{classlgraph_1_1utils_1_1logger}{logger} \&L)=delete\hypertarget{classlgraph_1_1utils_1_1logger_aabccbc9d1ef5c0eb431eca9f08e4af12}{}\label{classlgraph_1_1utils_1_1logger_aabccbc9d1ef5c0eb431eca9f08e4af12}
+
+\begin{DoxyCompactList}\small\item\em Deleted assignation operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classlgraph_1_1utils_1_1logger}{logger} \& \hyperlink{classlgraph_1_1utils_1_1logger_af9d53836a2c37c72a08cf14f7e071abb}{get\+\_\+logger} (const std\+::string \&o=\char`\"{}log.\+txt\char`\"{})
+\begin{DoxyCompactList}\small\item\em Returns the only instance of this class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classlgraph_1_1utils_1_1logger_ace2028a4b282e3cb6593f6f62fee2f2b}{logger} ()
+\begin{DoxyCompactList}\small\item\em Empty constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+out\+\_\+stream \hyperlink{classlgraph_1_1utils_1_1logger_aafc1693e642fc967fed16b78d5cd8a5f}{fout}\hypertarget{classlgraph_1_1utils_1_1logger_aafc1693e642fc967fed16b78d5cd8a5f}{}\label{classlgraph_1_1utils_1_1logger_aafc1693e642fc967fed16b78d5cd8a5f}
+
+\begin{DoxyCompactList}\small\item\em The stream object to output the strings to. \end{DoxyCompactList}\item 
+bool \hyperlink{classlgraph_1_1utils_1_1logger_a2e159433db285ccfc8120a4aa4ea7481}{opened}\hypertarget{classlgraph_1_1utils_1_1logger_a2e159433db285ccfc8120a4aa4ea7481}{}\label{classlgraph_1_1utils_1_1logger_a2e159433db285ccfc8120a4aa4ea7481}
+
+\begin{DoxyCompactList}\small\item\em In case of an stream to a file, is it opened? \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class out\+\_\+stream = std\+::ofstream$>$\\*
+class lgraph\+::utils\+::logger$<$ out\+\_\+stream $>$}
+
+Class for message display. 
+
+Singleton class to centralise the displaying of messages either to the standard or error output, or to a file. For example, during development it is useful to have \char`\"{}couts\char`\"{} to display the values of variables, to show the progress of algorithms, ...
+
+Once the development is complete, one may want to get rid of these couts by deleting them. This may be a bad idea since bugs may be discovered later in the development of the project. To avoid their deletion/comment-\/out, the logger can be used in the following way\+: \begin{DoxyVerb}logger<cout_stream>& LOG = logger<cout_stream>::get_logger();   // declare the object\n
+LOG.log() << "message 1" << endl;   // Use it   \n
+LOG.log() << "message 2" << endl;               \n\n
+\end{DoxyVerb}
+
+
+Once we are not interested in displaying messages anymore, change the declaration of the object to\+:
+
+logger$<$null\+\_\+stream$>$\& L\+OG = \hyperlink{classlgraph_1_1utils_1_1logger_af9d53836a2c37c72a08cf14f7e071abb}{logger$<$null\+\_\+stream$>$\+::get\+\_\+logger()};
+
+The other calls displaying \char`\"{}message $\ast$\char`\"{} will have no effect. There is only one instance of this class for a \hyperlink{classlgraph_1_1utils_1_1cout__stream}{cout\+\_\+stream}, one for a \hyperlink{classlgraph_1_1utils_1_1cerr__stream}{cerr\+\_\+stream}, one for a \hyperlink{classlgraph_1_1utils_1_1null__stream}{null\+\_\+stream}, and another for a stream to a file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em out\+\_\+stream} & The ofstream type or the \hyperlink{classlgraph_1_1utils_1_1null__stream}{null\+\_\+stream}, \hyperlink{classlgraph_1_1utils_1_1cout__stream}{cout\+\_\+stream}, \hyperlink{classlgraph_1_1utils_1_1cerr__stream}{cerr\+\_\+stream}. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{lgraph\+::utils\+::logger@{lgraph\+::utils\+::logger}!logger@{logger}}
+\index{logger@{logger}!lgraph\+::utils\+::logger@{lgraph\+::utils\+::logger}}
+\subsubsection[{\texorpdfstring{logger()}{logger()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class out\+\_\+stream = std\+::ofstream$>$ {\bf lgraph\+::utils\+::logger}$<$ out\+\_\+stream $>$\+::{\bf logger} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{classlgraph_1_1utils_1_1logger_ace2028a4b282e3cb6593f6f62fee2f2b}{}\label{classlgraph_1_1utils_1_1logger_ace2028a4b282e3cb6593f6f62fee2f2b}
+
+
+Empty constructor. 
+
+Made private to make this class a singleton 
+
+\subsection{Member Function Documentation}
+\index{lgraph\+::utils\+::logger@{lgraph\+::utils\+::logger}!get\+\_\+logger@{get\+\_\+logger}}
+\index{get\+\_\+logger@{get\+\_\+logger}!lgraph\+::utils\+::logger@{lgraph\+::utils\+::logger}}
+\subsubsection[{\texorpdfstring{get\+\_\+logger(const std\+::string \&o=""log.\+txt"")}{get_logger(const std::string &o="log.txt")}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class out\+\_\+stream = std\+::ofstream$>$ static {\bf logger}\& {\bf lgraph\+::utils\+::logger}$<$ out\+\_\+stream $>$\+::get\+\_\+logger (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{o = {\ttfamily \char`\"{}log.txt\char`\"{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classlgraph_1_1utils_1_1logger_af9d53836a2c37c72a08cf14f7e071abb}{}\label{classlgraph_1_1utils_1_1logger_af9d53836a2c37c72a08cf14f7e071abb}
+
+
+Returns the only instance of this class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & In case of using a stream to a file (ofstream), indicate the name of the file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the only instance of this class of the indicated type in the template parameter. 
+\end{DoxyReturn}
+\index{lgraph\+::utils\+::logger@{lgraph\+::utils\+::logger}!log@{log}}
+\index{log@{log}!lgraph\+::utils\+::logger@{lgraph\+::utils\+::logger}}
+\subsubsection[{\texorpdfstring{log()}{log()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class out\+\_\+stream = std\+::ofstream$>$ out\+\_\+stream\& {\bf lgraph\+::utils\+::logger}$<$ out\+\_\+stream $>$\+::log (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classlgraph_1_1utils_1_1logger_aa5458017ffc7b65faff47f55a056c2c5}{}\label{classlgraph_1_1utils_1_1logger_aa5458017ffc7b65faff47f55a056c2c5}
+
+
+Returns the stream to output information to. 
+
+This works exactly like the \textquotesingle{}cout\textquotesingle{} and \textquotesingle{}cerr\textquotesingle{} ostream classes. All objects passed to this using \textquotesingle{}$<$$<$\textquotesingle{} must implement this operator. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+lgraph/utils/logger.\+hpp\end{DoxyCompactItemize}
