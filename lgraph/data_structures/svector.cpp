@@ -79,7 +79,12 @@ bool svector<T, Alloc>::position(const T& v, size_t& p) const {
 	}
 	return p != idx + 1;
 }
-	
+
+template<class T, class Alloc>
+void svector<T,Alloc>::as_vector(vector<T,Alloc>& v) const {
+	v = vector<T,Alloc>(this->begin(), this->begin() + n_elems() );
+}
+
 } // -- namespace utils
 } // -- namespace lgraph
 

@@ -36,11 +36,13 @@ class svector : public vector<T, Alloc> {
 		 * @brief Pointer to the next position available in the vector
 		 *
 		 * For example:
+		 * \verbatim
 		 *                   \/
 		 * contents: 0 1 2 3 __
-		 * @ref idx points at the position after element 3
-		 * any new element added will be stored in the position
-		 * pointed by @ref idx
+		 * \endverbatim
+		 * @ref idx points at the position after element 3.
+		 * The next new element added will be stored in the position
+		 * pointed by @ref idx.
 		 */
 		size_t idx;
 		
@@ -125,6 +127,14 @@ class svector : public vector<T, Alloc> {
 		 * @return Returns true if @e v is in the vector.
 		 */
 		bool position(const T& v, size_t& pos) const;
+
+		/**
+		 * @brief Converts this shortened vector into a regular C++'s vector.
+		 *
+		 * Makes a vector<T> with all the elements in this shortened vector
+		 * in the positions [0,..,@ref idx).
+		 */
+		void as_vector(vector<T,Alloc>& v) const;
 };
 
 } // -- namespace utils

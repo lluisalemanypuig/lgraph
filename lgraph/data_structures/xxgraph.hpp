@@ -35,28 +35,16 @@ class xxgraph {
 		size_t num_edges;
 
 		/**
-		 * @brief Returns a constant iterator to node @e u's position in the neighbourhood @e n
+		 * @brief Returns the position of node @e u's position in the neighbourhood @e n
 		 *
-		 * If the iterator returned is not at the end of the list then @e u is in the list.
+		 * If the position is equal to the number of elements of the list @e n then @e u is in the list.
 		 * Performs a linear search to find it.
 		 * @param n The neighbourhood of a node in the graph
 		 * @param u The node to look for in the neighbourhood
-		 * @return Returns a constant iterator to @e n.end() if @e u is not in the list.
-		 * Returns a constant iterator to the position of @e u if otherwise.
+		 * @return Returns a value equal to the number of elements in the list @e n if
+		 * node @e u is not in it. Returns a value smaller than that if otherwise.
 		 */
-		ncit cget_neighbour_position(const neighbourhood& n, node u) const;
-
-		/**
-		 * @brief Returns a non-constant iterator to node @e u's position in the neighbourhood @e n
-		 *
-		 * If the iterator returned is not at the end of the list then @e u is in the list.
-		 * Performs a linear search to find it.
-		 * @param n The neighbourhood of a node in the graph
-		 * @param u The node to look for in the neighbourhood
-		 * @return Returns a non-constant iterator to @e n.end() if @e u is not in the list.
-		 * Returns a non-constant iterator to the position of @e u if otherwise.
-		 */
-		nit get_neighbour_position(neighbourhood& n, node u);
+		size_t get_neighbour_position(const neighbourhood& n, node u) const;
 
 		/// Initialise the list of neighbourhoods with @e n instances
 		void initialise_adjacency_list(size_t n);

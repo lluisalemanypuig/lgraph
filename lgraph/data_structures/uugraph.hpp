@@ -33,7 +33,7 @@ class uugraph : public uxgraph {
 		/// Constructor
 		uugraph();
 		/// Destructor
-		virtual ~uugraph();
+		~uugraph();
 
 		// MODIFIERS
 

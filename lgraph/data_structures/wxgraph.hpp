@@ -11,8 +11,9 @@
 using namespace std;
 
 // Custom includes
-#include <lgraph/utils/definitions.hpp>
 #include <lgraph/data_structures/xxgraph.hpp>
+#include <lgraph/data_structures/svector.hpp>
+#include <lgraph/utils/definitions.hpp>
 
 namespace lgraph {
 namespace utils {
@@ -36,7 +37,7 @@ class wxgraph : public xxgraph {
 		 * where @ref weights[u][v] represents the weight of
 		 * edge between nodes @e u and @e v.
 		 */
-		vector<vector<T> > weights;
+		vector<weight_list<T> > weights;
 
 		// MODIFIERS
 
@@ -80,20 +81,19 @@ class wxgraph : public xxgraph {
 		 */
 		inline friend
 		ostream& operator<< (ostream& os, const wxgraph<T>& g) {
-			for (size_t i = 0; i < g.adjacency_list.size(); ++i) {
+			for (node i = 0; i < g.n_nodes(); ++i) {
 				os << i << ":";
-				ncit begin = g.adjacency_list[i].begin();
-				ncit end = g.adjacency_list[i].end();
-				auto weights_it = g.weights[i].begin();
+				const neighbourhood& ni = g.adjacency_list[i];
+				const weight_list<T>& wi = g.weights[i];
 
-				for (ncit it = begin; it != end; ++it, ++weights_it) {
-					os << " " << *it;
-					os << "(";
-					os << *weights_it;
-					os << ")";
+				for (node j = 0; j < ni.n_elems(); ++j) {
+					os << " " << ni[j];
+					os << "(" << wi[j] << ")";
 				}
 
-				if (i < g.adjacency_list.size() - 1) os << endl;
+				if (i < g.n_nodes() - 1) {
+					os << endl;
+				}
 			}
 			return os;
 		}
@@ -185,17 +185,17 @@ class wxgraph : public xxgraph {
 		T edge_weight(node u, node v) const;
 
 		/**
-		 * @brief Returns the weights to all neighbours of node @e u
-		 * @pre @e u must be in the graph
-		 */
-		void get_weights(node u, vector<T>& ws) const;
-
-		/**
 		 * @brief Returns a constant reference to all the weights of node @e u
 		 * @param u The node whose weight list is requested
 		 * @return The weight list of node @e u
 		 */
 		const vector<T>& get_weights(node u) const;
+
+		/**
+		 * @brief Returns the weights to all neighbours of node @e u
+		 * @pre @e u must be in the graph
+		 */
+		void get_weights(node u, vector<T>& ws) const;
 
 		/**
 		 * @brief Returns all unique edges of this graph

@@ -36,7 +36,7 @@ class wugraph : public wxgraph<T> {
 		/// Constructor
 		wugraph();
 		/// Destructor
-		virtual ~wugraph();
+		~wugraph();
 
 		// MODIFIERS
 

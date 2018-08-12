@@ -51,13 +51,14 @@ template<class T>
 void wugraph<T>::add_edge(node u, node v, const T& w) {
 	assert( this->has_node(u) );
 	assert( this->has_node(v) );
+	assert( not this->has_edge(u,v) );
 
-	this->adjacency_list[u].push_back(v);
-	this->adjacency_list[v].push_back(u);
-	++(this->num_edges);
+	this->adjacency_list[u].add(v);
+	this->adjacency_list[v].add(u);
+	this->weights[u].add(w);
+	this->weights[v].add(w);
 
-	this->weights[u].push_back(w);
-	this->weights[v].push_back(w);
+	this->num_edges += 1;
 }
 
 template<class T>
@@ -69,36 +70,37 @@ template<class T>
 void wugraph<T>::remove_edge(node u, node v) {
 	assert( this->has_node(u) );
 	assert( this->has_node(v) );
+	assert( this->has_edge(u,v) );
 
 	bool erased = false;
 
 	neighbourhood& nu = this->adjacency_list[u];
-	nit it_u = this->get_neighbour_position(nu, v);
-	if (it_u != nu.end()) {
-		nu.erase(it_u);
-
-		// compute the position (in 0, 1, 2, ...)
-		size_t pos = it_u - this->adjacency_list[u].begin();
-		// delete the element using an iterator
-		this->weights[u].erase(this->weights[u].begin() + pos);
-
-		erased = true;
-	}
-
+	weight_list<T>& wu = this->weights[u];
 	neighbourhood& nv = this->adjacency_list[v];
-	nit it_v = this->get_neighbour_position(nv, u);
-	if (it_v != nv.end()) {
-		nv.erase(it_v);
+	weight_list<T>& wv = this->weights[v];
 
-		// compute the position (in 0, 1, 2, ...)
-		size_t pos = it_v - this->adjacency_list[v].begin();
-		// delete the element using an iterator
-		this->weights[v].erase(this->weights[v].begin() + pos);
-
+	// find the position of node v in neighbourhood of u
+	// delete the neighbour and the corresponding weight
+	size_t posu = this->get_neighbour_position(nu, v);
+	if (posu < nu.n_elems()) {
+		nu.remove(posu);
+		wu.remove(posu);
 		erased = true;
 	}
 
-	this->num_edges -= erased;
+	// find the position of node u in neighbourhood of v
+	// delete the neighbour and the corresponding weight
+	size_t posv = this->get_neighbour_position(nv, u);
+	if (posv < nv.n_elems()) {
+		nv.remove(posv);
+		wv.remove(posv);
+		erased = true;
+	}
+
+	// decrease number of edges only if necessary
+	if (erased) {
+		this->num_edges -= 1;
+	}
 }
 
 // GETTERS

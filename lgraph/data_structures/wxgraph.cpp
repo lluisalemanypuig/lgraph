@@ -7,7 +7,7 @@ namespace utils {
 
 template<class T>
 void wxgraph<T>::initialise_weights(size_t n) {
-	weights = vector<vector<T> >(n);
+	weights = vector<weight_list<T> >(n);
 }
 
 template<class T>
@@ -76,30 +76,31 @@ T wxgraph<T>::edge_weight(node u, node v) const {
 	assert( has_node(u) );
 	assert( has_node(v) );
 
-	const neighbourhood& nu = adjacency_list[u];
-	const neighbourhood& nv = adjacency_list[v];
-
-	// find neighbour position in u's neighbourhood
-	if (nu.size() <= nv.size()) {
-		// find neighbour position
-		ncit cit_u = cget_neighbour_position(nu, v);
-
-		// even though it is assumed that edge (u,v) exists, it better check it anyway
-		assert(cit_u != nu.end());
-
-		const vector<T>& wu = weights[u];
-		return wu[cit_u - nu.begin()];
+	// find neighbour position in the node that has less neighbours
+	if (degree(u) <= degree(v)) {
+		// - find neighbour position
+		// - even though it is assumed that edge (u,v) exists, check it anyway
+		// - return the weight
+		const neighbourhood& nu = adjacency_list[u];
+		size_t cit_u = get_neighbour_position(nu, v);
+		assert(cit_u != nu.n_elems());
+		return weights[u][cit_u];
 	}
 
-	// find neighbour position in v's neighbourhood
-	ncit cit_v = cget_neighbour_position(nv, u);
+	// - find neighbour position in v's neighbourhood
+	// - even though it is assumed that edge (u,v) exists, check it anyway
+	// - return the weight
+	const neighbourhood& nv = adjacency_list[v];
+	size_t cit_v = get_neighbour_position(nv, u);
+	assert(cit_v != nv.n_elems());
+	return weights[v][cit_v];
+}
 
-	// even though it is assumed that edge (u,v) exists, it better check it anyway
-	assert(cit_v != nv.end());
-
-	// return the weight
-	const vector<T>& wv = weights[v];
-	return wv[cit_v - nv.begin()];
+template<class T>
+const vector<T>& wxgraph<T>::get_weights(node u) const {
+	vector<T> wu;
+	get_weights(u, wu);
+	return wu;
 }
 
 template<class T>
@@ -107,13 +108,6 @@ void wxgraph<T>::get_weights(node u, vector<T>& ws) const {
 	assert( has_node(u));
 
 	ws = weights[u];
-}
-
-template<class T>
-const vector<T>& wxgraph<T>::get_weights(node u) const {
-	assert( has_node(u) );
-
-	return weights[u];
 }
 
 } // -- namespace utils

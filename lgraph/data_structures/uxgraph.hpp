@@ -67,16 +67,17 @@ class uxgraph : public xxgraph {
 		 */
 		inline friend
 		ostream& operator<< (ostream& os, const uxgraph& g) {
-			for (size_t i = 0; i < g.adjacency_list.size(); ++i) {
+			for (node i = 0; i < g.n_nodes(); ++i) {
 				os << i << ":";
-				ncit begin = g.adjacency_list[i].begin();
-				ncit end = g.adjacency_list[i].end();
+				const neighbourhood& ni = g.adjacency_list[i];
 
-				for (ncit it = begin; it != end; ++it) {
-					os << " " << *it;
+				for (node j = 0; j < ni.n_elems(); ++j) {
+					os << " " << ni[j];
 				}
 
-				if (i < g.adjacency_list.size() - 1) os << endl;
+				if (i < g.n_nodes() - 1) {
+					os << endl;
+				}
 			}
 			return os;
 		}

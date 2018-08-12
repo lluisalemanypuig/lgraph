@@ -5,32 +5,18 @@ namespace utils {
 
 // PROTECTED
 
-ncit xxgraph::cget_neighbour_position(const neighbourhood& n, node u) const {
+size_t xxgraph::get_neighbour_position(const neighbourhood& n, node u) const {
 	bool found = false;
-	ncit cit = n.begin();
-	while (cit != n.end() and not found) {
-		if (*cit == u) {
+	size_t p = 0;
+	while (p < n.n_elems() and not found) {
+		if (n[p] == u) {
 			found = true;
 		}
 		else {
-			++cit;
+			++p;
 		}
 	}
-	return cit;
-}
-
-nit xxgraph::get_neighbour_position(neighbourhood& n, node u) {
-	bool found = false;
-	nit it = n.begin();
-	while (it != n.end() and not found) {
-		if (*it == u) {
-			found = true;
-		}
-		else {
-			++it;
-		}
-	}
-	return it;
+	return p;
 }
 
 void xxgraph::initialise_adjacency_list(size_t n) {
@@ -85,7 +71,7 @@ bool xxgraph::has_edge(node u, node v) const {
 	assert( has_node(v) );
 
 	const neighbourhood& nu = get_neighbours(u);
-	return cget_neighbour_position(nu, v) != nu.end();
+	return get_neighbour_position(nu, v) < nu.n_elems();
 }
 
 size_t xxgraph::n_nodes() const {

@@ -7,16 +7,19 @@ namespace utils {
 
 void uugraph::get_unique_edges(set<edge>& unique_edges) const {
 	// insert all edges into a set to get only those that are unique
-	for (size_t i = 0; i < adjacency_list.size(); ++i) {
+	for (node i = 0; i < n_nodes(); ++i) {
+		const neighbourhood& ni = adjacency_list[i];
 
-		for (ncit it = adjacency_list[i].begin(); it != adjacency_list[i].end(); ++it) {
+		for (size_t it = 0; it < ni.n_elems(); ++it) {
 
+			// since this graph is UNDIRECTED the order of the
+			// indices in the pair does not matter
 			edge e;
-			if (i < *it) {
-				e = edge(i, *it);
+			if (i < ni[it]) {
+				e = edge(i, ni[it]);
 			}
 			else {
-				e = edge(*it, i);
+				e = edge(ni[it], i);
 			}
 
 			bool new_edge = unique_edges.find(e) == unique_edges.end();
@@ -42,9 +45,10 @@ void uugraph::add_edge(const edge& e) {
 void uugraph::add_edge(node u, node v) {
 	assert( has_node(u) );
 	assert( has_node(v) );
+	assert( not has_edge(u,v) );
 
-	adjacency_list[u].push_back(v);
-	adjacency_list[v].push_back(u);
+	adjacency_list[u].add(v);
+	adjacency_list[v].add(u);
 	++num_edges;
 }
 
@@ -55,24 +59,33 @@ void uugraph::remove_edge(const edge& e) {
 void uugraph::remove_edge(node u, node v) {
 	assert( has_node(u) );
 	assert( has_node(v) );
+	assert( has_edge(u,v) );
 
 	bool erased = false;
 
 	neighbourhood& nu = adjacency_list[u];
-	nit it_u = get_neighbour_position(nu, v);
-	if (it_u != nu.end()) {
-		nu.erase(it_u);
-		erased = true;
-	}
-
 	neighbourhood& nv = adjacency_list[v];
-	nit it_v = get_neighbour_position(nv, u);
-	if (it_v != nv.end()) {
-		nv.erase(it_v);
+
+	// find the position of node v in neighbourhood of u
+	// delete the neighbour
+	size_t posu = get_neighbour_position(nu, v);
+	if (posu < nu.n_elems()) {
+		nu.remove(posu);
 		erased = true;
 	}
 
-	num_edges -= erased;
+	// find the position of node v in neighbourhood of u
+	// delete the neighbour
+	size_t posv = get_neighbour_position(nv, u);
+	if (posv < nv.n_elems()) {
+		nv.remove(posv);
+		erased = true;
+	}
+
+	// decrease number of edges only if necessary
+	if (erased) {
+		num_edges -= 1;
+	}
 }
 
 // GETTERS

@@ -6,13 +6,19 @@
 #include <vector>
 using namespace std;
 
+// Custom includes
+#include <lgraph/data_structures/svector.hpp>
+
 namespace lgraph {
 namespace utils {
 
 	/// Typedef for a graph node's index
 	typedef int32_t node;
 	/// Typedef for a list of nodes
-	typedef vector<node> neighbourhood;
+	typedef svector<node> neighbourhood;
+	/// Typedef for a list of weights
+	template<class T>
+	using weight_list = svector<T>;
 	/// Typedef for a constant iterator through a @ref neighbourhood
 	typedef neighbourhood::const_iterator ncit;
 	/// Typedef for a non-constant iterator through a @ref neighbourhood
