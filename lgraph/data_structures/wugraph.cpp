@@ -7,10 +7,10 @@ namespace utils {
 
 template<class T>
 void wugraph<T>::get_unique_edges(set<pair<edge, T> >& unique_edges) const {
-	for (size_t i = 0; i < wxgraph<T>::n_nodes(); ++i) {
+	for (node i = 0; i < this->n_nodes(); ++i) {
 
-		auto w_it = wxgraph<T>::weights[i].begin();
-		const neighbourhood& neigh_i = wxgraph<T>::adjacency_list[i];
+		auto w_it = this->weights[i].begin();
+		const neighbourhood& neigh_i = this->adjacency_list[i];
 
 		for (ncit it = neigh_i.begin(); it != neigh_i.end(); ++it, ++w_it) {
 
@@ -49,15 +49,15 @@ void wugraph<T>::add_edge(const edge& e, const T& w) {
 
 template<class T>
 void wugraph<T>::add_edge(node u, node v, const T& w) {
-	assert( wxgraph<T>::has_node(u) );
-	assert( wxgraph<T>::has_node(v) );
+	assert( this->has_node(u) );
+	assert( this->has_node(v) );
 
-	wxgraph<T>::adjacency_list[u].push_back(v);
-	wxgraph<T>::adjacency_list[v].push_back(u);
-	++(wxgraph<T>::num_edges);
+	this->adjacency_list[u].push_back(v);
+	this->adjacency_list[v].push_back(u);
+	++(this->num_edges);
 
-	wxgraph<T>::add_weight(u, w);
-	wxgraph<T>::add_weight(v, w);
+	this->weights[u].push_back(w);
+	this->weights[v].push_back(w);
 }
 
 template<class T>
@@ -67,28 +67,38 @@ void wugraph<T>::remove_edge(const edge& e) {
 
 template<class T>
 void wugraph<T>::remove_edge(node u, node v) {
-	assert( wxgraph<T>::has_node(u) );
-	assert( wxgraph<T>::has_node(v) );
+	assert( this->has_node(u) );
+	assert( this->has_node(v) );
 
 	bool erased = false;
 
-	neighbourhood& nu = wxgraph<T>::adjacency_list[u];
-	nit it_u = wxgraph<T>::get_neighbour_position(nu, v);
+	neighbourhood& nu = this->adjacency_list[u];
+	nit it_u = this->get_neighbour_position(nu, v);
 	if (it_u != nu.end()) {
 		nu.erase(it_u);
-		wxgraph<T>::remove_weight(u, it_u);
+
+		// compute the position (in 0, 1, 2, ...)
+		size_t pos = it_u - this->adjacency_list[u].begin();
+		// delete the element using an iterator
+		this->weights[u].erase(this->weights[u].begin() + pos);
+
 		erased = true;
 	}
 
-	neighbourhood& nv = wxgraph<T>::adjacency_list[v];
-	nit it_v = wxgraph<T>::get_neighbour_position(nv, u);
+	neighbourhood& nv = this->adjacency_list[v];
+	nit it_v = this->get_neighbour_position(nv, u);
 	if (it_v != nv.end()) {
 		nv.erase(it_v);
-		wxgraph<T>::remove_weight(v, it_v);
+
+		// compute the position (in 0, 1, 2, ...)
+		size_t pos = it_v - this->adjacency_list[v].begin();
+		// delete the element using an iterator
+		this->weights[v].erase(this->weights[v].begin() + pos);
+
 		erased = true;
 	}
 
-	wxgraph<T>::num_edges -= erased;
+	this->num_edges -= erased;
 }
 
 // GETTERS
@@ -119,7 +129,6 @@ bool wugraph<T>::read_from_file(const string& filename) {
 
 template<class T>
 bool wugraph<T>::read_from_file(const char *filename) {
-
 	ifstream fin;
 	fin.open(filename);
 	if (not fin.is_open()) {
@@ -139,8 +148,8 @@ bool wugraph<T>::read_from_file(const char *filename) {
 		max_vert_idx = max(max_vert_idx, v);
 	}
 
-	wxgraph<T>::init(max_vert_idx + 1);
-	wxgraph<T>::add_edges(edge_list, weights);
+	this->init(max_vert_idx + 1);
+	this->add_edges(edge_list, weights);
 	fin.close();
 	return true;
 }
@@ -152,7 +161,6 @@ bool wugraph<T>::store_in_file(const string& filename) {
 
 template<class T>
 bool wugraph<T>::store_in_file(const char *filename) {
-
 	ofstream fout;
 	fout.open(filename);
 	if (not fout.is_open()) {

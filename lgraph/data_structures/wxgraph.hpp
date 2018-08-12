@@ -47,20 +47,6 @@ class wxgraph : public xxgraph {
 		void clear_weights();
 
 		/**
-		 * @brief Adds a weight to a weight list
-		 * @param u The node whose weight list will be modified
-		 * @param w The weight to be added
-		 */
-		void add_weight(node u, T w);
-
-		/**
-		 * @brief Removes the weight at a certain position of a weight list
-		 * @param u The node whose weight list will be modified
-		 * @param it The weight's position to be deleted
-		 */
-		void remove_weight(node u, nit p);
-
-		/**
 		 * @brief Computes the list of unique weighted edges of this graph
 		 *
 		 * Since this graph is undirected, the edge (u,v) is the same

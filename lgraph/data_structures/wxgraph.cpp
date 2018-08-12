@@ -15,27 +15,10 @@ void wxgraph<T>::clear_weights() {
 	weights.clear();
 }
 
-template<class T>
-void wxgraph<T>::add_weight(node u, T w) {
-	assert( xxgraph::has_node(u) );
-
-	weights[u].push_back(w);
-}
-
-template<class T>
-void wxgraph<T>::remove_weight(node u, nit it) {
-	assert( xxgraph::has_node(u) );
-
-	size_t pos = it - adjacency_list[u].begin();
-	weights[u].erase( weights[u].begin() + pos );
-}
-
 // PUBLIC
 
 template<class T>
-wxgraph<T>::wxgraph() : xxgraph() {
-	weights = vector<vector<T> >();
-}
+wxgraph<T>::wxgraph() : xxgraph() { }
 
 template<class T>
 wxgraph<T>::~wxgraph() {
@@ -128,8 +111,7 @@ void wxgraph<T>::get_weights(node u, vector<T>& ws) const {
 
 template<class T>
 const vector<T>& wxgraph<T>::get_weights(node u) const {
-	assert(this->has_node(u));
-	assert(u < weights.size());
+	assert( has_node(u) );
 
 	return weights[u];
 }

@@ -65,14 +65,14 @@ class xxgraph {
 		void clear_adjacency_list();
 
 		/**
-		 * @brief Initialise the adjacency list of this graph.
+		 * @brief Initialises the adjacency list of this graph.
 		 *
 		 * The value @ref num_edges is set to 0.
 		 */
 		void initialise_parent_graph(size_t n);
 
 		/**
-		 * @brief Clear the adjacency list of this graph.
+		 * @brief Clears the adjacency list of this graph.
 		 *
 		 * The value @ref num_edges is set to 0.
 		 */
