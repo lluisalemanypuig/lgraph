@@ -73,11 +73,7 @@ class node_path {
 		inline friend
 		ostream& operator<< (ostream& os, const node_path<T>& np) {
 			if (np.size() > 0) {
-				os << np[0];
-				for (size_t i = 1; i < np.size(); ++i) {
-					os << " " << np[i];
-				}
-				os << " -> " << np.path_length;
+				os << np.to_string() << " (" << np.path_length << ")";
 			}
 			return os;
 		}
@@ -166,6 +162,22 @@ class node_path {
 
 		/// Returns a constant reference to the list of nodes
 		const vector<node>& get_nodes() const;
+
+		/**
+		 * @brief Formats this path into a string with a plain format.
+		 *
+		 * @returns Returns this path as a list of indexes, each representing
+		 * a node.
+		 */
+		string to_string() const;
+
+		/**
+		 * @brief Formats this path into a string with a plain format.
+		 *
+		 * @param[out] s Stores this path as a list of indexes, each representing
+		 * a node.
+		 */
+		void to_string(string& s) const;
 };
 
 //! Template for a list of node_path objects.

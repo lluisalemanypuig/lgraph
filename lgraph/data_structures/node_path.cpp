@@ -114,5 +114,22 @@ const vector<node>& node_path<T>::get_nodes() const {
 	return nodes;
 }
 
+template<class T>
+string node_path<T>::to_string() const {
+	string s;
+	to_string(s);
+	return s;
+}
+
+template<class T>
+void node_path<T>::to_string(string& s) const {
+	if (nodes.size() > 0) {
+		s = std::to_string(nodes[0]);
+		for (size_t i = 1; i < nodes.size(); ++i) {
+			s += " -> " + std::to_string(nodes[i]);
+		}
+	}
+}
+
 } // -- namespace utils
 } // -- namespace lgraph

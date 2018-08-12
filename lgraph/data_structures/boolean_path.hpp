@@ -132,7 +132,7 @@ class boolean_path {
 		 */
 		inline friend
 		ostream& operator<< (ostream& os, const boolean_path<T>& bp) {
-			os << bp.to_string() << " -> " << bp.path_length;
+			os << bp.to_string() << " (" << bp.path_length << ")";
 			return os;
 		}
 
