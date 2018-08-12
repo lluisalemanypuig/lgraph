@@ -13,6 +13,8 @@ namespace graph_driver {
 		cout << endl;
 		cout << "    * help: show the options of this driver" << endl;
 		cout << endl;
+		cout << "---------------------------------------" << endl;
+		cout << "MAKING A GRAPH" << endl;
 		cout << "    * init N: initialise the graph with N nodes. It is needed" << endl;
 		cout << "        before being able to safely add edges." << endl;
 		cout << endl;
@@ -30,6 +32,24 @@ namespace graph_driver {
 		cout << endl;
 		cout << "    * get-edges: prints the list of edges." << endl;
 		cout << endl;
+		cout << "---------------------------------------" << endl;
+		cout << "PATHS IN A GRAPH" << endl;
+		cout << "    * find-one-st-path U V: finds one shortest path from node U to node V" << endl;
+		cout << endl;
+		cout << "    * find-all-st-path U V: finds all the shortest paths from node U to node V" << endl;
+		cout << endl;
+		cout << "    * find-one-s-path U: finds one shortest path between node U and all the other" << endl;
+		cout << "        nodes in the graph." << endl;
+		cout << endl;
+		cout << "    * find-all-s-path U: finds all shortest paths between node U and all the other" << endl;
+		cout << "        nodes in the graph." << endl;
+		cout << endl;
+		cout << "    * find-one-path: finds one shortest path between any pair of nodes in the graph" << endl;
+		cout << endl;
+		cout << "    * find-all-path: finds all shortest paths between any pair of nodes in the graph" << endl;
+		cout << endl;
+		cout << "---------------------------------------" << endl;
+		cout << "MISCELLANEA" << endl;
 		cout << "    * clear: clear the graph." << endl;
 		cout << endl;
 		cout << "    * print: for each node, print its neighbourhood into standard output." << endl;
@@ -127,6 +147,66 @@ namespace graph_driver {
 					cout << w << ", ";
 				}
 				cout << endl;
+			}
+			else if (option == "find-one-st-path") {
+				node u,v;
+				cin >> u >> v;
+				node_path<float> p;
+				wxpath(G, u, v, p);
+				cout << p << endl;
+			}
+			else if (option == "find-all-st-path") {
+				node u,v;
+				cin >> u >> v;
+				node_path_set<float> ps;
+				wxpaths(G, u, v, ps);
+				for (const node_path<float>& p : ps) {
+					cout << "    " << p << endl;
+				}
+			}
+			else if (option == "find-one-s-path") {
+				node u;
+				cin >> u;
+				vector<node_path<float> > p;
+				wxpath(G, u, p);
+				for (node v = 0; v < G->n_nodes(); ++v) {
+					cout << u << " -> " << v << ": " << p[v] << endl;
+				}
+			}
+			else if (option == "find-all-s-path") {
+				node u;
+				cin >> u;
+				vector<node_path_set<float> > ps;
+				wxpaths(G, u, ps);
+				for (node v = 0; v < G->n_nodes(); ++v) {
+					cout << u << " -> " << v << ":" << endl;
+					const node_path_set<float>& Puv = ps[v];
+					for (const node_path<float>& p : Puv) {
+						cout << "    " << p << endl;
+					}
+				}
+			}
+			else if (option == "find-one-path") {
+				vector<vector<node_path<float> > > ps;
+				wxpath(G, ps);
+				for (node u = 0; u < G->n_nodes(); ++u) {
+					for (node v = 0; v < G->n_nodes(); ++v) {
+						cout << u << " -> " << v << ": " << ps[u][v] << endl;
+					}
+				}
+			}
+			else if (option == "find-all-path") {
+				vector<vector<node_path_set<float> > > ps;
+				wxpaths(G, ps);
+				for (node u = 0; u < G->n_nodes(); ++u) {
+					for (node v = 0; v < G->n_nodes(); ++v) {
+						cout << u << " -> " << v << ":" << endl;
+						const node_path_set<float>& Puv = ps[u][v];
+						for (const node_path<float>& p : Puv) {
+							cout << "    " << p << endl;
+						}
+					}
+				}
 			}
 			else if (option == "clear") {
 				G->clear();

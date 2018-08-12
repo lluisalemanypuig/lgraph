@@ -8,13 +8,15 @@ using namespace std;
 
 // Custom includes
 #include <lgraph/data_structures/xxgraph.hpp>
-
 #include <lgraph/data_structures/wxgraph.hpp>
 #include <lgraph/data_structures/wugraph.hpp>
-
 #include <lgraph/data_structures/uxgraph.hpp>
 #include <lgraph/data_structures/uugraph.hpp>
 using namespace lgraph::utils;
+
+#include <lgraph/graph_traversal/traversal.hpp>
+#include <lgraph/data_structures/node_path.hpp>
+using namespace lgraph::traversal;
 
 namespace graph_driver {
 
