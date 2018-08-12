@@ -48,7 +48,7 @@ HEADERS += \
         graph_traversal/dijkstra.cpp \
         graph_traversal/wxdistances.cpp \
         graph_traversal/wxpaths.cpp \
-        graph_traversal/wxpaths_boolean.cpp \
+        graph_traversal/wxpaths_boolean.cpp
 
 SOURCES += \
     metrics/clustering.cpp \
