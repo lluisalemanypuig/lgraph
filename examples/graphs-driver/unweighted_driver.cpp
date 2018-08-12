@@ -15,6 +15,7 @@ namespace graph_driver {
 		cout << endl;
 		cout << "---------------------------------------" << endl;
 		cout << "MAKING A GRAPH" << endl;
+		cout << endl;
 		cout << "    * init N: initialise the graph with N nodes. It is needed" << endl;
 		cout << "        before being able to safely add edges." << endl;
 		cout << endl;
@@ -32,6 +33,7 @@ namespace graph_driver {
 		cout << endl;
 		cout << "---------------------------------------" << endl;
 		cout << "PATHS IN A GRAPH" << endl;
+		cout << endl;
 		cout << "    * find-one-st-path U V: finds one shortest path from node U to node V" << endl;
 		cout << endl;
 		cout << "    * find-all-st-path U V: finds all the shortest paths from node U to node V" << endl;
@@ -48,6 +50,7 @@ namespace graph_driver {
 		cout << endl;
 		cout << "---------------------------------------" << endl;
 		cout << "MISCELLANEA" << endl;
+		cout << endl;
 		cout << "    * clear: clear the graph." << endl;
 		cout << endl;
 		cout << "    * print: for each node, print its neighbourhood into standard output." << endl;
