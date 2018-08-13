@@ -43,10 +43,6 @@ class uugraph : public uxgraph {
 		void remove_edge(const edge& e);
 		void remove_edge(node u, node v);
 
-		// GETTERS
-
-		void edges(vector<edge>& all_edges) const;
-
 };
 
 } // -- namespace utils

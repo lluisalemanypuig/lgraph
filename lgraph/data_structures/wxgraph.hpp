@@ -202,7 +202,14 @@ class wxgraph : public xxgraph {
 		 *
 		 * See method @ref get_unique_edges(set<pair<edge,T> >& edges)const for details.
 		 */
-		virtual void edges(vector<pair<edge, T> >& all_edges) const = 0;
+		void edges(vector<pair<edge, T> >& all_edges) const;
+
+		// I/O
+
+		bool read_from_file(const string& filename);
+		bool read_from_file(const char *filename);
+		bool store_in_file(const string& filename);
+		bool store_in_file(const char *filename);
 };
 
 } // -- namespace utils

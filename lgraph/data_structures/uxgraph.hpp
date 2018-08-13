@@ -164,7 +164,7 @@ class uxgraph : public xxgraph {
 		 *
 		 * See method @ref get_unique_edges(set<edge>&)const for details.
 		 */
-		virtual void edges(vector<edge>& all_edges) const = 0;
+		void edges(vector<edge>& all_edges) const;
 
 		// I/O
 

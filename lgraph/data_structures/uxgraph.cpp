@@ -45,6 +45,22 @@ bool uxgraph::is_weighted() const {
 	return false;
 }
 
+void uxgraph::edges(vector<edge>& all_edges) const {
+	set<edge> unique_edges;
+	get_unique_edges(unique_edges);
+
+	// Dump all unique edges from the set into the vector 'all_edges'.
+	// The size of the vector is equal to 'num_edges'
+	size_t i = 0;
+	all_edges.resize(unique_edges.size());
+	set<edge>::const_iterator it = unique_edges.begin();
+	while (it != unique_edges.end()) {
+		all_edges[i] = *it;
+		++it;
+		++i;
+	}
+}
+
 // I/O
 
 bool uxgraph::read_from_file(const string& filename) {
