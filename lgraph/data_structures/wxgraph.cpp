@@ -72,14 +72,12 @@ bool wxgraph<T>::is_weighted() const {
 }
 
 template<class T>
-const vector<T>& wxgraph<T>::get_weights(node u) const {
-	vector<T> wu;
-	get_weights(u, wu);
-	return wu;
+const weight_list<T>& wxgraph<T>::get_weights(node u) const {
+	return weights[u];
 }
 
 template<class T>
-void wxgraph<T>::get_weights(node u, vector<T>& ws) const {
+void wxgraph<T>::get_weights(node u, weight_list<T>& ws) const {
 	assert( has_node(u));
 
 	ws = weights[u];

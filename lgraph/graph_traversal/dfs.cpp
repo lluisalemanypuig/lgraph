@@ -45,7 +45,9 @@ namespace dfs {
 
 				LOG.log() << "Iterate through neighbours of " << u << endl;
 
-				for (node v : Nu) {
+				for (node v_it = 0; v_it < Nu.n_elems(); ++v_it) {
+					node v = Nu[v_it];
+
 					LOG.log() << "    Neighbour " << v << endl;
 					LOG.log() << "    ... processing ...";
 

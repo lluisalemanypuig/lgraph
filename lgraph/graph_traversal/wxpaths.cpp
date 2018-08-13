@@ -228,8 +228,7 @@ namespace traversal {
 
 			// initialise paths for each pair of neighbouring nodes
 			const neighbourhood& Nu = G->get_neighbours(u);
-			vector<T> weights;
-			G->get_weights(u, weights);
+			const weight_list<T>& weights = G->get_weights(u);
 
 			for (size_t v_it = 0; v_it < Nu.size(); ++v_it) {
 				size_t v = Nu[v_it];
@@ -280,8 +279,7 @@ namespace traversal {
 		// shortest-path from u to all its neighbours with {u,v}
 		for (size_t u = 0; u < N; ++u) {
 			const neighbourhood& Nu = G->get_neighbours(u);
-			vector<T> weights;
-			G->get_weights(u, weights);
+			const weight_list<T>& weights = G->get_weights(u);
 
 			for (size_t v_it = 0; v_it < Nu.size(); ++v_it) {
 				size_t v = Nu[v_it];

@@ -189,13 +189,13 @@ class wxgraph : public xxgraph {
 		 * @param u The node whose weight list is requested
 		 * @return The weight list of node @e u
 		 */
-		const vector<T>& get_weights(node u) const;
+		const weight_list<T>& get_weights(node u) const;
 
 		/**
 		 * @brief Returns the weights to all neighbours of node @e u
 		 * @pre @e u must be in the graph
 		 */
-		void get_weights(node u, vector<T>& ws) const;
+		void get_weights(node u, weight_list<T>& ws) const;
 
 		/**
 		 * @brief Returns all unique edges of this graph
