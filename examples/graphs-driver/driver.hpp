@@ -10,8 +10,10 @@ using namespace std;
 #include <lgraph/data_structures/xxgraph.hpp>
 #include <lgraph/data_structures/wxgraph.hpp>
 #include <lgraph/data_structures/wugraph.hpp>
+#include <lgraph/data_structures/wdgraph.hpp>
 #include <lgraph/data_structures/uxgraph.hpp>
 #include <lgraph/data_structures/uugraph.hpp>
+#include <lgraph/data_structures/udgraph.hpp>
 using namespace lgraph::utils;
 
 #include <lgraph/graph_traversal/traversal.hpp>

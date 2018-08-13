@@ -75,7 +75,7 @@ namespace graph_driver {
 		if (directed) {
 			// do nothing
 			cout << "Execute driver for directed graphs" << endl;
-			return;
+			G = new wdgraph<float>();
 		}
 		else {
 			cout << "Execute driver for undirected graphs" << endl;
@@ -151,11 +151,10 @@ namespace graph_driver {
 				cout << endl;
 			}
 			else if (option == "get-weights-node") {
-				vector<float> weights;
 				node u;
 				cin >> u;
-				G->get_weights(u, weights);
-				for (float& w : weights) {
+				const weight_list<float>& weights = G->get_weights(u);
+				for (float w : weights) {
 					cout << w << ", ";
 				}
 				cout << endl;

@@ -73,7 +73,7 @@ namespace graph_driver {
 		if (directed) {
 			// do nothing
 			cout << "Execute driver for directed graphs" << endl;
-			return;
+			G = new udgraph();
 		}
 		else {
 			cout << "Execute driver for undirected graphs" << endl;
