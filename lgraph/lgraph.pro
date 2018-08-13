@@ -16,6 +16,8 @@ HEADERS += \
         data_structures/wugraph.cpp \
         data_structures/uxgraph.hpp \
         data_structures/uugraph.hpp \
+        data_structures/udgraph.hpp \
+        data_structures/wdgraph.hpp \
     data_structures/node_path.hpp \
         data_structures/node_path.cpp \
     data_structures/boolean_path.hpp \
@@ -38,9 +40,6 @@ HEADERS += \
     epidemics/models.hpp \
         epidemics/sir.cpp \
         epidemics/sis.cpp \
-    utils/logger.hpp \
-    utils/definitions.hpp \
-    utils/static_bitset.hpp \
     graph_traversal/traversal.hpp \
         graph_traversal/dfs.hpp \
         graph_traversal/bfs.hpp \
@@ -48,16 +47,21 @@ HEADERS += \
         graph_traversal/dijkstra.cpp \
         graph_traversal/wxdistances.cpp \
         graph_traversal/wxpaths.cpp \
-        graph_traversal/wxpaths_boolean.cpp
+        graph_traversal/wxpaths_boolean.cpp \
+    utils/logger.hpp \
+    utils/definitions.hpp \
+    utils/static_bitset.hpp
 
 SOURCES += \
+    utils/static_bitset.cpp \
     metrics/clustering.cpp \
     metrics/centralities.cpp \
     metrics/distance.cpp \
-    utils/static_bitset.cpp \
     data_structures/xxgraph.cpp \
     data_structures/uxgraph.cpp \
     data_structures/uugraph.cpp \
+    data_structures/udgraph.cpp \
+    data_structures/wdgraph.cpp \
     graph_traversal/bfs.cpp \
     graph_traversal/dfs.cpp \
     graph_traversal/uxdistances.cpp \
