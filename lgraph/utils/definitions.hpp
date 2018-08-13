@@ -13,7 +13,7 @@ namespace lgraph {
 namespace utils {
 
 	/// Typedef for a graph node's index
-	typedef int32_t node;
+	typedef uint64_t node;
 	/// Typedef for a list of nodes
 	typedef svector<node> neighbourhood;
 	/// Typedef for a list of weights
