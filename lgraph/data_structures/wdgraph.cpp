@@ -16,7 +16,7 @@ void wdgraph<T>::get_unique_edges(set<pair<edge, T> >& unique_edges) const {
 			// this graph is DIRECTED so an edge is the
 			// pair of nodes (i,ni[it]) interpreted as
 			// "i points to ni[it]"
-			pair<edge, T> e((i, ni[i]), wi[i]);
+			pair<edge, T> e(edge(i, ni[i]), wi[i]);
 
 			bool new_edge = unique_edges.find(e) == unique_edges.end();
 			if (new_edge) {
@@ -84,6 +84,28 @@ void wdgraph<T>::remove_edge(node u, node v) {
 	if (erased) {
 		this->num_edges -= 1;
 	}
+}
+
+// GETTERS
+
+template<class T>
+bool wdgraph<T>::has_edge(node u, node v) const {
+	assert( this->has_node(u) );
+	assert( this->has_node(v) );
+
+	const neighbourhood& nu = this->get_neighbours(u);
+	return this->get_neighbour_position(nu, v) < nu.n_elems();
+}
+
+template<class T>
+T wdgraph<T>::edge_weight(node u, node v) const {
+	assert( this->has_node(u) );
+	assert( this->has_node(v) );
+
+	const neighbourhood& nu = this->adjacency_list[u];
+	size_t cit_u = this->get_neighbour_position(nu, v);
+	assert(cit_u < nu.n_elems());
+	return this->weights[u][cit_u];
 }
 
 } // -- namespace utils

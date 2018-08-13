@@ -182,7 +182,7 @@ class wxgraph : public xxgraph {
 		 * @brief Returns the weight of the edge (@e u, @e v)
 		 * @pre The edge (@e u, @e v) must be in the graph
 		 */
-		T edge_weight(node u, node v) const;
+		virtual T edge_weight(node u, node v) const = 0;
 
 		/**
 		 * @brief Returns a constant reference to all the weights of node @e u

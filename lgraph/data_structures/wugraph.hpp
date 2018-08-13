@@ -48,7 +48,8 @@ class wugraph : public wxgraph<T> {
 
 		// GETTERS
 
-		void edges(vector<pair<edge, T> >& all_edges) const;
+		bool has_edge(node u, node v) const;
+		T edge_weight(node u, node v) const;
 
 };
 

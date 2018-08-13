@@ -88,5 +88,28 @@ void uugraph::remove_edge(node u, node v) {
 	}
 }
 
+// GETTERS
+
+bool uugraph::has_edge(node u, node v) const {
+	assert( has_node(u) );
+	assert( has_node(v) );
+
+	// since this graph is undirected, look for the neighbour
+	// in the shortest neighbourhood list:
+	// if u's list is the shortest then look for 'v' in it
+	// if v's list is the shortest then look for 'u' in it
+
+	const neighbourhood& nu = get_neighbours(u);
+	const neighbourhood& nv = get_neighbours(v);
+
+	if (nu.size() < nv.size()) {
+		return get_neighbour_position(nu, v) < nu.n_elems();
+	}
+	else {
+		return get_neighbour_position(nv, u) < nv.n_elems();
+	}
+}
+
+
 } // -- namespace utils
 } // -- namespace lgraph

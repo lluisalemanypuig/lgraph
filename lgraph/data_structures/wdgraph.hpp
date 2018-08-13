@@ -17,9 +17,9 @@ namespace lgraph {
 namespace utils {
 
 /**
- * @brief Weighted undirected graphs.
+ * @brief Weighted directed graphs.
  *
- * This class implements the weighted, undirected graph data structure
+ * This class implements the weighted, directed graph data structure
  * based on adjacency lists.
  *
  * @param T In case of weighted graphs, this parameter indicates
@@ -48,7 +48,8 @@ class wdgraph : public wxgraph<T> {
 
 		// GETTERS
 
-		void edges(vector<pair<edge, T> >& all_edges) const;
+		bool has_edge(node u, node v) const;
+		T edge_weight(node u, node v) const;
 
 };
 

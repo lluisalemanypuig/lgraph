@@ -66,14 +66,6 @@ bool xxgraph::has_node(node u) const {
 	return u < adjacency_list.size();
 }
 
-bool xxgraph::has_edge(node u, node v) const {
-	assert( has_node(u) );
-	assert( has_node(v) );
-
-	const neighbourhood& nu = get_neighbours(u);
-	return get_neighbour_position(nu, v) < nu.n_elems();
-}
-
 size_t xxgraph::n_nodes() const {
 	return adjacency_list.size();
 }

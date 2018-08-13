@@ -73,5 +73,15 @@ void udgraph::remove_edge(node u, node v) {
 	}
 }
 
+// GETTERS
+
+bool udgraph::has_edge(node u, node v) const {
+	assert( has_node(u) );
+	assert( has_node(v) );
+
+	const neighbourhood& nu = get_neighbours(u);
+	return get_neighbour_position(nu, v) < nu.n_elems();
+}
+
 } // -- namespace utils
 } // -- namespace lgraph

@@ -107,7 +107,7 @@ class xxgraph {
 		 * @brief Returns true if there is an edge between nodes @e u and @e v
 		 * @pre @e u and @e v must be in the graph
 		 */
-		bool has_edge(node u, node v) const;
+		virtual bool has_edge(node u, node v) const = 0;
 
 		/**
 		 * @brief Returns the number of nodes

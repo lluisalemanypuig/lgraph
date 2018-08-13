@@ -72,31 +72,6 @@ bool wxgraph<T>::is_weighted() const {
 }
 
 template<class T>
-T wxgraph<T>::edge_weight(node u, node v) const {
-	assert( has_node(u) );
-	assert( has_node(v) );
-
-	// find neighbour position in the node that has less neighbours
-	if (degree(u) <= degree(v)) {
-		// - find neighbour position
-		// - even though it is assumed that edge (u,v) exists, check it anyway
-		// - return the weight
-		const neighbourhood& nu = adjacency_list[u];
-		size_t cit_u = get_neighbour_position(nu, v);
-		assert(cit_u != nu.n_elems());
-		return weights[u][cit_u];
-	}
-
-	// - find neighbour position in v's neighbourhood
-	// - even though it is assumed that edge (u,v) exists, check it anyway
-	// - return the weight
-	const neighbourhood& nv = adjacency_list[v];
-	size_t cit_v = get_neighbour_position(nv, u);
-	assert(cit_v != nv.n_elems());
-	return weights[v][cit_v];
-}
-
-template<class T>
 const vector<T>& wxgraph<T>::get_weights(node u) const {
 	vector<T> wu;
 	get_weights(u, wu);

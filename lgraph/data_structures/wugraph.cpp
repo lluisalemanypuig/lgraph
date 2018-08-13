@@ -16,11 +16,11 @@ void wugraph<T>::get_unique_edges(set<pair<edge, T> >& unique_edges) const {
 			// since this graph is UNDIRECTED the order of the
 			// indices in the pair does not matter
 			pair<edge, T> e;
-			if (i < *it) {
-				e = make_pair(edge(i, *it), *w_it);
+			if (i < ni[it]) {
+				e = make_pair(edge(i, ni[it]), wi[i]);
 			}
 			else {
-				e = make_pair(edge(*it, i), *w_it);
+				e = make_pair(edge(ni[it], i), wi[i]);
 			}
 
 			bool new_edge = unique_edges.find(e) == unique_edges.end();
@@ -102,6 +102,54 @@ void wugraph<T>::remove_edge(node u, node v) {
 	if (erased) {
 		this->num_edges -= 1;
 	}
+}
+
+// GETTERS
+
+template<class T>
+bool wugraph<T>::has_edge(node u, node v) const {
+	assert( this->has_node(u) );
+	assert( this->has_node(v) );
+
+	// since this graph is undirected, look for the neighbour
+	// in the shortest neighbourhood list:
+	// if u's list is the shortest then look for 'v' in it
+	// if v's list is the shortest then look for 'u' in it
+
+	const neighbourhood& nu = this->get_neighbours(u);
+	const neighbourhood& nv = this->get_neighbours(v);
+
+	if (nu.size() < nv.size()) {
+		return this->get_neighbour_position(nu, v) < nu.n_elems();
+	}
+	else {
+		return this->get_neighbour_position(nv, u) < nv.n_elems();
+	}
+}
+
+template<class T>
+T wugraph<T>::edge_weight(node u, node v) const {
+	assert( this->has_node(u) );
+	assert( this->has_node(v) );
+
+	const neighbourhood& nu = this->adjacency_list[u];
+	const neighbourhood& nv = this->adjacency_list[v];
+
+	// find neighbour position in the node that has less neighbours
+	// then:
+	// - find neighbour position
+	// - even though it is assumed that edge (u,v) exists, check it anyway
+	// - return the weight
+
+	if (nu.size() < nv.size()) {
+		size_t cit_u = this->get_neighbour_position(nu, v);
+		assert(cit_u < nu.n_elems());
+		return this->weights[u][cit_u];
+	}
+
+	size_t cit_v = this->get_neighbour_position(nv, u);
+	assert(cit_v < nv.n_elems());
+	return this->weights[v][cit_v];
 }
 
 } // -- namespace utils
