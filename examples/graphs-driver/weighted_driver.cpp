@@ -56,6 +56,10 @@ namespace graph_driver {
 		cout << "    * has-edge U V: outputs YES or NO depending on whether the graph" << endl;
 		cout << "        has edge (U,V) or not" << endl;
 		cout << endl;
+		cout << "    * is-weighted: outputs YES if the graph is weighted. Outputs NO if otherwise" << endl;
+		cout << endl;
+		cout << "    * is-directed: outputs YES if the graph is directed. Outputs NO if otherwise" << endl;
+		cout << endl;
 		cout << "    * clear: clear the graph." << endl;
 		cout << endl;
 		cout << "    * print: for each node, print its neighbourhood into standard output." << endl;
@@ -218,6 +222,14 @@ namespace graph_driver {
 						}
 					}
 				}
+			}
+			else if (option == "is-weighted") {
+				cout << "Is the graph weighted? "
+					 << (G->is_weighted() ? "Yes" : "No") << endl;
+			}
+			else if (option == "is-directed") {
+				cout << "Is the graph directed? "
+					 << (G->is_directed() ? "Yes" : "No") << endl;
 			}
 			else if (option == "clear") {
 				G->clear();
