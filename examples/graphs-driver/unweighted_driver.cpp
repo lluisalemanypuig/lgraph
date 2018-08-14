@@ -85,6 +85,7 @@ namespace graph_driver {
 		}
 
 		string option;
+		cout << "> ";
 		while (cin >> option and option != "quit") {
 			if (option == "help") {
 				print_unweighted_options();
@@ -227,6 +228,7 @@ namespace graph_driver {
 			else if (option == "---") {
 				cout << "-----------------------------------" << endl;
 			}
+			cout << "> ";
 		}
 
 		delete G;
