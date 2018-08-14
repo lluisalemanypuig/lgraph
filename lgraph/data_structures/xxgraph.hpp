@@ -147,6 +147,13 @@ class xxgraph {
 		 */
 		virtual bool is_weighted() const = 0;
 
+		/**
+		 * @brief Returns whether the graph is directed or undirected
+		 *
+		 * @return Returns true if the graph is directed. Returns false if otherwise.
+		 */
+		virtual bool is_directed() const = 0;
+
 		// I/O
 
 		/// Reads the graph from a file

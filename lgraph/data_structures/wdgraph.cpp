@@ -108,5 +108,10 @@ T wdgraph<T>::edge_weight(node u, node v) const {
 	return this->weights[u][cit_u];
 }
 
+template<class T>
+bool wdgraph<T>::is_directed() const {
+	return true;
+}
+
 } // -- namespace utils
 } // -- namespace lgraph

@@ -50,6 +50,7 @@ class wugraph : public wxgraph<T> {
 
 		bool has_edge(node u, node v) const;
 		T edge_weight(node u, node v) const;
+		bool is_directed() const;
 
 };
 

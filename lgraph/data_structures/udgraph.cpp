@@ -83,5 +83,9 @@ bool udgraph::has_edge(node u, node v) const {
 	return get_neighbour_position(nu, v) < nu.n_elems();
 }
 
+bool udgraph::is_directed() const {
+	return true;
+}
+
 } // -- namespace utils
 } // -- namespace lgraph

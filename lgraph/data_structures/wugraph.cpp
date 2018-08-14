@@ -152,5 +152,10 @@ T wugraph<T>::edge_weight(node u, node v) const {
 	return this->weights[v][cit_v];
 }
 
+template<class T>
+bool wugraph<T>::is_directed() const {
+	return false;
+}
+
 } // -- namespace utils
 } // -- namespace lgraph

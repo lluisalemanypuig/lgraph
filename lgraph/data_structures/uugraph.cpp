@@ -110,6 +110,9 @@ bool uugraph::has_edge(node u, node v) const {
 	}
 }
 
+bool uugraph::is_directed() const {
+	return false;
+}
 
 } // -- namespace utils
 } // -- namespace lgraph

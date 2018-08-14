@@ -46,6 +46,7 @@ class uugraph : public uxgraph {
 		// GETTERS
 
 		bool has_edge(node u, node v) const;
+		bool is_directed() const;
 
 };
 
