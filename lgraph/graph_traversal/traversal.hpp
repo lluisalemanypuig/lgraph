@@ -64,8 +64,7 @@ using namespace dijkstra;
 	 * Applies a Breadth-First Search algorithm.
 	 * @param[in] G A directed/undirected unweighted graph
 	 * @param[in] source The source node
-	 * @param[in] target The target node
-	 * @param[out] xudistances The i-th position contains the directed/undirected distance
+	 * @param[out] uxdistances The i-th position contains the directed/undirected distance
 	 * between the source node and the i-th node of the graph.
 	 */
 	void uxdistance(const uxgraph *G, node source, vector<_new_>& uxdistances);
@@ -75,8 +74,7 @@ using namespace dijkstra;
 	 * Applies a Breadth-First Search algorithm.
 	 * @param[in] G A directed/undirected unweighted graph
 	 * @param[in] source The source node
-	 * @param[in] target The target node
-	 * @param[out] xudistances The i-th position contains the directed/undirected distance
+	 * @param[out] uxdistances The i-th position contains the directed/undirected distance
 	 * between the source node and the i-th node of the graph.
 	 * @param[out] n_paths The i-th position contains the number of shortest paths between
 	 * the source node and the i-th node.
@@ -196,7 +194,6 @@ using namespace dijkstra;
 	 *
 	 * Applies Floyd-Warshall's algorithm.
 	 * @param[in] G A directed/undirected unweighted graph
-	 * @param[in] source The source node
 	 * @param[out] ps A path between the nodes
 	 */
 	void uxpath(const uxgraph *G, vector<vector<node_path<_new_> > >& ps);
@@ -205,7 +202,6 @@ using namespace dijkstra;
 	 *
 	 * Applies Floyd-Warshall's algorithm.
 	 * @param[in] G A directed/undirected unweighted graph
-	 * @param[in] source The source node
 	 * @param[out] ps A path between the nodes
 	 */
 	void uxpath(const uxgraph *G, vector<vector<boolean_path<_new_> > >& ps);
@@ -215,7 +211,6 @@ using namespace dijkstra;
 	 *
 	 * Applies Floyd-Warshall's algorithm.
 	 * @param[in] G A directed/undirected unweighted graph
-	 * @param[in] source The source node
 	 * @param[out] ps A path between the nodes
 	 */
 	void uxpaths(const uxgraph *G, vector<vector<node_path_set<_new_> > >& ps);
@@ -224,7 +219,6 @@ using namespace dijkstra;
 	 *
 	 * Applies Floyd-Warshall's algorithm.
 	 * @param[in] G A directed/undirected unweighted graph
-	 * @param[in] source The source node
 	 * @param[out] ps A path between the nodes
 	 */
 	void uxpaths(const uxgraph *G, vector<vector<boolean_path_set<_new_> > >& ps);
@@ -269,8 +263,7 @@ using namespace dijkstra;
 	 * Applies a Breadth-First Search algorithm.
 	 * @param[in] G A directed/undirected weighted graph
 	 * @param[in] source The source node
-	 * @param[in] target The target node
-	 * @param[out] xwdistances The i-th position contains the directed/undirected distance
+	 * @param[out] wxdistances The i-th position contains the directed/undirected distance
 	 * between the source node and the i-th node of the graph.
 	 */
 	template<class T>
@@ -281,8 +274,7 @@ using namespace dijkstra;
 	 * Applies a Breadth-First Search algorithm.
 	 * @param[in] G A directed/undirected weighted graph
 	 * @param[in] source The source node
-	 * @param[in] target The target node
-	 * @param[out] xwdistances The i-th position contains the directed/undirected distance
+	 * @param[out] wxdistances The i-th position contains the directed/undirected distance
 	 * between the source node and the i-th node of the graph.
 	 * @param[out] n_paths The i-th position contains the number of shortest paths between
 	 * the source node and the i-th node.
@@ -411,7 +403,6 @@ using namespace dijkstra;
 	 *
 	 * Applies Floyd-Warshall's algorithm.
 	 * @param[in] G A directed/undirected weighted graph
-	 * @param[in] source The source node
 	 * @param[out] ps A path between the nodes
 	 */
 	template<class T>
@@ -421,7 +412,6 @@ using namespace dijkstra;
 	 *
 	 * Applies Floyd-Warshall's algorithm.
 	 * @param[in] G A directed/undirected weighted graph
-	 * @param[in] source The source node
 	 * @param[out] ps A path between the nodes
 	 */
 	template<class T>
@@ -432,7 +422,6 @@ using namespace dijkstra;
 	 *
 	 * Applies Floyd-Warshall's algorithm.
 	 * @param[in] G A directed/undirected weighted graph
-	 * @param[in] source The source node
 	 * @param[out] ps A path between the nodes
 	 */
 	template<class T>
@@ -442,7 +431,6 @@ using namespace dijkstra;
 	 *
 	 * Applies Floyd-Warshall's algorithm.
 	 * @param[in] G A directed/undirected weighted graph
-	 * @param[in] source The source node
 	 * @param[out] ps A path between the nodes
 	 */
 	template<class T>

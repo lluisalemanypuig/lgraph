@@ -122,7 +122,7 @@ namespace dijkstra {
 		node source,
 		djka_terminate<T> term =				[](const wxgraph<T> *, const djka_node<T>&, const vector<bool>&) -> bool { return false; },
 		djka_process_current<T> proc_curr =		[](const wxgraph<T> *, const djka_node<T>&, const vector<bool>&) -> void {},
-		djka_process_neighbour<T> proc_neig =	[](const wxgraph<T> *, node, node, const T&, const vector<bool>&) -> bool { return true; }
+		djka_process_neighbour<T> proc_neigh =	[](const wxgraph<T> *, node, node, const T&, const vector<bool>&) -> bool { return true; }
 	);
 
 } // -- namespace dijkstra

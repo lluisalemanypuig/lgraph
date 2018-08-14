@@ -105,7 +105,7 @@ namespace bfs {
 		node source,
 		bfs_terminate term =				[](const uxgraph *, node, const vector<bool>&) -> bool { return false; },
 		bfs_process_current proc_curr =		[](const uxgraph *, node, const vector<bool>&) -> void {},
-		bfs_process_neighbour proc_neig =	[](const uxgraph *, node, node, const vector<bool>&) -> void {}
+		bfs_process_neighbour proc_neigh =	[](const uxgraph *, node, node, const vector<bool>&) -> void {}
 	);
 
 } // -- namespace bfs

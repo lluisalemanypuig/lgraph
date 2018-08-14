@@ -31,7 +31,7 @@ namespace centralities {
 	/**
 	 * @brief Normalised degree centrality of all nodes
 	 * @param[in] G The graph to be evaluated
-	 * @param[out] The i-th position contains the normalised degree
+	 * @param[out] dc The i-th position contains the normalised degree
 	 * centrality of the i-th node.
 	 */
 	void degree(const uugraph& G, vector<double>& dc);
@@ -88,7 +88,7 @@ namespace centralities {
 	 * @param G The graph to be evaluated
 	 * @param u The node to be evaluated
 	 * @return Returns the betweenness centrality of a node, considering
-	 * that a path between @e u and @e v contains both @u and @e v.
+	 * that a path between @e u and @e v contains both @e u and @e v.
 	 */
 	double betweenness(const uugraph& G, node u);
 	/**
@@ -111,10 +111,10 @@ namespace centralities {
 	 * all pair of nodes.
 	 * @param G The graph to be evaluated
 	 * @param paths @e paths[u][v] contains all shortest paths between @e u and @e v
-	 * for 0 <= u,v < @e G.n_nodes()
+	 * for 0 <= @e u , @e v < @e G.n_nodes()
 	 * @param u The node to be evaluated
 	 * @return Returns the betweenness centrality of a node, considering
-	 * that a path between @e u and @e v contains both @u and @e v.
+	 * that a path between @e u and @e v contains both @e u and @e v.
 	 */
 	double betweenness(const uugraph& G, const vector<vector<boolean_path_set<_new_> > >& paths, node u);
 	/**
@@ -135,7 +135,7 @@ namespace centralities {
 	 *
 	 * This function computes all shortest paths between each pair of nodes.
 	 * @param[in] G The graph to be evaluated
-	 * @param[out] bc @ref bc[i] contains the betweenness centrality of the @e i-th node
+	 * @param[out] bc @e bc[i] contains the betweenness centrality of the @e i-th node
 	 */
 	void betweenness(const uugraph& G, vector<double>& bc);
 	/**
@@ -158,8 +158,8 @@ namespace centralities {
 	 * all pair of nodes.
 	 * @param[in] G The graph to be evaluated
 	 * @param[in] paths @e paths[u][v] contains all shortest paths between @e u and @e v
-	 * for 0 <= u,v < @e G.n_nodes()
-	 * @param[out] bc @ref bc[i] contains the betweenness centrality of the @e i-th node
+	 * for 0 <= @e u , @e v < @e G.n_nodes()
+	 * @param[out] bc @e bc[i] contains the betweenness centrality of the @e i-th node
 	 */
 	void betweenness(const uugraph& G, const vector<vector<boolean_path_set<_new_> > >& paths, vector<double>& bc);
 	

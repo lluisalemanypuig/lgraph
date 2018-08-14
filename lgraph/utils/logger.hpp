@@ -16,19 +16,20 @@ namespace utils {
  */
 class null_stream {
 	public:
+		/// Open an empty stream for null messages
 		void open(const char *, const std::ios_base::openmode& ) { }
 		
-		// this is the type of std::cout
+		/// This is the type of std::cout
 		typedef std::basic_ostream<char, std::char_traits<char> > cout_type;
 
-		// this is the function signature of std::endl
+		/// This is the function signature of std::endl
 		typedef cout_type& (*standard_endl)(cout_type&);
 
-		// define an operator<< to take in std::endl
+		/// Define an operator<< to take in std::endl
 		null_stream& operator<< (const standard_endl&)
 		{ return *this; }
 		
-		// operator<< for any printable type
+		/// operator<< for any printable type
 		template<class t_printable>
 		null_stream& operator<< (const t_printable&)
 		{ return *this; }
@@ -41,21 +42,22 @@ class null_stream {
  */
 class cout_stream {
 	public:
+		/// Open an empty stream for standard output messages
 		void open(const char *, const std::ios_base::openmode& ) { }
 
-		// this is the type of std::cout
+		/// This is the type of std::cout
 		typedef std::basic_ostream<char, std::char_traits<char> > cout_type;
 
-		// this is the function signature of std::endl
+		/// This is the function signature of std::endl
 		typedef cout_type& (*standard_endl)(cout_type&);
 
-		// define an operator<< to take in std::endl
+		/// Define an operator<< to take in std::endl
 		cout_stream& operator<< (const standard_endl&) {
 			std::cout << endl;
 			return *this;
 		}
 
-		// operator<< for any printable type
+		/// operator<< for any printable type
 		template<class t_printable>
 		cout_stream& operator<< (const t_printable& t) {
 			std::cout << t;
@@ -70,21 +72,22 @@ class cout_stream {
  */
 class cerr_stream {
 	public:
+		/// Open an empty stream for error messages
 		void open(const char *, const std::ios_base::openmode& ) { }
 
-		// this is the type of std::cout
+		/// This is the type of std::cout
 		typedef std::basic_ostream<char, std::char_traits<char> > cerr_type;
 
-		// this is the function signature of std::endl
+		/// This is the function signature of std::endl
 		typedef cerr_type& (*standard_endl)(cerr_type&);
 
-		// define an operator<< to take in std::endl
+		/// Define an operator<< to take in std::endl
 		cerr_stream& operator<< (const standard_endl&) {
 			std::cerr << endl;
 			return *this;
 		}
 
-		// operator<< for any printable type
+		/// operator<< for any printable type
 		template<class t_printable>
 		cerr_stream& operator<< (const t_printable& t) {
 			std::cerr << t;

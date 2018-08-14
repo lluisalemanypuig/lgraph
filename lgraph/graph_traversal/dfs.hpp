@@ -105,7 +105,7 @@ namespace dfs {
 		node source,
 		dfs_terminate term =				[](const uxgraph *, node, const vector<bool>&) -> bool { return false; },
 		dfs_process_current proc_curr =		[](const uxgraph *, node, const vector<bool>&) -> void {},
-		dfs_process_neighbour proc_neig =	[](const uxgraph *, node, node, const vector<bool>&) -> void {}
+		dfs_process_neighbour proc_neigh =	[](const uxgraph *, node, node, const vector<bool>&) -> void {}
 	);
 
 } // -- namespace dfs
