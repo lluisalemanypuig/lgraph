@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['wdgraph',['wdgraph',['../classlgraph_1_1utils_1_1wdgraph.html#a5b2ab9227ed3ea23596eebb4b4f397cb',1,'lgraph::utils::wdgraph']]],
   ['which',['which',['../classlgraph_1_1utils_1_1static__bitset.html#a53dbca923e8976bbcd23e46dc9691c3c',1,'lgraph::utils::static_bitset']]],
   ['wugraph',['wugraph',['../classlgraph_1_1utils_1_1wugraph.html#ae50a66b351ad581b460097ef43565cc2',1,'lgraph::utils::wugraph']]],
   ['wxdistance',['wxdistance',['../namespacelgraph_1_1traversal.html#a6f7355bc246be223e074d737810f2fb4',1,'lgraph::traversal::wxdistance(const wxgraph&lt; T &gt; *G, node source, node target)'],['../namespacelgraph_1_1traversal.html#a39a6c5e2fa275d28c02051dbbd934e39',1,'lgraph::traversal::wxdistance(const wxgraph&lt; T &gt; *G, node source, node target, size_t &amp;n_paths)'],['../namespacelgraph_1_1traversal.html#a386f294701634911e0c62fdbacb4a976',1,'lgraph::traversal::wxdistance(const wxgraph&lt; T &gt; *G, node source, vector&lt; T &gt; &amp;wxdistances)'],['../namespacelgraph_1_1traversal.html#a7a1170b8673e281f64d4987c6986e41f',1,'lgraph::traversal::wxdistance(const wxgraph&lt; T &gt; *G, node source, vector&lt; T &gt; &amp;wxdistances, vector&lt; size_t &gt; &amp;n_paths)']]],

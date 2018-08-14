@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['u',['U',['../classlgraph_1_1utils_1_1drandom__generator.html#a6949a3bf302e877b8898baa2a0da6bba',1,'lgraph::utils::drandom_generator']]],
+  ['u',['U',['../classlgraph_1_1utils_1_1drandom__generator.html#a6949a3bf302e877b8898baa2a0da6bba',1,'lgraph::utils::drandom_generator::U()'],['../classlgraph_1_1utils_1_1crandom__generator.html#a0765c913cb0aa5418689ace83b14479b',1,'lgraph::utils::crandom_generator::U()']]],
+  ['udgraph',['udgraph',['../classlgraph_1_1utils_1_1udgraph.html',1,'lgraph::utils']]],
+  ['udgraph',['udgraph',['../classlgraph_1_1utils_1_1udgraph.html#ac67664542d6a8e674781adc1466905af',1,'lgraph::utils::udgraph']]],
   ['unset_5fall',['unset_all',['../classlgraph_1_1utils_1_1static__bitset.html#a38f34197224e168f40b5370c23c4243d',1,'lgraph::utils::static_bitset']]],
   ['unset_5fbit',['unset_bit',['../classlgraph_1_1utils_1_1static__bitset.html#af5f2d8f8f9d244e8f4768678ed8a7077',1,'lgraph::utils::static_bitset']]],
   ['unused',['UNUSED',['../namespacelgraph_1_1utils.html#a02e9a521f6566b3bd3570cfec6d19db1',1,'lgraph::utils']]],

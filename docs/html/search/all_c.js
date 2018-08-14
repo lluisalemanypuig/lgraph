@@ -10,7 +10,7 @@ var searchData=
   ['neighbourhood',['neighbourhood',['../namespacelgraph_1_1utils.html#a0f2ef47028a466d26841709e705390ac',1,'lgraph::utils']]],
   ['nit',['nit',['../namespacelgraph_1_1utils.html#af5daf6fe356a9014746bdb507787ae01',1,'lgraph::utils']]],
   ['no_5fvertex_5fgrowth',['no_vertex_growth',['../namespacelgraph_1_1networks_1_1random_1_1Barabasi__Albert.html#a96015bc94f64c7318d8ed1dc7c4d693a',1,'lgraph::networks::random::Barabasi_Albert']]],
-  ['node',['node',['../namespacelgraph_1_1utils.html#ab9c6b34241f0b68372c55f34c460e863',1,'lgraph::utils']]],
+  ['node',['node',['../namespacelgraph_1_1utils.html#a7bd66ede3805ef121bc2835bd48de0cf',1,'lgraph::utils']]],
   ['node_5fpath',['node_path',['../classlgraph_1_1utils_1_1node__path.html',1,'lgraph::utils']]],
   ['node_5fpath',['node_path',['../classlgraph_1_1utils_1_1node__path.html#a480b23324e337e2a895c33a444e04e72',1,'lgraph::utils::node_path::node_path()'],['../classlgraph_1_1utils_1_1node__path.html#a3d2fbb25f163d99a643c8a3d61c5749f',1,'lgraph::utils::node_path::node_path(node n)']]],
   ['node_5fpath_5fset',['node_path_set',['../namespacelgraph_1_1utils.html#a723c115f9865edfab11a90377b9abef4',1,'lgraph::utils']]],

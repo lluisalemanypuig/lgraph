@@ -30,10 +30,14 @@ class \hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset}
 \begin{DoxyCompactList}\small\item\em Bitset class. \end{DoxyCompactList}\item 
 class \hyperlink{classlgraph_1_1utils_1_1svector}{svector}
 \begin{DoxyCompactList}\small\item\em Shortened vector. \end{DoxyCompactList}\item 
+class \hyperlink{classlgraph_1_1utils_1_1udgraph}{udgraph}
+\begin{DoxyCompactList}\small\item\em Unweighted directed (ud) graphs. \end{DoxyCompactList}\item 
 class \hyperlink{classlgraph_1_1utils_1_1uugraph}{uugraph}
 \begin{DoxyCompactList}\small\item\em Unweighted undirected (ux) graphs. \end{DoxyCompactList}\item 
 class \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph}
 \begin{DoxyCompactList}\small\item\em Abstract class for unweighted (ux) graphs. \end{DoxyCompactList}\item 
+class \hyperlink{classlgraph_1_1utils_1_1wdgraph}{wdgraph}
+\begin{DoxyCompactList}\small\item\em Weighted directed graphs. \end{DoxyCompactList}\item 
 class \hyperlink{classlgraph_1_1utils_1_1wugraph}{wugraph}
 \begin{DoxyCompactList}\small\item\em Weighted undirected graphs. \end{DoxyCompactList}\item 
 class \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}
@@ -49,10 +53,10 @@ class \hyperlink{classlgraph_1_1utils_1_1xxgraph}{xxgraph}
 {\footnotesize template$<$class T  = \+\_\+new\+\_\+$>$ }\\using \hyperlink{namespacelgraph_1_1utils_a723c115f9865edfab11a90377b9abef4}{node\+\_\+path\+\_\+set} = vector$<$ \hyperlink{classlgraph_1_1utils_1_1node__path}{node\+\_\+path}$<$ T $>$ $>$\hypertarget{namespacelgraph_1_1utils_a723c115f9865edfab11a90377b9abef4}{}\label{namespacelgraph_1_1utils_a723c115f9865edfab11a90377b9abef4}
 
 \begin{DoxyCompactList}\small\item\em Template for a list of \hyperlink{classlgraph_1_1utils_1_1node__path}{node\+\_\+path} objects. \end{DoxyCompactList}\item 
-typedef int32\+\_\+t \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node}\hypertarget{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{}\label{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}
+typedef uint64\+\_\+t \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node}\hypertarget{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{}\label{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}
 
 \begin{DoxyCompactList}\small\item\em Typedef for a graph node\textquotesingle{}s index. \end{DoxyCompactList}\item 
-typedef \hyperlink{classlgraph_1_1utils_1_1svector}{svector}$<$ \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} $>$ \hyperlink{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{neighbourhood}\hypertarget{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{}\label{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}
+typedef \hyperlink{classlgraph_1_1utils_1_1svector}{svector}$<$ \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} $>$ \hyperlink{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{neighbourhood}\hypertarget{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{}\label{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}
 
 \begin{DoxyCompactList}\small\item\em Typedef for a list of nodes. \end{DoxyCompactList}\item 
 {\footnotesize template$<$class T $>$ }\\using \hyperlink{namespacelgraph_1_1utils_a11e7963f3637ea13778b8d3e69d2c17f}{weight\+\_\+list} = \hyperlink{classlgraph_1_1utils_1_1svector}{svector}$<$ T $>$\hypertarget{namespacelgraph_1_1utils_a11e7963f3637ea13778b8d3e69d2c17f}{}\label{namespacelgraph_1_1utils_a11e7963f3637ea13778b8d3e69d2c17f}
@@ -64,7 +68,7 @@ typedef neighbourhood\+::const\+\_\+iterator \hyperlink{namespacelgraph_1_1utils
 typedef neighbourhood\+::iterator \hyperlink{namespacelgraph_1_1utils_af5daf6fe356a9014746bdb507787ae01}{nit}\hypertarget{namespacelgraph_1_1utils_af5daf6fe356a9014746bdb507787ae01}{}\label{namespacelgraph_1_1utils_af5daf6fe356a9014746bdb507787ae01}
 
 \begin{DoxyCompactList}\small\item\em Typedef for a non-\/constant iterator through a \hyperlink{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{neighbourhood}. \end{DoxyCompactList}\item 
-typedef pair$<$ \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node}, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} $>$ \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge}\hypertarget{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{}\label{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}
+typedef pair$<$ \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node}, \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} $>$ \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge}\hypertarget{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{}\label{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}
 
 \begin{DoxyCompactList}\small\item\em Typedef for an edge of a graph. \end{DoxyCompactList}\item 
 typedef uint32\+\_\+t \hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+}\hypertarget{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{}\label{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}
@@ -97,13 +101,13 @@ Collection of utilities.
 
 Includes the data structures for\+:
 \begin{DoxyItemize}
-\item graphs (see \hyperlink{classlgraph_1_1utils_1_1xxgraph}{xxgraph}, \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph}, \hyperlink{classlgraph_1_1utils_1_1uugraph}{uugraph}, uwgraph)
+\item graphs (see \hyperlink{classlgraph_1_1utils_1_1xxgraph}{xxgraph}, \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph}, \hyperlink{classlgraph_1_1utils_1_1uugraph}{uugraph}, \hyperlink{classlgraph_1_1utils_1_1udgraph}{udgraph}, \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}, \hyperlink{classlgraph_1_1utils_1_1wugraph}{wugraph}, \hyperlink{classlgraph_1_1utils_1_1wdgraph}{wdgraph})
 \item paths in graphs (see \hyperlink{classlgraph_1_1utils_1_1node__path}{node\+\_\+path}, \hyperlink{classlgraph_1_1utils_1_1boolean__path}{boolean\+\_\+path})
 \item bitsets (see \hyperlink{classlgraph_1_1utils_1_1static__bitset}{static\+\_\+bitset})
 \item wrappers for random number generators (see \hyperlink{classlgraph_1_1utils_1_1random__generator}{random\+\_\+generator})
 \end{DoxyItemize}
 
-plus definitions for the types to represent a \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node}, the \hyperlink{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{neighbourhood} of a node in a graph, an \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge}, ... 
+plus definitions for the types to represent a \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node}, the \hyperlink{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{neighbourhood} of a node in a graph, an \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge}, ... 
 
 \subsection{Function Documentation}
 \index{lgraph\+::utils@{lgraph\+::utils}!from\+\_\+nps\+\_\+to\+\_\+bps@{from\+\_\+nps\+\_\+to\+\_\+bps}}

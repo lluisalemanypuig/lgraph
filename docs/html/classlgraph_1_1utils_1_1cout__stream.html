@@ -106,23 +106,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a567e84e8f695f9f06e25a90385bd36bc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a567e84e8f695f9f06e25a90385bd36bc"></a>
-typedef std::basic_ostream&lt; char, std::char_traits&lt; char &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>cout_type</b></td></tr>
+typedef std::basic_ostream&lt; char, std::char_traits&lt; char &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1cout__stream.html#a567e84e8f695f9f06e25a90385bd36bc">cout_type</a></td></tr>
+<tr class="memdesc:a567e84e8f695f9f06e25a90385bd36bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the type of std::cout. <br /></td></tr>
 <tr class="separator:a567e84e8f695f9f06e25a90385bd36bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3dc3129e1e5c26c370223e29dbdefe75"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3dc3129e1e5c26c370223e29dbdefe75"></a>
-typedef cout_type &amp;(*&#160;</td><td class="memItemRight" valign="bottom"><b>standard_endl</b>) (cout_type &amp;)</td></tr>
+typedef <a class="el" href="classlgraph_1_1utils_1_1cout__stream.html#a567e84e8f695f9f06e25a90385bd36bc">cout_type</a> &amp;(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1cout__stream.html#a3dc3129e1e5c26c370223e29dbdefe75">standard_endl</a>) (<a class="el" href="classlgraph_1_1utils_1_1cout__stream.html#a567e84e8f695f9f06e25a90385bd36bc">cout_type</a> &amp;)</td></tr>
+<tr class="memdesc:a3dc3129e1e5c26c370223e29dbdefe75"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the function signature of std::endl. <br /></td></tr>
 <tr class="separator:a3dc3129e1e5c26c370223e29dbdefe75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a818a63700e577a13db63088353ce4098"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a818a63700e577a13db63088353ce4098"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>open</b> (const char *, const std::ios_base::openmode &amp;)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1cout__stream.html#a818a63700e577a13db63088353ce4098">open</a> (const char *, const std::ios_base::openmode &amp;)</td></tr>
+<tr class="memdesc:a818a63700e577a13db63088353ce4098"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open an empty stream for standard output messages. <br /></td></tr>
 <tr class="separator:a818a63700e577a13db63088353ce4098"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e35f97a622bccec72247d6f9e6ca2c8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e35f97a622bccec72247d6f9e6ca2c8"></a>
-<a class="el" href="classlgraph_1_1utils_1_1cout__stream.html">cout_stream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (const standard_endl &amp;)</td></tr>
+<a class="el" href="classlgraph_1_1utils_1_1cout__stream.html">cout_stream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1cout__stream.html#a6e35f97a622bccec72247d6f9e6ca2c8">operator&lt;&lt;</a> (const <a class="el" href="classlgraph_1_1utils_1_1cout__stream.html#a3dc3129e1e5c26c370223e29dbdefe75">standard_endl</a> &amp;)</td></tr>
+<tr class="memdesc:a6e35f97a622bccec72247d6f9e6ca2c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define an operator&lt;&lt; to take in std::endl. <br /></td></tr>
 <tr class="separator:a6e35f97a622bccec72247d6f9e6ca2c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88f6cf6d54312f795ccbff57724d51e4"><td class="memTemplParams" colspan="2"><a class="anchor" id="a88f6cf6d54312f795ccbff57724d51e4"></a>
 template&lt;class t_printable &gt; </td></tr>
-<tr class="memitem:a88f6cf6d54312f795ccbff57724d51e4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classlgraph_1_1utils_1_1cout__stream.html">cout_stream</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&lt;&lt;</b> (const t_printable &amp;t)</td></tr>
+<tr class="memitem:a88f6cf6d54312f795ccbff57724d51e4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classlgraph_1_1utils_1_1cout__stream.html">cout_stream</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1cout__stream.html#a88f6cf6d54312f795ccbff57724d51e4">operator&lt;&lt;</a> (const t_printable &amp;t)</td></tr>
+<tr class="memdesc:a88f6cf6d54312f795ccbff57724d51e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator&lt;&lt; for any printable type <br /></td></tr>
 <tr class="separator:a88f6cf6d54312f795ccbff57724d51e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

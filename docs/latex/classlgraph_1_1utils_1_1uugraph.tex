@@ -38,14 +38,14 @@ Collaboration diagram for lgraph\+:\+:utils\+:\+:uugraph\+:\nopagebreak
 \begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
 void \hyperlink{classlgraph_1_1utils_1_1uugraph_ad1e6036f836c981ab8f4b540cbaa817e}{add\+\_\+edge} (const \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge} \&e)
 \begin{DoxyCompactList}\small\item\em Adds an edge to this graph. \end{DoxyCompactList}\item 
-void \hyperlink{classlgraph_1_1utils_1_1uugraph_a3729660ecdd5d7ed338f0cd687403cbf}{add\+\_\+edge} (\hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} u, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} v)
+void \hyperlink{classlgraph_1_1utils_1_1uugraph_a3729660ecdd5d7ed338f0cd687403cbf}{add\+\_\+edge} (\hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u, \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} v)
 \begin{DoxyCompactList}\small\item\em Adds an edge between nodes {\itshape u} and {\itshape v}. \end{DoxyCompactList}\item 
 void \hyperlink{classlgraph_1_1utils_1_1uugraph_a12591fd958878113b373040b4c164f14}{remove\+\_\+edge} (const \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge} \&e)
 \begin{DoxyCompactList}\small\item\em Removes an edge from this graph. \end{DoxyCompactList}\item 
-void \hyperlink{classlgraph_1_1utils_1_1uugraph_ae564207e9c3887aa6be115bce28c66b8}{remove\+\_\+edge} (\hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} u, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} v)
+void \hyperlink{classlgraph_1_1utils_1_1uugraph_ae564207e9c3887aa6be115bce28c66b8}{remove\+\_\+edge} (\hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u, \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} v)
 \begin{DoxyCompactList}\small\item\em Removes an edge from this graph. \end{DoxyCompactList}\item 
-void \hyperlink{classlgraph_1_1utils_1_1uugraph_a112df3ef363577292862dab1a5c8a26d}{edges} (vector$<$ \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge} $>$ \&all\+\_\+edges) const 
-\begin{DoxyCompactList}\small\item\em Returns all unique edges of this graph. \end{DoxyCompactList}\item 
+bool \hyperlink{classlgraph_1_1utils_1_1uugraph_a1970a2f371f20284478246a83292f9bb}{has\+\_\+edge} (\hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u, \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} v) const 
+\begin{DoxyCompactList}\small\item\em Returns true if there is an edge between nodes {\itshape u} and {\itshape v}. \end{DoxyCompactList}\item 
 void \hyperlink{classlgraph_1_1utils_1_1uxgraph_ab1e7ab39be6e8ca6149eef47dd51b155}{init} (size\+\_\+t n)
 \begin{DoxyCompactList}\small\item\em Initialises the attributes of a graph with {\itshape n} nodes. \end{DoxyCompactList}\item 
 void \hyperlink{classlgraph_1_1utils_1_1uxgraph_af6f7c0a2dc67706a07bd58f06b3dcf9f}{add\+\_\+edges} (const vector$<$ \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge} $>$ \&edge\+\_\+list)
@@ -57,6 +57,8 @@ void \hyperlink{classlgraph_1_1utils_1_1uxgraph_ae76c83683dc7527fe5394d67437a710
 bool \hyperlink{classlgraph_1_1utils_1_1uxgraph_ae1c3f40bb80ab20c2de96735ccde7b3f}{is\+\_\+weighted} () const \hypertarget{classlgraph_1_1utils_1_1uxgraph_ae1c3f40bb80ab20c2de96735ccde7b3f}{}\label{classlgraph_1_1utils_1_1uxgraph_ae1c3f40bb80ab20c2de96735ccde7b3f}
 
 \begin{DoxyCompactList}\small\item\em Returns whether this graph is weighted or not (returns false). \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1uxgraph_ade877f3a9cf71d844cfe7b6c4f8aae10}{edges} (vector$<$ \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge} $>$ \&all\+\_\+edges) const 
+\begin{DoxyCompactList}\small\item\em Returns all unique edges of this graph. \end{DoxyCompactList}\item 
 bool \hyperlink{classlgraph_1_1utils_1_1uxgraph_a8328003e12383f0ff3f344aa6a239345}{read\+\_\+from\+\_\+file} (const string \&filename)\hypertarget{classlgraph_1_1utils_1_1uxgraph_a8328003e12383f0ff3f344aa6a239345}{}\label{classlgraph_1_1utils_1_1uxgraph_a8328003e12383f0ff3f344aa6a239345}
 
 \begin{DoxyCompactList}\small\item\em Reads the graph from a file. \end{DoxyCompactList}\item 
@@ -71,23 +73,21 @@ bool \hyperlink{classlgraph_1_1utils_1_1uxgraph_a1f54ad58bf346fe85e3c94c118854fc
 \begin{DoxyCompactList}\small\item\em Stores the graph in a file. \end{DoxyCompactList}\item 
 size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1xxgraph_af41baf2c098e872731ad646aeec1b382}{add\+\_\+node} ()
 \begin{DoxyCompactList}\small\item\em Adds one node to the graph. \end{DoxyCompactList}\item 
-size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1xxgraph_af4f3782c1a55f73c6f34f2f2c26fb404}{add\+\_\+n\+\_\+nodes} (\hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} n)
+size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1xxgraph_af4f3782c1a55f73c6f34f2f2c26fb404}{add\+\_\+n\+\_\+nodes} (\hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} n)
 \begin{DoxyCompactList}\small\item\em Adds {\itshape n} nodes to the graph. \end{DoxyCompactList}\item 
-bool \hyperlink{classlgraph_1_1utils_1_1xxgraph_a026ab064c2be26790cc1f547be2157c9}{has\+\_\+node} (\hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} u) const \hypertarget{classlgraph_1_1utils_1_1xxgraph_a026ab064c2be26790cc1f547be2157c9}{}\label{classlgraph_1_1utils_1_1xxgraph_a026ab064c2be26790cc1f547be2157c9}
+bool \hyperlink{classlgraph_1_1utils_1_1xxgraph_a026ab064c2be26790cc1f547be2157c9}{has\+\_\+node} (\hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u) const \hypertarget{classlgraph_1_1utils_1_1xxgraph_a026ab064c2be26790cc1f547be2157c9}{}\label{classlgraph_1_1utils_1_1xxgraph_a026ab064c2be26790cc1f547be2157c9}
 
 \begin{DoxyCompactList}\small\item\em Returns true if node {\itshape u} is in this graph. \end{DoxyCompactList}\item 
-bool \hyperlink{classlgraph_1_1utils_1_1xxgraph_a0bb7c5fc708596fff406cf3240ecd6b2}{has\+\_\+edge} (\hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} u, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} v) const 
-\begin{DoxyCompactList}\small\item\em Returns true if there is an edge between nodes {\itshape u} and {\itshape v}. \end{DoxyCompactList}\item 
 size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1xxgraph_ad345f1fbf1dee34e1579b5aea9aef9b2}{n\+\_\+nodes} () const 
 \begin{DoxyCompactList}\small\item\em Returns the number of nodes. \end{DoxyCompactList}\item 
 size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1xxgraph_af3f7c3835406c2cbf70479ae1c0253c9}{n\+\_\+edges} () const 
 \begin{DoxyCompactList}\small\item\em Returns the number of edges. \end{DoxyCompactList}\item 
-void \hyperlink{classlgraph_1_1utils_1_1xxgraph_a99f83387aa9f59b861e675251be5a3ad}{nodes} (vector$<$ \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} $>$ \&all\+\_\+nodes) const \hypertarget{classlgraph_1_1utils_1_1xxgraph_a99f83387aa9f59b861e675251be5a3ad}{}\label{classlgraph_1_1utils_1_1xxgraph_a99f83387aa9f59b861e675251be5a3ad}
+void \hyperlink{classlgraph_1_1utils_1_1xxgraph_a99f83387aa9f59b861e675251be5a3ad}{nodes} (vector$<$ \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} $>$ \&all\+\_\+nodes) const \hypertarget{classlgraph_1_1utils_1_1xxgraph_a99f83387aa9f59b861e675251be5a3ad}{}\label{classlgraph_1_1utils_1_1xxgraph_a99f83387aa9f59b861e675251be5a3ad}
 
 \begin{DoxyCompactList}\small\item\em Returns all nodes (as integers) \end{DoxyCompactList}\item 
-const \hyperlink{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{neighbourhood} \& \hyperlink{classlgraph_1_1utils_1_1xxgraph_a2c5332c4663c2d52828893f095a68202}{get\+\_\+neighbours} (\hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} u) const 
+const \hyperlink{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{neighbourhood} \& \hyperlink{classlgraph_1_1utils_1_1xxgraph_a2c5332c4663c2d52828893f095a68202}{get\+\_\+neighbours} (\hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u) const 
 \begin{DoxyCompactList}\small\item\em Returns the neighbourhood of node u. \end{DoxyCompactList}\item 
-size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1xxgraph_af588aa4c68004a31aa143024cdb6dcc9}{degree} (\hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} u) const 
+size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1xxgraph_af588aa4c68004a31aa143024cdb6dcc9}{degree} (\hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u) const 
 \begin{DoxyCompactList}\small\item\em Returns the number of neighbours of u. \end{DoxyCompactList}\item 
 void \hyperlink{classlgraph_1_1utils_1_1xxgraph_a401454762f6b4b69f13ab0a10729c457}{get\+\_\+adjacency\+\_\+matrix} (vector$<$ vector$<$ bool $>$ $>$ \&adj\+\_\+mat) const \hypertarget{classlgraph_1_1utils_1_1xxgraph_a401454762f6b4b69f13ab0a10729c457}{}\label{classlgraph_1_1utils_1_1xxgraph_a401454762f6b4b69f13ab0a10729c457}
 
@@ -99,12 +99,10 @@ size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1xxgraph_ad4f25a8b29c6f26bc1567cb9
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{classlgraph_1_1utils_1_1uugraph_a97cb6f05007d118895c8f0f2323c243f}{get\+\_\+unique\+\_\+edges} (set$<$ \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge} $>$ \&\hyperlink{classlgraph_1_1utils_1_1uugraph_a112df3ef363577292862dab1a5c8a26d}{edges}) const 
+void \hyperlink{classlgraph_1_1utils_1_1uugraph_a97cb6f05007d118895c8f0f2323c243f}{get\+\_\+unique\+\_\+edges} (set$<$ \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge} $>$ \&\hyperlink{classlgraph_1_1utils_1_1uxgraph_ade877f3a9cf71d844cfe7b6c4f8aae10}{edges}) const 
 \begin{DoxyCompactList}\small\item\em Computes the list of unique weighted edges of this graph. \end{DoxyCompactList}\item 
-\hyperlink{namespacelgraph_1_1utils_a7207b078932845778282f5e2e373575b}{ncit} \hyperlink{classlgraph_1_1utils_1_1xxgraph_af72476b0919eacd6e9b044f7c5528c1e}{cget\+\_\+neighbour\+\_\+position} (const \hyperlink{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{neighbourhood} \&n, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} u) const 
-\begin{DoxyCompactList}\small\item\em Returns a constant iterator to node {\itshape u\textquotesingle{}s} position in the neighbourhood {\itshape n}. \end{DoxyCompactList}\item 
-\hyperlink{namespacelgraph_1_1utils_af5daf6fe356a9014746bdb507787ae01}{nit} \hyperlink{classlgraph_1_1utils_1_1xxgraph_ab2ac2eb4cdc6c369cde7c71a1c3b8858}{get\+\_\+neighbour\+\_\+position} (\hyperlink{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{neighbourhood} \&n, \hyperlink{namespacelgraph_1_1utils_ab9c6b34241f0b68372c55f34c460e863}{node} u)
-\begin{DoxyCompactList}\small\item\em Returns a non-\/constant iterator to node {\itshape u\textquotesingle{}s} position in the neighbourhood {\itshape n}. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1xxgraph_aac7ef2134cad9529869f1334de7892d9}{get\+\_\+neighbour\+\_\+position} (const \hyperlink{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{neighbourhood} \&n, \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u) const 
+\begin{DoxyCompactList}\small\item\em Returns the position of node {\itshape u\textquotesingle{}s} position in the neighbourhood {\itshape n}. \end{DoxyCompactList}\item 
 void \hyperlink{classlgraph_1_1utils_1_1xxgraph_a2201aaff5e9ffa29a9b3abfde705dd46}{initialise\+\_\+adjacency\+\_\+list} (size\+\_\+t n)\hypertarget{classlgraph_1_1utils_1_1xxgraph_a2201aaff5e9ffa29a9b3abfde705dd46}{}\label{classlgraph_1_1utils_1_1xxgraph_a2201aaff5e9ffa29a9b3abfde705dd46}
 
 \begin{DoxyCompactList}\small\item\em Initialise the list of neighbourhoods with {\itshape n} instances. \end{DoxyCompactList}\item 
@@ -221,28 +219,6 @@ Adds one node to the graph.
 \begin{DoxyReturn}{Returns}
 Returns the index of the new node 
 \end{DoxyReturn}
-\index{lgraph\+::utils\+::uugraph@{lgraph\+::utils\+::uugraph}!cget\+\_\+neighbour\+\_\+position@{cget\+\_\+neighbour\+\_\+position}}
-\index{cget\+\_\+neighbour\+\_\+position@{cget\+\_\+neighbour\+\_\+position}!lgraph\+::utils\+::uugraph@{lgraph\+::utils\+::uugraph}}
-\subsubsection[{\texorpdfstring{cget\+\_\+neighbour\+\_\+position(const neighbourhood \&n, node u) const }{cget_neighbour_position(const neighbourhood &n, node u) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ncit} lgraph\+::utils\+::xxgraph\+::cget\+\_\+neighbour\+\_\+position (
-\begin{DoxyParamCaption}
-\item[{const {\bf neighbourhood} \&}]{n, }
-\item[{{\bf node}}]{u}
-\end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}\hypertarget{classlgraph_1_1utils_1_1xxgraph_af72476b0919eacd6e9b044f7c5528c1e}{}\label{classlgraph_1_1utils_1_1xxgraph_af72476b0919eacd6e9b044f7c5528c1e}
-
-
-Returns a constant iterator to node {\itshape u\textquotesingle{}s} position in the neighbourhood {\itshape n}. 
-
-If the iterator returned is not at the end of the list then {\itshape u} is in the list. Performs a linear search to find it. 
-\begin{DoxyParams}{Parameters}
-{\em n} & The neighbourhood of a node in the graph \\
-\hline
-{\em u} & The node to look for in the neighbourhood \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Returns a constant iterator to {\itshape n.\+end()} if {\itshape u} is not in the list. Returns a constant iterator to the position of {\itshape u} if otherwise. 
-\end{DoxyReturn}
 \index{lgraph\+::utils\+::uugraph@{lgraph\+::utils\+::uugraph}!clear@{clear}}
 \index{clear@{clear}!lgraph\+::utils\+::uugraph@{lgraph\+::utils\+::uugraph}}
 \subsubsection[{\texorpdfstring{clear()}{clear()}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::utils\+::uxgraph\+::clear (
@@ -289,20 +265,16 @@ Returns the size of the neighbourhood of {\itshape u}, that is, the size of the 
 \end{DoxyPrecond}
 \index{lgraph\+::utils\+::uugraph@{lgraph\+::utils\+::uugraph}!edges@{edges}}
 \index{edges@{edges}!lgraph\+::utils\+::uugraph@{lgraph\+::utils\+::uugraph}}
-\subsubsection[{\texorpdfstring{edges(vector$<$ edge $>$ \&all\+\_\+edges) const }{edges(vector< edge > &all_edges) const }}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::utils\+::uugraph\+::edges (
+\subsubsection[{\texorpdfstring{edges(vector$<$ edge $>$ \&all\+\_\+edges) const }{edges(vector< edge > &all_edges) const }}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::utils\+::uxgraph\+::edges (
 \begin{DoxyParamCaption}
 \item[{vector$<$ {\bf edge} $>$ \&}]{all\+\_\+edges}
 \end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classlgraph_1_1utils_1_1uugraph_a112df3ef363577292862dab1a5c8a26d}{}\label{classlgraph_1_1utils_1_1uugraph_a112df3ef363577292862dab1a5c8a26d}
+) const\hspace{0.3cm}{\ttfamily [inherited]}}\hypertarget{classlgraph_1_1utils_1_1uxgraph_ade877f3a9cf71d844cfe7b6c4f8aae10}{}\label{classlgraph_1_1utils_1_1uxgraph_ade877f3a9cf71d844cfe7b6c4f8aae10}
 
 
 Returns all unique edges of this graph. 
 
-See method \hyperlink{classlgraph_1_1utils_1_1uugraph_a97cb6f05007d118895c8f0f2323c243f}{get\+\_\+unique\+\_\+edges(set$<$edge$>$\&)const} for details. 
-
-Implements \hyperlink{classlgraph_1_1utils_1_1uxgraph_a55da0b6f5cb57d0174a4105336e878a9}{lgraph\+::utils\+::uxgraph}.
-
-\index{lgraph\+::utils\+::uugraph@{lgraph\+::utils\+::uugraph}!get\+\_\+degree\+\_\+sequence@{get\+\_\+degree\+\_\+sequence}}
+See method \hyperlink{classlgraph_1_1utils_1_1uxgraph_a042795f5d307b07396da89d50734234a}{get\+\_\+unique\+\_\+edges(set$<$edge$>$\&)const} for details. \index{lgraph\+::utils\+::uugraph@{lgraph\+::utils\+::uugraph}!get\+\_\+degree\+\_\+sequence@{get\+\_\+degree\+\_\+sequence}}
 \index{get\+\_\+degree\+\_\+sequence@{get\+\_\+degree\+\_\+sequence}!lgraph\+::utils\+::uugraph@{lgraph\+::utils\+::uugraph}}
 \subsubsection[{\texorpdfstring{get\+\_\+degree\+\_\+sequence(map$<$ size\+\_\+t, size\+\_\+t $>$ \&ds) const }{get_degree_sequence(map< size_t, size_t > &ds) const }}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::utils\+::xxgraph\+::get\+\_\+degree\+\_\+sequence (
 \begin{DoxyParamCaption}
@@ -320,17 +292,17 @@ Returns the degree sequence of the graph.
 \end{DoxyParams}
 \index{lgraph\+::utils\+::uugraph@{lgraph\+::utils\+::uugraph}!get\+\_\+neighbour\+\_\+position@{get\+\_\+neighbour\+\_\+position}}
 \index{get\+\_\+neighbour\+\_\+position@{get\+\_\+neighbour\+\_\+position}!lgraph\+::utils\+::uugraph@{lgraph\+::utils\+::uugraph}}
-\subsubsection[{\texorpdfstring{get\+\_\+neighbour\+\_\+position(neighbourhood \&n, node u)}{get_neighbour_position(neighbourhood &n, node u)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf nit} lgraph\+::utils\+::xxgraph\+::get\+\_\+neighbour\+\_\+position (
+\subsubsection[{\texorpdfstring{get\+\_\+neighbour\+\_\+position(const neighbourhood \&n, node u) const }{get_neighbour_position(const neighbourhood &n, node u) const }}]{\setlength{\rightskip}{0pt plus 5cm}size\+\_\+t lgraph\+::utils\+::xxgraph\+::get\+\_\+neighbour\+\_\+position (
 \begin{DoxyParamCaption}
-\item[{{\bf neighbourhood} \&}]{n, }
+\item[{const {\bf neighbourhood} \&}]{n, }
 \item[{{\bf node}}]{u}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}\hypertarget{classlgraph_1_1utils_1_1xxgraph_ab2ac2eb4cdc6c369cde7c71a1c3b8858}{}\label{classlgraph_1_1utils_1_1xxgraph_ab2ac2eb4cdc6c369cde7c71a1c3b8858}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}\hypertarget{classlgraph_1_1utils_1_1xxgraph_aac7ef2134cad9529869f1334de7892d9}{}\label{classlgraph_1_1utils_1_1xxgraph_aac7ef2134cad9529869f1334de7892d9}
 
 
-Returns a non-\/constant iterator to node {\itshape u\textquotesingle{}s} position in the neighbourhood {\itshape n}. 
+Returns the position of node {\itshape u\textquotesingle{}s} position in the neighbourhood {\itshape n}. 
 
-If the iterator returned is not at the end of the list then {\itshape u} is in the list. Performs a linear search to find it. 
+If the position is equal to the number of elements of the list {\itshape n} then {\itshape u} is in the list. Performs a linear search to find it. 
 \begin{DoxyParams}{Parameters}
 {\em n} & The neighbourhood of a node in the graph \\
 \hline
@@ -338,7 +310,7 @@ If the iterator returned is not at the end of the list then {\itshape u} is in t
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Returns a non-\/constant iterator to {\itshape n.\+end()} if {\itshape u} is not in the list. Returns a non-\/constant iterator to the position of {\itshape u} if otherwise. 
+Returns a value equal to the number of elements in the list {\itshape n} if node {\itshape u} is not in it. Returns a value smaller than that if otherwise. 
 \end{DoxyReturn}
 \index{lgraph\+::utils\+::uugraph@{lgraph\+::utils\+::uugraph}!get\+\_\+neighbours@{get\+\_\+neighbours}}
 \index{get\+\_\+neighbours@{get\+\_\+neighbours}!lgraph\+::utils\+::uugraph@{lgraph\+::utils\+::uugraph}}
@@ -378,7 +350,7 @@ Since this graph is undirected, the edge (u,v) is the same as (v,u). This method
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Stores in \hyperlink{classlgraph_1_1utils_1_1uugraph_a112df3ef363577292862dab1a5c8a26d}{edges} the lexicographically sorted list of edges of this graph 
+Stores in \hyperlink{classlgraph_1_1utils_1_1uxgraph_ade877f3a9cf71d844cfe7b6c4f8aae10}{edges} the lexicographically sorted list of edges of this graph 
 \end{DoxyReturn}
 
 
@@ -386,12 +358,12 @@ Implements \hyperlink{classlgraph_1_1utils_1_1uxgraph_a042795f5d307b07396da89d50
 
 \index{lgraph\+::utils\+::uugraph@{lgraph\+::utils\+::uugraph}!has\+\_\+edge@{has\+\_\+edge}}
 \index{has\+\_\+edge@{has\+\_\+edge}!lgraph\+::utils\+::uugraph@{lgraph\+::utils\+::uugraph}}
-\subsubsection[{\texorpdfstring{has\+\_\+edge(node u, node v) const }{has_edge(node u, node v) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool lgraph\+::utils\+::xxgraph\+::has\+\_\+edge (
+\subsubsection[{\texorpdfstring{has\+\_\+edge(node u, node v) const }{has_edge(node u, node v) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool lgraph\+::utils\+::uugraph\+::has\+\_\+edge (
 \begin{DoxyParamCaption}
 \item[{{\bf node}}]{u, }
 \item[{{\bf node}}]{v}
 \end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [inherited]}}\hypertarget{classlgraph_1_1utils_1_1xxgraph_a0bb7c5fc708596fff406cf3240ecd6b2}{}\label{classlgraph_1_1utils_1_1xxgraph_a0bb7c5fc708596fff406cf3240ecd6b2}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classlgraph_1_1utils_1_1uugraph_a1970a2f371f20284478246a83292f9bb}{}\label{classlgraph_1_1utils_1_1uugraph_a1970a2f371f20284478246a83292f9bb}
 
 
 Returns true if there is an edge between nodes {\itshape u} and {\itshape v}. 
@@ -399,6 +371,10 @@ Returns true if there is an edge between nodes {\itshape u} and {\itshape v}.
 \begin{DoxyPrecond}{Precondition}
 {\itshape u} and {\itshape v} must be in the graph 
 \end{DoxyPrecond}
+
+
+Implements \hyperlink{classlgraph_1_1utils_1_1xxgraph_a9e94100afc70b09049432f196550407c}{lgraph\+::utils\+::xxgraph}.
+
 \index{lgraph\+::utils\+::uugraph@{lgraph\+::utils\+::uugraph}!init@{init}}
 \index{init@{init}!lgraph\+::utils\+::uugraph@{lgraph\+::utils\+::uugraph}}
 \subsubsection[{\texorpdfstring{init(size\+\_\+t n)}{init(size_t n)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::utils\+::uxgraph\+::init (

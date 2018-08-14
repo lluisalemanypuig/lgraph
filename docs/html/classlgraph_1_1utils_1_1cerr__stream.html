@@ -106,23 +106,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a60b0847503d146249b71e70473740f57"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a60b0847503d146249b71e70473740f57"></a>
-typedef std::basic_ostream&lt; char, std::char_traits&lt; char &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>cerr_type</b></td></tr>
+typedef std::basic_ostream&lt; char, std::char_traits&lt; char &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1cerr__stream.html#a60b0847503d146249b71e70473740f57">cerr_type</a></td></tr>
+<tr class="memdesc:a60b0847503d146249b71e70473740f57"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the type of std::cout. <br /></td></tr>
 <tr class="separator:a60b0847503d146249b71e70473740f57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b7e7603a4e656bd2d9196ae0f530c7b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8b7e7603a4e656bd2d9196ae0f530c7b"></a>
-typedef cerr_type &amp;(*&#160;</td><td class="memItemRight" valign="bottom"><b>standard_endl</b>) (cerr_type &amp;)</td></tr>
+typedef <a class="el" href="classlgraph_1_1utils_1_1cerr__stream.html#a60b0847503d146249b71e70473740f57">cerr_type</a> &amp;(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1cerr__stream.html#a8b7e7603a4e656bd2d9196ae0f530c7b">standard_endl</a>) (<a class="el" href="classlgraph_1_1utils_1_1cerr__stream.html#a60b0847503d146249b71e70473740f57">cerr_type</a> &amp;)</td></tr>
+<tr class="memdesc:a8b7e7603a4e656bd2d9196ae0f530c7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the function signature of std::endl. <br /></td></tr>
 <tr class="separator:a8b7e7603a4e656bd2d9196ae0f530c7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aaec9df1b58756fcda596e29bbfcefeac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaec9df1b58756fcda596e29bbfcefeac"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>open</b> (const char *, const std::ios_base::openmode &amp;)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1cerr__stream.html#aaec9df1b58756fcda596e29bbfcefeac">open</a> (const char *, const std::ios_base::openmode &amp;)</td></tr>
+<tr class="memdesc:aaec9df1b58756fcda596e29bbfcefeac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open an empty stream for error messages. <br /></td></tr>
 <tr class="separator:aaec9df1b58756fcda596e29bbfcefeac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd3014b9b67c23c7c86513c0f4969723"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd3014b9b67c23c7c86513c0f4969723"></a>
-<a class="el" href="classlgraph_1_1utils_1_1cerr__stream.html">cerr_stream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (const standard_endl &amp;)</td></tr>
+<a class="el" href="classlgraph_1_1utils_1_1cerr__stream.html">cerr_stream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1cerr__stream.html#afd3014b9b67c23c7c86513c0f4969723">operator&lt;&lt;</a> (const <a class="el" href="classlgraph_1_1utils_1_1cerr__stream.html#a8b7e7603a4e656bd2d9196ae0f530c7b">standard_endl</a> &amp;)</td></tr>
+<tr class="memdesc:afd3014b9b67c23c7c86513c0f4969723"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define an operator&lt;&lt; to take in std::endl. <br /></td></tr>
 <tr class="separator:afd3014b9b67c23c7c86513c0f4969723"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd9313105917714104d41bb3990ab81c"><td class="memTemplParams" colspan="2"><a class="anchor" id="afd9313105917714104d41bb3990ab81c"></a>
 template&lt;class t_printable &gt; </td></tr>
-<tr class="memitem:afd9313105917714104d41bb3990ab81c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classlgraph_1_1utils_1_1cerr__stream.html">cerr_stream</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&lt;&lt;</b> (const t_printable &amp;t)</td></tr>
+<tr class="memitem:afd9313105917714104d41bb3990ab81c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classlgraph_1_1utils_1_1cerr__stream.html">cerr_stream</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1cerr__stream.html#afd9313105917714104d41bb3990ab81c">operator&lt;&lt;</a> (const t_printable &amp;t)</td></tr>
+<tr class="memdesc:afd9313105917714104d41bb3990ab81c"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator&lt;&lt; for any printable type <br /></td></tr>
 <tr class="separator:afd9313105917714104d41bb3990ab81c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

@@ -102,7 +102,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Typedefs</h2></td></tr>
 <tr class="memitem:a06495bda19735564a02a6e98198a0980"><td class="memTemplParams" colspan="2"><a class="anchor" id="a06495bda19735564a02a6e98198a0980"></a>
 template&lt;class T &gt; </td></tr>
-<tr class="memitem:a06495bda19735564a02a6e98198a0980"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelgraph_1_1traversal_1_1dijkstra.html#a06495bda19735564a02a6e98198a0980">djka_node</a> = pair&lt; T, <a class="el" href="namespacelgraph_1_1utils.html#ab9c6b34241f0b68372c55f34c460e863">node</a> &gt;</td></tr>
+<tr class="memitem:a06495bda19735564a02a6e98198a0980"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelgraph_1_1traversal_1_1dijkstra.html#a06495bda19735564a02a6e98198a0980">djka_node</a> = pair&lt; T, <a class="el" href="namespacelgraph_1_1utils.html#a7bd66ede3805ef121bc2835bd48de0cf">node</a> &gt;</td></tr>
 <tr class="memdesc:a06495bda19735564a02a6e98198a0980"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pair encoding the distance to a node, and that node. <br /></td></tr>
 <tr class="separator:a06495bda19735564a02a6e98198a0980"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a275e9ff05e4d3199245b9642cc88fc74"><td class="memTemplParams" colspan="2">template&lt;class T  = size_t&gt; </td></tr>
@@ -114,16 +114,16 @@ template&lt;class T &gt; </td></tr>
 <tr class="memdesc:a1b15b8b987d2eea35dd01676ba1d3b35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Node processing function.  <a href="#a1b15b8b987d2eea35dd01676ba1d3b35">More...</a><br /></td></tr>
 <tr class="separator:a1b15b8b987d2eea35dd01676ba1d3b35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd266610f7bab0d52a202238ca539d38"><td class="memTemplParams" colspan="2">template&lt;class T  = size_t&gt; </td></tr>
-<tr class="memitem:abd266610f7bab0d52a202238ca539d38"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelgraph_1_1traversal_1_1dijkstra.html#abd266610f7bab0d52a202238ca539d38">djka_process_neighbour</a> = function&lt; bool(const <a class="el" href="classlgraph_1_1utils_1_1wxgraph.html">wxgraph</a>&lt; T &gt; *G, <a class="el" href="namespacelgraph_1_1utils.html#ab9c6b34241f0b68372c55f34c460e863">node</a> u, <a class="el" href="namespacelgraph_1_1utils.html#ab9c6b34241f0b68372c55f34c460e863">node</a> v, const T &amp;w, const vector&lt; bool &gt; &amp;vis)&gt;</td></tr>
+<tr class="memitem:abd266610f7bab0d52a202238ca539d38"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelgraph_1_1traversal_1_1dijkstra.html#abd266610f7bab0d52a202238ca539d38">djka_process_neighbour</a> = function&lt; bool(const <a class="el" href="classlgraph_1_1utils_1_1wxgraph.html">wxgraph</a>&lt; T &gt; *G, <a class="el" href="namespacelgraph_1_1utils.html#a7bd66ede3805ef121bc2835bd48de0cf">node</a> u, <a class="el" href="namespacelgraph_1_1utils.html#a7bd66ede3805ef121bc2835bd48de0cf">node</a> v, const T &amp;w, const vector&lt; bool &gt; &amp;vis)&gt;</td></tr>
 <tr class="memdesc:abd266610f7bab0d52a202238ca539d38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Node processing function.  <a href="#abd266610f7bab0d52a202238ca539d38">More...</a><br /></td></tr>
 <tr class="separator:abd266610f7bab0d52a202238ca539d38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:acb68be0fd5a51010ba509150bc9c8c90"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:acb68be0fd5a51010ba509150bc9c8c90"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelgraph_1_1traversal_1_1dijkstra.html#acb68be0fd5a51010ba509150bc9c8c90">Dijkstra</a> (const <a class="el" href="classlgraph_1_1utils_1_1wxgraph.html">wxgraph</a>&lt; T &gt; *G, <a class="el" href="namespacelgraph_1_1utils.html#ab9c6b34241f0b68372c55f34c460e863">node</a> source, <a class="el" href="namespacelgraph_1_1traversal_1_1dijkstra.html#a275e9ff05e4d3199245b9642cc88fc74">djka_terminate</a>&lt; T &gt; term=[](const <a class="el" href="classlgraph_1_1utils_1_1wxgraph.html">wxgraph</a>&lt; T &gt; *, const <a class="el" href="namespacelgraph_1_1traversal_1_1dijkstra.html#a06495bda19735564a02a6e98198a0980">djka_node</a>&lt; T &gt; &amp;, const vector&lt; bool &gt; &amp;) -&gt; bool{return false;}, <a class="el" href="namespacelgraph_1_1traversal_1_1dijkstra.html#a1b15b8b987d2eea35dd01676ba1d3b35">djka_process_current</a>&lt; T &gt; proc_curr=[](const <a class="el" href="classlgraph_1_1utils_1_1wxgraph.html">wxgraph</a>&lt; T &gt; *, const <a class="el" href="namespacelgraph_1_1traversal_1_1dijkstra.html#a06495bda19735564a02a6e98198a0980">djka_node</a>&lt; T &gt; &amp;, const vector&lt; bool &gt; &amp;) -&gt; void{}, <a class="el" href="namespacelgraph_1_1traversal_1_1dijkstra.html#abd266610f7bab0d52a202238ca539d38">djka_process_neighbour</a>&lt; T &gt; proc_neig=[](const <a class="el" href="classlgraph_1_1utils_1_1wxgraph.html">wxgraph</a>&lt; T &gt; *, <a class="el" href="namespacelgraph_1_1utils.html#ab9c6b34241f0b68372c55f34c460e863">node</a>, <a class="el" href="namespacelgraph_1_1utils.html#ab9c6b34241f0b68372c55f34c460e863">node</a>, const T &amp;, const vector&lt; bool &gt; &amp;) -&gt; bool{return true;})</td></tr>
-<tr class="memdesc:acb68be0fd5a51010ba509150bc9c8c90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic Dijkstra algorithm.  <a href="#acb68be0fd5a51010ba509150bc9c8c90">More...</a><br /></td></tr>
-<tr class="separator:acb68be0fd5a51010ba509150bc9c8c90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a841778a8e888fb90b5a39d54e5d776eb"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a841778a8e888fb90b5a39d54e5d776eb"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelgraph_1_1traversal_1_1dijkstra.html#a841778a8e888fb90b5a39d54e5d776eb">Dijkstra</a> (const <a class="el" href="classlgraph_1_1utils_1_1wxgraph.html">wxgraph</a>&lt; T &gt; *G, <a class="el" href="namespacelgraph_1_1utils.html#a7bd66ede3805ef121bc2835bd48de0cf">node</a> source, <a class="el" href="namespacelgraph_1_1traversal_1_1dijkstra.html#a275e9ff05e4d3199245b9642cc88fc74">djka_terminate</a>&lt; T &gt; term=[](const <a class="el" href="classlgraph_1_1utils_1_1wxgraph.html">wxgraph</a>&lt; T &gt; *, const <a class="el" href="namespacelgraph_1_1traversal_1_1dijkstra.html#a06495bda19735564a02a6e98198a0980">djka_node</a>&lt; T &gt; &amp;, const vector&lt; bool &gt; &amp;) -&gt; bool{return false;}, <a class="el" href="namespacelgraph_1_1traversal_1_1dijkstra.html#a1b15b8b987d2eea35dd01676ba1d3b35">djka_process_current</a>&lt; T &gt; proc_curr=[](const <a class="el" href="classlgraph_1_1utils_1_1wxgraph.html">wxgraph</a>&lt; T &gt; *, const <a class="el" href="namespacelgraph_1_1traversal_1_1dijkstra.html#a06495bda19735564a02a6e98198a0980">djka_node</a>&lt; T &gt; &amp;, const vector&lt; bool &gt; &amp;) -&gt; void{}, <a class="el" href="namespacelgraph_1_1traversal_1_1dijkstra.html#abd266610f7bab0d52a202238ca539d38">djka_process_neighbour</a>&lt; T &gt; proc_neigh=[](const <a class="el" href="classlgraph_1_1utils_1_1wxgraph.html">wxgraph</a>&lt; T &gt; *, <a class="el" href="namespacelgraph_1_1utils.html#a7bd66ede3805ef121bc2835bd48de0cf">node</a>, <a class="el" href="namespacelgraph_1_1utils.html#a7bd66ede3805ef121bc2835bd48de0cf">node</a>, const T &amp;, const vector&lt; bool &gt; &amp;) -&gt; bool{return true;})</td></tr>
+<tr class="memdesc:a841778a8e888fb90b5a39d54e5d776eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic Dijkstra algorithm.  <a href="#a841778a8e888fb90b5a39d54e5d776eb">More...</a><br /></td></tr>
+<tr class="separator:a841778a8e888fb90b5a39d54e5d776eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Grouping of the Dijkstra's algorithm for path finding generic functions. </p>
@@ -142,7 +142,7 @@ template&lt;class T  = size_t&gt; </div>
 </div><div class="memdoc">
 
 <p>Node processing function. </p>
-<p>Processes the current node visited. For more details on when it is called see <a class="el" href="namespacelgraph_1_1traversal_1_1dijkstra.html#acb68be0fd5a51010ba509150bc9c8c90">Dijkstra</a>.</p>
+<p>Processes the current node visited. For more details on when it is called see <a class="el" href="namespacelgraph_1_1traversal_1_1dijkstra.html#a841778a8e888fb90b5a39d54e5d776eb">Dijkstra</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">G</td><td>The graph being traversed </td></tr>
@@ -161,13 +161,13 @@ template&lt;class T  = size_t&gt; </div>
 template&lt;class T  = size_t&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespacelgraph_1_1traversal_1_1dijkstra.html#abd266610f7bab0d52a202238ca539d38">lgraph::traversal::dijkstra::djka_process_neighbour</a> = typedef function&lt;bool (const <a class="el" href="classlgraph_1_1utils_1_1wxgraph.html">wxgraph</a>&lt;T&gt; *G, <a class="el" href="namespacelgraph_1_1utils.html#ab9c6b34241f0b68372c55f34c460e863">node</a> u, <a class="el" href="namespacelgraph_1_1utils.html#ab9c6b34241f0b68372c55f34c460e863">node</a> v, const T&amp; w, const vector&lt;bool&gt;&amp; vis)&gt;</td>
+          <td class="memname">using <a class="el" href="namespacelgraph_1_1traversal_1_1dijkstra.html#abd266610f7bab0d52a202238ca539d38">lgraph::traversal::dijkstra::djka_process_neighbour</a> = typedef function&lt;bool (const <a class="el" href="classlgraph_1_1utils_1_1wxgraph.html">wxgraph</a>&lt;T&gt; *G, <a class="el" href="namespacelgraph_1_1utils.html#a7bd66ede3805ef121bc2835bd48de0cf">node</a> u, <a class="el" href="namespacelgraph_1_1utils.html#a7bd66ede3805ef121bc2835bd48de0cf">node</a> v, const T&amp; w, const vector&lt;bool&gt;&amp; vis)&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Node processing function. </p>
-<p>Processes the next visited node. For more details on when it is called see <a class="el" href="namespacelgraph_1_1traversal_1_1dijkstra.html#acb68be0fd5a51010ba509150bc9c8c90">Dijkstra</a>.</p>
+<p>Processes the next visited node. For more details on when it is called see <a class="el" href="namespacelgraph_1_1traversal_1_1dijkstra.html#a841778a8e888fb90b5a39d54e5d776eb">Dijkstra</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">G</td><td>The graph being traversed </td></tr>
@@ -195,7 +195,7 @@ template&lt;class T  = size_t&gt; </div>
 </div><div class="memdoc">
 
 <p>Terminating function. </p>
-<p>Returns true if the <a class="el" href="namespacelgraph_1_1traversal_1_1dijkstra.html#acb68be0fd5a51010ba509150bc9c8c90">Dijkstra</a> algorithm should terminate. For more details on when it is called see <a class="el" href="namespacelgraph_1_1traversal_1_1dijkstra.html#acb68be0fd5a51010ba509150bc9c8c90">Dijkstra</a>.</p>
+<p>Returns true if the <a class="el" href="namespacelgraph_1_1traversal_1_1dijkstra.html#a841778a8e888fb90b5a39d54e5d776eb">Dijkstra</a> algorithm should terminate. For more details on when it is called see <a class="el" href="namespacelgraph_1_1traversal_1_1dijkstra.html#a841778a8e888fb90b5a39d54e5d776eb">Dijkstra</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">G</td><td>The graph being traversed </td></tr>
@@ -208,7 +208,7 @@ template&lt;class T  = size_t&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="acb68be0fd5a51010ba509150bc9c8c90"></a>
+<a class="anchor" id="a841778a8e888fb90b5a39d54e5d776eb"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -223,7 +223,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacelgraph_1_1utils.html#ab9c6b34241f0b68372c55f34c460e863">node</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacelgraph_1_1utils.html#a7bd66ede3805ef121bc2835bd48de0cf">node</a>&#160;</td>
           <td class="paramname"><em>source</em>, </td>
         </tr>
         <tr>
@@ -242,7 +242,7 @@ template&lt;class T &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="namespacelgraph_1_1traversal_1_1dijkstra.html#abd266610f7bab0d52a202238ca539d38">djka_process_neighbour</a>&lt; T &gt;&#160;</td>
-          <td class="paramname"><em>proc_neig</em> = <code>[](const&#160;<a class="el" href="classlgraph_1_1utils_1_1wxgraph.html">wxgraph</a>&lt;&#160;T&#160;&gt;&#160;*,&#160;<a class="el" href="namespacelgraph_1_1utils.html#ab9c6b34241f0b68372c55f34c460e863">node</a>,&#160;<a class="el" href="namespacelgraph_1_1utils.html#ab9c6b34241f0b68372c55f34c460e863">node</a>,&#160;const&#160;T&#160;&amp;,&#160;const&#160;vector&lt;&#160;bool&#160;&gt;&#160;&amp;)&#160;-&gt;&#160;bool{return&#160;true;}</code>&#160;</td>
+          <td class="paramname"><em>proc_neigh</em> = <code>[](const&#160;<a class="el" href="classlgraph_1_1utils_1_1wxgraph.html">wxgraph</a>&lt;&#160;T&#160;&gt;&#160;*,&#160;<a class="el" href="namespacelgraph_1_1utils.html#a7bd66ede3805ef121bc2835bd48de0cf">node</a>,&#160;<a class="el" href="namespacelgraph_1_1utils.html#a7bd66ede3805ef121bc2835bd48de0cf">node</a>,&#160;const&#160;T&#160;&amp;,&#160;const&#160;vector&lt;&#160;bool&#160;&gt;&#160;&amp;)&#160;-&gt;&#160;bool{return&#160;true;}</code>&#160;</td>
         </tr>
         <tr>
           <td></td>

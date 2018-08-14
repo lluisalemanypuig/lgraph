@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['udgraph',['udgraph',['../classlgraph_1_1utils_1_1udgraph.html#ac67664542d6a8e674781adc1466905af',1,'lgraph::utils::udgraph']]],
   ['unset_5fall',['unset_all',['../classlgraph_1_1utils_1_1static__bitset.html#a38f34197224e168f40b5370c23c4243d',1,'lgraph::utils::static_bitset']]],
   ['unset_5fbit',['unset_bit',['../classlgraph_1_1utils_1_1static__bitset.html#af5f2d8f8f9d244e8f4768678ed8a7077',1,'lgraph::utils::static_bitset']]],
   ['unused',['UNUSED',['../namespacelgraph_1_1utils.html#a02e9a521f6566b3bd3570cfec6d19db1',1,'lgraph::utils']]],

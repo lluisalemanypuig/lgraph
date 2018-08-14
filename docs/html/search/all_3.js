@@ -1,7 +1,7 @@
 var searchData=
 [
   ['cerr_5fstream',['cerr_stream',['../classlgraph_1_1utils_1_1cerr__stream.html',1,'lgraph::utils']]],
-  ['cget_5fneighbour_5fposition',['cget_neighbour_position',['../classlgraph_1_1utils_1_1xxgraph.html#af72476b0919eacd6e9b044f7c5528c1e',1,'lgraph::utils::xxgraph']]],
+  ['cerr_5ftype',['cerr_type',['../classlgraph_1_1utils_1_1cerr__stream.html#a60b0847503d146249b71e70473740f57',1,'lgraph::utils::cerr_stream']]],
   ['clear',['clear',['../classlgraph_1_1utils_1_1boolean__path.html#a77384ff404a3e18f012f01eac407d42a',1,'lgraph::utils::boolean_path::clear()'],['../classlgraph_1_1utils_1_1uxgraph.html#ae76c83683dc7527fe5394d67437a7107',1,'lgraph::utils::uxgraph::clear()'],['../classlgraph_1_1utils_1_1wxgraph.html#a421bc8166e35335445e45efc680ebe3f',1,'lgraph::utils::wxgraph::clear()'],['../classlgraph_1_1utils_1_1static__bitset.html#a6013f8230ae37554328dfe0884d89c71',1,'lgraph::utils::static_bitset::clear()']]],
   ['clear_5fadjacency_5flist',['clear_adjacency_list',['../classlgraph_1_1utils_1_1xxgraph.html#a6523402d0ec66918b95de23d2bee38fc',1,'lgraph::utils::xxgraph']]],
   ['clear_5fparent_5fgraph',['clear_parent_graph',['../classlgraph_1_1utils_1_1xxgraph.html#a8d213a8dfe716d344dd51d1bd37c0e2c',1,'lgraph::utils::xxgraph']]],
@@ -12,5 +12,7 @@ var searchData=
   ['contains',['contains',['../classlgraph_1_1utils_1_1svector.html#ab17c14abafd02d01a0e1f8230ed23680',1,'lgraph::utils::svector']]],
   ['count',['count',['../classlgraph_1_1utils_1_1static__bitset.html#a8d848c930956cd1ec5b378e64dd3e274',1,'lgraph::utils::static_bitset']]],
   ['cout_5fstream',['cout_stream',['../classlgraph_1_1utils_1_1cout__stream.html',1,'lgraph::utils']]],
-  ['crandom_5fgenerator',['crandom_generator',['../classlgraph_1_1utils_1_1crandom__generator.html',1,'lgraph::utils']]]
+  ['cout_5ftype',['cout_type',['../classlgraph_1_1utils_1_1null__stream.html#ae3f818cbd342cb6da9f15677252da938',1,'lgraph::utils::null_stream::cout_type()'],['../classlgraph_1_1utils_1_1cout__stream.html#a567e84e8f695f9f06e25a90385bd36bc',1,'lgraph::utils::cout_stream::cout_type()']]],
+  ['crandom_5fgenerator',['crandom_generator',['../classlgraph_1_1utils_1_1crandom__generator.html',1,'lgraph::utils']]],
+  ['crandom_5fgenerator',['crandom_generator',['../classlgraph_1_1utils_1_1crandom__generator.html#a90bfc340dcb2fa15e744cff6e280978a',1,'lgraph::utils::crandom_generator']]]
 ];
