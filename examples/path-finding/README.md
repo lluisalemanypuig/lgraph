@@ -15,9 +15,9 @@ shortest distance/path finding.
 Once the library lgraph has been compiled following the instructions in the
 main README.md file, while in the directory examples/ issue the following commands:
 
-		mkdir build-path-finding
-		qmake -makefile path-finding/path-finding.pro -o build-path-finding/Makefile
-		cd build-path-finding && make
+		mkdir path-finding-release
+		qmake -makefile path-finding/path-finding.pro -o path-finding-release/Makefile
+		cd path-finding-release && make
 
 ## How to use it
 

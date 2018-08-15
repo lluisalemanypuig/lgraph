@@ -36,9 +36,9 @@ The project may be compiled using the qmake tool.
 Once the library lgraph has been compiled following the instructions in the
 main README.md file, while in the directory examples/ issue the following commands:
 
-		mkdir build-csn
-		qmake -makefile complex-social-networks/csn.pro -o build-csn/Makefile
-		cd build-csn && make
+		mkdir csn-release
+		qmake -makefile complex-social-networks/csn.pro -o csn-release/Makefile
+		cd csn-release && make
 
 ## How to use it
 
