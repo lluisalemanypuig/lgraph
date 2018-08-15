@@ -5,7 +5,7 @@
  *
  */
 
-/// Library main namespace
+/// Library's main namespace
 namespace lgraph {
 
 	/**
@@ -17,8 +17,11 @@ namespace lgraph {
 	 * a node to all other nodes of the same graph, ...)
 	 */
 	namespace traversal {
+		/// Definition of a generic BFS traversal of an unweighted graph
 		namespace bfs {}
+		/// Definition of a generic BFS traversal of an unweighted graph
 		namespace dfs {}
+		/// Definition of a generic BFS traversal of an weighted graph
 		namespace dijkstra {}
 	}
 

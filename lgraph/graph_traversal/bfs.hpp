@@ -19,10 +19,8 @@ using namespace utils;
 namespace traversal {
 
 /**
-* @brief Grouping of the BFS-related functions
-*
-* Contains a generic BFS algorithm and several
-* functions used to guide it.
+* Contains a generic BFS algorithm that uses three
+* different functions that guide it.
 */
 namespace bfs {
 

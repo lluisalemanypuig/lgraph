@@ -37,7 +37,11 @@ namespace utils {
 	/// Shorthand for the maximum value of any type
 	template<typename T> inline T inf_t() { return numeric_limits<T>::max(); }
 
-	/// Typedef for the type of weight in unweighted graphs
+	/**
+	 * @brief Typedef for the type of weight in unweighted graphs
+	 *
+	 * _new_ stands for Null Edge Weight.
+	 */
 	typedef uint32_t _new_;
 
 } // -- namespace utils

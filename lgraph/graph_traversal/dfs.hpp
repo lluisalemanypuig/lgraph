@@ -19,10 +19,8 @@ using namespace utils;
 namespace traversal {
 
 /**
-* @brief Grouping of the DFS-related functions
-*
-* Contains a generic DFS algorithm and several
-* functions used to guide it.
+* Contains a generic DFS algorithm that uses three
+* different functions that guide it.
 */
 namespace dfs {
 

@@ -19,10 +19,8 @@ using namespace utils;
 namespace traversal {
 
 /**
-* @brief Grouping of the Dijkstra's algorithm for path finding generic functions
-*
-* Contains a generic Dijkstra algorithm for shortest-path and several
-* functions used to guide it.
+* Contains a generic Dijkstra algorithm that uses three
+* different functions that guide it.
 */
 namespace dijkstra {
 
