@@ -35,8 +35,11 @@ HEADERS += \
     random_graphs/switching.hpp \
         random_graphs/switching.cpp \
     metrics/clustering.hpp \
+        metrics/wclustering.cpp \
     metrics/distance.hpp \
+        metrics/wdistance.cpp \
     metrics/centralities.hpp \
+        metrics/wcentralities.cpp \
     epidemics/models.hpp \
         epidemics/sir.cpp \
         epidemics/sis.cpp \
@@ -54,9 +57,9 @@ HEADERS += \
 
 SOURCES += \
     utils/static_bitset.cpp \
-    metrics/clustering.cpp \
-    metrics/centralities.cpp \
-    metrics/distance.cpp \
+    metrics/uclustering.cpp \
+    metrics/udistance.cpp \
+    metrics/ucentralities.cpp \
     data_structures/xxgraph.cpp \
     data_structures/uxgraph.cpp \
     data_structures/uugraph.cpp \
@@ -67,3 +70,5 @@ SOURCES += \
     graph_traversal/uxdistances.cpp \
     graph_traversal/uxpaths.cpp \
     graph_traversal/uxpaths_boolean.cpp
+
+
