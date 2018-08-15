@@ -126,19 +126,19 @@ void print_metrics(const uugraph& Gs) {
 	if (clust_gcc or clust_mlcc or dist_mgc or dist_diam or dist_mcc) {
 		cout << "Metrics:" << endl;
 		if (clust_gcc) {
-			cout << "    Global clustering coefficient:     " << networks::metrics::clustering::gcc(Gs) << endl;
+			cout << "    Global clustering coefficient:     " << networks::metrics::clustering::gcc(&Gs) << endl;
 		}
 		if (clust_mlcc) {
-			cout << "    Mean local clustering coefficient: " << networks::metrics::clustering::mlcc(Gs) << endl;
+			cout << "    Mean local clustering coefficient: " << networks::metrics::clustering::mlcc(&Gs) << endl;
 		}
 		if (dist_mgc) {
-			cout << "    Mean geodesic distance: " << networks::metrics::distance::mean_distance(Gs) << endl;
+			cout << "    Mean geodesic distance: " << networks::metrics::distance::mean_distance(&Gs) << endl;
 		}
 		if (dist_diam) {
-			cout << "    Maximum geodesic distance: " << networks::metrics::distance::max_distance(Gs) << endl;
+			cout << "    Maximum geodesic distance: " << networks::metrics::distance::max_distance(&Gs) << endl;
 		}
 		if (dist_mcc) {
-			cout << "    Mean closeness centrality: " << networks::metrics::distance::mcc(Gs) << endl;
+			cout << "    Mean closeness centrality: " << networks::metrics::distance::mcc(&Gs) << endl;
 		}
 		cout << endl;
 	}
@@ -148,7 +148,7 @@ void print_degree_centrality(const uugraph& Gs) {
 	cout << "    Degree centrality:" << endl;
 	
 	vector<double> deg_cen;
-	networks::metrics::centralities::degree(Gs, deg_cen);
+	networks::metrics::centralities::degree(&Gs, deg_cen);
 	for (size_t u = 0; u < deg_cen.size(); ++u) {
 		cout << "    Node " << u << ": " << deg_cen[u] << endl;
 	}
@@ -160,7 +160,7 @@ void print_closeness_centrality(const uugraph& Gs) {
 	cout << "    Closeness centrality:" << endl;
 
 	vector<double> close_cen;
-	networks::metrics::centralities::closeness(Gs, close_cen);
+	networks::metrics::centralities::closeness(&Gs, close_cen);
 	for (size_t u = 0; u < close_cen.size(); ++u) {
 		cout << "    Node " << u << ": " << close_cen[u] << endl;
 	}
@@ -172,7 +172,7 @@ void print_betweenness_centrality(const uugraph& Gs) {
 	cout << "    Betweenness centrality:" << endl;
 
 	vector<double> bt_cen;
-	networks::metrics::centralities::betweenness(Gs, bt_cen);
+	networks::metrics::centralities::betweenness(&Gs, bt_cen);
 	for (size_t u = 0; u < bt_cen.size(); ++u) {
 		cout << "    Node " << u << ": " << bt_cen[u] << endl;
 	}
