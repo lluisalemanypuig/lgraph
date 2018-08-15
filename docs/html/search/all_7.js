@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['gcc',['gcc',['../namespacelgraph_1_1networks_1_1metrics_1_1clustering.html#a49dce125d6fb4ee57da7fd64fd4e12ac',1,'lgraph::networks::metrics::clustering']]],
+  ['gcc',['gcc',['../namespacelgraph_1_1networks_1_1metrics_1_1clustering.html#aa2831ceb0814d7d3d2298b8c93d0b99f',1,'lgraph::networks::metrics::clustering::gcc(const uxgraph *G)'],['../namespacelgraph_1_1networks_1_1metrics_1_1clustering.html#a0bd5461cb7b39c35b3806749778ea073',1,'lgraph::networks::metrics::clustering::gcc(const wxgraph&lt; T &gt; *G)']]],
   ['gen',['gen',['../classlgraph_1_1utils_1_1random__generator.html#a18353876b4c2d3a18aee454b5750a0a0',1,'lgraph::utils::random_generator']]],
   ['get_5fadjacency_5fmatrix',['get_adjacency_matrix',['../classlgraph_1_1utils_1_1xxgraph.html#a401454762f6b4b69f13ab0a10729c457',1,'lgraph::utils::xxgraph']]],
   ['get_5fbinomial',['get_binomial',['../classlgraph_1_1utils_1_1random__generator.html#a721da14c38e38d28559e8c617e0bdde2',1,'lgraph::utils::random_generator::get_binomial()'],['../classlgraph_1_1utils_1_1drandom__generator.html#ac6062b1bbf3ed3a45bdab7474f466b7f',1,'lgraph::utils::drandom_generator::get_binomial()'],['../classlgraph_1_1utils_1_1crandom__generator.html#ac1f724180b858b6a1f67451060de6896',1,'lgraph::utils::crandom_generator::get_binomial()']]],

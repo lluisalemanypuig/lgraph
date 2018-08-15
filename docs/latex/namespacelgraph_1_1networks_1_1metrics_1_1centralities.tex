@@ -8,23 +8,41 @@ Centrality metrics.
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-double \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a587a7cd32f7d59138fd7a327c902b4ab}{degree} (const \hyperlink{classlgraph_1_1utils_1_1uugraph}{uugraph} \&G, \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u)
+double \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a059db418660d28d673a154ceef293469}{degree} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u)
 \begin{DoxyCompactList}\small\item\em Normalised degree centrality of a single node. \end{DoxyCompactList}\item 
-void \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a550503d0a4429f9eb993d6a739130853}{degree} (const \hyperlink{classlgraph_1_1utils_1_1uugraph}{uugraph} \&G, vector$<$ double $>$ \&dc)
+void \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1centralities_abd975d6e07c32b07b48b1501dc8215a1}{degree} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, vector$<$ double $>$ \&dc)
 \begin{DoxyCompactList}\small\item\em Normalised degree centrality of all nodes. \end{DoxyCompactList}\item 
-double \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a93bddce29621b2d88b633971bcf0ba3c}{closeness} (const \hyperlink{classlgraph_1_1utils_1_1uugraph}{uugraph} \&G, \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u)
+double \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a5e567539ccb6396bfb47ba2173a0cc4c}{closeness} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u)
 \begin{DoxyCompactList}\small\item\em Closeness centrality of a node. \end{DoxyCompactList}\item 
-void \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a7405d3e9a93d0b4d8c1898e2456acea9}{closeness} (const \hyperlink{classlgraph_1_1utils_1_1uugraph}{uugraph} \&G, vector$<$ double $>$ \&cc)
+void \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1centralities_aec116343b65bf300d2d820021e020374}{closeness} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, vector$<$ double $>$ \&cc)
 \begin{DoxyCompactList}\small\item\em Closeness centrality of all nodes of a graph. \end{DoxyCompactList}\item 
-void \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a9774afdefe5a503baa5c600ae8e903c2}{closeness} (const \hyperlink{classlgraph_1_1utils_1_1uugraph}{uugraph} \&G, const vector$<$ vector$<$ \hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} $>$ $>$ \&atad, vector$<$ double $>$ \&cc)
+void \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1centralities_aa98251b824fed2baa439258fae6dcc48}{closeness} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, const vector$<$ vector$<$ \hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} $>$ $>$ \&atad, vector$<$ double $>$ \&cc)
 \begin{DoxyCompactList}\small\item\em Closeness centrality of all nodes of a graph. \end{DoxyCompactList}\item 
-double \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1centralities_aa4f1bdbafd5df2de345a6bd7976b4b2f}{betweenness} (const \hyperlink{classlgraph_1_1utils_1_1uugraph}{uugraph} \&G, \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u)
+double \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a0834cb72864b1bdf574c212c5cafbce9}{betweenness} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u)
 \begin{DoxyCompactList}\small\item\em Betweenness centrality of a node. \end{DoxyCompactList}\item 
-double \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1centralities_ab0bbeb70e403b5d262debf80f8d93dc1}{betweenness} (const \hyperlink{classlgraph_1_1utils_1_1uugraph}{uugraph} \&G, const vector$<$ vector$<$ \hyperlink{namespacelgraph_1_1utils_aaf50131e15d771a45620336d6e7a77f8}{boolean\+\_\+path\+\_\+set}$<$ \hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} $>$ $>$ $>$ \&paths, \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u)
+double \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a2fb3b0c2d3cc9e44b7a979478d9e4d05}{betweenness} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, const vector$<$ vector$<$ \hyperlink{namespacelgraph_1_1utils_aaf50131e15d771a45620336d6e7a77f8}{boolean\+\_\+path\+\_\+set}$<$ \hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} $>$ $>$ $>$ \&paths, \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u)
 \begin{DoxyCompactList}\small\item\em Betweenness centrality of a node. \end{DoxyCompactList}\item 
-void \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1centralities_ad5f8fafeefd9a4cdb6ba5da8c33f9b69}{betweenness} (const \hyperlink{classlgraph_1_1utils_1_1uugraph}{uugraph} \&G, vector$<$ double $>$ \&bc)
+void \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a8ef4d17ff1a5e329f7d1fc1f5d1b13c9}{betweenness} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, vector$<$ double $>$ \&bc)
 \begin{DoxyCompactList}\small\item\em Betweenness centrality of all nodes in a graph. \end{DoxyCompactList}\item 
-void \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a6e8bea94c0d909898cdfeff1c1d3428e}{betweenness} (const \hyperlink{classlgraph_1_1utils_1_1uugraph}{uugraph} \&G, const vector$<$ vector$<$ \hyperlink{namespacelgraph_1_1utils_aaf50131e15d771a45620336d6e7a77f8}{boolean\+\_\+path\+\_\+set}$<$ \hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} $>$ $>$ $>$ \&paths, vector$<$ double $>$ \&bc)
+void \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1centralities_aa43468d2f3d108abc26f0844cccb12e5}{betweenness} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$G, const vector$<$ vector$<$ \hyperlink{namespacelgraph_1_1utils_aaf50131e15d771a45620336d6e7a77f8}{boolean\+\_\+path\+\_\+set}$<$ \hyperlink{namespacelgraph_1_1utils_a2c84bfde888c42ab3ad6b2cb8a364240}{\+\_\+new\+\_\+} $>$ $>$ $>$ \&paths, vector$<$ double $>$ \&bc)
+\begin{DoxyCompactList}\small\item\em Betweenness centrality of a node. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\double \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1centralities_ab069253de07dc54020e9d6cc1a27a6c8}{degree} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u)
+\begin{DoxyCompactList}\small\item\em Normalised degree centrality of a single node. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a9b3eb8bead7056e2be01d1f3dda72428}{degree} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, vector$<$ double $>$ \&dc)
+\begin{DoxyCompactList}\small\item\em Normalised degree centrality of all nodes. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\double \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a641608dcaecba5d3636237bd15da2e96}{closeness} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u)
+\begin{DoxyCompactList}\small\item\em Closeness centrality of a node. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a38135be31ba7cef97d70ed68434f5e74}{closeness} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, vector$<$ double $>$ \&cc)
+\begin{DoxyCompactList}\small\item\em Closeness centrality of all nodes of a graph. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1centralities_af807c15c31f07d267798cc959fc61dca}{closeness} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, const vector$<$ vector$<$ T $>$ $>$ \&atad, vector$<$ double $>$ \&cc)
+\begin{DoxyCompactList}\small\item\em Closeness centrality of all nodes of a graph. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\double \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a5a8a94d9361a49ffa657d8d6541be4be}{betweenness} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u)
+\begin{DoxyCompactList}\small\item\em Betweenness centrality of a node. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\double \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a04383a2788cd6a602e390b08f06099a3}{betweenness} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, const vector$<$ vector$<$ \hyperlink{namespacelgraph_1_1utils_aaf50131e15d771a45620336d6e7a77f8}{boolean\+\_\+path\+\_\+set}$<$ T $>$ $>$ $>$ \&paths, \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u)
+\begin{DoxyCompactList}\small\item\em Betweenness centrality of a node. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a32fb8a20727fbc27a7226361bfd5aee2}{betweenness} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, vector$<$ double $>$ \&bc)
+\begin{DoxyCompactList}\small\item\em Betweenness centrality of all nodes in a graph. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a1989e1dd01f7303e02d96100c2b6a064}{betweenness} (const \hyperlink{classlgraph_1_1utils_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G, const vector$<$ vector$<$ \hyperlink{namespacelgraph_1_1utils_aaf50131e15d771a45620336d6e7a77f8}{boolean\+\_\+path\+\_\+set}$<$ T $>$ $>$ $>$ \&paths, vector$<$ double $>$ \&bc)
 \begin{DoxyCompactList}\small\item\em Betweenness centrality of a node. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -34,12 +52,12 @@ Centrality metrics.
 \subsection{Function Documentation}
 \index{lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}!betweenness@{betweenness}}
 \index{betweenness@{betweenness}!lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}}
-\subsubsection[{\texorpdfstring{betweenness(const uugraph \&\+G, node u)}{betweenness(const uugraph &G, node u)}}]{\setlength{\rightskip}{0pt plus 5cm}double lgraph\+::networks\+::metrics\+::centralities\+::betweenness (
+\subsubsection[{\texorpdfstring{betweenness(const uxgraph $\ast$\+G, node u)}{betweenness(const uxgraph *G, node u)}}]{\setlength{\rightskip}{0pt plus 5cm}double lgraph\+::networks\+::metrics\+::centralities\+::betweenness (
 \begin{DoxyParamCaption}
-\item[{const {\bf uugraph} \&}]{G, }
+\item[{const {\bf uxgraph} $\ast$}]{G, }
 \item[{{\bf node}}]{u}
 \end{DoxyParamCaption}
-)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1centralities_aa4f1bdbafd5df2de345a6bd7976b4b2f}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1centralities_aa4f1bdbafd5df2de345a6bd7976b4b2f}
+)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a0834cb72864b1bdf574c212c5cafbce9}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a0834cb72864b1bdf574c212c5cafbce9}
 
 
 Betweenness centrality of a node. 
@@ -56,7 +74,7 @@ Furthermore, only the pairs of vertices (s,t) with s $<$= t are considered. Fina
 
 This function computes all shortest paths between each pair of nodes. 
 \begin{DoxyParams}{Parameters}
-{\em G} & The graph to be evaluated \\
+{\em G} & The unweighted graph to be evaluated \\
 \hline
 {\em u} & The node to be evaluated \\
 \hline
@@ -66,13 +84,13 @@ Returns the betweenness centrality of a node, considering that a path between {\
 \end{DoxyReturn}
 \index{lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}!betweenness@{betweenness}}
 \index{betweenness@{betweenness}!lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}}
-\subsubsection[{\texorpdfstring{betweenness(const uugraph \&\+G, const vector$<$ vector$<$ boolean\+\_\+path\+\_\+set$<$ \+\_\+new\+\_\+ $>$ $>$ $>$ \&paths, node u)}{betweenness(const uugraph &G, const vector< vector< boolean_path_set< _new_ > > > &paths, node u)}}]{\setlength{\rightskip}{0pt plus 5cm}double lgraph\+::networks\+::metrics\+::centralities\+::betweenness (
+\subsubsection[{\texorpdfstring{betweenness(const uxgraph $\ast$\+G, const vector$<$ vector$<$ boolean\+\_\+path\+\_\+set$<$ \+\_\+new\+\_\+ $>$ $>$ $>$ \&paths, node u)}{betweenness(const uxgraph *G, const vector< vector< boolean_path_set< _new_ > > > &paths, node u)}}]{\setlength{\rightskip}{0pt plus 5cm}double lgraph\+::networks\+::metrics\+::centralities\+::betweenness (
 \begin{DoxyParamCaption}
-\item[{const {\bf uugraph} \&}]{G, }
+\item[{const {\bf uxgraph} $\ast$}]{G, }
 \item[{const vector$<$ vector$<$ {\bf boolean\+\_\+path\+\_\+set}$<$ {\bf \+\_\+new\+\_\+} $>$ $>$ $>$ \&}]{paths, }
 \item[{{\bf node}}]{u}
 \end{DoxyParamCaption}
-)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1centralities_ab0bbeb70e403b5d262debf80f8d93dc1}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1centralities_ab0bbeb70e403b5d262debf80f8d93dc1}
+)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a2fb3b0c2d3cc9e44b7a979478d9e4d05}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a2fb3b0c2d3cc9e44b7a979478d9e4d05}
 
 
 Betweenness centrality of a node. 
@@ -89,7 +107,7 @@ Furthermore, only the pairs of vertices (s,t) with s $<$= t are considered. Fina
 
 This uses the parameter {\itshape paths} to avoid computing all the shortest paths between all pair of nodes. 
 \begin{DoxyParams}{Parameters}
-{\em G} & The graph to be evaluated \\
+{\em G} & The unweighted graph to be evaluated \\
 \hline
 {\em paths} & {\itshape paths}\mbox{[}u\mbox{]}\mbox{[}v\mbox{]} contains all shortest paths between {\itshape u} and {\itshape v} for 0 $<$= {\itshape u} , {\itshape v} $<$ {\itshape G.\+n\+\_\+nodes()} \\
 \hline
@@ -101,12 +119,12 @@ Returns the betweenness centrality of a node, considering that a path between {\
 \end{DoxyReturn}
 \index{lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}!betweenness@{betweenness}}
 \index{betweenness@{betweenness}!lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}}
-\subsubsection[{\texorpdfstring{betweenness(const uugraph \&\+G, vector$<$ double $>$ \&bc)}{betweenness(const uugraph &G, vector< double > &bc)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::networks\+::metrics\+::centralities\+::betweenness (
+\subsubsection[{\texorpdfstring{betweenness(const uxgraph $\ast$\+G, vector$<$ double $>$ \&bc)}{betweenness(const uxgraph *G, vector< double > &bc)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::networks\+::metrics\+::centralities\+::betweenness (
 \begin{DoxyParamCaption}
-\item[{const {\bf uugraph} \&}]{G, }
+\item[{const {\bf uxgraph} $\ast$}]{G, }
 \item[{vector$<$ double $>$ \&}]{bc}
 \end{DoxyParamCaption}
-)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1centralities_ad5f8fafeefd9a4cdb6ba5da8c33f9b69}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1centralities_ad5f8fafeefd9a4cdb6ba5da8c33f9b69}
+)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a8ef4d17ff1a5e329f7d1fc1f5d1b13c9}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a8ef4d17ff1a5e329f7d1fc1f5d1b13c9}
 
 
 Betweenness centrality of all nodes in a graph. 
@@ -123,20 +141,20 @@ Furthermore, only the pairs of vertices (s,t) with s $<$= t are considered. Fina
 
 This function computes all shortest paths between each pair of nodes. 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em G} & The graph to be evaluated \\
+\mbox{\tt in}  & {\em G} & The unweighted graph to be evaluated \\
 \hline
 \mbox{\tt out}  & {\em bc} & {\itshape bc}\mbox{[}i\mbox{]} contains the betweenness centrality of the {\itshape i-\/th} node \\
 \hline
 \end{DoxyParams}
 \index{lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}!betweenness@{betweenness}}
 \index{betweenness@{betweenness}!lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}}
-\subsubsection[{\texorpdfstring{betweenness(const uugraph \&\+G, const vector$<$ vector$<$ boolean\+\_\+path\+\_\+set$<$ \+\_\+new\+\_\+ $>$ $>$ $>$ \&paths, vector$<$ double $>$ \&bc)}{betweenness(const uugraph &G, const vector< vector< boolean_path_set< _new_ > > > &paths, vector< double > &bc)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::networks\+::metrics\+::centralities\+::betweenness (
+\subsubsection[{\texorpdfstring{betweenness(const uxgraph $\ast$\+G, const vector$<$ vector$<$ boolean\+\_\+path\+\_\+set$<$ \+\_\+new\+\_\+ $>$ $>$ $>$ \&paths, vector$<$ double $>$ \&bc)}{betweenness(const uxgraph *G, const vector< vector< boolean_path_set< _new_ > > > &paths, vector< double > &bc)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::networks\+::metrics\+::centralities\+::betweenness (
 \begin{DoxyParamCaption}
-\item[{const {\bf uugraph} \&}]{G, }
+\item[{const {\bf uxgraph} $\ast$}]{G, }
 \item[{const vector$<$ vector$<$ {\bf boolean\+\_\+path\+\_\+set}$<$ {\bf \+\_\+new\+\_\+} $>$ $>$ $>$ \&}]{paths, }
 \item[{vector$<$ double $>$ \&}]{bc}
 \end{DoxyParamCaption}
-)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a6e8bea94c0d909898cdfeff1c1d3428e}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a6e8bea94c0d909898cdfeff1c1d3428e}
+)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1centralities_aa43468d2f3d108abc26f0844cccb12e5}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1centralities_aa43468d2f3d108abc26f0844cccb12e5}
 
 
 Betweenness centrality of a node. 
@@ -153,7 +171,135 @@ Furthermore, only the pairs of vertices (s,t) with s $<$= t are considered. Fina
 
 This uses the parameter {\itshape paths} to avoid computing all the shortest paths between all pair of nodes. 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em G} & The graph to be evaluated \\
+\mbox{\tt in}  & {\em G} & The unweighted graph to be evaluated \\
+\hline
+\mbox{\tt in}  & {\em paths} & {\itshape paths}\mbox{[}u\mbox{]}\mbox{[}v\mbox{]} contains all shortest paths between {\itshape u} and {\itshape v} for 0 $<$= {\itshape u} , {\itshape v} $<$ {\itshape G.\+n\+\_\+nodes()} \\
+\hline
+\mbox{\tt out}  & {\em bc} & {\itshape bc}\mbox{[}i\mbox{]} contains the betweenness centrality of the {\itshape i-\/th} node \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}!betweenness@{betweenness}}
+\index{betweenness@{betweenness}!lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}}
+\subsubsection[{\texorpdfstring{betweenness(const wxgraph$<$ T $>$ $\ast$\+G, node u)}{betweenness(const wxgraph< T > *G, node u)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ double lgraph\+::networks\+::metrics\+::centralities\+::betweenness (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{{\bf node}}]{u}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a5a8a94d9361a49ffa657d8d6541be4be}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a5a8a94d9361a49ffa657d8d6541be4be}
+
+
+Betweenness centrality of a node. 
+
+This centrality measure is implemented following the recommendations given in \mbox{[}Newman, 2010\mbox{]}\+:
+\begin{DoxyItemize}
+\item Any path from vertex \textquotesingle{}s\textquotesingle{} to vertex \textquotesingle{}t\textquotesingle{} is considered to include both endpoints.
+\item The equation to calculate the centrality also considers paths from any vertex to itself.
+\end{DoxyItemize}
+
+Furthermore, only the pairs of vertices (s,t) with s $<$= t are considered. Finally, this metric is also normalised.
+
+\mbox{[}Newman, 2010\mbox{]} Newman, M. E. J. (2010). Networks. An introduction. Oxford University Press, Oxford.
+
+This function computes all shortest paths between each pair of nodes. 
+\begin{DoxyParams}{Parameters}
+{\em G} & The weighted graph to be evaluated \\
+\hline
+{\em u} & The node to be evaluated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the betweenness centrality of a node, considering that a path between {\itshape u} and {\itshape v} contains both {\itshape u} and {\itshape v}. 
+\end{DoxyReturn}
+\index{lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}!betweenness@{betweenness}}
+\index{betweenness@{betweenness}!lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}}
+\subsubsection[{\texorpdfstring{betweenness(const wxgraph$<$ T $>$ $\ast$\+G, const vector$<$ vector$<$ boolean\+\_\+path\+\_\+set$<$ T $>$ $>$ $>$ \&paths, node u)}{betweenness(const wxgraph< T > *G, const vector< vector< boolean_path_set< T > > > &paths, node u)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ double lgraph\+::networks\+::metrics\+::centralities\+::betweenness (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{const vector$<$ vector$<$ {\bf boolean\+\_\+path\+\_\+set}$<$ T $>$ $>$ $>$ \&}]{paths, }
+\item[{{\bf node}}]{u}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a04383a2788cd6a602e390b08f06099a3}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a04383a2788cd6a602e390b08f06099a3}
+
+
+Betweenness centrality of a node. 
+
+This centrality measure is implemented following the recommendations given in \mbox{[}Newman, 2010\mbox{]}\+:
+\begin{DoxyItemize}
+\item Any path from vertex \textquotesingle{}s\textquotesingle{} to vertex \textquotesingle{}t\textquotesingle{} is considered to include both endpoints.
+\item The equation to calculate the centrality also considers paths from any vertex to itself.
+\end{DoxyItemize}
+
+Furthermore, only the pairs of vertices (s,t) with s $<$= t are considered. Finally, this metric is also normalised.
+
+\mbox{[}Newman, 2010\mbox{]} Newman, M. E. J. (2010). Networks. An introduction. Oxford University Press, Oxford.
+
+This uses the parameter {\itshape paths} to avoid computing all the shortest paths between all pair of nodes. 
+\begin{DoxyParams}{Parameters}
+{\em G} & The weighted graph to be evaluated \\
+\hline
+{\em paths} & {\itshape paths}\mbox{[}u\mbox{]}\mbox{[}v\mbox{]} contains all shortest paths between {\itshape u} and {\itshape v} for 0 $<$= {\itshape u} , {\itshape v} $<$ {\itshape G.\+n\+\_\+nodes()} \\
+\hline
+{\em u} & The node to be evaluated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the betweenness centrality of a node, considering that a path between {\itshape u} and {\itshape v} contains both {\itshape u} and {\itshape v}. 
+\end{DoxyReturn}
+\index{lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}!betweenness@{betweenness}}
+\index{betweenness@{betweenness}!lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}}
+\subsubsection[{\texorpdfstring{betweenness(const wxgraph$<$ T $>$ $\ast$\+G, vector$<$ double $>$ \&bc)}{betweenness(const wxgraph< T > *G, vector< double > &bc)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void lgraph\+::networks\+::metrics\+::centralities\+::betweenness (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{vector$<$ double $>$ \&}]{bc}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a32fb8a20727fbc27a7226361bfd5aee2}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a32fb8a20727fbc27a7226361bfd5aee2}
+
+
+Betweenness centrality of all nodes in a graph. 
+
+This centrality measure is implemented following the recommendations given in \mbox{[}Newman, 2010\mbox{]}\+:
+\begin{DoxyItemize}
+\item Any path from vertex \textquotesingle{}s\textquotesingle{} to vertex \textquotesingle{}t\textquotesingle{} is considered to include both endpoints.
+\item The equation to calculate the centrality also considers paths from any vertex to itself.
+\end{DoxyItemize}
+
+Furthermore, only the pairs of vertices (s,t) with s $<$= t are considered. Finally, this metric is also normalised.
+
+\mbox{[}Newman, 2010\mbox{]} Newman, M. E. J. (2010). Networks. An introduction. Oxford University Press, Oxford.
+
+This function computes all shortest paths between each pair of nodes. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & The weighted graph to be evaluated \\
+\hline
+\mbox{\tt out}  & {\em bc} & {\itshape bc}\mbox{[}i\mbox{]} contains the betweenness centrality of the {\itshape i-\/th} node \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}!betweenness@{betweenness}}
+\index{betweenness@{betweenness}!lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}}
+\subsubsection[{\texorpdfstring{betweenness(const wxgraph$<$ T $>$ $\ast$\+G, const vector$<$ vector$<$ boolean\+\_\+path\+\_\+set$<$ T $>$ $>$ $>$ \&paths, vector$<$ double $>$ \&bc)}{betweenness(const wxgraph< T > *G, const vector< vector< boolean_path_set< T > > > &paths, vector< double > &bc)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void lgraph\+::networks\+::metrics\+::centralities\+::betweenness (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{const vector$<$ vector$<$ {\bf boolean\+\_\+path\+\_\+set}$<$ T $>$ $>$ $>$ \&}]{paths, }
+\item[{vector$<$ double $>$ \&}]{bc}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a1989e1dd01f7303e02d96100c2b6a064}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a1989e1dd01f7303e02d96100c2b6a064}
+
+
+Betweenness centrality of a node. 
+
+This centrality measure is implemented following the recommendations given in \mbox{[}Newman, 2010\mbox{]}\+:
+\begin{DoxyItemize}
+\item Any path from vertex \textquotesingle{}s\textquotesingle{} to vertex \textquotesingle{}t\textquotesingle{} is considered to include both endpoints.
+\item The equation to calculate the centrality also considers paths from any vertex to itself.
+\end{DoxyItemize}
+
+Furthermore, only the pairs of vertices (s,t) with s $<$= t are considered. Finally, this metric is also normalised.
+
+\mbox{[}Newman, 2010\mbox{]} Newman, M. E. J. (2010). Networks. An introduction. Oxford University Press, Oxford.
+
+This uses the parameter {\itshape paths} to avoid computing all the shortest paths between all pair of nodes. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & The weighted graph to be evaluated \\
 \hline
 \mbox{\tt in}  & {\em paths} & {\itshape paths}\mbox{[}u\mbox{]}\mbox{[}v\mbox{]} contains all shortest paths between {\itshape u} and {\itshape v} for 0 $<$= {\itshape u} , {\itshape v} $<$ {\itshape G.\+n\+\_\+nodes()} \\
 \hline
@@ -162,19 +308,19 @@ This uses the parameter {\itshape paths} to avoid computing all the shortest pat
 \end{DoxyParams}
 \index{lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}!closeness@{closeness}}
 \index{closeness@{closeness}!lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}}
-\subsubsection[{\texorpdfstring{closeness(const uugraph \&\+G, node u)}{closeness(const uugraph &G, node u)}}]{\setlength{\rightskip}{0pt plus 5cm}double lgraph\+::networks\+::metrics\+::centralities\+::closeness (
+\subsubsection[{\texorpdfstring{closeness(const uxgraph $\ast$\+G, node u)}{closeness(const uxgraph *G, node u)}}]{\setlength{\rightskip}{0pt plus 5cm}double lgraph\+::networks\+::metrics\+::centralities\+::closeness (
 \begin{DoxyParamCaption}
-\item[{const {\bf uugraph} \&}]{G, }
+\item[{const {\bf uxgraph} $\ast$}]{G, }
 \item[{{\bf node}}]{u}
 \end{DoxyParamCaption}
-)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a93bddce29621b2d88b633971bcf0ba3c}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a93bddce29621b2d88b633971bcf0ba3c}
+)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a5e567539ccb6396bfb47ba2173a0cc4c}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a5e567539ccb6396bfb47ba2173a0cc4c}
 
 
 Closeness centrality of a node. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em G} & The graph to be evaluated \\
+{\em G} & The unweighted graph to be evaluated \\
 \hline
 {\em u} & The node to be evaluated \\
 \hline
@@ -184,39 +330,102 @@ Returns the closeness centrality of a node.
 \end{DoxyReturn}
 \index{lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}!closeness@{closeness}}
 \index{closeness@{closeness}!lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}}
-\subsubsection[{\texorpdfstring{closeness(const uugraph \&\+G, vector$<$ double $>$ \&cc)}{closeness(const uugraph &G, vector< double > &cc)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::networks\+::metrics\+::centralities\+::closeness (
+\subsubsection[{\texorpdfstring{closeness(const uxgraph $\ast$\+G, vector$<$ double $>$ \&cc)}{closeness(const uxgraph *G, vector< double > &cc)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::networks\+::metrics\+::centralities\+::closeness (
 \begin{DoxyParamCaption}
-\item[{const {\bf uugraph} \&}]{G, }
+\item[{const {\bf uxgraph} $\ast$}]{G, }
 \item[{vector$<$ double $>$ \&}]{cc}
 \end{DoxyParamCaption}
-)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a7405d3e9a93d0b4d8c1898e2456acea9}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a7405d3e9a93d0b4d8c1898e2456acea9}
+)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1centralities_aec116343b65bf300d2d820021e020374}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1centralities_aec116343b65bf300d2d820021e020374}
 
 
 Closeness centrality of all nodes of a graph. 
 
 Computes the distance between each pair of nodes in the graph. 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em G} & The graph to be evaluated \\
+\mbox{\tt in}  & {\em G} & The unweighted graph to be evaluated \\
 \hline
 \mbox{\tt out}  & {\em cc} & The {\itshape i-\/th} position contains the closeness centrality of the {\itshape i-\/th} node. \\
 \hline
 \end{DoxyParams}
 \index{lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}!closeness@{closeness}}
 \index{closeness@{closeness}!lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}}
-\subsubsection[{\texorpdfstring{closeness(const uugraph \&\+G, const vector$<$ vector$<$ \+\_\+new\+\_\+ $>$ $>$ \&atad, vector$<$ double $>$ \&cc)}{closeness(const uugraph &G, const vector< vector< _new_ > > &atad, vector< double > &cc)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::networks\+::metrics\+::centralities\+::closeness (
+\subsubsection[{\texorpdfstring{closeness(const uxgraph $\ast$\+G, const vector$<$ vector$<$ \+\_\+new\+\_\+ $>$ $>$ \&atad, vector$<$ double $>$ \&cc)}{closeness(const uxgraph *G, const vector< vector< _new_ > > &atad, vector< double > &cc)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::networks\+::metrics\+::centralities\+::closeness (
 \begin{DoxyParamCaption}
-\item[{const {\bf uugraph} \&}]{G, }
+\item[{const {\bf uxgraph} $\ast$}]{G, }
 \item[{const vector$<$ vector$<$ {\bf \+\_\+new\+\_\+} $>$ $>$ \&}]{atad, }
 \item[{vector$<$ double $>$ \&}]{cc}
 \end{DoxyParamCaption}
-)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a9774afdefe5a503baa5c600ae8e903c2}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a9774afdefe5a503baa5c600ae8e903c2}
+)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1centralities_aa98251b824fed2baa439258fae6dcc48}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1centralities_aa98251b824fed2baa439258fae6dcc48}
 
 
 Closeness centrality of all nodes of a graph. 
 
 Uses the parameter {\itshape atad} to avoit computing the all-\/to-\/all distances (the distance between each pair of nodes). 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em G} & The graph to be evaluated \\
+\mbox{\tt in}  & {\em G} & The unweighted graph to be evaluated \\
+\hline
+\mbox{\tt in}  & {\em atad} & The matrix with the distance between each pair of nodes. \\
+\hline
+\mbox{\tt out}  & {\em cc} & The {\itshape i-\/th} position contains the closeness centrality of the {\itshape i-\/th} node. \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}!closeness@{closeness}}
+\index{closeness@{closeness}!lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}}
+\subsubsection[{\texorpdfstring{closeness(const wxgraph$<$ T $>$ $\ast$\+G, node u)}{closeness(const wxgraph< T > *G, node u)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ double lgraph\+::networks\+::metrics\+::centralities\+::closeness (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{{\bf node}}]{u}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a641608dcaecba5d3636237bd15da2e96}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a641608dcaecba5d3636237bd15da2e96}
+
+
+Closeness centrality of a node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em G} & The weighted graph to be evaluated \\
+\hline
+{\em u} & The node to be evaluated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the closeness centrality of a node. 
+\end{DoxyReturn}
+\index{lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}!closeness@{closeness}}
+\index{closeness@{closeness}!lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}}
+\subsubsection[{\texorpdfstring{closeness(const wxgraph$<$ T $>$ $\ast$\+G, vector$<$ double $>$ \&cc)}{closeness(const wxgraph< T > *G, vector< double > &cc)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void lgraph\+::networks\+::metrics\+::centralities\+::closeness (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{vector$<$ double $>$ \&}]{cc}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a38135be31ba7cef97d70ed68434f5e74}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a38135be31ba7cef97d70ed68434f5e74}
+
+
+Closeness centrality of all nodes of a graph. 
+
+Computes the distance between each pair of nodes in the graph. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & The weighted graph to be evaluated \\
+\hline
+\mbox{\tt out}  & {\em cc} & The {\itshape i-\/th} position contains the closeness centrality of the {\itshape i-\/th} node. \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}!closeness@{closeness}}
+\index{closeness@{closeness}!lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}}
+\subsubsection[{\texorpdfstring{closeness(const wxgraph$<$ T $>$ $\ast$\+G, const vector$<$ vector$<$ T $>$ $>$ \&atad, vector$<$ double $>$ \&cc)}{closeness(const wxgraph< T > *G, const vector< vector< T > > &atad, vector< double > &cc)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void lgraph\+::networks\+::metrics\+::centralities\+::closeness (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{const vector$<$ vector$<$ T $>$ $>$ \&}]{atad, }
+\item[{vector$<$ double $>$ \&}]{cc}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1centralities_af807c15c31f07d267798cc959fc61dca}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1centralities_af807c15c31f07d267798cc959fc61dca}
+
+
+Closeness centrality of all nodes of a graph. 
+
+Uses the parameter {\itshape atad} to avoit computing the all-\/to-\/all distances (the distance between each pair of nodes). 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & The weighted graph to be evaluated \\
 \hline
 \mbox{\tt in}  & {\em atad} & The matrix with the distance between each pair of nodes. \\
 \hline
@@ -225,19 +434,19 @@ Uses the parameter {\itshape atad} to avoit computing the all-\/to-\/all distanc
 \end{DoxyParams}
 \index{lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}!degree@{degree}}
 \index{degree@{degree}!lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}}
-\subsubsection[{\texorpdfstring{degree(const uugraph \&\+G, node u)}{degree(const uugraph &G, node u)}}]{\setlength{\rightskip}{0pt plus 5cm}double lgraph\+::networks\+::metrics\+::centralities\+::degree (
+\subsubsection[{\texorpdfstring{degree(const uxgraph $\ast$\+G, node u)}{degree(const uxgraph *G, node u)}}]{\setlength{\rightskip}{0pt plus 5cm}double lgraph\+::networks\+::metrics\+::centralities\+::degree (
 \begin{DoxyParamCaption}
-\item[{const {\bf uugraph} \&}]{G, }
+\item[{const {\bf uxgraph} $\ast$}]{G, }
 \item[{{\bf node}}]{u}
 \end{DoxyParamCaption}
-)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a587a7cd32f7d59138fd7a327c902b4ab}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a587a7cd32f7d59138fd7a327c902b4ab}
+)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a059db418660d28d673a154ceef293469}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a059db418660d28d673a154ceef293469}
 
 
 Normalised degree centrality of a single node. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em G} & The graph to be evaluated \\
+{\em G} & The unweighted graph to be evaluated \\
 \hline
 {\em u} & The node to be evaluated \\
 \hline
@@ -247,19 +456,60 @@ Returns the degree of node {\itshape u} divided by the number of nodes (minus 1)
 \end{DoxyReturn}
 \index{lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}!degree@{degree}}
 \index{degree@{degree}!lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}}
-\subsubsection[{\texorpdfstring{degree(const uugraph \&\+G, vector$<$ double $>$ \&dc)}{degree(const uugraph &G, vector< double > &dc)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::networks\+::metrics\+::centralities\+::degree (
+\subsubsection[{\texorpdfstring{degree(const uxgraph $\ast$\+G, vector$<$ double $>$ \&dc)}{degree(const uxgraph *G, vector< double > &dc)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::networks\+::metrics\+::centralities\+::degree (
 \begin{DoxyParamCaption}
-\item[{const {\bf uugraph} \&}]{G, }
+\item[{const {\bf uxgraph} $\ast$}]{G, }
 \item[{vector$<$ double $>$ \&}]{dc}
 \end{DoxyParamCaption}
-)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a550503d0a4429f9eb993d6a739130853}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a550503d0a4429f9eb993d6a739130853}
+)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1centralities_abd975d6e07c32b07b48b1501dc8215a1}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1centralities_abd975d6e07c32b07b48b1501dc8215a1}
 
 
 Normalised degree centrality of all nodes. 
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em G} & The graph to be evaluated \\
+\mbox{\tt in}  & {\em G} & The unweighted graph to be evaluated \\
+\hline
+\mbox{\tt out}  & {\em dc} & The i-\/th position contains the normalised degree centrality of the i-\/th node. \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}!degree@{degree}}
+\index{degree@{degree}!lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}}
+\subsubsection[{\texorpdfstring{degree(const wxgraph$<$ T $>$ $\ast$\+G, node u)}{degree(const wxgraph< T > *G, node u)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ double lgraph\+::networks\+::metrics\+::centralities\+::degree (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{{\bf node}}]{u}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1centralities_ab069253de07dc54020e9d6cc1a27a6c8}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1centralities_ab069253de07dc54020e9d6cc1a27a6c8}
+
+
+Normalised degree centrality of a single node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em G} & The weighted graph to be evaluated \\
+\hline
+{\em u} & The node to be evaluated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the degree of node {\itshape u} divided by the number of nodes (minus 1) 
+\end{DoxyReturn}
+\index{lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}!degree@{degree}}
+\index{degree@{degree}!lgraph\+::networks\+::metrics\+::centralities@{lgraph\+::networks\+::metrics\+::centralities}}
+\subsubsection[{\texorpdfstring{degree(const wxgraph$<$ T $>$ $\ast$\+G, vector$<$ double $>$ \&dc)}{degree(const wxgraph< T > *G, vector< double > &dc)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void lgraph\+::networks\+::metrics\+::centralities\+::degree (
+\begin{DoxyParamCaption}
+\item[{const {\bf wxgraph}$<$ T $>$ $\ast$}]{G, }
+\item[{vector$<$ double $>$ \&}]{dc}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a9b3eb8bead7056e2be01d1f3dda72428}{}\label{namespacelgraph_1_1networks_1_1metrics_1_1centralities_a9b3eb8bead7056e2be01d1f3dda72428}
+
+
+Normalised degree centrality of all nodes. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em G} & The weighted graph to be evaluated \\
 \hline
 \mbox{\tt out}  & {\em dc} & The i-\/th position contains the normalised degree centrality of the i-\/th node. \\
 \hline

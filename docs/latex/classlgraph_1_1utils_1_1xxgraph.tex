@@ -51,6 +51,8 @@ size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1xxgraph_af588aa4c68004a31aa143024
 \begin{DoxyCompactList}\small\item\em Returns the number of neighbours of u. \end{DoxyCompactList}\item 
 virtual bool \hyperlink{classlgraph_1_1utils_1_1xxgraph_a470b3fa2d6e37914d383de7d44f649e0}{is\+\_\+weighted} () const =0
 \begin{DoxyCompactList}\small\item\em Returns whether the graph is weighted or unweighted. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classlgraph_1_1utils_1_1xxgraph_a154376b6e55c4654622eb17ce738b5bb}{is\+\_\+directed} () const =0
+\begin{DoxyCompactList}\small\item\em Returns whether the graph is directed or undirected. \end{DoxyCompactList}\item 
 virtual bool \hyperlink{classlgraph_1_1utils_1_1xxgraph_a36206a20eb3f319bc01f1c07d16e0456}{read\+\_\+from\+\_\+file} (const string \&filename)=0\hypertarget{classlgraph_1_1utils_1_1xxgraph_a36206a20eb3f319bc01f1c07d16e0456}{}\label{classlgraph_1_1utils_1_1xxgraph_a36206a20eb3f319bc01f1c07d16e0456}
 
 \begin{DoxyCompactList}\small\item\em Reads the graph from a file. \end{DoxyCompactList}\item 
@@ -270,7 +272,25 @@ Implemented in \hyperlink{classlgraph_1_1utils_1_1wxgraph_a566ae9fe69209230ef159
 
 Initialises the adjacency list of this graph. 
 
-The value \hyperlink{classlgraph_1_1utils_1_1xxgraph_a217ebb1cd8946fedfbf94a9b22f7da48}{num\+\_\+edges} is set to 0. \index{lgraph\+::utils\+::xxgraph@{lgraph\+::utils\+::xxgraph}!is\+\_\+weighted@{is\+\_\+weighted}}
+The value \hyperlink{classlgraph_1_1utils_1_1xxgraph_a217ebb1cd8946fedfbf94a9b22f7da48}{num\+\_\+edges} is set to 0. \index{lgraph\+::utils\+::xxgraph@{lgraph\+::utils\+::xxgraph}!is\+\_\+directed@{is\+\_\+directed}}
+\index{is\+\_\+directed@{is\+\_\+directed}!lgraph\+::utils\+::xxgraph@{lgraph\+::utils\+::xxgraph}}
+\subsubsection[{\texorpdfstring{is\+\_\+directed() const =0}{is_directed() const =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool lgraph\+::utils\+::xxgraph\+::is\+\_\+directed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classlgraph_1_1utils_1_1xxgraph_a154376b6e55c4654622eb17ce738b5bb}{}\label{classlgraph_1_1utils_1_1xxgraph_a154376b6e55c4654622eb17ce738b5bb}
+
+
+Returns whether the graph is directed or undirected. 
+
+\begin{DoxyReturn}{Returns}
+Returns true if the graph is directed. Returns false if otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classlgraph_1_1utils_1_1wdgraph_a5eee58626ec0aa8428436a859d601741}{lgraph\+::utils\+::wdgraph$<$ T $>$}, \hyperlink{classlgraph_1_1utils_1_1wugraph_a3ed8cd6b1d499fd3f36ec6c1cb2845d3}{lgraph\+::utils\+::wugraph$<$ T $>$}, \hyperlink{classlgraph_1_1utils_1_1udgraph_aa6fc318096cc4b577374f002b07ab49b}{lgraph\+::utils\+::udgraph}, and \hyperlink{classlgraph_1_1utils_1_1uugraph_a20a86c5b56527e8abcbb90bae95d6605}{lgraph\+::utils\+::uugraph}.
+
+\index{lgraph\+::utils\+::xxgraph@{lgraph\+::utils\+::xxgraph}!is\+\_\+weighted@{is\+\_\+weighted}}
 \index{is\+\_\+weighted@{is\+\_\+weighted}!lgraph\+::utils\+::xxgraph@{lgraph\+::utils\+::xxgraph}}
 \subsubsection[{\texorpdfstring{is\+\_\+weighted() const =0}{is_weighted() const =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool lgraph\+::utils\+::xxgraph\+::is\+\_\+weighted (
 \begin{DoxyParamCaption}

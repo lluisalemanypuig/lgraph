@@ -48,6 +48,8 @@ bool \hyperlink{classlgraph_1_1utils_1_1wdgraph_ac74f172c5a6bdbf56ac5a4013fae880
 \begin{DoxyCompactList}\small\item\em Returns true if there is an edge between nodes {\itshape u} and {\itshape v}. \end{DoxyCompactList}\item 
 T \hyperlink{classlgraph_1_1utils_1_1wdgraph_a1d86f87f61f47af9251945c14385c4e4}{edge\+\_\+weight} (\hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u, \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} v) const 
 \begin{DoxyCompactList}\small\item\em Returns the weight of the edge ({\itshape u}, {\itshape v}) \end{DoxyCompactList}\item 
+bool \hyperlink{classlgraph_1_1utils_1_1wdgraph_a5eee58626ec0aa8428436a859d601741}{is\+\_\+directed} () const 
+\begin{DoxyCompactList}\small\item\em Returns whether the graph is directed or undirected. \end{DoxyCompactList}\item 
 void \hyperlink{classlgraph_1_1utils_1_1wxgraph_a566ae9fe69209230ef159ed350ab8f7f}{init} (size\+\_\+t n)
 \begin{DoxyCompactList}\small\item\em Initialises the attributes of a graph with {\itshape n} nodes. \end{DoxyCompactList}\item 
 void \hyperlink{classlgraph_1_1utils_1_1wxgraph_a972a2483966f4b1d485c5d14157ee9be}{add\+\_\+edges} (const vector$<$ \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge} $>$ \&edge\+\_\+list, const vector$<$ T $>$ \&ws)
@@ -492,7 +494,25 @@ Implements \hyperlink{classlgraph_1_1utils_1_1xxgraph_a2ac8b3e71fa0550248c692a19
 
 Initialises the adjacency list of this graph. 
 
-The value \hyperlink{classlgraph_1_1utils_1_1xxgraph_a217ebb1cd8946fedfbf94a9b22f7da48}{num\+\_\+edges} is set to 0. \index{lgraph\+::utils\+::wdgraph@{lgraph\+::utils\+::wdgraph}!n\+\_\+edges@{n\+\_\+edges}}
+The value \hyperlink{classlgraph_1_1utils_1_1xxgraph_a217ebb1cd8946fedfbf94a9b22f7da48}{num\+\_\+edges} is set to 0. \index{lgraph\+::utils\+::wdgraph@{lgraph\+::utils\+::wdgraph}!is\+\_\+directed@{is\+\_\+directed}}
+\index{is\+\_\+directed@{is\+\_\+directed}!lgraph\+::utils\+::wdgraph@{lgraph\+::utils\+::wdgraph}}
+\subsubsection[{\texorpdfstring{is\+\_\+directed() const }{is_directed() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ bool {\bf lgraph\+::utils\+::wdgraph}$<$ T $>$\+::is\+\_\+directed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classlgraph_1_1utils_1_1wdgraph_a5eee58626ec0aa8428436a859d601741}{}\label{classlgraph_1_1utils_1_1wdgraph_a5eee58626ec0aa8428436a859d601741}
+
+
+Returns whether the graph is directed or undirected. 
+
+\begin{DoxyReturn}{Returns}
+Returns true if the graph is directed. Returns false if otherwise. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classlgraph_1_1utils_1_1xxgraph_a154376b6e55c4654622eb17ce738b5bb}{lgraph\+::utils\+::xxgraph}.
+
+\index{lgraph\+::utils\+::wdgraph@{lgraph\+::utils\+::wdgraph}!n\+\_\+edges@{n\+\_\+edges}}
 \index{n\+\_\+edges@{n\+\_\+edges}!lgraph\+::utils\+::wdgraph@{lgraph\+::utils\+::wdgraph}}
 \subsubsection[{\texorpdfstring{n\+\_\+edges() const }{n_edges() const }}]{\setlength{\rightskip}{0pt plus 5cm}size\+\_\+t lgraph\+::utils\+::xxgraph\+::n\+\_\+edges (
 \begin{DoxyParamCaption}

@@ -162,6 +162,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a470b3fa2d6e37914d383de7d44f649e0"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1xxgraph.html#a470b3fa2d6e37914d383de7d44f649e0">is_weighted</a> () const =0</td></tr>
 <tr class="memdesc:a470b3fa2d6e37914d383de7d44f649e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the graph is weighted or unweighted.  <a href="#a470b3fa2d6e37914d383de7d44f649e0">More...</a><br /></td></tr>
 <tr class="separator:a470b3fa2d6e37914d383de7d44f649e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a154376b6e55c4654622eb17ce738b5bb"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1xxgraph.html#a154376b6e55c4654622eb17ce738b5bb">is_directed</a> () const =0</td></tr>
+<tr class="memdesc:a154376b6e55c4654622eb17ce738b5bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the graph is directed or undirected.  <a href="#a154376b6e55c4654622eb17ce738b5bb">More...</a><br /></td></tr>
+<tr class="separator:a154376b6e55c4654622eb17ce738b5bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36206a20eb3f319bc01f1c07d16e0456"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a36206a20eb3f319bc01f1c07d16e0456"></a>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1xxgraph.html#a36206a20eb3f319bc01f1c07d16e0456">read_from_file</a> (const string &amp;filename)=0</td></tr>
 <tr class="memdesc:a36206a20eb3f319bc01f1c07d16e0456"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the graph from a file. <br /></td></tr>
@@ -503,6 +506,34 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 
 <p>Initialises the adjacency list of this graph. </p>
 <p>The value <a class="el" href="classlgraph_1_1utils_1_1xxgraph.html#a217ebb1cd8946fedfbf94a9b22f7da48">num_edges</a> is set to 0. </p>
+
+</div>
+</div>
+<a class="anchor" id="a154376b6e55c4654622eb17ce738b5bb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool lgraph::utils::xxgraph::is_directed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns whether the graph is directed or undirected. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if the graph is directed. Returns false if otherwise. </dd></dl>
+
+<p>Implemented in <a class="el" href="classlgraph_1_1utils_1_1wdgraph.html#a5eee58626ec0aa8428436a859d601741">lgraph::utils::wdgraph&lt; T &gt;</a>, <a class="el" href="classlgraph_1_1utils_1_1wugraph.html#a3ed8cd6b1d499fd3f36ec6c1cb2845d3">lgraph::utils::wugraph&lt; T &gt;</a>, <a class="el" href="classlgraph_1_1utils_1_1udgraph.html#aa6fc318096cc4b577374f002b07ab49b">lgraph::utils::udgraph</a>, and <a class="el" href="classlgraph_1_1utils_1_1uugraph.html#a20a86c5b56527e8abcbb90bae95d6605">lgraph::utils::uugraph</a>.</p>
 
 </div>
 </div>
