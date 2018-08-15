@@ -118,6 +118,6 @@ using namespace utils;
 } // -- namespace networks
 } // -- namespace lgraph
 
-#include "ba_preferential_attachment.cpp"
-#include "ba_random_attachment.cpp"
-#include "ba_no_vertex_growth.cpp"
+#include <lgraph/random_graphs/ba_preferential_attachment.cpp>
+#include <lgraph/random_graphs/ba_random_attachment.cpp>
+#include <lgraph/random_graphs/ba_no_vertex_growth.cpp>

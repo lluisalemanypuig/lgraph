@@ -140,4 +140,4 @@ class svector : public vector<T, Alloc> {
 } // -- namespace utils
 } // -- namespace lgraph
 
-#include "svector.cpp"
+#include <lgraph/data_structures/svector.cpp>

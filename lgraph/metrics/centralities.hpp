@@ -369,4 +369,4 @@ namespace centralities {
 } // -- namespace networks	
 } // -- namespace lgraph
 
-#include "metrics/wcentralities.cpp"
+#include <lgraph/metrics/wcentralities.cpp>

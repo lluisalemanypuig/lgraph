@@ -64,4 +64,4 @@ namespace clustering {
 } // -- namespace networks	
 } // -- namespace lgraph
 
-#include "metrics/wclustering.cpp"
+#include <lgraph/metrics/wclustering.cpp>

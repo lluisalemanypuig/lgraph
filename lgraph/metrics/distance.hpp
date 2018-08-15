@@ -151,4 +151,4 @@ namespace distance {
 } // -- namespace networks	
 } // -- namespace lgraph
 
-#include "metrics/wdistance.cpp"
+#include <lgraph/metrics/wdistance.cpp>

@@ -57,4 +57,4 @@ class wugraph : public wxgraph<T> {
 } // -- namespace utils
 } // -- namespace lgraph
 
-#include "wugraph.cpp"
+#include <lgraph/data_structures/wugraph.cpp>

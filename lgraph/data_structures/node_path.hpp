@@ -187,4 +187,4 @@ using node_path_set = vector<node_path<T> >;
 } // -- namespace utils
 } // -- namespace lgraph
 
-#include "node_path.cpp"
+#include <lgraph/data_structures/node_path.cpp>

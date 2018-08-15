@@ -56,4 +56,4 @@ using namespace utils;
 } // -- namespace networks
 } // -- namespace lgraph
 
-#include "switching.cpp"
+#include <lgraph/random_graphs/switching.cpp>

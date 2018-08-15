@@ -131,6 +131,6 @@ class crandom_generator : public random_generator<G,cT> {
 } // -- namespace utils
 } // -- namespace lgraph
 
-#include "random_generator.cpp"
-#include "drandom_generator.cpp"
-#include "crandom_generator.cpp"
+#include <lgraph/data_structures/random_generator.cpp>
+#include <lgraph/data_structures/drandom_generator.cpp>
+#include <lgraph/data_structures/crandom_generator.cpp>

@@ -296,4 +296,4 @@ void from_nps_to_bps(const node_path_set<T>& nps, size_t N, boolean_path_set<T>&
 } // -- namespace utils
 } // -- namespace lgraph
 
-#include "boolean_path.cpp"
+#include <lgraph/data_structures/boolean_path.cpp>

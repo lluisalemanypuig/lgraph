@@ -129,4 +129,4 @@ namespace dijkstra {
 } // -- namespace traversal
 } // -- namespace lgraph
 
-#include "dijkstra.cpp"
+#include <lgraph/graph_traversal/dijkstra.cpp>

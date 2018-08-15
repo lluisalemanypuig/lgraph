@@ -215,4 +215,4 @@ class wxgraph : public xxgraph {
 } // -- namespace utils
 } // -- namespace lgraph
 
-#include "wxgraph.cpp"
+#include <lgraph/data_structures/wxgraph.cpp>

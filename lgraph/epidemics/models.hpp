@@ -100,5 +100,5 @@ namespace epidemics {
 } // -- namespace networks
 } // -- namespace lgraph
 
-#include "sir.cpp"
-#include "sis.cpp"
+#include <lgraph/epidemics/sir.cpp>
+#include <epidemics/sis.cpp>

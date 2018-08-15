@@ -439,7 +439,6 @@ using namespace dijkstra;
 } // -- namespace traversal
 } // -- namespace lgraph
 
-// assume weighted graphs
-#include "wxpaths.cpp"
-#include "wxdistances.cpp"
-#include "wxpaths_boolean.cpp"
+#include <lgraph/graph_traversal/wxpaths.cpp>
+#include <lgraph/graph_traversal/wxdistances.cpp>
+#include <lgraph/graph_traversal/wxpaths_boolean.cpp>
