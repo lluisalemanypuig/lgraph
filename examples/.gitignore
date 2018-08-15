@@ -1,12 +1,12 @@
 complex-social-networks/csn.pro.user
-build-csn-debug/
-build-csn-release/
-build-csn-profile/
+csn-debug/
+csn-release/
+csn-profile/
 
 path-finding/path-finding.pro.user
-build-path-finding-debug/
-build-path-finding-release/
-build-path-finding-profile/
+path-finding-debug/
+path-finding-release/
+path-finding-profile/
 
 graphs-driver/graph-driver.pro
 graphs-driver-debug/
