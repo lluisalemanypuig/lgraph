@@ -1,4 +1,4 @@
-#include "switching.hpp"
+#include <lgraph/random_graphs/switching.hpp>
 
 namespace lgraph {
 namespace networks {

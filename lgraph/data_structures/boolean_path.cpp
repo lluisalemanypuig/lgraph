@@ -1,4 +1,4 @@
-#include "boolean_path.hpp"
+#include <lgraph/data_structures/boolean_path.hpp>
 
 namespace lgraph {
 namespace utils {

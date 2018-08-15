@@ -1,4 +1,4 @@
-#include "node_path.hpp"
+#include <lgraph/data_structures/node_path.hpp>
 
 namespace lgraph {
 namespace utils {

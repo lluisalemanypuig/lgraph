@@ -1,4 +1,4 @@
-#include "xxgraph.hpp"
+#include <lgraph/data_structures/xxgraph.hpp>
 
 namespace lgraph {
 namespace utils {

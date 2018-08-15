@@ -1,4 +1,4 @@
-#include "dijkstra.hpp"
+#include <lgraph/graph_traversal/dijkstra.hpp>
 
 namespace lgraph {
 namespace traversal {

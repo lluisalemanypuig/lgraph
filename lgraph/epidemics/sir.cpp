@@ -1,4 +1,4 @@
-#include "models.hpp"
+#include <lgraph/epidemics/models.hpp>
 
 namespace lgraph {
 namespace networks {

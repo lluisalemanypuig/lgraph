@@ -1,4 +1,4 @@
-#include "uugraph.hpp"
+#include <lgraph/data_structures/uugraph.hpp>
 
 namespace lgraph {
 namespace utils {

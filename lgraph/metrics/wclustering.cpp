@@ -1,4 +1,4 @@
-#include "metrics/clustering.hpp"
+#include <lgraph/metrics/clustering.hpp>
 
 namespace lgraph {
 namespace networks {
@@ -7,7 +7,7 @@ namespace clustering {
 
 	template<class T>
 	double gcc(const wxgraph<T> *G) {
-		size_t T = 0;
+		size_t tris = 0;
 		size_t connected_triples = 0;
 		const size_t N = G->n_nodes();
 
@@ -23,7 +23,7 @@ namespace clustering {
 					// ... get two different neighbours of u (v, w) and
 					// check if they are connected. If so, we found a triangle
 					if (v != w and G->has_edge(v, w)) {
-						++T;
+						++tris;
 					}
 				}
 
@@ -38,7 +38,7 @@ namespace clustering {
 
 		// this formula does not need a leading 3* because triangles are
 		// counted three times each already!
-		return (1.0*T)/(connected_triples);
+		return (1.0*tris)/(connected_triples);
 	}
 
 	template<class T>
@@ -55,7 +55,7 @@ namespace clustering {
 			// will be equal to 0 (division by zero!)
 			size_t du = G->degree(u);
 			if (du >= 2) {
-				size_t T = 0;
+				size_t tris = 0;
 
 				const neighbourhood& nu = G->get_neighbours(u);
 				for (size_t v_it = 0; v_it < nu.n_elems(); ++v_it) {
@@ -68,7 +68,7 @@ namespace clustering {
 						// ... get two different neighbours of u (v, w) and
 						// check if there is a connection.
 						if (v != w and G->has_edge(v, w)) {
-							++T;
+							++tris;
 						}
 					}
 				}
@@ -76,7 +76,7 @@ namespace clustering {
 				// double n_pairs = nu*(nu - 1)/2.0;
 				// Cws += T/n_pairs;
 				// we know that n_pairs > 0 because nu >= 2
-				Cws += (2.0*T)/(du*(du - 1));
+				Cws += (2.0*tris)/(du*(du - 1));
 			}
 		}
 

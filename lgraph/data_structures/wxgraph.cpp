@@ -1,4 +1,4 @@
-#include "wxgraph.hpp"
+#include <lgraph/data_structures/wxgraph.hpp>
 
 namespace lgraph {
 namespace utils {

@@ -1,4 +1,4 @@
-#include "metrics/centralities.hpp"
+#include <lgraph/metrics/centralities.hpp>
 
 namespace lgraph {
 namespace networks {

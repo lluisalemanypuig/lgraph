@@ -1,4 +1,4 @@
-#include "svector.hpp"
+#include <lgraph/data_structures/svector.hpp>
 
 namespace lgraph {
 namespace utils {

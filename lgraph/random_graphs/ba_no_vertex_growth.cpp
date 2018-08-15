@@ -1,4 +1,4 @@
-#include "barabasi_albert.hpp"
+#include <lgraph/random_graphs/barabasi_albert.hpp>
 
 namespace lgraph {
 namespace networks {

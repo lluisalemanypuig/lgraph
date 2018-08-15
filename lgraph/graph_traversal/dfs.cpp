@@ -1,4 +1,4 @@
-#include "dfs.hpp"
+#include <lgraph/graph_traversal/dfs.hpp>
 
 namespace lgraph {
 namespace traversal {

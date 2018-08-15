@@ -1,4 +1,4 @@
-#include "metrics/clustering.hpp"
+#include <lgraph/metrics/clustering.hpp>
 
 namespace lgraph {
 namespace networks {
@@ -59,7 +59,6 @@ namespace clustering {
 				for (size_t v_it = 0; v_it < nu.n_elems(); ++v_it) {
 					node v = nu[v_it];
 					
-					ncit w = v; ++w;
 					for (size_t w_it = v_it + 1; w_it < nu.n_elems(); ++w_it) {
 						node w = nu[w_it];
 

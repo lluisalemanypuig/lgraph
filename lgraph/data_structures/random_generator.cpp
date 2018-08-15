@@ -1,4 +1,4 @@
-#include "random_generator.hpp"
+#include <lgraph/data_structures/random_generator.hpp>
 
 namespace lgraph {
 namespace utils {

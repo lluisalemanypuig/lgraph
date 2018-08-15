@@ -1,4 +1,4 @@
-#include "static_bitset.hpp"
+#include <lgraph/utils/static_bitset.hpp>
 
 // MACROS
 

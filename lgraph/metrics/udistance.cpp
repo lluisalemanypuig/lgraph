@@ -1,4 +1,4 @@
-#include "metrics/distance.hpp"
+#include <lgraph/metrics/distance.hpp>
 
 namespace lgraph {
 namespace networks {

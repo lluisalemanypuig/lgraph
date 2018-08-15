@@ -1,4 +1,4 @@
-#include "wugraph.hpp"
+#include <lgraph/data_structures/wugraph.hpp>
 
 namespace lgraph {
 namespace utils {
