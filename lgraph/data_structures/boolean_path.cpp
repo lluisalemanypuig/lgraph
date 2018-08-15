@@ -114,7 +114,7 @@ bool boolean_path<T>::closest_next(const xxgraph *G, node prev, node curr, node&
 
 	const neighbourhood& Nu = G->get_neighbours(curr);
 	if (G->is_weighted()) {
-		vector<T> weights;
+		weight_list<T> weights;
 		(static_cast<const wxgraph<T> *>(G))->get_weights(curr, weights);
 		T dist = utils::inf_t<T>();
 
@@ -151,7 +151,7 @@ bool boolean_path<T>::closest_next(const xxgraph *G, const vector<bool>& prev, n
 
 	const neighbourhood& Nu = G->get_neighbours(curr);
 	if (G->is_weighted()) {
-		vector<T> weights;
+		weight_list<T> weights;
 		(static_cast<const wxgraph<T> *>(G))->get_weights(curr, weights);
 		T dist = utils::inf_t<T>();
 
@@ -199,7 +199,6 @@ void boolean_path<T>::to_node_path(const xxgraph *G, node s, node_path<T>& np) c
 	np.add_node(s);
 
 	size_t added_nodes = 1;
-	node prev_node = -1;
 	node current = s;
 	node next_node;
 
@@ -211,7 +210,6 @@ void boolean_path<T>::to_node_path(const xxgraph *G, node s, node_path<T>& np) c
 		np.add_node(next_node);
 		++added_nodes;
 
-		prev_node = current;
 		current = next_node;
 		vis[current] = true;
 
