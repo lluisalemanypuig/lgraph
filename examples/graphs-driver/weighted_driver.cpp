@@ -60,6 +60,8 @@ namespace graph_driver {
 		cout << endl;
 		cout << "    * is-directed: outputs YES if the graph is directed. Outputs NO if otherwise" << endl;
 		cout << endl;
+		cout << "    * to-unweighted: converts the graph into an unweighted graph. Prints the result." << endl;
+		cout << endl;
 		cout << "    * clear: clear the graph." << endl;
 		cout << endl;
 		cout << "    * print: for each node, print its neighbourhood into standard output." << endl;
@@ -231,6 +233,11 @@ namespace graph_driver {
 			else if (option == "is-directed") {
 				cout << "Is the graph directed? "
 					 << (G->is_directed() ? "Yes" : "No") << endl;
+			}
+			else if (option == "to-unweighted") {
+				uxgraph *g = G->to_unweighted();
+				cout << *g << endl;
+				delete g;
 			}
 			else if (option == "clear") {
 				G->clear();
