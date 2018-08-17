@@ -50,6 +50,8 @@ T \hyperlink{classlgraph_1_1utils_1_1wugraph_ace598c9cb108806a2a9a6ff4219377de}{
 \begin{DoxyCompactList}\small\item\em Returns the weight of the edge ({\itshape u}, {\itshape v}) \end{DoxyCompactList}\item 
 bool \hyperlink{classlgraph_1_1utils_1_1wugraph_a3ed8cd6b1d499fd3f36ec6c1cb2845d3}{is\+\_\+directed} () const 
 \begin{DoxyCompactList}\small\item\em Returns whether the graph is directed or undirected. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} $\ast$ \hyperlink{classlgraph_1_1utils_1_1wugraph_af676d6286e785daa94bee87f913f2af4}{to\+\_\+unweighted} () const 
+\begin{DoxyCompactList}\small\item\em Converts this graph into an unweighted graph. \end{DoxyCompactList}\item 
 void \hyperlink{classlgraph_1_1utils_1_1wxgraph_a566ae9fe69209230ef159ed350ab8f7f}{init} (size\+\_\+t n)
 \begin{DoxyCompactList}\small\item\em Initialises the attributes of a graph with {\itshape n} nodes. \end{DoxyCompactList}\item 
 void \hyperlink{classlgraph_1_1utils_1_1wxgraph_a972a2483966f4b1d485c5d14157ee9be}{add\+\_\+edges} (const vector$<$ \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge} $>$ \&edge\+\_\+list, const vector$<$ T $>$ \&ws)
@@ -67,6 +69,8 @@ void \hyperlink{classlgraph_1_1utils_1_1wxgraph_a23c629eb031e31681749da793f93354
 \begin{DoxyCompactList}\small\item\em Returns the weights to all neighbours of node {\itshape u}. \end{DoxyCompactList}\item 
 void \hyperlink{classlgraph_1_1utils_1_1wxgraph_a73b6c8887d5088750ee2cc98c45089c6}{edges} (vector$<$ pair$<$ \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge}, T $>$ $>$ \&all\+\_\+edges) const 
 \begin{DoxyCompactList}\small\item\em Returns all unique edges of this graph. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1wxgraph_a6c58b1f9bd596b3a12c181119eee9da2}{edges} (vector$<$ \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge} $>$ \&all\+\_\+edges) const 
+\begin{DoxyCompactList}\small\item\em Returns all unique edges of this graph without their weights. \end{DoxyCompactList}\item 
 bool \hyperlink{classlgraph_1_1utils_1_1wxgraph_a329e674f9e3543f3347343470d82d404}{read\+\_\+from\+\_\+file} (const string \&filename)\hypertarget{classlgraph_1_1utils_1_1wxgraph_a329e674f9e3543f3347343470d82d404}{}\label{classlgraph_1_1utils_1_1wxgraph_a329e674f9e3543f3347343470d82d404}
 
 \begin{DoxyCompactList}\small\item\em Reads the graph from a file. \end{DoxyCompactList}\item 
@@ -109,6 +113,8 @@ size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1xxgraph_ad4f25a8b29c6f26bc1567cb9
 \item 
 void \hyperlink{classlgraph_1_1utils_1_1wugraph_a365789840be9490091e6d8de03521cad}{get\+\_\+unique\+\_\+edges} (set$<$ pair$<$ \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge}, T $>$ $>$ \&\hyperlink{classlgraph_1_1utils_1_1wxgraph_a73b6c8887d5088750ee2cc98c45089c6}{edges}) const 
 \begin{DoxyCompactList}\small\item\em Computes the list of unique weighted edges of this graph. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1wugraph_a739b2f3f6428ecc47e27a7bbb694c72f}{get\+\_\+unique\+\_\+edges} (set$<$ \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge} $>$ \&\hyperlink{classlgraph_1_1utils_1_1wxgraph_a73b6c8887d5088750ee2cc98c45089c6}{edges}) const 
+\begin{DoxyCompactList}\small\item\em Computes the list of unique edges of this graph. \end{DoxyCompactList}\item 
 void \hyperlink{classlgraph_1_1utils_1_1wxgraph_a0b0c0b54acbc7816eb5b9958e61805cf}{initialise\+\_\+weights} (size\+\_\+t n)\hypertarget{classlgraph_1_1utils_1_1wxgraph_a0b0c0b54acbc7816eb5b9958e61805cf}{}\label{classlgraph_1_1utils_1_1wxgraph_a0b0c0b54acbc7816eb5b9958e61805cf}
 
 \begin{DoxyCompactList}\small\item\em Initialises the list of weights. \end{DoxyCompactList}\item 
@@ -328,7 +334,18 @@ Implements \hyperlink{classlgraph_1_1utils_1_1wxgraph_ae634779d8d7f973fb7b7d2d9f
 
 Returns all unique edges of this graph. 
 
-See method \hyperlink{classlgraph_1_1utils_1_1wxgraph_ae49fda28107ce983b8f0d641468e9a75}{get\+\_\+unique\+\_\+edges(set$<$pair$<$edge,\+T$>$ $>$\& edges)const} for details. \index{lgraph\+::utils\+::wugraph@{lgraph\+::utils\+::wugraph}!get\+\_\+degree\+\_\+sequence@{get\+\_\+degree\+\_\+sequence}}
+See method \hyperlink{classlgraph_1_1utils_1_1wxgraph_ae49fda28107ce983b8f0d641468e9a75}{get\+\_\+unique\+\_\+edges(set$<$pair$<$edge,\+T$>$ $>$\& edges)const} for details. \index{lgraph\+::utils\+::wugraph@{lgraph\+::utils\+::wugraph}!edges@{edges}}
+\index{edges@{edges}!lgraph\+::utils\+::wugraph@{lgraph\+::utils\+::wugraph}}
+\subsubsection[{\texorpdfstring{edges(vector$<$ edge $>$ \&all\+\_\+edges) const }{edges(vector< edge > &all_edges) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf lgraph\+::utils\+::wxgraph}$<$ T $>$\+::edges (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf edge} $>$ \&}]{all\+\_\+edges}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inherited]}}\hypertarget{classlgraph_1_1utils_1_1wxgraph_a6c58b1f9bd596b3a12c181119eee9da2}{}\label{classlgraph_1_1utils_1_1wxgraph_a6c58b1f9bd596b3a12c181119eee9da2}
+
+
+Returns all unique edges of this graph without their weights. 
+
+See method \hyperlink{classlgraph_1_1utils_1_1wxgraph_a2309323af6f8f0efd20abc33236dc7e0}{get\+\_\+unique\+\_\+edges(set$<$edge$>$\& edges)const} for details. \index{lgraph\+::utils\+::wugraph@{lgraph\+::utils\+::wugraph}!get\+\_\+degree\+\_\+sequence@{get\+\_\+degree\+\_\+sequence}}
 \index{get\+\_\+degree\+\_\+sequence@{get\+\_\+degree\+\_\+sequence}!lgraph\+::utils\+::wugraph@{lgraph\+::utils\+::wugraph}}
 \subsubsection[{\texorpdfstring{get\+\_\+degree\+\_\+sequence(map$<$ size\+\_\+t, size\+\_\+t $>$ \&ds) const }{get_degree_sequence(map< size_t, size_t > &ds) const }}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::utils\+::xxgraph\+::get\+\_\+degree\+\_\+sequence (
 \begin{DoxyParamCaption}
@@ -396,7 +413,7 @@ Returns the neighbourhood of node u.
 
 Computes the list of unique weighted edges of this graph. 
 
-Since this graph is undirected, the edge (u,v) is the same as (v,u). This method computes the list of edges so that the result is lexicographically sorted. A weighted edge is a pair of two elements\+: an edge (a pair of two indices) and a weight. Each index is within the interval \mbox{[}0,{\itshape n}) where {\itshape n} is the number of nodes of this graph.
+Since this graph is undirected, the edge (u,v) is the same as (v,u). This method computes the list of edges so that the result is lexicographically sorted. A weighted edge is a pair of an edge and a value representing the weight of that edge. An edge is a pair of indices, each of which is within the interval \mbox{[}0,{\itshape n}) where {\itshape n} is the number of nodes of this graph.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -409,6 +426,31 @@ Stores in \hyperlink{classlgraph_1_1utils_1_1wxgraph_a73b6c8887d5088750ee2cc98c4
 
 
 Implements \hyperlink{classlgraph_1_1utils_1_1wxgraph_ae49fda28107ce983b8f0d641468e9a75}{lgraph\+::utils\+::wxgraph$<$ T $>$}.
+
+\index{lgraph\+::utils\+::wugraph@{lgraph\+::utils\+::wugraph}!get\+\_\+unique\+\_\+edges@{get\+\_\+unique\+\_\+edges}}
+\index{get\+\_\+unique\+\_\+edges@{get\+\_\+unique\+\_\+edges}!lgraph\+::utils\+::wugraph@{lgraph\+::utils\+::wugraph}}
+\subsubsection[{\texorpdfstring{get\+\_\+unique\+\_\+edges(set$<$ edge $>$ \&edges) const }{get_unique_edges(set< edge > &edges) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf lgraph\+::utils\+::wugraph}$<$ T $>$\+::get\+\_\+unique\+\_\+edges (
+\begin{DoxyParamCaption}
+\item[{set$<$ {\bf edge} $>$ \&}]{edges}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classlgraph_1_1utils_1_1wugraph_a739b2f3f6428ecc47e27a7bbb694c72f}{}\label{classlgraph_1_1utils_1_1wugraph_a739b2f3f6428ecc47e27a7bbb694c72f}
+
+
+Computes the list of unique edges of this graph. 
+
+Since this graph is undirected, the edge (u,v) is the same as (v,u). This method computes the list of edges so that the result is lexicographically sorted. An unweighted edge is a pair of indices each of which is within the interval \mbox{[}0,{\itshape n}) where {\itshape n} is the number of nodes of this graph.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em edges} & The collection of edges \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Stores in \hyperlink{classlgraph_1_1utils_1_1wxgraph_a73b6c8887d5088750ee2cc98c45089c6}{edges} the lexicographically sorted list of unweighted edges of this graph 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classlgraph_1_1utils_1_1wxgraph_a2309323af6f8f0efd20abc33236dc7e0}{lgraph\+::utils\+::wxgraph$<$ T $>$}.
 
 \index{lgraph\+::utils\+::wugraph@{lgraph\+::utils\+::wugraph}!get\+\_\+weights@{get\+\_\+weights}}
 \index{get\+\_\+weights@{get\+\_\+weights}!lgraph\+::utils\+::wugraph@{lgraph\+::utils\+::wugraph}}
@@ -613,6 +655,28 @@ The attribute \hyperlink{classlgraph_1_1utils_1_1xxgraph_a217ebb1cd8946fedfbf94a
 {\em edge\+\_\+list} & A list of edges \\
 \hline
 \end{DoxyParams}
+\index{lgraph\+::utils\+::wugraph@{lgraph\+::utils\+::wugraph}!to\+\_\+unweighted@{to\+\_\+unweighted}}
+\index{to\+\_\+unweighted@{to\+\_\+unweighted}!lgraph\+::utils\+::wugraph@{lgraph\+::utils\+::wugraph}}
+\subsubsection[{\texorpdfstring{to\+\_\+unweighted() const }{to_unweighted() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf uxgraph} $\ast$ {\bf lgraph\+::utils\+::wugraph}$<$ T $>$\+::to\+\_\+unweighted (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classlgraph_1_1utils_1_1wugraph_af676d6286e785daa94bee87f913f2af4}{}\label{classlgraph_1_1utils_1_1wugraph_af676d6286e785daa94bee87f913f2af4}
+
+
+Converts this graph into an unweighted graph. 
+
+If the graph is directed the result is a pointer to an unweighted graph object (\hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph}) instanciated with an undweighted directed graph (\hyperlink{classlgraph_1_1utils_1_1udgraph}{udgraph}).
+
+If the graph is undirected the result is a pointer to an unweighted graph object (\hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph}) instanciated with an undweighted undirected graph (\hyperlink{classlgraph_1_1utils_1_1uugraph}{uugraph}).
+
+The graph returned keeps the edges and removes the weights. \begin{DoxyReturn}{Returns}
+A pointer to a \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} object. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classlgraph_1_1utils_1_1wxgraph_a66d7a1fb48324c361d59dfa2d13db9eb}{lgraph\+::utils\+::wxgraph$<$ T $>$}.
+
 
 
 \subsection{Member Data Documentation}

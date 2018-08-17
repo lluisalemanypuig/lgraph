@@ -104,7 +104,7 @@ size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1xxgraph_ad4f25a8b29c6f26bc1567cb9
 \begin{DoxyCompactItemize}
 \item 
 virtual void \hyperlink{classlgraph_1_1utils_1_1uxgraph_a042795f5d307b07396da89d50734234a}{get\+\_\+unique\+\_\+edges} (set$<$ \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge} $>$ \&\hyperlink{classlgraph_1_1utils_1_1uxgraph_ade877f3a9cf71d844cfe7b6c4f8aae10}{edges}) const =0
-\begin{DoxyCompactList}\small\item\em Computes the list of unique weighted edges of this graph. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Computes the list of unique unweighted edges of this graph. \end{DoxyCompactList}\item 
 size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1xxgraph_aac7ef2134cad9529869f1334de7892d9}{get\+\_\+neighbour\+\_\+position} (const \hyperlink{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{neighbourhood} \&n, \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u) const 
 \begin{DoxyCompactList}\small\item\em Returns the position of node {\itshape u\textquotesingle{}s} position in the neighbourhood {\itshape n}. \end{DoxyCompactList}\item 
 void \hyperlink{classlgraph_1_1utils_1_1xxgraph_a2201aaff5e9ffa29a9b3abfde705dd46}{initialise\+\_\+adjacency\+\_\+list} (size\+\_\+t n)\hypertarget{classlgraph_1_1utils_1_1xxgraph_a2201aaff5e9ffa29a9b3abfde705dd46}{}\label{classlgraph_1_1utils_1_1xxgraph_a2201aaff5e9ffa29a9b3abfde705dd46}
@@ -157,7 +157,7 @@ The attribute \hyperlink{classlgraph_1_1utils_1_1xxgraph_a217ebb1cd8946fedfbf94a
 \end{DoxyParams}
 
 
-Implemented in \hyperlink{classlgraph_1_1utils_1_1udgraph_a087b723d4be694711a82d66d8bd0164e}{lgraph\+::utils\+::udgraph}, and \hyperlink{classlgraph_1_1utils_1_1uugraph_ad1e6036f836c981ab8f4b540cbaa817e}{lgraph\+::utils\+::uugraph}.
+Implemented in \hyperlink{classlgraph_1_1utils_1_1uugraph_ad1e6036f836c981ab8f4b540cbaa817e}{lgraph\+::utils\+::uugraph}, and \hyperlink{classlgraph_1_1utils_1_1udgraph_a087b723d4be694711a82d66d8bd0164e}{lgraph\+::utils\+::udgraph}.
 
 \index{lgraph\+::utils\+::uxgraph@{lgraph\+::utils\+::uxgraph}!add\+\_\+edge@{add\+\_\+edge}}
 \index{add\+\_\+edge@{add\+\_\+edge}!lgraph\+::utils\+::uxgraph@{lgraph\+::utils\+::uxgraph}}
@@ -182,7 +182,7 @@ The attribute \hyperlink{classlgraph_1_1utils_1_1xxgraph_a217ebb1cd8946fedfbf94a
 \end{DoxyParams}
 
 
-Implemented in \hyperlink{classlgraph_1_1utils_1_1udgraph_accf8897335f6cfce5e001c2907462226}{lgraph\+::utils\+::udgraph}, and \hyperlink{classlgraph_1_1utils_1_1uugraph_a3729660ecdd5d7ed338f0cd687403cbf}{lgraph\+::utils\+::uugraph}.
+Implemented in \hyperlink{classlgraph_1_1utils_1_1uugraph_a3729660ecdd5d7ed338f0cd687403cbf}{lgraph\+::utils\+::uugraph}, and \hyperlink{classlgraph_1_1utils_1_1udgraph_accf8897335f6cfce5e001c2907462226}{lgraph\+::utils\+::udgraph}.
 
 \index{lgraph\+::utils\+::uxgraph@{lgraph\+::utils\+::uxgraph}!add\+\_\+edges@{add\+\_\+edges}}
 \index{add\+\_\+edges@{add\+\_\+edges}!lgraph\+::utils\+::uxgraph@{lgraph\+::utils\+::uxgraph}}
@@ -349,21 +349,21 @@ Returns the neighbourhood of node u.
 ) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\hypertarget{classlgraph_1_1utils_1_1uxgraph_a042795f5d307b07396da89d50734234a}{}\label{classlgraph_1_1utils_1_1uxgraph_a042795f5d307b07396da89d50734234a}
 
 
-Computes the list of unique weighted edges of this graph. 
+Computes the list of unique unweighted edges of this graph. 
 
-Since this graph is undirected, the edge (u,v) is the same as (v,u). This method computes the list of edges so that the result is lexicographically sorted. Each index is within the interval \mbox{[}0,{\itshape n}) where {\itshape n} is the number of nodes of this graph.
+An unweighted edge is a pair of indices each of which is within the interval \mbox{[}0,{\itshape n}) where {\itshape n} is the number of nodes of this graph.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt out}  & {\em edges} & The collection of weighted edges \\
+\mbox{\tt out}  & {\em edges} & The collection of unweighted edges \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Stores in \hyperlink{classlgraph_1_1utils_1_1uxgraph_ade877f3a9cf71d844cfe7b6c4f8aae10}{edges} the lexicographically sorted list of edges of this graph 
+Stores in \hyperlink{classlgraph_1_1utils_1_1uxgraph_ade877f3a9cf71d844cfe7b6c4f8aae10}{edges} the list of unweighted edges of this graph 
 \end{DoxyReturn}
 
 
-Implemented in \hyperlink{classlgraph_1_1utils_1_1udgraph_a26dbf1e2606613bd392e670e81d38a60}{lgraph\+::utils\+::udgraph}, and \hyperlink{classlgraph_1_1utils_1_1uugraph_a97cb6f05007d118895c8f0f2323c243f}{lgraph\+::utils\+::uugraph}.
+Implemented in \hyperlink{classlgraph_1_1utils_1_1uugraph_a97cb6f05007d118895c8f0f2323c243f}{lgraph\+::utils\+::uugraph}, and \hyperlink{classlgraph_1_1utils_1_1udgraph_a26dbf1e2606613bd392e670e81d38a60}{lgraph\+::utils\+::udgraph}.
 
 \index{lgraph\+::utils\+::uxgraph@{lgraph\+::utils\+::uxgraph}!has\+\_\+edge@{has\+\_\+edge}}
 \index{has\+\_\+edge@{has\+\_\+edge}!lgraph\+::utils\+::uxgraph@{lgraph\+::utils\+::uxgraph}}
@@ -382,7 +382,7 @@ Returns true if there is an edge between nodes {\itshape u} and {\itshape v}.
 \end{DoxyPrecond}
 
 
-Implemented in \hyperlink{classlgraph_1_1utils_1_1wdgraph_ac74f172c5a6bdbf56ac5a4013fae880a}{lgraph\+::utils\+::wdgraph$<$ T $>$}, \hyperlink{classlgraph_1_1utils_1_1wugraph_a5d729aece87dbda408211b12ad4856d1}{lgraph\+::utils\+::wugraph$<$ T $>$}, \hyperlink{classlgraph_1_1utils_1_1udgraph_aebc98d234955028116978eff9c13445b}{lgraph\+::utils\+::udgraph}, and \hyperlink{classlgraph_1_1utils_1_1uugraph_a1970a2f371f20284478246a83292f9bb}{lgraph\+::utils\+::uugraph}.
+Implemented in \hyperlink{classlgraph_1_1utils_1_1wugraph_a5d729aece87dbda408211b12ad4856d1}{lgraph\+::utils\+::wugraph$<$ T $>$}, \hyperlink{classlgraph_1_1utils_1_1wdgraph_ac74f172c5a6bdbf56ac5a4013fae880a}{lgraph\+::utils\+::wdgraph$<$ T $>$}, \hyperlink{classlgraph_1_1utils_1_1uugraph_a1970a2f371f20284478246a83292f9bb}{lgraph\+::utils\+::uugraph}, and \hyperlink{classlgraph_1_1utils_1_1udgraph_aebc98d234955028116978eff9c13445b}{lgraph\+::utils\+::udgraph}.
 
 \index{lgraph\+::utils\+::uxgraph@{lgraph\+::utils\+::uxgraph}!init@{init}}
 \index{init@{init}!lgraph\+::utils\+::uxgraph@{lgraph\+::utils\+::uxgraph}}
@@ -431,7 +431,7 @@ Returns true if the graph is directed. Returns false if otherwise.
 \end{DoxyReturn}
 
 
-Implemented in \hyperlink{classlgraph_1_1utils_1_1wdgraph_a5eee58626ec0aa8428436a859d601741}{lgraph\+::utils\+::wdgraph$<$ T $>$}, \hyperlink{classlgraph_1_1utils_1_1wugraph_a3ed8cd6b1d499fd3f36ec6c1cb2845d3}{lgraph\+::utils\+::wugraph$<$ T $>$}, \hyperlink{classlgraph_1_1utils_1_1udgraph_aa6fc318096cc4b577374f002b07ab49b}{lgraph\+::utils\+::udgraph}, and \hyperlink{classlgraph_1_1utils_1_1uugraph_a20a86c5b56527e8abcbb90bae95d6605}{lgraph\+::utils\+::uugraph}.
+Implemented in \hyperlink{classlgraph_1_1utils_1_1wugraph_a3ed8cd6b1d499fd3f36ec6c1cb2845d3}{lgraph\+::utils\+::wugraph$<$ T $>$}, \hyperlink{classlgraph_1_1utils_1_1wdgraph_a5eee58626ec0aa8428436a859d601741}{lgraph\+::utils\+::wdgraph$<$ T $>$}, \hyperlink{classlgraph_1_1utils_1_1uugraph_a20a86c5b56527e8abcbb90bae95d6605}{lgraph\+::utils\+::uugraph}, and \hyperlink{classlgraph_1_1utils_1_1udgraph_aa6fc318096cc4b577374f002b07ab49b}{lgraph\+::utils\+::udgraph}.
 
 \index{lgraph\+::utils\+::uxgraph@{lgraph\+::utils\+::uxgraph}!n\+\_\+edges@{n\+\_\+edges}}
 \index{n\+\_\+edges@{n\+\_\+edges}!lgraph\+::utils\+::uxgraph@{lgraph\+::utils\+::uxgraph}}
@@ -514,7 +514,7 @@ The attribute \hyperlink{classlgraph_1_1utils_1_1xxgraph_a217ebb1cd8946fedfbf94a
 \end{DoxyParams}
 
 
-Implemented in \hyperlink{classlgraph_1_1utils_1_1udgraph_ac5ba48d8bbd044a09ed9d84a881178cd}{lgraph\+::utils\+::udgraph}, and \hyperlink{classlgraph_1_1utils_1_1uugraph_a12591fd958878113b373040b4c164f14}{lgraph\+::utils\+::uugraph}.
+Implemented in \hyperlink{classlgraph_1_1utils_1_1uugraph_a12591fd958878113b373040b4c164f14}{lgraph\+::utils\+::uugraph}, and \hyperlink{classlgraph_1_1utils_1_1udgraph_ac5ba48d8bbd044a09ed9d84a881178cd}{lgraph\+::utils\+::udgraph}.
 
 \index{lgraph\+::utils\+::uxgraph@{lgraph\+::utils\+::uxgraph}!remove\+\_\+edge@{remove\+\_\+edge}}
 \index{remove\+\_\+edge@{remove\+\_\+edge}!lgraph\+::utils\+::uxgraph@{lgraph\+::utils\+::uxgraph}}
@@ -537,7 +537,7 @@ The attribute \hyperlink{classlgraph_1_1utils_1_1xxgraph_a217ebb1cd8946fedfbf94a
 \end{DoxyParams}
 
 
-Implemented in \hyperlink{classlgraph_1_1utils_1_1udgraph_ad414c0739a86b461af2c8160bca07f0b}{lgraph\+::utils\+::udgraph}, and \hyperlink{classlgraph_1_1utils_1_1uugraph_ae564207e9c3887aa6be115bce28c66b8}{lgraph\+::utils\+::uugraph}.
+Implemented in \hyperlink{classlgraph_1_1utils_1_1uugraph_ae564207e9c3887aa6be115bce28c66b8}{lgraph\+::utils\+::uugraph}, and \hyperlink{classlgraph_1_1utils_1_1udgraph_ad414c0739a86b461af2c8160bca07f0b}{lgraph\+::utils\+::udgraph}.
 
 \index{lgraph\+::utils\+::uxgraph@{lgraph\+::utils\+::uxgraph}!remove\+\_\+edges@{remove\+\_\+edges}}
 \index{remove\+\_\+edges@{remove\+\_\+edges}!lgraph\+::utils\+::uxgraph@{lgraph\+::utils\+::uxgraph}}

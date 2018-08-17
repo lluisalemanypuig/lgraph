@@ -102,7 +102,7 @@ size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1xxgraph_ad4f25a8b29c6f26bc1567cb9
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{classlgraph_1_1utils_1_1uugraph_a97cb6f05007d118895c8f0f2323c243f}{get\+\_\+unique\+\_\+edges} (set$<$ \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge} $>$ \&\hyperlink{classlgraph_1_1utils_1_1uxgraph_ade877f3a9cf71d844cfe7b6c4f8aae10}{edges}) const 
-\begin{DoxyCompactList}\small\item\em Computes the list of unique weighted edges of this graph. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Computes the list of unique edges of this graph. \end{DoxyCompactList}\item 
 size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1xxgraph_aac7ef2134cad9529869f1334de7892d9}{get\+\_\+neighbour\+\_\+position} (const \hyperlink{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{neighbourhood} \&n, \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u) const 
 \begin{DoxyCompactList}\small\item\em Returns the position of node {\itshape u\textquotesingle{}s} position in the neighbourhood {\itshape n}. \end{DoxyCompactList}\item 
 void \hyperlink{classlgraph_1_1utils_1_1xxgraph_a2201aaff5e9ffa29a9b3abfde705dd46}{initialise\+\_\+adjacency\+\_\+list} (size\+\_\+t n)\hypertarget{classlgraph_1_1utils_1_1xxgraph_a2201aaff5e9ffa29a9b3abfde705dd46}{}\label{classlgraph_1_1utils_1_1xxgraph_a2201aaff5e9ffa29a9b3abfde705dd46}
@@ -342,17 +342,17 @@ Returns the neighbourhood of node u.
 ) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classlgraph_1_1utils_1_1uugraph_a97cb6f05007d118895c8f0f2323c243f}{}\label{classlgraph_1_1utils_1_1uugraph_a97cb6f05007d118895c8f0f2323c243f}
 
 
-Computes the list of unique weighted edges of this graph. 
+Computes the list of unique edges of this graph. 
 
-Since this graph is undirected, the edge (u,v) is the same as (v,u). This method computes the list of edges so that the result is lexicographically sorted. Each index is within the interval \mbox{[}0,{\itshape n}) where {\itshape n} is the number of nodes of this graph.
+Since this graph is undirected, the edge (u,v) is the same as (v,u). This method computes the list of edges so that the result is lexicographically sorted. An unweighted edge is a pair of indices each of which is within the interval \mbox{[}0,{\itshape n}) where {\itshape n} is the number of nodes of this graph.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt out}  & {\em edges} & The collection of weighted edges \\
+\mbox{\tt out}  & {\em edges} & The collection of edges \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Stores in \hyperlink{classlgraph_1_1utils_1_1uxgraph_ade877f3a9cf71d844cfe7b6c4f8aae10}{edges} the lexicographically sorted list of edges of this graph 
+Stores in \hyperlink{classlgraph_1_1utils_1_1uxgraph_ade877f3a9cf71d844cfe7b6c4f8aae10}{edges} the lexicographically sorted list of unweighted edges of this graph 
 \end{DoxyReturn}
 
 

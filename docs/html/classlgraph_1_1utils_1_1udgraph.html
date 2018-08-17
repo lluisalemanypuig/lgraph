@@ -225,7 +225,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a26dbf1e2606613bd392e670e81d38a60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1udgraph.html#a26dbf1e2606613bd392e670e81d38a60">get_unique_edges</a> (set&lt; <a class="el" href="namespacelgraph_1_1utils.html#a6510284ce1b1ae5dc97ce5d2de426e10">edge</a> &gt; &amp;<a class="el" href="classlgraph_1_1utils_1_1uxgraph.html#ade877f3a9cf71d844cfe7b6c4f8aae10">edges</a>) const </td></tr>
-<tr class="memdesc:a26dbf1e2606613bd392e670e81d38a60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the list of unique weighted edges of this graph.  <a href="#a26dbf1e2606613bd392e670e81d38a60">More...</a><br /></td></tr>
+<tr class="memdesc:a26dbf1e2606613bd392e670e81d38a60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the list of unique edges of this graph.  <a href="#a26dbf1e2606613bd392e670e81d38a60">More...</a><br /></td></tr>
 <tr class="separator:a26dbf1e2606613bd392e670e81d38a60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac7ef2134cad9529869f1334de7892d9"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1xxgraph.html#aac7ef2134cad9529869f1334de7892d9">get_neighbour_position</a> (const <a class="el" href="namespacelgraph_1_1utils.html#a0f2ef47028a466d26841709e705390ac">neighbourhood</a> &amp;n, <a class="el" href="namespacelgraph_1_1utils.html#a7bd66ede3805ef121bc2835bd48de0cf">node</a> u) const </td></tr>
 <tr class="memdesc:aac7ef2134cad9529869f1334de7892d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the position of node <em>u's</em> position in the neighbourhood <em>n</em>.  <a href="#aac7ef2134cad9529869f1334de7892d9">More...</a><br /></td></tr>
@@ -669,15 +669,15 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </table>
 </div><div class="memdoc">
 
-<p>Computes the list of unique weighted edges of this graph. </p>
-<p>Since this graph is undirected, the edge (u,v) is the same as (v,u). This method computes the list of edges so that the result is lexicographically sorted. Each index is within the interval [0,<em>n</em>) where <em>n</em> is the number of nodes of this graph.</p>
+<p>Computes the list of unique edges of this graph. </p>
+<p>An unweighted edge is a pair of indices each of which is within the interval [0,<em>n</em>) where <em>n</em> is the number of nodes of this graph.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">edges</td><td>The collection of weighted edges </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">edges</td><td>The collection of edges </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Stores in <a class="el" href="classlgraph_1_1utils_1_1uxgraph.html#ade877f3a9cf71d844cfe7b6c4f8aae10">edges</a> the lexicographically sorted list of edges of this graph </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Stores in <a class="el" href="classlgraph_1_1utils_1_1uxgraph.html#ade877f3a9cf71d844cfe7b6c4f8aae10">edges</a> the lexicographically sorted list of unweighted edges of this graph </dd></dl>
 
 <p>Implements <a class="el" href="classlgraph_1_1utils_1_1uxgraph.html#a042795f5d307b07396da89d50734234a">lgraph::utils::uxgraph</a>.</p>
 
