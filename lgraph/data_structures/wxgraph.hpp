@@ -12,6 +12,7 @@ using namespace std;
 
 // Custom includes
 #include <lgraph/data_structures/xxgraph.hpp>
+#include <lgraph/data_structures/uxgraph.hpp>
 #include <lgraph/data_structures/svector.hpp>
 #include <lgraph/utils/definitions.hpp>
 
@@ -50,18 +51,29 @@ class wxgraph : public xxgraph {
 		/**
 		 * @brief Computes the list of unique weighted edges of this graph
 		 *
-		 * Since this graph is undirected, the edge (u,v) is the same
-		 * as (v,u). This method computes the list of edges so that the
-		 * result is lexicographically sorted. A weighted edge is a pair
-		 * of two elements: an edge (a pair of two indices) and a weight.
-		 * Each index is within the interval [0,@e n) where @e n is the
+		 * A weighted edge is a pair of an edge and a value representing
+		 * the weight of that edge. An edge is a pair of indices, each
+		 * of which is within the interval [0,@e n) where @e n is the
 		 * number of nodes of this graph.
 		 *
 		 * @param[out] edges The collection of weighted edges
-		 * @return Stores in @ref edges the lexicographically sorted list of
-		 * weighted edges of this graph
+		 * @return Stores in @ref edges the list of weighted edges of this
+		 * graph
 		 */
 		virtual void get_unique_edges(set<pair<edge, T> >& edges) const = 0;
+
+		/**
+		 * @brief Computes the list of unique unweighted edges of this graph
+		 *
+		 * An unweighted edge is a pair of indices each of which is within
+		 * the interval [0,@e n) where @e n is the number of nodes of this
+		 * graph.
+		 *
+		 * @param[out] edges The collection of unweighted edges
+		 * @return Stores in @ref edges the list of unweighted edges of this
+		 * graph
+		 */
+		virtual void get_unique_edges(set<edge>& edges) const = 0;
 
 	public:
 		/// Constructor
@@ -203,6 +215,29 @@ class wxgraph : public xxgraph {
 		 * See method @ref get_unique_edges(set<pair<edge,T> >& edges)const for details.
 		 */
 		void edges(vector<pair<edge, T> >& all_edges) const;
+
+		/**
+		 * @brief Returns all unique edges of this graph without their weights
+		 *
+		 * See method @ref get_unique_edges(set<edge>& edges)const for details.
+		 */
+		void edges(vector<edge>& all_edges) const;
+
+		/**
+		 * @brief Converts this graph into an unweighted graph.
+		 *
+		 * If the graph is directed the result is a pointer to an
+		 * unweighted graph object (@ref uxgraph) instanciated with
+		 * an undweighted directed graph (@ref udgraph).
+		 *
+		 * If the graph is undirected the result is a pointer to an
+		 * unweighted graph object (@ref uxgraph) instanciated with
+		 * an undweighted undirected graph (@ref uugraph).
+		 *
+		 * The graph returned keeps the edges and removes the weights.
+		 * @return A pointer to a @ref uxgraph object.
+		 */
+		virtual uxgraph* to_unweighted() const = 0;
 
 		// I/O
 

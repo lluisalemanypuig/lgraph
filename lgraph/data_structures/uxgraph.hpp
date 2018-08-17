@@ -29,17 +29,15 @@ class uxgraph : public xxgraph {
 	protected:
 
 		/**
-		 * @brief Computes the list of unique weighted edges of this graph
+		 * @brief Computes the list of unique unweighted edges of this graph
 		 *
-		 * Since this graph is undirected, the edge (u,v) is the same
-		 * as (v,u). This method computes the list of edges so that the
-		 * result is lexicographically sorted.
-		 * Each index is within the interval [0,@e n) where @e n is the
-		 * number of nodes of this graph.
+		 * An unweighted edge is a pair of indices each of which is within
+		 * the interval [0,@e n) where @e n is the number of nodes of this
+		 * graph.
 		 *
-		 * @param[out] edges The collection of weighted edges
-		 * @return Stores in @ref edges the lexicographically sorted list of
-		 * edges of this graph
+		 * @param[out] edges The collection of unweighted edges
+		 * @return Stores in @ref edges the list of unweighted edges of this
+		 * graph
 		 */
 		virtual void get_unique_edges(set<edge>& edges) const = 0;
 

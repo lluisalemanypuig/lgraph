@@ -10,16 +10,16 @@ void uugraph::get_unique_edges(set<edge>& unique_edges) const {
 	for (node i = 0; i < n_nodes(); ++i) {
 		const neighbourhood& ni = adjacency_list[i];
 
-		for (size_t it = 0; it < ni.n_elems(); ++it) {
+		for (size_t ni_it = 0; ni_it < ni.n_elems(); ++ni_it) {
 
 			// since this graph is UNDIRECTED the order of the
 			// indices in the pair does not matter
 			edge e;
-			if (i < ni[it]) {
-				e = edge(i, ni[it]);
+			if (i < ni[ni_it]) {
+				e = edge(i, ni[ni_it]);
 			}
 			else {
-				e = edge(ni[it], i);
+				e = edge(ni[ni_it], i);
 			}
 
 			bool new_edge = unique_edges.find(e) == unique_edges.end();

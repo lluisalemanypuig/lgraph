@@ -26,7 +26,16 @@ namespace utils {
 class udgraph : public uxgraph {
 	protected:
 
-		// Unique edges of this graph in a set
+		/**
+		 * @brief Computes the list of unique edges of this graph
+		 *
+		 * An unweighted edge is a pair of indices each of which is within the
+		 * interval [0,@e n) where @e n is the number of nodes of this graph.
+		 *
+		 * @param[out] edges The collection of edges
+		 * @return Stores in @ref edges the lexicographically sorted list of
+		 * unweighted edges of this graph
+		 */
 		void get_unique_edges(set<edge>& edges) const;
 
 	public:

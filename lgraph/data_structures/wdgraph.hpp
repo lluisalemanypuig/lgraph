@@ -10,8 +10,9 @@
 using namespace std;
 
 // Custom includes
-#include <lgraph/utils/definitions.hpp>
 #include <lgraph/data_structures/wxgraph.hpp>
+#include <lgraph/data_structures/udgraph.hpp>
+#include <lgraph/utils/definitions.hpp>
 
 namespace lgraph {
 namespace utils {
@@ -29,8 +30,31 @@ template<class T>
 class wdgraph : public wxgraph<T> {
 	protected:
 
-		// Unique edges of this graph in a set
+		/**
+		 * @brief Computes the list of unique weighted edges of this graph
+		 *
+		 * A weighted edge is a pair of an edge and a value representing the
+		 * weight of that edge. An edge is a pair of indices, each of which is
+		 * within the interval [0,@e n) where @e n is the number of nodes of
+		 * this graph.
+		 *
+		 * @param[out] edges The collection of weighted edges
+		 * @return Stores in @ref edges the lexicographically sorted list of
+		 * weighted edges of this graph
+		 */
 		void get_unique_edges(set<pair<edge, T> >& edges) const;
+
+		/**
+		 * @brief Computes the list of unique edges of this graph
+		 *
+		 * An unweighted edge is a pair of indices each of which is within the
+		 * interval [0,@e n) where @e n is the number of nodes of this graph.
+		 *
+		 * @param[out] edges The collection of edges
+		 * @return Stores in @ref edges the lexicographically sorted list of
+		 * unweighted edges of this graph
+		 */
+		void get_unique_edges(set<edge>& edges) const;
 
 	public:
 		/// Constructor
@@ -51,6 +75,7 @@ class wdgraph : public wxgraph<T> {
 		bool has_edge(node u, node v) const;
 		T edge_weight(node u, node v) const;
 		bool is_directed() const;
+		uxgraph* to_unweighted() const;
 
 };
 
