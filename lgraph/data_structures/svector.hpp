@@ -30,7 +30,7 @@ namespace utils {
  * (http://en.cppreference.com/w/cpp/container/vector)
  */
 template<class T, class Alloc = allocator<T> >
-class svector : public vector<T, Alloc> {
+class svector {
 	private:
 		/**
 		 * @brief Pointer to the next position available in the vector
@@ -45,6 +45,22 @@ class svector : public vector<T, Alloc> {
 		 * pointed by @ref idx.
 		 */
 		size_t idx;
+
+		/**
+		 * @brief Container used to allocate the elements
+		 *
+		 * The valid elements in this container are found within range
+		 * of indices [0,@ref idx).
+		 *
+		 * The new element added to this container will be placed in
+		 * the position elems[@ref idx].
+		 */
+		vector<T,Alloc> elems;
+
+	public:
+		/// Definition of the iterator of svector class
+		typedef T* iterator;
+		typedef const T* const_iterator;
 		
 	public:
 		/// Empty constructor
@@ -57,6 +73,13 @@ class svector : public vector<T, Alloc> {
 		/// Destructor
 		~svector();
 
+		// ITERATORS
+
+		iterator begin();
+		const_iterator begin() const;
+		iterator end();
+		const_iterator end() const;
+
 		// OPERATORS
 
 		/**
@@ -66,15 +89,31 @@ class svector : public vector<T, Alloc> {
 		 * whose index is strictly below @ref idx.
 		 */
 		inline friend
-		ostream& operator<< (ostream& os, const svector& v) {
-			if (v.n_elems() > 0) {
+		ostream& operator<< (ostream& os, const svector<T,Alloc>& v) {
+			if (v.size() > 0) {
 				os << v[0];
-				for (size_t i = 1; i < v.n_elems(); ++i) {
+				for (size_t i = 1; i < v.size(); ++i) {
 					os << " " << v[i];
 				}
 			}
 			return os;
 		}
+
+		/// Assignment operator
+		svector<T,Alloc>& operator= (const svector<T,Alloc>& s);
+
+		/**
+		 * @brief Returns a reference to the i-th element
+		 *
+		 * @pre @e i < @ref idx
+		 */
+		T& operator[] (size_t i);
+		/**
+		 * @brief Returns a constant reference to the i-th element
+		 *
+		 * @pre @e i < @ref idx
+		 */
+		const T& operator[] (size_t i) const;
 
 		// MODIFIERS
 
@@ -109,7 +148,7 @@ class svector : public vector<T, Alloc> {
 		 * @brief Returns the number of elements in this vector
 		 * @return Returns the value of @ref idx
 		 */
-		size_t n_elems() const;
+		size_t size() const;
 
 		/**
 		 * @brief Looks for an element equal to @e v in the vector.

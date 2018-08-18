@@ -15,10 +15,10 @@ namespace clustering {
 		for (size_t u = 0; u < N; ++u) {
 
 			const neighbourhood& nu = G->get_neighbours(u);
-			for (size_t v_it = 0; v_it < nu.n_elems(); ++v_it) {
+			for (size_t v_it = 0; v_it < nu.size(); ++v_it) {
 				node v = nu[v_it];
 
-				for (size_t w_it = v_it + 1; w_it < nu.n_elems(); ++w_it) {
+				for (size_t w_it = v_it + 1; w_it < nu.size(); ++w_it) {
 					node w = nu[w_it];
 					// ... get two different neighbours of u (v, w) and
 					// check if they are connected. If so, we found a triangle
@@ -58,11 +58,11 @@ namespace clustering {
 				size_t tris = 0;
 
 				const neighbourhood& nu = G->get_neighbours(u);
-				for (size_t v_it = 0; v_it < nu.n_elems(); ++v_it) {
+				for (size_t v_it = 0; v_it < nu.size(); ++v_it) {
 					node v = nu[v_it];
 
 					ncit w = v; ++w;
-					for (size_t w_it = v_it + 1; w_it < nu.n_elems(); ++w_it) {
+					for (size_t w_it = v_it + 1; w_it < nu.size(); ++w_it) {
 						node w = nu[w_it];
 
 						// ... get two different neighbours of u (v, w) and

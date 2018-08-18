@@ -8,7 +8,7 @@ namespace utils {
 size_t xxgraph::get_neighbour_position(const neighbourhood& n, node u) const {
 	bool found = false;
 	size_t p = 0;
-	while (p < n.n_elems() and not found) {
+	while (p < n.size() and not found) {
 		if (n[p] == u) {
 			found = true;
 		}

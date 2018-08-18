@@ -54,8 +54,8 @@ namespace dijkstra {
 					const weight_list<T>& wu = G->get_weights(u.second);
 
 					LOG.log() << "Iterate through neighbours of " << u.second << endl;
-					LOG.log() << "    Node " << u.second << " has " << Nu.n_elems() << " neighbours" << endl;
-					LOG.log() << "    Node " << u.second << " has " << wu.n_elems() << " weights" << endl;
+					LOG.log() << "    Node " << u.second << " has " << Nu.size() << " neighbours" << endl;
+					LOG.log() << "    Node " << u.second << " has " << wu.size() << " weights" << endl;
 
 					for (size_t v_it = 0; v_it < Nu.size(); ++v_it) {
 						LOG.log() << "    Neighbour index: " << v_it << endl;

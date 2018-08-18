@@ -11,7 +11,7 @@ void wdgraph<T>::get_unique_edges(set<pair<edge, T> >& unique_edges) const {
 		const neighbourhood& ni = this->adjacency_list[i];
 		const weight_list<T>& wi = this->weights[i];
 
-		for (size_t ni_it = 0; ni_it < ni.n_elems(); ++ni_it) {
+		for (size_t ni_it = 0; ni_it < ni.size(); ++ni_it) {
 
 			// this graph is DIRECTED so an edge is the
 			// pair of nodes (i,ni[ni_it]) interpreted as
@@ -32,7 +32,7 @@ void wdgraph<T>::get_unique_edges(set<edge>& unique_edges) const {
 	for (node i = 0; i < this->n_nodes(); ++i) {
 		const neighbourhood& ni = this->adjacency_list[i];
 
-		for (size_t ni_it = 0; ni_it < ni.n_elems(); ++ni_it) {
+		for (size_t ni_it = 0; ni_it < ni.size(); ++ni_it) {
 
 			// this graph is DIRECTED so an edge is the
 			// pair of nodes (i,ni[it]) interpreted as
@@ -95,7 +95,7 @@ void wdgraph<T>::remove_edge(node u, node v) {
 	// find the position of node v in neighbourhood of u
 	// delete the neighbour and the corresponding weight
 	size_t posu = this->get_neighbour_position(nu, v);
-	if (posu < nu.n_elems()) {
+	if (posu < nu.size()) {
 		nu.remove(posu);
 		wu.remove(posu);
 		erased = true;
@@ -115,7 +115,7 @@ bool wdgraph<T>::has_edge(node u, node v) const {
 	assert( this->has_node(v) );
 
 	const neighbourhood& nu = this->get_neighbours(u);
-	return this->get_neighbour_position(nu, v) < nu.n_elems();
+	return this->get_neighbour_position(nu, v) < nu.size();
 }
 
 template<class T>
@@ -125,7 +125,7 @@ T wdgraph<T>::edge_weight(node u, node v) const {
 
 	const neighbourhood& nu = this->adjacency_list[u];
 	size_t cit_u = this->get_neighbour_position(nu, v);
-	assert(cit_u < nu.n_elems());
+	assert(cit_u < nu.size());
 	return this->weights[u][cit_u];
 }
 

@@ -53,13 +53,13 @@ namespace epidemics {
 		LOG.log() << "    Infected:    " << infected << endl;
 		
 		// update simulation information
-		n_inf[0] = infected.n_elems();
-		n_sus[0] = susceptible.n_elems();
+		n_inf[0] = infected.size();
+		n_sus[0] = susceptible.size();
 		
 		// apply all T steps or as many steps to see
 		// the infection disappear
 		size_t t = 1;
-		while (t <= T and infected.n_elems() > 0) {
+		while (t <= T and infected.size() > 0) {
 			
 			LOG.log() << "Step: " << t << endl;
 			
@@ -73,7 +73,7 @@ namespace epidemics {
 			
 			// phase 1: infected agents try to recover
 			size_t n_recovered = 0;
-			for (size_t i = infected.n_elems(); i >= 1; --i) {
+			for (size_t i = infected.size(); i >= 1; --i) {
 				
 				size_t iA = infected[i - 1];
 				LOG.log() << "        Agent " << iA << " recovers? ";
@@ -105,13 +105,13 @@ namespace epidemics {
 			// phase 2: infected agents try to infect their neighbours
 			// except those already recovered (this is the SIR model)
 			
-			size_t current_infected = infected.n_elems();
+			size_t current_infected = infected.size();
 			
 			LOG.log() << "    Phase 2:" << endl;
-			LOG.log() << "        # susceptible= " << susceptible.n_elems() << endl;
+			LOG.log() << "        # susceptible= " << susceptible.size() << endl;
 			LOG.log() << "        # infected=    " << current_infected << endl;
 			
-			if (current_infected < susceptible.n_elems()) {
+			if (current_infected < susceptible.size()) {
 				LOG.log() << "        Branch 1" << endl;
 				
 				// branch 1 (trivial approach): for each infected agent,
@@ -125,7 +125,7 @@ namespace epidemics {
 					const neighbourhood& Na = net.get_neighbours(a);
 					
 					// iterate through the neighbours of agent 'a'
-					for (size_t w_it = 0; w_it < Na.n_elems(); ++w_it) {
+					for (size_t w_it = 0; w_it < Na.size(); ++w_it) {
 						size_t w = Na[w_it];
 
 						LOG.log() << "                Agent tries to infect neighbour " << w << endl;
@@ -186,14 +186,14 @@ namespace epidemics {
 				*/
 				
 				// for each susceptible agent:
-				for (size_t i = susceptible.n_elems(); i >= 1; --i) {
+				for (size_t i = susceptible.size(); i >= 1; --i) {
 					size_t sA = susceptible[i - 1];
 					
 					size_t infected_neighs = 0;
 					const neighbourhood& Ni = net.get_neighbours(sA);
 					
 					// 1. compute the amount of infected neighbours
-					for (size_t w_it = 0; w_it < Ni.n_elems(); ++w_it) {
+					for (size_t w_it = 0; w_it < Ni.size(); ++w_it) {
 						size_t w = Ni[w_it];
 						if (is_infected[w]) {
 							++infected_neighs;
@@ -234,8 +234,8 @@ namespace epidemics {
 				
 			}
 			
-			n_inf[t] = infected.n_elems();
-			n_sus[t] = susceptible.n_elems();
+			n_inf[t] = infected.size();
+			n_sus[t] = susceptible.size();
 			
 			++t;
 		}

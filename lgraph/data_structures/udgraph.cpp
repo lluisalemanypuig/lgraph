@@ -10,7 +10,7 @@ void udgraph::get_unique_edges(set<edge>& unique_edges) const {
 	for (node i = 0; i < n_nodes(); ++i) {
 		const neighbourhood& ni = adjacency_list[i];
 
-		for (size_t ni_it = 0; ni_it < ni.n_elems(); ++ni_it) {
+		for (size_t ni_it = 0; ni_it < ni.size(); ++ni_it) {
 
 			// this graph is DIRECTED so an edge is the
 			// pair of nodes (i,ni[ni_it]) interpreted as
@@ -62,7 +62,7 @@ void udgraph::remove_edge(node u, node v) {
 	// find the position of node v in neighbourhood of u
 	// delete the neighbour
 	size_t posu = get_neighbour_position(nu, v);
-	if (posu < nu.n_elems()) {
+	if (posu < nu.size()) {
 		nu.remove(posu);
 		erased = true;
 	}
@@ -80,7 +80,7 @@ bool udgraph::has_edge(node u, node v) const {
 	assert( has_node(v) );
 
 	const neighbourhood& nu = get_neighbours(u);
-	return get_neighbour_position(nu, v) < nu.n_elems();
+	return get_neighbour_position(nu, v) < nu.size();
 }
 
 bool udgraph::is_directed() const {

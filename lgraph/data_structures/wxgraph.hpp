@@ -98,7 +98,7 @@ class wxgraph : public xxgraph {
 				const neighbourhood& ni = g.adjacency_list[i];
 				const weight_list<T>& wi = g.weights[i];
 
-				for (node j = 0; j < ni.n_elems(); ++j) {
+				for (node j = 0; j < ni.size(); ++j) {
 					os << " " << ni[j];
 					os << "(" << wi[j] << ")";
 				}

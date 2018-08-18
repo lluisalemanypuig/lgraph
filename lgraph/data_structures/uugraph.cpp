@@ -10,7 +10,7 @@ void uugraph::get_unique_edges(set<edge>& unique_edges) const {
 	for (node i = 0; i < n_nodes(); ++i) {
 		const neighbourhood& ni = adjacency_list[i];
 
-		for (size_t ni_it = 0; ni_it < ni.n_elems(); ++ni_it) {
+		for (size_t ni_it = 0; ni_it < ni.size(); ++ni_it) {
 
 			// since this graph is UNDIRECTED the order of the
 			// indices in the pair does not matter
@@ -69,7 +69,7 @@ void uugraph::remove_edge(node u, node v) {
 	// find the position of node v in neighbourhood of u
 	// delete the neighbour
 	size_t posu = get_neighbour_position(nu, v);
-	if (posu < nu.n_elems()) {
+	if (posu < nu.size()) {
 		nu.remove(posu);
 		erased = true;
 	}
@@ -77,7 +77,7 @@ void uugraph::remove_edge(node u, node v) {
 	// find the position of node v in neighbourhood of u
 	// delete the neighbour
 	size_t posv = get_neighbour_position(nv, u);
-	if (posv < nv.n_elems()) {
+	if (posv < nv.size()) {
 		nv.remove(posv);
 		erased = true;
 	}
@@ -103,10 +103,10 @@ bool uugraph::has_edge(node u, node v) const {
 	const neighbourhood& nv = get_neighbours(v);
 
 	if (nu.size() < nv.size()) {
-		return get_neighbour_position(nu, v) < nu.n_elems();
+		return get_neighbour_position(nu, v) < nu.size();
 	}
 	else {
-		return get_neighbour_position(nv, u) < nv.n_elems();
+		return get_neighbour_position(nv, u) < nv.size();
 	}
 }
 

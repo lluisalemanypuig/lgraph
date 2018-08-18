@@ -69,7 +69,7 @@ class uxgraph : public xxgraph {
 				os << i << ":";
 				const neighbourhood& ni = g.adjacency_list[i];
 
-				for (node j = 0; j < ni.n_elems(); ++j) {
+				for (node j = 0; j < ni.size(); ++j) {
 					os << " " << ni[j];
 				}
 
