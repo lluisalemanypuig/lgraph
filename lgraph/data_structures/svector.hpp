@@ -60,6 +60,7 @@ class svector {
 	public:
 		/// Definition of the iterator of svector class
 		typedef T* iterator;
+		/// Definition of the const iterator of svector class
 		typedef const T* const_iterator;
 		
 	public:
@@ -75,9 +76,37 @@ class svector {
 
 		// ITERATORS
 
+		/**
+		 * @brief Iterator at the beginning of the container
+		 *
+		 * This is not actually an iterator, but a pointer to the elements
+		 * of the container @ref elems.
+		 * @return Returns a pointer to the first element of @ref elems
+		 */
 		iterator begin();
+		/**
+		 * @brief Const iterator at the beginning of the container
+		 *
+		 * This is not actually an iterator, but a pointer to the elements
+		 * of the container @ref elems.
+		 * @return Returns a constant pointer to the first element of @ref elems
+		 */
 		const_iterator begin() const;
+		/**
+		 * @brief Iterator at the end of the container
+		 *
+		 * This is not actually an iterator, but a pointer to the elements
+		 * of the container @ref elems.
+		 * @return Returns a pointer to the last valid element of @ref elems
+		 */
 		iterator end();
+		/**
+		 * @brief Const iterator at the end of the container
+		 *
+		 * This is not actually an iterator, but a pointer to the elements
+		 * of the container @ref elems.
+		 * @return Returns a constant pointer to the last valid element of @ref elems
+		 */
 		const_iterator end() const;
 
 		// OPERATORS
