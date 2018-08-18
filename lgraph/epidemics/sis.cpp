@@ -125,7 +125,9 @@ namespace epidemics {
 					const neighbourhood& Na = net.get_neighbours(a);
 					
 					// iterate through the neighbours of agent 'a'
-					for (size_t w : Na) {
+					for (size_t w_it = 0; w_it < Na.n_elems(); ++w_it) {
+						size_t w = Na[w_it];
+
 						LOG.log() << "                Agent tries to infect neighbour " << w << endl;
 						
 						// if the neighbour is susceptible try to infect it
@@ -188,10 +190,11 @@ namespace epidemics {
 					size_t sA = susceptible[i - 1];
 					
 					size_t infected_neighs = 0;
-					const neighbourhood& N_i = net.get_neighbours(sA);
+					const neighbourhood& Ni = net.get_neighbours(sA);
 					
 					// 1. compute the amount of infected neighbours
-					for (size_t w : N_i) {
+					for (size_t w_it = 0; w_it < Ni.n_elems(); ++w_it) {
+						size_t w = Ni[w_it];
 						if (is_infected[w]) {
 							++infected_neighs;
 						}
