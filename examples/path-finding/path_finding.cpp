@@ -88,7 +88,12 @@ int main(int argc, char *argv[]) {
 
 		wugraph<float> G;
 
-		G.read_from_file(file);
+		bool res = G.read_from_file(file);
+		if (not res) {
+			cerr << "Could not read graph from file '" << file << "'" << endl;
+			return 1;
+		}
+
 		cout << "graph read:" << endl;
 		cout << G << endl;
 		cout << endl;
@@ -104,7 +109,12 @@ int main(int argc, char *argv[]) {
 
 		uugraph G;
 
-		G.read_from_file(file);
+		bool res = G.read_from_file(file);
+		if (not res) {
+			cerr << "Could not read graph from file '" << file << "'" << endl;
+			return 1;
+		}
+
 		cout << "graph read:" << endl;
 		cout << G << endl;
 		cout << endl;
