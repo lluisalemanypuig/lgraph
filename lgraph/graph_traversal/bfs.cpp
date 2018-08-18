@@ -45,8 +45,8 @@ namespace bfs {
 
 				LOG.log() << "Iterate through neighbours of " << u << endl;
 
-				for (node v_it = 0; v_it < Nu.size(); ++v_it) {
-					node v = Nu[v_it];
+				for (auto Nu_it = Nu.begin(); Nu_it != Nu.end(); ++Nu_it) {
+					node v = *Nu_it;
 
 					LOG.log() << "    Neighbour " << v << endl;
 					LOG.log() << "    ... processing ...";

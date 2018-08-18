@@ -11,12 +11,18 @@ void wdgraph<T>::get_unique_edges(set<pair<edge, T> >& unique_edges) const {
 		const neighbourhood& ni = this->adjacency_list[i];
 		const weight_list<T>& wi = this->weights[i];
 
-		for (size_t ni_it = 0; ni_it < ni.size(); ++ni_it) {
+		auto wi_it = wi.begin();
+		for (
+			auto ni_it = ni.begin();
+			ni_it != ni.end();
+			++ni_it, ++wi_it
+		)
+		{
 
 			// this graph is DIRECTED so an edge is the
 			// pair of nodes (i,ni[ni_it]) interpreted as
 			// "i points to ni[ni_it]"
-			pair<edge, T> e(edge(i, ni[ni_it]), wi[ni_it]);
+			pair<edge, T> e(edge(i, *ni_it), *wi_it);
 
 			bool new_edge = unique_edges.find(e) == unique_edges.end();
 			if (new_edge) {
@@ -30,14 +36,14 @@ void wdgraph<T>::get_unique_edges(set<pair<edge, T> >& unique_edges) const {
 template<class T>
 void wdgraph<T>::get_unique_edges(set<edge>& unique_edges) const {
 	for (node i = 0; i < this->n_nodes(); ++i) {
-		const neighbourhood& ni = this->adjacency_list[i];
 
-		for (size_t ni_it = 0; ni_it < ni.size(); ++ni_it) {
+		const neighbourhood& ni = this->adjacency_list[i];
+		for (node j : ni) {
 
 			// this graph is DIRECTED so an edge is the
-			// pair of nodes (i,ni[it]) interpreted as
-			// "i points to ni[it]"
-			edge e(i, ni[ni_it]);
+			// pair of nodes (i, j) interpreted as
+			// "i points to j"
+			edge e(i, j);
 
 			bool new_edge = unique_edges.find(e) == unique_edges.end();
 			if (new_edge) {
@@ -126,6 +132,7 @@ T wdgraph<T>::edge_weight(node u, node v) const {
 	const neighbourhood& nu = this->adjacency_list[u];
 	size_t cit_u = this->get_neighbour_position(nu, v);
 	assert(cit_u < nu.size());
+
 	return this->weights[u][cit_u];
 }
 

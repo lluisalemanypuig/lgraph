@@ -8,14 +8,14 @@ namespace utils {
 void udgraph::get_unique_edges(set<edge>& unique_edges) const {
 	// insert all edges into a set to get only those that are unique
 	for (node i = 0; i < n_nodes(); ++i) {
-		const neighbourhood& ni = adjacency_list[i];
 
-		for (size_t ni_it = 0; ni_it < ni.size(); ++ni_it) {
+		const neighbourhood& ni = this->adjacency_list[i];
+		for (node j : ni) {
 
 			// this graph is DIRECTED so an edge is the
-			// pair of nodes (i,ni[ni_it]) interpreted as
-			// "i points to ni[ni_it]"
-			edge e(i, ni[ni_it]);
+			// pair of nodes (i,j) interpreted as
+			// "i points to j"
+			edge e(i, j);
 
 			bool new_edge = unique_edges.find(e) == unique_edges.end();
 			if (new_edge) {

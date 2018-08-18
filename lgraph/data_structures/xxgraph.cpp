@@ -107,8 +107,12 @@ void xxgraph::get_adjacency_matrix(vector<vector<bool> >& adj_mat) const {
 void xxgraph::get_degree_sequence(map<size_t, size_t>& deg_seq) const {
 	for (size_t u = 0; u < adjacency_list.size(); ++u) {
 		size_t deg = degree(u);
-		if (deg_seq.find(deg) == deg_seq.end()) deg_seq[deg] = 1;
-		else ++deg_seq[deg];
+		if (deg_seq.find(deg) == deg_seq.end()) {
+			deg_seq[deg] = 1;
+		}
+		else {
+			++deg_seq[deg];
+		}
 	}
 }
 
@@ -128,7 +132,9 @@ size_t xxgraph::n_triangles() const {
 				// existing edges: (u, v), (u, w)
 				// check edge (v, w) for triangles
 
-				if (has_edge(*v, *w)) ++tris;
+				if (has_edge(*v, *w)) {
+					++tris;
+				}
 			}
 		}
 

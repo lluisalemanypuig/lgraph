@@ -8,18 +8,18 @@ namespace utils {
 void uugraph::get_unique_edges(set<edge>& unique_edges) const {
 	// insert all edges into a set to get only those that are unique
 	for (node i = 0; i < n_nodes(); ++i) {
-		const neighbourhood& ni = adjacency_list[i];
 
-		for (size_t ni_it = 0; ni_it < ni.size(); ++ni_it) {
+		const neighbourhood& ni = adjacency_list[i];
+		for (node j : ni) {
 
 			// since this graph is UNDIRECTED the order of the
 			// indices in the pair does not matter
 			edge e;
-			if (i < ni[ni_it]) {
-				e = edge(i, ni[ni_it]);
+			if (i < j) {
+				e = edge(i, j);
 			}
 			else {
-				e = edge(ni[ni_it], i);
+				e = edge(j, i);
 			}
 
 			bool new_edge = unique_edges.find(e) == unique_edges.end();

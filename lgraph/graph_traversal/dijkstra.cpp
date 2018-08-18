@@ -57,11 +57,17 @@ namespace dijkstra {
 					LOG.log() << "    Node " << u.second << " has " << Nu.size() << " neighbours" << endl;
 					LOG.log() << "    Node " << u.second << " has " << wu.size() << " weights" << endl;
 
-					for (size_t v_it = 0; v_it < Nu.size(); ++v_it) {
-						LOG.log() << "    Neighbour index: " << v_it << endl;
+					auto wu_it = wu.begin();
+					for (
+						auto Nu_it = Nu.begin();
+						Nu_it != Nu.end();
+						++Nu_it, ++wu_it
+					)
+					{
+						LOG.log() << "    Neighbour index: " << Nu_it - Nu.begin() << endl;
 
-						node v = Nu[v_it];
-						T weight_uv = wu[v_it];
+						node v = *Nu_it;
+						T weight_uv = *wu_it;
 
 						LOG.log() << "    Neighbour " << v << " was not visited before" << endl;
 						LOG.log() << "        weight edge (" << u.second << "," << v << "): " << weight_uv << endl;

@@ -116,16 +116,14 @@ namespace epidemics {
 				// branch 1 (trivial approach): for each infected agent,
 				// try to spread infection to its immediate neighbours.
 				
-				for (size_t i = 0; i < current_infected; ++i) {
-					
-					size_t a = infected[i];
+				for (size_t a : infected) {
+
 					LOG.log() << "            Looking at agent " << a << endl;
 					
 					const neighbourhood& Na = net.get_neighbours(a);
 					
 					// iterate through the neighbours of agent 'a'
-					for (size_t w_it = 0; w_it < Na.size(); ++w_it) {
-						size_t w = Na[w_it];
+					for (node w : Na) {
 
 						LOG.log() << "                Agent tries to infect neighbour " << w << endl;
 						
@@ -192,8 +190,7 @@ namespace epidemics {
 					const neighbourhood& Ni = net.get_neighbours(sA);
 					
 					// 1. compute the amount of infected neighbours
-					for (size_t w_it = 0; w_it < Ni.size(); ++w_it) {
-						size_t w = Ni[w_it];
+					for (node w : Ni) {
 						if (is_infected[w]) {
 							++infected_neighs;
 						}
