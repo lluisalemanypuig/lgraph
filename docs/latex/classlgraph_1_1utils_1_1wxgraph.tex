@@ -119,9 +119,9 @@ void \hyperlink{classlgraph_1_1utils_1_1wxgraph_a0b0c0b54acbc7816eb5b9958e61805c
 void \hyperlink{classlgraph_1_1utils_1_1wxgraph_a145f81ae3609af5ec038ace8b4413fad}{clear\+\_\+weights} ()\hypertarget{classlgraph_1_1utils_1_1wxgraph_a145f81ae3609af5ec038ace8b4413fad}{}\label{classlgraph_1_1utils_1_1wxgraph_a145f81ae3609af5ec038ace8b4413fad}
 
 \begin{DoxyCompactList}\small\item\em Clears the list of weights. \end{DoxyCompactList}\item 
-virtual void \hyperlink{classlgraph_1_1utils_1_1wxgraph_ae49fda28107ce983b8f0d641468e9a75}{get\+\_\+unique\+\_\+edges} (set$<$ pair$<$ \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge}, T $>$ $>$ \&\hyperlink{classlgraph_1_1utils_1_1wxgraph_a73b6c8887d5088750ee2cc98c45089c6}{edges}) const =0
+virtual void \hyperlink{classlgraph_1_1utils_1_1wxgraph_a2cf8037faaa1a2fd081e3d58e55a1932}{get\+\_\+unique\+\_\+edges} (vector$<$ pair$<$ \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge}, T $>$ $>$ \&\hyperlink{classlgraph_1_1utils_1_1wxgraph_a73b6c8887d5088750ee2cc98c45089c6}{edges}) const =0
 \begin{DoxyCompactList}\small\item\em Computes the list of unique weighted edges of this graph. \end{DoxyCompactList}\item 
-virtual void \hyperlink{classlgraph_1_1utils_1_1wxgraph_a2309323af6f8f0efd20abc33236dc7e0}{get\+\_\+unique\+\_\+edges} (set$<$ \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge} $>$ \&\hyperlink{classlgraph_1_1utils_1_1wxgraph_a73b6c8887d5088750ee2cc98c45089c6}{edges}) const =0
+virtual void \hyperlink{classlgraph_1_1utils_1_1wxgraph_aaafce72400fb01e86b6c9f85a17406d0}{get\+\_\+unique\+\_\+edges} (vector$<$ \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge} $>$ \&\hyperlink{classlgraph_1_1utils_1_1wxgraph_a73b6c8887d5088750ee2cc98c45089c6}{edges}) const =0
 \begin{DoxyCompactList}\small\item\em Computes the list of unique unweighted edges of this graph. \end{DoxyCompactList}\item 
 size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1xxgraph_aac7ef2134cad9529869f1334de7892d9}{get\+\_\+neighbour\+\_\+position} (const \hyperlink{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{neighbourhood} \&n, \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u) const 
 \begin{DoxyCompactList}\small\item\em Returns the position of node {\itshape u\textquotesingle{}s} position in the neighbourhood {\itshape n}. \end{DoxyCompactList}\item 
@@ -341,7 +341,7 @@ Implemented in \hyperlink{classlgraph_1_1utils_1_1wugraph_ace598c9cb108806a2a9a6
 
 Returns all unique edges of this graph. 
 
-See method \hyperlink{classlgraph_1_1utils_1_1wxgraph_ae49fda28107ce983b8f0d641468e9a75}{get\+\_\+unique\+\_\+edges(set$<$pair$<$edge,\+T$>$ $>$\& edges)const} for details. \index{lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}!edges@{edges}}
+See method \hyperlink{classlgraph_1_1utils_1_1wxgraph_a2cf8037faaa1a2fd081e3d58e55a1932}{get\+\_\+unique\+\_\+edges(vector$<$pair$<$edge,\+T$>$ $>$\& edges)const} for details. \index{lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}!edges@{edges}}
 \index{edges@{edges}!lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}}
 \subsubsection[{\texorpdfstring{edges(vector$<$ edge $>$ \&all\+\_\+edges) const }{edges(vector< edge > &all_edges) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf lgraph\+::utils\+::wxgraph}$<$ T $>$\+::edges (
 \begin{DoxyParamCaption}
@@ -352,7 +352,7 @@ See method \hyperlink{classlgraph_1_1utils_1_1wxgraph_ae49fda28107ce983b8f0d6414
 
 Returns all unique edges of this graph without their weights. 
 
-See method \hyperlink{classlgraph_1_1utils_1_1wxgraph_a2309323af6f8f0efd20abc33236dc7e0}{get\+\_\+unique\+\_\+edges(set$<$edge$>$\& edges)const} for details. \index{lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}!get\+\_\+degree\+\_\+sequence@{get\+\_\+degree\+\_\+sequence}}
+See method \hyperlink{classlgraph_1_1utils_1_1wxgraph_aaafce72400fb01e86b6c9f85a17406d0}{get\+\_\+unique\+\_\+edges(vector$<$edge$>$\& edges)const} for details. \index{lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}!get\+\_\+degree\+\_\+sequence@{get\+\_\+degree\+\_\+sequence}}
 \index{get\+\_\+degree\+\_\+sequence@{get\+\_\+degree\+\_\+sequence}!lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}}
 \subsubsection[{\texorpdfstring{get\+\_\+degree\+\_\+sequence(map$<$ size\+\_\+t, size\+\_\+t $>$ \&ds) const }{get_degree_sequence(map< size_t, size_t > &ds) const }}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::utils\+::xxgraph\+::get\+\_\+degree\+\_\+sequence (
 \begin{DoxyParamCaption}
@@ -411,11 +411,11 @@ Returns the neighbourhood of node u.
 \end{DoxyPrecond}
 \index{lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}!get\+\_\+unique\+\_\+edges@{get\+\_\+unique\+\_\+edges}}
 \index{get\+\_\+unique\+\_\+edges@{get\+\_\+unique\+\_\+edges}!lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}}
-\subsubsection[{\texorpdfstring{get\+\_\+unique\+\_\+edges(set$<$ pair$<$ edge, T $>$ $>$ \&edges) const =0}{get_unique_edges(set< pair< edge, T > > &edges) const =0}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ virtual void {\bf lgraph\+::utils\+::wxgraph}$<$ T $>$\+::get\+\_\+unique\+\_\+edges (
+\subsubsection[{\texorpdfstring{get\+\_\+unique\+\_\+edges(vector$<$ pair$<$ edge, T $>$ $>$ \&edges) const =0}{get_unique_edges(vector< pair< edge, T > > &edges) const =0}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ virtual void {\bf lgraph\+::utils\+::wxgraph}$<$ T $>$\+::get\+\_\+unique\+\_\+edges (
 \begin{DoxyParamCaption}
-\item[{set$<$ pair$<$ {\bf edge}, T $>$ $>$ \&}]{edges}
+\item[{vector$<$ pair$<$ {\bf edge}, T $>$ $>$ \&}]{edges}
 \end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\hypertarget{classlgraph_1_1utils_1_1wxgraph_ae49fda28107ce983b8f0d641468e9a75}{}\label{classlgraph_1_1utils_1_1wxgraph_ae49fda28107ce983b8f0d641468e9a75}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\hypertarget{classlgraph_1_1utils_1_1wxgraph_a2cf8037faaa1a2fd081e3d58e55a1932}{}\label{classlgraph_1_1utils_1_1wxgraph_a2cf8037faaa1a2fd081e3d58e55a1932}
 
 
 Computes the list of unique weighted edges of this graph. 
@@ -432,15 +432,15 @@ Stores in \hyperlink{classlgraph_1_1utils_1_1wxgraph_a73b6c8887d5088750ee2cc98c4
 \end{DoxyReturn}
 
 
-Implemented in \hyperlink{classlgraph_1_1utils_1_1wugraph_a365789840be9490091e6d8de03521cad}{lgraph\+::utils\+::wugraph$<$ T $>$}, and \hyperlink{classlgraph_1_1utils_1_1wdgraph_acc8feed5dcf672b31839ea2a06512c21}{lgraph\+::utils\+::wdgraph$<$ T $>$}.
+Implemented in \hyperlink{classlgraph_1_1utils_1_1wugraph_a603d54feaa555bcb9747eb2f48891447}{lgraph\+::utils\+::wugraph$<$ T $>$}, and \hyperlink{classlgraph_1_1utils_1_1wdgraph_a243f794a014b124483066d7cf1715c22}{lgraph\+::utils\+::wdgraph$<$ T $>$}.
 
 \index{lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}!get\+\_\+unique\+\_\+edges@{get\+\_\+unique\+\_\+edges}}
 \index{get\+\_\+unique\+\_\+edges@{get\+\_\+unique\+\_\+edges}!lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}}
-\subsubsection[{\texorpdfstring{get\+\_\+unique\+\_\+edges(set$<$ edge $>$ \&edges) const =0}{get_unique_edges(set< edge > &edges) const =0}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ virtual void {\bf lgraph\+::utils\+::wxgraph}$<$ T $>$\+::get\+\_\+unique\+\_\+edges (
+\subsubsection[{\texorpdfstring{get\+\_\+unique\+\_\+edges(vector$<$ edge $>$ \&edges) const =0}{get_unique_edges(vector< edge > &edges) const =0}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ virtual void {\bf lgraph\+::utils\+::wxgraph}$<$ T $>$\+::get\+\_\+unique\+\_\+edges (
 \begin{DoxyParamCaption}
-\item[{set$<$ {\bf edge} $>$ \&}]{edges}
+\item[{vector$<$ {\bf edge} $>$ \&}]{edges}
 \end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\hypertarget{classlgraph_1_1utils_1_1wxgraph_a2309323af6f8f0efd20abc33236dc7e0}{}\label{classlgraph_1_1utils_1_1wxgraph_a2309323af6f8f0efd20abc33236dc7e0}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\hypertarget{classlgraph_1_1utils_1_1wxgraph_aaafce72400fb01e86b6c9f85a17406d0}{}\label{classlgraph_1_1utils_1_1wxgraph_aaafce72400fb01e86b6c9f85a17406d0}
 
 
 Computes the list of unique unweighted edges of this graph. 
@@ -457,7 +457,7 @@ Stores in \hyperlink{classlgraph_1_1utils_1_1wxgraph_a73b6c8887d5088750ee2cc98c4
 \end{DoxyReturn}
 
 
-Implemented in \hyperlink{classlgraph_1_1utils_1_1wugraph_a739b2f3f6428ecc47e27a7bbb694c72f}{lgraph\+::utils\+::wugraph$<$ T $>$}, and \hyperlink{classlgraph_1_1utils_1_1wdgraph_a40063a53eb9c83f3b351a468f76ee5c3}{lgraph\+::utils\+::wdgraph$<$ T $>$}.
+Implemented in \hyperlink{classlgraph_1_1utils_1_1wugraph_a943b9edf2c45d3cac296836c7fab052d}{lgraph\+::utils\+::wugraph$<$ T $>$}, and \hyperlink{classlgraph_1_1utils_1_1wdgraph_ae6ee2acf01c1e0e07ea8bdd0f951ec77}{lgraph\+::utils\+::wdgraph$<$ T $>$}.
 
 \index{lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}!get\+\_\+weights@{get\+\_\+weights}}
 \index{get\+\_\+weights@{get\+\_\+weights}!lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}}
