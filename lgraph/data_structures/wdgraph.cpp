@@ -6,35 +6,25 @@ namespace utils {
 // PROTECTED
 
 template<class T>
-void wdgraph<T>::get_unique_edges(set<pair<edge, T> >& unique_edges) const {
+void wdgraph<T>::get_unique_edges(vector<pair<edge, T> >& unique_edges) const {
 	for (node i = 0; i < this->n_nodes(); ++i) {
 		const neighbourhood& ni = this->adjacency_list[i];
 		const weight_list<T>& wi = this->weights[i];
 
+		auto ni_it = ni.begin();
 		auto wi_it = wi.begin();
-		for (
-			auto ni_it = ni.begin();
-			ni_it != ni.end();
-			++ni_it, ++wi_it
-		)
-		{
+		for (; ni_it != ni.end(); ++ni_it, ++wi_it) {
 
 			// this graph is DIRECTED so an edge is the
 			// pair of nodes (i,ni[ni_it]) interpreted as
 			// "i points to ni[ni_it]"
-			pair<edge, T> e(edge(i, *ni_it), *wi_it);
-
-			bool new_edge = unique_edges.find(e) == unique_edges.end();
-			if (new_edge) {
-				unique_edges.insert(e);
-			}
-
+			unique_edges.push_back( make_pair(edge(i, *ni_it), *wi_it) );
 		}
 	}
 }
 
 template<class T>
-void wdgraph<T>::get_unique_edges(set<edge>& unique_edges) const {
+void wdgraph<T>::get_unique_edges(vector<edge>& unique_edges) const {
 	for (node i = 0; i < this->n_nodes(); ++i) {
 
 		const neighbourhood& ni = this->adjacency_list[i];
@@ -43,13 +33,7 @@ void wdgraph<T>::get_unique_edges(set<edge>& unique_edges) const {
 			// this graph is DIRECTED so an edge is the
 			// pair of nodes (i, j) interpreted as
 			// "i points to j"
-			edge e(i, j);
-
-			bool new_edge = unique_edges.find(e) == unique_edges.end();
-			if (new_edge) {
-				unique_edges.insert(e);
-			}
-
+			unique_edges.push_back( make_pair(i,j) );
 		}
 	}
 }

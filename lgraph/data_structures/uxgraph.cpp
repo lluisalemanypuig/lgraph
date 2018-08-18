@@ -46,19 +46,7 @@ bool uxgraph::is_weighted() const {
 }
 
 void uxgraph::edges(vector<edge>& all_edges) const {
-	set<edge> unique_edges;
-	get_unique_edges(unique_edges);
-
-	// Dump all unique edges from the set into the vector 'all_edges'.
-	// The size of the vector is equal to 'num_edges'
-	size_t i = 0;
-	all_edges.resize(unique_edges.size());
-	set<edge>::const_iterator it = unique_edges.begin();
-	while (it != unique_edges.end()) {
-		all_edges[i] = *it;
-		++it;
-		++i;
-	}
+	get_unique_edges(all_edges);
 }
 
 // I/O
@@ -104,7 +92,7 @@ bool uxgraph::store_in_file(const char *filename) {
 		return false;
 	}
 
-	set<edge> unique_edges;
+	vector<edge> unique_edges;
 	get_unique_edges(unique_edges);
 	for (const edge& e : unique_edges) {
 		fout << e.first << " " << e.second << endl;

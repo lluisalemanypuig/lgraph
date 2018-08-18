@@ -44,7 +44,7 @@ class wugraph : public wxgraph<T> {
 		 * @return Stores in @ref edges the lexicographically sorted list of
 		 * weighted edges of this graph
 		 */
-		void get_unique_edges(set<pair<edge, T> >& edges) const;
+		void get_unique_edges(vector<pair<edge, T> >& edges) const;
 
 		/**
 		 * @brief Computes the list of unique edges of this graph
@@ -59,7 +59,7 @@ class wugraph : public wxgraph<T> {
 		 * @return Stores in @ref edges the lexicographically sorted list of
 		 * unweighted edges of this graph
 		 */
-		void get_unique_edges(set<edge>& edges) const;
+		void get_unique_edges(vector<edge>& edges) const;
 
 	public:
 		/// Constructor

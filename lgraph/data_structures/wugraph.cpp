@@ -6,54 +6,36 @@ namespace utils {
 // PROTECTED
 
 template<class T>
-void wugraph<T>::get_unique_edges(set<pair<edge, T> >& unique_edges) const {
+void wugraph<T>::get_unique_edges(vector<pair<edge, T> >& unique_edges) const {
 	for (node i = 0; i < this->n_nodes(); ++i) {
 		const neighbourhood& ni = this->adjacency_list[i];
 		const weight_list<T>& wi = this->weights[i];
 
-		for (size_t ni_it = 0; ni_it < ni.size(); ++ni_it) {
+		auto ni_it = ni.begin();
+		auto wi_it = wi.begin();
+		for (; ni_it != ni.end(); ++ni_it, ++wi_it) {
 
 			// since this graph is UNDIRECTED the order of the
 			// indices in the pair does not matter
-			pair<edge, T> e;
-			if (i < ni[ni_it]) {
-				e = make_pair(edge(i, ni[ni_it]), wi[ni_it]);
+			if (i < *ni_it) {
+				unique_edges.push_back( make_pair(edge(i, *ni_it), *wi_it) );
 			}
-			else {
-				e = make_pair(edge(ni[ni_it], i), wi[ni_it]);
-			}
-
-			bool new_edge = unique_edges.find(e) == unique_edges.end();
-			if (new_edge) {
-				unique_edges.insert(e);
-			}
-
 		}
 	}
 }
 
 template<class T>
-void wugraph<T>::get_unique_edges(set<edge>& unique_edges) const {
+void wugraph<T>::get_unique_edges(vector<edge>& unique_edges) const {
 	for (node i = 0; i < this->n_nodes(); ++i) {
-		const neighbourhood& ni = this->adjacency_list[i];
 
-		for (size_t ni_it = 0; ni_it < ni.size(); ++ni_it) {
+		const neighbourhood& ni = this->adjacency_list[i];
+		for (node j : ni) {
 
 			// since this graph is UNDIRECTED the order of the
 			// indices in the pair does not matter
-			edge e;
-			if (i < ni[ni_it]) {
-				e = edge(i, ni[ni_it]);
+			if (i < j) {
+				unique_edges.push_back( edge(i, j) );
 			}
-			else {
-				e = edge(ni[ni_it], i);
-			}
-
-			bool new_edge = unique_edges.find(e) == unique_edges.end();
-			if (new_edge) {
-				unique_edges.insert(e);
-			}
-
 		}
 	}
 }

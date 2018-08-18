@@ -5,7 +5,7 @@ namespace utils {
 
 // PROTECTED
 
-void uugraph::get_unique_edges(set<edge>& unique_edges) const {
+void uugraph::get_unique_edges(vector<edge>& unique_edges) const {
 	// insert all edges into a set to get only those that are unique
 	for (node i = 0; i < n_nodes(); ++i) {
 
@@ -13,20 +13,11 @@ void uugraph::get_unique_edges(set<edge>& unique_edges) const {
 		for (node j : ni) {
 
 			// since this graph is UNDIRECTED the order of the
-			// indices in the pair does not matter
-			edge e;
+			// indices in the pair does not matter. Use the
+			// lexicographic order
 			if (i < j) {
-				e = edge(i, j);
+				unique_edges.push_back( edge(i, j) );
 			}
-			else {
-				e = edge(j, i);
-			}
-
-			bool new_edge = unique_edges.find(e) == unique_edges.end();
-			if (new_edge) {
-				unique_edges.insert(e);
-			}
-
 		}
 	}
 }

@@ -39,7 +39,7 @@ class uugraph : public uxgraph {
 		 * @return Stores in @ref edges the lexicographically sorted list of
 		 * unweighted edges of this graph
 		 */
-		void get_unique_edges(set<edge>& edges) const;
+		void get_unique_edges(vector<edge>& edges) const;
 
 	public:
 		/// Constructor

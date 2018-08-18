@@ -39,7 +39,7 @@ class uxgraph : public xxgraph {
 		 * @return Stores in @ref edges the list of unweighted edges of this
 		 * graph
 		 */
-		virtual void get_unique_edges(set<edge>& edges) const = 0;
+		virtual void get_unique_edges(vector<edge>& edges) const = 0;
 
 	public:
 		/// Constructor
@@ -69,8 +69,8 @@ class uxgraph : public xxgraph {
 				os << i << ":";
 				const neighbourhood& ni = g.adjacency_list[i];
 
-				for (node j = 0; j < ni.size(); ++j) {
-					os << " " << ni[j];
+				for (node j : ni) {
+					os << " " << j;
 				}
 
 				if (i < g.n_nodes() - 1) {
@@ -160,7 +160,7 @@ class uxgraph : public xxgraph {
 		/**
 		 * @brief Returns all unique edges of this graph
 		 *
-		 * See method @ref get_unique_edges(set<edge>&)const for details.
+		 * See method @ref get_unique_edges(vector<edge>&)const for details.
 		 */
 		void edges(vector<edge>& all_edges) const;
 

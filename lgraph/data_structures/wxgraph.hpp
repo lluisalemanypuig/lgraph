@@ -60,7 +60,7 @@ class wxgraph : public xxgraph {
 		 * @return Stores in @ref edges the list of weighted edges of this
 		 * graph
 		 */
-		virtual void get_unique_edges(set<pair<edge, T> >& edges) const = 0;
+		virtual void get_unique_edges(vector<pair<edge, T> >& edges) const = 0;
 
 		/**
 		 * @brief Computes the list of unique unweighted edges of this graph
@@ -73,7 +73,7 @@ class wxgraph : public xxgraph {
 		 * @return Stores in @ref edges the list of unweighted edges of this
 		 * graph
 		 */
-		virtual void get_unique_edges(set<edge>& edges) const = 0;
+		virtual void get_unique_edges(vector<edge>& edges) const = 0;
 
 	public:
 		/// Constructor
@@ -98,9 +98,10 @@ class wxgraph : public xxgraph {
 				const neighbourhood& ni = g.adjacency_list[i];
 				const weight_list<T>& wi = g.weights[i];
 
-				for (node j = 0; j < ni.size(); ++j) {
-					os << " " << ni[j];
-					os << "(" << wi[j] << ")";
+				auto ni_it = ni.begin();
+				auto wi_it = wi.begin();
+				for (; ni_it != ni.end(); ++ni_it, ++wi_it) {
+					os << " " << *ni_it << "(" << *wi_it << ")";
 				}
 
 				if (i < g.n_nodes() - 1) {
@@ -212,14 +213,14 @@ class wxgraph : public xxgraph {
 		/**
 		 * @brief Returns all unique edges of this graph
 		 *
-		 * See method @ref get_unique_edges(set<pair<edge,T> >& edges)const for details.
+		 * See method @ref get_unique_edges(vector<pair<edge,T> >& edges)const for details.
 		 */
 		void edges(vector<pair<edge, T> >& all_edges) const;
 
 		/**
 		 * @brief Returns all unique edges of this graph without their weights
 		 *
-		 * See method @ref get_unique_edges(set<edge>& edges)const for details.
+		 * See method @ref get_unique_edges(vector<edge>& edges)const for details.
 		 */
 		void edges(vector<edge>& all_edges) const;
 

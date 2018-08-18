@@ -5,7 +5,7 @@ namespace utils {
 
 // PROTECTED
 
-void udgraph::get_unique_edges(set<edge>& unique_edges) const {
+void udgraph::get_unique_edges(vector<edge>& unique_edges) const {
 	// insert all edges into a set to get only those that are unique
 	for (node i = 0; i < n_nodes(); ++i) {
 
@@ -15,13 +15,7 @@ void udgraph::get_unique_edges(set<edge>& unique_edges) const {
 			// this graph is DIRECTED so an edge is the
 			// pair of nodes (i,j) interpreted as
 			// "i points to j"
-			edge e(i, j);
-
-			bool new_edge = unique_edges.find(e) == unique_edges.end();
-			if (new_edge) {
-				unique_edges.insert(e);
-			}
-
+			unique_edges.push_back( edge(i,j) );
 		}
 	}
 }

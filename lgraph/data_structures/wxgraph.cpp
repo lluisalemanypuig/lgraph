@@ -85,36 +85,12 @@ void wxgraph<T>::get_weights(node u, weight_list<T>& ws) const {
 
 template<class T>
 void wxgraph<T>::edges(vector<pair<edge, T> >& all_edges) const {
-	set<pair<edge, T> > unique_edges;
-	this->get_unique_edges(unique_edges);
-
-	// Dump all unique edges from the set into the vector 'all_edges'.
-	// The size of the vector is equal to 'num_edges'
-	size_t i = 0;
-	all_edges.resize(unique_edges.size());
-	typename set<pair<edge, T> >::const_iterator it = unique_edges.begin();
-	while (it != unique_edges.end()) {
-		all_edges[i] = *it;
-		++it;
-		++i;
-	}
+	this->get_unique_edges(all_edges);
 }
 
 template<class T>
 void wxgraph<T>::edges(vector<edge>& all_edges) const {
-	set<edge> unique_edges;
-	this->get_unique_edges(unique_edges);
-
-	// Dump all unique edges from the set into the vector 'all_edges'.
-	// The size of the vector is equal to 'num_edges'
-	size_t i = 0;
-	all_edges.resize(unique_edges.size());
-	typename set<edge>::const_iterator it = unique_edges.begin();
-	while (it != unique_edges.end()) {
-		all_edges[i] = *it;
-		++it;
-		++i;
-	}
+	this->get_unique_edges(all_edges);
 }
 
 // I/O
@@ -164,7 +140,7 @@ bool wxgraph<T>::store_in_file(const char *filename) {
 		return false;
 	}
 
-	set<pair<edge, T> > all_edges;
+	vector<pair<edge, T> > all_edges;
 	get_unique_edges(all_edges);
 
 	for (auto& p : all_edges) {

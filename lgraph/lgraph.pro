@@ -17,6 +17,7 @@ HEADERS += \
         data_structures/uxgraph.hpp \
         data_structures/uugraph.hpp \
         data_structures/udgraph.hpp \
+        data_structures/wdgraph.cpp \
         data_structures/wdgraph.hpp \
     data_structures/node_path.hpp \
         data_structures/node_path.cpp \
@@ -64,7 +65,6 @@ SOURCES += \
     data_structures/uxgraph.cpp \
     data_structures/uugraph.cpp \
     data_structures/udgraph.cpp \
-    data_structures/wdgraph.cpp \
     graph_traversal/bfs.cpp \
     graph_traversal/dfs.cpp \
     graph_traversal/uxdistances.cpp \
