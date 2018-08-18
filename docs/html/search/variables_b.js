@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['z_5finf',['z_inf',['../namespacelgraph_1_1utils.html#a3db646ea6b211c71a055e53066513ebb',1,'lgraph::utils']]]
+  ['weights',['weights',['../classlgraph_1_1utils_1_1wxgraph.html#a15569c8c0fccb641709dc81eb0e29c94',1,'lgraph::utils::wxgraph']]]
 ];

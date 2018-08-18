@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['standard_5fendl',['standard_endl',['../classlgraph_1_1utils_1_1null__stream.html#ada7be393792a0f7b90452c981a279d08',1,'lgraph::utils::null_stream::standard_endl()'],['../classlgraph_1_1utils_1_1cout__stream.html#a3dc3129e1e5c26c370223e29dbdefe75',1,'lgraph::utils::cout_stream::standard_endl()'],['../classlgraph_1_1utils_1_1cerr__stream.html#a8b7e7603a4e656bd2d9196ae0f530c7b',1,'lgraph::utils::cerr_stream::standard_endl()']]]
+  ['ncit',['ncit',['../namespacelgraph_1_1utils.html#a7207b078932845778282f5e2e373575b',1,'lgraph::utils']]],
+  ['neighbourhood',['neighbourhood',['../namespacelgraph_1_1utils.html#a0f2ef47028a466d26841709e705390ac',1,'lgraph::utils']]],
+  ['nit',['nit',['../namespacelgraph_1_1utils.html#af5daf6fe356a9014746bdb507787ae01',1,'lgraph::utils']]],
+  ['node',['node',['../namespacelgraph_1_1utils.html#a7bd66ede3805ef121bc2835bd48de0cf',1,'lgraph::utils']]],
+  ['node_5fpath_5fset',['node_path_set',['../namespacelgraph_1_1utils.html#a723c115f9865edfab11a90377b9abef4',1,'lgraph::utils']]]
 ];

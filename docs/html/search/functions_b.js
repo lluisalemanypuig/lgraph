@@ -1,7 +1,6 @@
 var searchData=
 [
   ['n_5fedges',['n_edges',['../classlgraph_1_1utils_1_1xxgraph.html#af3f7c3835406c2cbf70479ae1c0253c9',1,'lgraph::utils::xxgraph']]],
-  ['n_5felems',['n_elems',['../classlgraph_1_1utils_1_1svector.html#a36428d7450874d526ced6f1e8e0fe353',1,'lgraph::utils::svector']]],
   ['n_5fnodes',['n_nodes',['../classlgraph_1_1utils_1_1xxgraph.html#ad345f1fbf1dee34e1579b5aea9aef9b2',1,'lgraph::utils::xxgraph']]],
   ['n_5ftriangles',['n_triangles',['../classlgraph_1_1utils_1_1xxgraph.html#ad4f25a8b29c6f26bc1567cb9c5a564ba',1,'lgraph::utils::xxgraph']]],
   ['no_5fvertex_5fgrowth',['no_vertex_growth',['../namespacelgraph_1_1networks_1_1random_1_1Barabasi__Albert.html#a96015bc94f64c7318d8ed1dc7c4d693a',1,'lgraph::networks::random::Barabasi_Albert']]],
