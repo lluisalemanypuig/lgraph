@@ -43,7 +43,9 @@ HEADERS += \
         metrics/wcentralities.cpp \
     epidemics/models.hpp \
         epidemics/sir.cpp \
+        epidemics/sir_immune.cpp \
         epidemics/sis.cpp \
+        epidemics/sis_immune.cpp \
     graph_traversal/traversal.hpp \
         graph_traversal/dfs.hpp \
         graph_traversal/bfs.hpp \

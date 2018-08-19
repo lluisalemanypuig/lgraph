@@ -7,9 +7,6 @@ Use sparse matrixes to implement adjacency matrix when needed
 [] 20/02/2018 ->
 Implement sparse matrix class.
 
-[] 06/03/2018 ->
-Implement SIS and SIR with node immunity
-
 [] 26/02/2018 ->
 Implement an algorithm to find all connected components of a graph.
 
@@ -19,6 +16,9 @@ Move current algorithm to a namespace
 Implement triangle counting algorithm using adjacency matrix
 Paper:			http://www.d.umn.edu/math/Technical%20Reports/Technical%20Reports%202007-/TR%202012/yang.pdf
 Implementation:	https://www.geeksforgeeks.org/number-of-triangles-in-a-undirected-graph/
+
+[v] 06/03/2018 -> 19/08/2018
+Implement SIS and SIR with node immunity
 
 [v] 26/02/2018 -> 15/08/2018
 Use class 'svector' to implement the adjacency list of the graph data structure.
