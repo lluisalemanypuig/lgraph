@@ -9,8 +9,6 @@ using namespace std;
 
 // Custom includes
 #include <lgraph/data_structures/random_generator.hpp>
-#include <lgraph/data_structures/xxgraph.hpp>
-#include <lgraph/data_structures/svector.hpp>
 #include <lgraph/data_structures/uugraph.hpp>
 #include <lgraph/random_graphs/barabasi_albert.hpp>
 #include <lgraph/random_graphs/switching.hpp>
@@ -51,6 +49,7 @@ double epid_p0 = 0.5;
 double epid_gamma = 0.5;
 double epid_beta = 0.5;
 size_t epid_T = 1;
+string immune_agents_file = "none";
 
 bool seed = false;
 
@@ -116,6 +115,10 @@ void print_usage() {
 	cout << "              Default: 0.5" << endl;
 	cout << "        --T-epidemics: number of steps of simulation" << endl;
 	cout << "              Default: 1" << endl;
+	cout << "        --immune: file with the list of agents that are immune" << endl;
+	cout << "              to infection. This list consists of numbers from" << endl;
+	cout << "              0 to the total number of agents in the net minus 1." << endl;
+	cout << "              This configuration parameter is optional." << endl;
 	cout << endl;
 	cout << endl;
 	cout << "* Other options" << endl;
@@ -242,28 +245,77 @@ void execute_epidemic_models(const uugraph& Gs) {
 	cout << "beta= " << epid_beta << endl;
 	cout << "gamma= " << epid_gamma << endl;
 	
+	vector<bool> immune(Gs.n_nodes(), false);
+	bool immune_list_read = false;
+
+	if (immune_agents_file != "none") {
+		// read immune agents list, if indicated
+		ifstream fin;
+		fin.open(immune_agents_file.c_str());
+		if (not fin.is_open()) {
+			cerr << "Warning: could not open file with immune agents list" << endl;
+			cerr << "    File: '" << immune_agents_file << "'" << endl;
+		}
+		else {
+			immune_list_read = true;
+			size_t agent;
+			while (fin >> agent) {
+				immune[agent] = true;
+			}
+			fin.close();
+		}
+	}
+
+	// If a list with immune was read then call the
+	// simulation function that considers immunities.
+	// If not, call the one that does not.
+	// This should make the simulation without immunities
+	// slightly faster.
+
 	if (epid_sir) {
-		networks::epidemics::SIR
-		(
-			Gs,
-			epid_p0, epid_beta, epid_gamma, epid_T,
-			drg, crg,
-			n_rec, n_sus, n_inf
-		);
+		if (immune_list_read) {
+			networks::epidemics::SIR
+			(
+				Gs,
+				epid_p0, epid_beta, epid_gamma, epid_T, immune,
+				drg, crg,
+				n_rec, n_sus, n_inf
+			);
+		}
+		else {
+			networks::epidemics::SIR
+			(
+				Gs,
+				epid_p0, epid_beta, epid_gamma, epid_T,
+				drg, crg,
+				n_rec, n_sus, n_inf
+			);
+		}
 		
 		cout << "SIR:" << endl;
 		display_epid_information(n_rec, n_sus, n_inf);
 	}
 	
 	if (epid_sis) {
-		networks::epidemics::SIS
-		(
-			Gs,
-			epid_p0, epid_beta, epid_gamma, epid_T,
-			drg, crg,
-			n_rec, n_sus, n_inf
-		);
-		
+		if (immune_list_read) {
+			networks::epidemics::SIS
+			(
+				Gs,
+				epid_p0, epid_beta, epid_gamma, epid_T, immune,
+				drg, crg,
+				n_rec, n_sus, n_inf
+			);
+		}
+		else {
+			networks::epidemics::SIS
+			(
+				Gs,
+				epid_p0, epid_beta, epid_gamma, epid_T,
+				drg, crg,
+				n_rec, n_sus, n_inf
+			);
+		}
+
 		cout << "SIS:" << endl;
 		display_epid_information(n_rec, n_sus, n_inf);
 	}
@@ -363,10 +415,14 @@ int parse_options(int argc, char *argv[]) {
 		else if (strcmp(argv[i], "--sis") == 0) {
 			epid_sis = true;
 		}
+		else if (strcmp(argv[i], "--immune") == 0) {
+			immune_agents_file = string(argv[i + 1]);
+			++i;
+		}
 		else {
 			cerr << "Warning: option '" << string(argv[i]) << "' not recognized" << endl;
 			cerr << "    See usage with [-h, --help]" << endl;
-			return 1;
+			return 2;
 		}
 	}
 	return 0;
@@ -375,7 +431,11 @@ int parse_options(int argc, char *argv[]) {
 int main(int argc, char *argv[]) {
 	int r = parse_options(argc, argv);
 	if (r == 1) {
-		// an error occurred or --help was used
+		// help was used
+		return 0;
+	}
+	if (r == 2) {
+		// an error occurred
 		return 1;
 	}
 	
