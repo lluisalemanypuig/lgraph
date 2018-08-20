@@ -34,7 +34,7 @@ namespace centralities {
 	double degree(const uxgraph *G, node u);
 
 	/**
-	 * @brief Normalised degree centrality of all nodes
+	 * @brief Normalised degree centrality of all nodes in a graph
 	 * @param[in] G The unweighted graph to be evaluated
 	 * @param[out] dc The i-th position contains the normalised degree
 	 * centrality of the i-th node.
@@ -52,7 +52,7 @@ namespace centralities {
 	double closeness(const uxgraph *G, node u);
 
 	/**
-	 * @brief Closeness centrality of all nodes of a graph
+	 * @brief Closeness centrality of all nodes in a graph
 	 *
 	 * Computes the distance between each pair of nodes in the graph.
 	 * @param[in] G The unweighted graph to be evaluated
@@ -62,7 +62,7 @@ namespace centralities {
 	void closeness(const uxgraph *G, vector<double>& cc);
 
 	/**
-	 * @brief Closeness centrality of all nodes of a graph
+	 * @brief Closeness centrality of all nodes in a graph
 	 *
 	 * Uses the parameter @e atad to avoit computing the all-to-all distances
 	 * (the distance between each pair of nodes).
@@ -149,7 +149,7 @@ namespace centralities {
 	void betweenness(const uxgraph *G, vector<double>& bc);
 
 	/**
-	 * @brief Betweenness centrality of a node
+	 * @brief Betweenness centrality of all nodes in a graph
 	 *
 	 * This centrality measure is implemented following the recommendations given
 	 * in [Newman, 2010]:
@@ -189,7 +189,7 @@ namespace centralities {
 	double degree(const wxgraph<T> *G, node u);
 
 	/**
-	 * @brief Normalised degree centrality of all nodes
+	 * @brief Normalised degree centrality of all nodes in a graph
 	 * @param[in] G The weighted graph to be evaluated
 	 * @param[out] dc The i-th position contains the normalised degree
 	 * centrality of the i-th node.
@@ -209,7 +209,7 @@ namespace centralities {
 	double closeness(const wxgraph<T> *G, node u);
 
 	/**
-	 * @brief Closeness centrality of all nodes of a graph
+	 * @brief Closeness centrality of all nodes in a graph
 	 *
 	 * Computes the distance between each pair of nodes in the graph.
 	 * @param[in] G The weighted graph to be evaluated
@@ -220,7 +220,7 @@ namespace centralities {
 	void closeness(const wxgraph<T> *G, vector<double>& cc);
 
 	/**
-	 * @brief Closeness centrality of all nodes of a graph
+	 * @brief Closeness centrality of all nodes in a graph
 	 *
 	 * Uses the parameter @e atad to avoit computing the all-to-all distances
 	 * (the distance between each pair of nodes).
@@ -339,7 +339,7 @@ namespace centralities {
 	void betweenness(const wxgraph<T> *G, vector<double>& bc);
 
 	/**
-	 * @brief Betweenness centrality of a node
+	 * @brief Betweenness centrality of all nodes in a graph
 	 *
 	 * This centrality measure is implemented following the recommendations given
 	 * in [Newman, 2010]:
