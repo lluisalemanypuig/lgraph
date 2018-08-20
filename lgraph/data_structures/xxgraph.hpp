@@ -123,6 +123,14 @@ class xxgraph {
 		 */
 		virtual void remove_edge(node u, node v) = 0;
 
+		/**
+		 * @brief Rmoves a node from the graph
+		 *
+		 * The indexes higher than @e u's are decreased by one.
+		 * @param u The node to be removed
+		 */
+		virtual void remove_node(node u) = 0;
+
 		// GETTERS
 
 		/// Returns true if node @e u is in this graph.

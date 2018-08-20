@@ -59,6 +59,35 @@ void udgraph::remove_edge(node u, node v) {
 	}
 }
 
+void udgraph::remove_node(node u) {
+	assert( has_node(u) );
+
+	vector<neighbourhood>& adj = adjacency_list;
+
+	// remove node u's entry from adjacency list
+	adj.erase( adj.begin() + u );
+
+	// Remove u from every node's neighbourhood.
+	// Note that since this graph is directed we need to
+	// decrease the number of edges at each step
+	for (node v = 0; v < adj.size(); ++v) {
+		neighbourhood& Nv = adj[v];
+
+		// find u in the list and decrease the index of
+		// the corresponding nodes
+		for (size_t p = Nv.size(); p > 0; --p) {
+			if (Nv[p - 1] == u) {
+				Nv.remove(p - 1);
+				this->num_edges -= 1;
+			}
+			else if (Nv[p - 1] > u) {
+				// decrease index of node
+				Nv[p - 1] -= 1;
+			}
+		}
+	}
+}
+
 // GETTERS
 
 bool udgraph::has_edge(node u, node v) const {

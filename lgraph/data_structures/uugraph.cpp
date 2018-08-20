@@ -71,6 +71,36 @@ void uugraph::remove_edge(node u, node v) {
 	}
 }
 
+void uugraph::remove_node(node u) {
+	assert( has_node(u) );
+
+	vector<neighbourhood>& adj = adjacency_list;
+
+	// decrease number of edges
+	num_edges -= adj[u].size();
+	// remove node u's entry from adjacency list
+	adj.erase( adj.begin() + u );
+
+	// Remove u from every node's neighbourhood.
+	// Note that since this graph is undirected there is no
+	// need to decrease the number of edges anymore.
+	for (node v = 0; v < adj.size(); ++v) {
+		neighbourhood& Nv = adj[v];
+
+		// find u in the list and decrease the index of
+		// the corresponding nodes
+		for (size_t p = Nv.size(); p > 0; --p) {
+			if (Nv[p - 1] == u) {
+				Nv.remove(p - 1);
+			}
+			else if (Nv[p - 1] > u) {
+				// decrease index of node
+				Nv[p - 1] -= 1;
+			}
+		}
+	}
+}
+
 // GETTERS
 
 bool uugraph::has_edge(node u, node v) const {

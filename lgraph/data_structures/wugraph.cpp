@@ -151,6 +151,47 @@ T wugraph<T>::edge_weight(node u, node v) const {
 }
 
 template<class T>
+void wugraph<T>::remove_node(node u) {
+	assert( this->has_node(u) );
+
+	vector<neighbourhood>& adj = this->adjacency_list;
+	vector<weight_list<T> >& wei = this->weights;
+
+	// decrease number of edges
+	this->num_edges -= adj[u].size();
+	// remove node u's entry from adjacency list and
+	// from weight list
+	adj.erase( adj.begin() + u );
+	wei.erase( wei.begin() + u );
+
+	// Remove u from every node's neighbourhood.
+	// If node u is at position 'p' of node v neighbourhood
+	// then delete the weight at position 'p' for the
+	// weight list of node v.
+	// Note that since this graph is undirected there is no
+	// need to decrease the number of edges anymore.
+	for (node v = 0; v < adj.size(); ++v) {
+		neighbourhood& Nv = adj[v];
+		weight_list<T>& Wv = wei[v];
+
+		// find u in the list and decrease the index of
+		// the corresponding nodes
+		for (size_t p = Nv.size(); p > 0; --p) {
+			if (Nv[p - 1] == u) {
+				Nv.remove(p - 1);
+				Wv.remove(p - 1);
+			}
+			else if (Nv[p - 1] > u) {
+				// decrease index of node
+				Nv[p - 1] -= 1;
+			}
+		}
+	}
+}
+
+// GETTERS
+
+template<class T>
 bool wugraph<T>::is_directed() const {
 	return false;
 }

@@ -51,6 +51,7 @@ class uugraph : public uxgraph {
 
 		void add_edge(node u, node v);
 		void remove_edge(node u, node v);
+		void remove_node(node u);
 
 		// GETTERS
 

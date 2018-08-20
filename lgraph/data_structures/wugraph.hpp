@@ -71,6 +71,7 @@ class wugraph : public wxgraph<T> {
 
 		void add_edge(node u, node v, const T& w);
 		void remove_edge(node u, node v);
+		void remove_node(node u);
 
 		// GETTERS
 
