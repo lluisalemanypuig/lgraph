@@ -29,6 +29,8 @@ namespace graph_driver {
 		cout << "    * remove-edges N u1 v1 u2 v2 ... uN vN: remove N edges. Each edge" << endl;
 		cout << "        is a pair of nodes (ui,vi)." << endl;
 		cout << endl;
+		cout << "    * remove-node U: remove node U from the graph." << endl;
+		cout << endl;
 		cout << "    * get-edges: prints the list of edges." << endl;
 		cout << endl;
 		cout << "---------------------------------------" << endl;
@@ -132,6 +134,12 @@ namespace graph_driver {
 					cin >> u >> v;
 					G->remove_edge(u, v);
 				}
+			}
+			else if (option == "remove-node") {
+				node u;
+				cin >> u;
+
+				G->remove_node(u);
 			}
 			else if (option == "get-edges") {
 				vector<edge> all_edges;
