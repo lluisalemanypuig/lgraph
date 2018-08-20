@@ -94,6 +94,8 @@ void wdgraph<T>::remove_node(node u) {
 	vector<neighbourhood>& adj = this->adjacency_list;
 	vector<weight_list<T> >& wei = this->weights;
 
+	// decrease number of edges
+	this->num_edges -= adj[u].size();
 	// remove node u's entry from adjacency list and
 	// from weight list
 	adj.erase( adj.begin() + u );

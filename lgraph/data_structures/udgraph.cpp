@@ -64,6 +64,8 @@ void udgraph::remove_node(node u) {
 
 	vector<neighbourhood>& adj = adjacency_list;
 
+	// decrease number of edges
+	num_edges -= adj[u].size();
 	// remove node u's entry from adjacency list
 	adj.erase( adj.begin() + u );
 
@@ -78,7 +80,7 @@ void udgraph::remove_node(node u) {
 		for (size_t p = Nv.size(); p > 0; --p) {
 			if (Nv[p - 1] == u) {
 				Nv.remove(p - 1);
-				this->num_edges -= 1;
+				num_edges -= 1;
 			}
 			else if (Nv[p - 1] > u) {
 				// decrease index of node
