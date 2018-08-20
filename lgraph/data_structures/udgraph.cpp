@@ -27,10 +27,6 @@ udgraph::~udgraph() { }
 
 // MODIFIERS
 
-void udgraph::add_edge(const edge& e) {
-	add_edge(e.first, e.second);
-}
-
 void udgraph::add_edge(node u, node v) {
 	assert( has_node(u) );
 	assert( has_node(v) );
@@ -38,10 +34,6 @@ void udgraph::add_edge(node u, node v) {
 
 	adjacency_list[u].add(v);
 	++num_edges;
-}
-
-void udgraph::remove_edge(const edge& e) {
-	remove_edge(e.first, e.second);
 }
 
 void udgraph::remove_edge(node u, node v) {

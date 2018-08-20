@@ -46,10 +46,7 @@ class udgraph : public uxgraph {
 
 		// MODIFIERS
 
-		void add_edge(const edge& e);
 		void add_edge(node u, node v);
-
-		void remove_edge(const edge& e);
 		void remove_edge(node u, node v);
 
 		// GETTERS

@@ -98,6 +98,31 @@ class xxgraph {
 		 */
 		size_t add_n_nodes(node n);
 
+		/**
+		 * @brief Removes an edge from this graph.
+		 *
+		 * The attribute @ref num_edges is decremented by one.
+		 * @param e A pair of nodes
+		 */
+		void remove_edge(const edge& e);
+
+		/**
+		 * @brief Removes all edges taken from a list
+		 *
+		 * The attribute @ref num_edges is decremented by one.
+		 * @param edge_list A list of edges
+		 */
+		void remove_edges(const vector<edge>& edge_list);
+
+		/**
+		 * @brief Removes an edge from this graph.
+		 *
+		 * The attribute @ref num_edges is decremented by one.
+		 * @param u The fist node of the edge
+		 * @param v The second node of the edge
+		 */
+		virtual void remove_edge(node u, node v) = 0;
+
 		// GETTERS
 
 		/// Returns true if node @e u is in this graph.

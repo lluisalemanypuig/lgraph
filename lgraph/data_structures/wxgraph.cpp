@@ -41,6 +41,13 @@ wxgraph<T>& wxgraph<T>::operator= (const wxgraph<T>& g) {
 	return *this;
 }
 
+// MODIFIERS
+
+template<class T>
+void wxgraph<T>::add_edge(const edge& e, const T& w) {
+	add_edge(e.first, e.second, w);
+}
+
 template<class T>
 void wxgraph<T>::add_edges(const vector<edge>& edge_list, const vector<T>& ws) {
 	for (size_t i = 0; i < edge_list.size(); ++i) {
@@ -48,15 +55,6 @@ void wxgraph<T>::add_edges(const vector<edge>& edge_list, const vector<T>& ws) {
 		add_edge(e.first, e.second, ws[i]);
 	}
 }
-
-template<class T>
-void wxgraph<T>::remove_edges(const vector<edge>& edge_list) {
-	for (const edge& e : edge_list) {
-		remove_edge(e.first, e.second);
-	}
-}
-
-// MODIFIERS
 
 template<class T>
 void wxgraph<T>::clear() {

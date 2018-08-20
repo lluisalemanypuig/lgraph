@@ -23,15 +23,13 @@ uxgraph& uxgraph::operator= (const uxgraph& g) {
 
 // MODIFIERS
 
+void uxgraph::add_edge(const edge& e) {
+	add_edge(e.first, e.second);
+}
+
 void uxgraph::add_edges(const vector<edge>& edge_list) {
 	for (const edge& e : edge_list) {
 		add_edge(e.first, e.second);
-	}
-}
-
-void uxgraph::remove_edges(const vector<edge>& edge_list) {
-	for (const edge& e : edge_list) {
-		remove_edge(e.first, e.second);
 	}
 }
 

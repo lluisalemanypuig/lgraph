@@ -60,6 +60,16 @@ size_t xxgraph::add_n_nodes(node n) {
 	return adjacency_list.size() - 1;
 }
 
+void xxgraph::remove_edge(const edge& e) {
+	remove_edge(e.first, e.second);
+}
+
+void xxgraph::remove_edges(const vector<edge>& edge_list) {
+	for (const edge& e : edge_list) {
+		remove_edge(e.first, e.second);
+	}
+}
+
 // GETTERS
 
 bool xxgraph::has_node(node u) const {

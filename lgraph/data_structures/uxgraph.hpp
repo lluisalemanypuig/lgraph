@@ -99,7 +99,7 @@ class uxgraph : public xxgraph {
 		 * The attribute @ref num_edges is incremented by one.
 		 * @param e A pair of nodes
 		 */
-		virtual void add_edge(const edge& e) = 0;
+		void add_edge(const edge& e);
 
 		/**
 		 * @brief Adds all edges taken from a list
@@ -119,31 +119,6 @@ class uxgraph : public xxgraph {
 		 * @param v The second node of the edge
 		 */
 		virtual void add_edge(node u, node v) = 0;
-
-		/**
-		 * @brief Removes an edge from this graph.
-		 *
-		 * The attribute @ref num_edges is decremented by one.
-		 * @param e A pair of nodes
-		 */
-		virtual void remove_edge(const edge& e) = 0;
-
-		/**
-		 * @brief Removes all edges taken from a list
-		 *
-		 * The attribute @ref num_edges is decremented by one.
-		 * @param edge_list A list of edges
-		 */
-		void remove_edges(const vector<edge>& edge_list);
-
-		/**
-		 * @brief Removes an edge from this graph.
-		 *
-		 * The attribute @ref num_edges is decremented by one.
-		 * @param u The fist node of the edge
-		 * @param v The second node of the edge
-		 */
-		virtual void remove_edge(node u, node v) = 0;
 
 		/**
 		 * @brief Deletes all memory used by the graph

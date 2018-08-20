@@ -29,10 +29,6 @@ uugraph::~uugraph() { }
 
 // MODIFIERS
 
-void uugraph::add_edge(const edge& e) {
-	add_edge(e.first, e.second);
-}
-
 void uugraph::add_edge(node u, node v) {
 	assert( has_node(u) );
 	assert( has_node(v) );
@@ -41,10 +37,6 @@ void uugraph::add_edge(node u, node v) {
 	adjacency_list[u].add(v);
 	adjacency_list[v].add(u);
 	++num_edges;
-}
-
-void uugraph::remove_edge(const edge& e) {
-	remove_edge(e.first, e.second);
 }
 
 void uugraph::remove_edge(node u, node v) {

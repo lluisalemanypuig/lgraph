@@ -64,10 +64,7 @@ class wdgraph : public wxgraph<T> {
 
 		// MODIFIERS
 
-		void add_edge(const edge& e, const T& w);
 		void add_edge(node u, node v, const T& w);
-
-		void remove_edge(const edge& e);
 		void remove_edge(node u, node v);
 
 		// GETTERS

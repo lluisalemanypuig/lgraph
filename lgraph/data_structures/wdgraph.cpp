@@ -50,11 +50,6 @@ wdgraph<T>::~wdgraph() { }
 // MODIFIERS
 
 template<class T>
-void wdgraph<T>::add_edge(const edge& e, const T& w) {
-	add_edge(e.first, e.second, w);
-}
-
-template<class T>
 void wdgraph<T>::add_edge(node u, node v, const T& w) {
 	assert( this->has_node(u) );
 	assert( this->has_node(v) );
@@ -64,11 +59,6 @@ void wdgraph<T>::add_edge(node u, node v, const T& w) {
 	this->weights[u].add(w);
 
 	this->num_edges += 1;
-}
-
-template<class T>
-void wdgraph<T>::remove_edge(const edge& e) {
-	remove_edge(e.first, e.second);
 }
 
 template<class T>
