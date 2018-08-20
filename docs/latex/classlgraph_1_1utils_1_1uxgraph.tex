@@ -40,18 +40,12 @@ void \hyperlink{classlgraph_1_1utils_1_1uxgraph_ab1e7ab39be6e8ca6149eef47dd51b15
 \begin{DoxyCompactList}\small\item\em Initialises the attributes of a graph with {\itshape n} nodes. \end{DoxyCompactList}\item 
 \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} \& \hyperlink{classlgraph_1_1utils_1_1uxgraph_aae32def9779a7af6261fe8637094c664}{operator=} (const \hyperlink{classlgraph_1_1utils_1_1uxgraph}{uxgraph} \&g)
 \begin{DoxyCompactList}\small\item\em Assignation operator for undirected weighted graphs. \end{DoxyCompactList}\item 
-virtual void \hyperlink{classlgraph_1_1utils_1_1uxgraph_a737ddae69312e76211b51104dd1eea2f}{add\+\_\+edge} (const \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge} \&e)=0
+void \hyperlink{classlgraph_1_1utils_1_1uxgraph_a46e24b0e3208accb9e726db2877320e1}{add\+\_\+edge} (const \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge} \&e)
 \begin{DoxyCompactList}\small\item\em Adds an edge to this graph. \end{DoxyCompactList}\item 
 void \hyperlink{classlgraph_1_1utils_1_1uxgraph_af6f7c0a2dc67706a07bd58f06b3dcf9f}{add\+\_\+edges} (const vector$<$ \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge} $>$ \&edge\+\_\+list)
 \begin{DoxyCompactList}\small\item\em Adds all edges taken from a list. \end{DoxyCompactList}\item 
 virtual void \hyperlink{classlgraph_1_1utils_1_1uxgraph_a97bdb6946478fa12a44d9780a4dc3ee6}{add\+\_\+edge} (\hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u, \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} v)=0
 \begin{DoxyCompactList}\small\item\em Adds an edge between nodes {\itshape u} and {\itshape v}. \end{DoxyCompactList}\item 
-virtual void \hyperlink{classlgraph_1_1utils_1_1uxgraph_a4773c30a317dd2cdc7fc3f2edaca4e9e}{remove\+\_\+edge} (const \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge} \&e)=0
-\begin{DoxyCompactList}\small\item\em Removes an edge from this graph. \end{DoxyCompactList}\item 
-void \hyperlink{classlgraph_1_1utils_1_1uxgraph_a83e447e3c405700f36a1cce1c227f3f1}{remove\+\_\+edges} (const vector$<$ \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge} $>$ \&edge\+\_\+list)
-\begin{DoxyCompactList}\small\item\em Removes all edges taken from a list. \end{DoxyCompactList}\item 
-virtual void \hyperlink{classlgraph_1_1utils_1_1uxgraph_a0f6d277efcb347ef085ddcdf5ae2da84}{remove\+\_\+edge} (\hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u, \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} v)=0
-\begin{DoxyCompactList}\small\item\em Removes an edge from this graph. \end{DoxyCompactList}\item 
 void \hyperlink{classlgraph_1_1utils_1_1uxgraph_ae76c83683dc7527fe5394d67437a7107}{clear} ()
 \begin{DoxyCompactList}\small\item\em Deletes all memory used by the graph. \end{DoxyCompactList}\item 
 bool \hyperlink{classlgraph_1_1utils_1_1uxgraph_ae1c3f40bb80ab20c2de96735ccde7b3f}{is\+\_\+weighted} () const \hypertarget{classlgraph_1_1utils_1_1uxgraph_ae1c3f40bb80ab20c2de96735ccde7b3f}{}\label{classlgraph_1_1utils_1_1uxgraph_ae1c3f40bb80ab20c2de96735ccde7b3f}
@@ -75,6 +69,14 @@ size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1xxgraph_af41baf2c098e872731ad646a
 \begin{DoxyCompactList}\small\item\em Adds one node to the graph. \end{DoxyCompactList}\item 
 size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1xxgraph_af4f3782c1a55f73c6f34f2f2c26fb404}{add\+\_\+n\+\_\+nodes} (\hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} n)
 \begin{DoxyCompactList}\small\item\em Adds {\itshape n} nodes to the graph. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1xxgraph_af826c05492f237d7727f88ebab033001}{remove\+\_\+edge} (const \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge} \&e)
+\begin{DoxyCompactList}\small\item\em Removes an edge from this graph. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classlgraph_1_1utils_1_1xxgraph_a722693838fb7cfbd5b78c293fffc2413}{remove\+\_\+edge} (\hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u, \hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} v)=0
+\begin{DoxyCompactList}\small\item\em Removes an edge from this graph. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1utils_1_1xxgraph_a747da8a567d232081199499f23821926}{remove\+\_\+edges} (const vector$<$ \hyperlink{namespacelgraph_1_1utils_a6510284ce1b1ae5dc97ce5d2de426e10}{edge} $>$ \&edge\+\_\+list)
+\begin{DoxyCompactList}\small\item\em Removes all edges taken from a list. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classlgraph_1_1utils_1_1xxgraph_a082e0000394dbf3b0bc5d3976baff593}{remove\+\_\+node} (\hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u)=0
+\begin{DoxyCompactList}\small\item\em Rmoves a node from the graph. \end{DoxyCompactList}\item 
 bool \hyperlink{classlgraph_1_1utils_1_1xxgraph_a026ab064c2be26790cc1f547be2157c9}{has\+\_\+node} (\hyperlink{namespacelgraph_1_1utils_a7bd66ede3805ef121bc2835bd48de0cf}{node} u) const \hypertarget{classlgraph_1_1utils_1_1xxgraph_a026ab064c2be26790cc1f547be2157c9}{}\label{classlgraph_1_1utils_1_1xxgraph_a026ab064c2be26790cc1f547be2157c9}
 
 \begin{DoxyCompactList}\small\item\em Returns true if node {\itshape u} is in this graph. \end{DoxyCompactList}\item 
@@ -141,11 +143,11 @@ This class implements the unweighted graph data structure based on adjacency lis
 \subsection{Member Function Documentation}
 \index{lgraph\+::utils\+::uxgraph@{lgraph\+::utils\+::uxgraph}!add\+\_\+edge@{add\+\_\+edge}}
 \index{add\+\_\+edge@{add\+\_\+edge}!lgraph\+::utils\+::uxgraph@{lgraph\+::utils\+::uxgraph}}
-\subsubsection[{\texorpdfstring{add\+\_\+edge(const edge \&e)=0}{add_edge(const edge &e)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void lgraph\+::utils\+::uxgraph\+::add\+\_\+edge (
+\subsubsection[{\texorpdfstring{add\+\_\+edge(const edge \&e)}{add_edge(const edge &e)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::utils\+::uxgraph\+::add\+\_\+edge (
 \begin{DoxyParamCaption}
 \item[{const {\bf edge} \&}]{e}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classlgraph_1_1utils_1_1uxgraph_a737ddae69312e76211b51104dd1eea2f}{}\label{classlgraph_1_1utils_1_1uxgraph_a737ddae69312e76211b51104dd1eea2f}
+)}\hypertarget{classlgraph_1_1utils_1_1uxgraph_a46e24b0e3208accb9e726db2877320e1}{}\label{classlgraph_1_1utils_1_1uxgraph_a46e24b0e3208accb9e726db2877320e1}
 
 
 Adds an edge to this graph. 
@@ -155,10 +157,6 @@ The attribute \hyperlink{classlgraph_1_1utils_1_1xxgraph_a217ebb1cd8946fedfbf94a
 {\em e} & A pair of nodes \\
 \hline
 \end{DoxyParams}
-
-
-Implemented in \hyperlink{classlgraph_1_1utils_1_1uugraph_ad1e6036f836c981ab8f4b540cbaa817e}{lgraph\+::utils\+::uugraph}, and \hyperlink{classlgraph_1_1utils_1_1udgraph_a087b723d4be694711a82d66d8bd0164e}{lgraph\+::utils\+::udgraph}.
-
 \index{lgraph\+::utils\+::uxgraph@{lgraph\+::utils\+::uxgraph}!add\+\_\+edge@{add\+\_\+edge}}
 \index{add\+\_\+edge@{add\+\_\+edge}!lgraph\+::utils\+::uxgraph@{lgraph\+::utils\+::uxgraph}}
 \subsubsection[{\texorpdfstring{add\+\_\+edge(node u, node v)=0}{add_edge(node u, node v)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void lgraph\+::utils\+::uxgraph\+::add\+\_\+edge (
@@ -498,11 +496,11 @@ Returns a reference to the copy of {\itshape g}
 \end{DoxyReturn}
 \index{lgraph\+::utils\+::uxgraph@{lgraph\+::utils\+::uxgraph}!remove\+\_\+edge@{remove\+\_\+edge}}
 \index{remove\+\_\+edge@{remove\+\_\+edge}!lgraph\+::utils\+::uxgraph@{lgraph\+::utils\+::uxgraph}}
-\subsubsection[{\texorpdfstring{remove\+\_\+edge(const edge \&e)=0}{remove_edge(const edge &e)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void lgraph\+::utils\+::uxgraph\+::remove\+\_\+edge (
+\subsubsection[{\texorpdfstring{remove\+\_\+edge(const edge \&e)}{remove_edge(const edge &e)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::utils\+::xxgraph\+::remove\+\_\+edge (
 \begin{DoxyParamCaption}
 \item[{const {\bf edge} \&}]{e}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classlgraph_1_1utils_1_1uxgraph_a4773c30a317dd2cdc7fc3f2edaca4e9e}{}\label{classlgraph_1_1utils_1_1uxgraph_a4773c30a317dd2cdc7fc3f2edaca4e9e}
+)\hspace{0.3cm}{\ttfamily [inherited]}}\hypertarget{classlgraph_1_1utils_1_1xxgraph_af826c05492f237d7727f88ebab033001}{}\label{classlgraph_1_1utils_1_1xxgraph_af826c05492f237d7727f88ebab033001}
 
 
 Removes an edge from this graph. 
@@ -512,18 +510,14 @@ The attribute \hyperlink{classlgraph_1_1utils_1_1xxgraph_a217ebb1cd8946fedfbf94a
 {\em e} & A pair of nodes \\
 \hline
 \end{DoxyParams}
-
-
-Implemented in \hyperlink{classlgraph_1_1utils_1_1uugraph_a12591fd958878113b373040b4c164f14}{lgraph\+::utils\+::uugraph}, and \hyperlink{classlgraph_1_1utils_1_1udgraph_ac5ba48d8bbd044a09ed9d84a881178cd}{lgraph\+::utils\+::udgraph}.
-
 \index{lgraph\+::utils\+::uxgraph@{lgraph\+::utils\+::uxgraph}!remove\+\_\+edge@{remove\+\_\+edge}}
 \index{remove\+\_\+edge@{remove\+\_\+edge}!lgraph\+::utils\+::uxgraph@{lgraph\+::utils\+::uxgraph}}
-\subsubsection[{\texorpdfstring{remove\+\_\+edge(node u, node v)=0}{remove_edge(node u, node v)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void lgraph\+::utils\+::uxgraph\+::remove\+\_\+edge (
+\subsubsection[{\texorpdfstring{remove\+\_\+edge(node u, node v)=0}{remove_edge(node u, node v)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void lgraph\+::utils\+::xxgraph\+::remove\+\_\+edge (
 \begin{DoxyParamCaption}
 \item[{{\bf node}}]{u, }
 \item[{{\bf node}}]{v}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classlgraph_1_1utils_1_1uxgraph_a0f6d277efcb347ef085ddcdf5ae2da84}{}\label{classlgraph_1_1utils_1_1uxgraph_a0f6d277efcb347ef085ddcdf5ae2da84}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [inherited]}}\hypertarget{classlgraph_1_1utils_1_1xxgraph_a722693838fb7cfbd5b78c293fffc2413}{}\label{classlgraph_1_1utils_1_1xxgraph_a722693838fb7cfbd5b78c293fffc2413}
 
 
 Removes an edge from this graph. 
@@ -537,15 +531,15 @@ The attribute \hyperlink{classlgraph_1_1utils_1_1xxgraph_a217ebb1cd8946fedfbf94a
 \end{DoxyParams}
 
 
-Implemented in \hyperlink{classlgraph_1_1utils_1_1uugraph_ae564207e9c3887aa6be115bce28c66b8}{lgraph\+::utils\+::uugraph}, and \hyperlink{classlgraph_1_1utils_1_1udgraph_ad414c0739a86b461af2c8160bca07f0b}{lgraph\+::utils\+::udgraph}.
+Implemented in \hyperlink{classlgraph_1_1utils_1_1wugraph_a8fd7f1a7ef76576a35e72687f4fdfce1}{lgraph\+::utils\+::wugraph$<$ T $>$}, \hyperlink{classlgraph_1_1utils_1_1wdgraph_a6b2ec7e7c66f0ae5aa8ebe5d0555c3a7}{lgraph\+::utils\+::wdgraph$<$ T $>$}, \hyperlink{classlgraph_1_1utils_1_1uugraph_ae564207e9c3887aa6be115bce28c66b8}{lgraph\+::utils\+::uugraph}, and \hyperlink{classlgraph_1_1utils_1_1udgraph_ad414c0739a86b461af2c8160bca07f0b}{lgraph\+::utils\+::udgraph}.
 
 \index{lgraph\+::utils\+::uxgraph@{lgraph\+::utils\+::uxgraph}!remove\+\_\+edges@{remove\+\_\+edges}}
 \index{remove\+\_\+edges@{remove\+\_\+edges}!lgraph\+::utils\+::uxgraph@{lgraph\+::utils\+::uxgraph}}
-\subsubsection[{\texorpdfstring{remove\+\_\+edges(const vector$<$ edge $>$ \&edge\+\_\+list)}{remove_edges(const vector< edge > &edge_list)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::utils\+::uxgraph\+::remove\+\_\+edges (
+\subsubsection[{\texorpdfstring{remove\+\_\+edges(const vector$<$ edge $>$ \&edge\+\_\+list)}{remove_edges(const vector< edge > &edge_list)}}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\+::utils\+::xxgraph\+::remove\+\_\+edges (
 \begin{DoxyParamCaption}
 \item[{const vector$<$ {\bf edge} $>$ \&}]{edge\+\_\+list}
 \end{DoxyParamCaption}
-)}\hypertarget{classlgraph_1_1utils_1_1uxgraph_a83e447e3c405700f36a1cce1c227f3f1}{}\label{classlgraph_1_1utils_1_1uxgraph_a83e447e3c405700f36a1cce1c227f3f1}
+)\hspace{0.3cm}{\ttfamily [inherited]}}\hypertarget{classlgraph_1_1utils_1_1xxgraph_a747da8a567d232081199499f23821926}{}\label{classlgraph_1_1utils_1_1xxgraph_a747da8a567d232081199499f23821926}
 
 
 Removes all edges taken from a list. 
@@ -555,6 +549,26 @@ The attribute \hyperlink{classlgraph_1_1utils_1_1xxgraph_a217ebb1cd8946fedfbf94a
 {\em edge\+\_\+list} & A list of edges \\
 \hline
 \end{DoxyParams}
+\index{lgraph\+::utils\+::uxgraph@{lgraph\+::utils\+::uxgraph}!remove\+\_\+node@{remove\+\_\+node}}
+\index{remove\+\_\+node@{remove\+\_\+node}!lgraph\+::utils\+::uxgraph@{lgraph\+::utils\+::uxgraph}}
+\subsubsection[{\texorpdfstring{remove\+\_\+node(node u)=0}{remove_node(node u)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void lgraph\+::utils\+::xxgraph\+::remove\+\_\+node (
+\begin{DoxyParamCaption}
+\item[{{\bf node}}]{u}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [inherited]}}\hypertarget{classlgraph_1_1utils_1_1xxgraph_a082e0000394dbf3b0bc5d3976baff593}{}\label{classlgraph_1_1utils_1_1xxgraph_a082e0000394dbf3b0bc5d3976baff593}
+
+
+Rmoves a node from the graph. 
+
+The indexes higher than {\itshape u\textquotesingle{}s} are decreased by one. 
+\begin{DoxyParams}{Parameters}
+{\em u} & The node to be removed \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{classlgraph_1_1utils_1_1wugraph_ac51b2eccbef7bd7dd28813ac55e7d993}{lgraph\+::utils\+::wugraph$<$ T $>$}, \hyperlink{classlgraph_1_1utils_1_1wdgraph_a63740b25bf07d9943150c2c50d8be133}{lgraph\+::utils\+::wdgraph$<$ T $>$}, \hyperlink{classlgraph_1_1utils_1_1uugraph_a361156be732eb6c3b01da1ab685501ef}{lgraph\+::utils\+::uugraph}, and \hyperlink{classlgraph_1_1utils_1_1udgraph_a222b4e52f0615ffc492cdb45d93e45c8}{lgraph\+::utils\+::udgraph}.
+
 
 
 \subsection{Friends And Related Function Documentation}

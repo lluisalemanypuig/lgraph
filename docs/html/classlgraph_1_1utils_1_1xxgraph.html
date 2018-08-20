@@ -136,6 +136,18 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr class="memitem:af4f3782c1a55f73c6f34f2f2c26fb404"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1xxgraph.html#af4f3782c1a55f73c6f34f2f2c26fb404">add_n_nodes</a> (<a class="el" href="namespacelgraph_1_1utils.html#a7bd66ede3805ef121bc2835bd48de0cf">node</a> n)</td></tr>
 <tr class="memdesc:af4f3782c1a55f73c6f34f2f2c26fb404"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds <em>n</em> nodes to the graph.  <a href="#af4f3782c1a55f73c6f34f2f2c26fb404">More...</a><br /></td></tr>
 <tr class="separator:af4f3782c1a55f73c6f34f2f2c26fb404"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af826c05492f237d7727f88ebab033001"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1xxgraph.html#af826c05492f237d7727f88ebab033001">remove_edge</a> (const <a class="el" href="namespacelgraph_1_1utils.html#a6510284ce1b1ae5dc97ce5d2de426e10">edge</a> &amp;e)</td></tr>
+<tr class="memdesc:af826c05492f237d7727f88ebab033001"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes an edge from this graph.  <a href="#af826c05492f237d7727f88ebab033001">More...</a><br /></td></tr>
+<tr class="separator:af826c05492f237d7727f88ebab033001"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a747da8a567d232081199499f23821926"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1xxgraph.html#a747da8a567d232081199499f23821926">remove_edges</a> (const vector&lt; <a class="el" href="namespacelgraph_1_1utils.html#a6510284ce1b1ae5dc97ce5d2de426e10">edge</a> &gt; &amp;edge_list)</td></tr>
+<tr class="memdesc:a747da8a567d232081199499f23821926"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all edges taken from a list.  <a href="#a747da8a567d232081199499f23821926">More...</a><br /></td></tr>
+<tr class="separator:a747da8a567d232081199499f23821926"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a722693838fb7cfbd5b78c293fffc2413"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1xxgraph.html#a722693838fb7cfbd5b78c293fffc2413">remove_edge</a> (<a class="el" href="namespacelgraph_1_1utils.html#a7bd66ede3805ef121bc2835bd48de0cf">node</a> u, <a class="el" href="namespacelgraph_1_1utils.html#a7bd66ede3805ef121bc2835bd48de0cf">node</a> v)=0</td></tr>
+<tr class="memdesc:a722693838fb7cfbd5b78c293fffc2413"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes an edge from this graph.  <a href="#a722693838fb7cfbd5b78c293fffc2413">More...</a><br /></td></tr>
+<tr class="separator:a722693838fb7cfbd5b78c293fffc2413"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a082e0000394dbf3b0bc5d3976baff593"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1xxgraph.html#a082e0000394dbf3b0bc5d3976baff593">remove_node</a> (<a class="el" href="namespacelgraph_1_1utils.html#a7bd66ede3805ef121bc2835bd48de0cf">node</a> u)=0</td></tr>
+<tr class="memdesc:a082e0000394dbf3b0bc5d3976baff593"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rmoves a node from the graph.  <a href="#a082e0000394dbf3b0bc5d3976baff593">More...</a><br /></td></tr>
+<tr class="separator:a082e0000394dbf3b0bc5d3976baff593"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a026ab064c2be26790cc1f547be2157c9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a026ab064c2be26790cc1f547be2157c9"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1xxgraph.html#a026ab064c2be26790cc1f547be2157c9">has_node</a> (<a class="el" href="namespacelgraph_1_1utils.html#a7bd66ede3805ef121bc2835bd48de0cf">node</a> u) const </td></tr>
 <tr class="memdesc:a026ab064c2be26790cc1f547be2157c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if node <em>u</em> is in this graph. <br /></td></tr>
@@ -616,6 +628,133 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 
 <p>Returns the number of triangles in this graph. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the number of cycles of length 3 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af826c05492f237d7727f88ebab033001"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lgraph::utils::xxgraph::remove_edge </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacelgraph_1_1utils.html#a6510284ce1b1ae5dc97ce5d2de426e10">edge</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes an edge from this graph. </p>
+<p>The attribute <a class="el" href="classlgraph_1_1utils_1_1xxgraph.html#a217ebb1cd8946fedfbf94a9b22f7da48">num_edges</a> is decremented by one. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td>A pair of nodes </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a722693838fb7cfbd5b78c293fffc2413"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void lgraph::utils::xxgraph::remove_edge </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacelgraph_1_1utils.html#a7bd66ede3805ef121bc2835bd48de0cf">node</a>&#160;</td>
+          <td class="paramname"><em>u</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacelgraph_1_1utils.html#a7bd66ede3805ef121bc2835bd48de0cf">node</a>&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Removes an edge from this graph. </p>
+<p>The attribute <a class="el" href="classlgraph_1_1utils_1_1xxgraph.html#a217ebb1cd8946fedfbf94a9b22f7da48">num_edges</a> is decremented by one. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u</td><td>The fist node of the edge </td></tr>
+    <tr><td class="paramname">v</td><td>The second node of the edge </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classlgraph_1_1utils_1_1wugraph.html#a8fd7f1a7ef76576a35e72687f4fdfce1">lgraph::utils::wugraph&lt; T &gt;</a>, <a class="el" href="classlgraph_1_1utils_1_1wdgraph.html#a6b2ec7e7c66f0ae5aa8ebe5d0555c3a7">lgraph::utils::wdgraph&lt; T &gt;</a>, <a class="el" href="classlgraph_1_1utils_1_1uugraph.html#ae564207e9c3887aa6be115bce28c66b8">lgraph::utils::uugraph</a>, and <a class="el" href="classlgraph_1_1utils_1_1udgraph.html#ad414c0739a86b461af2c8160bca07f0b">lgraph::utils::udgraph</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a747da8a567d232081199499f23821926"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lgraph::utils::xxgraph::remove_edges </td>
+          <td>(</td>
+          <td class="paramtype">const vector&lt; <a class="el" href="namespacelgraph_1_1utils.html#a6510284ce1b1ae5dc97ce5d2de426e10">edge</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>edge_list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes all edges taken from a list. </p>
+<p>The attribute <a class="el" href="classlgraph_1_1utils_1_1xxgraph.html#a217ebb1cd8946fedfbf94a9b22f7da48">num_edges</a> is decremented by one. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">edge_list</td><td>A list of edges </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a082e0000394dbf3b0bc5d3976baff593"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void lgraph::utils::xxgraph::remove_node </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacelgraph_1_1utils.html#a7bd66ede3805ef121bc2835bd48de0cf">node</a>&#160;</td>
+          <td class="paramname"><em>u</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Rmoves a node from the graph. </p>
+<p>The indexes higher than <em>u's</em> are decreased by one. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u</td><td>The node to be removed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classlgraph_1_1utils_1_1wugraph.html#ac51b2eccbef7bd7dd28813ac55e7d993">lgraph::utils::wugraph&lt; T &gt;</a>, <a class="el" href="classlgraph_1_1utils_1_1wdgraph.html#a63740b25bf07d9943150c2c50d8be133">lgraph::utils::wdgraph&lt; T &gt;</a>, <a class="el" href="classlgraph_1_1utils_1_1uugraph.html#a361156be732eb6c3b01da1ab685501ef">lgraph::utils::uugraph</a>, and <a class="el" href="classlgraph_1_1utils_1_1udgraph.html#a222b4e52f0615ffc492cdb45d93e45c8">lgraph::utils::udgraph</a>.</p>
 
 </div>
 </div>
