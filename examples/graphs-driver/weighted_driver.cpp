@@ -244,6 +244,7 @@ namespace graph_driver {
 			}
 			else if (option == "to-unweighted") {
 				uxgraph *g = G->to_unweighted();
+				cout << "Number of edges: " << g->n_edges() << endl;
 				cout << *g << endl;
 				delete g;
 			}
