@@ -41,8 +41,36 @@ void wdgraph<T>::get_unique_edges(vector<edge>& unique_edges) const {
 // PUBLIC
 
 template<class T>
-wdgraph<T>::wdgraph() : wxgraph<T>() {
+wdgraph<T>::wdgraph() : wxgraph<T>() { }
+
+template<class T>
+wdgraph<T>::wdgraph
+(
+	const vector<neighbourhood>& adj,
+	const vector<weight_list<T> >& wl
+)
+: wxgraph<T>()
+{
+	this->adjacency_list = adj;
+	this->weights = wl;
+
+	// count the amount of edges for only those pairs
+	// of nodes (u,v) such that u < v (because this graph
+	// is undirected)
+	for (node u = 0; u < this->adjacency_list.size(); ++u) {
+		this->num_edges += this->adjacency_list[u].size();
+	}
 }
+
+template<class T>
+wdgraph<T>::wdgraph
+(
+	const vector<neighbourhood>& adj,
+	const vector<weight_list<T> >& wl,
+	size_t n_edges
+)
+: wxgraph<T>(adj,wl,n_edges)
+{ }
 
 template<class T>
 wdgraph<T>::~wdgraph() { }
@@ -157,18 +185,7 @@ bool wdgraph<T>::is_directed() const {
 
 template<class T>
 uxgraph *wdgraph<T>::to_unweighted() const {
-	const size_t N = this->n_nodes();
-
-	vector<edge> uedges;
-	this->edges(uedges);
-
-	for (const edge& e : uedges) {
-		cout << e.first << " " << e.second << endl;
-	}
-
-	udgraph *g = new udgraph();
-	g->init(N);
-	g->add_edges(uedges);
+	udgraph *g = new udgraph(this->adjacency_list, this->num_edges);
 	return g;
 }
 

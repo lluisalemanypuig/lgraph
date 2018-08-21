@@ -23,6 +23,18 @@ void udgraph::get_unique_edges(vector<edge>& unique_edges) const {
 // PUBLIC
 
 udgraph::udgraph() : uxgraph() { }
+
+udgraph::udgraph(const vector<neighbourhood>& adj) : uxgraph() {
+	adjacency_list = adj;
+
+	// count the amount of edges
+	for (node u = 0; u < adjacency_list.size(); ++u) {
+		num_edges += adjacency_list[u].size();
+	}
+}
+
+udgraph::udgraph(const vector<neighbourhood>& adj, size_t n_edges) : uxgraph(adj, n_edges) { }
+
 udgraph::~udgraph() { }
 
 // MODIFIERS

@@ -57,8 +57,21 @@ class wdgraph : public wxgraph<T> {
 		void get_unique_edges(vector<edge>& edges) const;
 
 	public:
-		/// Constructor
+		/// Default constructor
 		wdgraph();
+		/**
+		 * @brief Constructor with adjacency lists
+		 * @param adj The adjacency list of the graph
+		 * @param wl The weights for every edge
+		 */
+		wdgraph(const vector<neighbourhood>& adj, const vector<weight_list<T> >& wl);
+		/**
+		 * @brief Constructor with adjacency lists
+		 * @param adj The adjacency list of the graph
+		 * @param wl The weights for every edge
+		 * @param n_edges The number of edges in the adjacency list
+		 */
+		wdgraph(const vector<neighbourhood>& adj, const vector<weight_list<T> >& wl, size_t n_edges);
 		/// Destructor
 		~wdgraph();
 

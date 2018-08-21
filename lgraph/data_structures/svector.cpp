@@ -105,7 +105,6 @@ void svector<T, Alloc>::remove(size_t i) {
 	--idx;
 
 	if (idx < (elems.size() >> 1)) {
-		cout << "resize" << endl;
 		elems.resize(idx);
 	}
 }

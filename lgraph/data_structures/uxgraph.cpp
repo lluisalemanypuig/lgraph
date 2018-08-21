@@ -6,6 +6,12 @@ namespace utils {
 // PUBLIC
 
 uxgraph::uxgraph() : xxgraph() { }
+
+uxgraph::uxgraph(const vector<neighbourhood>& adj, size_t n_edges) : xxgraph() {
+	adjacency_list = adj;
+	num_edges = n_edges;
+}
+
 uxgraph::~uxgraph() { }
 
 void uxgraph::init(size_t n) {

@@ -13,8 +13,8 @@
 using namespace std;
 
 // Custom includes
-#include <lgraph/utils/definitions.hpp>
 #include <lgraph/data_structures/xxgraph.hpp>
+#include <lgraph/utils/definitions.hpp>
 
 namespace lgraph {
 namespace utils {
@@ -42,8 +42,14 @@ class uxgraph : public xxgraph {
 		virtual void get_unique_edges(vector<edge>& edges) const = 0;
 
 	public:
-		/// Constructor
+		/// Default onstructor
 		uxgraph();
+		/**
+		 * @brief Constructor with adjacency lists
+		 * @param adj The adjacency list of the graph
+		 * @param n_edges The number of edges in the adjacency list
+		 */
+		uxgraph(const vector<neighbourhood>& adj, size_t n_edges);
 		/// Destructor
 		virtual ~uxgraph();
 

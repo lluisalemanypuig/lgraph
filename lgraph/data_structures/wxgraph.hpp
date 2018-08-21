@@ -76,8 +76,15 @@ class wxgraph : public xxgraph {
 		virtual void get_unique_edges(vector<edge>& edges) const = 0;
 
 	public:
-		/// Constructor
+		/// Default constructor
 		wxgraph();
+		/**
+		 * @brief Constructor with adjacency lists
+		 * @param adj The adjacency list of the graph
+		 * @param wl The weights for every edge
+		 * @param n_edges The number of edges in the adjacency list
+		 */
+		wxgraph(const vector<neighbourhood>& adj, const vector<weight_list<T> >& wl, size_t n_edges);
 		/// Destructor
 		virtual ~wxgraph();
 

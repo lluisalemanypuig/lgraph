@@ -25,6 +25,24 @@ void uugraph::get_unique_edges(vector<edge>& unique_edges) const {
 // PUBLIC
 
 uugraph::uugraph() : uxgraph() { }
+
+uugraph::uugraph(const vector<neighbourhood>& adj) : uxgraph() {
+	adjacency_list = adj;
+
+	// count the amount of edges for only those pairs
+	// of nodes (u,v) such that u < v (because this graph
+	// is undirected)
+	for (node u = 0; u < adjacency_list.size(); ++u) {
+		for (node v : adjacency_list[u]) {
+			if (u < v) {
+				++num_edges;
+			}
+		}
+	}
+}
+
+uugraph::uugraph(const vector<neighbourhood>& adj, size_t n_edges) : uxgraph(adj, n_edges) { }
+
 uugraph::~uugraph() { }
 
 // MODIFIERS

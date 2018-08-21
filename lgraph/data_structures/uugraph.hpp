@@ -11,8 +11,8 @@
 using namespace std;
 
 // Custom includes
-#include <lgraph/utils/definitions.hpp>
 #include <lgraph/data_structures/uxgraph.hpp>
+#include <lgraph/utils/definitions.hpp>
 
 namespace lgraph {
 namespace utils {
@@ -42,8 +42,19 @@ class uugraph : public uxgraph {
 		void get_unique_edges(vector<edge>& edges) const;
 
 	public:
-		/// Constructor
+		/// Default constructor
 		uugraph();
+		/**
+		 * @brief Constructor with adjacency lists
+		 * @param adj The adjacency list of the graph
+		 */
+		uugraph(const vector<neighbourhood>& adj);
+		/**
+		 * @brief Constructor with adjacency lists
+		 * @param adj The adjacency list of the graph
+		 * @param n_edges The number of edges in the adjacency list
+		 */
+		uugraph(const vector<neighbourhood>& adj, size_t n_edges);
 		/// Destructor
 		~uugraph();
 
