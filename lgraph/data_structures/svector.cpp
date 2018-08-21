@@ -103,6 +103,11 @@ void svector<T, Alloc>::remove(size_t i) {
 	assert(i < idx);
 	std::swap( elems[i], elems[idx - 1] );
 	--idx;
+
+	if (idx < (elems.size() >> 1)) {
+		cout << "resize" << endl;
+		elems.resize(idx);
+	}
 }
 
 template<class T, class Alloc>

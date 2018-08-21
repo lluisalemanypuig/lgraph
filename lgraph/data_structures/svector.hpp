@@ -159,8 +159,13 @@ class svector {
 		/**
 		 * @brief Removes the element in the i-th position of this vector.
 		 *
-		 * Places the element in the @e i-th position of this vector and then
-		 * decrements the value of @ref idx.
+		 * Swaps the element in the @e i-th position with the element in the
+		 * previous position pointed by @ref idx. Then decrements the value
+		 * of @ref idx.
+		 *
+		 * When @ref idx has reached half the total size of the container
+		 * @ref elems the container is resized to a size equal to @ref idx.
+		 *
 		 * @param i The index of the element to be removed.
 		 */
 		void remove(size_t i);
