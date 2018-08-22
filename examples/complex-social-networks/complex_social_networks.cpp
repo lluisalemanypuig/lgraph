@@ -357,23 +357,23 @@ int parse_options(int argc, char *argv[]) {
 			apply_switching = true;
 		}
 		else if (strcmp(argv[i], "--Q") == 0) {
-			fatal_error = parse_size_t(argv[i + 1], &Q);
+			fatal_error = parse_uli(argv[i + 1], &Q);
 			++i;
 		}
 		else if (strcmp(argv[i], "--T") == 0) {
-			fatal_error = parse_size_t(argv[i + 1], &T);
+			fatal_error = parse_uli(argv[i + 1], &T);
 			++i;
 		}
 		else if (strcmp(argv[i], "--T-epidemics") == 0) {
-			fatal_error = parse_size_t(argv[i + 1], &epid_T);
+			fatal_error = parse_uli(argv[i + 1], &epid_T);
 			++i;
 		}
 		else if (strcmp(argv[i], "--n0") == 0) {
-			fatal_error = parse_size_t(argv[i + 1], &n0);
+			fatal_error = parse_uli(argv[i + 1], &n0);
 			++i;
 		}
 		else if (strcmp(argv[i], "--m0") == 0) {
-			fatal_error = parse_size_t(argv[i + 1], &m0);
+			fatal_error = parse_uli(argv[i + 1], &m0);
 			++i;
 		}
 		else if (strcmp(argv[i], "--p0") == 0) {
