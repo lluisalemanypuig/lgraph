@@ -18,4 +18,8 @@ CONFIG(debug, debug|release) {
 }
 
 SOURCES += \
-    complex_social_networks.cpp
+    complex_social_networks.cpp \
+    csn_utils.cpp
+
+HEADERS += \
+    csn_utils.hpp

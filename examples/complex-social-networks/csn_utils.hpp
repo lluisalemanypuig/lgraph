@@ -1,0 +1,26 @@
+#pragma once
+
+// C includes
+#include <string.h>
+#include <stdlib.h>
+#include <limits.h>
+#include <errno.h>
+#include <stdio.h>
+#include <math.h>
+
+// C++ includes
+#include <iostream>
+#include <string>
+using namespace std;
+
+namespace csn_utils {
+
+	// Compares two strings
+	int strcmp(const string& s1, const string& s2);
+
+	char parse_uli(const char *str, unsigned long int *v);
+	char parse_ulli(const char *str, unsigned long long int *v);
+	char parse_size_t(const char *str, size_t *v);
+	char parse_double(const char *str, double *s);
+
+}

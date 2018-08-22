@@ -4,7 +4,7 @@
 // C++ includes
 #include <iostream>
 #include <iomanip>
-#include <map>
+#include <vector>
 using namespace std;
 
 // Custom includes
@@ -21,41 +21,44 @@ using namespace lgraph;
 using namespace networks;
 using namespace utils;
 
+#include "csn_utils.hpp"
+using namespace csn_utils;
+
 // <Global variables (only used here)>
-string model = "none";
-string variant = "none";
-string from_file = "none";
-string to_file = "none";
+static string model = "none";
+static string variant = "none";
+static string from_file = "none";
+static string to_file = "none";
 	
-size_t n0 = 10;
-size_t m0 = 5;
-size_t T = 1;
+static size_t n0 = 10;
+static size_t m0 = 5;
+static size_t T = 1;
 
-bool apply_switching = false;
-size_t Q = 1;
+static bool apply_switching = false;
+static size_t Q = 1;
 
-bool clust_gcc = false;
-bool clust_mlcc = false;
-bool dist_mgc = false;
-bool dist_diam = false;
-bool dist_mcc = false;
+static bool clust_gcc = false;
+static bool clust_mlcc = false;
+static bool dist_mgc = false;
+static bool dist_diam = false;
+static bool dist_mcc = false;
 
-bool cent_degree = false;
-bool cent_closeness = false;
-bool cent_betweenness = false;
+static bool cent_degree = false;
+static bool cent_closeness = false;
+static bool cent_betweenness = false;
 
-bool epid_sir = false;
-bool epid_sis = false;
-double epid_p0 = 0.5;
-double epid_gamma = 0.5;
-double epid_beta = 0.5;
-size_t epid_T = 1;
-string immune_agents_file = "none";
+static bool epid_sir = false;
+static bool epid_sis = false;
+static double epid_p0 = 0.5;
+static double epid_gamma = 0.5;
+static double epid_beta = 0.5;
+static size_t epid_T = 1;
+static string immune_agents_file = "none";
 
-bool seed = false;
+static bool seed_rng = false;
 
-drandom_generator<> *drg;
-crandom_generator<> *crg;
+static drandom_generator<> *drg;
+static crandom_generator<> *crg;
 // </Global variables>
 
 void print_usage() {
@@ -249,7 +252,7 @@ void execute_epidemic_models(const uugraph& Gs) {
 	vector<bool> immune(Gs.n_nodes(), false);
 	bool immune_list_read = false;
 
-	if (immune_agents_file != "none") {
+	if (strcmp(immune_agents_file, "none") == 0) {
 		// read immune agents list, if indicated
 		ifstream fin;
 		fin.open(immune_agents_file.c_str());
@@ -324,6 +327,8 @@ void execute_epidemic_models(const uugraph& Gs) {
 
 int parse_options(int argc, char *argv[]) {
 	for (int i = 1; i < argc; ++i) {
+		char fatal_error = 0;
+
 		if (strcmp(argv[i], "-h") == 0 or strcmp(argv[i], "--help") == 0) {
 			print_usage();
 			return 1;
@@ -352,39 +357,39 @@ int parse_options(int argc, char *argv[]) {
 			apply_switching = true;
 		}
 		else if (strcmp(argv[i], "--Q") == 0) {
-			Q = atoi(argv[i + 1]);
+			fatal_error = parse_size_t(argv[i + 1], &Q);
 			++i;
 		}
 		else if (strcmp(argv[i], "--T") == 0) {
-			T = atoi(argv[i + 1]);
+			fatal_error = parse_size_t(argv[i + 1], &T);
 			++i;
 		}
 		else if (strcmp(argv[i], "--T-epidemics") == 0) {
-			epid_T = atoi(argv[i + 1]);
+			fatal_error = parse_size_t(argv[i + 1], &epid_T);
 			++i;
 		}
 		else if (strcmp(argv[i], "--n0") == 0) {
-			n0 = atoi(argv[i + 1]);
+			fatal_error = parse_size_t(argv[i + 1], &n0);
 			++i;
 		}
 		else if (strcmp(argv[i], "--m0") == 0) {
-			m0 = atoi(argv[i + 1]);
+			fatal_error = parse_size_t(argv[i + 1], &m0);
 			++i;
 		}
 		else if (strcmp(argv[i], "--p0") == 0) {
-			epid_p0 = atof(argv[i + 1]);
+			fatal_error = parse_double(argv[i + 1], &epid_p0);
 			++i;
 		}
 		else if (strcmp(argv[i], "--beta") == 0) {
-			epid_beta = atof(argv[i + 1]);
+			fatal_error = parse_double(argv[i + 1], &epid_beta);
 			++i;
 		}
 		else if (strcmp(argv[i], "--gamma") == 0) {
-			epid_gamma = atof(argv[i + 1]);
+			fatal_error = parse_double(argv[i + 1], &epid_gamma);
 			++i;
 		}
 		else if (strcmp(argv[i], "--seed") == 0) {
-			seed = true;
+			seed_rng = true;
 		}
 		else if (strcmp(argv[i], "--gcc") == 0) {
 			clust_gcc = true;
@@ -425,6 +430,10 @@ int parse_options(int argc, char *argv[]) {
 			cerr << "    See usage with [-h, --help]" << endl;
 			return 2;
 		}
+
+		if (fatal_error) {
+			return 2;
+		}
 	}
 	return 0;
 }
@@ -440,12 +449,12 @@ int main(int argc, char *argv[]) {
 		return 1;
 	}
 	
-	if (model == "none" and from_file == "none") {
+	if (strcmp(model, "none") == 0 and strcmp(from_file, "none") == 0) {
 		cerr << "Error: no model selected nor a file was specified." << endl;
 		cerr << "    Use [-h, --help] to see the usage" << endl;
 		return 1;
 	}
-	if (model != "none" and from_file != "none") {
+	if (strcmp(model, "none") != 0 and strcmp(from_file, "none") != 0) {
 		cerr << "Error: both model and file were specified. Choose only one." << endl;
 		cerr << "    Use [-h, --help] to see the usage" << endl;
 		return 1;
@@ -453,29 +462,29 @@ int main(int argc, char *argv[]) {
 
 	drg = new drandom_generator<>();
 	crg = new crandom_generator<>();
-	if (seed) {
+	if (seed_rng) {
 		drg->seed_random_engine();
 		crg->seed_random_engine();
 	}
 	
 	uugraph Gs;
 
-	if (from_file != "none") {
+	if (strcmp(from_file, "none") != 0) {
 		// read uugraph from file
 		Gs.read_from_file(from_file);
 	}
-	else if (model == "barabasi-albert") {
-		if (variant == "preferential") {
+	else if (strcmp(model, "barabasi-albert") == 0) {
+		if (strcmp(variant, "preferential") == 0) {
 			networks::random::Barabasi_Albert::preferential_attachment(n0, m0, T, drg, Gs);
 		}
-		else if (variant == "random") {
+		else if (strcmp(variant, "random") == 0) {
 			networks::random::Barabasi_Albert::random_attachment(n0, m0, T, drg, Gs);
 		}
-		else if (variant == "no-growth") {
+		else if (strcmp(variant, "no-growth") == 0) {
 			networks::random::Barabasi_Albert::no_vertex_growth(n0, m0, T, drg, Gs);
 		}
 	}
-	else if (model == "erdos-renyi") {
+	else if (strcmp(model, "erdos-renyi") == 0) {
 		networks::random::Erdos_Renyi::erdos_renyi(drg, 0.5, Gs);
 	}
 	
@@ -495,7 +504,7 @@ int main(int argc, char *argv[]) {
 		execute_epidemic_models(Gs);
 	}
 	
-	if (to_file != "none") {
+	if (strcmp(to_file, "none") == 0) {
 		Gs.store_in_file(to_file);
 	}
 	
