@@ -16,7 +16,7 @@ using namespace std;
 namespace csn_utils {
 
 	// Compares two strings
-	int strcmp(const string& s1, const string& s2);
+	int estrcmp(const string& s1, const char *s2);
 
 	char parse_uli(const char *str, unsigned long int *v);
 	char parse_double(const char *str, double *s);

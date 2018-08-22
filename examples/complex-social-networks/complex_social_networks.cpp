@@ -29,7 +29,7 @@ static string model = "none";
 static string variant = "none";
 static string from_file = "none";
 static string to_file = "none";
-	
+
 static size_t n0 = 10;
 static size_t m0 = 5;
 static size_t T = 1;
@@ -252,7 +252,7 @@ void execute_epidemic_models(const uugraph& Gs) {
 	vector<bool> immune(Gs.n_nodes(), false);
 	bool immune_list_read = false;
 
-	if (strcmp(immune_agents_file, "none") == 0) {
+	if (estrcmp(immune_agents_file, "none") == 0) {
 		// read immune agents list, if indicated
 		ifstream fin;
 		fin.open(immune_agents_file.c_str());
@@ -326,6 +326,11 @@ void execute_epidemic_models(const uugraph& Gs) {
 }
 
 int parse_options(int argc, char *argv[]) {
+	if (argc <= 1) {
+		cerr << "Error: no options specifed. Use --help to see the usage" << endl;
+		return 2;
+	}
+
 	for (int i = 1; i < argc; ++i) {
 		char fatal_error = 0;
 
@@ -449,12 +454,12 @@ int main(int argc, char *argv[]) {
 		return 1;
 	}
 	
-	if (strcmp(model, "none") == 0 and strcmp(from_file, "none") == 0) {
+	if (estrcmp(model, "none") == 0 and estrcmp(from_file, "none") == 0) {
 		cerr << "Error: no model selected nor a file was specified." << endl;
 		cerr << "    Use [-h, --help] to see the usage" << endl;
 		return 1;
 	}
-	if (strcmp(model, "none") != 0 and strcmp(from_file, "none") != 0) {
+	if (estrcmp(model, "none") != 0 and estrcmp(from_file, "none") != 0) {
 		cerr << "Error: both model and file were specified. Choose only one." << endl;
 		cerr << "    Use [-h, --help] to see the usage" << endl;
 		return 1;
@@ -469,22 +474,22 @@ int main(int argc, char *argv[]) {
 	
 	uugraph Gs;
 
-	if (strcmp(from_file, "none") != 0) {
+	if (estrcmp(from_file, "none") != 0) {
 		// read uugraph from file
 		Gs.read_from_file(from_file);
 	}
-	else if (strcmp(model, "barabasi-albert") == 0) {
-		if (strcmp(variant, "preferential") == 0) {
+	else if (estrcmp(model, "barabasi-albert") == 0) {
+		if (estrcmp(variant, "preferential") == 0) {
 			networks::random::Barabasi_Albert::preferential_attachment(n0, m0, T, drg, Gs);
 		}
-		else if (strcmp(variant, "random") == 0) {
+		else if (estrcmp(variant, "random") == 0) {
 			networks::random::Barabasi_Albert::random_attachment(n0, m0, T, drg, Gs);
 		}
-		else if (strcmp(variant, "no-growth") == 0) {
+		else if (estrcmp(variant, "no-growth") == 0) {
 			networks::random::Barabasi_Albert::no_vertex_growth(n0, m0, T, drg, Gs);
 		}
 	}
-	else if (strcmp(model, "erdos-renyi") == 0) {
+	else if (estrcmp(model, "erdos-renyi") == 0) {
 		networks::random::Erdos_Renyi::erdos_renyi(drg, 0.5, Gs);
 	}
 	
@@ -504,7 +509,7 @@ int main(int argc, char *argv[]) {
 		execute_epidemic_models(Gs);
 	}
 	
-	if (strcmp(to_file, "none") == 0) {
+	if (estrcmp(to_file, "none") == 0) {
 		Gs.store_in_file(to_file);
 	}
 	

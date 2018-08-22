@@ -2,8 +2,8 @@
 
 namespace csn_utils {
 
-	int strcmp(const string& s1, const string& s2) {
-		return strcmp(s1.c_str(), s2.c_str());
+	int estrcmp(const string& s1, const char *s2) {
+		return strcmp(s1.c_str(), s2);
 	}
 
 	char parse_uli(const char *str, unsigned long int *v) {
