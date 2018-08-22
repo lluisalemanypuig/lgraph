@@ -474,6 +474,9 @@ int main(int argc, char *argv[]) {
 			networks::random::Barabasi_Albert::no_vertex_growth(n0, m0, T, drg, Gs);
 		}
 	}
+	else if (model == "erdos-renyi") {
+		networks::random::Erdos_Renyi::erdos_renyi(drg, 0.5, Gs);
+	}
 	
 	if (apply_switching) {
 		networks::random::switching::switching_model(Q, drg, Gs);
