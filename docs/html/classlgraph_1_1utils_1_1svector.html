@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">lgraph (light-Graph)
-   &#160;<span id="projectnumber">2018/08/09</span>
+   &#160;<span id="projectnumber">2018/08/21</span>
    </div>
    <div id="projectbrief">A light-weight graph library focused on complex and social networks</div>
   </td>
@@ -459,7 +459,9 @@ template&lt;class T , class Alloc &gt; </div>
 </div><div class="memdoc">
 
 <p>Removes the element in the i-th position of this vector. </p>
-<p>Places the element in the <em>i-th</em> position of this vector and then decrements the value of <a class="el" href="classlgraph_1_1utils_1_1svector.html#a7ef963c079c7dc8a6a559ceef81a241f">idx</a>. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Swaps the element in the <em>i-th</em> position with the element in the previous position pointed by <a class="el" href="classlgraph_1_1utils_1_1svector.html#a7ef963c079c7dc8a6a559ceef81a241f">idx</a>. Then decrements the value of <a class="el" href="classlgraph_1_1utils_1_1svector.html#a7ef963c079c7dc8a6a559ceef81a241f">idx</a>.</p>
+<p>When <a class="el" href="classlgraph_1_1utils_1_1svector.html#a7ef963c079c7dc8a6a559ceef81a241f">idx</a> has reached half the total size of the container <a class="el" href="classlgraph_1_1utils_1_1svector.html#a2f7e4bc6e7b3c0ea60359f32e0d84be8">elems</a> the container is resized to a size equal to <a class="el" href="classlgraph_1_1utils_1_1svector.html#a7ef963c079c7dc8a6a559ceef81a241f">idx</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>The index of the element to be removed. </td></tr>
   </table>

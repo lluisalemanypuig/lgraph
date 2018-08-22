@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">lgraph (light-Graph)
-   &#160;<span id="projectnumber">2018/08/09</span>
+   &#160;<span id="projectnumber">2018/08/21</span>
    </div>
    <div id="projectbrief">A light-weight graph library focused on complex and social networks</div>
   </td>
@@ -127,8 +127,11 @@ Collaboration diagram for lgraph::utils::wxgraph&lt; T &gt;:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aaf4bc23e2bc74fd2a28aff2f56c6dbb2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaf4bc23e2bc74fd2a28aff2f56c6dbb2"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1wxgraph.html#aaf4bc23e2bc74fd2a28aff2f56c6dbb2">wxgraph</a> ()</td></tr>
-<tr class="memdesc:aaf4bc23e2bc74fd2a28aff2f56c6dbb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br /></td></tr>
+<tr class="memdesc:aaf4bc23e2bc74fd2a28aff2f56c6dbb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br /></td></tr>
 <tr class="separator:aaf4bc23e2bc74fd2a28aff2f56c6dbb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe83452edd9cb1a0a65d9d247120e6f5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1wxgraph.html#abe83452edd9cb1a0a65d9d247120e6f5">wxgraph</a> (const vector&lt; <a class="el" href="namespacelgraph_1_1utils.html#a0f2ef47028a466d26841709e705390ac">neighbourhood</a> &gt; &amp;adj, const vector&lt; <a class="el" href="namespacelgraph_1_1utils.html#a11e7963f3637ea13778b8d3e69d2c17f">weight_list</a>&lt; T &gt; &gt; &amp;wl, size_t <a class="el" href="classlgraph_1_1utils_1_1xxgraph.html#af3f7c3835406c2cbf70479ae1c0253c9">n_edges</a>)</td></tr>
+<tr class="memdesc:abe83452edd9cb1a0a65d9d247120e6f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with adjacency lists.  <a href="#abe83452edd9cb1a0a65d9d247120e6f5">More...</a><br /></td></tr>
+<tr class="separator:abe83452edd9cb1a0a65d9d247120e6f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a970197826a0b64152fd812929b9038f1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a970197826a0b64152fd812929b9038f1"></a>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlgraph_1_1utils_1_1wxgraph.html#a970197826a0b64152fd812929b9038f1">~wxgraph</a> ()</td></tr>
 <tr class="memdesc:a970197826a0b64152fd812929b9038f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br /></td></tr>
@@ -310,7 +313,52 @@ class lgraph::utils::wxgraph&lt; T &gt;</h3>
   </table>
   </dd>
 </dl>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="abe83452edd9cb1a0a65d9d247120e6f5"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlgraph_1_1utils_1_1wxgraph.html">lgraph::utils::wxgraph</a>&lt; T &gt;::<a class="el" href="classlgraph_1_1utils_1_1wxgraph.html">wxgraph</a> </td>
+          <td>(</td>
+          <td class="paramtype">const vector&lt; <a class="el" href="namespacelgraph_1_1utils.html#a0f2ef47028a466d26841709e705390ac">neighbourhood</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>adj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const vector&lt; <a class="el" href="namespacelgraph_1_1utils.html#a11e7963f3637ea13778b8d3e69d2c17f">weight_list</a>&lt; T &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>wl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n_edges</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor with adjacency lists. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">adj</td><td>The adjacency list of the graph </td></tr>
+    <tr><td class="paramname">wl</td><td>The weights for every edge </td></tr>
+    <tr><td class="paramname">n_edges</td><td>The number of edges in the adjacency list </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="adc945f23e3008ee9ef3f65dc5656e953"></a>
 <div class="memitem">
 <div class="memproto">

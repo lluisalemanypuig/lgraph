@@ -32,7 +32,9 @@ Collaboration diagram for lgraph\+:\+:utils\+:\+:wxgraph$<$ T $>$\+:\nopagebreak
 \item 
 \hyperlink{classlgraph_1_1utils_1_1wxgraph_aaf4bc23e2bc74fd2a28aff2f56c6dbb2}{wxgraph} ()\hypertarget{classlgraph_1_1utils_1_1wxgraph_aaf4bc23e2bc74fd2a28aff2f56c6dbb2}{}\label{classlgraph_1_1utils_1_1wxgraph_aaf4bc23e2bc74fd2a28aff2f56c6dbb2}
 
-\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1wxgraph_abe83452edd9cb1a0a65d9d247120e6f5}{wxgraph} (const vector$<$ \hyperlink{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{neighbourhood} $>$ \&adj, const vector$<$ \hyperlink{namespacelgraph_1_1utils_a11e7963f3637ea13778b8d3e69d2c17f}{weight\+\_\+list}$<$ T $>$ $>$ \&wl, size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1xxgraph_af3f7c3835406c2cbf70479ae1c0253c9}{n\+\_\+edges})
+\begin{DoxyCompactList}\small\item\em Constructor with adjacency lists. \end{DoxyCompactList}\item 
 virtual \hyperlink{classlgraph_1_1utils_1_1wxgraph_a970197826a0b64152fd812929b9038f1}{$\sim$wxgraph} ()\hypertarget{classlgraph_1_1utils_1_1wxgraph_a970197826a0b64152fd812929b9038f1}{}\label{classlgraph_1_1utils_1_1wxgraph_a970197826a0b64152fd812929b9038f1}
 
 \begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
@@ -166,6 +168,31 @@ This class implements the weighted graph data structure based on adjacency lists
 
 \begin{DoxyParams}{Parameters}
 {\em T} & Parameter that indicates the type of the edge weights \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}!wxgraph@{wxgraph}}
+\index{wxgraph@{wxgraph}!lgraph\+::utils\+::wxgraph@{lgraph\+::utils\+::wxgraph}}
+\subsubsection[{\texorpdfstring{wxgraph(const vector$<$ neighbourhood $>$ \&adj, const vector$<$ weight\+\_\+list$<$ T $>$ $>$ \&wl, size\+\_\+t n\+\_\+edges)}{wxgraph(const vector< neighbourhood > &adj, const vector< weight_list< T > > &wl, size_t n_edges)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf lgraph\+::utils\+::wxgraph}$<$ T $>$\+::{\bf wxgraph} (
+\begin{DoxyParamCaption}
+\item[{const vector$<$ {\bf neighbourhood} $>$ \&}]{adj, }
+\item[{const vector$<$ {\bf weight\+\_\+list}$<$ T $>$ $>$ \&}]{wl, }
+\item[{size\+\_\+t}]{n\+\_\+edges}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1wxgraph_abe83452edd9cb1a0a65d9d247120e6f5}{}\label{classlgraph_1_1utils_1_1wxgraph_abe83452edd9cb1a0a65d9d247120e6f5}
+
+
+Constructor with adjacency lists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em adj} & The adjacency list of the graph \\
+\hline
+{\em wl} & The weights for every edge \\
+\hline
+{\em n\+\_\+edges} & The number of edges in the adjacency list \\
 \hline
 \end{DoxyParams}
 

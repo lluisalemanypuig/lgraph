@@ -32,7 +32,11 @@ Collaboration diagram for lgraph\+:\+:utils\+:\+:udgraph\+:\nopagebreak
 \item 
 \hyperlink{classlgraph_1_1utils_1_1udgraph_ac67664542d6a8e674781adc1466905af}{udgraph} ()\hypertarget{classlgraph_1_1utils_1_1udgraph_ac67664542d6a8e674781adc1466905af}{}\label{classlgraph_1_1utils_1_1udgraph_ac67664542d6a8e674781adc1466905af}
 
-\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1udgraph_a4f8b95585600eda6f35e8d67c5c4418c}{udgraph} (const vector$<$ \hyperlink{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{neighbourhood} $>$ \&adj)
+\begin{DoxyCompactList}\small\item\em Constructor with adjacency lists. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1udgraph_a2a259a0f2d4148063b1be717c956b884}{udgraph} (const vector$<$ \hyperlink{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{neighbourhood} $>$ \&adj, size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1xxgraph_af3f7c3835406c2cbf70479ae1c0253c9}{n\+\_\+edges})
+\begin{DoxyCompactList}\small\item\em Constructor with adjacency lists. \end{DoxyCompactList}\item 
 \hyperlink{classlgraph_1_1utils_1_1udgraph_afcdd7cc64bcb8d41ba230742753c6867}{$\sim$udgraph} ()\hypertarget{classlgraph_1_1utils_1_1udgraph_afcdd7cc64bcb8d41ba230742753c6867}{}\label{classlgraph_1_1utils_1_1udgraph_afcdd7cc64bcb8d41ba230742753c6867}
 
 \begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
@@ -132,6 +136,44 @@ size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1xxgraph_a217ebb1cd8946fedfbf94a9b
 Unweighted directed (ud) graphs. 
 
 This class implements the unweighted directed graph data structure based on adjacency lists. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{lgraph\+::utils\+::udgraph@{lgraph\+::utils\+::udgraph}!udgraph@{udgraph}}
+\index{udgraph@{udgraph}!lgraph\+::utils\+::udgraph@{lgraph\+::utils\+::udgraph}}
+\subsubsection[{\texorpdfstring{udgraph(const vector$<$ neighbourhood $>$ \&adj)}{udgraph(const vector< neighbourhood > &adj)}}]{\setlength{\rightskip}{0pt plus 5cm}lgraph\+::utils\+::udgraph\+::udgraph (
+\begin{DoxyParamCaption}
+\item[{const vector$<$ {\bf neighbourhood} $>$ \&}]{adj}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1udgraph_a4f8b95585600eda6f35e8d67c5c4418c}{}\label{classlgraph_1_1utils_1_1udgraph_a4f8b95585600eda6f35e8d67c5c4418c}
+
+
+Constructor with adjacency lists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em adj} & The adjacency list of the graph \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::utils\+::udgraph@{lgraph\+::utils\+::udgraph}!udgraph@{udgraph}}
+\index{udgraph@{udgraph}!lgraph\+::utils\+::udgraph@{lgraph\+::utils\+::udgraph}}
+\subsubsection[{\texorpdfstring{udgraph(const vector$<$ neighbourhood $>$ \&adj, size\+\_\+t n\+\_\+edges)}{udgraph(const vector< neighbourhood > &adj, size_t n_edges)}}]{\setlength{\rightskip}{0pt plus 5cm}lgraph\+::utils\+::udgraph\+::udgraph (
+\begin{DoxyParamCaption}
+\item[{const vector$<$ {\bf neighbourhood} $>$ \&}]{adj, }
+\item[{size\+\_\+t}]{n\+\_\+edges}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1udgraph_a2a259a0f2d4148063b1be717c956b884}{}\label{classlgraph_1_1utils_1_1udgraph_a2a259a0f2d4148063b1be717c956b884}
+
+
+Constructor with adjacency lists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em adj} & The adjacency list of the graph \\
+\hline
+{\em n\+\_\+edges} & The number of edges in the adjacency list \\
+\hline
+\end{DoxyParams}
+
 
 \subsection{Member Function Documentation}
 \index{lgraph\+::utils\+::udgraph@{lgraph\+::utils\+::udgraph}!add\+\_\+edge@{add\+\_\+edge}}

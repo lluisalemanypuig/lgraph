@@ -259,7 +259,11 @@ Returns true if {\itshape v} is in the vector.
 
 Removes the element in the i-\/th position of this vector. 
 
-Places the element in the {\itshape i-\/th} position of this vector and then decrements the value of \hyperlink{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}{idx}. 
+Swaps the element in the {\itshape i-\/th} position with the element in the previous position pointed by \hyperlink{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}{idx}. Then decrements the value of \hyperlink{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}{idx}.
+
+When \hyperlink{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}{idx} has reached half the total size of the container \hyperlink{classlgraph_1_1utils_1_1svector_a2f7e4bc6e7b3c0ea60359f32e0d84be8}{elems} the container is resized to a size equal to \hyperlink{classlgraph_1_1utils_1_1svector_a7ef963c079c7dc8a6a559ceef81a241f}{idx}.
+
+
 \begin{DoxyParams}{Parameters}
 {\em i} & The index of the element to be removed. \\
 \hline

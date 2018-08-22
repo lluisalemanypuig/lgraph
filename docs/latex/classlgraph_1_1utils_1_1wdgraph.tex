@@ -32,7 +32,11 @@ Collaboration diagram for lgraph\+:\+:utils\+:\+:wdgraph$<$ T $>$\+:\nopagebreak
 \item 
 \hyperlink{classlgraph_1_1utils_1_1wdgraph_a5b2ab9227ed3ea23596eebb4b4f397cb}{wdgraph} ()\hypertarget{classlgraph_1_1utils_1_1wdgraph_a5b2ab9227ed3ea23596eebb4b4f397cb}{}\label{classlgraph_1_1utils_1_1wdgraph_a5b2ab9227ed3ea23596eebb4b4f397cb}
 
-\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1wdgraph_aa4af7af163857c281640c0780e5122a4}{wdgraph} (const vector$<$ \hyperlink{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{neighbourhood} $>$ \&adj, const vector$<$ \hyperlink{namespacelgraph_1_1utils_a11e7963f3637ea13778b8d3e69d2c17f}{weight\+\_\+list}$<$ T $>$ $>$ \&wl)
+\begin{DoxyCompactList}\small\item\em Constructor with adjacency lists. \end{DoxyCompactList}\item 
+\hyperlink{classlgraph_1_1utils_1_1wdgraph_a6f71fd55d16900a657aeb161114eccd7}{wdgraph} (const vector$<$ \hyperlink{namespacelgraph_1_1utils_a0f2ef47028a466d26841709e705390ac}{neighbourhood} $>$ \&adj, const vector$<$ \hyperlink{namespacelgraph_1_1utils_a11e7963f3637ea13778b8d3e69d2c17f}{weight\+\_\+list}$<$ T $>$ $>$ \&wl, size\+\_\+t \hyperlink{classlgraph_1_1utils_1_1xxgraph_af3f7c3835406c2cbf70479ae1c0253c9}{n\+\_\+edges})
+\begin{DoxyCompactList}\small\item\em Constructor with adjacency lists. \end{DoxyCompactList}\item 
 \hyperlink{classlgraph_1_1utils_1_1wdgraph_ad5d7319df97007af7f2d6d3bc994c679}{$\sim$wdgraph} ()\hypertarget{classlgraph_1_1utils_1_1wdgraph_ad5d7319df97007af7f2d6d3bc994c679}{}\label{classlgraph_1_1utils_1_1wdgraph_ad5d7319df97007af7f2d6d3bc994c679}
 
 \begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
@@ -159,6 +163,50 @@ This class implements the weighted, directed graph data structure based on adjac
 
 \begin{DoxyParams}{Parameters}
 {\em T} & In case of weighted graphs, this parameter indicates the type of the edge weights \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{lgraph\+::utils\+::wdgraph@{lgraph\+::utils\+::wdgraph}!wdgraph@{wdgraph}}
+\index{wdgraph@{wdgraph}!lgraph\+::utils\+::wdgraph@{lgraph\+::utils\+::wdgraph}}
+\subsubsection[{\texorpdfstring{wdgraph(const vector$<$ neighbourhood $>$ \&adj, const vector$<$ weight\+\_\+list$<$ T $>$ $>$ \&wl)}{wdgraph(const vector< neighbourhood > &adj, const vector< weight_list< T > > &wl)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf lgraph\+::utils\+::wdgraph}$<$ T $>$\+::{\bf wdgraph} (
+\begin{DoxyParamCaption}
+\item[{const vector$<$ {\bf neighbourhood} $>$ \&}]{adj, }
+\item[{const vector$<$ {\bf weight\+\_\+list}$<$ T $>$ $>$ \&}]{wl}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1wdgraph_aa4af7af163857c281640c0780e5122a4}{}\label{classlgraph_1_1utils_1_1wdgraph_aa4af7af163857c281640c0780e5122a4}
+
+
+Constructor with adjacency lists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em adj} & The adjacency list of the graph \\
+\hline
+{\em wl} & The weights for every edge \\
+\hline
+\end{DoxyParams}
+\index{lgraph\+::utils\+::wdgraph@{lgraph\+::utils\+::wdgraph}!wdgraph@{wdgraph}}
+\index{wdgraph@{wdgraph}!lgraph\+::utils\+::wdgraph@{lgraph\+::utils\+::wdgraph}}
+\subsubsection[{\texorpdfstring{wdgraph(const vector$<$ neighbourhood $>$ \&adj, const vector$<$ weight\+\_\+list$<$ T $>$ $>$ \&wl, size\+\_\+t n\+\_\+edges)}{wdgraph(const vector< neighbourhood > &adj, const vector< weight_list< T > > &wl, size_t n_edges)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf lgraph\+::utils\+::wdgraph}$<$ T $>$\+::{\bf wdgraph} (
+\begin{DoxyParamCaption}
+\item[{const vector$<$ {\bf neighbourhood} $>$ \&}]{adj, }
+\item[{const vector$<$ {\bf weight\+\_\+list}$<$ T $>$ $>$ \&}]{wl, }
+\item[{size\+\_\+t}]{n\+\_\+edges}
+\end{DoxyParamCaption}
+)}\hypertarget{classlgraph_1_1utils_1_1wdgraph_a6f71fd55d16900a657aeb161114eccd7}{}\label{classlgraph_1_1utils_1_1wdgraph_a6f71fd55d16900a657aeb161114eccd7}
+
+
+Constructor with adjacency lists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em adj} & The adjacency list of the graph \\
+\hline
+{\em wl} & The weights for every edge \\
+\hline
+{\em n\+\_\+edges} & The number of edges in the adjacency list \\
 \hline
 \end{DoxyParams}
 
