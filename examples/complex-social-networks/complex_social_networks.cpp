@@ -12,6 +12,7 @@ using namespace std;
 #include <lgraph/data_structures/uugraph.hpp>
 #include <lgraph/random_graphs/barabasi_albert.hpp>
 #include <lgraph/random_graphs/switching.hpp>
+#include <lgraph/random_graphs/erdos_renyi.hpp>
 #include <lgraph/metrics/centralities.hpp>
 #include <lgraph/metrics/clustering.hpp>
 #include <lgraph/metrics/distance.hpp>
