@@ -57,7 +57,9 @@ class udgraph : public uxgraph {
 
 		// MODIFIERS
 
+		using uxgraph::add_edge;
 		void add_edge(node u, node v);
+		using uxgraph::remove_edge;
 		void remove_edge(node u, node v);
 		void remove_node(node u);
 
