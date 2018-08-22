@@ -35,6 +35,8 @@ HEADERS += \
         random_graphs/ba_no_vertex_growth.cpp \
     random_graphs/switching.hpp \
         random_graphs/switching.cpp \
+    random_graphs/erdos_renyi.hpp \
+        random_graphs/erdos_renyi.cpp \
     metrics/clustering.hpp \
         metrics/wclustering.cpp \
     metrics/distance.hpp \
