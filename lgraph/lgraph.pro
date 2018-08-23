@@ -29,14 +29,14 @@ HEADERS += \
         data_structures/crandom_generator.cpp \
     data_structures/svector.hpp \
         data_structures/svector.cpp \
-    random_graphs/barabasi_albert.hpp \
-        random_graphs/ba_preferential_attachment.cpp \
-        random_graphs/ba_random_attachment.cpp \
-        random_graphs/ba_no_vertex_growth.cpp \
-    random_graphs/switching.hpp \
-        random_graphs/switching.cpp \
-    random_graphs/erdos_renyi.hpp \
-        random_graphs/erdos_renyi.cpp \
+    generate_graphs/social/random/barabasi_albert.hpp \
+        generate_graphs/social/random/ba_preferential_attachment.cpp \
+        generate_graphs/social/random/ba_random_attachment.cpp \
+        generate_graphs/social/random/ba_no_vertex_growth.cpp \
+    generate_graphs/switching.hpp \
+        generate_graphs/switching.cpp \
+    generate_graphs/classic/random/erdos_renyi.hpp \
+        generate_graphs/classic/random/erdos_renyi.cpp \
     metrics/clustering.hpp \
         metrics/wclustering.cpp \
     metrics/distance.hpp \

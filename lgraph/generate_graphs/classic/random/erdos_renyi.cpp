@@ -1,4 +1,4 @@
-#include <lgraph/random_graphs/erdos_renyi.hpp>
+#include <lgraph/generate_graphs/classic/random/erdos_renyi.hpp>
 
 namespace lgraph {
 namespace networks {

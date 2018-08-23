@@ -55,4 +55,4 @@ using namespace utils;
 } // -- namespace networks
 } // -- namespace lgraph
 
-#include <lgraph/random_graphs/erdos_renyi.cpp>
+#include <lgraph/generate_graphs/classic/random/erdos_renyi.cpp>
