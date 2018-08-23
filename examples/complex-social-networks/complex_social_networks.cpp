@@ -480,21 +480,21 @@ int main(int argc, char *argv[]) {
 	}
 	else if (estrcmp(model, "barabasi-albert") == 0) {
 		if (estrcmp(variant, "preferential") == 0) {
-			networks::random::Barabasi_Albert::preferential_attachment(n0, m0, T, drg, Gs);
+			networks::random::Barabasi_Albert::preferential_attachment(drg, n0, m0, T, Gs);
 		}
 		else if (estrcmp(variant, "random") == 0) {
-			networks::random::Barabasi_Albert::random_attachment(n0, m0, T, drg, Gs);
+			networks::random::Barabasi_Albert::random_attachment(drg, n0, m0, T, Gs);
 		}
 		else if (estrcmp(variant, "no-growth") == 0) {
-			networks::random::Barabasi_Albert::no_vertex_growth(n0, m0, T, drg, Gs);
+			networks::random::Barabasi_Albert::no_vertex_growth(drg, n0, m0, T, Gs);
 		}
 	}
 	else if (estrcmp(model, "erdos-renyi") == 0) {
-		networks::random::Erdos_Renyi::erdos_renyi(drg, 0.5, Gs);
+		networks::random::Erdos_Renyi::erdos_renyi(drg, 100, 0.5, Gs);
 	}
 	
 	if (apply_switching) {
-		networks::random::switching::switching_model(Q, drg, Gs);
+		networks::random::switching::switching_model(drg, Q, Gs);
 	}
 
 	cout << "Resulting network:" << endl;
