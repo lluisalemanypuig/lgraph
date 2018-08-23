@@ -50,8 +50,8 @@ using namespace utils;
 		typename dT = size_t
 	>
 	void preferential_attachment(
-		size_t n0, size_t m0, size_t T,
 		drandom_generator<G,dT> *rg,
+		size_t n0, size_t m0, size_t T,
 		uugraph& Gs
 	);
 	
@@ -75,8 +75,8 @@ using namespace utils;
 		typename dT = size_t
 	>
 	void random_attachment(
-		size_t n0, size_t m0, size_t T,
 		drandom_generator<G,dT> *rg,
+		size_t n0, size_t m0, size_t T,
 		uugraph& Gs
 	);
 	
@@ -108,8 +108,8 @@ using namespace utils;
 		typename dT = size_t
 	>
 	void no_vertex_growth(
-		size_t n0, size_t m0, size_t T,
 		drandom_generator<G,dT> *rg,
+		size_t n0, size_t m0, size_t T,
 		uugraph& Gs
 	);
 

@@ -8,9 +8,8 @@ namespace Barabasi_Albert {
 	template<class G, typename dT>
 	void random_attachment
 	(
-		size_t n0, size_t m0,
-		size_t T,
 		drandom_generator<G,dT> *rg,
+		size_t n0, size_t m0, size_t T,
 		uugraph& Gs
 	)
 	{

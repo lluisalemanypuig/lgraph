@@ -49,7 +49,7 @@ using namespace utils;
 		class G = default_random_engine,
 		typename dT = size_t
 	>
-	void switching_model(size_t Q, drandom_generator<G,dT> *rg, uugraph& Gs);
+	void switching_model(drandom_generator<G,dT> *rg, size_t Q, uugraph& Gs);
 
 } // -- namespace switching
 } // -- namespace random
