@@ -28,8 +28,9 @@ namespace Erdos_Renyi {
 using namespace utils;
 
 	/**
-	 * @brief Constructs a graph following the Erdos-Renyi model
+	 * @brief Constructs the random graph G{n,p}
 	 *
+	 * @param[in]	N Number of nodes of the graph
 	 * @param[in]	p Probability of making an edge
 	 * @param[in]  rg The RNG used to select the nodes for endpoint exchange
 	 * @param[out] Gs The binomial graph constructed
@@ -38,7 +39,7 @@ using namespace utils;
 		class G = default_random_engine,
 		typename dT = size_t
 	>
-	void erdos_renyi(drandom_generator<G,dT> *rg, double p, uugraph& Gs);
+	void erdos_renyi(drandom_generator<G,dT> *rg, size_t N, double p, uugraph& Gs);
 
 } // -- namespace Erdos_Renyi
 } // -- namespace random

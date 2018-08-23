@@ -6,7 +6,8 @@ namespace random {
 namespace Erdos_Renyi {
 
 	template<class G, typename dT>
-	void erdos_renyi(drandom_generator<G,dT> *rg, double p, uugraph& Gs) {
+	void erdos_renyi(drandom_generator<G,dT> *rg, size_t N, double p, uugraph& Gs) {
+		Gs.init(N);
 
 	}
 
