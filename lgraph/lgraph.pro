@@ -29,6 +29,7 @@ HEADERS += \
         data_structures/crandom_generator.cpp \
     data_structures/svector.hpp \
         data_structures/svector.cpp \
+    generate_graphs/classic/complete.hpp \
     generate_graphs/social/random/barabasi_albert.hpp \
         generate_graphs/social/random/ba_preferential_attachment.cpp \
         generate_graphs/social/random/ba_random_attachment.cpp \
@@ -73,6 +74,7 @@ SOURCES += \
     graph_traversal/dfs.cpp \
     graph_traversal/uxdistances.cpp \
     graph_traversal/uxpaths.cpp \
-    graph_traversal/uxpaths_boolean.cpp
+    graph_traversal/uxpaths_boolean.cpp \
+    generate_graphs/classic/complete.cpp
 
 
