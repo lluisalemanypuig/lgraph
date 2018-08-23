@@ -19,19 +19,20 @@ using namespace std;
 #include <lgraph/utils/logger.hpp>
 
 namespace lgraph {
-namespace networks {
-namespace classic {
 using namespace utils;
 
+namespace networks {
+namespace classic {
+
 	/**
-	 * @brief Generate a complete graph of @e N nodes
+	 * @brief Generate an undirected complete graph of @e N nodes
 	 * @param N Number of nodes
 	 * @param[out] Gs Generated complete undirected graph
 	 */
 	void complete_graph(size_t N, uugraph& Gs);
 
 	/**
-	 * @brief Generate a complete graph of @e N nodes
+	 * @brief Generate a directed complete graph of @e N nodes
 	 * @param N Number of nodes
 	 * @param[out] Gs Generated complete directed graph
 	 */

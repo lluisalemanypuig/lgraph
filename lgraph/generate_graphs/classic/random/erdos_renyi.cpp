@@ -4,7 +4,6 @@ namespace lgraph {
 namespace networks {
 namespace classic {
 namespace random {
-namespace Erdos_Renyi {
 
 	template<class G, typename cT>
 	void erdos_renyi(crandom_generator<G,cT> *rg, size_t N, double p, uugraph& Gs) {
@@ -41,7 +40,6 @@ namespace Erdos_Renyi {
 	}
 
 
-} // -- namespace Erdos_Renyi
 } // -- namespace random
 } // -- namespace classic
 } // -- namespace networks

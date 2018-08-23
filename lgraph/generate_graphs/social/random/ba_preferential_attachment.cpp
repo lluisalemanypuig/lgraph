@@ -2,8 +2,8 @@
 
 namespace lgraph {
 namespace networks {
+namespace social {
 namespace random {
-namespace Barabasi_Albert {
 	
 	// private namespace for the no growth variant
 	namespace _pa {
@@ -134,7 +134,7 @@ namespace Barabasi_Albert {
 	}
 	
 	template<class G, typename dT>
-	void preferential_attachment
+	void BA_preferential_attachment
 	(
 		drandom_generator<G,dT> *rg,
 		size_t n0, size_t m0, size_t T,
@@ -184,9 +184,9 @@ namespace Barabasi_Albert {
 			stubs.insert(stubs.end(), m0, u);
 		}
 	}
-	
-} // -- namespace Barabasi_Albert
+
 } // -- namespace random
+} // -- namespace social
 } // -- namespace networks
 } // -- namespace lgraph
 

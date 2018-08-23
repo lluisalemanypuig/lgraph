@@ -15,23 +15,14 @@ using namespace std;
 #include <lgraph/utils/logger.hpp>
 
 namespace lgraph {
-namespace networks {
-namespace random {
-
-/**
- * @brief Implementation of a number of variants of the Barabasi-Albert model.
- *
- * These variants are:
- *	* Preferential Attachment
- *	* Random Attachment
- *	* No growth variant
- */
-namespace Barabasi_Albert {
-
 using namespace utils;
 
+namespace networks {
+namespace social {
+namespace random {
+
 	/**
-	 * @brief Barabasi-Albert model: Preferentail attachment variant
+	 * @brief Barabasi-Albert model: Preferential attachment variant
 	 *
 	 * Builds a graph with @e n0 + @e T vertices. The first step is to build an
 	 * empty graph with @e n0 vertices.
@@ -51,7 +42,7 @@ using namespace utils;
 		class G = default_random_engine,
 		typename dT = size_t
 	>
-	void preferential_attachment(
+	void BA_preferential_attachment(
 		drandom_generator<G,dT> *rg,
 		size_t n0, size_t m0, size_t T,
 		uugraph& Gs
@@ -60,7 +51,7 @@ using namespace utils;
 	/**
 	 * @brief Barabasi-Albert model: Random attachment variant
 	 *
-	 * Similar to the @ref preferential_attachment model.
+	 * Similar to the @ref BA_preferential_attachment model.
 	 *
 	 *
 	 * However, at each step, the m0 connections are made with
@@ -78,7 +69,7 @@ using namespace utils;
 		class G = default_random_engine,
 		typename dT = size_t
 	>
-	void random_attachment(
+	void BA_random_attachment(
 		drandom_generator<G,dT> *rg,
 		size_t n0, size_t m0, size_t T,
 		uugraph& Gs
@@ -87,7 +78,7 @@ using namespace utils;
 	/**
 	 * @brief Barabasi-Albert model: No vertex growth variant
 	 *
-	 * Similar to the @ref preferential_attachment model. This time, it
+	 * Similar to the @ref BA_preferential_attachment model. This time, it
 	 * differs from it in that the initial graph has the same number of
 	 * vertices as the final graph: @e n0.
 	 *
@@ -113,14 +104,14 @@ using namespace utils;
 		class G = default_random_engine,
 		typename dT = size_t
 	>
-	void no_vertex_growth(
+	void BA_no_vertex_growth(
 		drandom_generator<G,dT> *rg,
 		size_t n0, size_t m0, size_t T,
 		uugraph& Gs
 	);
 
-} // -- namespace Barabasi_Albert
 } // -- namespace random
+} // -- namespace social
 } // -- namespace networks
 } // -- namespace lgraph
 

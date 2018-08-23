@@ -15,17 +15,10 @@ using namespace std;
 #include <lgraph/utils/logger.hpp>
 
 namespace lgraph {
-namespace networks {
-namespace random {
-
-/**
- * @brief Switching model algorithm
- *
- * So far implemented only on undirected unweighted graphs.
- */
-namespace switching {
-
 using namespace utils;
+
+namespace networks {
+namespace modify {
 
 	/**
 	 * @brief Applies the switching model to an undirected unweighted graph
@@ -53,8 +46,7 @@ using namespace utils;
 	>
 	void switching_model(drandom_generator<G,dT> *rg, size_t Q, uugraph& Gs);
 
-} // -- namespace switching
-} // -- namespace random
+} // -- namespace modify
 } // -- namespace networks
 } // -- namespace lgraph
 

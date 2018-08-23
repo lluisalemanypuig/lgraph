@@ -2,11 +2,11 @@
 
 namespace lgraph {
 namespace networks {
+namespace social {
 namespace random {
-namespace Barabasi_Albert {
 	
 	template<class G, typename dT>
-	void random_attachment
+	void BA_random_attachment
 	(
 		drandom_generator<G,dT> *rg,
 		size_t n0, size_t m0, size_t T,
@@ -53,9 +53,9 @@ namespace Barabasi_Albert {
 			idxs.push_back(u);
 		}
 	}
-	
-} // -- namespace Barabasi_Albert
+
 } // -- namespace random
+} // -- namespace social
 } // -- namespace networks
 } // -- namespace lgraph
 

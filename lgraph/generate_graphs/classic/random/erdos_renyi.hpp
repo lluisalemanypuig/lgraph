@@ -17,18 +17,11 @@ using namespace std;
 #include <lgraph/utils/logger.hpp>
 
 namespace lgraph {
+using namespace utils;
+
 namespace networks {
 namespace classic {
 namespace random {
-
-/**
- * @brief Erdos-Renyi model of graphs
- *
- * Also known as binomial graphs
- */
-namespace Erdos_Renyi {
-
-using namespace utils;
 
 	/**
 	 * @brief Constructs the random graph G{n,p}
@@ -52,7 +45,6 @@ using namespace utils;
 	>
 	void erdos_renyi(crandom_generator<G,cT> *rg, size_t N, double p, uugraph& Gs);
 
-} // -- namespace Erdos_Renyi
 } // -- namespace random
 } // -- namespace classic
 } // -- namespace networks

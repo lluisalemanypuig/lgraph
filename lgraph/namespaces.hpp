@@ -27,7 +27,22 @@ namespace lgraph {
 
 	/// Methods to be applied to networks
 	namespace networks {
-
+		
+		/// Algorithms to generate social networks
+		namespace social {
+			/// Algorithms to generate random social networks
+			namespace random {}
+		}
+		
+		/// Algorithms to generate classic networks
+		namespace classic {
+			/// Algorithms to generate random classic networks
+			namespace random {}
+		}
+		
+		/// Algorithms for modifying already existing networks
+		namespace modify {}
+		
 		/// Epidemic algorithms
 		namespace epidemics {}
 

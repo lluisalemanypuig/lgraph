@@ -2,8 +2,8 @@
 
 namespace lgraph {
 namespace networks {
+namespace social {
 namespace random {
-namespace Barabasi_Albert {
 	
 	// private namespace for the no growth variant
 	namespace _ng {
@@ -207,7 +207,7 @@ namespace Barabasi_Albert {
 	}
 	
 	template<class G, typename dT>
-	void no_vertex_growth
+	void BA_no_vertex_growth
 	(
 		drandom_generator<G,dT> *rg,
 		size_t n0, size_t m0, size_t T,
@@ -260,9 +260,9 @@ namespace Barabasi_Albert {
 			}
 		}
 	}
-	
-} // -- namespace Barabasi_Albert
+
 } // -- namespace random
+} // -- namespace social
 } // -- namespace networks
 } // -- namespace lgraph
 

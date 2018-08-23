@@ -2,8 +2,7 @@
 
 namespace lgraph {
 namespace networks {
-namespace random {
-namespace switching {
+namespace modify {
 	
 	// private namespace for the switching model
 	namespace _switching {
@@ -174,8 +173,7 @@ namespace switching {
 	}
 
 
-} // -- namespace switching
-} // -- namespace random
+} // -- namespace modify
 } // -- namespace networks
 } // -- namespace lgraph
 
