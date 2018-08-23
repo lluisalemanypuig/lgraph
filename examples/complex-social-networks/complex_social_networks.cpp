@@ -18,35 +18,43 @@ using namespace std;
 #include <lgraph/metrics/distance.hpp>
 #include <lgraph/epidemics/models.hpp>
 using namespace lgraph;
-using namespace networks;
-using namespace utils;
 
 #include "csn_utils.hpp"
 using namespace csn_utils;
 
 // <Global variables (only used here)>
+
+// -- social random graphs
 static string model = "none";
 static string variant = "none";
 static string from_file = "none";
 static string to_file = "none";
 
+// barabasi-albert parameters
 static size_t n0 = 10;
 static size_t m0 = 5;
 static size_t T = 1;
 
+// -- classic random graphs
+// erdos-renyi
+static double p = 0.5;
+static size_t N = 10;
+
+// switching algorithm parameters
 static bool apply_switching = false;
 static size_t Q = 1;
 
+// metrics of centrality, distance, clustering
 static bool clust_gcc = false;
 static bool clust_mlcc = false;
 static bool dist_mgc = false;
 static bool dist_diam = false;
 static bool dist_mcc = false;
-
 static bool cent_degree = false;
 static bool cent_closeness = false;
 static bool cent_betweenness = false;
 
+// epidemics parameters
 static bool epid_sir = false;
 static bool epid_sis = false;
 static double epid_p0 = 0.5;
@@ -55,8 +63,8 @@ static double epid_beta = 0.5;
 static size_t epid_T = 1;
 static string immune_agents_file = "none";
 
+// RNG parameters
 static bool seed_rng = false;
-
 static drandom_generator<> *drg;
 static crandom_generator<> *crg;
 // </Global variables>
@@ -77,10 +85,7 @@ void print_usage() {
 	cout << "        -ra: Generate Barabasi-Albert model with random attachment" << endl;
 	cout << "        -ng: Generate Barabasi-Albert model without vertex growth" << endl;
 	cout << endl;
-	cout << "    Modification of the generated network:" << endl;
-	cout << "        -sw: Apply the Switching model on the generated network" << endl;
-	cout << endl;
-	cout << "    Barabasi-Albert model configuration parameters:" << endl;
+	cout << "        Model configuration parameters:" << endl;
 	cout << "        --T:  Number of steps of the simulation" << endl;
 	cout << "              Default: 1" << endl;
 	cout << "        --n0: Initial number of vertices" << endl;
@@ -88,7 +93,19 @@ void print_usage() {
 	cout << "        --m0: Number of edges added at each step" << endl;
 	cout << "              Default: 5" << endl;
 	cout << endl;
-	cout << "    Switching model configuration parameters:" << endl;
+	cout << "    --erdos-renyi: generate a random graph following the Erdos & Renyi's model, also" << endl;
+	cout << "        known as binomial graphs, and G_{n,p}" << endl;
+	cout << endl;
+	cout << "        Model configuration parameters:" << endl;
+	cout << "        --p:  Probability of creating an edge" << endl;
+	cout << "              Default: 0.5" << endl;
+	cout << "        --N:  Number of nodes of the graph" << endl;
+	cout << "              Default: 10" << endl;
+	cout << endl;
+	cout << "    Modification of the generated network:" << endl;
+	cout << "        -sw: Apply the Switching model on the generated network" << endl;
+	cout << endl;
+	cout << "        Model configuration parameters:" << endl;
 	cout << "        --Q:  The switching model will run for Q*|E| steps." << endl;
 	cout << "              Default: 1" << endl;
 	cout << endl;
@@ -101,7 +118,7 @@ void print_usage() {
 	cout << "    --mcc: mean closeness centrality" << endl;
 	cout << endl;
 	cout << endl;
-	cout << "* Evaluate importance of nodes:" << endl;
+	cout << "* Evaluating importance of nodes:" << endl;
 	cout << "    --dc: degree centrality" << endl;
 	cout << "    --cc: closeness centrality" << endl;
 	cout << "    --bt: betweenness centrality" << endl;
@@ -349,6 +366,9 @@ int parse_options(int argc, char *argv[]) {
 		else if (strcmp(argv[i], "--barabasi-albert") == 0) {
 			model = "barabasi-albert";
 		}
+		else if (strcmp(argv[i], "--erdos-renyi") == 0) {
+			model = "erdos-renyi";
+		}
 		else if (strcmp(argv[i], "-pa") == 0) {
 			variant = "preferential";
 		}
@@ -391,6 +411,14 @@ int parse_options(int argc, char *argv[]) {
 		}
 		else if (strcmp(argv[i], "--gamma") == 0) {
 			fatal_error = parse_double(argv[i + 1], &epid_gamma);
+			++i;
+		}
+		else if (strcmp(argv[i], "--p") == 0) {
+			fatal_error = parse_double(argv[i + 1], &p);
+			++i;
+		}
+		else if (strcmp(argv[i], "--N") == 0) {
+			fatal_error = parse_uli(argv[i + 1], &N);
 			++i;
 		}
 		else if (strcmp(argv[i], "--seed") == 0) {
@@ -490,7 +518,7 @@ int main(int argc, char *argv[]) {
 		}
 	}
 	else if (estrcmp(model, "erdos-renyi") == 0) {
-		networks::random::Erdos_Renyi::erdos_renyi(drg, 100, 0.5, Gs);
+		networks::random::Erdos_Renyi::erdos_renyi(crg, N, p, Gs);
 	}
 	
 	if (apply_switching) {
@@ -498,6 +526,7 @@ int main(int argc, char *argv[]) {
 	}
 
 	cout << "Resulting network:" << endl;
+	cout << "Number of edges: " << Gs.n_edges() << endl;
 	cout << Gs << endl;
 	cout << endl;
 	
