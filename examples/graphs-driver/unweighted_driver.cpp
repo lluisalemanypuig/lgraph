@@ -33,6 +33,20 @@ namespace graph_driver {
 		cout << endl;
 		cout << "    * get-edges: prints the list of edges." << endl;
 		cout << endl;
+		cout << "    -----------------------------------" << endl;
+		cout << "    Classic graphs:" << endl;
+		cout << "    * complete-graph N: make a complete graph of N vertices" << endl;
+		cout << endl;
+		cout << "    * linear-tree N (orientation): make a linear tree of N vertices" << endl;
+		cout << "        If the graph is directed indicate the orientation with an integer" << endl;
+		cout << "        from 1 to 3 for clockwise, counter-clockwise, or both orientations" << endl;
+		cout << "        respectively." << endl;
+		cout << endl;
+		cout << "    * cycle-graph N (orientation): make a cycle graph of N vertices" << endl;
+		cout << "        If the graph is directed indicate the orientation with an integer" << endl;
+		cout << "        from 1 to 3 for clockwise, counter-clockwise, or both orientations" << endl;
+		cout << "        respectively." << endl;
+		cout << endl;
 		cout << "---------------------------------------" << endl;
 		cout << "PATHS IN A GRAPH" << endl;
 		cout << endl;
@@ -148,6 +162,43 @@ namespace graph_driver {
 					cout << "(" << e.first << "," << e.second << ")" << endl;
 				}
 				cout << endl;
+			}
+			else if (option == "complete-graph") {
+				size_t N;
+				cin >> N;
+
+				if (G->is_directed()) {
+					networks::classic::complete_graph(N, *(static_cast<udgraph *>(G)));
+				}
+				else {
+					networks::classic::complete_graph(N, *(static_cast<uugraph *>(G)));
+				}
+			}
+			else if (option == "linear-tree") {
+				size_t N;
+				cin >> N;
+
+				if (G->is_directed()) {
+					int d;
+					cin >> d;
+					networks::classic::linear_tree(N, *(static_cast<udgraph *>(G)), static_cast<uint8_t>(d));
+				}
+				else {
+					networks::classic::linear_tree(N, *(static_cast<uugraph *>(G)));
+				}
+			}
+			else if (option == "cycle-graph") {
+				size_t N;
+				cin >> N;
+
+				if (G->is_directed()) {
+					int d;
+					cin >> d;
+					networks::classic::cycle(N, *(static_cast<udgraph *>(G)), static_cast<uint8_t>(d));
+				}
+				else {
+					networks::classic::cycle(N, *(static_cast<uugraph *>(G)));
+				}
 			}
 			else if (option == "find-one-st-path") {
 				node u,v;
