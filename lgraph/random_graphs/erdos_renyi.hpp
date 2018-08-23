@@ -41,6 +41,8 @@ using namespace utils;
 	 * @param[in]	p Probability of making an edge
 	 * @param[in]  rg The RNG used to generate floating point numbers
 	 * @param[out] Gs The binomial graph constructed
+	 *
+	 * @pre Seeding the RNG is done before valling the function.
 	 */
 	template<
 		class G = default_random_engine,

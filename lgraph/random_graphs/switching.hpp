@@ -43,7 +43,9 @@ using namespace utils;
 	 * where |E| is the number of edges in the graph
 	 * @param[in]  rg The RNG used to select the nodes for endpoint exchange
 	 * @param[out] Gs The graph on which the switching model is applied.
+	 *
 	 * @pre The graph on which to apply the model must have at least two edges.
+	 * Also, seeding the RNG is done before valling the function.
 	 */
 	template<
 		class G = default_random_engine,

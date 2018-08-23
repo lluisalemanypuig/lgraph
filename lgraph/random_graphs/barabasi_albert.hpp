@@ -44,6 +44,8 @@ using namespace utils;
 	 * @param[in] T The number of steps of the algorithm
 	 * @param[in] rg The random number generator used
 	 * @param[out] Gs The resulting graph following this Barabasi-Albert model variant
+	 *
+	 * @pre Seeding the RNG is done before valling the function.
 	 */
 	template<
 		class G = default_random_engine,
@@ -69,6 +71,8 @@ using namespace utils;
 	 * @param[in] T The number of steps of the algorithm
 	 * @param[in] rg The random number generator used
 	 * @param[out] Gs The resulting graph following this Barabasi-Albert model variant
+	 *
+	 * @pre Seeding the RNG is done before valling the function.
 	 */
 	template<
 		class G = default_random_engine,
@@ -102,6 +106,8 @@ using namespace utils;
 	 * @param[in] T The number of steps of the algorithm
 	 * @param[in] rg The random number generator used
 	 * @param[out] Gs The resulting graph following this Barabasi-Albert model variant
+	 *
+	 * @pre Seeding the RNG is done before valling the function.
 	 */
 	template<
 		class G = default_random_engine,
