@@ -1,4 +1,4 @@
-#include "complete.hpp"
+#include "classic.hpp"
 
 namespace lgraph {
 namespace networks {
@@ -19,7 +19,10 @@ namespace classic {
 
 		for (node u = 0; u < N; ++u) {
 			for (node v = 0; v < N; ++v) {
-				Gs.add_edge(u,v);
+				if (u != v) {
+					// self-loops are not allowed
+					Gs.add_edge(u,v);
+				}
 			}
 		}
 	}

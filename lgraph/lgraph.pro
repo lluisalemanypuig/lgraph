@@ -29,15 +29,15 @@ HEADERS += \
         data_structures/crandom_generator.cpp \
     data_structures/svector.hpp \
         data_structures/svector.cpp \
-    generate_graphs/classic/complete.hpp \
+    generate_graphs/classic/classic.hpp \
+    generate_graphs/classic/random/erdos_renyi.hpp \
+        generate_graphs/classic/random/erdos_renyi.cpp \
     generate_graphs/social/random/barabasi_albert.hpp \
         generate_graphs/social/random/ba_preferential_attachment.cpp \
         generate_graphs/social/random/ba_random_attachment.cpp \
         generate_graphs/social/random/ba_no_vertex_growth.cpp \
     generate_graphs/switching.hpp \
         generate_graphs/switching.cpp \
-    generate_graphs/classic/random/erdos_renyi.hpp \
-        generate_graphs/classic/random/erdos_renyi.cpp \
     metrics/clustering.hpp \
         metrics/wclustering.cpp \
     metrics/distance.hpp \
@@ -75,6 +75,8 @@ SOURCES += \
     graph_traversal/uxdistances.cpp \
     graph_traversal/uxpaths.cpp \
     graph_traversal/uxpaths_boolean.cpp \
-    generate_graphs/classic/complete.cpp
+    generate_graphs/classic/complete.cpp \
+    generate_graphs/classic/cycle.cpp \
+    generate_graphs/classic/linear_tree.cpp
 
 
