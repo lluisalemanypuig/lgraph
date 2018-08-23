@@ -13,10 +13,12 @@ using namespace std;
 // Custom includes
 #include <lgraph/data_structures/random_generator.hpp>
 #include <lgraph/data_structures/uugraph.hpp>
+#include <lgraph/generate_graphs/classic/complete.hpp>
 #include <lgraph/utils/logger.hpp>
 
 namespace lgraph {
 namespace networks {
+namespace classic {
 namespace random {
 
 /**
@@ -52,6 +54,7 @@ using namespace utils;
 
 } // -- namespace Erdos_Renyi
 } // -- namespace random
+} // -- namespace classic
 } // -- namespace networks
 } // -- namespace lgraph
 

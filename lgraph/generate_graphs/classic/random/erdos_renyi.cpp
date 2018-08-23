@@ -2,11 +2,23 @@
 
 namespace lgraph {
 namespace networks {
+namespace classic {
 namespace random {
 namespace Erdos_Renyi {
 
 	template<class G, typename cT>
 	void erdos_renyi(crandom_generator<G,cT> *rg, size_t N, double p, uugraph& Gs) {
+		if (p == 0.0) {
+			// empty graph
+			Gs.init(0);
+			return;
+		}
+		if (p == 1.0) {
+			// complete graph
+			complete_graph(N, Gs);
+			return;
+		}
+
 		Gs.init(N);
 		rg->init_uniform(0, 1);
 
@@ -31,6 +43,7 @@ namespace Erdos_Renyi {
 
 } // -- namespace Erdos_Renyi
 } // -- namespace random
+} // -- namespace classic
 } // -- namespace networks
 } // -- namespace lgraph
 
