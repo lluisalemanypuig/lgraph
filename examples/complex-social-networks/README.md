@@ -8,6 +8,7 @@ It includes a few algorithms for Complex and Social Networks:
 		- Preferential attachment
 		- Random attachment
 		- No vertex growth
+	- Erdos-Renyi model
 
 + To modify networks:
 	- Switching model
@@ -51,7 +52,12 @@ Barabási-Albert model with Preferential Attachment, issue the specified command
 The other variants of the same model can be found in the usage.
 	
 		./csn --seed --barabasi-albert -pa --n0 10 --m0 4 --T 20
-	
+
+In order to generate a graph following the Erdos & Renyi's model issue the
+with 100 nodes and probability 0.5 issue the following command:
+
+		./csn --seed --erdos-renyi --N 100 --p 0.5
+
 3. Applying the switching model to a network: use the option -sw and give
 a value to Q to determine the number of steps of the switching model algorithm.
 	

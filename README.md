@@ -11,18 +11,17 @@ The documentation can be generated using Doxygen (version >= 1.8.11) by ussing t
 		cd /path/to/the/repository
 		doxygen doxygen/doxyconfig
 
-However, the files have already been generated and can be found
-[here](https://github.com/lluisalemanypuig/lgraph/tree/master/docs/).
-
 ## Contents of the repository
 
 Apart from the library with the algorithms, there are several examples showing how to use the library:
 
-- examples/complex-social-networks: contains a small project that compiles a simple driver for generating
+- [examples/complex-social-networks](https://github.com/lluisalemanypuig/lgraph/tree/master/examples/complex-social-networks):
+contains a small project that compiles a simple driver for generating
 social networks. The ones available are the ones specified in the lgraph::networks::random namespace
-(several variants of the Barabasi-Albert model and the Switching model).
+(several variants of the Barabasi-Albert model, the Switching model, and others).
 
-- examples/path-finding: contains examples on how to use all the different path-finding functions
+- [examples/path-finding](https://github.com/lluisalemanypuig/lgraph/tree/master/examples/path-finding):
+contains examples on how to use all the different path-finding functions
 implemented. Shortest path in unweighted and weighted graphs between two pairs of nodes, adhoc
 algorithms for finding shortest paths between a given node and all the other nodes in the graph,
 and between any pair of nodes.
