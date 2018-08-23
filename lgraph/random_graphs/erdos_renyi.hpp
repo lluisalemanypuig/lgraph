@@ -7,6 +7,7 @@
 #include <iomanip>
 #include <random>
 #include <vector>
+#include <cmath>
 using namespace std;
 
 // Custom includes
@@ -30,16 +31,22 @@ using namespace utils;
 	/**
 	 * @brief Constructs the random graph G{n,p}
 	 *
+	 * The implementation follows the algorithm in [1].
+	 *
+	 * [1] Vladimir Batagelj and Ulrik Brandes,
+	 * "Efficient generation of large random networks",
+	 * Phys. Rev. E, 71, 036113, 2005.
+	 *
 	 * @param[in]	N Number of nodes of the graph
 	 * @param[in]	p Probability of making an edge
-	 * @param[in]  rg The RNG used to select the nodes for endpoint exchange
+	 * @param[in]  rg The RNG used to generate floating point numbers
 	 * @param[out] Gs The binomial graph constructed
 	 */
 	template<
 		class G = default_random_engine,
-		typename dT = size_t
+		typename cT = float
 	>
-	void erdos_renyi(drandom_generator<G,dT> *rg, size_t N, double p, uugraph& Gs);
+	void erdos_renyi(crandom_generator<G,cT> *rg, size_t N, double p, uugraph& Gs);
 
 } // -- namespace Erdos_Renyi
 } // -- namespace random
