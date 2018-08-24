@@ -4,7 +4,7 @@ namespace lgraph {
 namespace networks {
 namespace classic {
 
-	void cycle(size_t N, uugraph& Gs) {
+	void cycle_graph(size_t N, uugraph& Gs) {
 		assert(N >= 3);
 
 		linear_tree(N, Gs);
@@ -15,7 +15,7 @@ namespace classic {
 		}
 	}
 
-	void cycle(size_t N, udgraph& Gs, uint8_t d) {
+	void cycle_graph(size_t N, udgraph& Gs, uint8_t d) {
 		assert(N >= 3);
 		assert(1 <= d and d <= 3);
 

@@ -75,8 +75,9 @@ SOURCES += \
     graph_traversal/uxdistances.cpp \
     graph_traversal/uxpaths.cpp \
     graph_traversal/uxpaths_boolean.cpp \
-    generate_graphs/classic/complete.cpp \
-    generate_graphs/classic/cycle.cpp \
-    generate_graphs/classic/linear_tree.cpp
+    generate_graphs/classic/linear_tree.cpp \
+    generate_graphs/classic/star_graph.cpp \
+    generate_graphs/classic/cycle_graph.cpp \
+    generate_graphs/classic/complete_graph.cpp
 
 
