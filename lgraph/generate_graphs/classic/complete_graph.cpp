@@ -1,4 +1,4 @@
-#include "classic.hpp"
+#include <lgraph/generate_graphs/classic/classic.hpp>
 
 namespace lgraph {
 namespace networks {

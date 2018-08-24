@@ -20,8 +20,7 @@ namespace lgraph {
 using namespace utils;
 
 namespace networks {
-namespace classic {
-namespace random {
+namespace social {
 
 	/**
 	 * @brief Constructs the random graph G{n,p}
@@ -45,9 +44,8 @@ namespace random {
 	>
 	void erdos_renyi(crandom_generator<G,cT> *rg, size_t N, double p, uugraph& Gs);
 
-} // -- namespace random
-} // -- namespace classic
+} // -- namespace social
 } // -- namespace networks
 } // -- namespace lgraph
 
-#include <lgraph/generate_graphs/classic/random/erdos_renyi.cpp>
+#include <lgraph/generate_graphs/social/erdos_renyi.cpp>

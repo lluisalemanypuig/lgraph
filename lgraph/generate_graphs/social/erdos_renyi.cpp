@@ -1,9 +1,8 @@
-#include <lgraph/generate_graphs/classic/random/erdos_renyi.hpp>
+#include <lgraph/generate_graphs/social/erdos_renyi.hpp>
 
 namespace lgraph {
 namespace networks {
-namespace classic {
-namespace random {
+namespace social {
 
 	template<class G, typename cT>
 	void erdos_renyi(crandom_generator<G,cT> *rg, size_t N, double p, uugraph& Gs) {
@@ -14,7 +13,7 @@ namespace random {
 		}
 		if (p == 1.0) {
 			// complete graph
-			complete_graph(N, Gs);
+			classic::complete_graph(N, Gs);
 			return;
 		}
 
@@ -40,8 +39,7 @@ namespace random {
 	}
 
 
-} // -- namespace random
-} // -- namespace classic
+} // -- namespace social
 } // -- namespace networks
 } // -- namespace lgraph
 

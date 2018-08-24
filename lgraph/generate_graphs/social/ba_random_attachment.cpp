@@ -1,9 +1,8 @@
-#include <lgraph/generate_graphs/social/random/barabasi_albert.hpp>
+#include <lgraph/generate_graphs/social/barabasi_albert.hpp>
 
 namespace lgraph {
 namespace networks {
 namespace social {
-namespace random {
 	
 	template<class G, typename dT>
 	void BA_random_attachment
@@ -54,7 +53,6 @@ namespace random {
 		}
 	}
 
-} // -- namespace random
 } // -- namespace social
 } // -- namespace networks
 } // -- namespace lgraph

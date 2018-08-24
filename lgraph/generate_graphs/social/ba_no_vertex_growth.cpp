@@ -1,19 +1,19 @@
-#include <lgraph/generate_graphs/social/random/barabasi_albert.hpp>
+#include <lgraph/generate_graphs/social/barabasi_albert.hpp>
 
 namespace lgraph {
 namespace networks {
 namespace social {
-namespace random {
 	
 	// private namespace for the no growth variant
-	namespace _pa {
+	namespace _ng {
 		
 		// function for debugging
-		inline void print_stubs(const uugraph& G, const vector<size_t>& stubs, size_t max_idx, const string& tab = "") {
+		inline
+		void print_stubs(const uugraph& G, const vector<size_t>& stubs, size_t max_idx, const string& tab = "") {
 			logger<null_stream>& LOG = logger<null_stream>::get_logger();
-			
+
 			LOG.log() << tab << "max_idx= " << max_idx << endl;
-			LOG.log() << tab;
+			LOG.log() << tab << "indexes: ";
 			for (size_t i = 0; i < stubs.size(); ++i) {
 				size_t pos_length = std::to_string(i).length();
 				size_t stub_length = std::to_string(stubs[i]).length();
@@ -24,7 +24,7 @@ namespace random {
 			}
 			LOG.log() << endl;
 			
-			LOG.log() << tab;
+			LOG.log() << tab << "stubs  : ";
 			for (size_t i = 0; i < stubs.size(); ++i) {
 				size_t pos_length = std::to_string(i).length();
 				size_t stub_length = std::to_string(stubs[i]).length();
@@ -35,7 +35,7 @@ namespace random {
 			}
 			LOG.log() << endl;
 			
-			LOG.log() << tab;
+			LOG.log() << tab << "degree : ";
 			for (size_t i = 0; i < stubs.size(); ++i) {
 				size_t pos_length = std::to_string(i).length();
 				size_t stub_length = std::to_string(stubs[i]).length();
@@ -46,7 +46,7 @@ namespace random {
 			}
 			LOG.log() << endl;
 			
-			LOG.log() << tab;
+			LOG.log() << tab << "         ";
 			for (size_t i = 0; i < max_idx; ++i) {
 				size_t pos_length = std::to_string(i).length();
 				size_t stub_length = std::to_string(stubs[i]).length();
@@ -61,7 +61,7 @@ namespace random {
 		}
 		
 		// G: the graph
-		// u: the new vertex added
+		// u: the source vertex
 		// stub_idx: the index of the vertex chosen
 		// stubs: a reference to the vector of stubs
 		// max_idx: upper bound of the range of the stubs vector
@@ -69,7 +69,7 @@ namespace random {
 		void update_stubs(const uugraph& G, size_t stub_idx, vector<size_t>& stubs, size_t& max_idx) {
 			const size_t v = stubs[stub_idx];
 			
-			if (G.degree(v) == 0) {
+			if (G.degree(v) == 0) {	
 				// there is one stub for vertex 'v' but degree is 0. This
 				// is a special case with which has to be dealt with care
 				
@@ -131,10 +131,82 @@ namespace random {
 			fill(stubs.begin() + lim_inf, stubs.end(), v);
 			stubs.push_back(v);
 		}
+
+		// Builds the stubs needed for the random choice of vertices.
+		// Returns the maximum amount of new neighbours we can connect to u
+		inline
+		size_t update_stubs_initial(const uugraph& G, size_t u, size_t m0, vector<size_t>& stubs, size_t& max_idx) {
+			// put vertices that are not neighbours of u at the beginning
+			
+			size_t stubs_so_far = 0;
+			for (size_t v = 0; v < G.n_nodes(); ++v) {
+				if (v != u and not G.has_edge(u, v)) {
+					size_t stubs_v = G.degree(v);
+					if (stubs_v == 0) {
+						++stubs_v;
+					}
+					
+					size_t begin_v = stubs_so_far;
+					size_t end_v = begin_v + stubs_v;
+					fill(stubs.begin() + begin_v, stubs.begin() + end_v, v);
+					
+					stubs_so_far += stubs_v;
+				}
+			}
+			max_idx = stubs_so_far - 1;
+			
+			// put neighbours of u at the end
+			
+			const neighbourhood& N = G.get_neighbours(u);
+			for (size_t v : N) {
+				size_t stubs_v = G.degree(v);
+				if (stubs_v == 0) {
+					++stubs_v;
+				}
+				
+				size_t begin_v = stubs_so_far;
+				size_t end_v = begin_v + stubs_v;
+				fill(stubs.begin() + begin_v, stubs.begin() + end_v, v);
+				
+				stubs_so_far += stubs_v;
+			}
+			
+			// stubs before creating m0 edges
+			size_t stubs_u = G.degree(u);
+			if (G.degree(u) == 0) {
+				++stubs_u;
+			}
+			
+			size_t begin_u = stubs_so_far;
+			size_t end_u = begin_u + stubs_u;
+			fill(stubs.begin() + begin_u, stubs.begin() + end_u, u);
+			
+			// Add new stubs
+			if (G.n_nodes() - N.size() - 1 < m0) {
+				m0 = G.n_nodes() - N.size() - 1;
+			}
+			size_t new_stubs_u = m0;
+			if (G.degree(u) == 0) {
+				--new_stubs_u;
+			}
+			
+			stubs.insert(stubs.end(), new_stubs_u, u);
+			return m0;
+		}
+
+		inline
+		void add_source_vertex(const uugraph& G, size_t u, size_t m0, vector<size_t>& stubs) {
+			if (G.degree(u) == 0) {
+				stubs.insert(stubs.end(), m0 - 1, u);
+			}
+			else {
+				stubs.insert(stubs.end(), m0, u);
+			}
+		}
 	}
 	
 	template<class G, typename dT>
-	void BA_preferential_attachment
+	void BA_no_vertex_growth
 	(
 		drandom_generator<G,dT> *rg,
 		size_t n0, size_t m0, size_t T,
@@ -158,15 +230,21 @@ namespace random {
 		// in the same time step.
 		for (size_t t = 1; t <= T; ++t) {
 			
-			// define the upper bound of the interval within which
-			// the random numbers will be generated
+			// upper bound of the interval within which the
+			// random numbers will be generated
 			size_t max_idx = stubs.size() - 1;
 			
-			// add a new vertex to the graph
-			size_t u = Gs.add_node();
+			// choose a vertex randomly from the stubs and update them
+			rg->init_uniform(0, max_idx);
+			size_t u_idx = rg->get_uniform();
+			size_t u = stubs[u_idx];
 			
-			// connect the new vertex to m0 vertices in the graph
-			for (size_t m = 0; m < m0; ++m) {
+			// arrange the vector of stubs to allow drawing a node with 
+			// the appropriate probability
+			size_t max_neigh = _ng::update_stubs_initial(Gs, u, m0, stubs, max_idx);
+			
+			// connect the vertex to m0 vertices in the graph
+			for (size_t m = 0; m < max_neigh ; ++m) {
 				// reset the uniform random generator
 				rg->init_uniform(0, max_idx);
 				
@@ -175,17 +253,13 @@ namespace random {
 				size_t v = stubs[stub_idx];
 				
 				// rearrange the vector stubs for next iteration
-				_pa::update_stubs(Gs, stub_idx, stubs, max_idx);
+				_ng::update_stubs(Gs, stub_idx, stubs, max_idx);
 				
 				Gs.add_edge(u, v);
 			}
-			
-			// insert m0 stubs for new vertex
-			stubs.insert(stubs.end(), m0, u);
 		}
 	}
 
-} // -- namespace random
 } // -- namespace social
 } // -- namespace networks
 } // -- namespace lgraph

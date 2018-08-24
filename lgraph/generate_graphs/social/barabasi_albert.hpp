@@ -19,7 +19,6 @@ using namespace utils;
 
 namespace networks {
 namespace social {
-namespace random {
 
 	/**
 	 * @brief Barabasi-Albert model: Preferential attachment variant
@@ -110,11 +109,10 @@ namespace random {
 		uugraph& Gs
 	);
 
-} // -- namespace random
 } // -- namespace social
 } // -- namespace networks
 } // -- namespace lgraph
 
-#include <lgraph/generate_graphs/social/random/ba_preferential_attachment.cpp>
-#include <lgraph/generate_graphs/social/random/ba_random_attachment.cpp>
-#include <lgraph/generate_graphs/social/random/ba_no_vertex_growth.cpp>
+#include <lgraph/generate_graphs/social/ba_preferential_attachment.cpp>
+#include <lgraph/generate_graphs/social/ba_random_attachment.cpp>
+#include <lgraph/generate_graphs/social/ba_no_vertex_growth.cpp>

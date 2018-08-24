@@ -23,7 +23,7 @@ Implement triangle counting algorithm using adjacency matrix
 Paper:			http://www.d.umn.edu/math/Technical%20Reports/Technical%20Reports%202007-/TR%202012/yang.pdf
 Implementation:	https://www.geeksforgeeks.org/number-of-triangles-in-a-undirected-graph/
 
-[v] 23/08/2018 -> 23/08/2018
+[v] 23/08/2018 -> 24/08/2018
 Refactor code for generating graphs. Make a directory called
 generate/ with subdirectories for social graphs, classic graphs.
 Each directory should have another subdirectory called random_graphs.
@@ -31,19 +31,8 @@ Example:
 generate/switching.hpp
 generate/switching.cpp
 
-generate/classic_graphs/classic.hpp
-generate/classic_graphs/complete.cpp
-generate/classic_graphs/random_graphs/classic_random.hpp
-generate/classic_graphs/random_graphs/erdos_renyi.cpp
-
-generate/social_graphs/social.hpp
-generate/social_graphs/karate.cpp
-generate/social_graphs/random_graphs/barabasi_albert.hpp
-generate/social_graphs/random_graphs/ba_preferential_attachment.hpp
-generate/social_graphs/random_graphs/ba_random_attachment.hpp
-generate/social_graphs/random_graphs/ba_no_vertex_growth.hpp
-generate/social_graphs/random_graphs/watts_strogatz.hpp
-generate/social_graphs/random_graphs/watts_strogatz.cpp
+generate/classic/{...}
+generate/social/{...}
 
 [v] 22/08/2018 -> 23/08/2018
 Implement Erdos-Renyi model
