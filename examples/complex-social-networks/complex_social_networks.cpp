@@ -10,8 +10,8 @@ using namespace std;
 // Custom includes
 #include <lgraph/data_structures/random_generator.hpp>
 #include <lgraph/data_structures/uugraph.hpp>
-#include <lgraph/generate_graphs/social/random/barabasi_albert.hpp>
-#include <lgraph/generate_graphs/classic/random/erdos_renyi.hpp>
+#include <lgraph/generate_graphs/social/barabasi_albert.hpp>
+#include <lgraph/generate_graphs/social/erdos_renyi.hpp>
 #include <lgraph/generate_graphs/switching.hpp>
 #include <lgraph/metrics/centralities.hpp>
 #include <lgraph/metrics/clustering.hpp>
@@ -508,17 +508,17 @@ int main(int argc, char *argv[]) {
 	}
 	else if (estrcmp(model, "barabasi-albert") == 0) {
 		if (estrcmp(variant, "preferential") == 0) {
-			networks::social::random::BA_preferential_attachment(drg, n0, m0, T, Gs);
+			networks::social::BA_preferential_attachment(drg, n0, m0, T, Gs);
 		}
 		else if (estrcmp(variant, "random") == 0) {
-			networks::social::random::BA_random_attachment(drg, n0, m0, T, Gs);
+			networks::social::BA_random_attachment(drg, n0, m0, T, Gs);
 		}
 		else if (estrcmp(variant, "no-growth") == 0) {
-			networks::social::random::BA_no_vertex_growth(drg, n0, m0, T, Gs);
+			networks::social::BA_no_vertex_growth(drg, n0, m0, T, Gs);
 		}
 	}
 	else if (estrcmp(model, "erdos-renyi") == 0) {
-		networks::classic::random::erdos_renyi(crg, N, p, Gs);
+		networks::social::erdos_renyi(crg, N, p, Gs);
 	}
 	
 	if (apply_switching) {
