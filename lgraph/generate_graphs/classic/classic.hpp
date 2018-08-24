@@ -100,7 +100,7 @@ namespace classic {
 	/**
 	 * @brief Generate a cycle graph of @e N nodes wih edge orientation
 	 *
-	 * See @ref cycle(size_t, uugraph&) for the description of a cycle
+	 * See @ref cycle_graph(size_t, uugraph&) for the description of a cycle
 	 * graph.
 	 *
 	 * The orientation of the edges depends on the value of @e clockwise.
