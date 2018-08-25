@@ -53,7 +53,6 @@ namespace random {
 		// actual number of neighbours clockwise.
 		n = k/2;
 
-		// rewiring...
 		for (node u = 0; u < N; ++u) {			
 			// nothing to do if the node has as neighbours
 			// the other nodes of the graph: no possible
@@ -72,13 +71,15 @@ namespace random {
 			// a node is not a neighbour of itself
 			non_neighbours.remove(u);
 
-			for (node v = N - 2; v > 0; --v) {
-				if (Gs.has_edge(u,non_neighbours[v])) {
+			// filter neighbours from non-neighbours list
+			size_t v = 0;
+			while (v < non_neighbours.size()) {
+				if (Gs.has_edge(u, non_neighbours[v])) {
 					non_neighbours.remove(v);
 				}
-			}
-			if (Gs.has_edge(u,non_neighbours[0])) {
-				non_neighbours.remove(0);
+				else {
+					++v;
+				}
 			}
 
 			neighbourhood Nu = Gs.get_neighbours(u);
