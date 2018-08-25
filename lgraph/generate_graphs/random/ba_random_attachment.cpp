@@ -2,7 +2,7 @@
 
 namespace lgraph {
 namespace networks {
-namespace social {
+namespace random {
 	
 	template<class G, typename dT>
 	void BA_random_attachment
@@ -53,7 +53,7 @@ namespace social {
 		}
 	}
 
-} // -- namespace social
+} // -- namespace random
 } // -- namespace networks
 } // -- namespace lgraph
 

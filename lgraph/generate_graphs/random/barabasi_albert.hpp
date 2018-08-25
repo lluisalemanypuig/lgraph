@@ -18,7 +18,7 @@ namespace lgraph {
 using namespace utils;
 
 namespace networks {
-namespace social {
+namespace random {
 
 	/**
 	 * @brief Barabasi-Albert model: Preferential attachment variant
@@ -109,7 +109,7 @@ namespace social {
 		uugraph& Gs
 	);
 
-} // -- namespace social
+} // -- namespace random
 } // -- namespace networks
 } // -- namespace lgraph
 

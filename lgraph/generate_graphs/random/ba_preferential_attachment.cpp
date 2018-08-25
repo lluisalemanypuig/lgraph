@@ -2,7 +2,7 @@
 
 namespace lgraph {
 namespace networks {
-namespace social {
+namespace random {
 	
 	// private namespace for the no growth variant
 	namespace _pa {
@@ -184,7 +184,7 @@ namespace social {
 		}
 	}
 
-} // -- namespace social
+} // -- namespace random
 } // -- namespace networks
 } // -- namespace lgraph
 

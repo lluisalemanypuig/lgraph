@@ -30,12 +30,12 @@ HEADERS += \
     data_structures/svector.hpp \
         data_structures/svector.cpp \
     generate_graphs/classic/classic.hpp \
-    generate_graphs/social/erdos_renyi.hpp \
-        generate_graphs/social/erdos_renyi.cpp \
-    generate_graphs/social/barabasi_albert.hpp \
-        generate_graphs/social/ba_preferential_attachment.cpp \
-        generate_graphs/social/ba_random_attachment.cpp \
-        generate_graphs/social/ba_no_vertex_growth.cpp \
+    generate_graphs/random/erdos_renyi.hpp \
+        generate_graphs/random/erdos_renyi.cpp \
+    generate_graphs/random/barabasi_albert.hpp \
+        generate_graphs/random/ba_preferential_attachment.cpp \
+        generate_graphs/random/ba_random_attachment.cpp \
+        generate_graphs/random/ba_no_vertex_growth.cpp \
     generate_graphs/switching.hpp \
         generate_graphs/switching.cpp \
     metrics/clustering.hpp \

@@ -19,7 +19,7 @@ namespace lgraph {
 using namespace utils;
 
 namespace networks {
-namespace social {
+namespace random {
 
 	/**
 	 * @brief Constructs the random graph G{n,p}
@@ -43,7 +43,7 @@ namespace social {
 	>
 	void erdos_renyi(crandom_generator<G,cT> *rg, size_t N, double p, uugraph& Gs);
 
-} // -- namespace social
+} // -- namespace random
 } // -- namespace networks
 } // -- namespace lgraph
 

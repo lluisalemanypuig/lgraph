@@ -2,7 +2,7 @@
 
 namespace lgraph {
 namespace networks {
-namespace social {
+namespace random {
 
 	template<class G, typename cT>
 	void erdos_renyi(crandom_generator<G,cT> *rg, size_t N, double p, uugraph& Gs) {
@@ -39,7 +39,7 @@ namespace social {
 	}
 
 
-} // -- namespace social
+} // -- namespace random
 } // -- namespace networks
 } // -- namespace lgraph
 
