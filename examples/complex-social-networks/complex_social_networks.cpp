@@ -11,6 +11,7 @@ using namespace std;
 #include <lgraph/data_structures/random_generator.hpp>
 #include <lgraph/data_structures/uugraph.hpp>
 #include <lgraph/generate_graphs/random/barabasi_albert.hpp>
+#include <lgraph/generate_graphs/random/watts_strogatz.hpp>
 #include <lgraph/generate_graphs/random/erdos_renyi.hpp>
 #include <lgraph/generate_graphs/switching.hpp>
 #include <lgraph/metrics/centralities.hpp>
@@ -39,6 +40,8 @@ static size_t T = 1;
 // erdos-renyi
 static double p = 0.5;
 static size_t N = 10;
+// watts-strogatz
+static size_t k = 2;
 
 // switching algorithm parameters
 static bool apply_switching = false;
@@ -99,6 +102,16 @@ void print_usage() {
 	cout << "        Model configuration parameters:" << endl;
 	cout << "        --N:  Number of nodes of the graph" << endl;
 	cout << "              Default: 10" << endl;
+	cout << "        --p:  Probability of creating an edge" << endl;
+	cout << "              Default: 0.5" << endl;
+	cout << endl;
+	cout << "    --watts-strogatz: generate a random graph following the Watts & Strogatz's model" << endl;
+	cout << endl;
+	cout << "        Model configuration parameters:" << endl;
+	cout << "        --N:  Number of nodes of the graph" << endl;
+	cout << "              Default: 10" << endl;
+	cout << "        --k:  Number of nearest neighbours in the ring topology" << endl;
+	cout << "              Default: 4" << endl;
 	cout << "        --p:  Probability of creating an edge" << endl;
 	cout << "              Default: 0.5" << endl;
 	cout << endl;
@@ -369,6 +382,9 @@ int parse_options(int argc, char *argv[]) {
 		else if (strcmp(argv[i], "--erdos-renyi") == 0) {
 			model = "erdos-renyi";
 		}
+		else if (strcmp(argv[i], "--watts-strogatz") == 0) {
+			model = "watts-strogatz";
+		}
 		else if (strcmp(argv[i], "-pa") == 0) {
 			variant = "preferential";
 		}
@@ -419,6 +435,10 @@ int parse_options(int argc, char *argv[]) {
 		}
 		else if (strcmp(argv[i], "--N") == 0) {
 			fatal_error = parse_uli(argv[i + 1], &N);
+			++i;
+		}
+		else if (strcmp(argv[i], "--k") == 0) {
+			fatal_error = parse_uli(argv[i + 1], &k);
 			++i;
 		}
 		else if (strcmp(argv[i], "--seed") == 0) {
@@ -519,6 +539,9 @@ int main(int argc, char *argv[]) {
 	}
 	else if (estrcmp(model, "erdos-renyi") == 0) {
 		networks::random::erdos_renyi(crg, N, p, Gs);
+	}
+	else if (estrcmp(model, "watts-strogatz") == 0) {
+		networks::random::watts_strogatz(crg, drg, N, k, p, Gs);
 	}
 
 	if (apply_switching) {
