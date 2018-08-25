@@ -538,10 +538,10 @@ int main(int argc, char *argv[]) {
 		}
 	}
 	else if (estrcmp(model, "erdos-renyi") == 0) {
-		networks::random::erdos_renyi(crg, N, p, Gs);
+		networks::random::Erdos_Renyi(crg, N, p, Gs);
 	}
 	else if (estrcmp(model, "watts-strogatz") == 0) {
-		networks::random::watts_strogatz(crg, drg, N, k, p, Gs);
+		networks::random::Watts_Strogatz(crg, drg, N, k, p, Gs);
 	}
 
 	if (apply_switching) {
