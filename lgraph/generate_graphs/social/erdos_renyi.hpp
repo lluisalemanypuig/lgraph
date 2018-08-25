@@ -14,7 +14,6 @@ using namespace std;
 #include <lgraph/data_structures/random_generator.hpp>
 #include <lgraph/data_structures/uugraph.hpp>
 #include <lgraph/generate_graphs/classic/classic.hpp>
-#include <lgraph/utils/logger.hpp>
 
 namespace lgraph {
 using namespace utils;
