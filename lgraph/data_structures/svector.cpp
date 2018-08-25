@@ -13,13 +13,13 @@ svector<T, Alloc>::svector() {
 
 template<class T, class Alloc>
 svector<T, Alloc>::svector(size_t n) {
-	idx = 0;
+	idx = n;
 	elems = vector<T, Alloc>(n);
 }
 
 template<class T, class Alloc>
 svector<T, Alloc>::svector(size_t n, const T& v) {
-	idx = 0;
+	idx = n;
 	elems = vector<T, Alloc>(n,v);
 }
 

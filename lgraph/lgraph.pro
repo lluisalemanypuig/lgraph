@@ -36,6 +36,8 @@ HEADERS += \
         generate_graphs/random/ba_preferential_attachment.cpp \
         generate_graphs/random/ba_random_attachment.cpp \
         generate_graphs/random/ba_no_vertex_growth.cpp \
+    generate_graphs/random/watts_strogatz.hpp \
+        generate_graphs/random/watts_strogatz.cpp \
     generate_graphs/switching.hpp \
         generate_graphs/switching.cpp \
     metrics/clustering.hpp \
