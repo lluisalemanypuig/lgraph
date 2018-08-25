@@ -10,8 +10,8 @@ using namespace std;
 // Custom includes
 #include <lgraph/data_structures/random_generator.hpp>
 #include <lgraph/data_structures/uugraph.hpp>
-#include <lgraph/generate_graphs/social/barabasi_albert.hpp>
-#include <lgraph/generate_graphs/social/erdos_renyi.hpp>
+#include <lgraph/generate_graphs/random/barabasi_albert.hpp>
+#include <lgraph/generate_graphs/random/erdos_renyi.hpp>
 #include <lgraph/generate_graphs/switching.hpp>
 #include <lgraph/metrics/centralities.hpp>
 #include <lgraph/metrics/clustering.hpp>
@@ -35,7 +35,7 @@ static size_t n0 = 10;
 static size_t m0 = 5;
 static size_t T = 1;
 
-// -- classic random graphs
+// -- random graphs
 // erdos-renyi
 static double p = 0.5;
 static size_t N = 10;
@@ -97,10 +97,10 @@ void print_usage() {
 	cout << "        known as binomial graphs, and G_{n,p}" << endl;
 	cout << endl;
 	cout << "        Model configuration parameters:" << endl;
-	cout << "        --p:  Probability of creating an edge" << endl;
-	cout << "              Default: 0.5" << endl;
 	cout << "        --N:  Number of nodes of the graph" << endl;
 	cout << "              Default: 10" << endl;
+	cout << "        --p:  Probability of creating an edge" << endl;
+	cout << "              Default: 0.5" << endl;
 	cout << endl;
 	cout << "    Modification of the generated network:" << endl;
 	cout << "        -sw: Apply the Switching model on the generated network" << endl;
@@ -520,7 +520,7 @@ int main(int argc, char *argv[]) {
 	else if (estrcmp(model, "erdos-renyi") == 0) {
 		networks::random::erdos_renyi(crg, N, p, Gs);
 	}
-	
+
 	if (apply_switching) {
 		networks::modify::switching_model(drg, Q, Gs);
 	}

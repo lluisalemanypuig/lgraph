@@ -113,6 +113,6 @@ namespace random {
 } // -- namespace networks
 } // -- namespace lgraph
 
-#include <lgraph/generate_graphs/social/ba_preferential_attachment.cpp>
-#include <lgraph/generate_graphs/social/ba_random_attachment.cpp>
-#include <lgraph/generate_graphs/social/ba_no_vertex_growth.cpp>
+#include <lgraph/generate_graphs/random/ba_preferential_attachment.cpp>
+#include <lgraph/generate_graphs/random/ba_random_attachment.cpp>
+#include <lgraph/generate_graphs/random/ba_no_vertex_growth.cpp>

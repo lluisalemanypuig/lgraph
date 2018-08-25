@@ -47,4 +47,4 @@ namespace random {
 } // -- namespace networks
 } // -- namespace lgraph
 
-#include <lgraph/generate_graphs/social/erdos_renyi.cpp>
+#include <lgraph/generate_graphs/random/erdos_renyi.cpp>
