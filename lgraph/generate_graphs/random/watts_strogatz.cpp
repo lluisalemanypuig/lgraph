@@ -64,21 +64,21 @@ namespace random {
 
 			// -- make the list of the N-k non-neighbours of node u
 
-			// initialise candidate list
-			svector<node> candidates(N);
+			// initialise non-neighbours node list
+			svector<node> non_neighbours(N);
 			for (node u = 0; u < N; ++u) {
-				candidates[u] = u;
+				non_neighbours[u] = u;
 			}
-			// the node itself is not a candidate for non-neighbours
-			candidates.remove(u);
+			// a node is not a neighbour of itself
+			non_neighbours.remove(u);
 
 			for (node v = N - 2; v > 0; --v) {
-				if (Gs.has_edge(u,candidates[v])) {
-					candidates.remove(v);
+				if (Gs.has_edge(u,non_neighbours[v])) {
+					non_neighbours.remove(v);
 				}
 			}
-			if (Gs.has_edge(u,candidates[0])) {
-				candidates.remove(0);
+			if (Gs.has_edge(u,non_neighbours[0])) {
+				non_neighbours.remove(0);
 			}
 
 			neighbourhood Nu = Gs.get_neighbours(u);
@@ -100,12 +100,16 @@ namespace random {
 
 				if (crg->get_uniform() < p) {
 					// about to rewire
-					drg->init_uniform(0, candidates.size() - 1);
+					drg->init_uniform(0, non_neighbours.size() - 1);
 
 					// choose new node
 					size_t wp = drg->get_uniform();
-					node w = candidates[wp];
-					candidates.remove(wp);
+					node w = non_neighbours[wp];
+
+					// node 'w' is now a neighbour
+					non_neighbours.remove(wp);
+					// node 'v' is no longer a neighbour
+					non_neighbours.add(v);
 
 					// remove old edge, add new edge
 					Gs.remove_edge(u,v);
