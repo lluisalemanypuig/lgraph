@@ -508,17 +508,17 @@ int main(int argc, char *argv[]) {
 	}
 	else if (estrcmp(model, "barabasi-albert") == 0) {
 		if (estrcmp(variant, "preferential") == 0) {
-			networks::social::BA_preferential_attachment(drg, n0, m0, T, Gs);
+			networks::random::BA_preferential_attachment(drg, n0, m0, T, Gs);
 		}
 		else if (estrcmp(variant, "random") == 0) {
-			networks::social::BA_random_attachment(drg, n0, m0, T, Gs);
+			networks::random::BA_random_attachment(drg, n0, m0, T, Gs);
 		}
 		else if (estrcmp(variant, "no-growth") == 0) {
-			networks::social::BA_no_vertex_growth(drg, n0, m0, T, Gs);
+			networks::random::BA_no_vertex_growth(drg, n0, m0, T, Gs);
 		}
 	}
 	else if (estrcmp(model, "erdos-renyi") == 0) {
-		networks::social::erdos_renyi(crg, N, p, Gs);
+		networks::random::erdos_renyi(crg, N, p, Gs);
 	}
 	
 	if (apply_switching) {
