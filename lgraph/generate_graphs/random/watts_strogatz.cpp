@@ -8,7 +8,7 @@ namespace random {
 
 
 	template<class G, typename cT, typename dT>
-	void watts_strogatz(
+	void Watts_Strogatz(
 		crandom_generator<G,cT> *crg,
 		drandom_generator<G,dT> *drg,
 		size_t N, size_t k, float p,

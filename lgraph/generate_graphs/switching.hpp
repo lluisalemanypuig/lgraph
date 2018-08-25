@@ -34,7 +34,8 @@ namespace modify {
 	 *
 	 * @param[in]	Q Factor used to compute the number of rounds T = Q*|E|
 	 * where |E| is the number of edges in the graph
-	 * @param[in]  rg The RNG used to select the nodes for endpoint exchange
+	 * @param[in]  rg The RNG used to select the nodes for endpoint exchange.
+	 * Has to be seeded by the caller
 	 * @param[out] Gs The graph on which the switching model is applied.
 	 *
 	 * @pre The graph on which to apply the model must have at least two edges.

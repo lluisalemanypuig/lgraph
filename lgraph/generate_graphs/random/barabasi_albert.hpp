@@ -32,10 +32,8 @@ namespace random {
 	 * @param[in] n0 The initial number of vertices
 	 * @param[in] m0 The number of edges to connect each vertex to
 	 * @param[in] T The number of steps of the algorithm
-	 * @param[in] rg The random number generator used
+	 * @param[in] rg The random number generator used. Has to be seeded by the caller
 	 * @param[out] Gs The resulting graph following this Barabasi-Albert model variant
-	 *
-	 * @pre Seeding the RNG is done before valling the function.
 	 */
 	template<
 		class G = default_random_engine,
@@ -59,10 +57,8 @@ namespace random {
 	 * @param[in] n0 The initial number of vertices
 	 * @param[in] m0 The number of edges to connect each vertex to
 	 * @param[in] T The number of steps of the algorithm
-	 * @param[in] rg The random number generator used
+	 * @param[in] rg The random number generator used. Has to be seeded by the caller
 	 * @param[out] Gs The resulting graph following this Barabasi-Albert model variant
-	 *
-	 * @pre Seeding the RNG is done before valling the function.
 	 */
 	template<
 		class G = default_random_engine,
@@ -94,10 +90,8 @@ namespace random {
 	 * @param[in] n0 The total number of vertices
 	 * @param[in] m0 The number of edges to connect each vertex to
 	 * @param[in] T The number of steps of the algorithm
-	 * @param[in] rg The random number generator used
+	 * @param[in] rg The random number generator used. Has to be seeded by the caller
 	 * @param[out] Gs The resulting graph following this Barabasi-Albert model variant
-	 *
-	 * @pre Seeding the RNG is done before valling the function.
 	 */
 	template<
 		class G = default_random_engine,

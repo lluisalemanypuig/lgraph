@@ -26,7 +26,7 @@ namespace networks {
 namespace random {
 
 	/**
-	 * @brief Generate a graph that follows the Watts & Strogatz's model
+	 * @brief Watts & Strogatz's model
 	 *
 	 * Create a cycle graph of @e N nodes, then connect each node with
 	 * its @e k nearest nodes in the ring (or @e k - 1 if @e k is odd).
@@ -38,19 +38,20 @@ namespace random {
 	 * @e w is chosen uniformly at random from the set of non-neighbours
 	 * of @e u at the moment of rewiring.
 	 *
-	 * @param crg Continuous random number generator
-	 * @param drg Discrete random number generator
-	 * @param N Number of nodes of the graph
-	 * @param k Number of the @e k nearest neighbours in a ring topology.
+	 * @param crg Continuous random number generator. Has to be seeded by the caller
+	 * @param drg Discrete random number generator. Has to be seeded by the caller
+	 * @param   N Number of nodes of the graph
+	 * @param   k Number of the @e k nearest neighbours in a ring topology.
 	 * Must satisfy: 2 <= @e k <= @e N - 1.
-	 * @param p Probability of rewiring an edge
+	 * @param   p Probability of rewiring an edge
+	 * @param  Gs The graph generated, following the Watts & Strogatz's model
 	 */
 	template<
 		class G = default_random_engine,
 		typename cT = float,
 		typename dT = size_t
 	>
-	void watts_strogatz(
+	void Watts_Strogatz(
 		crandom_generator<G,cT> *crg,
 		drandom_generator<G,dT> *drg,
 		size_t N, size_t k, float p,

@@ -22,7 +22,9 @@ namespace networks {
 namespace random {
 
 	/**
-	 * @brief Constructs the random graph G{n,p}
+	 * @brief Erdos & Renyi's model
+	 *
+	 * Generates a G{n,p} graph
 	 *
 	 * The implementation follows the algorithm in [1].
 	 *
@@ -32,16 +34,14 @@ namespace random {
 	 *
 	 * @param[in]	N Number of nodes of the graph
 	 * @param[in]	p Probability of making an edge
-	 * @param[in]  rg The RNG used to generate floating point numbers
+	 * @param[in]  rg The random number generator used. Has to be seeded by the caller
 	 * @param[out] Gs The binomial graph constructed
-	 *
-	 * @pre Seeding the RNG is done before valling the function.
 	 */
 	template<
 		class G = default_random_engine,
 		typename cT = float
 	>
-	void erdos_renyi(crandom_generator<G,cT> *rg, size_t N, double p, uugraph& Gs);
+	void Erdos_Renyi(crandom_generator<G,cT> *rg, size_t N, double p, uugraph& Gs);
 
 } // -- namespace random
 } // -- namespace networks

@@ -5,7 +5,7 @@ namespace networks {
 namespace random {
 
 	template<class G, typename cT>
-	void erdos_renyi(crandom_generator<G,cT> *rg, size_t N, double p, uugraph& Gs) {
+	void Erdos_Renyi(crandom_generator<G,cT> *rg, size_t N, double p, uugraph& Gs) {
 		if (p == 0.0) {
 			// empty graph
 			Gs.init(0);
