@@ -54,7 +54,7 @@ namespace random {
 	void Watts_Strogatz(
 		crandom_generator<G,cT> *crg,
 		drandom_generator<G,dT> *drg,
-		size_t N, size_t k, float p,
+		size_t N, size_t k, cT p,
 		uugraph& Gs
 	);
 
