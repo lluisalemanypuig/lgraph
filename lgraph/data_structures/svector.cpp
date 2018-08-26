@@ -114,6 +114,14 @@ void svector<T, Alloc>::sort() {
 	std::sort(elems.begin(), elems.begin() + idx);
 }
 
+template<class T, class Alloc>
+void svector<T, Alloc>::find_remove(const T& v) {
+	size_t pos;
+	if (position(v, pos)) {
+		remove(pos);
+	}
+}
+
 // GETTERS
 
 template<class T, class Alloc>

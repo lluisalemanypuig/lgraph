@@ -15,14 +15,17 @@ namespace utils {
 /**
  * @brief Shortened vector
  *
- * This class implements a little shortcut in vectors for the ease of
- * inserting/deleting elements without having to use iterators.
+ * This class implements a container that is, basically, a little
+ * shortcut in vectors for the ease of inserting/deleting elements
+ * without having to use iterators. It also avoids all the work that
+ * erasing an element from a STL's vector requires (moving all the
+ * memory in the positions after the removed element to the end).
  *
- * A pointer determines the position next to the last element of the vector.
- * Any element added to the vector is placed where @ref idx points at and then
- * @ref idx is incremented.
- * Any element removed is moved at the position before @ref idx and then
- * @ref idx is decremented.
+ * A pointer determines the position next to the last element of the
+ * container. Any element added to the container is placed where
+ * @ref idx points at and then @ref idx is incremented. Any element
+ * removed is moved at the position before @ref idx and then @ref idx
+ * is decremented.
  *
  * @param T The type of the elements stored. Must implement the '=' operator.
  * @param Alloc The allocator for the elements of type @e T. See the
@@ -33,7 +36,7 @@ template<class T, class Alloc = allocator<T> >
 class svector {
 	private:
 		/**
-		 * @brief Pointer to the next position available in the vector
+		 * @brief Pointer to the next position available in the container
 		 *
 		 * For example:
 		 * \verbatim
@@ -80,7 +83,7 @@ class svector {
 		 * @brief Iterator at the beginning of the container
 		 *
 		 * This is not actually an iterator, but a pointer to the elements
-		 * of the container @ref elems.
+		 * of the vector @ref elems.
 		 * @return Returns a pointer to the first element of @ref elems
 		 */
 		iterator begin();
@@ -88,7 +91,7 @@ class svector {
 		 * @brief Const iterator at the beginning of the container
 		 *
 		 * This is not actually an iterator, but a pointer to the elements
-		 * of the container @ref elems.
+		 * of the vector @ref elems.
 		 * @return Returns a constant pointer to the first element of @ref elems
 		 */
 		const_iterator begin() const;
@@ -96,7 +99,7 @@ class svector {
 		 * @brief Iterator at the end of the container
 		 *
 		 * This is not actually an iterator, but a pointer to the elements
-		 * of the container @ref elems.
+		 * of the vector @ref elems.
 		 * @return Returns a pointer to the last valid element of @ref elems
 		 */
 		iterator end();
@@ -104,7 +107,7 @@ class svector {
 		 * @brief Const iterator at the end of the container
 		 *
 		 * This is not actually an iterator, but a pointer to the elements
-		 * of the container @ref elems.
+		 * of the vector @ref elems.
 		 * @return Returns a constant pointer to the last valid element of @ref elems
 		 */
 		const_iterator end() const;
@@ -112,7 +115,7 @@ class svector {
 		// OPERATORS
 
 		/**
-		 * @brief Outputs in an ostream object the contents of this vector.
+		 * @brief Outputs in an ostream object the contents of this container
 		 *
 		 * The contents passed to the ostream object are all those elements
 		 * whose index is strictly below @ref idx.
@@ -133,13 +136,11 @@ class svector {
 
 		/**
 		 * @brief Returns a reference to the i-th element
-		 *
 		 * @pre @e i < @ref idx
 		 */
 		T& operator[] (size_t i);
 		/**
 		 * @brief Returns a constant reference to the i-th element
-		 *
 		 * @pre @e i < @ref idx
 		 */
 		const T& operator[] (size_t i) const;
@@ -147,17 +148,17 @@ class svector {
 		// MODIFIERS
 
 		/**
-		 * @brief Adds an element to this vector
+		 * @brief Adds an element to this container
 		 *
 		 * If @ref idx is equal to size() then the method push_back() is called.
-		 * Otherwise, element @e v is copied to the position pointed by @ref idx
-		 * and then @ref idx is incremented.
+		 * Otherwise, element @e v is copied to the position pointed by @ref idx.
+		 * In both cases @ref idx is incremented.
 		 * @param v Value to be added
 		 */
 		void add(const T& v);
 
 		/**
-		 * @brief Removes the element in the i-th position of this vector.
+		 * @brief Removes the element in the i-th position of this container
 		 *
 		 * Swaps the element in the @e i-th position with the element in the
 		 * previous position pointed by @ref idx. Then decrements the value
@@ -169,12 +170,26 @@ class svector {
 		 * @param i The index of the element to be removed.
 		 */
 		void remove(size_t i);
+
 		/**
 		 * @brief Sorts the elements of this vector.
 		 *
 		 * Sorts the elements in positions [0,..,@ref idx)
 		 */
 		void sort();
+
+		/**
+		 * @brief Find and remove an element from the container
+		 *
+		 * Function that serves as a macro of finding the position of an
+		 * element in the container and deleting the element in that
+		 * position.
+		 *
+		 * @param v The element to search and delete
+		 * @post The first occurrence of element @e v is removed from
+		 * the container if it exists.
+		 */
+		void find_remove(const T& v);
 
 		// GETTERS
 
@@ -185,24 +200,24 @@ class svector {
 		size_t size() const;
 
 		/**
-		 * @brief Looks for an element equal to @e v in the vector.
+		 * @brief Looks for an element equal to @e v in the container.
 		 *
-		 * Performs a linear search on the contents of the vector.
+		 * Performs a linear search on the contents of the container.
 		 * @param v THe element to be searched
-		 * @return Returns true if there is an element equal to @e v in the vector.
+		 * @return Returns true if there is an element equal to @e v in the container.
 		 */
 		bool contains(const T& v) const;
 
 		/**
 		 * @brief Looks for an element @e v in the vector and stores its position in @e pos
 		 * @param[in]	v The element to be searched
-		 * @param[out]	pos The position of @e v in the vector.
+		 * @param[out]	pos The position of the first occurrence of @e v in the container.
 		 * @return Returns true if @e v is in the vector.
 		 */
 		bool position(const T& v, size_t& pos) const;
 
 		/**
-		 * @brief Converts this shortened vector into a regular C++'s vector.
+		 * @brief Converts this shortened container into a regular C++'s vector.
 		 *
 		 * Makes a vector<T> with all the elements in this shortened vector
 		 * in the positions [0,..,@ref idx).
