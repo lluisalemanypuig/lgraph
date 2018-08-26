@@ -51,6 +51,43 @@ namespace csn_utils {
 		return 0;
 	}
 
+	char parse_float(const char *str, float *s) {
+		char *err;
+		*s = strtof(str, &err);
+
+		/*
+		according to the manual:
+
+		If  no conversion is performed, zero is returned and the value of
+		nptr is stored in the location referenced by endptr.
+		*/
+		if (err == str) {
+			cerr << "Error: no conversion of '" << string(str) << "' into double be performed" << endl;
+			return 1;
+		}
+
+		/*
+		according to the manual:
+
+		If the correct value would cause overflow, plus or minus HUGE_VAL
+		(HUGE_VALF, HUGE_VALL) is returned (according  to  the  sign  of
+		the value), and ERANGE is stored in errno.
+
+		If the correct value would cause underflow, zero is returned and
+		ERANGE is stored in errno.
+		*/
+		if (errno == ERANGE && *s == HUGE_VALF) {
+			cerr << "Error: value '" << string(str) << "' causes overflow" << endl;
+			return 1;
+		}
+		if (errno == ERANGE && *s == 0.0f) {
+			cerr << "Error: value '" << string(str) << "' causes underflow" << endl;
+			return 1;
+		}
+
+		return 0;
+	}
+
 	char parse_double(const char *str, double *s) {
 		char *err;
 		*s = strtod(str, &err);
