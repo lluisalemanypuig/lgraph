@@ -26,6 +26,10 @@ implemented. Shortest path in unweighted and weighted graphs between two pairs o
 algorithms for finding shortest paths between a given node and all the other nodes in the graph,
 and between any pair of nodes.
 
+- [examples/graph-driver](https://github.com/lluisalemanypuig/lgraph/tree/master/examples/graphs-driver):
+contains examples on how to call several functions of the library through a simple command-line
+driver. It is mainly used for debugging.
+
 Each example contains a README.md file detailing the contents, including their compilation.
 
 ## Compiling
