@@ -13,7 +13,8 @@ shortest distance/path finding.
 ## Build the example
 
 Once the library lgraph has been compiled following the instructions in the
-main README.md file, while in the directory examples/ issue the following commands:
+main [README.md](https://github.com/lluisalemanypuig/lgraph/blob/master/README.md)
+file, while in the directory examples/ issue the following commands:
 
 		mkdir path-finding-release
 		qmake -makefile path-finding/path-finding.pro -o path-finding-release/Makefile

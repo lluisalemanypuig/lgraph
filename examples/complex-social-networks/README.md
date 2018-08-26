@@ -9,6 +9,7 @@ It includes a few algorithms for Complex and Social Networks:
 		- Random attachment
 		- No vertex growth
 	- Erdos-Renyi model
+	- Watts-Strogatz model
 
 + To modify networks:
 	- Switching model
@@ -35,7 +36,8 @@ The project may be compiled using the qmake tool.
 ## Build the example
 
 Once the library lgraph has been compiled following the instructions in the
-main README.md file, while in the directory examples/ issue the following commands:
+main [README.md](https://github.com/lluisalemanypuig/lgraph/blob/master/README.md)
+file, while in the directory examples/ issue the following commands:
 
 		mkdir csn-release
 		qmake -makefile complex-social-networks/csn.pro -o csn-release/Makefile
