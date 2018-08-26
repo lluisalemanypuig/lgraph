@@ -1,11 +1,15 @@
-#ifndef TIME_HPP
-#define TIME_HPP
+#pragma once
 
+// C includes
+#include <sys/resource.h>
+#include <stdlib.h>
 
-class time
-{
-	public:
-		time();
-};
+namespace timing {
 
-#endif // TIME_HPP
+	// Returns the current time
+	double now();
+
+	// Returns the elapsed time between 'begin' and 'end' in seconds
+	double elapsed_time(const double& begin, const double& end);
+
+} // -- namespace timing

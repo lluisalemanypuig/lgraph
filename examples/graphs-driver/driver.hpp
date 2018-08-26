@@ -6,7 +6,7 @@
 #include <iostream>
 using namespace std;
 
-// Custom includes
+// lgraph includes
 #include <lgraph/data_structures/xxgraph.hpp>
 #include <lgraph/data_structures/wxgraph.hpp>
 #include <lgraph/data_structures/wugraph.hpp>
@@ -23,6 +23,9 @@ using namespace traversal;
 
 #include <lgraph/generate_graphs/classic/classic.hpp>
 
+// Custom includes
+#include "time.hpp"
+
 namespace graph_driver {
 
 	/// Driver for unweighted graphs
@@ -31,4 +34,4 @@ namespace graph_driver {
 	/// Driver for weighted graphs
 	void driver_weighted(bool directed);
 
-}
+} // -- namespace graph_driver

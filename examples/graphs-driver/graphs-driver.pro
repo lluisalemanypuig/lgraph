@@ -18,9 +18,11 @@ CONFIG(release, debug|release) {
 }
 
 HEADERS += \
-    driver.hpp
+    driver.hpp \
+    time.hpp
 
 SOURCES += \
     graph_driver.cpp \
     unweighted_driver.cpp \
-    weighted_driver.cpp
+    weighted_driver.cpp \
+    time.cpp
