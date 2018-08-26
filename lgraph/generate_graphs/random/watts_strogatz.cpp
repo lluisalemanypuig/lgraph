@@ -6,6 +6,28 @@ using namespace utils;
 namespace networks {
 namespace random {
 
+	inline
+	void get_non_neighbours(const uugraph& Gs, node u, svector<node>& non_neighbours) {
+		size_t N = Gs.n_nodes();
+
+		// initialise non-neighbours node list
+		for (node v = 0; v < N; ++v) {
+			non_neighbours[v] = v;
+		}
+		// a node is not a neighbour of itself
+		non_neighbours.remove(u);
+
+		// filter neighbours from non-neighbours list
+		size_t v = 0;
+		while (v < non_neighbours.size()) {
+			if (Gs.has_edge(u, non_neighbours[v])) {
+				non_neighbours.remove(v);
+			}
+			else {
+				++v;
+			}
+		}
+	}
 
 	template<class G, typename cT, typename dT>
 	void Watts_Strogatz(
@@ -64,23 +86,8 @@ namespace random {
 			// -- make the list of the N-k non-neighbours of node u
 
 			// initialise non-neighbours node list
-			svector<node> non_neighbours(N);
-			for (node u = 0; u < N; ++u) {
-				non_neighbours[u] = u;
-			}
-			// a node is not a neighbour of itself
-			non_neighbours.remove(u);
-
-			// filter neighbours from non-neighbours list
-			size_t v = 0;
-			while (v < non_neighbours.size()) {
-				if (Gs.has_edge(u, non_neighbours[v])) {
-					non_neighbours.remove(v);
-				}
-				else {
-					++v;
-				}
-			}
+			svector<node> nn(N);
+			get_non_neighbours(Gs, u, nn);
 
 			neighbourhood Nu = Gs.get_neighbours(u);
 			for (node v : Nu) {
@@ -101,16 +108,16 @@ namespace random {
 
 				if (crg->get_uniform() < p) {
 					// about to rewire
-					drg->init_uniform(0, non_neighbours.size() - 1);
+					drg->init_uniform(0, nn.size() - 1);
 
 					// choose new node
 					size_t wp = drg->get_uniform();
-					node w = non_neighbours[wp];
+					node w = nn[wp];
 
 					// node 'w' is now a neighbour
-					non_neighbours.remove(wp);
+					nn.remove(wp);
 					// node 'v' is no longer a neighbour
-					non_neighbours.add(v);
+					nn.add(v);
 
 					// remove old edge, add new edge
 					Gs.remove_edge(u,v);
