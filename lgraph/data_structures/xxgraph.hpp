@@ -93,7 +93,7 @@ class xxgraph {
 		/**
 		 * @brief Adds @e n nodes to the graph
 		 *
-		 * The nodes are assigned consecutive, increasing values.
+		 * The nodes are assigned in consecutive, increasing values.
 		 * @return Returns the index of the last node.
 		 */
 		size_t add_n_nodes(node n);
@@ -103,6 +103,7 @@ class xxgraph {
 		 *
 		 * The attribute @ref num_edges is decremented by one.
 		 * @param e A pair of nodes
+		 * @pre @e e must be an edge of the graph
 		 */
 		void remove_edge(const edge& e);
 
@@ -120,14 +121,18 @@ class xxgraph {
 		 * The attribute @ref num_edges is decremented by one.
 		 * @param u The fist node of the edge
 		 * @param v The second node of the edge
+		 * @pre @e u must be a node from the graph
 		 */
 		virtual void remove_edge(node u, node v) = 0;
 
 		/**
 		 * @brief Rmoves a node from the graph
 		 *
-		 * The indexes higher than @e u's are decreased by one.
+		 * Removes its entry in the adjacency list @ref adjacency_list
+		 * and removes it from the neighbourhood list of the other nodes.
 		 * @param u The node to be removed
+		 * @pre @e u must be a node from the graph
+		 * @post The indexes higher than @e u's are decreased by one.
 		 */
 		virtual void remove_node(node u) = 0;
 
