@@ -38,7 +38,7 @@ static size_t T = 1;
 
 // -- random graphs
 // erdos-renyi
-static float p = 0.5;
+static double p = 0.5;
 static size_t N = 10;
 // watts-strogatz
 static size_t k = 2;
@@ -430,7 +430,7 @@ int parse_options(int argc, char *argv[]) {
 			++i;
 		}
 		else if (strcmp(argv[i], "--p") == 0) {
-			fatal_error = parse_float(argv[i + 1], &p);
+			fatal_error = parse_double(argv[i + 1], &p);
 			++i;
 		}
 		else if (strcmp(argv[i], "--N") == 0) {
