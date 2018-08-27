@@ -10,7 +10,7 @@ namespace random {
 	void get_non_neighbours(const uugraph& Gs, node u, svector<node>& non_neighbours) {
 		size_t N = Gs.n_nodes();
 
-		// initialise non-neighbours node list
+		// initialise non-neighbours node list with all nodes
 		for (node v = 0; v < N; ++v) {
 			non_neighbours[v] = v;
 		}
@@ -18,14 +18,9 @@ namespace random {
 		non_neighbours.remove(u);
 
 		// filter neighbours from non-neighbours list
-		size_t v = 0;
-		while (v < non_neighbours.size()) {
-			if (Gs.has_edge(u, non_neighbours[v])) {
-				non_neighbours.remove(v);
-			}
-			else {
-				++v;
-			}
+		// (delete them from the list)
+		for (node v : Gs.get_neighbours(u)) {
+			non_neighbours.find_remove(v);
 		}
 	}
 
@@ -77,8 +72,8 @@ namespace random {
 
 		for (node u = 0; u < N; ++u) {			
 			// nothing to do if the node has as neighbours
-			// the other nodes of the graph: no possible
-			// rewiring
+			// the other nodes of the graph: rewiring an edge
+			// would be superfluous
 			if (Gs.degree(u) == N - 1) {
 				continue;
 			}
