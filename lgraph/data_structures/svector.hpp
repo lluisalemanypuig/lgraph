@@ -210,11 +210,11 @@ class svector {
 
 		/**
 		 * @brief Looks for an element @e v in the vector and stores its position in @e pos
-		 * @param[in]	v The element to be searched
-		 * @param[out]	pos The position of the first occurrence of @e v in the container.
-		 * @return Returns true if @e v is in the vector.
+		 * @param v The element to be searched
+		 * @return Returns a value smaller than @ref idx if v is in the
+		 * container. Returns a value equal to @ref idx if otherwise.
 		 */
-		bool position(const T& v, size_t& pos) const;
+		size_t position(const T& v) const;
 
 		/**
 		 * @brief Converts this shortened container into a regular C++'s vector.

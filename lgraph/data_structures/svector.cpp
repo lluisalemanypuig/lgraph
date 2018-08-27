@@ -104,6 +104,8 @@ void svector<T, Alloc>::remove(size_t i) {
 	std::swap( elems[i], elems[idx - 1] );
 	--idx;
 
+	// if idx is smaller than half the vector's size
+	// then resize the vector to save some memory
 	if (idx < (elems.size() >> 1)) {
 		elems.resize(idx);
 	}
@@ -116,8 +118,8 @@ void svector<T, Alloc>::sort() {
 
 template<class T, class Alloc>
 void svector<T, Alloc>::find_remove(const T& v) {
-	size_t pos;
-	if (position(v, pos)) {
+	size_t pos = position(v);
+	if (pos < idx) {
 		remove(pos);
 	}
 }
@@ -131,28 +133,19 @@ size_t svector<T, Alloc>::size() const {
 
 template<class T, class Alloc>
 bool svector<T, Alloc>::contains(const T& v) const {
-	bool found = false;
-	size_t i = 0;
-	while (i < idx and not found) {
-		if ( elems[i] == v ) {
-			found = true;
-		}
-		++i;
-	}
-	return i - 1 < idx;
+	return position(v) != idx;
 }
 
 template<class T, class Alloc>
-bool svector<T, Alloc>::position(const T& v, size_t& p) const {
-	p = idx;
+size_t svector<T, Alloc>::position(const T& v) const {
 	size_t i = 0;
-	while (i < idx and p == idx) {
-		if ( elems[i] == v ) {
-			p = i;
+	while (i < idx) {
+		if (elems[i] == v) {
+			return i;
 		}
 		++i;
 	}
-	return p != idx;
+	return idx;
 }
 
 template<class T, class Alloc>
