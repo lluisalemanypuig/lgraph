@@ -146,11 +146,7 @@ namespace epidemics {
 								LOG.log() << "                ... and succeeds" << endl;
 
 								// neighbour becomes infected
-
-								size_t neigh_pos;
-								susceptible.position(w, neigh_pos);
-								susceptible.remove(neigh_pos);
-
+								susceptible.find_remove(w);
 								infected.add(w);
 
 								is_susceptible[w] = false;
