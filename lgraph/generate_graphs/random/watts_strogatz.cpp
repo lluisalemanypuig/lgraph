@@ -6,21 +6,23 @@ using namespace utils;
 namespace networks {
 namespace random {
 
-	inline
-	void get_non_neighbours(const uugraph& Gs, node u, svector<node>& non_neighbours) {
-		size_t N = Gs.n_nodes();
+	namespace _ws {
+		inline
+		void get_non_neighbours(const uugraph& Gs, node u, svector<node>& non_neighbours) {
+			size_t N = Gs.n_nodes();
 
-		// initialise non-neighbours node list with all nodes
-		for (node v = 0; v < N; ++v) {
-			non_neighbours[v] = v;
-		}
-		// a node is not a neighbour of itself
-		non_neighbours.remove(u);
+			// initialise non-neighbours node list with all nodes
+			for (node v = 0; v < N; ++v) {
+				non_neighbours[v] = v;
+			}
+			// a node is not a neighbour of itself
+			non_neighbours.remove(u);
 
-		// filter neighbours from non-neighbours list
-		// (delete them from the list)
-		for (node v : Gs.get_neighbours(u)) {
-			non_neighbours.find_remove(v);
+			// filter neighbours from non-neighbours list
+			// (delete them from the list)
+			for (node v : Gs.get_neighbours(u)) {
+				non_neighbours.find_remove(v);
+			}
 		}
 	}
 
@@ -82,7 +84,7 @@ namespace random {
 
 			// initialise non-neighbours node list
 			svector<node> nn(N);
-			get_non_neighbours(Gs, u, nn);
+			_ws::get_non_neighbours(Gs, u, nn);
 
 			neighbourhood Nu = Gs.get_neighbours(u);
 			for (node v : Nu) {
