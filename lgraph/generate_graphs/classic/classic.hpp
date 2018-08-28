@@ -8,6 +8,7 @@
 #include <iostream>
 #include <iterator>
 #include <cstdint>
+#include <numeric>
 #include <random>
 #include <vector>
 #include <cmath>
@@ -36,7 +37,8 @@ namespace classic {
 	/**
 	 * @brief Generate a directed complete graph of @e N nodes
 	 * @param N Number of nodes
-	 * @param[out] Gs Generated complete directed graph
+	 * @param[out] Gs Generated complete directed graph. For each pair of
+	 * nodes u,v there are two pairs of directed edges (u,v) and (v,u).
 	 */
 	void complete_graph(size_t N, udgraph& Gs);
 
