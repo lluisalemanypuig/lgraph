@@ -133,16 +133,16 @@ size_t xxgraph::n_triangles() const {
 	for (size_t u = 0; u < N; ++u) {
 
 		const neighbourhood& Nu = get_neighbours(u);
-		ncit v = Nu.begin();
-		for (; v != Nu.end(); ++v) {
+		for (size_t v_it = 0; v_it < Nu.size(); ++v_it) {
+			node v = Nu[v_it];
 
-			ncit w = v; ++w;
-			for (; w != Nu.end(); ++w) {
+			for (size_t w_it = v_it + 1; w_it < Nu.size(); ++w_it) {
+				node w = Nu[w_it];
 
 				// existing edges: (u, v), (u, w)
 				// check edge (v, w) for triangles
 
-				if (has_edge(*v, *w)) {
+				if (has_edge(v, w)) {
 					++tris;
 				}
 			}

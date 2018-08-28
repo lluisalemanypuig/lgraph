@@ -20,9 +20,10 @@ namespace clustering {
 
 				for (size_t w_it = v_it + 1; w_it < nu.size(); ++w_it) {
 					node w = nu[w_it];
+
 					// ... get two different neighbours of u (v, w) and
 					// check if they are connected. If so, we found a triangle
-					if (v != w and G->has_edge(v, w)) {
+					if (G->has_edge(v, w)) {
 						++tris;
 					}
 				}
@@ -61,13 +62,12 @@ namespace clustering {
 				for (size_t v_it = 0; v_it < nu.size(); ++v_it) {
 					node v = nu[v_it];
 
-					ncit w = v; ++w;
 					for (size_t w_it = v_it + 1; w_it < nu.size(); ++w_it) {
 						node w = nu[w_it];
 
 						// ... get two different neighbours of u (v, w) and
 						// check if there is a connection.
-						if (v != w and G->has_edge(v, w)) {
+						if (G->has_edge(v, w)) {
 							++tris;
 						}
 					}
