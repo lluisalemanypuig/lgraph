@@ -171,6 +171,8 @@ namespace graph_driver {
 				cout << endl;
 			}
 			else if (option == "complete-graph") {
+				G->clear();
+
 				size_t N;
 				cin >> N;
 
@@ -182,6 +184,8 @@ namespace graph_driver {
 				}
 			}
 			else if (option == "linear-tree") {
+				G->clear();
+
 				size_t N;
 				cin >> N;
 
@@ -195,6 +199,8 @@ namespace graph_driver {
 				}
 			}
 			else if (option == "cycle-graph") {
+				G->clear();
+
 				size_t N;
 				cin >> N;
 
@@ -208,6 +214,8 @@ namespace graph_driver {
 				}
 			}
 			else if (option == "star-graph") {
+				G->clear();
+
 				size_t N;
 				cin >> N;
 
