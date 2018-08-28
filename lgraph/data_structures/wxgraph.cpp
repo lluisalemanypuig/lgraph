@@ -21,6 +21,11 @@ template<class T>
 wxgraph<T>::wxgraph() : xxgraph() { }
 
 template<class T>
+wxgraph<T>::wxgraph(size_t n) : xxgraph() {
+	init(n);
+}
+
+template<class T>
 wxgraph<T>::wxgraph
 (
 	const vector<neighbourhood>& adj,
@@ -29,26 +34,38 @@ wxgraph<T>::wxgraph
 )
 : xxgraph()
 {
-	this->adjacency_list = adj;
-	this->weights = wl;
-	this->num_edges = n_edges;
+	init(adj, wl, n_edges);
 }
 
 template<class T>
-wxgraph<T>::~wxgraph() {
-
-}
+wxgraph<T>::~wxgraph() { }
 
 template<class T>
 void wxgraph<T>::init(size_t n) {
+	clear();
 	initialise_parent_graph(n);
 	initialise_weights(n);
+}
+
+template<class T>
+void wxgraph<T>::init
+(
+	const vector<neighbourhood>& adj,
+	const vector<weight_list<T> >& wl,
+	size_t n_edges
+)
+{
+	clear();
+	this->adjacency_list = adj;
+	this->weights = wl;
+	this->num_edges = n_edges;
 }
 
 // OPERATORS
 
 template<class T>
 wxgraph<T>& wxgraph<T>::operator= (const wxgraph<T>& g) {
+	clear();
 	adjacency_list = g.adjacency_list;
 	weights = g.weights;
 	num_edges = g.num_edges;

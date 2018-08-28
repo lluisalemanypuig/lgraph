@@ -65,13 +65,13 @@ class wugraph : public wxgraph<T> {
 		/// Default constructor
 		wugraph();
 		/**
-		 * @brief Constructor with adjacency lists
+		 * @brief Constructor with adjacency list and list of weights
 		 * @param adj The adjacency list of the graph
 		 * @param wl The weights for every edge
 		 */
 		wugraph(const vector<neighbourhood>& adj, const vector<weight_list<T> >& wl);
 		/**
-		 * @brief Constructor with adjacency lists
+		 * @brief Constructor with adjacency list, list of weights and number of edges
 		 * @param adj The adjacency list of the graph
 		 * @param wl The weights for every edge
 		 * @param n_edges The number of edges in the adjacency list
@@ -79,6 +79,14 @@ class wugraph : public wxgraph<T> {
 		wugraph(const vector<neighbourhood>& adj, const vector<weight_list<T> >& wl, size_t n_edges);
 		/// Destructor
 		~wugraph();
+
+		using wxgraph<T>::init;
+		/**
+		 * @brief Initialises the graph with adjacency list and list of weights
+		 * @param adj The adjacency list of the graph
+		 * @param wl The weights for every edge
+		 */
+		void init(const vector<neighbourhood>& adj, const vector<weight_list<T> >& wl);
 
 		// MODIFIERS
 

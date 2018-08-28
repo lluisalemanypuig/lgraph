@@ -78,18 +78,31 @@ class wxgraph : public xxgraph {
 	public:
 		/// Default constructor
 		wxgraph();
+		/// Constructor with number of nodes
+		wxgraph(size_t n);
 		/**
-		 * @brief Constructor with adjacency lists
+		 * @brief Constructor with adjacency list, list of weights and number of edges
 		 * @param adj The adjacency list of the graph
 		 * @param wl The weights for every edge
 		 * @param n_edges The number of edges in the adjacency list
 		 */
-		wxgraph(const vector<neighbourhood>& adj, const vector<weight_list<T> >& wl, size_t n_edges);
+		wxgraph(const vector<neighbourhood>& adj,
+				const vector<weight_list<T> >& wl,
+				size_t n_edges);
 		/// Destructor
 		virtual ~wxgraph();
 
 		// Initialise graph with n nodes
 		void init(size_t n);
+		/**
+		 * @brief Initialise with adjacency list, list of weights and number of edges
+		 * @param adj The adjacency list of the graph
+		 * @param wl The weights for every edge
+		 * @param n_edges The number of edges in the adjacency list
+		 */
+		void init(const vector<neighbourhood>& adj,
+				  const vector<weight_list<T> >& wl,
+				  size_t n_edges);
 
 		// OPERATORS
 

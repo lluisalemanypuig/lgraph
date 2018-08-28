@@ -51,15 +51,7 @@ wdgraph<T>::wdgraph
 )
 : wxgraph<T>()
 {
-	this->adjacency_list = adj;
-	this->weights = wl;
-
-	// count the amount of edges for only those pairs
-	// of nodes (u,v) such that u < v (because this graph
-	// is undirected)
-	for (node u = 0; u < this->adjacency_list.size(); ++u) {
-		this->num_edges += this->adjacency_list[u].size();
-	}
+	init(adj, wl);
 }
 
 template<class T>
@@ -74,6 +66,24 @@ wdgraph<T>::wdgraph
 
 template<class T>
 wdgraph<T>::~wdgraph() { }
+
+template<class T>
+void wdgraph<T>::init
+(
+	const vector<neighbourhood>& adj,
+	const vector<weight_list<T> >& wl
+)
+{
+	this->adjacency_list = adj;
+	this->weights = wl;
+
+	// count the amount of edges for only those pairs
+	// of nodes (u,v) such that u < v (because this graph
+	// is undirected)
+	for (node u = 0; u < this->adjacency_list.size(); ++u) {
+		this->num_edges += this->adjacency_list[u].size();
+	}
+}
 
 // MODIFIERS
 

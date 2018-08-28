@@ -7,20 +7,31 @@ namespace utils {
 
 uxgraph::uxgraph() : xxgraph() { }
 
+uxgraph::uxgraph(size_t n) : xxgraph() {
+	init(n);
+}
+
 uxgraph::uxgraph(const vector<neighbourhood>& adj, size_t n_edges) : xxgraph() {
-	adjacency_list = adj;
-	num_edges = n_edges;
+	init(adj, n_edges);
 }
 
 uxgraph::~uxgraph() { }
 
 void uxgraph::init(size_t n) {
+	clear();
 	initialise_parent_graph(n);
+}
+
+void uxgraph::init(const vector<neighbourhood>& adj, size_t n_edges) {
+	clear();
+	adjacency_list = adj;
+	num_edges = n_edges;
 }
 
 // OPERATORS
 
 uxgraph& uxgraph::operator= (const uxgraph& g) {
+	clear();
 	adjacency_list = g.adjacency_list;
 	num_edges = g.num_edges;
 	return *this;

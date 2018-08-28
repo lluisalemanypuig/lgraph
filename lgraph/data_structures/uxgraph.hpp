@@ -42,8 +42,10 @@ class uxgraph : public xxgraph {
 	public:
 		/// Default onstructor
 		uxgraph();
+		/// Constructor with number of nodes
+		uxgraph(size_t n);
 		/**
-		 * @brief Constructor with adjacency lists
+		 * @brief Constructor with adjacency list and number of edges
 		 * @param adj The adjacency list of the graph
 		 * @param n_edges The number of edges in the adjacency list
 		 */
@@ -51,14 +53,14 @@ class uxgraph : public xxgraph {
 		/// Destructor
 		virtual ~uxgraph();
 
-		/**
-		 * @brief Initialises the attributes of a graph with @e n nodes
-		 *
-		 * First, it clears all the memory allocated so far. Then, initialises all
-		 * the attributes so that it can store all the necessary information.
-		 * @param n Number of nodes of the graph
-		 */
+		// Initialises graph with n nodes after deallocating memory
 		void init(size_t n);
+		/**
+		 * @brief Initialises the graph with adjacency list and number of edges
+		 * @param adj The adjacency list of the graph
+		 * @param n_edges The number of edges in the adjacency list
+		 */
+		void init(const vector<neighbourhood>& adj, size_t n_edges);
 
 		// OPERATORS
 

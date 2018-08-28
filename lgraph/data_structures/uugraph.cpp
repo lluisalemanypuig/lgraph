@@ -27,6 +27,14 @@ void uugraph::get_unique_edges(vector<edge>& unique_edges) const {
 uugraph::uugraph() : uxgraph() { }
 
 uugraph::uugraph(const vector<neighbourhood>& adj) : uxgraph() {
+	init(adj);
+}
+
+uugraph::uugraph(const vector<neighbourhood>& adj, size_t n_edges) : uxgraph(adj, n_edges) { }
+
+uugraph::~uugraph() { }
+
+void uugraph::init(const vector<neighbourhood>& adj) {
 	adjacency_list = adj;
 
 	// count the amount of edges for only those pairs
@@ -40,10 +48,6 @@ uugraph::uugraph(const vector<neighbourhood>& adj) : uxgraph() {
 		}
 	}
 }
-
-uugraph::uugraph(const vector<neighbourhood>& adj, size_t n_edges) : uxgraph(adj, n_edges) { }
-
-uugraph::~uugraph() { }
 
 // MODIFIERS
 

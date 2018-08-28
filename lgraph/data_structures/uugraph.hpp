@@ -45,18 +45,25 @@ class uugraph : public uxgraph {
 		/// Default constructor
 		uugraph();
 		/**
-		 * @brief Constructor with adjacency lists
+		 * @brief Constructor with adjacency list
 		 * @param adj The adjacency list of the graph
 		 */
 		uugraph(const vector<neighbourhood>& adj);
 		/**
-		 * @brief Constructor with adjacency lists
+		 * @brief Constructor with adjacency list and number of edges
 		 * @param adj The adjacency list of the graph
 		 * @param n_edges The number of edges in the adjacency list
 		 */
 		uugraph(const vector<neighbourhood>& adj, size_t n_edges);
 		/// Destructor
 		~uugraph();
+
+		using uxgraph::init;
+		/**
+		 * @brief Initialises the graph with adjacency list
+		 * @param adj The adjacency list of the graph
+		 */
+		void init(const vector<neighbourhood>& adj);
 
 		// MODIFIERS
 
