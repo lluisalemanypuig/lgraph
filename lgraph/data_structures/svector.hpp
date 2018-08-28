@@ -168,8 +168,24 @@ class svector {
 		 * @ref elems the container is resized to a size equal to @ref idx.
 		 *
 		 * @param i The index of the element to be removed.
+		 * @pre @e i < @ref idx
 		 */
 		void remove(size_t i);
+
+		/**
+		 * @brief Removes the elements in the range [b,e) of this container
+		 *
+		 * Moves the elements in [@e e,@ref idx) @e e - @e b positions to
+		 * the left.
+		 *
+		 * When @ref idx has reached half the total size of the container
+		 * @ref elems the container is resized to a size equal to @ref idx.
+		 *
+		 * @param b The index of the first element to be removed.
+		 * @param e The index of the last element to be removed plus 1.
+		 * @pre @e b < @e e <= @ref idx
+		 */
+		void remove(size_t b, size_t e);
 
 		/**
 		 * @brief Sorts the elements of this vector.

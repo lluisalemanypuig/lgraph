@@ -112,6 +112,27 @@ void svector<T, Alloc>::remove(size_t i) {
 }
 
 template<class T, class Alloc>
+void svector<T, Alloc>::remove(size_t b, size_t e) {
+	assert(b < e);
+	assert(e <= idx);
+
+	// copy the elements from [e, idx) to
+	// the positions starting at b
+	copy(
+		elems.begin() + e, elems.begin() + idx,
+		elems.begin() + b
+	);
+
+	idx -= (e - b);
+
+	// if idx is smaller than half the vector's size
+	// then resize the vector to save some memory
+	if (idx < (elems.size() >> 1)) {
+		elems.resize(idx);
+	}
+}
+
+template<class T, class Alloc>
 void svector<T, Alloc>::sort() {
 	std::sort(elems.begin(), elems.begin() + idx);
 }
