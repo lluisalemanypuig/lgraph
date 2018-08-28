@@ -27,7 +27,9 @@ namespace utils {
  * removed is moved at the position before @ref idx and then @ref idx
  * is decremented.
  *
- * @param T The type of the elements stored. Must implement the '=' operator.
+ * @param T The type of the elements stored. Must allow the use of '='
+ * and '<' operators.
+ * 
  * @param Alloc The allocator for the elements of type @e T. See the
  * documentation for C++'s vectors for more details
  * (http://en.cppreference.com/w/cpp/container/vector)
@@ -164,26 +166,33 @@ class svector {
 		 * previous position pointed by @ref idx. Then decrements the value
 		 * of @ref idx.
 		 *
-		 * When @ref idx has reached half the total size of the container
-		 * @ref elems the container is resized to a size equal to @ref idx.
-		 *
 		 * @param i The index of the element to be removed.
 		 * @pre @e i < @ref idx
+		 * @post The destructor of the element is not called. Therefore,
+		 * the memory will have to be explicitly freed by the caller,
+		 * unless the allocator already implements their destruction.
+		 * 
+		 * When @ref idx has reached half the total size of the container
+		 * @ref elems the container is resized to a size equal to @ref idx.
 		 */
 		void remove(size_t i);
 
 		/**
 		 * @brief Removes the elements in the range [b,e) of this container
 		 *
-		 * Moves the elements in [@e e,@ref idx) @e e - @e b positions to
-		 * the left.
-		 *
-		 * When @ref idx has reached half the total size of the container
-		 * @ref elems the container is resized to a size equal to @ref idx.
+		 * It copies the elements in [@e e,@ref idx) to the (@ref idx - @e e)
+		 * positions starting at @e b.
 		 *
 		 * @param b The index of the first element to be removed.
 		 * @param e The index of the last element to be removed plus 1.
 		 * @pre @e b < @e e <= @ref idx
+		 * @post The destructor of the elements in the range [b,e) is not
+		 * called. Therefore, the memory will have to be explicitly
+		 * freed by the caller, unless the allocator already implements
+		 * their destruction.
+		 * 
+		 * If @ref idx has reached half the total size of the container
+		 * @ref elems the container is resized to a size equal to @ref idx.
 		 */
 		void remove(size_t b, size_t e);
 
@@ -204,6 +213,10 @@ class svector {
 		 * @param v The element to search and delete
 		 * @post The first occurrence of element @e v is removed from
 		 * the container if it exists.
+		 * 
+		 * The destructor of the element is not called. Therefore, the
+		 * memory will have to be explicitly freed by the caller, unless
+		 * the allocator already implements their destruction.
 		 */
 		void find_remove(const T& v);
 
