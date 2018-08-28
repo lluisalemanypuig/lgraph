@@ -7,15 +7,12 @@ namespace classic {
 	namespace _classic {
 		inline
 		void make_adjacency_matrix(size_t N, vector<neighbourhood>& adj) {
+			neighbourhood f0t1(N);
+			iota(f0t1.begin(), f0t1.end(), 0);
+
 			for (size_t u = 0; u < N; ++u) {
-				size_t i = 0;
-				adj[u] = neighbourhood(N - 1);
-				for (size_t v = 0; v < N; ++v) {
-					if (u != v) {
-						adj[u][i] = v;
-						++i;
-					}
-				}
+				adj[u] = f0t1;
+				adj[u].remove(0);
 			}
 		}
 	}
@@ -23,13 +20,13 @@ namespace classic {
 	void complete_graph(size_t N, uugraph& Gs) {
 		vector<neighbourhood> adj(N);
 		_classic::make_adjacency_matrix(N, adj);
-		Gs = uugraph(adj);
+		Gs.init(adj, N*(N - 1)/2);
 	}
 
 	void complete_graph(size_t N, udgraph& Gs) {
 		vector<neighbourhood> adj(N);
 		_classic::make_adjacency_matrix(N, adj);
-		Gs = udgraph(adj);
+		Gs.init(adj, N*N);
 	}
 
 } // -- namespace classic
