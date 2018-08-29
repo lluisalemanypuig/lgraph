@@ -35,6 +35,8 @@ namespace graph_driver {
 		cout << endl;
 		cout << "    * get-edges: prints the list of edges." << endl;
 		cout << endl;
+		cout << "    * set-edge-weight U V W: sets the weight of edge (U,V)" << endl;
+		cout << endl;
 		cout << "-------------------------------------" << endl;
 		cout << "PATHS IN A GRAPH" << endl;
 		cout << endl;
@@ -166,6 +168,12 @@ namespace graph_driver {
 						 << " : " << p.second << ")" << endl;
 				}
 				cout << endl;
+			}
+			else if (option == "set-edge-weight") {
+				node u, v;
+				float w;
+				cin >> u >> v >> w;
+				G->set_edge_weight(u,v,w);
 			}
 			else if (option == "get-weights-node") {
 				node u;
