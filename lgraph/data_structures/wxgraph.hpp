@@ -175,6 +175,25 @@ class wxgraph : public xxgraph {
 		virtual void add_edge(node u, node v, const T& w) = 0;
 
 		/**
+		 * @brief Sets the weight to an edge
+		 *
+		 * Assign to the specified edge the given weight.
+		 * @param e A pair of nodes
+		 * @param w The weight of the edge
+		 */
+		void set_edge_weight(const edge& e, const T& w);
+
+		/**
+		 * @brief Sets the weight to an edge
+		 *
+		 * Assign to the specified edge the given weight.
+		 * @param u The fist node of the edge
+		 * @param v The second node of the edge
+		 * @param w The weight of the edge
+		 */
+		virtual void set_edge_weight(node u, node v, const T& w) = 0;
+
+		/**
 		 * @brief Deletes all memory used by the graph
 		 *
 		 * The value @ref num_edges is set to 0.

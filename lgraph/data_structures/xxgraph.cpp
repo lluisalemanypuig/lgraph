@@ -6,17 +6,14 @@ namespace utils {
 // PROTECTED
 
 size_t xxgraph::get_neighbour_position(const neighbourhood& n, node u) const {
-	bool found = false;
 	size_t p = 0;
-	while (p < n.size() and not found) {
+	while (p < n.size()) {
 		if (n[p] == u) {
-			found = true;
+			return p;
 		}
-		else {
-			++p;
-		}
+		++p;
 	}
-	return p;
+	return n.size();
 }
 
 void xxgraph::initialise_adjacency_list(size_t n) {

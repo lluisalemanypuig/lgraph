@@ -88,6 +88,11 @@ void wxgraph<T>::add_edges(const vector<edge>& edge_list, const vector<T>& ws) {
 }
 
 template<class T>
+void wxgraph<T>::set_edge_weight(const edge& e, const T& w) {
+	set_edge_weight(e.first, e.second, w);
+}
+
+template<class T>
 void wxgraph<T>::clear() {
 	clear_parent_graph();
 	clear_weights();

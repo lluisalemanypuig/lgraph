@@ -100,6 +100,21 @@ void wdgraph<T>::add_edge(node u, node v, const T& w) {
 }
 
 template<class T>
+void wdgraph<T>::set_edge_weight(node u, node v, const T& w) {
+	assert( this->has_node(u) );
+	assert( this->has_node(v) );
+	assert( this->has_edge(u,v) );
+
+	neighbourhood& nu = this->adjacency_list[u];
+	weight_list<T>& wu = this->weights[u];
+
+	size_t posu = this->get_neighbour_position(nu, v);
+	if (posu < nu.size()) {
+		wu[posu] = w;
+	}
+}
+
+template<class T>
 void wdgraph<T>::remove_edge(node u, node v) {
 	assert( this->has_node(u) );
 	assert( this->has_node(v) );

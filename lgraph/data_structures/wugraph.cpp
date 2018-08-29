@@ -108,6 +108,28 @@ void wugraph<T>::add_edge(node u, node v, const T& w) {
 }
 
 template<class T>
+void wugraph<T>::set_edge_weight(node u, node v, const T& w) {
+	assert( this->has_node(u) );
+	assert( this->has_node(v) );
+	assert( this->has_edge(u,v) );
+
+	neighbourhood& nu = this->adjacency_list[u];
+	weight_list<T>& wu = this->weights[u];
+	neighbourhood& nv = this->adjacency_list[v];
+	weight_list<T>& wv = this->weights[v];
+
+	size_t posu = this->get_neighbour_position(nu, v);
+	if (posu < nu.size()) {
+		wu[posu] = w;
+	}
+
+	size_t posv = this->get_neighbour_position(nv, u);
+	if (posv < nu.size()) {
+		wv[posv] = w;
+	}
+}
+
+template<class T>
 void wugraph<T>::remove_edge(node u, node v) {
 	assert( this->has_node(u) );
 	assert( this->has_node(v) );

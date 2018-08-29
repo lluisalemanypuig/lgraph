@@ -92,6 +92,8 @@ class wugraph : public wxgraph<T> {
 
 		using wxgraph<T>::add_edge;
 		void add_edge(node u, node v, const T& w);
+		using wxgraph<T>::set_edge_weight;
+		void set_edge_weight(node u, node v, const T& w);
 		using wxgraph<T>::remove_edge;
 		void remove_edge(node u, node v);
 		void remove_node(node u);
