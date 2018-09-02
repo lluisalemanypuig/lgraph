@@ -24,59 +24,65 @@ namespace distance {
 	/* DISTANCES FOR UNWEIGHTED GRAPHS */
 
 	/**
-	 * @brief Diameter of a graph
+	 * @brief Diameter of a graph.
 	 *
 	 * Computes the distance between all pairs of nodes.
-	 * @param G The graph to be evaluated
-	 * @return Returns the largest distance between all pairs of nodes
+	 *
+	 * @param G The graph to be evaluated.
+	 * @return Returns the largest distance between all pairs of nodes.
 	 */
 	_new_ max_distance(const uxgraph *G);
 	/**
-	 * @brief Diameter of a graph
+	 * @brief Diameter of a graph.
 	 *
 	 * Uses the parameter @e ds to avoid computing the distance between
 	 * all pairs of nodes.
-	 * @param G The graph to be evaluated
-	 * @param ds @e ds[u][v] contains the distance between nodes @e u and @e v
-	 * @return Returns the largest distance between all pairs of nodes
+	 *
+	 * @param G The graph to be evaluated.
+	 * @param ds @e ds[u][v] contains the distance between nodes @e u and @e v.
+	 * @return Returns the largest distance between all pairs of nodes.
 	 */
 	_new_ max_distance(const uxgraph *G, const vector<vector<_new_> >& ds);
 
 	/**
-	 * @brief Mean distance between all pairs of nodes
+	 * @brief Mean distance between all pairs of nodes.
 	 *
 	 * Computes the distance between all pairs of nodes.
-	 * @param G The graph to be evaluated
-	 * @return Returns the average of the distance between all pairs of nodes
+	 *
+	 * @param G The graph to be evaluated.
+	 * @return Returns the average of the distance between all pairs of nodes.
 	 */
 	double mean_distance(const uxgraph *G);
 	/**
-	 * @brief Mean distance between all pairs of nodes
+	 * @brief Mean distance between all pairs of nodes.
 	 *
 	 * Uses the parameter @e ds to avoid computing the distance between
 	 * all pairs of nodes.
-	 * @param G The graph to be evaluated
-	 * @param ds @e ds[u][v] contains the distance between nodes @e u and @e v
-	 * @return Returns the average of the distance between all pairs of nodes
+	 *
+	 * @param G The graph to be evaluated.
+	 * @param ds @e ds[u][v] contains the distance between nodes @e u and @e v.
+	 * @return Returns the average of the distance between all pairs of nodes.
 	 */
 	double mean_distance(const uxgraph *G, const vector<vector<_new_> >& ds);
 
 	/**
-	 * @brief Mean closeness centrality of a graph
+	 * @brief Mean closeness centrality of a graph.
 	 *
 	 * Computes the closeness centrality of each node.
-	 * @param G The graph to be evaluated
-	 * @return Returns the average of the closeness centralities
+	 *
+	 * @param G The graph to be evaluated.
+	 * @return Returns the average of the closeness centralities.
 	 */
 	double mcc(const uxgraph *G);
 	/**
-	 * @brief Mean closeness centrality of a graph
+	 * @brief Mean closeness centrality of a graph.
 	 *
 	 * Uses the parameter @e cc to avoid computing the closeness centrality
 	 * of each node.
-	 * @param G The graph to be evaluated
-	 * @param cc @e cc[u] contains the closeness centrality of node @e u
-	 * @return Returns the average of the closeness centralities
+	 *
+	 * @param G The graph to be evaluated.
+	 * @param cc @e cc[u] contains the closeness centrality of node @e u.
+	 * @return Returns the average of the closeness centralities.
 	 */
 	double mcc(const uxgraph *G, const vector<double>& cc);
 	
@@ -84,64 +90,70 @@ namespace distance {
 	/* DISTANCES FOR WEIGHTED GRAPHS */
 
 	/**
-	 * @brief Diameter of a graph
+	 * @brief Diameter of a graph.
 	 *
 	 * Computes the distance between all pairs of nodes.
-	 * @param G The weighted graph to be evaluated
-	 * @return Returns the largest distance between all pairs of nodes
+	 *
+	 * @param G The weighted graph to be evaluated.
+	 * @return Returns the largest distance between all pairs of nodes.
 	 */
 	template<class T>
 	T max_distance(const wxgraph<T> *G);
 	/**
-	 * @brief Diameter of a graph
+	 * @brief Diameter of a graph.
 	 *
 	 * Uses the parameter @e ds to avoid computing the distance between
 	 * all pairs of nodes.
-	 * @param G The weighted graph to be evaluated
-	 * @param ds @e ds[u][v] contains the distance between nodes @e u and @e v
-	 * @return Returns the largest distance between all pairs of nodes
+	 *
+	 * @param G The weighted graph to be evaluated.
+	 * @param ds @e ds[u][v] contains the distance between nodes @e u and @e v.
+	 * @return Returns the largest distance between all pairs of nodes.
 	 */
 	template<class T>
 	T max_distance(const wxgraph<T> *G, const vector<vector<T> >& ds);
 
 	/**
-	 * @brief Mean distance between all pairs of nodes
+	 * @brief Mean distance between all pairs of nodes.
 	 *
 	 * Computes the distance between all pairs of nodes.
-	 * @param G The weighted graph to be evaluated
-	 * @return Returns the average of the distance between all pairs of nodes
+	 *
+	 * @param G The weighted graph to be evaluated.
+	 * @return Returns the average of the distance between all pairs of nodes.
 	 */
 	template<class T>
 	double mean_distance(const wxgraph<T> *G);
 	/**
-	 * @brief Mean distance between all pairs of nodes
+	 * @brief Mean distance between all pairs of nodes.
 	 *
 	 * Uses the parameter @e ds to avoid computing the distance between
 	 * all pairs of nodes.
-	 * @param G The weighted graph to be evaluated
-	 * @param ds @e ds[u][v] contains the distance between nodes @e u and @e v
-	 * @return Returns the average of the distance between all pairs of nodes
+	 *
+	 * @param G The weighted graph to be evaluated.
+	 * @param ds @e ds[u][v] contains the distance between nodes @e u and @e v.
+	 * @return Returns the average of the distance between all pairs of nodes.
 	 */
 	template<class T>
 	double mean_distance(const wxgraph<T> *G, const vector<vector<T> >& ds);
 
 	/**
-	 * @brief Mean closeness centrality of a graph
+	 * @brief Mean closeness centrality of a graph.
 	 *
 	 * Computes the closeness centrality of each node.
-	 * @param G The weighted graph to be evaluated
-	 * @return Returns the average of the closeness centralities
+	 *
+	 * @param G The weighted graph to be evaluated.
+	 * @return Returns the average of the closeness centralities.
 	 */
 	template<class T>
 	double mcc(const wxgraph<T> *G);
 	/**
-	 * @brief Mean closeness centrality of a graph
+	 * @brief Mean closeness centrality of a graph.
 	 *
 	 * Uses the parameter @e cc to avoid computing the closeness centrality
 	 * of each node.
-	 * @param G The weighted graph to be evaluated
-	 * @param cc @e cc[u] contains the closeness centrality of node @e u
-	 * @return Returns the average of the closeness centralities
+	 *
+	 * @param G The weighted graph to be evaluated.
+	 * @param cc @e cc[u] contains the closeness centrality of node @e u.
+	 * @return Returns the average of the closeness centralities.
 	 */
 	template<class T>
 	double mcc(const wxgraph<T> *G, const vector<double>& cc);

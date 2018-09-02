@@ -45,11 +45,10 @@ class node_path {
 		T path_length;
 
 	public:
-		/// Empty constructor
+		/// Empty constructor.
 		node_path();
 		/**
-		 * @brief Initialise a path starting at node @e n
-		 *
+		 * @brief Initialise a path starting at node @e n.
 		 * @param n The first node of this path.
 		 * @pre @e n >= 0
 		 */
@@ -57,7 +56,7 @@ class node_path {
 		~node_path();
 
 		/**
-		 * @brief Empties this path
+		 * @brief Empties this path.
 		 *
 		 * Frees the memory occupied by the currently existing nodes.
 		 * Sets @ref path_length to 0.
@@ -79,27 +78,27 @@ class node_path {
 		}
 
 		/**
-		 * @brief Acces the @e i-th node of this path
-		 * @param i Index of the list
-		 * @return A copy of the node at the i-th position
-		 * @pre 0 <= @e i < @e n with @e n the amount of nodes in this path
+		 * @brief Acces the @e i-th node of this path.
+		 * @param i Index of the list.
+		 * @return A copy of the node at the i-th position.
+		 * @pre 0 <= @e i < @e n with @e n the amount of nodes in this path.
 		 */
 		node operator[] (size_t i) const;
 
 		/**
-		 * @brief Acces the @e i-th node of this path
-		 * @param i Index of the list
-		 * @return A reference to the node at the i-th position
-		 * @pre 0 <= @e i < @e n with @e n the amount of nodes in this path
+		 * @brief Acces the @e i-th node of this path.
+		 * @param i Index of the list.
+		 * @return A reference to the node at the i-th position.
+		 * @pre 0 <= @e i < @e n with @e n the amount of nodes in this path.
 		 */
 		node& operator[] (size_t i);
 
-		/// Compares two nodes using only their length
+		/// Compares two nodes using only their length.
 		bool operator< (const node_path<T>& p) const;
-		/// Compares two nodes using only their length
+		/// Compares two nodes using only their length.
 		bool operator> (const node_path<T>& p) const;
 
-		/// Assigns the contents of @e np to this path
+		/// Assigns the contents of @e np to this path.
 		node_path<T>& operator= (const node_path<T>& np);
 
 		/**
@@ -116,23 +115,24 @@ class node_path {
 		/**
 		 * @brief Adds a node to the path.
 		 *
-		 * The new node is added at the back of @ref nodes
-		 * @param u The node's index
-		 * @pre u >= 0
-		 * @post The length remains unchanged
+		 * The new node is added at the back of @ref nodes.
+		 *
+		 * @param u The node's index.
+		 * @pre u >= 0.
+		 * @post The length remains unchanged.
 		*/
 		void add_node(node u);
 
 		/**
 		 * @brief Accumulates to the current length of the the path the value l.
-		 * @param l The value to be accumulated to @ref path_length
+		 * @param l The value to be accumulated to @ref path_length.
 		 */
 		void add_length(const T& l);
 
 		/**
 		 * @brief Sets the current length of the the path the value l.
 		 * @param l The value that will replace the current value of
-		 *		@ref path_length
+		 *		@ref path_length.
 		 */
 		void set_length(const T& l);
 
@@ -141,26 +141,26 @@ class node_path {
 
 		/**
 		 * @brief Deletes the last node of this path.
-		 * @post The length remains unchanged
+		 * @post The length remains unchanged.
 		 */
 		void delete_last();
 
 		/**
 		 * @brief Returns the number of nodes in this path.
-		 * @return Returns the size of @ref nodes
+		 * @return Returns the size of @ref nodes.
 		 */
 		size_t size() const;
 
 		/**
-		 * @brief Returns the length of this path
-		 * @return Returns the value @ref path_length
+		 * @brief Returns the length of this path.
+		 * @return Returns the value @ref path_length.
 		 */
 		T get_length() const;
 
-		/// Return the last node of this path
+		/// Return the last node of this path.
 		node last_node() const;
 
-		/// Returns a constant reference to the list of nodes
+		/// Returns a constant reference to the list of nodes.
 		const vector<node>& get_nodes() const;
 
 		/**

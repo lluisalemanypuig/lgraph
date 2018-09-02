@@ -17,65 +17,63 @@ namespace lgraph {
 using namespace utils;
 
 namespace traversal {
-
-/**
-* Contains a generic Dijkstra algorithm that uses three
-* different functions that guide it.
-*/
 namespace dijkstra {
 
-	/// A pair encoding the distance to a node, and that node
+	/// A pair encoding the distance to a node, and that node.
 	template<class T>
 	using djka_node = pair<T, node>;
 
 	/**
-	 * @brief Terminating function
+	 * @brief Terminating function.
 	 *
 	 * Returns true if the @ref Dijkstra algorithm should terminate.
-	 * For more details on when it is called see @ref Dijkstra.
 	 *
-	 * @param G The graph being traversed
+	 * For more details on when this function is called see @ref Dijkstra.
+	 *
+	 * @param G The graph being traversed.
 	 * @param u The node at the front of the queue of the algorithm and the distance
 	 *	to it.
-	 * @param vis The set of visited nodes
+	 * @param vis The set of visited nodes.
 	 */
 	template<class T = size_t>
 	using djka_terminate = function<bool (const wxgraph<T> *G, const djka_node<T>& u, const vector<bool>& vis)>;
 
 	/**
-	 * @brief Node processing function
+	 * @brief Node processing function.
 	 *
-	 * Processes the current node visited. For more details on
-	 * when it is called see @ref Dijkstra.
+	 * Processes the current node visited.
 	 *
-	 * @param G The graph being traversed
+	 * For more details on when this function is called see @ref Dijkstra.
+	 *
+	 * @param G The graph being traversed.
 	 * @param u The node at the front of the queue of the algorithm and the distance
 	 *	to it.
-	 * @param vis The set of visited nodes
+	 * @param vis The set of visited nodes.
 	 */
 	template<class T = size_t>
 	using djka_process_current = function<void (const wxgraph<T> *G, const djka_node<T>& u, const vector<bool>& vis)>;
 
 	/**
-	 * @brief Node processing function
+	 * @brief Node processing function.
 	 *
-	 * Processes the next visited node. For more details on
-	 * when it is called see @ref Dijkstra.
+	 * Processes the next visited node.
 	 *
-	 * @param G The graph being traversed
-	 * @param u The node at the front of the queue of the algorithm
-	 * @param v The node neighbour of @e u visited by the algorithm
-	 * @param w weight of edge (u,v)
-	 * @param vis The set of visited nodes
+	 * For more details on when this function is called see @ref Dijkstra.
+	 *
+	 * @param G The graph being traversed.
+	 * @param u The node at the front of the queue of the algorithm.
+	 * @param v The node neighbour of @e u visited by the algorithm.
+	 * @param w weight of edge (u,v).
+	 * @param vis The set of visited nodes.
 	 *
 	 * @return Returns true or false whether the next pair of (distance,node)
-	 *	should be added or not
+	 *	should be added or not.
 	 */
 	template<class T = size_t>
 	using djka_process_neighbour = function<bool (const wxgraph<T> *G, node u, node v, const T& w, const vector<bool>& vis)>;
 
 	/**
-	 * @brief Generic Dijkstra algorithm
+	 * @brief Generic Dijkstra algorithm.
 	 *
 	 * The procedure applied for this algorithm here
 	 * for traversing through a graph from a source node to
@@ -105,8 +103,8 @@ namespace dijkstra {
 	 *	20.	endwhile
 	 * </pre>
 	 *
-	 * @param G The graph being traversed
-	 * @param source The node where the algorithm starts at
+	 * @param G The graph being traversed.
+	 * @param source The node where the algorithm starts at.
 	 * @param term The terminating function. It is used as a termination condition in line 8.
 	 * @param proc_curr The function to process the currently visited node.
 	 *	It is called in line 7 used to perform some operation on the current node of the traversal.

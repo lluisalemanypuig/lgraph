@@ -25,44 +25,47 @@ namespace traversal {
 namespace bfs {
 
 	/**
-	 * @brief Terminating function
+	 * @brief Terminating function.
 	 *
-	 * Returns true if the @ref BFS algorithm should terminate. For more details on
-	 * when it is called see @ref BFS.
+	 * Returns true if the @ref BFS algorithm should terminate.
 	 *
-	 * @param G The graph being traversed
-	 * @param u The node at the front of the queue of the algorithm
-	 * @param vis The set of visited nodes
+	 * For more details on when this function is called see @ref BFS.
+	 *
+	 * @param G The graph being traversed.
+	 * @param u The node at the front of the queue of the algorithm.
+	 * @param vis The set of visited nodes.
 	 */
 	typedef function<bool (const uxgraph *G, node u, const vector<bool>& vis)> bfs_terminate;
 
 	/**
-	 * @brief Node processing function
+	 * @brief Node processing function.
 	 *
-	 * Processes the current node visited. For more details on
-	 * when it is called see @ref BFS.
+	 * Processes the current node visited.
 	 *
-	 * @param G The graph being traversed
-	 * @param u The node at the front of the queue of the algorithm
-	 * @param vis The set of visited nodes
+	 * For more details on when this function is called see @ref BFS.
+	 *
+	 * @param G The graph being traversed.
+	 * @param u The node at the front of the queue of the algorithm.
+	 * @param vis The set of visited nodes.
 	 */
 	typedef function<void (const uxgraph *G, node u, const vector<bool>& vis)> bfs_process_current;
 
 	/**
-	 * @brief Node processing function
+	 * @brief Node processing function.
 	 *
-	 * Processes the next visited node. For more details on
-	 * when it is called see @ref BFS.
+	 * Processes the next visited node.
 	 *
-	 * @param G The graph being traversed
-	 * @param u The node at the front of the queue of the algorithm
-	 * @param v The node neighbour of @e u visited by the algorithm
-	 * @param vis The set of visited nodes
+	 * For more details on when this function is called see @ref BFS.
+	 *
+	 * @param G The graph being traversed.
+	 * @param u The node at the front of the queue of the algorithm.
+	 * @param v The node neighbour of @e u visited by the algorithm.
+	 * @param vis The set of visited nodes.
 	 */
 	typedef function<void (const uxgraph *G, node u, node v, const vector<bool>& vis)> bfs_process_neighbour;
 
 	/**
-	 * @brief Generic Breadth-First search algorithm
+	 * @brief Generic Breadth-First search algorithm.
 	 *
 	 * The usual procedure of this algorithm for traversing through a graph from
 	 * a source node to a target node is as follows:
@@ -89,9 +92,9 @@ namespace bfs {
 	 *	18.	endwhile
 	 * </pre>
 	 *
-	 * @param G The graph being traversed
-	 * @param source The node where the algorithm starts at
-	 * @param term The terminating function. It is used as a termination condition in line 7.
+	 * @param G The graph being traversed.
+	 * @param source The node where the algorithm starts at.
+	 * @param term The terminating function. It is used as a termination condition in line 7..
 	 * @param proc_curr The function to process the currently visited node.
 	 *	It is called in line 6 used to perform some operation on the current node of the traversal.
 	 * @param proc_neigh It is called in line 11 used to perform some operation on each of the

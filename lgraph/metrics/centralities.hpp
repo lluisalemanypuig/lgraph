@@ -25,17 +25,17 @@ namespace centralities {
 	/* DEGREE CENTRALITY */
 
 	/**
-	 * @brief Normalised degree centrality of a single node
-	 * @param G The unweighted graph to be evaluated
-	 * @param u The node to be evaluated
+	 * @brief Normalised degree centrality of a single node.
+	 * @param G The unweighted graph to be evaluated.
+	 * @param u The node to be evaluated.
 	 * @return Returns the degree of node @e u divided by the
-	 * number of nodes (minus 1)
+	 * number of nodes (minus 1).
 	 */
 	double degree(const uxgraph *G, node u);
 
 	/**
-	 * @brief Normalised degree centrality of all nodes in a graph
-	 * @param[in] G The unweighted graph to be evaluated
+	 * @brief Normalised degree centrality of all nodes in a graph.
+	 * @param[in] G The unweighted graph to be evaluated.
 	 * @param[out] dc The i-th position contains the normalised degree
 	 * centrality of the i-th node.
 	 */
@@ -44,29 +44,31 @@ namespace centralities {
 	/*  CLOSENESS CENTRALITY */
 
 	/**
-	 * @brief Closeness centrality of a node
-	 * @param G The unweighted graph to be evaluated
-	 * @param u The node to be evaluated
+	 * @brief Closeness centrality of a node.
+	 * @param G The unweighted graph to be evaluated.
+	 * @param u The node to be evaluated.
 	 * @return Returns the closeness centrality of a node.
 	 */
 	double closeness(const uxgraph *G, node u);
 
 	/**
-	 * @brief Closeness centrality of all nodes in a graph
+	 * @brief Closeness centrality of all nodes in a graph.
 	 *
 	 * Computes the distance between each pair of nodes in the graph.
-	 * @param[in] G The unweighted graph to be evaluated
+	 *
+	 * @param[in] G The unweighted graph to be evaluated.
 	 * @param[out] cc The @e i-th position contains the
 	 * closeness centrality of the @e i-th node.
 	 */
 	void closeness(const uxgraph *G, vector<double>& cc);
 
 	/**
-	 * @brief Closeness centrality of all nodes in a graph
+	 * @brief Closeness centrality of all nodes in a graph.
 	 *
 	 * Uses the parameter @e atad to avoit computing the all-to-all distances
 	 * (the distance between each pair of nodes).
-	 * @param[in] G The unweighted graph to be evaluated
+	 *
+	 * @param[in] G The unweighted graph to be evaluated.
 	 * @param[in] atad The matrix with the distance between each pair of nodes.
 	 * @param[out] cc The @e i-th position contains the
 	 * closeness centrality of the @e i-th node.
@@ -76,7 +78,7 @@ namespace centralities {
 	/* BETWEENNESS CENTRALITY */
 
 	/**
-	 * @brief Betweenness centrality of a node
+	 * @brief Betweenness centrality of a node.
 	 *
 	 * This centrality measure is implemented following the recommendations
 	 * given in [Newman, 2010]:
@@ -92,15 +94,16 @@ namespace centralities {
 	 * University Press, Oxford.
 	 *
 	 * This function computes all shortest paths between each pair of nodes.
-	 * @param G The unweighted graph to be evaluated
-	 * @param u The node to be evaluated
+	 *
+	 * @param G The unweighted graph to be evaluated.
+	 * @param u The node to be evaluated.
 	 * @return Returns the betweenness centrality of a node, considering
 	 * that a path between @e u and @e v contains both @e u and @e v.
 	 */
 	double betweenness(const uxgraph *G, node u);
 
 	/**
-	 * @brief Betweenness centrality of a node
+	 * @brief Betweenness centrality of a node.
 	 *
 	 * This centrality measure is implemented following the recommendations given
 	 * in [Newman, 2010]:
@@ -117,17 +120,18 @@ namespace centralities {
 	 *
 	 * This uses the parameter @e paths to avoid computing all the shortest paths between
 	 * all pair of nodes.
-	 * @param G The unweighted graph to be evaluated
+	 *
+	 * @param G The unweighted graph to be evaluated.
 	 * @param paths @e paths[u][v] contains all shortest paths between @e u and @e v
-	 * for 0 <= @e u , @e v < @e G.n_nodes()
-	 * @param u The node to be evaluated
+	 * for 0 <= @e u , @e v < @e G.n_nodes().
+	 * @param u The node to be evaluated.
 	 * @return Returns the betweenness centrality of a node, considering
 	 * that a path between @e u and @e v contains both @e u and @e v.
 	 */
 	double betweenness(const uxgraph *G, const vector<vector<boolean_path_set<_new_> > >& paths, node u);
 
 	/**
-	 * @brief Betweenness centrality of all nodes in a graph
+	 * @brief Betweenness centrality of all nodes in a graph.
 	 *
 	 * This centrality measure is implemented following the recommendations given
 	 * in [Newman, 2010]:
@@ -143,13 +147,14 @@ namespace centralities {
 	 * University Press, Oxford.
 	 *
 	 * This function computes all shortest paths between each pair of nodes.
-	 * @param[in] G The unweighted graph to be evaluated
-	 * @param[out] bc @e bc[i] contains the betweenness centrality of the @e i-th node
+	 *
+	 * @param[in] G The unweighted graph to be evaluated.
+	 * @param[out] bc @e bc[i] contains the betweenness centrality of the @e i-th node.
 	 */
 	void betweenness(const uxgraph *G, vector<double>& bc);
 
 	/**
-	 * @brief Betweenness centrality of all nodes in a graph
+	 * @brief Betweenness centrality of all nodes in a graph.
 	 *
 	 * This centrality measure is implemented following the recommendations given
 	 * in [Newman, 2010]:
@@ -166,10 +171,11 @@ namespace centralities {
 	 *
 	 * This uses the parameter @e paths to avoid computing all the shortest paths between
 	 * all pair of nodes.
-	 * @param[in] G The unweighted graph to be evaluated
+	 *
+	 * @param[in] G The unweighted graph to be evaluated.
 	 * @param[in] paths @e paths[u][v] contains all shortest paths between @e u and @e v
-	 * for 0 <= @e u , @e v < @e G.n_nodes()
-	 * @param[out] bc @e bc[i] contains the betweenness centrality of the @e i-th node
+	 * for 0 <= @e u , @e v < @e G.n_nodes().
+	 * @param[out] bc @e bc[i] contains the betweenness centrality of the @e i-th node.
 	 */
 	void betweenness(const uxgraph *G, const vector<vector<boolean_path_set<_new_> > >& paths, vector<double>& bc);
 
@@ -179,18 +185,18 @@ namespace centralities {
 	/* DEGREE CENTRALITY */
 
 	/**
-	 * @brief Normalised degree centrality of a single node
-	 * @param G The weighted graph to be evaluated
-	 * @param u The node to be evaluated
+	 * @brief Normalised degree centrality of a single node.
+	 * @param G The weighted graph to be evaluated.
+	 * @param u The node to be evaluated.
 	 * @return Returns the degree of node @e u divided by the
-	 * number of nodes (minus 1)
+	 * number of nodes (minus 1).
 	 */
 	template<class T>
 	double degree(const wxgraph<T> *G, node u);
 
 	/**
-	 * @brief Normalised degree centrality of all nodes in a graph
-	 * @param[in] G The weighted graph to be evaluated
+	 * @brief Normalised degree centrality of all nodes in a graph.
+	 * @param[in] G The weighted graph to be evaluated.
 	 * @param[out] dc The i-th position contains the normalised degree
 	 * centrality of the i-th node.
 	 */
@@ -200,19 +206,20 @@ namespace centralities {
 	/*  CLOSENESS CENTRALITY */
 
 	/**
-	 * @brief Closeness centrality of a node
-	 * @param G The weighted graph to be evaluated
-	 * @param u The node to be evaluated
+	 * @brief Closeness centrality of a node.
+	 * @param G The weighted graph to be evaluated.
+	 * @param u The node to be evaluated.
 	 * @return Returns the closeness centrality of a node.
 	 */
 	template<class T>
 	double closeness(const wxgraph<T> *G, node u);
 
 	/**
-	 * @brief Closeness centrality of all nodes in a graph
+	 * @brief Closeness centrality of all nodes in a graph.
 	 *
 	 * Computes the distance between each pair of nodes in the graph.
-	 * @param[in] G The weighted graph to be evaluated
+	 *
+	 * @param[in] G The weighted graph to be evaluated.
 	 * @param[out] cc The @e i-th position contains the
 	 * closeness centrality of the @e i-th node.
 	 */
@@ -220,11 +227,12 @@ namespace centralities {
 	void closeness(const wxgraph<T> *G, vector<double>& cc);
 
 	/**
-	 * @brief Closeness centrality of all nodes in a graph
+	 * @brief Closeness centrality of all nodes in a graph.
 	 *
 	 * Uses the parameter @e atad to avoit computing the all-to-all distances
 	 * (the distance between each pair of nodes).
-	 * @param[in] G The weighted graph to be evaluated
+	 *
+	 * @param[in] G The weighted graph to be evaluated.
 	 * @param[in] atad The matrix with the distance between each pair of nodes.
 	 * @param[out] cc The @e i-th position contains the
 	 * closeness centrality of the @e i-th node.
@@ -235,7 +243,7 @@ namespace centralities {
 	/* BETWEENNESS CENTRALITY */
 
 	/**
-	 * @brief Betweenness centrality of a node
+	 * @brief Betweenness centrality of a node.
 	 *
 	 * This centrality measure is implemented following the recommendations
 	 * given in [Newman, 2010]:
@@ -251,8 +259,9 @@ namespace centralities {
 	 * University Press, Oxford.
 	 *
 	 * This function computes all shortest paths between each pair of nodes.
-	 * @param G The weighted graph to be evaluated
-	 * @param u The node to be evaluated
+	 *
+	 * @param G The weighted graph to be evaluated.
+	 * @param u The node to be evaluated.
 	 * @return Returns the betweenness centrality of a node, considering
 	 * that a path between @e u and @e v contains both @e u and @e v.
 	 */
@@ -260,7 +269,7 @@ namespace centralities {
 	double betweenness(const wxgraph<T> *G, node u);
 
 	/**
-	 * @brief Betweenness centrality of a node
+	 * @brief Betweenness centrality of a node.
 	 *
 	 * This centrality measure is implemented following the recommendations given
 	 * in [Newman, 2010]:
@@ -277,10 +286,11 @@ namespace centralities {
 	 *
 	 * This uses the parameter @e paths to avoid computing all the shortest paths between
 	 * all pair of nodes.
-	 * @param G The weighted graph to be evaluated
+	 *
+	 * @param G The weighted graph to be evaluated.
 	 * @param paths @e paths[u][v] contains all shortest paths between @e u and @e v
-	 * for 0 <= @e u , @e v < @e G.n_nodes()
-	 * @param u The node to be evaluated
+	 * for 0 <= @e u , @e v < @e G.n_nodes().
+	 * @param u The node to be evaluated.
 	 * @return Returns the betweenness centrality of a node, considering
 	 * that a path between @e u and @e v contains both @e u and @e v.
 	 */
@@ -288,7 +298,7 @@ namespace centralities {
 	double betweenness(const wxgraph<T> *G, const vector<vector<boolean_path_set<T> > >& paths, node u);
 
 	/**
-	 * @brief Betweenness centrality of a node
+	 * @brief Betweenness centrality of a node.
 	 *
 	 * This centrality measure is implemented following the recommendations given
 	 * in [Newman, 2010]:
@@ -305,10 +315,11 @@ namespace centralities {
 	 *
 	 * This uses the parameter @e paths to avoid computing all the shortest paths between
 	 * all pair of nodes.
-	 * @param G The weighted graph to be evaluated
+	 *
+	 * @param G The weighted graph to be evaluated.
 	 * @param paths @e paths[u][v] contains all shortest paths between @e u and @e v
-	 * for 0 <= @e u , @e v < @e G.n_nodes()
-	 * @param u The node to be evaluated
+	 * for 0 <= @e u , @e v < @e G.n_nodes().
+	 * @param u The node to be evaluated.
 	 * @return Returns the betweenness centrality of a node, considering
 	 * that a path between @e u and @e v contains both @e u and @e v.
 	 */
@@ -316,7 +327,7 @@ namespace centralities {
 	double betweenness(const wxgraph<T> *G, const vector<vector<boolean_path_set<T> > >& paths, node u);
 
 	/**
-	 * @brief Betweenness centrality of all nodes in a graph
+	 * @brief Betweenness centrality of all nodes in a graph.
 	 *
 	 * This centrality measure is implemented following the recommendations given
 	 * in [Newman, 2010]:
@@ -332,8 +343,9 @@ namespace centralities {
 	 * University Press, Oxford.
 	 *
 	 * This function computes all shortest paths between each pair of nodes.
-	 * @param[in] G The weighted graph to be evaluated
-	 * @param[out] bc @e bc[i] contains the betweenness centrality of the @e i-th node
+	 *
+	 * @param[in] G The weighted graph to be evaluated.
+	 * @param[out] bc @e bc[i] contains the betweenness centrality of the @e i-th node.
 	 */
 	template<class T>
 	void betweenness(const wxgraph<T> *G, vector<double>& bc);
@@ -356,10 +368,11 @@ namespace centralities {
 	 *
 	 * This uses the parameter @e paths to avoid computing all the shortest paths between
 	 * all pair of nodes.
-	 * @param[in] G The weighted graph to be evaluated
+	 *
+	 * @param[in] G The weighted graph to be evaluated.
 	 * @param[in] paths @e paths[u][v] contains all shortest paths between @e u and @e v
-	 * for 0 <= @e u , @e v < @e G.n_nodes()
-	 * @param[out] bc @e bc[i] contains the betweenness centrality of the @e i-th node
+	 * for 0 <= @e u , @e v < @e G.n_nodes().
+	 * @param[out] bc @e bc[i] contains the betweenness centrality of the @e i-th node.
 	 */
 	template<class T>
 	void betweenness(const wxgraph<T> *G, const vector<vector<boolean_path_set<T> > >& paths, vector<double>& bc);

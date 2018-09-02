@@ -8,7 +8,7 @@ namespace lgraph {
 namespace utils {
 
 /**
- * @brief Abstract pseudo-Random Number Generator (ARNG)
+ * @brief Abstract pseudo-Random Number Generator (ARNG).
  *
  * Interface for random number generators using the C++11 header \<random\>.
  *
@@ -23,49 +23,49 @@ template<
 >
 class random_generator {
 	protected:
-		/// Random engine
+		/// Random engine.
 		G gen;
 		
 	public:
-		/// Class constructor
+		/// Class constructor.
 		random_generator();
 
-		/// Class destructor
+		/// Class destructor.
 		virtual ~random_generator();
 		
 		/// Initialises the random engine.
 		virtual void seed_random_engine();
 		
 		/**
-		 * @brief Initialise the uniform distribution
-		 * @param a Lower bound of the interval of the distribution
-		 * @param b Upper bound of the interval of the distribution
+		 * @brief Initialise the uniform distribution.
+		 * @param a Lower bound of the interval of the distribution.
+		 * @param b Upper bound of the interval of the distribution.
 		 */
 		virtual void init_uniform(T a, T b) = 0;
 
 		/**
-		 * @brief Initialise the binomial distribution
-		 * @param n Number of independent experiments of the distribution
-		 * @param p Probability of success of each experiment
+		 * @brief Initialise the binomial distribution.
+		 * @param n Number of independent experiments of the distribution.
+		 * @param p Probability of success of each experiment.
 		 */
 		virtual void init_binomial(T n, double p) = 0;
 
-		/// Compute a pseudo-random number uniformly at random
+		/// Compute a pseudo-random number uniformly at random.
 		virtual T get_uniform() = 0;
 
-		/// Compute a pseudo-random binomal number
+		/// Compute a pseudo-random binomal number.
 		virtual T get_binomial() = 0;
 		
 }; // -- class random_generator
 
 /**
- * @brief Discrete pseudo-Random Number Generator (DRNG)
+ * @brief Discrete pseudo-Random Number Generator (DRNG).
  *
  * Class that generates discrete numbers in both uniform and binomial
  * distributions.
  *
- * @param G The random engine used to generate the numbers
- * @param T The type of the numbers generated (int, char, unsigned int, ...)
+ * @param G The random engine used to generate the numbers.
+ * @param T The type of the numbers generated (int, char, unsigned int, ...).
  */
 template<
 	class G = default_random_engine,	// class used for the random engine
@@ -74,14 +74,16 @@ template<
 >
 class drandom_generator : public random_generator<G,dT> {
 	private:
-		/// Object to generate integer numbers uniformly at random
+		/// Object to generate integer numbers uniformly at random.
 		uniform_int_distribution<dT> U;
 
-		/// Object to generate the numbers following a binomial distribution
+		/// Object to generate the numbers following a binomial distribution.
 		binomial_distribution<dT> B;
 		
 	public:
+		/// Constructor.
 		drandom_generator();
+		/// Destructor.
 		~drandom_generator();
 
 		void init_uniform(dT a, dT b);
@@ -93,12 +95,12 @@ class drandom_generator : public random_generator<G,dT> {
 }; // -- class drandom_generator
 
 /**
- * @brief Continuous pseudo-Random Number Generator (CRNG)
+ * @brief Continuous pseudo-Random Number Generator (CRNG).
  *
- * Class that generates continuous numbers only in the uniform distribution
+ * Class that generates continuous numbers only in the uniform distribution.
  *
- * @param G The random engine used to generate the numbers
- * @param T The type of the numbers generated (double, float)
+ * @param G The random engine used to generate the numbers.
+ * @param T The type of the numbers generated (double, float).
  */
 template<
 	class G = default_random_engine,	// class used for the random engine
@@ -107,18 +109,18 @@ template<
 >
 class crandom_generator : public random_generator<G,cT> {
 	private:
-		/// Object to generate floating point numbers uniformly at random
+		/// Object to generate floating point numbers uniformly at random.
 		uniform_real_distribution<cT> U;
 		
 	public:
-		/// Constructor
+		/// Constructor.
 		crandom_generator();
-		/// Destructor
+		/// Destructor.
 		~crandom_generator();
 
 		void init_uniform(cT a, cT b);
 
-		/// The CRNG leaves this method's body empty
+		/// The CRNG leaves this method's body empty.
 		void init_binomial(cT a, double p);
 
 		cT get_uniform();

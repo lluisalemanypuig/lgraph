@@ -8,7 +8,7 @@ namespace lgraph {
 namespace utils {
 
 /**
- * @brief A class for a null stream
+ * @brief A class for a null stream.
  *
  * The operator '<<' for any suitable type does not have
  * any effect on it (nothing is displayed). The 'endl' modifier
@@ -16,48 +16,48 @@ namespace utils {
  */
 class null_stream {
 	public:
-		/// Open an empty stream for null messages
+		/// Open an empty stream for null messages.
 		void open(const char *, const std::ios_base::openmode& ) { }
 		
-		/// This is the type of std::cout
+		/// This is the type of std::cout.
 		typedef std::basic_ostream<char, std::char_traits<char> > cout_type;
 
-		/// This is the function signature of std::endl
+		/// This is the function signature of std::endl.
 		typedef cout_type& (*standard_endl)(cout_type&);
 
-		/// Define an operator<< to take in std::endl
+		/// Define an operator<< to take in std::endl.
 		null_stream& operator<< (const standard_endl&)
 		{ return *this; }
 		
-		/// operator<< for any printable type
+		/// operator<< for any printable type.
 		template<class t_printable>
 		null_stream& operator<< (const t_printable&)
 		{ return *this; }
 };
 
 /**
- * @brief A class for the cout stream
+ * @brief A class for the cout stream.
  *
  * A wrapper over the ostrem object cout.
  */
 class cout_stream {
 	public:
-		/// Open an empty stream for standard output messages
+		/// Open an empty stream for standard output messages.
 		void open(const char *, const std::ios_base::openmode& ) { }
 
-		/// This is the type of std::cout
+		/// This is the type of std::cout.
 		typedef std::basic_ostream<char, std::char_traits<char> > cout_type;
 
-		/// This is the function signature of std::endl
+		/// This is the function signature of std::endl.
 		typedef cout_type& (*standard_endl)(cout_type&);
 
-		/// Define an operator<< to take in std::endl
+		/// Define an operator<< to take in std::endl.
 		cout_stream& operator<< (const standard_endl&) {
-			std::cout << endl;
+			std::cout << std::endl;
 			return *this;
 		}
 
-		/// operator<< for any printable type
+		/// operator<< for any printable type.
 		template<class t_printable>
 		cout_stream& operator<< (const t_printable& t) {
 			std::cout << t;
@@ -66,28 +66,28 @@ class cout_stream {
 };
 
 /**
- * @brief A class for the cerr stream
+ * @brief A class for the cerr stream.
  *
  * A wrapper over the ostrem object cerr.
  */
 class cerr_stream {
 	public:
-		/// Open an empty stream for error messages
+		/// Open an empty stream for error messages.
 		void open(const char *, const std::ios_base::openmode& ) { }
 
-		/// This is the type of std::cout
+		/// This is the type of std::cout.
 		typedef std::basic_ostream<char, std::char_traits<char> > cerr_type;
 
-		/// This is the function signature of std::endl
+		/// This is the function signature of std::endl.
 		typedef cerr_type& (*standard_endl)(cerr_type&);
 
-		/// Define an operator<< to take in std::endl
+		/// Define an operator<< to take in std::endl.
 		cerr_stream& operator<< (const standard_endl&) {
-			std::cerr << endl;
+			std::cerr << std::endl;
 			return *this;
 		}
 
-		/// operator<< for any printable type
+		/// operator<< for any printable type.
 		template<class t_printable>
 		cerr_stream& operator<< (const t_printable& t) {
 			std::cerr << t;
@@ -96,7 +96,7 @@ class cerr_stream {
 };
 
 /**
- * @brief Class for message display
+ * @brief Class for message display.
  *
  * Singleton class to centralise the displaying of messages either
  * to the standard or error output, or to a file. For example, during
@@ -115,28 +115,28 @@ class cerr_stream {
  * Once we are not interested in displaying messages anymore, change
  * the declaration of the object to:
  *
- *	logger<null_stream>& LOG = logger<null_stream>::get_logger();
+ *		logger<null_stream>& LOG = logger<null_stream>::get_logger();
  *
  * The other calls displaying "message *" will have no effect. There
  * is only one instance of this class for a cout_stream, one for a
  * cerr_stream, one for a null_stream, and another for a stream to
  * a file.
  *
- * @param out_stream The ofstream type or the @ref null_stream,
+ * @param out_stream The ofstream type or the @ref null_stream.
  * @ref cout_stream, @ref cerr_stream.
  */
 template<class out_stream = std::ofstream>
 class logger {
 	private:
-		/// The stream object to output the strings to
+		/// The stream object to output the strings to.
 		out_stream fout;
-		/// In case of an stream to a file, is it opened?
+		/// In case of an stream to a file, is it opened?.
 		bool opened;
 		
 		/**
-		 * @brief Empty constructor
+		 * @brief Empty constructor.
 		 *
-		 * Made private to make this class a singleton
+		 * Made private to make this class a singleton.
 		 */
 		logger() {
 			opened = false;
@@ -144,7 +144,7 @@ class logger {
 		
 	public:
 		/**
-		 * @brief Returns the stream to output information to
+		 * @brief Returns the stream to output information to.
 		 *
 		 * This works exactly like the 'cout' and 'cerr' ostream
 		 * classes. All objects passed to this using '<<' must
@@ -155,7 +155,7 @@ class logger {
 		}
 		
 		/**
-		 * @brief Returns the only instance of this class
+		 * @brief Returns the only instance of this class.
 		 * @param o In case of using a stream to a file (ofstream),
 		 * indicate the name of the file.
 		 * @return Returns the only instance of this class of the
@@ -172,9 +172,9 @@ class logger {
 			return L;
 		}
 		
-		/// Deleted copy-constructor
+		/// Deleted copy-constructor.
 		logger (const logger& L)			= delete;
-		/// Deleted assignation operator
+		/// Deleted assignation operator.
 		void operator= (const logger& L)	= delete;
 };
 

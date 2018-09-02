@@ -27,45 +27,45 @@ class uxgraph : public xxgraph {
 	protected:
 
 		/**
-		 * @brief Computes the list of unique unweighted edges of this graph
+		 * @brief Computes the list of unique unweighted edges of this graph.
 		 *
 		 * An unweighted edge is a pair of indices each of which is within
 		 * the interval [0,@e n) where @e n is the number of nodes of this
 		 * graph.
 		 *
-		 * @param[out] edges The collection of unweighted edges
+		 * @param[out] edges The collection of unweighted edges.
 		 * @return Stores in @ref edges the list of unweighted edges of this
-		 * graph
+		 * graph.
 		 */
 		virtual void get_unique_edges(vector<edge>& edges) const = 0;
 
 	public:
-		/// Default onstructor
+		/// Default onstructor.
 		uxgraph();
-		/// Constructor with number of nodes
+		/// Constructor with number of nodes.
 		uxgraph(size_t n);
 		/**
-		 * @brief Constructor with adjacency list and number of edges
-		 * @param adj The adjacency list of the graph
-		 * @param n_edges The number of edges in the adjacency list
+		 * @brief Constructor with adjacency list and number of edges.
+		 * @param adj The adjacency list of the graph.
+		 * @param n_edges The number of edges in the adjacency list.
 		 */
 		uxgraph(const vector<neighbourhood>& adj, size_t n_edges);
-		/// Destructor
+		/// Destructor.
 		virtual ~uxgraph();
 
 		// Initialises graph with n nodes after deallocating memory
 		void init(size_t n);
 		/**
-		 * @brief Initialises the graph with adjacency list and number of edges
-		 * @param adj The adjacency list of the graph
-		 * @param n_edges The number of edges in the adjacency list
+		 * @brief Initialises the graph with adjacency list and number of edges.
+		 * @param adj The adjacency list of the graph.
+		 * @param n_edges The number of edges in the adjacency list.
 		 */
 		void init(const vector<neighbourhood>& adj, size_t n_edges);
 
 		// OPERATORS
 
 		/**
-		 * @brief Outputs to the ostream @e os this graph
+		 * @brief Outputs to the ostream @e os this graph.
 		 * @param os The ostream object to output to.
 		 * @param g THe graph to be output.
 		 */
@@ -87,13 +87,13 @@ class uxgraph : public xxgraph {
 		}
 
 		/**
-		 * @brief Assignation operator for undirected weighted graphs
+		 * @brief Assignation operator for undirected weighted graphs.
 		 *
 		 * The contents of this object are first cleared. Then, the contents
 		 * of @e g are copied into this.
 		 *
-		 * @param g The graph to be copied
-		 * @return Returns a reference to the copy of @e g
+		 * @param g The graph to be copied.
+		 * @return Returns a reference to the copy of @e g.
 		 */
 		uxgraph& operator= (const uxgraph& g);
 
@@ -103,31 +103,33 @@ class uxgraph : public xxgraph {
 		 * @brief Adds an edge to this graph.
 		 *
 		 * The attribute @ref num_edges is incremented by one.
-		 * @param e A pair of nodes
+		 *
+		 * @param e A pair of nodes.
 		 */
 		void add_edge(const edge& e);
 
 		/**
-		 * @brief Adds all edges taken from a list
+		 * @brief Adds all edges taken from a list.
 		 *
 		 * The attribute @ref num_edges is incremented as many times
 		 * as elements there are in @e edge_list.
-		 * @param edge_list A list of pairs of nodes
+		 *
+		 * @param edge_list A list of pairs of nodes.
 		 */
 		void add_edges(const vector<edge>& edge_list);
 
 		/**
-		 * @brief Adds an edge between nodes @e u and @e v
+		 * @brief Adds an edge between nodes @e u and @e v.
 		 *
 		 * The attribute @ref num_edges is incremented by one.
 		 *
-		 * @param u The fist node of the edge
-		 * @param v The second node of the edge
+		 * @param u The fist node of the edge.
+		 * @param v The second node of the edge.
 		 */
 		virtual void add_edge(node u, node v) = 0;
 
 		/**
-		 * @brief Deletes all memory used by the graph
+		 * @brief Deletes all memory used by the graph.
 		 *
 		 * The value @ref num_edges is set to 0.
 		 */
@@ -139,7 +141,7 @@ class uxgraph : public xxgraph {
 		bool is_weighted() const;
 
 		/**
-		 * @brief Returns all unique edges of this graph
+		 * @brief Returns all unique edges of this graph.
 		 *
 		 * See method @ref get_unique_edges(vector<edge>&)const for details.
 		 */

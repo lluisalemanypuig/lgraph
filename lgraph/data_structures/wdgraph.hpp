@@ -31,55 +31,55 @@ class wdgraph : public wxgraph<T> {
 	protected:
 
 		/**
-		 * @brief Computes the list of unique weighted edges of this graph
+		 * @brief Computes the list of unique weighted edges of this graph.
 		 *
 		 * A weighted edge is a pair of an edge and a value representing the
 		 * weight of that edge. An edge is a pair of indices, each of which is
 		 * within the interval [0,@e n) where @e n is the number of nodes of
 		 * this graph.
 		 *
-		 * @param[out] edges The collection of weighted edges
+		 * @param[out] edges The collection of weighted edges.
 		 * @return Stores in @ref edges the lexicographically sorted list of
-		 * weighted edges of this graph
+		 * weighted edges of this graph.
 		 */
 		void get_unique_edges(vector<pair<edge, T> >& edges) const;
 
 		/**
-		 * @brief Computes the list of unique edges of this graph
+		 * @brief Computes the list of unique edges of this graph.
 		 *
 		 * An unweighted edge is a pair of indices each of which is within the
 		 * interval [0,@e n) where @e n is the number of nodes of this graph.
 		 *
-		 * @param[out] edges The collection of edges
+		 * @param[out] edges The collection of edges.
 		 * @return Stores in @ref edges the lexicographically sorted list of
-		 * unweighted edges of this graph
+		 * unweighted edges of this graph.
 		 */
 		void get_unique_edges(vector<edge>& edges) const;
 
 	public:
-		/// Default constructor
+		/// Default constructor.
 		wdgraph();
 		/**
-		 * @brief Constructor with adjacency list and list of weights
-		 * @param adj The adjacency list of the graph
-		 * @param wl The weights for every edge
+		 * @brief Constructor with adjacency list and list of weights.
+		 * @param adj The adjacency list of the graph.
+		 * @param wl The weights for every edge.
 		 */
 		wdgraph(const vector<neighbourhood>& adj, const vector<weight_list<T> >& wl);
 		/**
-		 * @brief Constructor with adjacency list, list of weights and number of edges
-		 * @param adj The adjacency list of the graph
-		 * @param wl The weights for every edge
-		 * @param n_edges The number of edges in the adjacency list
+		 * @brief Constructor with adjacency list, list of weights and number of edges.
+		 * @param adj The adjacency list of the graph.
+		 * @param wl The weights for every edge.
+		 * @param n_edges The number of edges in the adjacency list.
 		 */
 		wdgraph(const vector<neighbourhood>& adj, const vector<weight_list<T> >& wl, size_t n_edges);
-		/// Destructor
+		/// Destructor.
 		~wdgraph();
 
 		using wxgraph<T>::init;
 		/**
-		 * @brief Initialises the graph with adjacency list and list of weights
-		 * @param adj The adjacency list of the graph
-		 * @param wl The weights for every edge
+		 * @brief Initialises the graph with adjacency list and list of weights.
+		 * @param adj The adjacency list of the graph.
+		 * @param wl The weights for every edge.
 		 */
 		void init(const vector<neighbourhood>& adj, const vector<weight_list<T> >& wl);
 

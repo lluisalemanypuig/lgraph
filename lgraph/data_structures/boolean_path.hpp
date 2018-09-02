@@ -46,7 +46,7 @@ class boolean_path {
 		 * @brief The list of nodes as Boolean values.
 		 *
 		 * @ref nodes_in_path[i] = true if, and only if, i-th node
-		 * of the graph is in the path
+		 * of the graph is in the path.
 		 */
 		static_bitset nodes_in_path;
 
@@ -96,21 +96,21 @@ class boolean_path {
 		 * @brief Adds a node to the path.
 		 *
 		 * The corresponding position of @ref nodes_in_path is set to true.
-		 * @param u The node's index, between 0 and @ref n_nodes - 1
-		 * @post The length remains unchanged
+		 * @param u The node's index, between 0 and @ref n_nodes - 1.
+		 * @post The length remains unchanged.
 		*/
 		void add_node(node u);
 
 		/**
 		 * @brief Accumulates to the current length of the the path the value l.
-		 * @param l The value to be accumulated to @ref path_length
+		 * @param l The value to be accumulated to @ref path_length.
 		 */
 		void add_length(const T& l);
 
 		/**
 		 * @brief Sets the current length of the the path the value l.
 		 * @param l The value that will replace the current value of
-		 *		@ref path_length
+		 *		@ref path_length.
 		 */
 		void set_length(const T& l);
 
@@ -137,12 +137,12 @@ class boolean_path {
 		}
 
 		/**
-		 * @brief Check if the i-th node is in the path
+		 * @brief Check if the i-th node is in the path.
 		 *
 		 * @param i The node's index.
 		 * @return Returns true if, and only if, @ref nodes_in_path[@e i] is set
 		 *		to true.
-		 * @pre The node index @e i must satisfy @e i < @ref n_nodes
+		 * @pre The node index @e i must satisfy @e i < @ref n_nodes.
 		 */
 		bool operator[] (node i) const;
 
@@ -159,7 +159,7 @@ class boolean_path {
 		/**
 		 * @brief Returns the number of nodes in the path.
 		 *
-		 * Returns the value @ref n_nodes
+		 * Returns the value @ref n_nodes.
 		 */
 		size_t size() const;
 
@@ -167,7 +167,7 @@ class boolean_path {
 		 * @brief Returns this path's length.
 		 *
 		 * Returns the sum of the distances between the nodes in the path,
-		 * that is, the value @ref path_length
+		 * that is, the value @ref path_length.
 		 */
 		T get_length() const;
 

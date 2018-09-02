@@ -32,7 +32,7 @@ namespace utils {
  * 
  * @param Alloc The allocator for the elements of type @e T. See the
  * documentation for C++'s vectors for more details
- * (http://en.cppreference.com/w/cpp/container/vector)
+ * (http://en.cppreference.com/w/cpp/container/vector).
  */
 template<class T, class Alloc = allocator<T> >
 class svector {
@@ -86,7 +86,7 @@ class svector {
 		 *
 		 * This is not actually an iterator, but a pointer to the elements
 		 * of the vector @ref elems.
-		 * @return Returns a pointer to the first element of @ref elems
+		 * @return Returns a pointer to the first element of @ref elems.
 		 */
 		iterator begin();
 		/**
@@ -94,7 +94,7 @@ class svector {
 		 *
 		 * This is not actually an iterator, but a pointer to the elements
 		 * of the vector @ref elems.
-		 * @return Returns a constant pointer to the first element of @ref elems
+		 * @return Returns a constant pointer to the first element of @ref elems.
 		 */
 		const_iterator begin() const;
 		/**
@@ -102,15 +102,15 @@ class svector {
 		 *
 		 * This is not actually an iterator, but a pointer to the elements
 		 * of the vector @ref elems.
-		 * @return Returns a pointer to the last valid element of @ref elems
+		 * @return Returns a pointer to the last valid element of @ref elems.
 		 */
 		iterator end();
 		/**
-		 * @brief Const iterator at the end of the container
+		 * @brief Const iterator at the end of the container.
 		 *
 		 * This is not actually an iterator, but a pointer to the elements
 		 * of the vector @ref elems.
-		 * @return Returns a constant pointer to the last valid element of @ref elems
+		 * @return Returns a constant pointer to the last valid element of @ref elems.
 		 */
 		const_iterator end() const;
 
@@ -155,6 +155,7 @@ class svector {
 		 * If @ref idx is equal to size() then the method push_back() is called.
 		 * Otherwise, element @e v is copied to the position pointed by @ref idx.
 		 * In both cases @ref idx is incremented.
+		 *
 		 * @param v Value to be added
 		 */
 		void add(const T& v);
@@ -232,6 +233,7 @@ class svector {
 		 * @brief Looks for an element equal to @e v in the container.
 		 *
 		 * Performs a linear search on the contents of the container.
+		 *
 		 * @param v THe element to be searched
 		 * @return Returns true if there is an element equal to @e v in the container.
 		 */

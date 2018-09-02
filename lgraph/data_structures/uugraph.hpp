@@ -35,9 +35,9 @@ class uugraph : public uxgraph {
 		 * pair of indices each of which is within the interval [0,@e n)
 		 * where @e n is the number of nodes of this graph.
 		 *
-		 * @param[out] edges The collection of edges
+		 * @param[out] edges The collection of edges.
 		 * @return Stores in @ref edges the lexicographically sorted list of
-		 * unweighted edges of this graph
+		 * unweighted edges of this graph.
 		 */
 		void get_unique_edges(vector<edge>& edges) const;
 
@@ -46,13 +46,13 @@ class uugraph : public uxgraph {
 		uugraph();
 		/**
 		 * @brief Constructor with adjacency list
-		 * @param adj The adjacency list of the graph
+		 * @param adj The adjacency list of the graph.
 		 */
 		uugraph(const vector<neighbourhood>& adj);
 		/**
 		 * @brief Constructor with adjacency list and number of edges
-		 * @param adj The adjacency list of the graph
-		 * @param n_edges The number of edges in the adjacency list
+		 * @param adj The adjacency list of the graph.
+		 * @param n_edges The number of edges in the adjacency list.
 		 */
 		uugraph(const vector<neighbourhood>& adj, size_t n_edges);
 		/// Destructor
@@ -61,7 +61,7 @@ class uugraph : public uxgraph {
 		using uxgraph::init;
 		/**
 		 * @brief Initialises the graph with adjacency list
-		 * @param adj The adjacency list of the graph
+		 * @param adj The adjacency list of the graph.
 		 */
 		void init(const vector<neighbourhood>& adj);
 

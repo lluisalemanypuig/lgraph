@@ -12,33 +12,33 @@ using namespace std;
 namespace lgraph {
 namespace utils {
 
-	/// Typedef for a graph node's index
+	/// Typedef for a graph node's index.
 	typedef uint64_t node;
-	/// Typedef for a list of nodes
+	/// Typedef for a list of nodes.
 	typedef svector<node> neighbourhood;
-	/// Typedef for a list of weights
+	/// Typedef for a list of weights.
 	template<class T>
 	using weight_list = svector<T>;
-	/// Typedef for a constant iterator through a @ref neighbourhood
+	/// Typedef for a constant iterator through a @ref neighbourhood.
 	typedef neighbourhood::const_iterator ncit;
-	/// Typedef for a non-constant iterator through a @ref neighbourhood
+	/// Typedef for a non-constant iterator through a @ref neighbourhood.
 	typedef neighbourhood::iterator nit;
-	/// Typedef for an edge of a graph
+	/// Typedef for an edge of a graph.
 	typedef pair<node, node> edge;
 
-	/// Function to avoid 'Unused parameter' warnings
+	/// Function to avoid 'Unused parameter' warnings.
 	template<class T> inline void UNUSED(const T& t) { (void)t; }
 
-	/// Constant for maximum value for unsigned integer type
+	/// Constant for maximum value for unsigned integer type.
 	const static size_t z_inf = numeric_limits<size_t>::max();
-	/// Constant for maximum value for double-precision floating point type
+	/// Constant for maximum value for double-precision floating point type.
 	const static double r_inf = numeric_limits<double>::max();
 
-	/// Shorthand for the maximum value of any type
+	/// Shorthand for the maximum value of any type.
 	template<typename T> inline T inf_t() { return numeric_limits<T>::max(); }
 
 	/**
-	 * @brief Typedef for the type of weight in unweighted graphs
+	 * @brief Typedef for the type of weight in unweighted graphs.
 	 *
 	 * _new_ stands for Null Edge Weight.
 	 */

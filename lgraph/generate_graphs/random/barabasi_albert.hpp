@@ -21,7 +21,7 @@ namespace networks {
 namespace random {
 
 	/**
-	 * @brief Barabasi-Albert model: Preferential attachment variant
+	 * @brief Barabasi-Albert model: Preferential attachment variant.
 	 *
 	 * Builds a graph with @e n0 + @e T vertices. The first step is to build an
 	 * empty graph with @e n0 vertices.
@@ -29,11 +29,11 @@ namespace random {
 	 * Then add @e T new vertices, each of which is connected to @e m0 already
 	 * existing vertices of the graph each with a probability proportional to their degree.
 	 *
-	 * @param[in] n0 The initial number of vertices
-	 * @param[in] m0 The number of edges to connect each vertex to
-	 * @param[in] T The number of steps of the algorithm
-	 * @param[in] rg The random number generator used. Has to be seeded by the caller
-	 * @param[out] Gs The resulting graph following this Barabasi-Albert model variant
+	 * @param[in] n0 The initial number of vertices.
+	 * @param[in] m0 The number of edges to connect each vertex to.
+	 * @param[in] T The number of steps of the algorithm.
+	 * @param[in] rg The random number generator used. Has to be seeded by the caller.
+	 * @param[out] Gs The resulting graph following this Barabasi-Albert model variant.
 	 */
 	template<
 		class G = default_random_engine,
@@ -46,7 +46,7 @@ namespace random {
 	);
 	
 	/**
-	 * @brief Barabasi-Albert model: Random attachment variant
+	 * @brief Barabasi-Albert model: Random attachment variant.
 	 *
 	 * Similar to the @ref BA_preferential_attachment model.
 	 *
@@ -54,11 +54,11 @@ namespace random {
 	 * However, at each step, the m0 connections are made with
 	 * probabilities uniformly at random.
 	 *
-	 * @param[in] n0 The initial number of vertices
-	 * @param[in] m0 The number of edges to connect each vertex to
-	 * @param[in] T The number of steps of the algorithm
-	 * @param[in] rg The random number generator used. Has to be seeded by the caller
-	 * @param[out] Gs The resulting graph following this Barabasi-Albert model variant
+	 * @param[in] n0 The initial number of vertices.
+	 * @param[in] m0 The number of edges to connect each vertex to.
+	 * @param[in] T The number of steps of the algorithm.
+	 * @param[in] rg The random number generator used. Has to be seeded by the caller.
+	 * @param[out] Gs The resulting graph following this Barabasi-Albert model variant.
 	 */
 	template<
 		class G = default_random_engine,
@@ -71,7 +71,7 @@ namespace random {
 	);
 	
 	/**
-	 * @brief Barabasi-Albert model: No vertex growth variant
+	 * @brief Barabasi-Albert model: No vertex growth variant.
 	 *
 	 * Similar to the @ref BA_preferential_attachment model. This time, it
 	 * differs from it in that the initial graph has the same number of
@@ -87,11 +87,11 @@ namespace random {
 	 *		in the graph. Each edge (u, v) is added with probability
 	 *		proportional to the degree of v.
 	 *
-	 * @param[in] n0 The total number of vertices
-	 * @param[in] m0 The number of edges to connect each vertex to
-	 * @param[in] T The number of steps of the algorithm
-	 * @param[in] rg The random number generator used. Has to be seeded by the caller
-	 * @param[out] Gs The resulting graph following this Barabasi-Albert model variant
+	 * @param[in] n0 The total number of vertices.
+	 * @param[in] m0 The number of edges to connect each vertex to.
+	 * @param[in] T The number of steps of the algorithm.
+	 * @param[in] rg The random number generator used. Has to be seeded by the caller.
+	 * @param[out] Gs The resulting graph following this Barabasi-Albert model variant.
 	 */
 	template<
 		class G = default_random_engine,

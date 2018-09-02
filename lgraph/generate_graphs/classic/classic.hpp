@@ -28,15 +28,15 @@ namespace classic {
 	/* COMPLETE GRAPHS */
 
 	/**
-	 * @brief Generate an undirected complete graph of @e N nodes
-	 * @param N Number of nodes
-	 * @param[out] Gs Generated complete undirected graph
+	 * @brief Generate an undirected complete graph of @e N nodes.
+	 * @param N Number of nodes.
+	 * @param[out] Gs Generated complete undirected graph.
 	 */
 	void complete_graph(size_t N, uugraph& Gs);
 
 	/**
-	 * @brief Generate a directed complete graph of @e N nodes
-	 * @param N Number of nodes
+	 * @brief Generate a directed complete graph of @e N nodes.
+	 * @param N Number of nodes.
 	 * @param[out] Gs Generated complete directed graph. For each pair of
 	 * nodes u,v there are two pairs of directed edges (u,v) and (v,u).
 	 */
@@ -45,7 +45,7 @@ namespace classic {
 	/* LINEAR TREES */
 
 	/**
-	 * @brief Generate a liner tree of @e N nodes
+	 * @brief Generate a liner tree of @e N nodes.
 	 *
 	 * For N = 1, the graph is a single node with no neighbours.
 	 *
@@ -59,21 +59,21 @@ namespace classic {
 	 * - the (N-2)-th node has as neighbours the nodes N-3 and N-1
 	 * - the (N-1)-th node has as neighbours the nodes N-2
 	 *
-	 * @param N Number of nodes
-	 * @param[out] Gs Generated cycle graph
+	 * @param N Number of nodes.
+	 * @param[out] Gs Generated cycle graph.
 	 */
 	void linear_tree(size_t N, uugraph& Gs);
 
 	/**
-	 * @brief Generate a liner tree of @e N nodes with edge orientation
+	 * @brief Generate a liner tree of @e N nodes with edge orientation.
 	 *
 	 * See @ref linear_tree(size_t, uugraph&) for the description of a linear
 	 * tree.
 	 *
 	 * The orientation of the edges depends on the value of @e clockwise.
 	 *
-	 * @param N Number of nodes
-	 * @param[out] Gs Generated cycle graph
+	 * @param N Number of nodes.
+	 * @param[out] Gs Generated cycle graph.
 	 * @param d Indicate orientation of edges.
 	 *	Values:
 	 *  - 1 for clockwise orientation: edges (u,v) such that u < v
@@ -85,7 +85,7 @@ namespace classic {
 	/* CYCLE GRAPHS */
 
 	/**
-	 * @brief Generate a cycle graph of @e N nodes
+	 * @brief Generate a cycle graph of @e N nodes.
 	 *
 	 * A cycle graph is a graph with 3 or more nodes. It is, basically,
 	 * a linear tree in which the nodes 0 and N-1 are connected by an edge.
@@ -93,21 +93,21 @@ namespace classic {
 	 * See @ref linear_tree(size_t, uugraph&) for the description of a linear
 	 * tree.
 	 *
-	 * @param N Number of nodes
-	 * @param[out] Gs Generated cycle graph
+	 * @param N Number of nodes.
+	 * @param[out] Gs Generated cycle graph.
 	 */
 	void cycle_graph(size_t N, uugraph& Gs);
 
 	/**
-	 * @brief Generate a cycle graph of @e N nodes wih edge orientation
+	 * @brief Generate a cycle graph of @e N nodes wih edge orientation.
 	 *
 	 * See @ref cycle_graph(size_t, uugraph&) for the description of a cycle
 	 * graph.
 	 *
 	 * The orientation of the edges depends on the value of @e clockwise.
 	 *
-	 * @param N Number of nodes
-	 * @param[out] Gs Generated cycle graph
+	 * @param N Number of nodes.
+	 * @param[out] Gs Generated cycle graph.
 	 * @param d Indicate orientation of edges.
 	 *	Values:
 	 *  - 1 for clockwise orientation: edges (u,v) such that u < v
@@ -119,13 +119,13 @@ namespace classic {
 	/* STAR GRAPHS */
 
 	/**
-	 * @brief Generate a star graph of @e N nodes
+	 * @brief Generate a star graph of @e N nodes.
 	 *
 	 * A star graph is a graph in which the nodes from 1 to N-1 are connected
 	 * to node 0.
 	 *
-	 * @param N Number of nodes
-	 * @param[out] Gs Generated cycle graph
+	 * @param N Number of nodes.
+	 * @param[out] Gs Generated cycle graph.
 	 */
 	void star_graph(size_t N, uugraph& Gs);
 
@@ -137,8 +137,8 @@ namespace classic {
 	 *
 	 * The orientation of the edges depends on the value of @e clockwise.
 	 *
-	 * @param N Number of nodes
-	 * @param[out] Gs Generated cycle graph
+	 * @param N Number of nodes.
+	 * @param[out] Gs Generated cycle graph.
 	 * @param d Indicate orientation of edges.
 	 *	Values:
 	 *  - 1 for outwards orientation: edges (u,v) such that u < v

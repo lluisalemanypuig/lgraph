@@ -19,7 +19,7 @@ namespace lgraph {
 namespace utils {
 
 /**
- * @brief Bitset class
+ * @brief Bitset class.
  *
  * Alternative to the bitset<T> class from the C++'s Standard Library,
  * whose size must be known at compilation time.
@@ -69,73 +69,72 @@ namespace utils {
  */
 class static_bitset {
 	private:
-		/// The number of bytes (or of chars) of this bitset
+		/// The number of bytes (or of chars) of this bitset.
 		size_t n_bytes;
-		/// The number of bits this bitset stores
+		/// The number of bits this bitset stores.
 		size_t n_bits;
-		/// The bits of this bitset, grouped by bytes (chars)
+		/// The bits of this bitset, grouped by bytes (chars).
 		unsigned char *bytes;
 
 	public:
-		/// Empty constructor
+		/// Empty constructor.
 		static_bitset();
 		/**
-		 * @brief Construct a bitset from a string of zeros and ones
-		 *
-		 * @ref bytes[i] = @e bs[i]
+		 * @brief Construct a bitset from a string of zeros and ones.
+		 * @ref bytes[i] = @e bs[i].
 		 */
 		static_bitset(const string& bs);
 		/**
-		 * @brief Construct a bitset from a list of Boolean values
-		 *
-		 * @ref bytes[i] = @e bits[i]
+		 * @brief Construct a bitset from a list of Boolean values.
+		 * @ref bytes[i] = @e bits[i].
 		 */
 		static_bitset(const vector<bool>& bits);
-		/// Copy-constructor
+		/// Copy-constructor.
 		static_bitset(const static_bitset& bs);
-		/// Destructor
+		/// Destructor.
 		~static_bitset();
 
 		// INITIALIZERS
 
 		/**
-		 * @brief Initialise the bitset with @e n_bits bits
+		 * @brief Initialise the bitset with @e n_bits bits.
 		 *
-		 * Initialises this bitset so that it allocates enough space for @e n_bits bits
-		 * @param n_bits The number of bits to allocate
+		 * Initialises this bitset so that it allocates enough space for @e n_bits bits.
+		 *
+		 * @param n_bits The number of bits to allocate.
 		 */
 		void init(size_t n_bits);
 		/**
-		 * @brief Initialise the bitset with @e n_bits bits all of them set to 1
+		 * @brief Initialise the bitset with @e n_bits bits all of them set to 1.
 		 *
 		 * Initialises this bitset so that it allocates enough space for @e n_bits bits
 		 * all of them set to 1.
-		 * @param n_bits The number of bits to allocate
+		 *
+		 * @param n_bits The number of bits to allocate.
 		 */
 		void init_set(size_t n_bits);
 		/**
-		 * @brief Initialise the bitset with @e n_bits bits all of them set to 0
+		 * @brief Initialise the bitset with @e n_bits bits all of them set to 0.
 		 *
 		 * Initialises this bitset so that it allocates enough space for @e n_bits bits
 		 * all of them set to 0.
-		 * @param n_bits The number of bits to allocate
+		 *
+		 * @param n_bits The number of bits to allocate.
 		 */
 		void init_unset(size_t n_bits);
 		/**
-		 * @brief Initialise the bitset from a string of zeros and ones
-		 *
-		 * @ref bytes[i] = @e bits[i]
+		 * @brief Initialise the bitset from a string of zeros and ones.
+		 * @ref bytes[i] = @e bits[i].
 		 */
 		void init(const string& bits);
 		/**
-		 * @brief Initialise the bitset from a list of Boolean values
-		 *
-		 * @ref bytes[i] = @e bits[i]
+		 * @brief Initialise the bitset from a list of Boolean values.
+		 * @ref bytes[i] = @e bits[i].
 		 */
 		void init(const vector<bool>& bits);
 
 		/**
-		 * @brief Frees the memory occupied by the bitset
+		 * @brief Frees the memory occupied by the bitset.
 		 *
 		 * The values @ref n_bytes and @ref n_bits are set to 0, and
 		 * the pointer @ref bytes to null.
@@ -145,24 +144,26 @@ class static_bitset {
 		// OPERATORS
 
 		/**
-		 * @brief Asigns the contents of @e bs to this bitset
+		 * @brief Asigns the contents of @e bs to this bitset.
 		 *
 		 * In case this bitset has different size from @e bs's then
 		 * its memory is freed and reallocated. In case the sizes are
 		 * equal then the contents are overriden with @e bs's.
-		 * @param bs The bitset to be copied
-		 * @return Returns a reference to this bitset
+		 *
+		 * @param bs The bitset to be copied.
+		 * @return Returns a reference to this bitset.
 		 */
 		static_bitset& operator= (const static_bitset& bs);
 
-		/// Returns the value of the i-th bit
+		/// Returns the value of the i-th bit.
 		bool operator[] (size_t i) const;
 
 		/**
-		 * @brief Inclusion operator
+		 * @brief Inclusion operator.
 		 *
-		 * Applies an element-wise implication operation
-		 * @param bs Bitset to be compared again
+		 * Applies an element-wise implication operation.
+		 *
+		 * @param bs Bitset to be compared again.
 		 * @return Returns a bitset s where the i-th bit of s, s[i], is
 		 * s[i] = ~(this[i]) | bs[i] = this[i] -> bs[i]
 		 *
@@ -173,14 +174,14 @@ class static_bitset {
 		 */
 		static_bitset operator<= (const static_bitset& bs) const;	// bit-wise lt
 		/**
-		 * @brief Unary not operator
+		 * @brief Unary not operator.
 		 * @return Returns the bits of this bitset flipped (what was a 1
 		 * is now a 0, and viceversa).
 		 */
 		static_bitset operator~ () const;							// bit-wise negation
 		/**
-		 * @brief Bitser difference operator
-		 * @param bs Bitset to be operated with
+		 * @brief Bitser difference operator.
+		 * @param bs Bitset to be operated with.
 		 * @return Returns a bitset s where the i-th bit of s, s[i], is
 		 * s[i] = this[i] & ~bs[i]:
 		 *
@@ -190,57 +191,62 @@ class static_bitset {
 		 */
 		static_bitset operator- (const static_bitset& bs) const;	// bit-wise d
 		/**
-		 * @brief And operator
+		 * @brief And operator.
 		 * @return Returns a bitset s where the i-th bit of s, s[i], is
-		 * s[i] := this[i] & bs[i]:
+		 *
+		 *		s[i] := this[i] & bs[i]:
 		 */
 		static_bitset operator& (const static_bitset& bs) const;	// bit-wise and
 		/**
-		 * @brief Or operator
+		 * @brief Or operator.
 		 * @return Returns a bitset s where the i-th bit of s, s[i], is
-		 * s[i] := this[i] | bs[i]:
+		 *
+		 *		s[i] := this[i] | bs[i]:
 		 */
 		static_bitset operator| (const static_bitset& bs) const;	// bit-wise or
 		/**
-		 * @brief Exclusive-or operator
+		 * @brief Exclusive-or operator.
 		 * @return Returns a bitset s where the i-th bit of s, s[i], is
-		 * s[i] := this[i] ^ bs[i]:
+		 *
+		 *		s[i] := this[i] ^ bs[i]:
 		 */
 		static_bitset operator^ (const static_bitset& bs) const;	// bit-wise exclusive or
 		/**
-		 * @brief Equality operator
+		 * @brief Equality operator.
 		 * @return Returns a bitset s where the i-th bit of s is set to 1
 		 * if, and only if, the i-th bit of this bitset and the i-th of @e bs
-		 * are equal. (s[i] := ~(this[i]^bs[i])
+		 * are equal.
+		 *
+		 *		s[i] := ~(this[i]^bs[i]
 		 */
 		static_bitset operator== (const static_bitset& bs) const;	// bit-wise exclusive nor
 
 		/**
-		 * @brief Difference operator
+		 * @brief Difference operator.
 		 *
-		 * See @ref operator- for details
+		 * See @ref operator- for details.
 		 */
 		static_bitset& operator-= (const static_bitset& bs);	// bit-wise d
 		/**
-		 * @brief And operator
+		 * @brief And operator.
 		 *
-		 * See @ref operator& for details
+		 * See @ref operator& for details.
 		 */
 		static_bitset& operator&= (const static_bitset& bs);	// bit-wise and
 		/**
-		 * @brief Or operator
+		 * @brief Or operator.
 		 *
-		 * See @ref operator| for details
+		 * See @ref operator| for details.
 		 */
 		static_bitset& operator|= (const static_bitset& bs);	// bit-wise or
 		/**
-		 * @brief Exclusive-or operator
+		 * @brief Exclusive-or operator.
 		 *
-		 * See @ref operator^ for details
+		 * See @ref operator^ for details.
 		 */
 		static_bitset& operator^= (const static_bitset& bs);	// bit-wise exclusive or
 
-		/// Outputs this bitset formatted in a string
+		/// Outputs this bitset formatted in a string.
 		inline friend
 		ostream& operator<< (ostream& os, const static_bitset& bitset) {
 			for (size_t i = 0; i < bitset.n_bits; ++i) os << bitset[i];
@@ -249,26 +255,26 @@ class static_bitset {
 
 		// SETTERS
 
-		/// Sets all bits to 1
+		/// Sets all bits to 1.
 		void set_all();
-		/// Sets all bits to 0
+		/// Sets all bits to 0.
 		void unset_all();
 
-		/// Sets the @e i-th bit to 1
+		/// Sets the @e i-th bit to 1.
 		void set_bit(size_t i);
-		/// Sets the @e i-th bit to 0
+		/// Sets the @e i-th bit to 0.
 		void unset_bit(size_t i);
 
 		/**
-		 * @brief Flips the values of the bits
+		 * @brief Flips the values of the bits.
 		 *
 		 * All 0 bits are set to 1, and all 1 bits are set to 0.
 		 */
 		void flip();
 
 		/**
-		 * @brief Swaps the contents of this bitset and @e bs's
-		 * @pre Both bitsets must have been initialised
+		 * @brief Swaps the contents of this bitset and @e bs's.
+		 * @pre Both bitsets must have been initialised.
 		 */
 		void swap(static_bitset& bs);
 
@@ -276,23 +282,22 @@ class static_bitset {
 
 		/**
 		 * @brief Returns the number of bits.
-		 * @return Returns the value of @ref n_bits
+		 * @return Returns the value of @ref n_bits.
 		 */
 		size_t size() const;
 
 		/**
-		 * @brief Returns whether the two bitsets are equal
-		 * @param bs The bitset to be compared against
+		 * @brief Returns whether the two bitsets are equal.
+		 * @param bs The bitset to be compared against.
 		 * @return Returns true if all bits in this bitset are the
-		 * same as the bits in @e bs. Equivalent to
-		 * @ref operator==.(*this, bs).@ref all()
-		 * but faster.
+		 * same as the bits in @e bs. Equivalent to.
+		 * @ref operator==.(*this, bs).@ref all() but faster.
 		 */
 		bool equal(const static_bitset& bs) const;
 
 		/**
-		 * @brief Returns true if this bitset is included in @e bs
-		 * @param bs The bitset to be compared against
+		 * @brief Returns true if this bitset is included in @e bs.
+		 * @param bs The bitset to be compared against.
 		 * @return Returns true if all set bits in this bitset are also
 		 * set in @e bs. Equivalent to @ref operator<=.(*this, bs).@ref all()
 		 * but faster.
@@ -309,7 +314,7 @@ class static_bitset {
 		bool none() const;
 
 		/**
-		 * @brief Returns the indexes of the bits set to 1
+		 * @brief Returns the indexes of the bits set to 1.
 		 * @param[out] w A vector where w[i] = j if, and only if,
 		 * the j-th bit of the bitset is set to 1.
 		 */
@@ -319,8 +324,8 @@ class static_bitset {
 		size_t count() const;
 
 		/**
-		 * @brief Returns this bitset as a string
-		 * @param sep A string used as spacing between the bits
+		 * @brief Returns this bitset as a string.
+		 * @param sep A string used as spacing between the bits.
 		 */
 		string to_string(const string& sep = " ") const;
 };

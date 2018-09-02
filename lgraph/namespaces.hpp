@@ -19,9 +19,9 @@ namespace lgraph {
 	namespace traversal {
 		/// Definition of a generic BFS traversal of an unweighted graph
 		namespace bfs {}
-		/// Definition of a generic BFS traversal of an unweighted graph
+		/// Definition of a generic DFS traversal of an unweighted graph
 		namespace dfs {}
-		/// Definition of a generic BFS traversal of an weighted graph
+		/// Definition of a generic Dijkstra traversal of a weighted graph
 		namespace dijkstra {}
 	}
 

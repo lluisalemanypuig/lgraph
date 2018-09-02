@@ -19,7 +19,7 @@ namespace epidemics {
 	/* SIR */
 
 	/**
-	 * @brief SIR (Susceptible, Infected, Recovered) epidemic model
+	 * @brief SIR (Susceptible, Infected, Recovered) epidemic model.
 	 *
 	 * @param[in] net The network the epidemic model is applied on
 	 * @param[in] p0 Initial proportion of infected individuals. Used as a probability
@@ -60,19 +60,19 @@ namespace epidemics {
 	);
 
 	/**
-	 * @brief SIR (Susceptible, Infected, Recovered) epidemic model with immunities
+	 * @brief SIR (Susceptible, Infected, Recovered) epidemic model with immunities.
 	 *
 	 * The immune nodes are not considered for infection.
 	 *
 	 * @param[in] net The network the epidemic model is applied on
 	 * @param[in] p0 Initial proportion of infected individuals. Used as a probability
 	 * of being infected at the beginning of the simulation, applied to each individual.
-	 * @param[in] beta Rate of infection of an individual with a single neighbour
-	 * @param[in] gamma Rate of recovery of an individual
+	 * @param[in] beta Rate of infection of an individual with a single neighbour.
+	 * @param[in] gamma Rate of recovery of an individual.
 	 * @param[in] T Maximum number of steps of the simulation. The steps performed have index 1,2,...,@e T
-	 * @param[in] immune The individuals of the net immune to infection
-	 * @param[in] drg The discrete random generator used for algorithm optimisation
-	 * @param[in] crg The continuous random generator used to generate numbers between 0 and 1
+	 * @param[in] immune The individuals of the net immune to infection.
+	 * @param[in] drg The discrete random generator used for algorithm optimisation.
+	 * @param[in] crg The continuous random generator used to generate numbers between 0 and 1.
 	 *
 	 * @param[out] n_rec n_rec[i] contains the amount of recoverd agents after the i-th step is completed.
 	 *		@e n_rec[0] always has a zero and is not a valid value. Its size at the end of the simulation @e T + 1.
@@ -107,16 +107,16 @@ namespace epidemics {
 	/* SIS */
 
 	/**
-	 * @brief SIS (Susceptible, Infected, Susceptible) epidemic model
+	 * @brief SIS (Susceptible, Infected, Susceptible) epidemic model.
 	 *
-	 * @param[in] net The network the epidemic model is applied on
+	 * @param[in] net The network the epidemic model is applied on.
 	 * @param[in] p0 Initial proportion of infected individuals. Used as a probability
 	 * of being infected at the beginning of the simulation, applied to each individual.
-	 * @param[in] beta Rate of infection of an individual with a single neighbour
-	 * @param[in] gamma Rate of recovery of an individual
-	 * @param[in] T Maximum number of steps of the simulation. The steps performed have index 1,2,...,@e T
-	 * @param[in] drg The discrete random generator used for algorithm optimisation
-	 * @param[in] crg The continuous random generator used to generate numbers between 0 and 1
+	 * @param[in] beta Rate of infection of an individual with a single neighbour.
+	 * @param[in] gamma Rate of recovery of an individual.
+	 * @param[in] T Maximum number of steps of the simulation. The steps performed have index 1,2,...,@e T.
+	 * @param[in] drg The discrete random generator used for algorithm optimisation.
+	 * @param[in] crg The continuous random generator used to generate numbers between 0 and 1.
 	 *
 	 * @param[out] n_rec n_rec[i] contains the amount of recoverd agents after the i-th step is completed.
 	 *		@e n_rec[0] always has a zero and is not a valid value. Its size at the end of the simulation @e T + 1.
@@ -148,17 +148,17 @@ namespace epidemics {
 	);
 
 	/**
-	 * @brief SIS (Susceptible, Infected, Susceptible) epidemic model with immunities
+	 * @brief SIS (Susceptible, Infected, Susceptible) epidemic model with immunities.
 	 *
-	 * @param[in] net The network the epidemic model is applied on
+	 * @param[in] net The network the epidemic model is applied on.
 	 * @param[in] p0 Initial proportion of infected individuals. Used as a probability
 	 * of being infected at the beginning of the simulation, applied to each individual.
-	 * @param[in] beta Rate of infection of an individual with a single neighbour
-	 * @param[in] gamma Rate of recovery of an individual
-	 * @param[in] T Maximum number of steps of the simulation. The steps performed have index 1,2,...,@e T
-	 * @param[in] immune The individuals of the net immune to infection
-	 * @param[in] drg The discrete random generator used for algorithm optimisation
-	 * @param[in] crg The continuous random generator used to generate numbers between 0 and 1
+	 * @param[in] beta Rate of infection of an individual with a single neighbour.
+	 * @param[in] gamma Rate of recovery of an individual.
+	 * @param[in] T Maximum number of steps of the simulation. The steps performed have index 1,2,...,@e T.
+	 * @param[in] immune The individuals of the net immune to infection.
+	 * @param[in] drg The discrete random generator used for algorithm optimisation.
+	 * @param[in] crg The continuous random generator used to generate numbers between 0 and 1.
 	 *
 	 * @param[out] n_rec n_rec[i] contains the amount of recoverd agents after the i-th step is completed.
 	 *		@e n_rec[0] always has a zero and is not a valid value. Its size at the end of the simulation @e T + 1.
