@@ -124,7 +124,8 @@ class static_bitset {
 		void init_unset(size_t n_bits);
 		/**
 		 * @brief Initialise the bitset from a string of zeros and ones.
-		 * @ref bytes[i] = @e bits[i].
+		 *
+		 *		@ref bytes[i] = @e bits[i].
 		 */
 		void init(const string& bits);
 		/**
@@ -165,20 +166,21 @@ class static_bitset {
 		 *
 		 * @param bs Bitset to be compared again.
 		 * @return Returns a bitset s where the i-th bit of s, s[i], is
-		 * s[i] = ~(this[i]) | bs[i] = this[i] -> bs[i]
+		 *
+		 *		s[i] = ~(this[i]) | bs[i] = this[i] -> bs[i]
 		 *
 		 *  * 0 <= 0: 1
 		 *  * 0 <= 1: 1
 		 *  * 1 <= 0: 0
 		 *  * 1 <= 1: 1
 		 */
-		static_bitset operator<= (const static_bitset& bs) const;	// bit-wise lt
+		static_bitset operator<= (const static_bitset& bs) const; // bit-wise lt
 		/**
 		 * @brief Unary not operator.
 		 * @return Returns the bits of this bitset flipped (what was a 1
 		 * is now a 0, and viceversa).
 		 */
-		static_bitset operator~ () const;							// bit-wise negation
+		static_bitset operator~ () const; // bit-wise negation
 		/**
 		 * @brief Bitser difference operator.
 		 * @param bs Bitset to be operated with.
@@ -189,28 +191,28 @@ class static_bitset {
 		 *  * 1 - 1 = 1
 		 *  * 0 - . = 0
 		 */
-		static_bitset operator- (const static_bitset& bs) const;	// bit-wise d
+		static_bitset operator- (const static_bitset& bs) const; // bit-wise d
 		/**
 		 * @brief And operator.
 		 * @return Returns a bitset s where the i-th bit of s, s[i], is
 		 *
 		 *		s[i] := this[i] & bs[i]:
 		 */
-		static_bitset operator& (const static_bitset& bs) const;	// bit-wise and
+		static_bitset operator& (const static_bitset& bs) const; // bit-wise and
 		/**
 		 * @brief Or operator.
 		 * @return Returns a bitset s where the i-th bit of s, s[i], is
 		 *
 		 *		s[i] := this[i] | bs[i]:
 		 */
-		static_bitset operator| (const static_bitset& bs) const;	// bit-wise or
+		static_bitset operator| (const static_bitset& bs) const; // bit-wise or
 		/**
 		 * @brief Exclusive-or operator.
 		 * @return Returns a bitset s where the i-th bit of s, s[i], is
 		 *
 		 *		s[i] := this[i] ^ bs[i]:
 		 */
-		static_bitset operator^ (const static_bitset& bs) const;	// bit-wise exclusive or
+		static_bitset operator^ (const static_bitset& bs) const; // bit-wise exclusive or
 		/**
 		 * @brief Equality operator.
 		 * @return Returns a bitset s where the i-th bit of s is set to 1
@@ -219,32 +221,32 @@ class static_bitset {
 		 *
 		 *		s[i] := ~(this[i]^bs[i]
 		 */
-		static_bitset operator== (const static_bitset& bs) const;	// bit-wise exclusive nor
+		static_bitset operator== (const static_bitset& bs) const; // bit-wise exclusive nor
 
 		/**
 		 * @brief Difference operator.
 		 *
 		 * See @ref operator- for details.
 		 */
-		static_bitset& operator-= (const static_bitset& bs);	// bit-wise d
+		static_bitset& operator-= (const static_bitset& bs); // bit-wise d
 		/**
 		 * @brief And operator.
 		 *
 		 * See @ref operator& for details.
 		 */
-		static_bitset& operator&= (const static_bitset& bs);	// bit-wise and
+		static_bitset& operator&= (const static_bitset& bs); // bit-wise and
 		/**
 		 * @brief Or operator.
 		 *
 		 * See @ref operator| for details.
 		 */
-		static_bitset& operator|= (const static_bitset& bs);	// bit-wise or
+		static_bitset& operator|= (const static_bitset& bs); // bit-wise or
 		/**
 		 * @brief Exclusive-or operator.
 		 *
 		 * See @ref operator^ for details.
 		 */
-		static_bitset& operator^= (const static_bitset& bs);	// bit-wise exclusive or
+		static_bitset& operator^= (const static_bitset& bs); // bit-wise exclusive or
 
 		/// Outputs this bitset formatted in a string.
 		inline friend
