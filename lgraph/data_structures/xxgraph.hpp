@@ -179,6 +179,15 @@ class xxgraph {
 		size_t degree(node u) const;
 
 		/**
+		 * @brief Returns the genus of the graph
+		 * @return Returns the result of:
+		 \verbatim
+		 number of edges - number of vertices + 1
+		 \endverbatim
+		 */
+		long long int genus() const;
+
+		/**
 		 * @brief Returns whether the graph is weighted or unweighted
 		 *
 		 * @return Returns true if the graph is weighted. Returns false if otherwise.

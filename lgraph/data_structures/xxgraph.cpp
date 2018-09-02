@@ -96,6 +96,12 @@ size_t xxgraph::degree(node u) const {
 	return adjacency_list[u].size();
 }
 
+long long int xxgraph::genus() const {
+	long long int e = static_cast<long long int>(n_edges());
+	long long int v = static_cast<long long int>(n_nodes());
+	return e - v + 1;
+}
+
 // I/O
 
 // FEATURES OF GRAPHS
