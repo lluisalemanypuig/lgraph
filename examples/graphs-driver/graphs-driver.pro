@@ -22,7 +22,7 @@ HEADERS += \
     time.hpp
 
 SOURCES += \
-    graph_driver.cpp \
+    graphs_driver.cpp \
     unweighted_driver.cpp \
     weighted_driver.cpp \
     time.cpp

@@ -13,9 +13,9 @@ Once the library lgraph has been compiled following the instructions in the
 main [README.md](https://github.com/lluisalemanypuig/lgraph/blob/master/README.md)
 file, while in the directory examples/ issue the following commands:
 
-		mkdir graph-driver-release
-		qmake -makefile graph-driver/graph-driver.pro -o graph-driver-release/Makefile
-		cd graph-driver-release && make
+		mkdir graphs-driver-release
+		qmake -makefile graphs-driver/graphs-driver.pro -o graphs-driver-release/Makefile
+		cd graphs-driver-release && make
 
 ## How to use it
 
