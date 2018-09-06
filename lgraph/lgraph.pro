@@ -30,6 +30,7 @@ HEADERS += \
     data_structures/svector.hpp \
         data_structures/svector.cpp \
     generate_graphs/classic/classic.hpp \
+    generate_graphs/classic/regular.hpp \
     generate_graphs/random/erdos_renyi.hpp \
         generate_graphs/random/erdos_renyi.cpp \
     generate_graphs/random/barabasi_albert.hpp \
@@ -80,6 +81,7 @@ SOURCES += \
     generate_graphs/classic/linear_tree.cpp \
     generate_graphs/classic/star_graph.cpp \
     generate_graphs/classic/cycle_graph.cpp \
-    generate_graphs/classic/complete_graph.cpp
+    generate_graphs/classic/complete_graph.cpp \
+    generate_graphs/classic/regular.cpp
 
 
