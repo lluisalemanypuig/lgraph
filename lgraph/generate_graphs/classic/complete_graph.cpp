@@ -17,16 +17,16 @@ namespace classic {
 		}
 	}
 
-	void complete_graph(size_t N, uugraph& Gs) {
+	void complete_graph(size_t N, uugraph& G) {
 		vector<neighbourhood> adj(N);
 		_classic::make_adjacency_matrix(N, adj);
-		Gs.init(adj, N*(N - 1)/2);
+		G.init(adj, N*(N - 1)/2);
 	}
 
-	void complete_graph(size_t N, udgraph& Gs) {
+	void complete_graph(size_t N, udgraph& G) {
 		vector<neighbourhood> adj(N);
 		_classic::make_adjacency_matrix(N, adj);
-		Gs.init(adj, N*N);
+		G.init(adj, N*N);
 	}
 
 } // -- namespace classic

@@ -4,31 +4,31 @@ namespace lgraph {
 namespace networks {
 namespace classic {
 
-	void cycle_graph(size_t N, uugraph& Gs) {
+	void cycle_graph(size_t N, uugraph& G) {
 		assert(N >= 3);
 
-		linear_tree(N, Gs);
+		linear_tree(N, G);
 
 		// last edge
 		if (N > 2) {
-			Gs.add_edge(0, N - 1);
+			G.add_edge(0, N - 1);
 		}
 	}
 
-	void cycle_graph(size_t N, udgraph& Gs, uint8_t d) {
+	void cycle_graph(size_t N, udgraph& G, uint8_t d) {
 		assert(N >= 3);
 		assert(1 <= d and d <= 3);
 
-		linear_tree(N, Gs, d);
+		linear_tree(N, G, d);
 
 		if (N > 2) {
 			if ( (d & 0x01) == 0x01 ) {
 				// clockwise
-				Gs.add_edge(N - 1, 0);
+				G.add_edge(N - 1, 0);
 			}
 			if ( (d & 0x02) == 0x02 ) {
 				// counter-clockwise
-				Gs.add_edge(0, N - 1);
+				G.add_edge(0, N - 1);
 			}
 		}
 	}
