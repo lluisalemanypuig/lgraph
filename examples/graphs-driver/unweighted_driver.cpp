@@ -35,6 +35,7 @@ namespace graph_driver {
 		cout << endl;
 		cout << "    -----------------------------------" << endl;
 		cout << "    Classic graphs:" << endl;
+		cout << endl;
 		cout << "    * complete-graph N: make a complete graph of N vertices" << endl;
 		cout << endl;
 		cout << "    * linear-tree N (orientation): make a linear tree of N vertices" << endl;
@@ -108,7 +109,7 @@ namespace graph_driver {
 		string option;
 		cout << "> ";
 		while (cin >> option and option != "quit") {
-			double begin = timing::now();
+			timing::time_point begin = timing::now();
 
 			if (option == "help") {
 				print_unweighted_options();
@@ -316,8 +317,8 @@ namespace graph_driver {
 				cout << "-----------------------------------" << endl;
 			}
 
-			double end = timing::now();
-			cout << "    In " << timing::elapsed_time(begin, end) << " seconds" << endl;
+			timing::time_point end = timing::now();
+			cout << "    In " << timing::elapsed_seconds(begin, end) << " seconds" << endl;
 
 			cout << "> ";
 		}

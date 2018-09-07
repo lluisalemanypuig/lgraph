@@ -95,7 +95,7 @@ namespace graph_driver {
 		string option;
 		cout << "> ";
 		while (cin >> option and option != "quit") {
-			double begin = timing::now();
+			timing::time_point begin = timing::now();
 
 			if (option == "help") {
 				print_weighted_options();
@@ -277,8 +277,8 @@ namespace graph_driver {
 			else if (option == "---") {
 				cout << "-----------------------------------" << endl;
 			}
-			double end = timing::now();
-			cout << "    In " << timing::elapsed_time(begin, end) << " seconds" << endl;
+			timing::time_point end = timing::now();
+			cout << "    In " << timing::elapsed_microseconds(begin, end) << " seconds" << endl;
 
 			cout << "> ";
 		}
