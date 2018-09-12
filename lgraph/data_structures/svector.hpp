@@ -7,6 +7,9 @@
 #include <algorithm>
 #include <fstream>
 #include <vector>
+#include <array>
+#include <map>
+#include <set>
 using namespace std;
 
 namespace lgraph {
@@ -61,6 +64,31 @@ class svector {
 		 * the position elems[@ref idx].
 		 */
 		vector<T,Alloc> elems;
+
+		/**
+		 * @brief Removes the element in the i-th position of this container
+		 *
+		 * Swaps the element in the @e i-th position with the element in the
+		 * previous position pointed by @ref idx. Then decrements the value
+		 * of @ref idx.
+		 *
+		 * @param i The index of the element to be removed.
+		 * @pre @e i < @ref idx
+		 * @post The destructor of the element is not called. Therefore,
+		 * the memory will have to be explicitly freed by the caller,
+		 * unless the allocator already implements their destruction.
+		 */
+		void only_remove(size_t i);
+
+		/**
+		 * @brief Shrinks the underlying container.
+		 *
+		 * In case the effective amount of elements in the container
+		 * (value of @ref idx) is smaller than the vector's size (size
+		 * of @ref elems) then @ref elems is resized to fit only
+		 * @ref idx elements.
+		 */
+		void shrink_if();
 
 	public:
 		/// Definition of the iterator of svector class
@@ -220,6 +248,61 @@ class svector {
 		 * the allocator already implements their destruction.
 		 */
 		void find_remove(const T& v);
+
+		/**
+		 * @brief Removes the contents of several positions from the container.
+		 *
+		 * Consider the contents of the container at the state prior the
+		 * deletion. After the deletion the contents of the container are
+		 * all the elements except those pointed by the positions in @e poss
+		 * at the previous state.
+		 *
+		 * @param poss Set of positions to be removed.
+		 * @pre All elements in @e poss must be strictly smaller than the
+		 * size of the container (see @ref size()) at the state prior the deletion.
+		 * @post The contents of the container need not preserve the original
+		 * order.
+		 */
+		void remove_several(const set<size_t>& poss);
+
+		/**
+		 * @brief Removes the contents of several positions from the container.
+		 *
+		 * Consider the contents of the container at the state prior the
+		 * deletion. After the deletion the contents of the container are
+		 * all the elements except those pointed by the positions in @e poss
+		 * at the previous state.
+		 *
+		 * @param poss List of positions to be removed.
+		 * @pre All elements in @e poss must be strictly smaller than the
+		 * size of the container (see @ref size()) at the state prior the deletion.
+		 * The elements in @e poss must be increasingly sorted.
+		 * @post The contents of the container do not necessarily preserve the
+		 * original order.
+		 */
+		void remove_several_s(const vector<size_t>& poss);
+
+		/**
+		 * @brief Removes the contents of several positions from the container.
+		 *
+		 * Consider the contents of the container at the state prior the
+		 * deletion. After the deletion the contents of the container are
+		 * all the elements except those pointed by the positions in @e poss
+		 * at the previous state.
+		 *
+		 * This method requires linear space in the number of elements of
+		 * this container (value of @ref idx).
+		 *
+		 * In case the size of @e poss is small then it may be better to sort
+		 * its contents and use method @ref remove_several_s(const vector<size_t>&).
+		 *
+		 * @param poss List of positions to be removed.
+		 * @pre All elements in @e poss must be strictly smaller than the
+		 * size of the container (see @ref size()) at the state prior the deletion.
+		 * @post The contents of the container need not preserve the original
+		 * order.
+		 */
+		void remove_several(const vector<size_t>& poss);
 
 		// GETTERS
 
