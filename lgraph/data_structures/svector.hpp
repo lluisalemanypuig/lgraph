@@ -302,7 +302,7 @@ class svector {
 		 * @post The contents of the container need not preserve the original
 		 * order.
 		 */
-		void remove_several(const vector<size_t>& poss);
+		//void remove_several(const vector<size_t>& poss);
 
 		// GETTERS
 

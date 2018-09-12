@@ -197,6 +197,7 @@ void svector<T, Alloc>::remove_several_s(const vector<size_t>& v) {
 	shrink_if();
 }
 
+/*
 template<class T, class Alloc>
 void svector<T, Alloc>::remove_several(const vector<size_t>& v) {
 #if not defined (NDEBUG)
@@ -241,6 +242,7 @@ void svector<T, Alloc>::remove_several(const vector<size_t>& v) {
 	// save memory
 	shrink_if();
 }
+*/
 
 // GETTERS
 
