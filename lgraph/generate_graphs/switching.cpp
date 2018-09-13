@@ -12,7 +12,7 @@ namespace modify {
 		}
 		
 		inline void print_edges(const vector<edge>& edges, size_t max_idx, const string& tab = "") {
-			logger<ofstream>& LOG = logger<ofstream>::get_logger();
+			logger<null_stream>& LOG = logger<null_stream>::get_logger();
 			
 			LOG.log() << tab;
 			for (size_t i = 0; i < edges.size(); ++i) {
@@ -47,7 +47,7 @@ namespace modify {
 		// The event of 'false' happens when all edges in the set share an
 		// endpoint with e1 (think of a star tree)
 		bool resort_edges(size_t e_idx, vector<edge>& all_edges, size_t& max_idx) {
-			logger<ofstream>& LOG = logger<ofstream>::get_logger();
+			logger<null_stream>& LOG = logger<null_stream>::get_logger();
 
 			edge e = all_edges[e_idx];
 
@@ -112,7 +112,7 @@ namespace modify {
 	
 	template<class G, typename dT>
 	void switching_model(drandom_generator<G,dT>& rg, size_t Q, uugraph& Gs) {
-		logger<ofstream>& LOG = logger<ofstream>::get_logger();
+		logger<null_stream>& LOG = logger<null_stream>::get_logger();
 		
 		vector<edge> all_edges;
 		Gs.edges(all_edges);
