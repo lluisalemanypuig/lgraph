@@ -282,28 +282,6 @@ class svector {
 		 */
 		void remove_several_s(const vector<size_t>& poss);
 
-		/**
-		 * @brief Removes the contents of several positions from the container.
-		 *
-		 * Consider the contents of the container at the state prior the
-		 * deletion. After the deletion the contents of the container are
-		 * all the elements except those pointed by the positions in @e poss
-		 * at the previous state.
-		 *
-		 * This method requires linear space in the number of elements of
-		 * this container (value of @ref idx).
-		 *
-		 * In case the size of @e poss is small then it may be better to sort
-		 * its contents and use method @ref remove_several_s(const vector<size_t>&).
-		 *
-		 * @param poss List of positions to be removed.
-		 * @pre All elements in @e poss must be strictly smaller than the
-		 * size of the container (see @ref size()) at the state prior the deletion.
-		 * @post The contents of the container need not preserve the original
-		 * order.
-		 */
-		//void remove_several(const vector<size_t>& poss);
-
 		// GETTERS
 
 		/**
