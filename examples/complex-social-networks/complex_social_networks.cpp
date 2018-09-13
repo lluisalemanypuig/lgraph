@@ -312,7 +312,7 @@ void execute_epidemic_models(const uugraph& Gs) {
 			(
 				Gs,
 				epid_p0, epid_beta, epid_gamma, epid_T, immune,
-				drg, crg,
+				*drg, *crg,
 				n_rec, n_sus, n_inf
 			);
 		}
@@ -321,7 +321,7 @@ void execute_epidemic_models(const uugraph& Gs) {
 			(
 				Gs,
 				epid_p0, epid_beta, epid_gamma, epid_T,
-				drg, crg,
+				*drg, *crg,
 				n_rec, n_sus, n_inf
 			);
 		}
@@ -336,7 +336,7 @@ void execute_epidemic_models(const uugraph& Gs) {
 			(
 				Gs,
 				epid_p0, epid_beta, epid_gamma, epid_T, immune,
-				drg, crg,
+				*drg, *crg,
 				n_rec, n_sus, n_inf
 			);
 		}
@@ -345,7 +345,7 @@ void execute_epidemic_models(const uugraph& Gs) {
 			(
 				Gs,
 				epid_p0, epid_beta, epid_gamma, epid_T,
-				drg, crg,
+				*drg, *crg,
 				n_rec, n_sus, n_inf
 			);
 		}
@@ -528,24 +528,24 @@ int main(int argc, char *argv[]) {
 	}
 	else if (estrcmp(model, "barabasi-albert") == 0) {
 		if (estrcmp(variant, "preferential") == 0) {
-			networks::random::BA_preferential_attachment(drg, n0, m0, T, Gs);
+			networks::random::BA_preferential_attachment(*drg, n0, m0, T, Gs);
 		}
 		else if (estrcmp(variant, "random") == 0) {
-			networks::random::BA_random_attachment(drg, n0, m0, T, Gs);
+			networks::random::BA_random_attachment(*drg, n0, m0, T, Gs);
 		}
 		else if (estrcmp(variant, "no-growth") == 0) {
-			networks::random::BA_no_vertex_growth(drg, n0, m0, T, Gs);
+			networks::random::BA_no_vertex_growth(*drg, n0, m0, T, Gs);
 		}
 	}
 	else if (estrcmp(model, "erdos-renyi") == 0) {
-		networks::random::Erdos_Renyi(crg, N, p, Gs);
+		networks::random::Erdos_Renyi(*crg, N, p, Gs);
 	}
 	else if (estrcmp(model, "watts-strogatz") == 0) {
-		networks::random::Watts_Strogatz(crg, drg, N, k, p, Gs);
+		networks::random::Watts_Strogatz(*crg, *drg, N, k, p, Gs);
 	}
 
 	if (apply_switching) {
-		networks::modify::switching_model(drg, Q, Gs);
+		networks::modify::switching_model(*drg, Q, Gs);
 	}
 
 	cout << "Resulting network:" << endl;
