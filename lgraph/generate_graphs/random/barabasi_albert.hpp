@@ -40,7 +40,7 @@ namespace random {
 		typename dT = size_t
 	>
 	void BA_preferential_attachment(
-		drandom_generator<G,dT> *rg,
+		drandom_generator<G,dT>& rg,
 		size_t n0, size_t m0, size_t T,
 		uugraph& Gs
 	);
@@ -65,7 +65,7 @@ namespace random {
 		typename dT = size_t
 	>
 	void BA_random_attachment(
-		drandom_generator<G,dT> *rg,
+		drandom_generator<G,dT>& rg,
 		size_t n0, size_t m0, size_t T,
 		uugraph& Gs
 	);
@@ -98,7 +98,7 @@ namespace random {
 		typename dT = size_t
 	>
 	void BA_no_vertex_growth(
-		drandom_generator<G,dT> *rg,
+		drandom_generator<G,dT>& rg,
 		size_t n0, size_t m0, size_t T,
 		uugraph& Gs
 	);

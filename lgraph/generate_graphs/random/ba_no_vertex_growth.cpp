@@ -208,7 +208,7 @@ namespace random {
 	template<class G, typename dT>
 	void BA_no_vertex_growth
 	(
-		drandom_generator<G,dT> *rg,
+		drandom_generator<G,dT>& rg,
 		size_t n0, size_t m0, size_t T,
 		uugraph& Gs
 	)
@@ -235,8 +235,8 @@ namespace random {
 			size_t max_idx = stubs.size() - 1;
 			
 			// choose a vertex randomly from the stubs and update them
-			rg->init_uniform(0, max_idx);
-			size_t u_idx = rg->get_uniform();
+			rg.init_uniform(0, max_idx);
+			size_t u_idx = rg.get_uniform();
 			size_t u = stubs[u_idx];
 			
 			// arrange the vector of stubs to allow drawing a node with 
@@ -246,10 +246,10 @@ namespace random {
 			// connect the vertex to m0 vertices in the graph
 			for (size_t m = 0; m < max_neigh ; ++m) {
 				// reset the uniform random generator
-				rg->init_uniform(0, max_idx);
+				rg.init_uniform(0, max_idx);
 				
 				// choose stub and make edge
-				size_t stub_idx = rg->get_uniform();
+				size_t stub_idx = rg.get_uniform();
 				size_t v = stubs[stub_idx];
 				
 				// rearrange the vector stubs for next iteration

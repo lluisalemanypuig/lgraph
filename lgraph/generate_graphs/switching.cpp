@@ -111,7 +111,7 @@ namespace modify {
 	}
 	
 	template<class G, typename dT>
-	void switching_model(drandom_generator<G,dT> *rg, size_t Q, uugraph& Gs) {
+	void switching_model(drandom_generator<G,dT>& rg, size_t Q, uugraph& Gs) {
 		logger<ofstream>& LOG = logger<ofstream>::get_logger();
 		
 		vector<edge> all_edges;
@@ -126,8 +126,8 @@ namespace modify {
 			
 			LOG.log() << "Step i= " << i << endl;
 			
-			rg->init_uniform(0, max_idx);
-			size_t e1_idx = rg->get_uniform();
+			rg.init_uniform(0, max_idx);
+			size_t e1_idx = rg.get_uniform();
 			
 			LOG.log() << "    First edge chosen: " << _switching::edge_to_string(all_edges[e1_idx]) << endl;
 			
@@ -137,8 +137,8 @@ namespace modify {
 			bool r = _switching::resort_edges(e1_idx, all_edges, max_idx);
 			
 			if (r) {
-				rg->init_uniform(0, max_idx);
-				size_t e2_idx = rg->get_uniform();
+				rg.init_uniform(0, max_idx);
+				size_t e2_idx = rg.get_uniform();
 				
 				LOG.log() << "    Second edge chosen: " << _switching::edge_to_string(all_edges[e2_idx]) << endl;
 				

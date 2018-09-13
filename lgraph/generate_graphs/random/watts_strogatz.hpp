@@ -52,8 +52,8 @@ namespace random {
 		typename dT = size_t
 	>
 	void Watts_Strogatz(
-		crandom_generator<G,cT> *crg,
-		drandom_generator<G,dT> *drg,
+		crandom_generator<G,cT>& crg,
+		drandom_generator<G,dT>& drg,
 		size_t N, size_t k, double p,
 		uugraph& Gs
 	);

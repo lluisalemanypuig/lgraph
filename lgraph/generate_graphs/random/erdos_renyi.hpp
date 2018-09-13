@@ -41,7 +41,7 @@ namespace random {
 		class G = default_random_engine,
 		typename cT = float
 	>
-	void Erdos_Renyi(crandom_generator<G,cT> *rg, size_t N, double p, uugraph& Gs);
+	void Erdos_Renyi(crandom_generator<G,cT>& rg, size_t N, double p, uugraph& Gs);
 
 } // -- namespace random
 } // -- namespace networks

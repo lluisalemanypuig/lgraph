@@ -7,7 +7,7 @@ namespace random {
 	template<class G, typename dT>
 	void BA_random_attachment
 	(
-		drandom_generator<G,dT> *rg,
+		drandom_generator<G,dT>& rg,
 		size_t n0, size_t m0, size_t T,
 		uugraph& Gs
 	)
@@ -36,8 +36,8 @@ namespace random {
 			// connect the new vertex to m0 vertices in the graph
 			for (size_t m = 0; m < m0; ++m) {
 				// reset the uniform random generator
-				rg->init_uniform(0, max_idx);
-				size_t r = rg->get_uniform();
+				rg.init_uniform(0, max_idx);
+				size_t r = rg.get_uniform();
 				
 				Gs.add_edge(u, idxs[r]);
 				

@@ -11,8 +11,8 @@ namespace epidemics {
 		double p0, double beta, double gamma,
 		size_t T,
 		const vector<bool>& immune,
-		drandom_generator<G,dT> *drg,
-		crandom_generator<G,cT> *crg,
+		drandom_generator<G,dT>& drg,
+		crandom_generator<G,cT>& crg,
 
 		vector<size_t>& n_rec,
 		vector<size_t>& n_sus,
@@ -41,7 +41,7 @@ namespace epidemics {
 				continue;
 			}
 
-			double r = crg->get_uniform();
+			double r = crg.get_uniform();
 			if (r <= p0) {
 				// is infected
 				infected.add(i);
@@ -84,7 +84,7 @@ namespace epidemics {
 				size_t iA = infected[i - 1];
 				LOG.log() << "        Agent " << iA << " recovers? ";
 
-				double r = crg->get_uniform();
+				double r = crg.get_uniform();
 				if (r <= gamma) {
 					LOG.log() << "Yes" << endl;
 
@@ -141,7 +141,7 @@ namespace epidemics {
 						// if the neighbour is susceptible try to infect it
 						if (is_susceptible[w]) {
 
-							double r = crg->get_uniform();
+							double r = crg.get_uniform();
 							if (r <= beta) {
 
 								LOG.log() << "                ... and succeeds" << endl;
@@ -218,8 +218,8 @@ namespace epidemics {
 					// neighbour
 					if (infected_neighs > 0) {
 						// 2. generate random binomial number r
-						drg->init_binomial(infected_neighs, beta);
-						dT binom_val = drg->get_binomial();
+						drg.init_binomial(infected_neighs, beta);
+						dT binom_val = drg.get_binomial();
 
 						// 3. if r >= 1 then agent becomes infected
 						if (binom_val >= 1) {

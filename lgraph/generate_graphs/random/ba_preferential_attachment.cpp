@@ -135,7 +135,7 @@ namespace random {
 	template<class G, typename dT>
 	void BA_preferential_attachment
 	(
-		drandom_generator<G,dT> *rg,
+		drandom_generator<G,dT>& rg,
 		size_t n0, size_t m0, size_t T,
 		uugraph& Gs
 	)
@@ -167,10 +167,10 @@ namespace random {
 			// connect the new vertex to m0 vertices in the graph
 			for (size_t m = 0; m < m0; ++m) {
 				// reset the uniform random generator
-				rg->init_uniform(0, max_idx);
+				rg.init_uniform(0, max_idx);
 				
 				// choose stub and make edge
-				size_t stub_idx = rg->get_uniform();
+				size_t stub_idx = rg.get_uniform();
 				size_t v = stubs[stub_idx];
 				
 				// rearrange the vector stubs for next iteration

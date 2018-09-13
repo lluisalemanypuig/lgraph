@@ -27,9 +27,10 @@ namespace random {
 	}
 
 	template<class G, typename cT, typename dT>
-	void Watts_Strogatz(
-		crandom_generator<G,cT> *crg,
-		drandom_generator<G,dT> *drg,
+	void Watts_Strogatz
+	(
+		crandom_generator<G,cT>& crg,
+		drandom_generator<G,dT>& drg,
 		size_t N, size_t k, double p,
 		uugraph& Gs
 	)
@@ -37,7 +38,7 @@ namespace random {
 		assert(2 <= k and k <= N - 1);
 
 		// initialise coninuous RNG
-		crg->init_uniform(0, 1.0);
+		crg.init_uniform(0, 1.0);
 
 		if (k == N - 1) {
 			// make complete graph and finish
@@ -103,12 +104,12 @@ namespace random {
 
 				// edge (u,v) from the ring created in step 1
 
-				if (crg->get_uniform() < p) {
+				if (crg.get_uniform() < p) {
 					// about to rewire
-					drg->init_uniform(0, nn.size() - 1);
+					drg.init_uniform(0, nn.size() - 1);
 
 					// choose new node
-					size_t wp = drg->get_uniform();
+					size_t wp = drg.get_uniform();
 					node w = nn[wp];
 
 					// node 'w' is now a neighbour
