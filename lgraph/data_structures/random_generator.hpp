@@ -1,5 +1,8 @@
 #pragma once
 
+// C includes
+#include <assert.h>
+
 // C++ includes
 #include <random>
 using namespace std;
@@ -11,6 +14,15 @@ namespace utils {
  * @brief Abstract pseudo-Random Number Generator (ARNG).
  *
  * Interface for random number generators using the C++11 header \<random\>.
+ *
+ * Seed the random engine calling method @ref seed_random_engine().
+ *
+ * Initialise whatever distribution is needed with the appropriate
+ * method:
+ * - @ref init_uniform(T a, T b) to generate numbers following
+ *	the distribution U[a,b], where U denotes the uniform distribution.
+ * - @ref init_binomial(T n, double p) to generate numbers following
+ *	the distribution B(n,p), where B denotes the binomial distribution.
  *
  * @param G The random engine used to generate the numbers
  * @param T The type of the numbers generated (its type depends on the subclass
@@ -75,10 +87,10 @@ template<
 class drandom_generator : public random_generator<G,dT> {
 	private:
 		/// Object to generate integer numbers uniformly at random.
-		uniform_int_distribution<dT> U;
+		uniform_int_distribution<dT> *U;
 
 		/// Object to generate the numbers following a binomial distribution.
-		binomial_distribution<dT> B;
+		binomial_distribution<dT> *B;
 		
 	public:
 		/// Constructor.
@@ -110,7 +122,7 @@ template<
 class crandom_generator : public random_generator<G,cT> {
 	private:
 		/// Object to generate floating point numbers uniformly at random.
-		uniform_real_distribution<cT> U;
+		uniform_real_distribution<cT> *U;
 		
 	public:
 		/// Constructor.
