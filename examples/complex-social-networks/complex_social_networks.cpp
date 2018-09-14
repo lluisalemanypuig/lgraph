@@ -68,8 +68,8 @@ static string immune_agents_file = "none";
 
 // RNG parameters
 static bool seed_rng = false;
-static drandom_generator<> *drg;
-static crandom_generator<> *crg;
+static drandom_generator<> *drg = nullptr;
+static crandom_generator<> *crg = nullptr;
 // </Global variables>
 
 void print_usage() {
