@@ -18,7 +18,7 @@ namespace lgraph {
 namespace utils {
 
 /**
- * @brief Unweighted undirected (ux) graphs.
+ * @brief Unweighted undirected (uu) graphs.
  *
  * This class implements the unweighted undirected graph data structure
  * based on adjacency lists.
