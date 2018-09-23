@@ -62,7 +62,8 @@ HEADERS += \
         graph_traversal/wxpaths_boolean.cpp \
     utils/logger.hpp \
     utils/definitions.hpp \
-    utils/static_bitset.hpp
+    utils/static_bitset.hpp \
+    communities/communities.hpp
 
 SOURCES += \
     utils/static_bitset.cpp \
@@ -82,6 +83,7 @@ SOURCES += \
     generate_graphs/classic/star_graph.cpp \
     generate_graphs/classic/cycle_graph.cpp \
     generate_graphs/classic/complete_graph.cpp \
-    generate_graphs/classic/regular.cpp
+    generate_graphs/classic/regular.cpp \
+    communities/connected_components.cpp
 
 

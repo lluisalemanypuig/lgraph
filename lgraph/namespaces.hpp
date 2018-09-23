@@ -1,13 +1,13 @@
 #pragma once
 
 /*
- * This is used for documentation purposes only
+ * This file is used for documentation purposes only.
  *
  */
 
 /// Library's main namespace
 namespace lgraph {
-
+	
 	/**
 	 * @brief Collection of path-finding algorithms
 	 *
@@ -23,25 +23,19 @@ namespace lgraph {
 		namespace dfs {}
 		/// Definition of a generic Dijkstra traversal of a weighted graph
 		namespace dijkstra {}
-	}
-
+	} // -- namespace traversal
+	
 	/// Methods to be applied to networks
 	namespace networks {
 		
 		/// Algorithms to generate random networks
-		namespace random {
-		}
-		
+		namespace random {}
 		/// Algorithms to generate classic networks
-		namespace classic {
-		}
-		
+		namespace classic {}
 		/// Algorithms for modifying already existing networks
 		namespace modify {}
-		
 		/// Epidemic algorithms
 		namespace epidemics {}
-
 		/// Methods dedicated to measuring metrics on networks
 		namespace metrics {
 			/// Distance metrics
@@ -51,7 +45,7 @@ namespace lgraph {
 			/// Centrality metrics
 			namespace centralities {}
 		} // -- namespace metrics
-
+		
 		/// Algorithms to generate random networks
 		namespace random {
 			// Switching model algorithm
@@ -59,9 +53,12 @@ namespace lgraph {
 			// Barabasi-Albert model variants
 			namespace Barabasi_Albert {}
 		} // -- namespace random
-
+		
+		/// Algorithms for community-finding
+		namespace communities {}
+		
 	} // -- namespace networks
-
+	
 	/**
 	 * @brief Collection of utilities
 	 *
