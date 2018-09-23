@@ -22,8 +22,7 @@ namespace communities {
 	 * @brief Computes the connected components of this graph.
 	 * @param[in] g The input graph.
 	 * @param[out] comps @e comps[i] = @e j if, and only if, the @e i-th vertex
-	 * belongs to the @e j-th connected component, where @e i is a node index.
-	 *
+	 * belongs to the @e j-th connected component, where @e i is a node index. \n
 	 * The labels start at 0. Any label's value greater or equal than
 	 * the number of vertices of @e g is not valid.
 	 * @returns Returns the amount of connected components in @e g.
@@ -34,8 +33,7 @@ namespace communities {
 	 * @brief Computes the strongly connected components of this graph.
 	 * @param[in] g The input graph.
 	 * @param[out] comps @e comps[i] = @e j if, and only if, the @e i-th vertex
-	 * belongs to the @e j-th connected component, where @e i is a node index.
-	 *
+	 * belongs to the @e j-th connected component, where @e i is a node index. \n
 	 * The labels start at 0. Any label's value greater or equal than
 	 * the number of vertices of @e g is not valid.
 	 * @returns Returns the amount of connected components in @e g.
