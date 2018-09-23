@@ -182,8 +182,8 @@ namespace epidemics {
 		double p0, double beta, double gamma,
 		size_t T,
 		const vector<bool>& immune,
-		drandom_generator<G,dT> *drg,
-		crandom_generator<G,cT> *crg,
+		drandom_generator<G,dT>& drg,
+		crandom_generator<G,cT>& crg,
 
 		vector<size_t>& n_rec,
 		vector<size_t>& n_sus,
