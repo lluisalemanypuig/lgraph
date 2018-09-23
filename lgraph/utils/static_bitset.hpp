@@ -182,7 +182,7 @@ class static_bitset {
 		 */
 		static_bitset operator~ () const; // bit-wise negation
 		/**
-		 * @brief Bitser difference operator.
+		 * @brief Bitset difference operator.
 		 * @param bs Bitset to be operated with.
 		 * @return Returns a bitset s where the i-th bit of s, s[i], is
 		 * s[i] = this[i] & ~bs[i]:
@@ -226,25 +226,49 @@ class static_bitset {
 		/**
 		 * @brief Difference operator.
 		 *
-		 * See @ref operator- for details.
+		 * See @ref operator-(const static_bitset&)const
+		 * for details.
+		 *
+		 * * The operation performed is:
+		 \verbatim
+		 *this = *this - bs
+		 \endverbatim
 		 */
 		static_bitset& operator-= (const static_bitset& bs); // bit-wise d
 		/**
 		 * @brief And operator.
 		 *
-		 * See @ref operator& for details.
+		 * See @ref operator&(const static_bitset&)const
+		 * for details.
+		 *
+		 * * The operation performed is:
+		 \verbatim
+		 *this = *this & bs
+		 \endverbatim
 		 */
 		static_bitset& operator&= (const static_bitset& bs); // bit-wise and
 		/**
 		 * @brief Or operator.
 		 *
-		 * See @ref operator| for details.
+		 * See @ref operator|(const static_bitset&)const
+		 * for details.
+		 *
+		 * The operation performed is:
+		 \verbatim
+		 *this = *this | bs
+		 \endverbatim
 		 */
 		static_bitset& operator|= (const static_bitset& bs); // bit-wise or
 		/**
 		 * @brief Exclusive-or operator.
 		 *
-		 * See @ref operator^ for details.
+		 * See @ref operator^(const static_bitset&)const
+		 * for details.
+		 *
+		 * * The operation performed is:
+		 \verbatim
+		 *this = *this ^ bs
+		 \endverbatim
 		 */
 		static_bitset& operator^= (const static_bitset& bs); // bit-wise exclusive or
 
@@ -290,19 +314,27 @@ class static_bitset {
 
 		/**
 		 * @brief Returns whether the two bitsets are equal.
+		 *
+		 * Equivalent to using the @ref all() method on the result
+		 * of the '==' operator (see @ref operator==(const static_bitset&)const)
+		 * between @e *this and @e bs.
+		 *
 		 * @param bs The bitset to be compared against.
 		 * @return Returns true if all bits in this bitset are the
-		 * same as the bits in @e bs. Equivalent to.
-		 * @ref operator==.(*this, bs).@ref all() but faster.
+		 * same as the bits in @e bs.
 		 */
 		bool equal(const static_bitset& bs) const;
 
 		/**
 		 * @brief Returns true if this bitset is included in @e bs.
+		 *
+		 * Equivalent to using the @ref all() method on the result
+		 * of the '<=' operator (see @ref operator<=(const static_bitset&)const)
+		 * between @e *this and @e bs.
+		 *
 		 * @param bs The bitset to be compared against.
 		 * @return Returns true if all set bits in this bitset are also
-		 * set in @e bs. Equivalent to @ref operator<=.(*this, bs).@ref all()
-		 * but faster.
+		 * set in @e bs.
 		 */
 		bool included(const static_bitset& bs) const;
 
