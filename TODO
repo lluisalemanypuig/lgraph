@@ -1,6 +1,11 @@
 TODO LIST
 =========
 
+[] 23/09/2018 ->
+Implement function to obtain induced subgraph:
+- given a list of vertices.
+- given a list of edges-
+
 [] 11/09/2018 ->
 Implement algorithm to find max-flow min-cut of a weighted graph.
 
