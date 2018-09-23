@@ -22,6 +22,10 @@ using namespace utils;
 using namespace traversal;
 
 #include <lgraph/generate_graphs/classic/classic.hpp>
+using namespace networks::classic;
+
+#include <lgraph/communities/communities.hpp>
+using namespace networks::communities;
 
 // Custom includes
 #include "time.hpp"

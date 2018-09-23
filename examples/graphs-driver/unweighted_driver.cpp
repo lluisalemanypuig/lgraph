@@ -71,6 +71,12 @@ namespace graph_driver {
 		cout << "    * find-all-path: finds all shortest paths between any pair of nodes in the graph" << endl;
 		cout << endl;
 		cout << "---------------------------------------" << endl;
+		cout << "STRUCTURE" << endl;
+		cout << endl;
+		cout << "    * connected-components: outputs the label of the connected component" << endl;
+		cout << "        each vertex belongs to" << endl;
+		cout << endl;
+		cout << "---------------------------------------" << endl;
 		cout << "MISCELLANEA" << endl;
 		cout << endl;
 		cout << "    * has-edge U V: outputs YES or NO depending on whether the graph" << endl;
@@ -178,10 +184,10 @@ namespace graph_driver {
 				cin >> N;
 
 				if (G->is_directed()) {
-					networks::classic::complete_graph(N, *(static_cast<udgraph *>(G)));
+					complete_graph(N, *(static_cast<udgraph *>(G)));
 				}
 				else {
-					networks::classic::complete_graph(N, *(static_cast<uugraph *>(G)));
+					complete_graph(N, *(static_cast<uugraph *>(G)));
 				}
 			}
 			else if (option == "linear-tree") {
@@ -193,10 +199,10 @@ namespace graph_driver {
 				if (G->is_directed()) {
 					int d;
 					cin >> d;
-					networks::classic::linear_tree(N, *(static_cast<udgraph *>(G)), static_cast<uint8_t>(d));
+					linear_tree(N, *(static_cast<udgraph *>(G)), static_cast<uint8_t>(d));
 				}
 				else {
-					networks::classic::linear_tree(N, *(static_cast<uugraph *>(G)));
+					linear_tree(N, *(static_cast<uugraph *>(G)));
 				}
 			}
 			else if (option == "cycle-graph") {
@@ -208,10 +214,10 @@ namespace graph_driver {
 				if (G->is_directed()) {
 					int d;
 					cin >> d;
-					networks::classic::cycle_graph(N, *(static_cast<udgraph *>(G)), static_cast<uint8_t>(d));
+					cycle_graph(N, *(static_cast<udgraph *>(G)), static_cast<uint8_t>(d));
 				}
 				else {
-					networks::classic::cycle_graph(N, *(static_cast<uugraph *>(G)));
+					cycle_graph(N, *(static_cast<uugraph *>(G)));
 				}
 			}
 			else if (option == "star-graph") {
@@ -223,10 +229,10 @@ namespace graph_driver {
 				if (G->is_directed()) {
 					int d;
 					cin >> d;
-					networks::classic::star_graph(N, *(static_cast<udgraph *>(G)), static_cast<uint8_t>(d));
+					star_graph(N, *(static_cast<udgraph *>(G)), static_cast<uint8_t>(d));
 				}
 				else {
-					networks::classic::star_graph(N, *(static_cast<uugraph *>(G)));
+					star_graph(N, *(static_cast<uugraph *>(G)));
 				}
 			}
 			else if (option == "find-one-st-path") {
@@ -287,6 +293,24 @@ namespace graph_driver {
 							cout << "    " << p << endl;
 						}
 					}
+				}
+			}
+			else if (option == "connected-components") {
+				vector<size_t> labels;
+				size_t n_comps;
+
+				if (G->is_directed()) {
+					udgraph *_G = static_cast<udgraph *>(G);
+					n_comps = connected_components(*_G, labels);
+				}
+				else {
+					uugraph *_G = static_cast<uugraph *>(G);
+					n_comps = connected_components(*_G, labels);
+				}
+
+				cout << "There are in total " << n_comps << " connected components" << endl;
+				for (node u = 0; u < G->n_nodes(); ++u) {
+					cout << "Node " << u << " is in component: " << labels[u] << endl;
 				}
 			}
 			else if (option == "is-weighted") {
