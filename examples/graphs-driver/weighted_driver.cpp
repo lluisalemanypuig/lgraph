@@ -80,7 +80,7 @@ namespace graph_driver {
 	}
 
 	void driver_weighted(bool directed) {
-		wxgraph<float>* G = nullptr;
+		wxgraph<float> *G = nullptr;
 
 		if (directed) {
 			// do nothing
