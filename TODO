@@ -4,7 +4,7 @@ TODO LIST
 [] 23/09/2018 ->
 Implement function to obtain induced subgraph:
 - given a list of vertices.
-- given a list of edges-
+- given a list of edges.
 
 [] 11/09/2018 ->
 Implement algorithm to find max-flow min-cut of a weighted graph.
@@ -25,7 +25,7 @@ Implement an algorithm to find all connected components of a graph.
 	[] 23/08/2018 ->
 	Directed graphs
 	
-	[] 23/08/2018 ->
+	[v] 23/08/2018 -> 01/10/2018
 	Undirected graphs
 
 [] 24/02/2018 ->
