@@ -296,22 +296,27 @@ namespace graph_driver {
 				}
 			}
 			else if (option == "connected-components") {
-				vector<size_t> labels;
+				vector<size_t> labels, bins;
 				size_t n_comps;
 
 				if (G->is_directed()) {
 					udgraph *_G = static_cast<udgraph *>(G);
-					n_comps = connected_components(*_G, labels);
+					n_comps = connected_components(*_G, labels, &bins);
 				}
 				else {
 					uugraph *_G = static_cast<uugraph *>(G);
-					n_comps = connected_components(*_G, labels);
+					n_comps = connected_components(*_G, labels, &bins);
 				}
 
 				cout << "There are in total " << n_comps << " connected components" << endl;
 				for (node u = 0; u < G->n_nodes(); ++u) {
-					cout << "Node " << u << " is in component: " << labels[u] << endl;
+					cout << "    Node " << u << " is in component: " << labels[u] << endl;
 				}
+				cout << "Each connected component has:" << endl;
+				for (size_t i = 0; i < bins.size(); ++i) {
+					cout << "    Component " << i << " has " << bins[i] << " vertices" << endl;
+				}
+				cout << endl;
 			}
 			else if (option == "is-weighted") {
 				cout << "Is the graph weighted? "
