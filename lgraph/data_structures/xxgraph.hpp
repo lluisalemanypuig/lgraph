@@ -95,9 +95,9 @@ class xxgraph {
 		 * @brief Adds @e n nodes to the graph.
 		 *
 		 * The nodes are assigned in consecutive, increasing values.
-		 * @return Returns the index of the last node.
+		 * @return Returns the index of the last added node.
 		 */
-		size_t add_n_nodes(node n);
+		size_t add_n_nodes(size_t n);
 
 		/**
 		 * @brief Removes an edge from this graph.

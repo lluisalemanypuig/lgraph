@@ -52,7 +52,7 @@ size_t xxgraph::add_node() {
 	return adjacency_list.size() - 1;
 }
 
-size_t xxgraph::add_n_nodes(node n) {
+size_t xxgraph::add_n_nodes(size_t n) {
 	adjacency_list.insert(adjacency_list.end(), n, neighbourhood());
 	return adjacency_list.size() - 1;
 }
