@@ -19,6 +19,10 @@ namespace graph_driver {
 		cout << "    * init N: initialise the graph with N nodes. It is needed" << endl;
 		cout << "        before being able to safely add edges." << endl;
 		cout << endl;
+		cout << "    * add-node: add a single to the graph" << endl;
+		cout << endl;
+		cout << "    * add-nodes N: adds N nodes to the graph" << endl;
+		cout << endl;
 		cout << "    * add-edge U V W: add an edge (U,V) with weight W." << endl;
 		cout << endl;
 		cout << "    * add-edges N u1 v1 w1 u2 v2 w2 ... uN vN wN: add N edges. Each edge" << endl;
@@ -104,6 +108,14 @@ namespace graph_driver {
 				size_t n;
 				cin >> n;
 				G->init(n);
+			}
+			else if (option == "add-node") {
+				G->add_node();
+			}
+			else if (option == "add-nodes") {
+				size_t n;
+				cin >> n;
+				G->add_n_nodes(n);
 			}
 			else if (option == "add-edge") {
 				node u,v;
@@ -277,8 +289,12 @@ namespace graph_driver {
 			else if (option == "---") {
 				cout << "-----------------------------------" << endl;
 			}
+			else {
+				cout << "    Unknown option '" << option << "'" << endl;
+			}
+
 			timing::time_point end = timing::now();
-			cout << "    In " << timing::elapsed_microseconds(begin, end) << " seconds" << endl;
+			cout << "    In " << timing::elapsed_seconds(begin, end) << " seconds" << endl;
 
 			cout << "> ";
 		}

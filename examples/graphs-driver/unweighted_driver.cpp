@@ -19,6 +19,10 @@ namespace graph_driver {
 		cout << "    * init N: initialise the graph with N nodes. It is needed" << endl;
 		cout << "        before being able to safely add edges." << endl;
 		cout << endl;
+		cout << "    * add-node: add a single to the graph" << endl;
+		cout << endl;
+		cout << "    * add-nodes N: adds N nodes to the graph" << endl;
+		cout << endl;
 		cout << "    * add-edge U V: add an edge (U,V)." << endl;
 		cout << endl;
 		cout << "    * add-edges N u1 v1 u2 v2 ... uN vN: add N edges. Each edge" << endl;
@@ -124,6 +128,14 @@ namespace graph_driver {
 				size_t n;
 				cin >> n;
 				G->init(n);
+			}
+			else if (option == "add-node") {
+				G->add_node();
+			}
+			else if (option == "add-nodes") {
+				size_t n;
+				cin >> n;
+				G->add_n_nodes(n);
 			}
 			else if (option == "add-edge") {
 				node u,v;
@@ -310,11 +322,11 @@ namespace graph_driver {
 
 				cout << "There are in total " << n_comps << " connected components" << endl;
 				for (node u = 0; u < G->n_nodes(); ++u) {
-					cout << "    Node " << u << " is in component: " << labels[u] << endl;
+					cout << "    Node " << u << " is in component " << labels[u] << endl;
 				}
 				cout << "Each connected component has:" << endl;
 				for (size_t i = 0; i < bins.size(); ++i) {
-					cout << "    Component " << i << " has " << bins[i] << " vertices" << endl;
+					cout << "    Component " << i << " has " << bins[i] << " nodes" << endl;
 				}
 				cout << endl;
 			}
@@ -344,6 +356,9 @@ namespace graph_driver {
 			}
 			else if (option == "---") {
 				cout << "-----------------------------------" << endl;
+			}
+			else {
+				cout << "    Unknown option '" << option << "'" << endl;
 			}
 
 			timing::time_point end = timing::now();
