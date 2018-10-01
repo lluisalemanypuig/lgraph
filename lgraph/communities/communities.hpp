@@ -25,9 +25,16 @@ namespace communities {
 	 * belongs to the @e j-th connected component, where @e i is a node index. \n
 	 * The labels start at 0. Any label's value greater or equal than
 	 * the number of vertices of @e g is not valid.
+	 * @param[out] bins If this parameter is not null then @e bins[i] contains
+	 * how many vertices are in the @e i-th connected component.
 	 * @returns Returns the amount of connected components in @e g.
 	 */
-	size_t connected_components(const uugraph& g, vector<size_t>& comps);
+	size_t connected_components
+	(
+		const uugraph& g,
+		vector<size_t>& comps,
+		vector<size_t> *bins = nullptr
+	);
 
 	/**
 	 * @brief Computes the strongly connected components of this graph.
@@ -36,9 +43,16 @@ namespace communities {
 	 * belongs to the @e j-th connected component, where @e i is a node index. \n
 	 * The labels start at 0. Any label's value greater or equal than
 	 * the number of vertices of @e g is not valid.
+	 * @param[out] bins If this parameter is not null then @e bins[i] contains
+	 * how many vertices are in the @e i-th connected component.
 	 * @returns Returns the amount of connected components in @e g.
 	 */
-	size_t connected_components(const udgraph& g, vector<size_t>& comps);
+	size_t connected_components
+	(
+		const udgraph& g,
+		vector<size_t>& comps,
+		vector<size_t> *bins = nullptr
+	);
 
 } // -- namespace communities
 } // -- namespace networks
