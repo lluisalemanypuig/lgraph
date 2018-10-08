@@ -32,6 +32,16 @@ driver. It is mainly used for debugging.
 
 Each example contains a README.md file detailing the contents, including their compilation.
 
+## Dependencies
+
+### Tools
+
+In order to compile the library and the examples, it is required to have the
+'qmake' tool in order to generate the Makefiles. Then, the 'make' tool is needed to
+actually compile them.
+
+Finally, a compiler (g++) that supports the flag -std=c++11 is also needed.
+
 ## Compiling
 
 The library is meant to be compiled for static compilation. In order to compile it issue the following
