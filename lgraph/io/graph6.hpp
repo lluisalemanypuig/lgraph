@@ -30,13 +30,13 @@ namespace graph6 {
 	void write(const string& filename, const uugraph& g);
 	void write(const char *filename, const uugraph& g);
 
-	/**
+	/*
 	 * This format does not support directed graphs (as of 19/10/2018).
 	 */
 
 	// WEIGHTED
 
-	/**
+	/*
 	 * This format does not support weighted graphs (as of 19/10/2018).
 	 */
 
@@ -59,13 +59,13 @@ namespace sparse6 {
 	void write(const string& filename, const uugraph& g);
 	void write(const char *filename, const uugraph& g);
 
-	/**
+	/*
 	 * This format does not support directed graphs (as of 19/10/2018).
 	 */
 
 	// WEIGHTED
 
-	/**
+	/*
 	 * This format does not support weighted graphs (as of 19/10/2018).
 	 */
 
@@ -82,7 +82,7 @@ namespace digraph6 {
 
 	// UNWEIGHTED
 
-	/**
+	/*
 	 * This format does not support undirected graphs (as of 19/10/2018).
 	 */
 
@@ -94,7 +94,7 @@ namespace digraph6 {
 
 	// WEIGHTED
 
-	/**
+	/*
 	 * This format does not support weighted graphs (as of 19/10/2018).
 	 */
 
