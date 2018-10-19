@@ -64,7 +64,10 @@ HEADERS += \
     utils/logger.hpp \
     utils/definitions.hpp \
     utils/static_bitset.hpp \
-    communities/communities.hpp
+    communities/communities.hpp \
+    io/edge_list.hpp \
+    io/io.hpp \
+    io/graph6.hpp
 
 SOURCES += \
     utils/static_bitset.cpp \

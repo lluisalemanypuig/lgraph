@@ -60,6 +60,19 @@ namespace lgraph {
 	} // -- namespace networks
 	
 	/**
+	 * @brief Collection of functions for reading and writing graphs.
+	 * 
+	 * This namespace is devoted to reading/writing graphs from/to a
+	 * file in several formats. The formats supported are:
+	 * 
+	 * - edge list (see @ref io::edge_list)
+	 * - graph6 (see @ref io::graph6, io::sparse6, io::digraph6)
+	 * 
+	 * Each format is detailed in the corresponding function.
+	 */
+	namespace io {}
+	
+	/**
 	 * @brief Collection of utilities
 	 *
 	 * Includes the data structures for:
