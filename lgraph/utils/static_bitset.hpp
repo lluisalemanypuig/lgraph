@@ -125,14 +125,33 @@ class static_bitset {
 		/**
 		 * @brief Initialise the bitset from a string of zeros and ones.
 		 *
-		 *		@ref bytes[i] = @e bits[i].
+		 * Each character of the string is interpreted as a single bit.
+		 *
+		 * @ref bytes[i] = @e zerones[i].
 		 */
-		void init(const string& bits);
+		void init_01(const string& zerones);
 		/**
 		 * @brief Initialise the bitset from a list of Boolean values.
+		 *
 		 * @ref bytes[i] = @e bits[i].
 		 */
-		void init(const vector<bool>& bits);
+		void init_01(const vector<bool>& bits);
+		/**
+		 * @brief Initialise the bitset from a string of bytes.
+		 *
+		 * Each character of the vector is interpreted as a byte.
+		 *
+		 * @ref bytes[i..i+7] = @e bytes[i].
+		 */
+		void init_bytes(const vector<char>& bytes);
+		/**
+		 * @brief Initialise the bitset from a string of bytes.
+		 *
+		 * Each character of the string is interpreted as a byte.
+		 *
+		 * @ref bytes[i..i+7] = @e bytes[i].
+		 */
+		void init_bytes(const string& bytes);
 
 		/**
 		 * @brief Frees the memory occupied by the bitset.
@@ -359,9 +378,38 @@ class static_bitset {
 
 		/**
 		 * @brief Returns this bitset as a string.
-		 * @param sep A string used as spacing between the bits.
+		 * @param[out] s This bitset as a string of zeros and ones.
+		 * @param sep A string used as spacing between each byte.
 		 */
-		string to_string(const string& sep = " ") const;
+		void get_01(string& s, const string& sep = "") const;
+		/**
+		 * @brief Returns this bitset as a string.
+		 * @param sep A string used as spacing between each byte.
+		 */
+		string get_01(const string& sep = "") const;
+
+		/**
+		 * @brief Returns this bitset as a vector of Boolean values.
+		 * @param[out] v This bitset as vector of Boolean values.
+		 * The @e i-th value in @e v equals the @e i-th bit.
+		 */
+		void get_01(vector<bool>& v) const;
+		/**
+		 * @brief Returns this bitset as a vector of Boolean values.
+		 * @returns Returns this bitset as vector of Boolean values.
+		 * The @e i-th value in @e v equals the @e i-th bit.
+		 */
+		vector<bool> get_01() const;
+
+		/**
+		 * @brief Returns a constant reference to the bytes
+		 * of the bitset (see @ref bytes).
+		 *
+		 * The last byte may contain rubbish. The number of valid bits
+		 * in the last byte is equal to the remainder of the division
+		 * of the number of bytes by 8.
+		 */
+		const unsigned char *get_bytes() const;
 };
 
 } // -- namespace utils

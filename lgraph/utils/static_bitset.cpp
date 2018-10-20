@@ -43,13 +43,13 @@ static_bitset::static_bitset() {
 static_bitset::static_bitset(const string& bs) {
 	bytes = nullptr;
 	n_bytes = n_bits = 0;
-	init(bs);
+	init_01(bs);
 }
 
 static_bitset::static_bitset(const vector<bool>& bits) {
 	bytes = nullptr;
 	n_bytes = n_bits = 0;
-	init(bits);
+	init_01(bits);
 }
 
 static_bitset::static_bitset(const static_bitset& bs) {
@@ -99,27 +99,35 @@ void static_bitset::init_unset(size_t n_bits) {
 	}
 }
 
-void static_bitset::init(const string& string_bits) {
-	init_unset(string_bits.length());
+void static_bitset::init_01(const string& zerones) {
+	init_unset(zerones.length());
 	for (size_t i = 0; i < n_bits; ++i) {
-		if (string_bits[i] == '1') {
+		if (zerones[i] == '1') {
 			bytes[byte(i)] = set_bit_(bytes[byte(i)], i);
-		}
-		else {
-			bytes[byte(i)] = unset_bit_(bytes[byte(i)], i);
 		}
 	}
 }
 
-void static_bitset::init(const vector<bool>& bits) {
+void static_bitset::init_01(const vector<bool>& bits) {
 	init_unset(bits.size());
 	for (size_t i = 0; i < n_bits; ++i) {
 		if (bits[i]) {
 			bytes[byte(i)] = set_bit_(bytes[byte(i)], i);
 		}
-		else {
-			bytes[byte(i)] = unset_bit_(bytes[byte(i)], i);
-		}
+	}
+}
+
+void static_bitset::init_bytes(const vector<char>& bts) {
+	init(8*bts.size());
+	for (size_t i = 0; i < n_bytes; ++i) {
+		bytes[i] = bts[i];
+	}
+}
+
+void static_bitset::init_bytes(const string& bts) {
+	init(8*bts.length());
+	for (size_t i = 0; i < n_bytes; ++i) {
+		bytes[i] = bts[i];
 	}
 }
 
@@ -374,9 +382,10 @@ void static_bitset::which(vector<size_t>& w) const {
 }
 
 size_t static_bitset::count() const {
+	const size_t rem = mod_8(n_bits);
+	const size_t check_last = rem != 0;
+
 	size_t c = 0;
-	size_t rem = mod_8(n_bits);
-	size_t check_last = rem != 0;
 	for (size_t b = 0; b < n_bytes - check_last; ++b) {
 		c +=	((0x80 & bytes[b]) >> 7) +
 				((0x40 & bytes[b]) >> 6) +
@@ -402,20 +411,88 @@ size_t static_bitset::count() const {
 	return c;
 }
 
-string static_bitset::to_string(const string& sep) const {
-	string s = "";
-	for (size_t i = 0; i < n_bits - 1; ++i) {
-		if (get_bit(bytes[byte(i)], i)) s += "1";
-		else s += "0";
+void static_bitset::get_01(string& s, const string& sep) const {
+	const size_t rem = mod_8(n_bits);
+	const size_t check_last = rem != 0;
+
+	s = "";
+	for (size_t b = 0; b < n_bytes - check_last; ++b) {
+		s += char('0' + ((0x80 & bytes[b]) >> 7));
+		s += char('0' + ((0x40 & bytes[b]) >> 6));
+		s += char('0' + ((0x20 & bytes[b]) >> 5));
+		s += char('0' + ((0x10 & bytes[b]) >> 4));
+		s += char('0' + ((0x08 & bytes[b]) >> 3));
+		s += char('0' + ((0x04 & bytes[b]) >> 2));
+		s += char('0' + ((0x02 & bytes[b]) >> 1));
+		s += char('0' + ((0x01 & bytes[b]) >> 0));
 		s += sep;
 	}
-	if (get_bit(bytes[n_bytes - 1], (n_bits - 1))) {
-		s += "1";
+
+	if (rem == 0) {
+		// remove the last sep
+		s.pop_back();
 	}
-	else {
-		s += "0";
+
+	char last = bytes[n_bytes - 1];
+	switch (rem) {
+		case 7: s += char('0' + ((0x02 & last) >> 1));
+		case 6: s += char('0' + ((0x04 & last) >> 2));
+		case 5: s += char('0' + ((0x08 & last) >> 3));
+		case 4: s += char('0' + ((0x10 & last) >> 4));
+		case 3: s += char('0' + ((0x20 & last) >> 5));
+		case 2: s += char('0' + ((0x40 & last) >> 6));
+		case 1: s += char('0' + ((0x80 & last) >> 7));
+		default: break;
 	}
+}
+
+string static_bitset::get_01(const string& sep) const {
+	string s;
+	get_01(s, sep);
 	return s;
+}
+
+void static_bitset::get_01(vector<bool>& v) const {
+	const size_t rem = mod_8(n_bits);
+	const size_t check_last = rem != 0;
+	size_t b8;
+
+	v.resize(n_bits, false);
+	for (size_t b = 0; b < n_bytes - check_last; ++b) {
+		b8 = b << 3;
+
+		v[b8    ] = ((0x80 & bytes[b]) >> 7);
+		v[b8 + 1] = ((0x40 & bytes[b]) >> 6);
+		v[b8 + 2] = ((0x20 & bytes[b]) >> 5);
+		v[b8 + 3] = ((0x10 & bytes[b]) >> 4);
+		v[b8 + 4] = ((0x08 & bytes[b]) >> 3);
+		v[b8 + 5] = ((0x04 & bytes[b]) >> 2);
+		v[b8 + 6] = ((0x02 & bytes[b]) >> 1);
+		v[b8 + 7] = ((0x01 & bytes[b]) >> 0);
+	}
+
+	b8 = 8*(n_bytes - 1);
+	char last = bytes[n_bytes - 1];
+	switch (rem) {
+		case 7: v[b8 + 6] = ((0x02 & last) >> 1);
+		case 6: v[b8 + 5] = ((0x04 & last) >> 2);
+		case 5: v[b8 + 4] = ((0x08 & last) >> 3);
+		case 4: v[b8 + 3] = ((0x10 & last) >> 4);
+		case 3: v[b8 + 2] = ((0x20 & last) >> 5);
+		case 2: v[b8 + 1] = ((0x40 & last) >> 6);
+		case 1: v[b8    ] = ((0x80 & last) >> 7);
+		default: break;
+	}
+}
+
+vector<bool> static_bitset::get_01() const {
+	vector<bool> v;
+	get_01(v);
+	return v;
+}
+
+const unsigned char *static_bitset::get_bytes() const {
+	return bytes;
 }
 
 } // -- namespace utils
