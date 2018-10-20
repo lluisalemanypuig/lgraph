@@ -180,7 +180,7 @@ class node_path {
 		void to_string(string& s) const;
 };
 
-//! Template for a list of node_path objects.
+/// Template for a list of node_path objects.
 template<class T = _new_>
 using node_path_set = vector<node_path<T> >;
 

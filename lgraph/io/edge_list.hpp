@@ -34,7 +34,7 @@ namespace io {
  *
  * Reading/Writing a directed/undirected from/to a file graph
  * can be done with methods @ref read(const string&, uxgraph *)
- * and @ref write(const string&, uxgraph *).
+ * and @ref write(const string&, const uxgraph *).
  *
  * This format can be enriched with more information about
  * the edges such as their weight. In this case, if an edge

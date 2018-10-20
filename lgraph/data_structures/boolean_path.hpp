@@ -277,7 +277,7 @@ class boolean_path {
 		void to_string(string& s) const;
 };
 
-//! Template for a list of boolean_path objects.
+/// Template for a list of boolean_path objects.
 template<class T = size_t>
 using boolean_path_set = vector<boolean_path<T> >;
 
