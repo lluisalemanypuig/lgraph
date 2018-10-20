@@ -258,13 +258,6 @@ class wxgraph : public xxgraph {
 		 * @return A pointer to a @ref uxgraph object.
 		 */
 		virtual uxgraph* to_unweighted() const = 0;
-
-		// I/O
-
-		bool read_from_file(const string& filename);
-		bool read_from_file(const char *filename);
-		bool store_in_file(const string& filename);
-		bool store_in_file(const char *filename);
 };
 
 } // -- namespace utils
