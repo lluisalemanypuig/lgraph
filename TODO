@@ -1,6 +1,15 @@
 TODO LIST
 =========
 
+[] 20/10/2018 ->
+Implement reading/writing from/to graph6, sparse6, digraph6 formats.
+	[] 20/10/2018 ->
+	graph6
+	[] 20/10/2018 ->
+	sparse6
+	[] 20/10/2018 ->
+	digraph6
+
 [] 23/09/2018 ->
 Implement function to obtain induced subgraph:
 - given a list of vertices.
@@ -21,10 +30,8 @@ Implement sparse matrix class.
 
 [] 26/02/2018 ->
 Implement an algorithm to find all connected components of a graph.
-
 	[] 23/08/2018 ->
 	Directed graphs
-	
 	[v] 23/08/2018 -> 01/10/2018
 	Undirected graphs
 
@@ -83,29 +90,23 @@ Implement the boolean path using actual bitsets (not vector<bool>)
 Implement betweennes centrality metric (that uses a boolean path)
 ** Edge betweenness *may* be defined as an average of the betweenness
 centrality of its endpoints. Already solved.
-
 	[X] 26/02/2018 ->
 	For a single edge
-	
 	[X] 26/02/2018 ->
 	For all edges of a graph
 
 [v] 16/02/2018 -> 26/02/2018
 Implement betweennes centrality metric (that uses a boolean path)
-
 	[v] 16/02/2018 -> 26/02/2018
 	For a single vertex
-
 	[v] 16/02/2018 -> 26/02/2018
 	For all vertices of a graph
 
 [X] 13/02/2018 ->
 Implement betweennes centrality metric
 ** This is solved when using boolean paths
-
 	[X] 13/02/2018 ->
 	For a single vertex
-
 	[X] 13/02/2018 ->
 	For all vertices of a graph
 
@@ -115,49 +116,36 @@ Do not use a vertex-all method to count the number of shortest paths from node t
 
 [v] 20/02/2018 -> 25/02/2018
 Implement algorithm to enumerate all shortest paths:
-
     [v] 20/02/2018 -> 25/02/2018
 	As boolean paths
-
         [v] 20/02/2018 -> 25/02/2018
 		Between two nodes
-
         [v] 20/02/2018 -> 25/02/2018
 		From a node to the rest
-
         [v] 20/02/2018 -> 25/02/2018
 		From a any node to any other node
-
 	[v] 20/02/2018 -> 20/02/2018
 	As node paths
-
 		[v] 20/02/2018 -> 20/02/2018
 		Between two nodes
-
 		[v] 20/02/2018 -> 20/02/2018
 		From a node to the rest
-
 		[v] 20/02/2018 -> 20/02/2018
 		From a any node to any other node
 
 [v] 16/02/2018 -> 18/02/2018
 Implement algorithm to count the number of shortest pahts:
-
 	[v] 16/02/2018 -> 18/02/2018
 	Between two nodes
-
 	[v] 16/02/2018 -> 17/02/2018
 	From a node to the rest
-
 	[v] 16/02/2018 -> 17/02/2018
 	From a any node to any other node
 
 [v] 13/02/2018 -> 16/02/2018
 Implement two classes that implement paths as
-
 	[v] 16/02/2018 -> 16/02/2018
 	List of vertices
-
 	[v] 16/02/2018 -> 16/02/2018
 	Bitsets (a vertex is in the path if the corresponding bit is set to 1)
 
