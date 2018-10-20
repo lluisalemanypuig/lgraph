@@ -27,8 +27,35 @@ namespace graph6 {
 
 	// UNWEIGHTED
 
+	// --------------------------
+	// -- GRAPH FROM/TO STRING --
+
 	/**
-	 * @brief Reads an unweighted, undirected graph in graph6 format.
+	 * @brief Obtains a graph given its representation in \e graph6 format.
+	 * @param s The list of characters that encode the graph.
+	 * @param[out] g The graph resulting from decoding @e s.
+	 * @pre The output graph need not be passed empty (it is cleared
+	 * in this function).
+	 */
+	void graph_from_g6_string(const string& s, uugraph& g);
+
+	/**
+	 * @brief Obtains a graph given its representation in \e graph6 format.
+	 * @param g The graph to be encoded.
+	 * @param[out] s The graph decoded in graph6 format.
+	 * @pre The output string need not be passed empty (it is cleared
+	 * in this function)
+	 */
+	void graph_to_g6_string(const uugraph& g, string& s);
+
+	// ----------
+	// -- READ --
+
+	/**
+	 * @brief Reads an unweighted, undirected graph in \e graph6 format.
+	 *
+	 * The file may contain more than one graph. However, if there is
+	 * more than one, only the first will be read.
 	 * @param filename The name of the file to be read.
 	 * @param[out] g The graph built with the contents in the file.
 	 * @return Returns false if the file coule not be opened.
@@ -36,7 +63,10 @@ namespace graph6 {
 	 */
 	bool read(const string& filename, uugraph& g);
 	/**
-	 * @brief Reads an unweighted, undirected graph in graph6 format.
+	 * @brief Reads an unweighted, undirected graph in \e graph6 format.
+	 *
+	 * The file can only contain one single graph. If there is more
+	 * than one, only the first will be read.
 	 * @param filename The name of the file to be read.
 	 * @param[out] g The graph built with the contents in the file.
 	 * @return Returns false if the file coule not be opened.
@@ -45,7 +75,29 @@ namespace graph6 {
 	bool read(const char *filename, uugraph& g);
 
 	/**
-	 * @brief Writes an unweighted, undirected graph in graph6 format.
+	 * @brief Reads a list of unweighted, undirected graphs in \e graph6 format.
+	 * @param filename The name of the file to be read.
+	 * @param[out] gs The graphs built with the contents in the file.
+	 * @return Returns false if the file coule not be opened.
+	 * Returns true otherwise.
+	 */
+	bool read(const string& filename, vector<uugraph>& gs);
+	/**
+	 * @brief Reads a list of unweighted, undirected graphs in \e graph6 format.
+	 * @param filename The name of the file to be read.
+	 * @param[out] gs The graphs built with the contents in the file.
+	 * @return Returns false if the file coule not be opened.
+	 * Returns true otherwise.
+	 */
+	bool read(const char *filename, vector<uugraph>& gs);
+
+	// -----------
+	// -- WRITE --
+
+	/**
+	 * @brief Writes an unweighted, undirected graph in \e graph6 format.
+	 *
+	 * The graph will be appended at the end of the file.
 	 * @param filename The name of the file where the graph will be
 	 * written to.
 	 * @param g The graph to store.
@@ -54,7 +106,9 @@ namespace graph6 {
 	 */
 	bool write(const string& filename, const uugraph& g);
 	/**
-	 * @brief Writes an unweighted, undirected graph in graph6 format.
+	 * @brief Writes an unweighted, undirected graph in \e graph6 format.
+	 *
+	 * The graph will be appended at the end of the file.
 	 * @param filename The name of the file where the graph will be
 	 * written to.
 	 * @param g The graph to store.
@@ -62,10 +116,6 @@ namespace graph6 {
 	 * Returns true otherwise.
 	 */
 	bool write(const char *filename, const uugraph& g);
-
-	/*
-	 * This format is intended for undirected graphs only.
-	 */
 
 } // -- namespace graph6
 
@@ -84,7 +134,10 @@ namespace sparse6 {
 	// UNWEIGHTED
 
 	/**
-	 * @brief Reads an unweighted, undirected graph in graph6 format.
+	 * @brief Reads an unweighted, undirected graph in \e sparse6 format.
+	 *
+	 * The file can only contain one single graph. If there is more
+	 * than one, only the first will be read.
 	 * @param filename The name of the file to be read.
 	 * @param[out] g The graph built with the contents in the file.
 	 * @return Returns false if the file coule not be opened.
@@ -92,7 +145,10 @@ namespace sparse6 {
 	 */
 	bool read(const string& filename, uugraph& g);
 	/**
-	 * @brief Reads an unweighted, undirected graph in graph6 format.
+	 * @brief Reads an unweighted, undirected graph in \e sparse6 format.
+	 *
+	 * The file can only contain one single graph. If there is more
+	 * than one, only the first will be read.
 	 * @param filename The name of the file to be read.
 	 * @param[out] g The graph built with the contents in the file.
 	 * @return Returns false if the file coule not be opened.
@@ -101,7 +157,9 @@ namespace sparse6 {
 	bool read(const char *filename, uugraph& g);
 
 	/**
-	 * @brief Writes an unweighted, undirected graph in graph6 format.
+	 * @brief Writes an unweighted, undirected graph in \e sparse6 format.
+	 *
+	 * The graph will be appended at the end of the file.
 	 * @param filename The name of the file where the graph will be
 	 * written to.
 	 * @param g The graph to store.
@@ -110,7 +168,9 @@ namespace sparse6 {
 	 */
 	bool write(const string& filename, const uugraph& g);
 	/**
-	 * @brief Writes an unweighted, undirected graph in graph6 format.
+	 * @brief Writes an unweighted, undirected graph in \e sparse6 format.
+	 *
+	 * The graph will be appended at the end of the file.
 	 * @param filename The name of the file where the graph will be
 	 * written to.
 	 * @param g The graph to store.
@@ -144,7 +204,10 @@ namespace digraph6 {
 	 */
 
 	/**
-	 * @brief Reads an unweighted, directed graph in graph6 format.
+	 * @brief Reads an unweighted, directed graph in \e digraph6 format.
+	 *
+	 * The file can only contain one single graph. If there is more
+	 * than one, only the first will be read.
 	 * @param filename The name of the file to be read.
 	 * @param[out] g The graph built with the contents in the file.
 	 * @return Returns false if the file coule not be opened.
@@ -152,7 +215,10 @@ namespace digraph6 {
 	 */
 	bool read(const string& filename, udgraph& g);
 	/**
-	 * @brief Reads an unweighted, directed graph in graph6 format.
+	 * @brief Reads an unweighted, directed graph in \e digraph6 format.
+	 *
+	 * The file can only contain one single graph. If there is more
+	 * than one, only the first will be read.
 	 * @param filename The name of the file to be read.
 	 * @param[out] g The graph built with the contents in the file.
 	 * @return Returns false if the file coule not be opened.
@@ -161,7 +227,9 @@ namespace digraph6 {
 	bool read(const char *filename, udgraph& g);
 
 	/**
-	 * @brief Writes an unweighted, directed graph in graph6 format.
+	 * @brief Writes an unweighted, directed graph in \e digraph6 format.
+	 *
+	 * The graph will be appended at the end of the file.
 	 * @param filename The name of the file where the graph will be
 	 * written to.
 	 * @param g The graph to store.
@@ -170,7 +238,9 @@ namespace digraph6 {
 	 */
 	bool write(const string& filename, const udgraph& g);
 	/**
-	 * @brief Writes an unweighted, directed graph in graph6 format.
+	 * @brief Writes an unweighted, directed graph in \e digraph6 format.
+	 *
+	 * The graph will be appended at the end of the file.
 	 * @param filename The name of the file where the graph will be
 	 * written to.
 	 * @param g The graph to store.
