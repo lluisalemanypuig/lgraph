@@ -74,9 +74,13 @@ namespace graph_driver {
 		cout << endl;
 		cout << "    * print: for each node, print its neighbourhood into standard output." << endl;
 		cout << endl;
-		cout << "    * store-file FILE: store the graph into FILE in edge list format." << endl;
+		cout << "    * store-file FORMAT FILE: store the graph into FILE using format FORMAT." << endl;
+		cout << "        Allowed values for FORMAT:" << endl;
+		cout << "        edge-list" << endl;
 		cout << endl;
-		cout << "    * read-file FILE: read an unweighted graph in edge list format from FILE." << endl;
+		cout << "    * read-file FORMAT FILE: read an unweighted graph format from FILE using format FORMAT." << endl;
+		cout << "        Allowed values for FORMAT:" << endl;
+		cout << "        edge-list" << endl;
 		cout << endl;
 		cout << "    * quit: exit the driver" << endl;
 		cout << endl;
@@ -277,14 +281,18 @@ namespace graph_driver {
 				cout << *G << endl;
 			}
 			else if (option == "store-file") {
-				string filename;
-				cin >> filename;
-				G->store_in_file(filename);
+				string format, filename;
+				cin >> format >> filename;
+				if (format == "edge-list") {
+					edge_list::write(filename, G);
+				}
 			}
 			else if (option == "read-file") {
-				string filename;
-				cin >> filename;
-				G->read_from_file(filename);
+				string format, filename;
+				cin >> format >> filename;
+				if (format == "edge-list") {
+					edge_list::read(filename, G);
+				}
 			}
 			else if (option == "---") {
 				cout << "-----------------------------------" << endl;

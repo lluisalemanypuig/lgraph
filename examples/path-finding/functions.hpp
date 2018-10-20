@@ -4,7 +4,7 @@
 #include <vector>
 using namespace std;
 
-// Custom includes
+// lgraph includes
 #include <lgraph/data_structures/boolean_path.hpp>
 #include <lgraph/data_structures/wxgraph.hpp>
 #include <lgraph/data_structures/uxgraph.hpp>

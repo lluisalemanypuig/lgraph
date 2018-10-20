@@ -27,6 +27,9 @@ using namespace networks::classic;
 #include <lgraph/communities/communities.hpp>
 using namespace networks::communities;
 
+#include <lgraph/io/io.hpp>
+using namespace io;
+
 // Custom includes
 #include "time.hpp"
 

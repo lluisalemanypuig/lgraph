@@ -8,11 +8,14 @@ using namespace std;
 // lgraph includes
 #include <lgraph/data_structures/wugraph.hpp>
 #include <lgraph/data_structures/uugraph.hpp>
+using namespace lgraph;
+using namespace utils;
+
+#include <lgraph/io/io.hpp>
+using namespace io;
 
 // Custom includes
 #include "functions.hpp"
-using namespace lgraph;
-using namespace traversal;
 
 void print_usage() {
 	cout << "Path finding debugger" << endl;
@@ -88,7 +91,7 @@ int main(int argc, char *argv[]) {
 
 		wugraph<float> G;
 
-		bool res = G.read_from_file(file);
+		bool res = edge_list::read(file, &G);
 		if (not res) {
 			cerr << "Could not read graph from file '" << file << "'" << endl;
 			return 1;
@@ -109,7 +112,7 @@ int main(int argc, char *argv[]) {
 
 		uugraph G;
 
-		bool res = G.read_from_file(file);
+		bool res = edge_list::read(file, &G);
 		if (not res) {
 			cerr << "Could not read graph from file '" << file << "'" << endl;
 			return 1;

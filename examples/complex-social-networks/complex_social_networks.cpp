@@ -7,7 +7,7 @@
 #include <vector>
 using namespace std;
 
-// Custom includes
+// lgraph includes
 #include <lgraph/data_structures/random_generator.hpp>
 #include <lgraph/data_structures/uugraph.hpp>
 #include <lgraph/generate_graphs/random/barabasi_albert.hpp>
@@ -20,6 +20,10 @@ using namespace std;
 #include <lgraph/epidemics/models.hpp>
 using namespace lgraph;
 
+#include <lgraph/io/io.hpp>
+using namespace io;
+
+// Custom includes
 #include "csn_utils.hpp"
 using namespace csn_utils;
 
@@ -79,6 +83,7 @@ void print_usage() {
 	cout << "    [-i, --input]: reads a network from the specified file. The format must be" << endl;
 	cout << "        a list of edges (pairs of vertices spaced)" << endl;
 	cout << "    [-o, --output]: stores the generated network in the specified file" << endl;
+	cout << "        in edge-list format" << endl;
 	cout << endl;
 	cout << "* Generating random networks" << endl;
 	cout << "    Model selection parameters:" << endl;
@@ -398,23 +403,23 @@ int parse_options(int argc, char *argv[]) {
 			apply_switching = true;
 		}
 		else if (strcmp(argv[i], "--Q") == 0) {
-			fatal_error = parse_uli(argv[i + 1], &Q);
+			fatal_error = parse_ulli(argv[i + 1], &Q);
 			++i;
 		}
 		else if (strcmp(argv[i], "--T") == 0) {
-			fatal_error = parse_uli(argv[i + 1], &T);
+			fatal_error = parse_ulli(argv[i + 1], &T);
 			++i;
 		}
 		else if (strcmp(argv[i], "--T-epidemics") == 0) {
-			fatal_error = parse_uli(argv[i + 1], &epid_T);
+			fatal_error = parse_ulli(argv[i + 1], &epid_T);
 			++i;
 		}
 		else if (strcmp(argv[i], "--n0") == 0) {
-			fatal_error = parse_uli(argv[i + 1], &n0);
+			fatal_error = parse_ulli(argv[i + 1], &n0);
 			++i;
 		}
 		else if (strcmp(argv[i], "--m0") == 0) {
-			fatal_error = parse_uli(argv[i + 1], &m0);
+			fatal_error = parse_ulli(argv[i + 1], &m0);
 			++i;
 		}
 		else if (strcmp(argv[i], "--p0") == 0) {
@@ -434,11 +439,11 @@ int parse_options(int argc, char *argv[]) {
 			++i;
 		}
 		else if (strcmp(argv[i], "--N") == 0) {
-			fatal_error = parse_uli(argv[i + 1], &N);
+			fatal_error = parse_ulli(argv[i + 1], &N);
 			++i;
 		}
 		else if (strcmp(argv[i], "--k") == 0) {
-			fatal_error = parse_uli(argv[i + 1], &k);
+			fatal_error = parse_ulli(argv[i + 1], &k);
 			++i;
 		}
 		else if (strcmp(argv[i], "--seed") == 0) {
@@ -524,7 +529,7 @@ int main(int argc, char *argv[]) {
 
 	if (estrcmp(from_file, "none") != 0) {
 		// read uugraph from file
-		Gs.read_from_file(from_file);
+		io::edge_list::read(from_file, &Gs);
 	}
 	else if (estrcmp(model, "barabasi-albert") == 0) {
 		if (estrcmp(variant, "preferential") == 0) {
@@ -562,7 +567,7 @@ int main(int argc, char *argv[]) {
 	}
 	
 	if (estrcmp(to_file, "none") == 0) {
-		Gs.store_in_file(to_file);
+		io::edge_list::write(to_file, &Gs);
 	}
 	
 	// free memory

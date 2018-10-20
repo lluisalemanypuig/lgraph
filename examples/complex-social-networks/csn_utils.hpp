@@ -19,6 +19,7 @@ namespace csn_utils {
 	int estrcmp(const string& s1, const char *s2);
 
 	char parse_uli(const char *str, unsigned long int *v);
+	char parse_ulli(const char *str, size_t *v);
 	char parse_float(const char *str, float *s);
 	char parse_double(const char *str, double *s);
 
