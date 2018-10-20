@@ -201,18 +201,6 @@ class xxgraph {
 		 */
 		virtual bool is_directed() const = 0;
 
-		// I/O
-
-		/// Reads the graph from a file.
-		virtual bool read_from_file(const string& filename) = 0;
-		/// Reads the graph from a file.
-		virtual bool read_from_file(const char *filename) = 0;
-
-		/// Stores the graph in a file.
-		virtual bool store_in_file(const string& filename) = 0;
-		/// Stores the graph in a file.
-		virtual bool store_in_file(const char *filename) = 0;
-
 		// GRAPH FEATURES
 
 		/// Returns the adjacency matrix of this graph.

@@ -147,13 +147,6 @@ class uxgraph : public xxgraph {
 		 */
 		void edges(vector<edge>& all_edges) const;
 
-		// I/O
-
-		bool read_from_file(const string& filename);
-		bool read_from_file(const char *filename);
-		bool store_in_file(const string& filename);
-		bool store_in_file(const char *filename);
-
 };
 
 } // -- namespace utils

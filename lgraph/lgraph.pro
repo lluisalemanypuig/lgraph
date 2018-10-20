@@ -65,9 +65,10 @@ HEADERS += \
     utils/definitions.hpp \
     utils/static_bitset.hpp \
     communities/communities.hpp \
-    io/edge_list.hpp \
     io/io.hpp \
-    io/graph6.hpp
+		io/edge_list.hpp \
+		io/edge_list_temp.cpp \
+		io/gsd6.hpp
 
 SOURCES += \
     utils/static_bitset.cpp \
@@ -88,6 +89,10 @@ SOURCES += \
     generate_graphs/classic/cycle_graph.cpp \
     generate_graphs/classic/complete_graph.cpp \
     generate_graphs/classic/regular.cpp \
-    communities/connected_components.cpp
+    communities/connected_components.cpp \
+	io/edge_list.cpp \
+    io/graph6.cpp \
+    io/sparse6.cpp \
+    io/digraph6.cpp
 
 

@@ -69,6 +69,18 @@ namespace lgraph {
 	 * - graph6 (see @ref io::graph6, io::sparse6, io::digraph6)
 	 * 
 	 * Each format is detailed in the corresponding function.
+	 * 
+	 * Some formats allow the reading and writing of edge weights.
+	 * When it is the case, the type the weights are represented with
+	 * must provide an implementation of the '<<' and '>>' operators.
+	 * 
+	 * For example, when weights are not represented with the usual
+	 * numeric types (int,float,double,...), but, say, with integers
+	 * with arbitrary precision, the user must provide the
+	 * implementation of the '<<' and '>>' operators for this type
+	 * of integers. A possibility for doing this is by defining a
+	 * class suitable for this type where these two operators are
+	 * overloaded.
 	 */
 	namespace io {}
 	

@@ -11,4 +11,4 @@
 
 // lgraph includes
 #include <lgraph/io/edge_list.hpp>
-#include <lgraph/io/graph6.hpp>
+#include <lgraph/io/gsd6.hpp>
