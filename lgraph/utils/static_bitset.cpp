@@ -491,6 +491,10 @@ vector<bool> static_bitset::get_01() const {
 	return v;
 }
 
+unsigned char *static_bitset::get_bytes() {
+	return bytes;
+}
+
 const unsigned char *static_bitset::get_bytes() const {
 	return bytes;
 }

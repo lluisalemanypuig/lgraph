@@ -238,7 +238,7 @@ class static_bitset {
 		 * if, and only if, the i-th bit of this bitset and the i-th of @e bs
 		 * are equal.
 		 *
-		 *		s[i] := ~(this[i]^bs[i]
+		 *		s[i] := ~(this[i]^bs[i])
 		 */
 		static_bitset operator== (const static_bitset& bs) const; // bit-wise exclusive nor
 
@@ -401,6 +401,15 @@ class static_bitset {
 		 */
 		vector<bool> get_01() const;
 
+		/**
+		 * @brief Returns a reference to the bytes of the bitset
+		 * (see @ref bytes).
+		 *
+		 * The last byte may contain rubbish. The number of valid bits
+		 * in the last byte is equal to the remainder of the division
+		 * of the number of bytes by 8.
+		 */
+		unsigned char *get_bytes();
 		/**
 		 * @brief Returns a constant reference to the bytes
 		 * of the bitset (see @ref bytes).
