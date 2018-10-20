@@ -37,7 +37,7 @@ namespace graph6 {
 	 * @pre The output graph need not be passed empty (it is cleared
 	 * in this function).
 	 */
-	void graph_from_g6_string(const string& s, uugraph& g);
+	void from_g6_string(const string& s, uugraph& g);
 
 	/**
 	 * @brief Obtains a graph given its representation in \e graph6 format.
@@ -46,7 +46,7 @@ namespace graph6 {
 	 * @pre The output string need not be passed empty (it is cleared
 	 * in this function)
 	 */
-	void graph_to_g6_string(const uugraph& g, string& s);
+	void to_g6_string(const uugraph& g, string& s);
 
 	// ----------
 	// -- READ --
