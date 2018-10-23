@@ -94,7 +94,7 @@ namespace graph_driver {
 		cout << endl;
 		cout << "    * print: for each node, print its neighbourhood into standard output." << endl;
 		cout << endl;
-		cout << "    * store-file FORMAT FILE: store the graph into FILE using format FORMAT." << endl;
+		cout << "    * store-graph FORMAT FILE: store the graph into FILE using format FORMAT." << endl;
 		cout << "        Allowed values for FORMAT:" << endl;
 		cout << "        edge-list, graph6, sparse6, digraph6" << endl;
 		cout << endl;
@@ -348,7 +348,7 @@ namespace graph_driver {
 			else if (option == "print") {
 				cout << *G << endl;
 			}
-			else if (option == "store-file") {
+			else if (option == "store-graph") {
 				string format, filename;
 				cin >> format >> filename;
 				if (format == "edge-list") {
