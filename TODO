@@ -3,7 +3,7 @@ TODO LIST
 
 [] 20/10/2018 ->
 Implement reading/writing from/to graph6, sparse6, digraph6 formats.
-	[] 20/10/2018 ->
+	[v] 20/10/2018 -> 23/09/2018
 	graph6
 	[] 20/10/2018 ->
 	sparse6

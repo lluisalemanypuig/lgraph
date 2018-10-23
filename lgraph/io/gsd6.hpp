@@ -31,7 +31,7 @@ namespace graph6 {
 	// -- GRAPH FROM/TO STRING --
 
 	/**
-	 * @brief Obtains a graph given its representation in \e graph6 format.
+	 * @brief Obtains a graph given its representation in @e graph6 format.
 	 * @param s The list of characters that encode the graph.
 	 * @param[out] g The graph resulting from decoding @e s.
 	 * @pre The output graph need not be passed empty (it is cleared
@@ -40,7 +40,7 @@ namespace graph6 {
 	void from_g6_string(const string& s, uugraph& g);
 
 	/**
-	 * @brief Obtains a graph given its representation in \e graph6 format.
+	 * @brief Obtains a graph given its representation in @e graph6 format.
 	 * @param g The graph to be encoded.
 	 * @param[out] s The graph decoded in graph6 format.
 	 * @pre The output string need not be passed empty (it is cleared
