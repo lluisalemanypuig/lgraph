@@ -3,7 +3,7 @@
 namespace functions {
 
 	void deb_distances(const uxgraph *G, node source, node target) {
-		const _new_ N = G->n_nodes();
+		const size_t N = G->n_nodes();
 		cout << "DISTANCES:" << endl;
 
 		// vertex-vertex
@@ -12,7 +12,9 @@ namespace functions {
 		_new_ d1 = traversal::uxdistance(G, source, target);
 		_new_ d2 = traversal::uxdistance(G, source, target, n_paths);
 		cout << "    Distance from " << source << " to " << target << ": ";
-		if (d1 == utils::inf_t<_new_>() or d2 == utils::inf_t<_new_>()) cout << "inf";
+		if (d1 == inf_t<_new_>() or d2 == inf_t<_new_>()) {
+			cout << "inf";
+		}
 		else {
 			cout << d1 << " -- " << d2;
 			if (d1 != d2) {
@@ -28,8 +30,12 @@ namespace functions {
 		traversal::uxdistance(G, source, ds, va_n_paths);
 		for (size_t i = 0; i < N; ++i) {
 			cout << "    Distance from " << source << " to " << i << ": ";
-			if (ds[i] == utils::inf_t<_new_>()) cout << "inf";
-			else cout << ds[i] << " (" << va_n_paths[i] << ")";
+			if (ds[i] == inf_t<_new_>()) {
+				cout << "inf";
+			}
+			else {
+				cout << ds[i] << " (" << va_n_paths[i] << ")";
+			}
 			cout << endl;
 		}
 
@@ -49,8 +55,12 @@ namespace functions {
 		node_path<_new_> p;
 		traversal::uxpath(G, source, target, p);
 		cout << "    Path from " << source << " to " << target << ": ";
-		if (p.size() > 0) cout << p;
-		else cout << "No path!";
+		if (p.size() > 0) {
+			cout << p;
+		}
+		else {
+			cout << "No path!";
+		}
 		cout << endl;
 
 		// vertex-all
@@ -59,8 +69,12 @@ namespace functions {
 		traversal::uxpath(G, source, ps);
 		for (node target = 0; target < G->n_nodes(); ++target) {
 			cout << "    Path from " << source << " to " << target << ": ";
-			if (ps[target].size() > 0) cout << ps[target];
-			else cout << "No path!";
+			if (ps[target].size() > 0) {
+				cout << ps[target];
+			}
+			else {
+				cout << "No path!";
+			}
 			cout << endl;
 		}
 
@@ -71,8 +85,12 @@ namespace functions {
 		for (node source = 0; source < G->n_nodes(); ++source) {
 			for (node target = 0; target < G->n_nodes(); ++target) {
 				cout << "    Path from " << source << " to " << target << ": ";
-				if (all_ps[source][target].size() > 0) cout << all_ps[source][target];
-				else cout << "No path!";
+				if (all_ps[source][target].size() > 0) {
+					cout << all_ps[source][target];
+				}
+				else {
+					cout << "No path!";
+				}
 				cout << endl;
 			}
 		}
@@ -144,8 +162,12 @@ namespace functions {
 		boolean_path<_new_> p;
 		traversal::uxpath(G, source, target, p);
 		cout << "    Path from " << source << " to " << target << ": ";
-		if (p.size() > 0) cout << p.to_node_path(G, source);
-		else cout << "No path!";
+		if (p.size() > 0) {
+			cout << p.to_node_path(G, source);
+		}
+		else {
+			cout << "No path!";
+		}
 		cout << endl;
 
 		// vertex-all
@@ -154,8 +176,12 @@ namespace functions {
 		traversal::uxpath(G, source, ps);
 		for (node TARGET = 0; TARGET < G->n_nodes(); ++TARGET) {
 			cout << "    Path from " << source << " to " << TARGET << ": ";
-			if (ps[TARGET].size() > 0) cout << ps[TARGET].to_node_path(G, source);
-			else cout << "No path!";
+			if (ps[TARGET].size() > 0) {
+				cout << ps[TARGET].to_node_path(G, source);
+			}
+			else {
+				cout << "No path!";
+			}
 			cout << endl;
 		}
 
@@ -166,8 +192,12 @@ namespace functions {
 		for (node SOURCE = 0; SOURCE < G->n_nodes(); ++SOURCE) {
 			for (node TARGET = 0; TARGET < G->n_nodes(); ++TARGET) {
 				cout << "    Path from " << SOURCE << " to " << TARGET << ": ";
-				if (all_ps[SOURCE][TARGET].size() > 0) cout << all_ps[SOURCE][TARGET].to_node_path(G, SOURCE);
-				else cout << "No path!";
+				if (all_ps[SOURCE][TARGET].size() > 0) {
+					cout << all_ps[SOURCE][TARGET].to_node_path(G, SOURCE);
+				}
+				else {
+					cout << "No path!";
+				}
 				cout << endl;
 			}
 		}

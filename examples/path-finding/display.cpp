@@ -12,7 +12,7 @@ namespace functions {
 		for (size_t u = 0; u < N; ++u) {
 			for (size_t v = 0; v < N; ++v) {
 				size_t length_dist = std::to_string(dist[v][u]).length();
-				if (dist[v][u] == utils::inf_t<T>()) {
+				if (dist[v][u] == inf_t<T>()) {
 					length_dist = 3; // use 'inf'
 				}
 
@@ -41,7 +41,7 @@ namespace functions {
 			for (size_t v = 0; v < N; ++v) {
 				cout << setw(max_column[v]);
 
-				if (dist[u][v] == utils::inf_t<T>()) {
+				if (dist[u][v] == inf_t<T>()) {
 					cout << "| inf (" + std::to_string(n_paths[u][v]) + ")";
 				}
 				else {

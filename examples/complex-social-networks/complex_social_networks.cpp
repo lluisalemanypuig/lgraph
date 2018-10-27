@@ -8,7 +8,6 @@
 using namespace std;
 
 // lgraph includes
-#include <lgraph/data_structures/random_generator.hpp>
 #include <lgraph/data_structures/uugraph.hpp>
 #include <lgraph/generate_graphs/random/barabasi_albert.hpp>
 #include <lgraph/generate_graphs/random/watts_strogatz.hpp>
@@ -18,7 +17,9 @@ using namespace std;
 #include <lgraph/metrics/clustering.hpp>
 #include <lgraph/metrics/distance.hpp>
 #include <lgraph/epidemics/models.hpp>
+#include <lgraph/utils/random_generator.hpp>
 using namespace lgraph;
+using namespace utils;
 
 #include <lgraph/io/io.hpp>
 using namespace io;

@@ -13,7 +13,9 @@ namespace functions {
 		T d1 = traversal::wxdistance(G, source, target);
 		T d2 = traversal::wxdistance(G, source, target, n_paths);
 		cout << "    Distance from " << source << " to " << target << ": ";
-		if (d1 == utils::inf_t<T>() or d2 == utils::inf_t<T>()) cout << "inf";
+		if (d1 == inf_t<T>() or d2 == inf_t<T>()) {
+			cout << "inf";
+		}
 		else {
 			cout << d1 << " -- " << d2;
 			if (d1 != d2) {
@@ -30,8 +32,12 @@ namespace functions {
 		if (va_n_paths.size() > 0) {
 			for (size_t i = 0; i < N; ++i) {
 				cout << "    Distance from " << source << " to " << i << ": ";
-				if (ds[i] == utils::inf_t<T>()) cout << "inf";
-				else cout << ds[i] << " (" << va_n_paths[i] << ")";
+				if (ds[i] == inf_t<T>()) {
+					cout << "inf";
+				}
+				else {
+					cout << ds[i] << " (" << va_n_paths[i] << ")";
+				}
 				cout << endl;
 			}
 		}
@@ -56,8 +62,12 @@ namespace functions {
 		node_path<T> p;
 		traversal::wxpath(G, source, target, p);
 		cout << "    Path from " << source << " to " << target << ": ";
-		if (p.size() > 0) cout << p;
-		else cout << "No path!";
+		if (p.size() > 0) {
+			cout << p;
+		}
+		else {
+			cout << "No path!";
+		}
 		cout << endl;
 
 		// node-all
@@ -67,8 +77,12 @@ namespace functions {
 		if (ps.size() > 0) {
 			for (node target = 0; target < G->n_nodes(); ++target) {
 				cout << "    Path from " << source << " to " << target << ": ";
-				if (ps[target].size() > 0) cout << ps[target];
-				else cout << "No path!";
+				if (ps[target].size() > 0) {
+					cout << ps[target];
+				}
+				else {
+					cout << "No path!";
+				}
 				cout << endl;
 			}
 		}
@@ -84,8 +98,12 @@ namespace functions {
 			for (node source = 0; source < G->n_nodes(); ++source) {
 				for (node target = 0; target < G->n_nodes(); ++target) {
 					cout << "    Path from " << source << " to " << target << ": ";
-					if (all_ps[source][target].size() > 0) cout << all_ps[source][target];
-					else cout << "No path!";
+					if (all_ps[source][target].size() > 0) {
+						cout << all_ps[source][target];
+					}
+					else {
+						cout << "No path!";
+					}
 					cout << endl;
 				}
 			}

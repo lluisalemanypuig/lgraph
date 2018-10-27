@@ -2,6 +2,7 @@
 
 // C++ incldues
 #include <algorithm>
+#include <numeric>
 #include <vector>
 
 // lgraph includes
