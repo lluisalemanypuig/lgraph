@@ -2,19 +2,15 @@
 
 // C++ incldues
 #include <algorithm>
-#include <limits>
 #include <vector>
-using namespace std;
 
-// Custom includes
+// lgraph includes
 #include <lgraph/data_structures/boolean_path.hpp>
 #include <lgraph/data_structures/uxgraph.hpp>
 #include <lgraph/data_structures/wxgraph.hpp>
 #include <lgraph/graph_traversal/traversal.hpp>
 
 namespace lgraph {
-using namespace utils;
-
 namespace networks {
 namespace metrics {
 namespace centralities {
@@ -39,7 +35,7 @@ namespace centralities {
 	 * @param[out] dc The i-th position contains the normalised degree
 	 * centrality of the i-th node.
 	 */
-	void degree(const uxgraph *G, vector<double>& dc);
+	void degree(const uxgraph *G, std::vector<double>& dc);
 
 	/*  CLOSENESS CENTRALITY */
 
@@ -60,7 +56,7 @@ namespace centralities {
 	 * @param[out] cc The @e i-th position contains the
 	 * closeness centrality of the @e i-th node.
 	 */
-	void closeness(const uxgraph *G, vector<double>& cc);
+	void closeness(const uxgraph *G, std::vector<double>& cc);
 
 	/**
 	 * @brief Closeness centrality of all nodes in a graph.
@@ -73,7 +69,7 @@ namespace centralities {
 	 * @param[out] cc The @e i-th position contains the
 	 * closeness centrality of the @e i-th node.
 	 */
-	void closeness(const uxgraph *G, const vector<vector<_new_> >& atad, vector<double>& cc);
+	void closeness(const uxgraph *G, const std::vector<std::vector<_new_> >& atad, std::vector<double>& cc);
 
 	/* BETWEENNESS CENTRALITY */
 
@@ -128,7 +124,7 @@ namespace centralities {
 	 * @return Returns the betweenness centrality of a node, considering
 	 * that a path between @e u and @e v contains both @e u and @e v.
 	 */
-	double betweenness(const uxgraph *G, const vector<vector<boolean_path_set<_new_> > >& paths, node u);
+	double betweenness(const uxgraph *G, const std::vector<std::vector<boolean_path_set<_new_> > >& paths, node u);
 
 	/**
 	 * @brief Betweenness centrality of all nodes in a graph.
@@ -151,7 +147,7 @@ namespace centralities {
 	 * @param[in] G The unweighted graph to be evaluated.
 	 * @param[out] bc @e bc[i] contains the betweenness centrality of the @e i-th node.
 	 */
-	void betweenness(const uxgraph *G, vector<double>& bc);
+	void betweenness(const uxgraph *G, std::vector<double>& bc);
 
 	/**
 	 * @brief Betweenness centrality of all nodes in a graph.
@@ -177,7 +173,7 @@ namespace centralities {
 	 * for 0 <= @e u , @e v < @e G.n_nodes().
 	 * @param[out] bc @e bc[i] contains the betweenness centrality of the @e i-th node.
 	 */
-	void betweenness(const uxgraph *G, const vector<vector<boolean_path_set<_new_> > >& paths, vector<double>& bc);
+	void betweenness(const uxgraph *G, const std::vector<std::vector<boolean_path_set<_new_> > >& paths, std::vector<double>& bc);
 
 	/* -------------------------------- */
 	/* CENTRALITIES FOR WEIGHTED GRAPHS */
@@ -201,7 +197,7 @@ namespace centralities {
 	 * centrality of the i-th node.
 	 */
 	template<class T>
-	void degree(const wxgraph<T> *G, vector<double>& dc);
+	void degree(const wxgraph<T> *G, std::vector<double>& dc);
 
 	/*  CLOSENESS CENTRALITY */
 
@@ -224,7 +220,7 @@ namespace centralities {
 	 * closeness centrality of the @e i-th node.
 	 */
 	template<class T>
-	void closeness(const wxgraph<T> *G, vector<double>& cc);
+	void closeness(const wxgraph<T> *G, std::vector<double>& cc);
 
 	/**
 	 * @brief Closeness centrality of all nodes in a graph.
@@ -238,7 +234,7 @@ namespace centralities {
 	 * closeness centrality of the @e i-th node.
 	 */
 	template<class T>
-	void closeness(const wxgraph<T> *G, const vector<vector<T> >& atad, vector<double>& cc);
+	void closeness(const wxgraph<T> *G, const std::vector<std::vector<T> >& atad, std::vector<double>& cc);
 
 	/* BETWEENNESS CENTRALITY */
 
@@ -295,7 +291,7 @@ namespace centralities {
 	 * that a path between @e u and @e v contains both @e u and @e v.
 	 */
 	template<class T>
-	double betweenness(const wxgraph<T> *G, const vector<vector<boolean_path_set<T> > >& paths, node u);
+	double betweenness(const wxgraph<T> *G, const std::vector<std::vector<boolean_path_set<T> > >& paths, node u);
 
 	/**
 	 * @brief Betweenness centrality of a node.
@@ -324,7 +320,7 @@ namespace centralities {
 	 * that a path between @e u and @e v contains both @e u and @e v.
 	 */
 	template<class T>
-	double betweenness(const wxgraph<T> *G, const vector<vector<boolean_path_set<T> > >& paths, node u);
+	double betweenness(const wxgraph<T> *G, const std::vector<std::vector<boolean_path_set<T> > >& paths, node u);
 
 	/**
 	 * @brief Betweenness centrality of all nodes in a graph.
@@ -348,7 +344,7 @@ namespace centralities {
 	 * @param[out] bc @e bc[i] contains the betweenness centrality of the @e i-th node.
 	 */
 	template<class T>
-	void betweenness(const wxgraph<T> *G, vector<double>& bc);
+	void betweenness(const wxgraph<T> *G, std::vector<double>& bc);
 
 	/**
 	 * @brief Betweenness centrality of all nodes in a graph
@@ -375,7 +371,7 @@ namespace centralities {
 	 * @param[out] bc @e bc[i] contains the betweenness centrality of the @e i-th node.
 	 */
 	template<class T>
-	void betweenness(const wxgraph<T> *G, const vector<vector<boolean_path_set<T> > >& paths, vector<double>& bc);
+	void betweenness(const wxgraph<T> *G, const std::vector<std::vector<boolean_path_set<T> > >& paths, std::vector<double>& bc);
 	
 } // -- namespace centralities
 } // -- namespace metrics

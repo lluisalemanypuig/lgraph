@@ -2,17 +2,14 @@
 
 // C++ includes
 #include <vector>
-using namespace std;
 
-// Custom includes
-#include <lgraph/data_structures/random_generator.hpp>
-#include <lgraph/data_structures/svector.hpp>
+// lgraph includes
 #include <lgraph/data_structures/uugraph.hpp>
+#include <lgraph/utils/random_generator.hpp>
+#include <lgraph/utils/svector.hpp>
 #include <lgraph/utils/logger.hpp>
 
 namespace lgraph {
-using namespace utils;
-
 namespace networks {
 namespace epidemics {
 
@@ -42,7 +39,7 @@ namespace epidemics {
 	 *		proportion of @e p0 agents of the population. Its size at the end of the simulation @e T + 1.
 	 */
 	template<
-		class G = default_random_engine,
+		class G = std::default_random_engine,
 		typename dT = size_t,
 		typename cT = double
 	>
@@ -51,12 +48,12 @@ namespace epidemics {
 		const uugraph& net,
 		double p0, double beta, double gamma,
 		size_t T,
-		drandom_generator<G,dT>& drg,
-		crandom_generator<G,cT>& crg,
+		utils::drandom_generator<G,dT>& drg,
+		utils::crandom_generator<G,cT>& crg,
 		
-		vector<size_t>& n_rec,
-		vector<size_t>& n_sus,
-		vector<size_t>& n_inf
+		std::vector<size_t>& n_rec,
+		std::vector<size_t>& n_sus,
+		std::vector<size_t>& n_inf
 	);
 
 	/**
@@ -86,7 +83,7 @@ namespace epidemics {
 	 *		proportion of @e p0 agents of the population. Its size at the end of the simulation @e T + 1.
 	 */
 	template<
-		class G = default_random_engine,
+		class G = std::default_random_engine,
 		typename dT = size_t,
 		typename cT = double
 	>
@@ -95,13 +92,13 @@ namespace epidemics {
 		const uugraph& net,
 		double p0, double beta, double gamma,
 		size_t T,
-		const vector<bool>& immune,
-		drandom_generator<G,dT>& drg,
-		crandom_generator<G,cT>& crg,
+		const std::vector<bool>& immune,
+		utils::drandom_generator<G,dT>& drg,
+		utils::crandom_generator<G,cT>& crg,
 
-		vector<size_t>& n_rec,
-		vector<size_t>& n_sus,
-		vector<size_t>& n_inf
+		std::vector<size_t>& n_rec,
+		std::vector<size_t>& n_sus,
+		std::vector<size_t>& n_inf
 	);
 	
 	/* SIS */
@@ -130,7 +127,7 @@ namespace epidemics {
 	 *		proportion of @e p0 agents of the population. Its size at the end of the simulation @e T + 1.
 	 */
 	template<
-		class G = default_random_engine,
+		class G = std::default_random_engine,
 		typename dT = size_t,
 		typename cT = double
 	>
@@ -139,12 +136,12 @@ namespace epidemics {
 		const uugraph& net,
 		double p0, double beta, double gamma,
 		size_t T,
-		drandom_generator<G,dT>& drg,
-		crandom_generator<G,cT>& crg,
+		utils::drandom_generator<G,dT>& drg,
+		utils::crandom_generator<G,cT>& crg,
 		
-		vector<size_t>& n_rec,
-		vector<size_t>& n_sus,
-		vector<size_t>& n_inf
+		std::vector<size_t>& n_rec,
+		std::vector<size_t>& n_sus,
+		std::vector<size_t>& n_inf
 	);
 
 	/**
@@ -172,7 +169,7 @@ namespace epidemics {
 	 *		proportion of @e p0 agents of the population. Its size at the end of the simulation @e T + 1.
 	 */
 	template<
-		class G = default_random_engine,
+		class G = std::default_random_engine,
 		typename dT = size_t,
 		typename cT = double
 	>
@@ -181,13 +178,13 @@ namespace epidemics {
 		const uugraph& net,
 		double p0, double beta, double gamma,
 		size_t T,
-		const vector<bool>& immune,
-		drandom_generator<G,dT>& drg,
-		crandom_generator<G,cT>& crg,
+		const std::vector<bool>& immune,
+		utils::drandom_generator<G,dT>& drg,
+		utils::crandom_generator<G,cT>& crg,
 
-		vector<size_t>& n_rec,
-		vector<size_t>& n_sus,
-		vector<size_t>& n_inf
+		std::vector<size_t>& n_rec,
+		std::vector<size_t>& n_sus,
+		std::vector<size_t>& n_inf
 	);
 	
 } // -- namespace epidemics

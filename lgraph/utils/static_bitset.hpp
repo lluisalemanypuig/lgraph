@@ -5,11 +5,9 @@
 #include <string.h>
 
 // C++ includes
-#include <iostream>
+#include <fstream>
 #include <string>
-#include <bitset>
 #include <vector>
-using namespace std;
 
 // The order of bits of a byte is the following
 // order: 7654 3210
@@ -83,12 +81,12 @@ class static_bitset {
 		 * @brief Construct a bitset from a string of zeros and ones.
 		 * @ref bytes[i] = @e bs[i].
 		 */
-		static_bitset(const string& bs);
+		static_bitset(const std::string& bs);
 		/**
 		 * @brief Construct a bitset from a list of Boolean values.
 		 * @ref bytes[i] = @e bits[i].
 		 */
-		static_bitset(const vector<bool>& bits);
+		static_bitset(const std::vector<bool>& bits);
 		/// Copy-constructor.
 		static_bitset(const static_bitset& bs);
 		/// Destructor.
@@ -129,13 +127,13 @@ class static_bitset {
 		 *
 		 * @ref bytes[i] = @e zerones[i].
 		 */
-		void init_01(const string& zerones);
+		void init_01(const std::string& zerones);
 		/**
 		 * @brief Initialise the bitset from a list of Boolean values.
 		 *
 		 * @ref bytes[i] = @e bits[i].
 		 */
-		void init_01(const vector<bool>& bits);
+		void init_01(const std::vector<bool>& bits);
 		/**
 		 * @brief Initialise the bitset from a string of bytes.
 		 *
@@ -143,7 +141,7 @@ class static_bitset {
 		 *
 		 * @ref bytes[i..i+7] = @e bytes[i].
 		 */
-		void init_bytes(const vector<char>& bytes);
+		void init_bytes(const std::vector<char>& bytes);
 		/**
 		 * @brief Initialise the bitset from a string of bytes.
 		 *
@@ -151,7 +149,7 @@ class static_bitset {
 		 *
 		 * @ref bytes[i..i+7] = @e bytes[i].
 		 */
-		void init_bytes(const string& bytes);
+		void init_bytes(const std::string& bytes);
 
 		/**
 		 * @brief Frees the memory occupied by the bitset.
@@ -293,8 +291,10 @@ class static_bitset {
 
 		/// Outputs this bitset formatted in a string.
 		inline friend
-		ostream& operator<< (ostream& os, const static_bitset& bitset) {
-			for (size_t i = 0; i < bitset.n_bits; ++i) os << bitset[i];
+		std::ostream& operator<< (std::ostream& os, const static_bitset& bitset) {
+			for (size_t i = 0; i < bitset.n_bits; ++i) {
+				os << static_cast<char>(bitset[i]);
+			}
 			return os;
 		}
 
@@ -371,7 +371,7 @@ class static_bitset {
 		 * @param[out] w A vector where w[i] = j if, and only if,
 		 * the j-th bit of the bitset is set to 1.
 		 */
-		void which(vector<size_t>& w) const;
+		void which(std::vector<size_t>& w) const;
 
 		/// Returns the number of bits set to 1.
 		size_t count() const;
@@ -381,25 +381,25 @@ class static_bitset {
 		 * @param[out] s This bitset as a string of zeros and ones.
 		 * @param sep A string used as spacing between each byte.
 		 */
-		void get_01(string& s, const string& sep = "") const;
+		void get_01(std::string& s, const std::string& sep = "") const;
 		/**
 		 * @brief Returns this bitset as a string.
 		 * @param sep A string used as spacing between each byte.
 		 */
-		string get_01(const string& sep = "") const;
+		std::string get_01(const std::string& sep = "") const;
 
 		/**
 		 * @brief Returns this bitset as a vector of Boolean values.
 		 * @param[out] v This bitset as vector of Boolean values.
 		 * The @e i-th value in @e v equals the @e i-th bit.
 		 */
-		void get_01(vector<bool>& v) const;
+		void get_01(std::vector<bool>& v) const;
 		/**
 		 * @brief Returns this bitset as a vector of Boolean values.
 		 * @returns Returns this bitset as vector of Boolean values.
 		 * The @e i-th value in @e v equals the @e i-th bit.
 		 */
-		vector<bool> get_01() const;
+		std::vector<bool> get_01() const;
 
 		/**
 		 * @brief Returns a reference to the bytes of the bitset

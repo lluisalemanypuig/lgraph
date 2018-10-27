@@ -40,13 +40,13 @@ static_bitset::static_bitset() {
 	n_bytes = n_bits = 0;
 }
 
-static_bitset::static_bitset(const string& bs) {
+static_bitset::static_bitset(const std::string& bs) {
 	bytes = nullptr;
 	n_bytes = n_bits = 0;
 	init_01(bs);
 }
 
-static_bitset::static_bitset(const vector<bool>& bits) {
+static_bitset::static_bitset(const std::vector<bool>& bits) {
 	bytes = nullptr;
 	n_bytes = n_bits = 0;
 	init_01(bits);
@@ -99,7 +99,7 @@ void static_bitset::init_unset(size_t n_bits) {
 	}
 }
 
-void static_bitset::init_01(const string& zerones) {
+void static_bitset::init_01(const std::string& zerones) {
 	init_unset(zerones.length());
 	for (size_t i = 0; i < n_bits; ++i) {
 		if (zerones[i] == '1') {
@@ -108,7 +108,7 @@ void static_bitset::init_01(const string& zerones) {
 	}
 }
 
-void static_bitset::init_01(const vector<bool>& bits) {
+void static_bitset::init_01(const std::vector<bool>& bits) {
 	init_unset(bits.size());
 	for (size_t i = 0; i < n_bits; ++i) {
 		if (bits[i]) {
@@ -117,14 +117,14 @@ void static_bitset::init_01(const vector<bool>& bits) {
 	}
 }
 
-void static_bitset::init_bytes(const vector<char>& bts) {
+void static_bitset::init_bytes(const std::vector<char>& bts) {
 	init(8*bts.size());
 	for (size_t i = 0; i < n_bytes; ++i) {
 		bytes[i] = bts[i];
 	}
 }
 
-void static_bitset::init_bytes(const string& bts) {
+void static_bitset::init_bytes(const std::string& bts) {
 	init(8*bts.length());
 	for (size_t i = 0; i < n_bytes; ++i) {
 		bytes[i] = bts[i];
@@ -372,7 +372,7 @@ bool static_bitset::none() const {
 	return last_byte(bytes[n_bytes - 1], n_bits) == 0x00;
 }
 
-void static_bitset::which(vector<size_t>& w) const {
+void static_bitset::which(std::vector<size_t>& w) const {
 	w.resize(0);
 	for (size_t b = 0; b < n_bits; ++b) {
 		if (get_bit(bytes[byte(b)], b)) {
@@ -411,7 +411,7 @@ size_t static_bitset::count() const {
 	return c;
 }
 
-void static_bitset::get_01(string& s, const string& sep) const {
+void static_bitset::get_01(std::string& s, const std::string& sep) const {
 	const size_t rem = mod_8(n_bits);
 	const size_t check_last = rem != 0;
 
@@ -446,13 +446,13 @@ void static_bitset::get_01(string& s, const string& sep) const {
 	}
 }
 
-string static_bitset::get_01(const string& sep) const {
-	string s;
+std::string static_bitset::get_01(const std::string& sep) const {
+	std::string s;
 	get_01(s, sep);
 	return s;
 }
 
-void static_bitset::get_01(vector<bool>& v) const {
+void static_bitset::get_01(std::vector<bool>& v) const {
 	const size_t rem = mod_8(n_bits);
 	const size_t check_last = rem != 0;
 	size_t b8;
@@ -485,8 +485,8 @@ void static_bitset::get_01(vector<bool>& v) const {
 	}
 }
 
-vector<bool> static_bitset::get_01() const {
-	vector<bool> v;
+std::vector<bool> static_bitset::get_01() const {
+	std::vector<bool> v;
 	get_01(v);
 	return v;
 }

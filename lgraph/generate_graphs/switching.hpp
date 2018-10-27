@@ -7,16 +7,13 @@
 #include <iomanip>
 #include <random>
 #include <vector>
-using namespace std;
 
-// Custom includes
-#include <lgraph/data_structures/random_generator.hpp>
+// lgraph includes
 #include <lgraph/data_structures/uugraph.hpp>
+#include <lgraph/utils/random_generator.hpp>
 #include <lgraph/utils/logger.hpp>
 
 namespace lgraph {
-using namespace utils;
-
 namespace networks {
 namespace modify {
 
@@ -41,10 +38,10 @@ namespace modify {
 	 * Also, seeding the RNG is done before valling the function.
 	 */
 	template<
-		class G = default_random_engine,
+		class G = std::default_random_engine,
 		typename dT = size_t
 	>
-	void switching_model(drandom_generator<G,dT>& rg, size_t Q, uugraph& Gs);
+	void switching_model(utils::drandom_generator<G,dT>& rg, size_t Q, uugraph& Gs);
 
 } // -- namespace modify
 } // -- namespace networks

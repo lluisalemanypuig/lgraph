@@ -8,56 +8,61 @@ namespace random {
 	namespace _ng {
 		
 		// function for debugging
-		inline
-		void print_stubs(const uugraph& G, const vector<size_t>& stubs, size_t max_idx, const string& tab = "") {
-			logger<null_stream>& LOG = logger<null_stream>::get_logger();
+		inline void print_stubs
+		(
+			const uugraph& G, const std::vector<size_t>& stubs,
+			size_t max_idx, const std::string& tab = ""
+		)
+		{
+			utils::logger<utils::null_stream>& LOG =
+				utils::logger<utils::null_stream>::get_logger();
 
-			LOG.log() << tab << "max_idx= " << max_idx << endl;
+			LOG.log() << tab << "max_idx= " << max_idx << std::endl;
 			LOG.log() << tab << "indexes: ";
 			for (size_t i = 0; i < stubs.size(); ++i) {
 				size_t pos_length = std::to_string(i).length();
 				size_t stub_length = std::to_string(stubs[i]).length();
 				size_t degree_length = std::to_string(G.degree(stubs[i])).length();
-				size_t max_length = max(pos_length, max(stub_length, degree_length));
+				size_t max_length = std::max(pos_length, std::max(stub_length, degree_length));
 				
-				LOG.log() << setw(max_length) << i << " ";
+				LOG.log() << std::setw(max_length) << i << " ";
 			}
-			LOG.log() << endl;
+			LOG.log() << std::endl;
 			
 			LOG.log() << tab << "stubs  : ";
 			for (size_t i = 0; i < stubs.size(); ++i) {
 				size_t pos_length = std::to_string(i).length();
 				size_t stub_length = std::to_string(stubs[i]).length();
 				size_t degree_length = std::to_string(G.degree(stubs[i])).length();
-				size_t max_length = max(pos_length, max(stub_length, degree_length));
+				size_t max_length = std::max(pos_length, std::max(stub_length, degree_length));
 				
-				LOG.log() << setw(max_length) << stubs[i] << " ";
+				LOG.log() << std::setw(max_length) << stubs[i] << " ";
 			}
-			LOG.log() << endl;
+			LOG.log() << std::endl;
 			
 			LOG.log() << tab << "degree : ";
 			for (size_t i = 0; i < stubs.size(); ++i) {
 				size_t pos_length = std::to_string(i).length();
 				size_t stub_length = std::to_string(stubs[i]).length();
 				size_t degree_length = std::to_string(G.degree(stubs[i])).length();
-				size_t max_length = max(pos_length, max(stub_length, degree_length));
+				size_t max_length = std::max(pos_length, std::max(stub_length, degree_length));
 				
-				LOG.log() << setw(max_length) << G.degree(stubs[i]) << " ";
+				LOG.log() << std::setw(max_length) << G.degree(stubs[i]) << " ";
 			}
-			LOG.log() << endl;
+			LOG.log() << std::endl;
 			
 			LOG.log() << tab << "         ";
 			for (size_t i = 0; i < max_idx; ++i) {
 				size_t pos_length = std::to_string(i).length();
 				size_t stub_length = std::to_string(stubs[i]).length();
-				size_t max_length = max(pos_length, stub_length);
+				size_t max_length = std::max(pos_length, stub_length);
 				
-				LOG.log() << setw(max_length) << " " << " ";
+				LOG.log() << std::setw(max_length) << " " << " ";
 			}
 			size_t pos_length = std::to_string(max_idx).length();
 			size_t stub_length = std::to_string(stubs[max_idx]).length();
-			size_t max_length = max(pos_length, stub_length);
-			LOG.log() << setw(max_length) << "^" << endl;
+			size_t max_length = std::max(pos_length, stub_length);
+			LOG.log() << std::setw(max_length) << "^" << std::endl;
 		}
 		
 		// G: the graph
@@ -65,8 +70,9 @@ namespace random {
 		// stub_idx: the index of the vertex chosen
 		// stubs: a reference to the vector of stubs
 		// max_idx: upper bound of the range of the stubs vector
-		inline
-		void update_stubs(const uugraph& G, size_t stub_idx, vector<size_t>& stubs, size_t& max_idx) {
+		inline void update_stubs
+		(const uugraph& G, size_t stub_idx, std::vector<size_t>& stubs, size_t& max_idx)
+		{
 			const size_t v = stubs[stub_idx];
 			
 			if (G.degree(v) == 0) {	
@@ -81,7 +87,7 @@ namespace random {
 				}
 				
 				size_t next_pos = stub_idx + 1;
-				copy(
+				std::copy(
 					stubs.begin() + next_pos, stubs.begin() + max_idx + 1,
 					stubs.begin() + stub_idx
 				);
@@ -98,12 +104,12 @@ namespace random {
 				// swap the regions corresponding to the stubs of v and
 				// what comes after max_idx. Update max_idx
 				
-				copy(
+				std::copy(
 					stubs.begin() + max_idx + 1, stubs.end(),
 					stubs.begin() + max_idx - G.degree(v) + 1
 				);
 				
-				fill(stubs.end() - G.degree(v), stubs.end(), v);
+				std::fill(stubs.end() - G.degree(v), stubs.end(), v);
 				
 				stubs.push_back(v);
 				max_idx = max_idx - G.degree(v);
@@ -119,7 +125,7 @@ namespace random {
 			
 			size_t last_pos = next_pos - G.degree(v);
 			
-			copy(
+			std::copy(
 				stubs.begin() + next_pos, stubs.end(),
 				stubs.begin() + last_pos
 			);
@@ -128,14 +134,18 @@ namespace random {
 			max_idx = max_idx - G.degree(v);
 			size_t lim_inf = max_idx + q + 1;
 			
-			fill(stubs.begin() + lim_inf, stubs.end(), v);
+			std::fill(stubs.begin() + lim_inf, stubs.end(), v);
 			stubs.push_back(v);
 		}
 
 		// Builds the stubs needed for the random choice of vertices.
 		// Returns the maximum amount of new neighbours we can connect to u
-		inline
-		size_t update_stubs_initial(const uugraph& G, size_t u, size_t m0, vector<size_t>& stubs, size_t& max_idx) {
+		inline size_t update_stubs_initial
+		(
+			const uugraph& G, size_t u, size_t m0,
+			std::vector<size_t>& stubs, size_t& max_idx
+		)
+		{
 			// put vertices that are not neighbours of u at the beginning
 			
 			size_t stubs_so_far = 0;
@@ -148,7 +158,7 @@ namespace random {
 					
 					size_t begin_v = stubs_so_far;
 					size_t end_v = begin_v + stubs_v;
-					fill(stubs.begin() + begin_v, stubs.begin() + end_v, v);
+					std::fill(stubs.begin() + begin_v, stubs.begin() + end_v, v);
 					
 					stubs_so_far += stubs_v;
 				}
@@ -166,7 +176,7 @@ namespace random {
 				
 				size_t begin_v = stubs_so_far;
 				size_t end_v = begin_v + stubs_v;
-				fill(stubs.begin() + begin_v, stubs.begin() + end_v, v);
+				std::fill(stubs.begin() + begin_v, stubs.begin() + end_v, v);
 				
 				stubs_so_far += stubs_v;
 			}
@@ -179,7 +189,7 @@ namespace random {
 			
 			size_t begin_u = stubs_so_far;
 			size_t end_u = begin_u + stubs_u;
-			fill(stubs.begin() + begin_u, stubs.begin() + end_u, u);
+			std::fill(stubs.begin() + begin_u, stubs.begin() + end_u, u);
 			
 			// Add new stubs
 			if (G.n_nodes() - N.size() - 1 < m0) {
@@ -194,8 +204,9 @@ namespace random {
 			return m0;
 		}
 
-		inline
-		void add_source_vertex(const uugraph& G, size_t u, size_t m0, vector<size_t>& stubs) {
+		inline void add_source_vertex
+		(const uugraph& G, size_t u, size_t m0, std::vector<size_t>& stubs)
+		{
 			if (G.degree(u) == 0) {
 				stubs.insert(stubs.end(), m0 - 1, u);
 			}
@@ -208,7 +219,7 @@ namespace random {
 	template<class G, typename dT>
 	void BA_no_vertex_growth
 	(
-		drandom_generator<G,dT>& rg,
+		utils::drandom_generator<G,dT>& rg,
 		size_t n0, size_t m0, size_t T,
 		uugraph& Gs
 	)
@@ -219,7 +230,7 @@ namespace random {
 		// Initialize list of stubs to choose from. For every node, as
 		// many stubs as the degree of the node. However, if the node
 		// has degree 0, the list will have 1 stub for that node.
-		vector<size_t> stubs(n0);
+		std::vector<size_t> stubs(n0);
 		for (size_t i = 0; i < stubs.size(); ++i) {
 			stubs[i] = i;
 		}

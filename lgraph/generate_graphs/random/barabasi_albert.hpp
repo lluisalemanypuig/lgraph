@@ -7,16 +7,13 @@
 #include <iomanip>
 #include <random>
 #include <vector>
-using namespace std;
 
-// Custom includes
-#include <lgraph/data_structures/random_generator.hpp>
+// lgraph includes
 #include <lgraph/data_structures/uugraph.hpp>
+#include <lgraph/utils/random_generator.hpp>
 #include <lgraph/utils/logger.hpp>
 
 namespace lgraph {
-using namespace utils;
-
 namespace networks {
 namespace random {
 
@@ -36,11 +33,11 @@ namespace random {
 	 * @param[out] Gs The resulting graph following this Barabasi-Albert model variant.
 	 */
 	template<
-		class G = default_random_engine,
+		class G = std::default_random_engine,
 		typename dT = size_t
 	>
 	void BA_preferential_attachment(
-		drandom_generator<G,dT>& rg,
+		utils::drandom_generator<G,dT>& rg,
 		size_t n0, size_t m0, size_t T,
 		uugraph& Gs
 	);
@@ -61,11 +58,11 @@ namespace random {
 	 * @param[out] Gs The resulting graph following this Barabasi-Albert model variant.
 	 */
 	template<
-		class G = default_random_engine,
+		class G = std::default_random_engine,
 		typename dT = size_t
 	>
 	void BA_random_attachment(
-		drandom_generator<G,dT>& rg,
+		utils::drandom_generator<G,dT>& rg,
 		size_t n0, size_t m0, size_t T,
 		uugraph& Gs
 	);
@@ -94,11 +91,11 @@ namespace random {
 	 * @param[out] Gs The resulting graph following this Barabasi-Albert model variant.
 	 */
 	template<
-		class G = default_random_engine,
+		class G = std::default_random_engine,
 		typename dT = size_t
 	>
 	void BA_no_vertex_growth(
-		drandom_generator<G,dT>& rg,
+		utils::drandom_generator<G,dT>& rg,
 		size_t n0, size_t m0, size_t T,
 		uugraph& Gs
 	);

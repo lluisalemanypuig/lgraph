@@ -14,14 +14,14 @@ namespace dijkstra {
 		djka_process_neighbour<T> proc_neig
 	)
 	{
-		logger<null_stream>& LOG = logger<null_stream>::get_logger();
-		LOG.log() << "DIJKSTRA ALGORITHM" << endl;
+		utils::logger<utils::null_stream>& LOG = utils::logger<utils::null_stream>::get_logger();
+		LOG.log() << "DIJKSTRA ALGORITHM" << std::endl;
 
-		vector<bool> vis(G->n_nodes(), false);
-		priority_queue<
-			djka_node<T>,			// -> elements' type,
-			vector<djka_node<T> >,	// -> compare elements so that smaller distances
-			greater<djka_node<T> >	// are at the top
+		std::vector<bool> vis(G->n_nodes(), false);
+		std::priority_queue<
+			djka_node<T>,				// -> elements' type,
+			std::vector<djka_node<T> >,	// -> compare elements so that smaller distances
+			std::greater<djka_node<T> >	// are at the top
 		> Q;
 
 		Q.push(djka_node<T>(0, source));
@@ -31,7 +31,7 @@ namespace dijkstra {
 			djka_node<T> u = Q.top();
 			Q.pop();
 
-			LOG.log() << "Current node: " << u.second << endl;
+			LOG.log() << "Current node: " << u.second << std::endl;
 
 			if (not vis[u.second]) {
 				vis[u.second] = true;
@@ -40,12 +40,13 @@ namespace dijkstra {
 
 				proc_curr(G, u, vis);
 
-				LOG.log() << "    ... processed." << endl;
-				LOG.log() << "Checking termination condition" << endl;
+				LOG.log() << "    ... processed." << std::endl;
+				LOG.log() << "Checking termination condition" << std::endl;
 
 				if (terminate(G, u, vis)) {
 
-					LOG.log() << "! Termination condition true for node " << u.second << endl;
+					LOG.log() << "! Termination condition true for node "
+							  << u.second << std::endl;
 
 					term = true;
 				}
@@ -53,9 +54,12 @@ namespace dijkstra {
 					const neighbourhood& Nu = G->get_neighbours(u.second);
 					const weight_list<T>& wu = G->get_weights(u.second);
 
-					LOG.log() << "Iterate through neighbours of " << u.second << endl;
-					LOG.log() << "    Node " << u.second << " has " << Nu.size() << " neighbours" << endl;
-					LOG.log() << "    Node " << u.second << " has " << wu.size() << " weights" << endl;
+					LOG.log() << "Iterate through neighbours of "
+							  << u.second << std::endl;
+					LOG.log() << "    Node " << u.second << " has "
+							  << Nu.size() << " neighbours" << std::endl;
+					LOG.log() << "    Node " << u.second << " has " << wu.size()
+							  << " weights" << std::endl;
 
 					auto wu_it = wu.begin();
 					for (
@@ -64,17 +68,20 @@ namespace dijkstra {
 						++Nu_it, ++wu_it
 					)
 					{
-						LOG.log() << "    Neighbour index: " << Nu_it - Nu.begin() << endl;
+						LOG.log() << "    Neighbour index: " << Nu_it - Nu.begin()
+								  << std::endl;
 
 						node v = *Nu_it;
 						T weight_uv = *wu_it;
 
-						LOG.log() << "    Neighbour " << v << " was not visited before" << endl;
-						LOG.log() << "        weight edge (" << u.second << "," << v << "): " << weight_uv << endl;
+						LOG.log() << "    Neighbour " << v << " was not visited before"
+								  << std::endl;
+						LOG.log() << "        weight edge (" << u.second << "," << v << "): "
+								  << weight_uv << std::endl;
 
 						LOG.log() << "        ... processing";
 						bool add_next = proc_neig(G, u.second, v, weight_uv, vis);
-						LOG.log() << "        ... processed." << endl;
+						LOG.log() << "        ... processed." << std::endl;
 
 						if (add_next) {
 							Q.push( djka_node<T>(u.first + weight_uv, v) );
@@ -83,7 +90,7 @@ namespace dijkstra {
 				}
 			}
 
-			LOG.log() << endl;
+			LOG.log() << std::endl;
 		}
 	}
 

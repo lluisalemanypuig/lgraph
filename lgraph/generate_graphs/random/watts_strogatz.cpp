@@ -1,14 +1,13 @@
 #include <lgraph/generate_graphs/random/watts_strogatz.hpp>
 
 namespace lgraph {
-using namespace utils;
-
 namespace networks {
 namespace random {
 
 	namespace _ws {
-		inline
-		void get_non_neighbours(const uugraph& Gs, node u, svector<node>& non_neighbours) {
+		inline void get_non_neighbours
+		(const uugraph& Gs, node u, utils::svector<node>& non_neighbours)
+		{
 			size_t N = Gs.n_nodes();
 
 			// initialise non-neighbours node list with all nodes
@@ -29,8 +28,8 @@ namespace random {
 	template<class G, typename cT, typename dT>
 	void Watts_Strogatz
 	(
-		crandom_generator<G,cT>& crg,
-		drandom_generator<G,dT>& drg,
+		utils::crandom_generator<G,cT>& crg,
+		utils::drandom_generator<G,dT>& drg,
 		size_t N, size_t k, double p,
 		uugraph& Gs
 	)
@@ -84,7 +83,7 @@ namespace random {
 			// -- make the list of the N-k non-neighbours of node u
 
 			// initialise non-neighbours node list
-			svector<node> nn(N);
+			utils::svector<node> nn(N);
 			_ws::get_non_neighbours(Gs, u, nn);
 
 			neighbourhood Nu = Gs.get_neighbours(u);

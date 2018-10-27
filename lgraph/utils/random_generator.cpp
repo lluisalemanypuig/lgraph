@@ -1,4 +1,4 @@
-#include <lgraph/data_structures/random_generator.hpp>
+#include <lgraph/utils/random_generator.hpp>
 
 namespace lgraph {
 namespace utils {
@@ -13,7 +13,7 @@ template<class G, typename T>
 void random_generator<G,T>::seed_random_engine() {
 	
 	// use a non-deterministic random number to seed the random engine
-	random_device r;
+	std::random_device r;
 	gen = G(r());
 }
 

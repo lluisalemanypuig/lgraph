@@ -12,16 +12,13 @@
 #include <random>
 #include <vector>
 #include <cmath>
-using namespace std;
 
-// Custom includes
-#include <lgraph/data_structures/random_generator.hpp>
+// lgraph includes
 #include <lgraph/data_structures/uugraph.hpp>
 #include <lgraph/data_structures/udgraph.hpp>
+#include <lgraph/utils/random_generator.hpp>
 
 namespace lgraph {
-using namespace utils;
-
 namespace networks {
 namespace classic {
 

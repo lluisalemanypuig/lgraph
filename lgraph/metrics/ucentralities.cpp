@@ -13,8 +13,8 @@ namespace centralities {
 		return G->degree(u)/nm1;
 	}
 
-	void degree(const uxgraph *G, vector<double>& dc) {
-		vector<node> nds;
+	void degree(const uxgraph *G, std::vector<double>& dc) {
+		std::vector<node> nds;
 		G->nodes(nds);
 		
 		// number of nodes minus 1
@@ -38,14 +38,14 @@ namespace centralities {
 	/* CLOSENESS */
 	
 	double closeness(const uxgraph *G, node u) {
-		vector<_new_> ds;
+		std::vector<_new_> ds;
 		traversal::uxdistance(G, u, ds);
 		double sum = std::accumulate
 		(
 			ds.begin(), ds.end(), 0.0,
 			[](double acc, size_t d) {
 				// if d is infinite 1.0/d equals 0:n no need to divide
-				if (d != utils::z_inf and d > 0) {
+				if (d != z_inf and d > 0) {
 					acc += 1.0/d;
 				}
 				return acc;
@@ -55,13 +55,13 @@ namespace centralities {
 		return 1.0/(sum/(G->n_nodes() - 1));
 	}
 
-	void closeness(const uxgraph *G, vector<double>& cc) {
-		vector<vector<_new_> > ds;
+	void closeness(const uxgraph *G, std::vector<double>& cc) {
+		std::vector<std::vector<_new_> > ds;
 		traversal::uxdistances(G, ds);
 		return closeness(G, ds, cc);
 	}
 
-	void closeness(const uxgraph *G, const vector<vector<_new_> >& ds, vector<double>& cc) {
+	void closeness(const uxgraph *G, const std::vector<std::vector<_new_> >& ds, std::vector<double>& cc) {
 		transform(
 			// iterate through all nodes
 			ds.begin(), ds.end(),
@@ -70,12 +70,12 @@ namespace centralities {
 			back_inserter(cc),
 
 			// calculate closeness centrality
-			[&](const vector<_new_>& ds_i) {
+			[&](const std::vector<_new_>& ds_i) {
 				double sum = std::accumulate
 				(
 					ds_i.begin(), ds_i.end(), 0.0,
 					[](double acc, size_t d) {
-						if (d != utils::z_inf and d > 0) {
+						if (d != z_inf and d > 0) {
 							acc += 1.0/d;
 						}
 						return acc;
@@ -90,12 +90,12 @@ namespace centralities {
 	/* BETWEENNES */
 
 	double betweenness(const uxgraph *G, node u) {
-		vector<vector<boolean_path_set<_new_> > > all_to_all_paths;
+		std::vector<std::vector<boolean_path_set<_new_> > > all_to_all_paths;
 		traversal::uxpaths(G, all_to_all_paths);
 		return betweenness(G, all_to_all_paths, u);
 	}
 
-	double betweenness(const uxgraph *G, const vector<vector<boolean_path_set<_new_> > >& paths, node u) {
+	double betweenness(const uxgraph *G, const std::vector<std::vector<boolean_path_set<_new_> > >& paths, node u) {
 		double B = 0.0;
 
 		const size_t N = G->n_nodes();
@@ -128,20 +128,20 @@ namespace centralities {
 		return B;
 	}
 
-	void betweenness(const uxgraph *G, vector<double>& bc) {
-		vector<vector<boolean_path_set<_new_> > > all_to_all_paths;
+	void betweenness(const uxgraph *G, std::vector<double>& bc) {
+		std::vector<std::vector<boolean_path_set<_new_> > > all_to_all_paths;
 		traversal::uxpaths(G, all_to_all_paths);
 		betweenness(G, all_to_all_paths, bc);
 	}
 
-	void betweenness(const uxgraph *G, const vector<vector<boolean_path_set<_new_> > >& paths, vector<double>& bc) {
+	void betweenness(const uxgraph *G, const std::vector<std::vector<boolean_path_set<_new_> > >& paths, std::vector<double>& bc) {
 		const size_t N = G->n_nodes();
 
 		// amount of shortest paths between s and t in
 		// which vertices of the graph lie on
-		vector<size_t> g_st_i(N);
+		std::vector<size_t> g_st_i(N);
 		// initialise data
-		bc = vector<double>(N, 0);
+		bc = std::vector<double>(N, 0);
 
 		for (node s = 0; s < N; ++s) {
 			for (node t = s; t < N; ++t) {

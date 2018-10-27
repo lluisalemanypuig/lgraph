@@ -5,7 +5,6 @@
 
 // C++ includes
 #include <random>
-using namespace std;
 
 namespace lgraph {
 namespace utils {
@@ -80,17 +79,17 @@ class random_generator {
  * @param T The type of the numbers generated (int, char, unsigned int, ...).
  */
 template<
-	class G = default_random_engine,	// class used for the random engine
-	typename dT = size_t				// type of the discrete distributions
-										// int, char, unsigned int, size_t, ...
+	class G = std::default_random_engine,	// class used for the random engine
+	typename dT = size_t					// type of the discrete distributions
+											// int, char, unsigned int, size_t, ...
 >
 class drandom_generator : public random_generator<G,dT> {
 	private:
 		/// Object to generate integer numbers uniformly at random.
-		uniform_int_distribution<dT> *U;
+		std::uniform_int_distribution<dT> *U;
 
 		/// Object to generate the numbers following a binomial distribution.
-		binomial_distribution<dT> *B;
+		std::binomial_distribution<dT> *B;
 		
 	public:
 		/// Constructor.
@@ -115,14 +114,14 @@ class drandom_generator : public random_generator<G,dT> {
  * @param T The type of the numbers generated (double, float).
  */
 template<
-	class G = default_random_engine,	// class used for the random engine
-	typename cT = float					// type of the continuous distributions
-										// float, double
+	class G = std::default_random_engine,	// class used for the random engine
+	typename cT = float						// type of the continuous distributions
+											// float, double
 >
 class crandom_generator : public random_generator<G,cT> {
 	private:
 		/// Object to generate floating point numbers uniformly at random.
-		uniform_real_distribution<cT> *U;
+		std::uniform_real_distribution<cT> *U;
 		
 	public:
 		/// Constructor.
@@ -145,6 +144,6 @@ class crandom_generator : public random_generator<G,cT> {
 } // -- namespace utils
 } // -- namespace lgraph
 
-#include <lgraph/data_structures/random_generator.cpp>
-#include <lgraph/data_structures/drandom_generator.cpp>
-#include <lgraph/data_structures/crandom_generator.cpp>
+#include <lgraph/utils/random_generator.cpp>
+#include <lgraph/utils/drandom_generator.cpp>
+#include <lgraph/utils/crandom_generator.cpp>

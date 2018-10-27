@@ -7,15 +7,13 @@
 #include <fstream>
 #include <utility>
 #include <vector>
-using namespace std;
 
-// Custom includes
+// lgraph includes
 #include <lgraph/data_structures/wxgraph.hpp>
 #include <lgraph/data_structures/uugraph.hpp>
 #include <lgraph/utils/definitions.hpp>
 
 namespace lgraph {
-namespace utils {
 
 /**
  * @brief Weighted undirected graphs.
@@ -44,7 +42,7 @@ class wugraph : public wxgraph<T> {
 		 * @return Stores in @ref edges the lexicographically sorted list of
 		 * weighted edges of this graph.
 		 */
-		void get_unique_edges(vector<pair<edge, T> >& edges) const;
+		void get_unique_edges(std::vector<std::pair<edge, T> >& edges) const;
 
 		/**
 		 * @brief Computes the list of unique edges of this graph.
@@ -59,7 +57,7 @@ class wugraph : public wxgraph<T> {
 		 * @return Stores in @ref edges the lexicographically sorted list of
 		 * unweighted edges of this graph.
 		 */
-		void get_unique_edges(vector<edge>& edges) const;
+		void get_unique_edges(std::vector<edge>& edges) const;
 
 	public:
 		/// Default constructor.
@@ -69,14 +67,14 @@ class wugraph : public wxgraph<T> {
 		 * @param adj The adjacency list of the graph.
 		 * @param wl The weights for every edge.
 		 */
-		wugraph(const vector<neighbourhood>& adj, const vector<weight_list<T> >& wl);
+		wugraph(const std::vector<neighbourhood>& adj, const std::vector<weight_list<T> >& wl);
 		/**
 		 * @brief Constructor with adjacency list, list of weights and number of edges.
 		 * @param adj The adjacency list of the graph.
 		 * @param wl The weights for every edge.
 		 * @param n_edges The number of edges in the adjacency list.
 		 */
-		wugraph(const vector<neighbourhood>& adj, const vector<weight_list<T> >& wl, size_t n_edges);
+		wugraph(const std::vector<neighbourhood>& adj, const std::vector<weight_list<T> >& wl, size_t n_edges);
 		/// Destructor.
 		~wugraph();
 
@@ -86,7 +84,7 @@ class wugraph : public wxgraph<T> {
 		 * @param adj The adjacency list of the graph.
 		 * @param wl The weights for every edge.
 		 */
-		void init(const vector<neighbourhood>& adj, const vector<weight_list<T> >& wl);
+		void init(const std::vector<neighbourhood>& adj, const std::vector<weight_list<T> >& wl);
 
 		// MODIFIERS
 
@@ -107,7 +105,6 @@ class wugraph : public wxgraph<T> {
 
 };
 
-} // -- namespace utils
 } // -- namespace lgraph
 
 #include <lgraph/data_structures/wugraph.cpp>

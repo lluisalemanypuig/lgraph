@@ -15,8 +15,8 @@ namespace centralities {
 	}
 
 	template<class T>
-	void degree(const wxgraph<T> *G, vector<double>& dc) {
-		vector<node> nds;
+	void degree(const wxgraph<T> *G, std::vector<double>& dc) {
+		std::vector<node> nds;
 		G->nodes(nds);
 
 		// number of nodes minus 1
@@ -41,14 +41,14 @@ namespace centralities {
 
 	template<class T>
 	double closeness(const wxgraph<T> *G, node u) {
-		vector<_new_> ds;
+		std::vector<_new_> ds;
 		traversal::wxdistance(G, u, ds);
 		double sum = std::accumulate
 		(
 			ds.begin(), ds.end(), 0.0,
 			[](double acc, size_t d) {
 				// if d is infinite 1.0/d equals 0:n no need to divide
-				if (d != utils::z_inf and d > 0) {
+				if (d != z_inf and d > 0) {
 					acc += 1.0/d;
 				}
 				return acc;
@@ -59,14 +59,15 @@ namespace centralities {
 	}
 
 	template<class T>
-	void closeness(const wxgraph<T> *G, vector<double>& cc) {
-		vector<vector<_new_> > ds;
+	void closeness(const wxgraph<T> *G, std::vector<double>& cc) {
+		std::vector<std::vector<_new_> > ds;
 		traversal::wxdistances(G, ds);
 		return closeness(G, ds, cc);
 	}
 
-	template<class T>
-	void closeness(const wxgraph<T> *G, const vector<vector<T> >& ds, vector<double>& cc) {
+	template<class T> void closeness
+	(const wxgraph<T> *G, const std::vector<std::vector<T> >& ds, std::vector<double>& cc)
+	{
 		transform(
 			// iterate through all nodes
 			ds.begin(), ds.end(),
@@ -75,12 +76,12 @@ namespace centralities {
 			back_inserter(cc),
 
 			// calculate closeness centrality
-			[&](const vector<T>& ds_i) {
+			[&](const std::vector<T>& ds_i) {
 				double sum = std::accumulate
 				(
 					ds_i.begin(), ds_i.end(), 0.0,
 					[](double acc, size_t d) {
-						if (d != utils::z_inf and d > 0) {
+						if (d != z_inf and d > 0) {
 							acc += 1.0/d;
 						}
 						return acc;
@@ -96,13 +97,14 @@ namespace centralities {
 
 	template<class T>
 	double betweenness(const wxgraph<T> *G, node u) {
-		vector<vector<boolean_path_set<T> > > all_to_all_paths;
+		std::vector<std::vector<boolean_path_set<T> > > all_to_all_paths;
 		traversal::wxpaths(G, all_to_all_paths);
 		return betweenness(G, all_to_all_paths, u);
 	}
 
-	template<class T>
-	double betweenness(const wxgraph<T> *G, const vector<vector<boolean_path_set<T> > >& paths, node u) {
+	template<class T> double betweenness
+	(const wxgraph<T> *G, const std::vector<std::vector<boolean_path_set<T> > >& paths, node u)
+	{
 		double B = 0.0;
 
 		const size_t N = G->n_nodes();
@@ -136,21 +138,22 @@ namespace centralities {
 	}
 
 	template<class T>
-	void betweenness(const wxgraph<T> *G, vector<double>& bc) {
-		vector<vector<boolean_path_set<T> > > all_to_all_paths;
+	void betweenness(const wxgraph<T> *G, std::vector<double>& bc) {
+		std::vector<std::vector<boolean_path_set<T> > > all_to_all_paths;
 		traversal::wxpaths(G, all_to_all_paths);
 		betweenness(G, all_to_all_paths, bc);
 	}
 
-	template<class T>
-	void betweenness(const wxgraph<T> *G, const vector<vector<boolean_path_set<T> > >& paths, vector<double>& bc) {
+	template<class T> void betweenness
+	(const wxgraph<T> *G, const std::vector<std::vector<boolean_path_set<T> > >& paths, std::vector<double>& bc)
+	{
 		const size_t N = G->n_nodes();
 
 		// amount of shortest paths between s and t in
 		// which vertices of the graph lie on
-		vector<size_t> g_st_i(N);
+		std::vector<size_t> g_st_i(N);
 		// initialise data
-		bc = vector<double>(N, 0);
+		bc = std::vector<double>(N, 0);
 
 		for (node s = 0; s < N; ++s) {
 			for (node t = s; t < N; ++t) {
@@ -164,7 +167,7 @@ namespace centralities {
 					continue;
 				}
 
-				// set vector to 0
+				// set std::vector to 0
 				std::fill(g_st_i.begin(), g_st_i.end(), 0);
 
 				for (node u = 0; u < N; ++u) {

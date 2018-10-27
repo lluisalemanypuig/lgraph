@@ -7,10 +7,7 @@
 #include <algorithm>
 #include <fstream>
 #include <vector>
-#include <array>
-#include <map>
 #include <set>
-using namespace std;
 
 namespace lgraph {
 namespace utils {
@@ -37,7 +34,7 @@ namespace utils {
  * documentation for C++'s vectors for more details
  * (http://en.cppreference.com/w/cpp/container/vector).
  */
-template<class T, class Alloc = allocator<T> >
+template<class T, class Alloc = std::allocator<T> >
 class svector {
 	private:
 		/**
@@ -63,7 +60,7 @@ class svector {
 		 * The new element added to this container will be placed in
 		 * the position elems[@ref idx].
 		 */
-		vector<T,Alloc> elems;
+		std::vector<T,Alloc> elems;
 
 		/**
 		 * @brief Removes the element in the i-th position of this container
@@ -151,7 +148,7 @@ class svector {
 		 * whose index is strictly below @ref idx.
 		 */
 		inline friend
-		ostream& operator<< (ostream& os, const svector<T,Alloc>& v) {
+		std::ostream& operator<< (std::ostream& os, const svector<T,Alloc>& v) {
 			if (v.size() > 0) {
 				os << v[0];
 				for (size_t i = 1; i < v.size(); ++i) {
@@ -263,7 +260,7 @@ class svector {
 		 * @post The contents of the container need not preserve the original
 		 * order.
 		 */
-		void remove_several(const set<size_t>& poss);
+		void remove_several(const std::set<size_t>& poss);
 
 		/**
 		 * @brief Removes the contents of several positions from the container.
@@ -280,7 +277,7 @@ class svector {
 		 * @post The contents of the container do not necessarily preserve the
 		 * original order.
 		 */
-		void remove_several_s(const vector<size_t>& poss);
+		void remove_several_s(const std::vector<size_t>& poss);
 
 		// GETTERS
 
@@ -314,10 +311,10 @@ class svector {
 		 * Makes a vector<T> with all the elements in this shortened vector
 		 * in the positions [0,..,@ref idx).
 		 */
-		void as_vector(vector<T,Alloc>& v) const;
+		void as_vector(std::vector<T,Alloc>& v) const;
 };
 
 } // -- namespace utils
 } // -- namespace lgraph
 
-#include <lgraph/data_structures/svector.cpp>
+#include <lgraph/utils/svector.cpp>

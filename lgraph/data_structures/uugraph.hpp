@@ -7,15 +7,12 @@
 #include <string>
 #include <vector>
 #include <set>
-#include <map>
-using namespace std;
 
-// Custom includes
+// lgraph includes
 #include <lgraph/data_structures/uxgraph.hpp>
 #include <lgraph/utils/definitions.hpp>
 
 namespace lgraph {
-namespace utils {
 
 /**
  * @brief Unweighted undirected (uu) graphs.
@@ -39,7 +36,7 @@ class uugraph : public uxgraph {
 		 * @return Stores in @ref edges the lexicographically sorted list of
 		 * unweighted edges of this graph.
 		 */
-		void get_unique_edges(vector<edge>& edges) const;
+		void get_unique_edges(std::vector<edge>& edges) const;
 
 	public:
 		/// Default constructor
@@ -48,13 +45,13 @@ class uugraph : public uxgraph {
 		 * @brief Constructor with adjacency list
 		 * @param adj The adjacency list of the graph.
 		 */
-		uugraph(const vector<neighbourhood>& adj);
+		uugraph(const std::vector<neighbourhood>& adj);
 		/**
 		 * @brief Constructor with adjacency list and number of edges
 		 * @param adj The adjacency list of the graph.
 		 * @param n_edges The number of edges in the adjacency list.
 		 */
-		uugraph(const vector<neighbourhood>& adj, size_t n_edges);
+		uugraph(const std::vector<neighbourhood>& adj, size_t n_edges);
 		/// Destructor
 		~uugraph();
 
@@ -63,7 +60,7 @@ class uugraph : public uxgraph {
 		 * @brief Initialises the graph with adjacency list
 		 * @param adj The adjacency list of the graph.
 		 */
-		void init(const vector<neighbourhood>& adj);
+		void init(const std::vector<neighbourhood>& adj);
 
 		// MODIFIERS
 
@@ -80,5 +77,4 @@ class uugraph : public uxgraph {
 
 };
 
-} // -- namespace utils
 } // -- namespace lgraph

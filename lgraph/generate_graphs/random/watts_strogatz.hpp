@@ -10,18 +10,15 @@
 #include <iomanip>
 #include <random>
 #include <vector>
-using namespace std;
 
-// Custom includes
-#include <lgraph/data_structures/random_generator.hpp>
-#include <lgraph/data_structures/uugraph.hpp>
-#include <lgraph/data_structures/svector.hpp>
+// lgraph includes
 #include <lgraph/generate_graphs/classic/classic.hpp>
+#include <lgraph/data_structures/uugraph.hpp>
+#include <lgraph/utils/random_generator.hpp>
+#include <lgraph/utils/svector.hpp>
 #include <lgraph/utils/logger.hpp>
 
 namespace lgraph {
-using namespace utils;
-
 namespace networks {
 namespace random {
 
@@ -47,13 +44,13 @@ namespace random {
 	 * @param  Gs The graph generated, following the Watts & Strogatz's model.
 	 */
 	template<
-		class G = default_random_engine,
+		class G = std::default_random_engine,
 		typename cT = float,
 		typename dT = size_t
 	>
 	void Watts_Strogatz(
-		crandom_generator<G,cT>& crg,
-		drandom_generator<G,dT>& drg,
+		utils::crandom_generator<G,cT>& crg,
+		utils::drandom_generator<G,dT>& drg,
 		size_t N, size_t k, double p,
 		uugraph& Gs
 	);

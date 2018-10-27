@@ -14,24 +14,25 @@ namespace traversal {
 		const size_t N = G->n_nodes();
 
 		// prev[v] = u: previous node of v in the path is u
-		vector<node> prev(N, N + 1);
-		vector<T> ds(N, utils::inf_t<T>());
+		std::vector<node> prev(N, N + 1);
+		std::vector<T> ds(N, inf_t<T>());
 		ds[source] = 0;
 
 		// terminate when target is found
-		djka_terminate<T> terminate =
-		[&target](const wxgraph<T> *, const djka_node<T>& u, const vector<bool>&) -> bool
+		dijkstra::djka_terminate<T> terminate =
+		[&target]
+		(const wxgraph<T> *, const dijkstra::djka_node<T>& u, const std::vector<bool>&) -> bool
 		{
 			return u.second == target;
 		};
 
-		djka_process_current<T> proc_curr =
-		[] (const wxgraph<T> *, const djka_node<T>&, const vector<bool>&) -> void { };
+		dijkstra::djka_process_current<T> proc_curr =
+		[](const wxgraph<T> *, const dijkstra::djka_node<T>&, const std::vector<bool>&) -> void { };
 
 		// function to compute the shortest distance from node u to node v
-		djka_process_neighbour<T> proc_neig =
+		dijkstra::djka_process_neighbour<T> proc_neig =
 		[&prev, &ds]
-		(const wxgraph<T> *, node u, node v, const T& w, const vector<bool>&) -> bool
+		(const wxgraph<T> *, node u, node v, const T& w, const std::vector<bool>&) -> bool
 		{
 			bool add = false;
 			if (ds[u] + w < ds[v]) {
@@ -42,7 +43,7 @@ namespace traversal {
 			return add;
 		};
 
-		Dijkstra(G, source, terminate, proc_curr, proc_neig);
+		dijkstra::Dijkstra(G, source, terminate, proc_curr, proc_neig);
 
 		p.empty();
 		node l = target;
@@ -65,7 +66,7 @@ namespace traversal {
 	void make_paths
 	(
 		node source,
-		const vector< vector<node> >& prev,
+		const std::vector< std::vector<node> >& prev,
 		T st_dist,
 		node nidx,
 		node_path_set<T>& ps,
@@ -96,30 +97,31 @@ namespace traversal {
 		const size_t N = G->n_nodes();
 
 		// prev[v] = u: previous node of v in the path is u
-		vector< vector<node> > prev(N);
-		vector<T> ds(N, utils::inf_t<T>());
+		std::vector< std::vector<node> > prev(N);
+		std::vector<T> ds(N, inf_t<T>());
 		ds[source] = 0;
 
 		// terminate when target is found
-		djka_terminate<T> terminate =
-		[&target](const wxgraph<T> *, const djka_node<T>& u, const vector<bool>&) -> bool
+		dijkstra::djka_terminate<T> terminate =
+		[&target]
+		(const wxgraph<T> *, const dijkstra::djka_node<T>& u, const std::vector<bool>&) -> bool
 		{
 			return u.second == target;
 		};
 
-		djka_process_current<T> proc_curr =
-		[] (const wxgraph<T> *, const djka_node<T>&, const vector<bool>&) -> void { };
+		dijkstra::djka_process_current<T> proc_curr =
+		[](const wxgraph<T> *, const dijkstra::djka_node<T>&, const std::vector<bool>&) -> void { };
 
 		// function to compute the shortest distance from node u to node v
-		djka_process_neighbour<T> proc_neig =
+		dijkstra::djka_process_neighbour<T> proc_neig =
 		[&prev, &ds]
-		(const wxgraph<T> *, node u, node v, const T& w, const vector<bool>&) -> bool
+		(const wxgraph<T> *, node u, node v, const T& w, const std::vector<bool>&) -> bool
 		{
 			bool add = false;
 			if (ds[u] + w < ds[v]) {
 				// shorter path from u to v
 				ds[v] = ds[u] + w;
-				prev[v] = vector<node>(1, u);
+				prev[v] = std::vector<node>(1, u);
 				add = true;
 			}
 			else if (ds[u] + w == ds[v]) {
@@ -129,7 +131,7 @@ namespace traversal {
 			return add;
 		};
 
-		Dijkstra(G, source, terminate, proc_curr, proc_neig);
+		dijkstra::Dijkstra(G, source, terminate, proc_curr, proc_neig);
 
 		node_path<T> empty_path;
 		empty_path.set_length(ds[target]);
@@ -140,28 +142,28 @@ namespace traversal {
 
 	// one path
 	template<class T>
-	void wxpath(const wxgraph<T> *G, node source, vector<node_path<T> >& ps) {
+	void wxpath(const wxgraph<T> *G, node source, std::vector<node_path<T> >& ps) {
 		assert(G->has_node(source));
 
 		const size_t N = G->n_nodes();
 
 		// prev[v] = u: previous node of v in the path is u
-		vector<node> prev(N, N + 1);
-		vector<T> ds(N, utils::inf_t<T>());
+		std::vector<node> prev(N, N + 1);
+		std::vector<T> ds(N, inf_t<T>());
 		ds[source] = 0;
 
 		// terminate when target is found
-		djka_terminate<T> terminate =
-		[](const wxgraph<T> *, const djka_node<T>&, const vector<bool>&) -> bool
+		dijkstra::djka_terminate<T> terminate =
+		[](const wxgraph<T> *, const dijkstra::djka_node<T>&, const std::vector<bool>&) -> bool
 		{ return false; };
 
-		djka_process_current<T> proc_curr =
-		[] (const wxgraph<T> *, const djka_node<T>&, const vector<bool>&) -> void { };
+		dijkstra::djka_process_current<T> proc_curr =
+		[](const wxgraph<T> *, const dijkstra::djka_node<T>&, const std::vector<bool>&) -> void { };
 
 		// function to compute the shortest distance from node u to node v
-		djka_process_neighbour<T> proc_neig =
+		dijkstra::djka_process_neighbour<T> proc_neig =
 		[&prev, &ds]
-		(const wxgraph<T> *, node u, node v, const T& w, const vector<bool>&) -> bool
+		(const wxgraph<T> *, node u, node v, const T& w, const std::vector<bool>&) -> bool
 		{
 			bool add = false;
 			if (ds[u] + w < ds[v]) {
@@ -172,9 +174,9 @@ namespace traversal {
 			return add;
 		};
 
-		Dijkstra(G, source, terminate, proc_curr, proc_neig);
+		dijkstra::Dijkstra(G, source, terminate, proc_curr, proc_neig);
 
-		ps = vector<node_path<T> >(N);
+		ps = std::vector<node_path<T> >(N);
 		for (node u = 0; u < N; ++u) {
 			node_path<T>& p = ps[u];
 
@@ -197,8 +199,8 @@ namespace traversal {
 
 	// all paths
 	template<class T>
-	void wxpaths(const wxgraph<T> *G, node source, vector<node_path_set<T> >& ps) {
-		ps = vector<node_path_set<T> >(G->n_nodes());
+	void wxpaths(const wxgraph<T> *G, node source, std::vector<node_path_set<T> >& ps) {
+		ps = std::vector<node_path_set<T> >(G->n_nodes());
 
 		for (node target = 0; target < G->n_nodes(); ++target) {
 			wxpaths(G, source, target, ps[target]);
@@ -209,12 +211,12 @@ namespace traversal {
 
 	// one path
 	template<class T>
-	void wxpath(const wxgraph<T> *G, vector<vector<node_path<T> > >& all_all_paths) {
+	void wxpath(const wxgraph<T> *G, std::vector<std::vector<node_path<T> > >& all_all_paths) {
 		const size_t N = G->n_nodes();
 
 		// allocate memory...
-		vector<vector<T> > dist(N, vector<T>(N, utils::inf_t<T>()));
-		all_all_paths = vector<node_path_set<T> >(N, node_path_set<T>(N));
+		std::vector<std::vector<T> > dist(N, std::vector<T>(N, inf_t<T>()));
+		all_all_paths = std::vector<node_path_set<T> >(N, node_path_set<T>(N));
 
 		// initialise data
 		for (size_t u = 0; u < N; ++u) {
@@ -251,8 +253,8 @@ namespace traversal {
 					// the path is not moving
 					if (u == v) continue;
 					// the distances are infinite
-					if (dist[v][w] == utils::inf_t<_new_>()) continue;
-					if (dist[w][u] == utils::inf_t<_new_>()) continue;
+					if (dist[v][w] == inf_t<_new_>()) continue;
+					if (dist[w][u] == inf_t<_new_>()) continue;
 
 					T d = dist[u][w] + dist[w][v];
 					if (d < dist[u][v]) {
@@ -268,12 +270,12 @@ namespace traversal {
 
 	// all paths
 	template<class T>
-	void wxpaths(const wxgraph<T> *G, vector<vector<node_path_set<T> > >& all_all_paths) {
+	void wxpaths(const wxgraph<T> *G, std::vector<std::vector<node_path_set<T> > >& all_all_paths) {
 		const size_t N = G->n_nodes();
 
 		// allocate memory...
-		vector<vector<T> > dist(N, vector<T>(N, utils::inf_t<T>()));
-		all_all_paths = vector<vector<node_path_set<T> > >(N, vector<node_path_set<T> >(N));
+		std::vector<std::vector<T> > dist(N, std::vector<T>(N, inf_t<T>()));
+		all_all_paths = std::vector<std::vector<node_path_set<T> > >(N, std::vector<node_path_set<T> >(N));
 
 		// initialise with edge weights (here always 1) the distance and the
 		// shortest-path from u to all its neighbours with {u,v}
@@ -305,8 +307,8 @@ namespace traversal {
 					// the path is not moving
 					if (u == v) continue;
 					// the distances are infinite
-					if (dist[v][w] == utils::inf_t<_new_>()) continue;
-					if (dist[w][u] == utils::inf_t<_new_>()) continue;
+					if (dist[v][w] == inf_t<_new_>()) continue;
+					if (dist[w][u] == inf_t<_new_>()) continue;
 
 					T d = dist[u][w] + dist[w][v];
 					if (d < dist[u][v]) {

@@ -10,29 +10,30 @@ namespace epidemics {
 		const uugraph& net,
 		double p0, double beta, double gamma,
 		size_t T,
-		const vector<bool>& immune,
-		drandom_generator<G,dT>& drg,
-		crandom_generator<G,cT>& crg,
+		const std::vector<bool>& immune,
+		utils::drandom_generator<G,dT>& drg,
+		utils::crandom_generator<G,cT>& crg,
 
-		vector<size_t>& n_rec,
-		vector<size_t>& n_sus,
-		vector<size_t>& n_inf
+		std::vector<size_t>& n_rec,
+		std::vector<size_t>& n_sus,
+		std::vector<size_t>& n_inf
 	)
 	{
-		logger<null_stream>& LOG = logger<null_stream>::get_logger();
+		utils::logger<utils::null_stream>& LOG =
+			utils::logger<utils::null_stream>::get_logger();
 
 		const size_t N = net.n_nodes();
 
 		// easiliy iterate through susceptible and infected agents
-		svector<size_t> infected(N), susceptible(N);
+		utils::svector<size_t> infected(N), susceptible(N);
 
 		// easily find susceptible and infected agents
-		vector<bool> is_susceptible(N, false);
-		vector<bool> is_infected(N, false);
+		std::vector<bool> is_susceptible(N, false);
+		std::vector<bool> is_infected(N, false);
 
-		n_rec = vector<size_t>(T + 1, 0);
-		n_sus = vector<size_t>(T + 1, 0);
-		n_inf = vector<size_t>(T + 1, 0);
+		n_rec = std::vector<size_t>(T + 1, 0);
+		n_sus = std::vector<size_t>(T + 1, 0);
+		n_inf = std::vector<size_t>(T + 1, 0);
 
 		// initialise population with some infected agents
 		for (size_t i = 0; i < N; ++i) {
@@ -54,9 +55,9 @@ namespace epidemics {
 			}
 		}
 
-		LOG.log() << "Population after initialisation" << endl;
-		LOG.log() << "    Susceptible: " << susceptible << endl;
-		LOG.log() << "    Infected:    " << infected << endl;
+		LOG.log() << "Population after initialisation" << std::endl;
+		LOG.log() << "    Susceptible: " << susceptible << std::endl;
+		LOG.log() << "    Infected:    " << infected << std::endl;
 
 		// update simulation information
 		n_inf[0] = infected.size();
@@ -67,15 +68,15 @@ namespace epidemics {
 		size_t t = 1;
 		while (t <= T and infected.size() > 0) {
 
-			LOG.log() << "Step: " << t << endl;
+			LOG.log() << "Step: " << t<< std::endl;
 
-			LOG.log() << "-------------------------------" << endl;
-			LOG.log() << "|   Population:" << endl;
-			LOG.log() << "|       Susceptible: " << susceptible << endl;
-			LOG.log() << "|       Infected:    " << infected << endl;
-			LOG.log() << "-------------------------------" << endl;
+			LOG.log() << "-------------------------------" << std::endl;
+			LOG.log() << "|   Population:" << std::endl;
+			LOG.log() << "|       Susceptible: " << susceptible << std::endl;
+			LOG.log() << "|       Infected:    " << infected << std::endl;
+			LOG.log() << "-------------------------------" << std::endl;
 
-			LOG.log() << "    Phase 1:" << endl;
+			LOG.log() << "    Phase 1:" << std::endl;
 
 			// phase 1: infected agents try to recover
 			size_t n_recovered = 0;
@@ -86,7 +87,7 @@ namespace epidemics {
 
 				double r = crg.get_uniform();
 				if (r <= gamma) {
-					LOG.log() << "Yes" << endl;
+					LOG.log() << "Yes" << std::endl;
 
 					// agent recovers
 					infected.remove(i - 1);
@@ -97,35 +98,35 @@ namespace epidemics {
 					++n_recovered;
 				}
 				else {
-					LOG.log() << "No" << endl;
+					LOG.log() << "No" << std::endl;
 				}
 			}
 			n_rec[t] = n_recovered;
 
-			LOG.log() << "-------------------------------" << endl;
-			LOG.log() << "|   Population:" << endl;
-			LOG.log() << "|       Susceptible: " << susceptible << endl;
-			LOG.log() << "|       Infected:    " << infected << endl;
-			LOG.log() << "-------------------------------" << endl;
+			LOG.log() << "-------------------------------" << std::endl;
+			LOG.log() << "|   Population:" << std::endl;
+			LOG.log() << "|       Susceptible: " << susceptible << std::endl;
+			LOG.log() << "|       Infected:    " << infected << std::endl;
+			LOG.log() << "-------------------------------" << std::endl;
 
 			// phase 2: infected agents try to infect their neighbours
 			// except those already recovered (this is the SIR model)
 
 			size_t current_infected = infected.size();
 
-			LOG.log() << "    Phase 2:" << endl;
-			LOG.log() << "        # susceptible= " << susceptible.size() << endl;
-			LOG.log() << "        # infected=    " << current_infected << endl;
+			LOG.log() << "    Phase 2:" << std::endl;
+			LOG.log() << "        # susceptible= " << susceptible.size() << std::endl;
+			LOG.log() << "        # infected=    " << current_infected << std::endl;
 
 			if (current_infected < susceptible.size()) {
-				LOG.log() << "        Branch 1" << endl;
+				LOG.log() << "        Branch 1" << std::endl;
 
 				// branch 1 (trivial approach): for each infected agent,
 				// try to spread infection to its immediate neighbours.
 
 				for (size_t a : infected) {
 
-					LOG.log() << "            Looking at agent " << a << endl;
+					LOG.log() << "            Looking at agent " << a << std::endl;
 
 					const neighbourhood& Na = net.get_neighbours(a);
 
@@ -136,7 +137,9 @@ namespace epidemics {
 							continue;
 						}
 
-						LOG.log() << "                Agent tries to infect neighbour " << w << endl;
+						LOG.log()
+						<< "                Agent tries to infect neighbour "
+						<< w<< std::endl;
 
 						// if the neighbour is susceptible try to infect it
 						if (is_susceptible[w]) {
@@ -144,7 +147,9 @@ namespace epidemics {
 							double r = crg.get_uniform();
 							if (r <= beta) {
 
-								LOG.log() << "                ... and succeeds" << endl;
+								LOG.log()
+								<< "                ... and succeeds"
+								<< std::endl;
 
 								// neighbour becomes infected
 								susceptible.find_remove(w);
@@ -155,13 +160,15 @@ namespace epidemics {
 							}
 						}
 						else {
-							LOG.log() << "                ... but fails because it is not susceptible" << endl;
+							LOG.log()
+							<< "                ... but fails because it is not susceptible"
+							<< std::endl;
 						}
 					}
 				}
 			}
 			else {
-				LOG.log() << "        Branch 2" << endl;
+				LOG.log() << "        Branch 2" << std::endl;
 
 				/*
 				branch 2: for each susceptible agent, count how many
@@ -212,7 +219,7 @@ namespace epidemics {
 
 					LOG.log() << "            Susceptible agent " << sA
 						 << " is surrounded by " << infected_neighs
-						 << " infected agents" << endl;
+						 << " infected agents" << std::endl;
 
 					// do more work only if the agent has some infected
 					// neighbour
@@ -223,7 +230,7 @@ namespace epidemics {
 
 						// 3. if r >= 1 then agent becomes infected
 						if (binom_val >= 1) {
-							LOG.log() << "            ... and it became infected" << endl;
+							LOG.log() << "            ... and it became infected" << std::endl;
 
 							// agent becomes infected
 
@@ -234,11 +241,11 @@ namespace epidemics {
 							infected.add(sA);
 						}
 						else {
-							LOG.log() << "            ... and survives the attempt" << endl;
+							LOG.log() << "            ... and survives the attempt" << std::endl;
 						}
 					}
 					else {
-						LOG.log() << "            ... and survives the attempt" << endl;
+						LOG.log() << "            ... and survives the attempt" << std::endl;
 					}
 				}
 

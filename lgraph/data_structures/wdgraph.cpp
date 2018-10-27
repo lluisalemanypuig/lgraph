@@ -1,12 +1,11 @@
 #include <lgraph/data_structures/wdgraph.hpp>
 
 namespace lgraph {
-namespace utils {
 
 // PROTECTED
 
 template<class T>
-void wdgraph<T>::get_unique_edges(vector<pair<edge, T> >& unique_edges) const {
+void wdgraph<T>::get_unique_edges(std::vector<std::pair<edge, T> >& unique_edges) const {
 	for (node i = 0; i < this->n_nodes(); ++i) {
 		const neighbourhood& ni = this->adjacency_list[i];
 		const weight_list<T>& wi = this->weights[i];
@@ -18,13 +17,13 @@ void wdgraph<T>::get_unique_edges(vector<pair<edge, T> >& unique_edges) const {
 			// this graph is DIRECTED so an edge is the
 			// pair of nodes (i,ni[ni_it]) interpreted as
 			// "i points to ni[ni_it]"
-			unique_edges.push_back( make_pair(edge(i, *ni_it), *wi_it) );
+			unique_edges.push_back( std::make_pair(edge(i, *ni_it), *wi_it) );
 		}
 	}
 }
 
 template<class T>
-void wdgraph<T>::get_unique_edges(vector<edge>& unique_edges) const {
+void wdgraph<T>::get_unique_edges(std::vector<edge>& unique_edges) const {
 	for (node i = 0; i < this->n_nodes(); ++i) {
 
 		const neighbourhood& ni = this->adjacency_list[i];
@@ -33,7 +32,7 @@ void wdgraph<T>::get_unique_edges(vector<edge>& unique_edges) const {
 			// this graph is DIRECTED so an edge is the
 			// pair of nodes (i, j) interpreted as
 			// "i points to j"
-			unique_edges.push_back( make_pair(i,j) );
+			unique_edges.push_back( std::make_pair(i,j) );
 		}
 	}
 }
@@ -46,8 +45,8 @@ wdgraph<T>::wdgraph() : wxgraph<T>() { }
 template<class T>
 wdgraph<T>::wdgraph
 (
-	const vector<neighbourhood>& adj,
-	const vector<weight_list<T> >& wl
+	const std::vector<neighbourhood>& adj,
+	const std::vector<weight_list<T> >& wl
 )
 : wxgraph<T>()
 {
@@ -57,8 +56,8 @@ wdgraph<T>::wdgraph
 template<class T>
 wdgraph<T>::wdgraph
 (
-	const vector<neighbourhood>& adj,
-	const vector<weight_list<T> >& wl,
+	const std::vector<neighbourhood>& adj,
+	const std::vector<weight_list<T> >& wl,
 	size_t n_edges
 )
 : wxgraph<T>(adj,wl,n_edges)
@@ -70,8 +69,8 @@ wdgraph<T>::~wdgraph() { }
 template<class T>
 void wdgraph<T>::init
 (
-	const vector<neighbourhood>& adj,
-	const vector<weight_list<T> >& wl
+	const std::vector<neighbourhood>& adj,
+	const std::vector<weight_list<T> >& wl
 )
 {
 	this->adjacency_list = adj;
@@ -144,8 +143,8 @@ template<class T>
 void wdgraph<T>::remove_node(node u) {
 	assert( this->has_node(u) );
 
-	vector<neighbourhood>& adj = this->adjacency_list;
-	vector<weight_list<T> >& wei = this->weights;
+	std::vector<neighbourhood>& adj = this->adjacency_list;
+	std::vector<weight_list<T> >& wei = this->weights;
 
 	// decrease number of edges
 	this->num_edges -= adj[u].size();
@@ -214,5 +213,4 @@ uxgraph *wdgraph<T>::to_unweighted() const {
 	return g;
 }
 
-} // -- namespace utils
 } // -- namespace lgraph

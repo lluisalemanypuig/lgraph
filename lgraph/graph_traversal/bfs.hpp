@@ -7,15 +7,12 @@
 #include <vector>
 #include <queue>
 #include <stack>
-using namespace std;
 
-// Custom includes
+// lgraph includes
 #include <lgraph/data_structures/uxgraph.hpp>
 #include <lgraph/utils/logger.hpp>
 
 namespace lgraph {
-using namespace utils;
-
 namespace traversal {
 
 /**
@@ -35,7 +32,9 @@ namespace bfs {
 	 * @param u The node at the front of the queue of the algorithm.
 	 * @param vis The set of visited nodes.
 	 */
-	typedef function<bool (const uxgraph *G, node u, const vector<bool>& vis)> bfs_terminate;
+	typedef std::function<
+		bool (const uxgraph *G, node u, const std::vector<bool>& vis)
+	> bfs_terminate;
 
 	/**
 	 * @brief Node processing function.
@@ -48,7 +47,9 @@ namespace bfs {
 	 * @param u The node at the front of the queue of the algorithm.
 	 * @param vis The set of visited nodes.
 	 */
-	typedef function<void (const uxgraph *G, node u, const vector<bool>& vis)> bfs_process_current;
+	typedef std::function<
+		void (const uxgraph *G, node u, const std::vector<bool>& vis)
+	> bfs_process_current;
 
 	/**
 	 * @brief Node processing function.
@@ -62,7 +63,9 @@ namespace bfs {
 	 * @param v The node neighbour of @e u visited by the algorithm.
 	 * @param vis The set of visited nodes.
 	 */
-	typedef function<void (const uxgraph *G, node u, node v, const vector<bool>& vis)> bfs_process_neighbour;
+	typedef std::function<
+		void (const uxgraph *G, node u, node v, const std::vector<bool>& vis)
+	> bfs_process_neighbour;
 
 	/**
 	 * @brief Generic Breadth-First search algorithm.
@@ -104,9 +107,12 @@ namespace bfs {
 	(
 		const uxgraph *G,
 		node source,
-		bfs_terminate term =				[](const uxgraph *, node, const vector<bool>&) -> bool { return false; },
-		bfs_process_current proc_curr =		[](const uxgraph *, node, const vector<bool>&) -> void {},
-		bfs_process_neighbour proc_neigh =	[](const uxgraph *, node, node, const vector<bool>&) -> void {}
+		bfs_terminate term =
+			[](const uxgraph *, node, const std::vector<bool>&) -> bool { return false; },
+		bfs_process_current proc_curr =
+			[](const uxgraph *, node, const std::vector<bool>&) -> void {},
+		bfs_process_neighbour proc_neigh =
+			[](const uxgraph *, node, node, const std::vector<bool>&) -> void {}
 	);
 
 } // -- namespace bfs

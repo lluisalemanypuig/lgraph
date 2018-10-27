@@ -1,19 +1,18 @@
 #include <lgraph/data_structures/node_path.hpp>
 
 namespace lgraph {
-namespace utils {
 
 // PUBLIC
 
 template<class T>
 node_path<T>::node_path() {
-	 nodes = vector<node>();
+	 nodes = std::vector<node>();
 	 path_length = 0;
 }
 
 template<class T>
 node_path<T>::node_path(node n) {
-	nodes = vector<node>(1, n);
+	nodes = std::vector<node>(1, n);
 	path_length = 0;
 }
 
@@ -22,7 +21,7 @@ node_path<T>::~node_path() { }
 
 template<class T>
 void node_path<T>::empty() {
-	nodes = vector<node>();
+	nodes = std::vector<node>();
 	path_length = 0;
 }
 
@@ -110,19 +109,19 @@ node node_path<T>::last_node() const {
 }
 
 template<class T>
-const vector<node>& node_path<T>::get_nodes() const {
+const std::vector<node>& node_path<T>::get_nodes() const {
 	return nodes;
 }
 
 template<class T>
-string node_path<T>::to_string() const {
-	string s;
+std::string node_path<T>::to_string() const {
+	std::string s;
 	to_string(s);
 	return s;
 }
 
 template<class T>
-void node_path<T>::to_string(string& s) const {
+void node_path<T>::to_string(std::string& s) const {
 	if (nodes.size() > 0) {
 		s = std::to_string(nodes[0]);
 		for (size_t i = 1; i < nodes.size(); ++i) {
@@ -131,5 +130,4 @@ void node_path<T>::to_string(string& s) const {
 	}
 }
 
-} // -- namespace utils
 } // -- namespace lgraph

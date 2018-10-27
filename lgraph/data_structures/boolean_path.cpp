@@ -1,7 +1,6 @@
 #include <lgraph/data_structures/boolean_path.hpp>
 
 namespace lgraph {
-namespace utils {
 
 // PUBLIC
 
@@ -116,7 +115,7 @@ bool boolean_path<T>::closest_next(const xxgraph *G, node prev, node curr, node&
 	if (G->is_weighted()) {
 		weight_list<T> weights;
 		(static_cast<const wxgraph<T> *>(G))->get_weights(curr, weights);
-		T dist = utils::inf_t<T>();
+		T dist = inf_t<T>();
 
 		for (size_t i = 0; i < Nu.size(); ++i) {
 			node v = Nu[i];
@@ -128,7 +127,7 @@ bool boolean_path<T>::closest_next(const xxgraph *G, node prev, node curr, node&
 		}
 	}
 	else {
-		_new_ dist = utils::inf_t<_new_>();
+		_new_ dist = inf_t<_new_>();
 
 		for (size_t i = 0; i < Nu.size(); ++i) {
 			node v = Nu[i];
@@ -143,7 +142,7 @@ bool boolean_path<T>::closest_next(const xxgraph *G, node prev, node curr, node&
 }
 
 template<class T>
-bool boolean_path<T>::closest_next(const xxgraph *G, const vector<bool>& prev, node curr, node& next) const {
+bool boolean_path<T>::closest_next(const xxgraph *G, const std::vector<bool>& prev, node curr, node& next) const {
 	assert(G != nullptr);
 	assert((0 <= curr) and (curr < nodes_in_path.size()));
 
@@ -153,7 +152,7 @@ bool boolean_path<T>::closest_next(const xxgraph *G, const vector<bool>& prev, n
 	if (G->is_weighted()) {
 		weight_list<T> weights;
 		(static_cast<const wxgraph<T> *>(G))->get_weights(curr, weights);
-		T dist = utils::inf_t<T>();
+		T dist = inf_t<T>();
 
 		for (size_t i = 0; i < Nu.size(); ++i) {
 			node v = Nu[i];
@@ -165,7 +164,7 @@ bool boolean_path<T>::closest_next(const xxgraph *G, const vector<bool>& prev, n
 		}
 	}
 	else {
-		_new_ dist = utils::inf_t<_new_>();
+		_new_ dist = inf_t<_new_>();
 
 		for (size_t i = 0; i < Nu.size(); ++i) {
 			node v = Nu[i];
@@ -202,7 +201,7 @@ void boolean_path<T>::to_node_path(const xxgraph *G, node s, node_path<T>& np) c
 	node current = s;
 	node next_node;
 
-	vector<bool> vis(G->n_nodes(), false);
+	std::vector<bool> vis(G->n_nodes(), false);
 	vis[current] = true;
 
 	bool next = closest_next(G, vis, current, next_node);
@@ -220,16 +219,16 @@ void boolean_path<T>::to_node_path(const xxgraph *G, node s, node_path<T>& np) c
 }
 
 template<class T>
-string boolean_path<T>::pretty_string() const {
-	string s;
+std::string boolean_path<T>::pretty_string() const {
+	std::string s;
 	pretty_string(s);
 	return s;
 }
 
 template<class T>
-void boolean_path<T>::pretty_string(string& s) const {
+void boolean_path<T>::pretty_string(std::string& s) const {
 	if (n_nodes > 0) {
-		stringstream ss;
+		std::stringstream ss;
 
 		ss << "0";
 		for (size_t i = 1; i < nodes_in_path.size(); ++i) {
@@ -239,7 +238,7 @@ void boolean_path<T>::pretty_string(string& s) const {
 		ss << std::to_string(nodes_in_path[0]);
 		for (size_t i = 1; i < nodes_in_path.size(); ++i) {
 			const bool& ni = nodes_in_path[i];
-			ss << " " << setw(std::to_string(i).length()) << (ni ? "1" : "0");
+			ss << " " << std::setw(std::to_string(i).length()) << (ni ? "1" : "0");
 		}
 
 		s = ss.str();
@@ -247,14 +246,14 @@ void boolean_path<T>::pretty_string(string& s) const {
 }
 
 template<class T>
-string boolean_path<T>::to_string() const {
-	string s;
+std::string boolean_path<T>::to_string() const {
+	std::string s;
 	to_string(s);
 	return s;
 }
 
 template<class T>
-void boolean_path<T>::to_string(string& s) const {
+void boolean_path<T>::to_string(std::string& s) const {
 	if (n_nodes > 0) {
 		s = std::to_string(nodes_in_path[0]);
 		for (size_t i = 1; i < nodes_in_path.size(); ++i) {
@@ -273,5 +272,4 @@ void from_nps_to_bps(const node_path_set<T>& nps, size_t N, boolean_path_set<T>&
 	}
 }
 
-} // -- namespace utils
 } // -- namespace lgraph

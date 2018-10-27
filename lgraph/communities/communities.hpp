@@ -2,17 +2,13 @@
 
 // C++ includes
 #include <vector>
-using namespace std;
 
-// Custom includes
+// lgraph includes
 #include <lgraph/data_structures/uugraph.hpp>
 #include <lgraph/data_structures/udgraph.hpp>
 #include <lgraph/graph_traversal/bfs.hpp>
 
 namespace lgraph {
-using namespace utils;
-using namespace traversal::bfs;
-
 namespace networks {
 namespace communities {
 
@@ -32,8 +28,8 @@ namespace communities {
 	size_t connected_components
 	(
 		const uugraph& g,
-		vector<size_t>& comps,
-		vector<size_t> *bins = nullptr
+		std::vector<size_t>& comps,
+		std::vector<size_t> *bins = nullptr
 	);
 
 	/**
@@ -50,8 +46,8 @@ namespace communities {
 	size_t connected_components
 	(
 		const udgraph& g,
-		vector<size_t>& comps,
-		vector<size_t> *bins = nullptr
+		std::vector<size_t>& comps,
+		std::vector<size_t> *bins = nullptr
 	);
 
 } // -- namespace communities

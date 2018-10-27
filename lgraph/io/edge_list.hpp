@@ -2,15 +2,12 @@
 
 // C++ includes
 #include <fstream>
-using namespace std;
 
 // lgraph includes
 #include <lgraph/data_structures/uxgraph.hpp>
 #include <lgraph/data_structures/wxgraph.hpp>
 
 namespace lgraph {
-using namespace utils;
-
 namespace io {
 
 /**
@@ -67,7 +64,7 @@ namespace edge_list {
 	 * @return Returns false if the file coule not be opened.
 	 * Returns true otherwise.
 	 */
-	bool read(const string& filename, uxgraph *g);
+	bool read(const std::string& filename, uxgraph *g);
 	/**
 	 * @brief Reads an unweighted graph in edge list format.
 	 * @param filename The name of the file to be read.
@@ -85,7 +82,7 @@ namespace edge_list {
 	 * @return Returns false if the file could not be opened.
 	 * Returns true otherwise.
 	 */
-	bool write(const string& filename, const uxgraph *g);
+	bool write(const std::string& filename, const uxgraph *g);
 	/**
 	 * @brief Writes an unweighted graph in edge list format.
 	 * @param filename The name of the file where the graph will be
@@ -107,7 +104,7 @@ namespace edge_list {
 	 * Returns true otherwise.
 	 */
 	template<class T>
-	bool read(const string& filename, wxgraph<T> *g);
+	bool read(const std::string& filename, wxgraph<T> *g);
 	/**
 	 * @brief Reads a weighted graph in edge list format.
 	 * @param filename The name of the file to be read.
@@ -127,7 +124,7 @@ namespace edge_list {
 	 * Returns true otherwise.
 	 */
 	template<class T>
-	bool write(const string& filename, const wxgraph<T> *g);
+	bool write(const std::string& filename, const wxgraph<T> *g);
 	/**
 	 * @brief Writes a weighted graph in edge list format.
 	 * @param filename The name of the file where the graph will be

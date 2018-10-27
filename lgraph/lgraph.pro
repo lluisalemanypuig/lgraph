@@ -5,7 +5,7 @@ CONFIG -= app_bundle
 CONFIG -= qt
 CONFIG += staticlib
 
-QMAKE_CXXFLAGS_DEBUG += -DDEBUG
+QMAKE_CXXFLAGS_DEBUG += -DDEBUG -g
 QMAKE_CXXFLAGS_RELEASE += -DNDEBUG
 INCLUDEPATH += ..
 
@@ -24,12 +24,6 @@ HEADERS += \
         data_structures/node_path.cpp \
     data_structures/boolean_path.hpp \
         data_structures/boolean_path.cpp \
-    data_structures/random_generator.hpp \
-        data_structures/random_generator.cpp \
-        data_structures/drandom_generator.cpp \
-        data_structures/crandom_generator.cpp \
-    data_structures/svector.hpp \
-        data_structures/svector.cpp \
     generate_graphs/classic/classic.hpp \
     generate_graphs/classic/regular.hpp \
     generate_graphs/random/erdos_renyi.hpp \
@@ -68,7 +62,13 @@ HEADERS += \
     io/io.hpp \
 		io/edge_list.hpp \
 		io/edge_list_temp.cpp \
-		io/gsd6.hpp
+		io/gsd6.hpp \
+	utils/svector.hpp \
+	utils/svector.cpp \
+	utils/random_generator.hpp \
+	utils/random_generator.cpp \
+	utils/drandom_generator.cpp \
+	utils/crandom_generator.cpp
 
 SOURCES += \
     utils/static_bitset.cpp \
@@ -93,6 +93,6 @@ SOURCES += \
 	io/edge_list.cpp \
     io/graph6.cpp \
     io/sparse6.cpp \
-    io/digraph6.cpp
+	io/digraph6.cpp
 
 

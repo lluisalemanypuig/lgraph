@@ -2,15 +2,12 @@
 
 // C++ includes
 #include <fstream>
-using namespace std;
 
 // lgraph includes
 #include <lgraph/data_structures/uugraph.hpp>
 #include <lgraph/data_structures/udgraph.hpp>
 
 namespace lgraph {
-using namespace utils;
-
 namespace io {
 
 /**
@@ -37,7 +34,7 @@ namespace graph6 {
 	 * @pre The output graph need not be passed empty (it is cleared
 	 * in this function).
 	 */
-	void from_g6_string(const string& s, uugraph& g);
+	void from_g6_string(const std::string& s, uugraph& g);
 
 	/**
 	 * @brief Obtains a graph given its representation in @e graph6 format.
@@ -46,7 +43,7 @@ namespace graph6 {
 	 * @pre The output string need not be passed empty (it is cleared
 	 * in this function)
 	 */
-	void to_g6_string(const uugraph& g, string& s);
+	void to_g6_string(const uugraph& g, std::string& s);
 
 	// ----------
 	// -- READ --
@@ -61,7 +58,7 @@ namespace graph6 {
 	 * @return Returns false if the file coule not be opened.
 	 * Returns true otherwise.
 	 */
-	bool read(const string& filename, uugraph& g);
+	bool read(const std::string& filename, uugraph& g);
 	/**
 	 * @brief Reads an unweighted, undirected graph in \e graph6 format.
 	 *
@@ -81,7 +78,7 @@ namespace graph6 {
 	 * @return Returns false if the file coule not be opened.
 	 * Returns true otherwise.
 	 */
-	bool read(const string& filename, vector<uugraph>& gs);
+	bool read(const std::string& filename, std::vector<uugraph>& gs);
 	/**
 	 * @brief Reads a list of unweighted, undirected graphs in \e graph6 format.
 	 * @param filename The name of the file to be read.
@@ -89,7 +86,7 @@ namespace graph6 {
 	 * @return Returns false if the file coule not be opened.
 	 * Returns true otherwise.
 	 */
-	bool read(const char *filename, vector<uugraph>& gs);
+	bool read(const char *filename, std::vector<uugraph>& gs);
 
 	// -----------
 	// -- WRITE --
@@ -104,7 +101,7 @@ namespace graph6 {
 	 * @return Returns false if the file coule not be opened.
 	 * Returns true otherwise.
 	 */
-	bool write(const string& filename, const uugraph& g);
+	bool write(const std::string& filename, const uugraph& g);
 	/**
 	 * @brief Writes an unweighted, undirected graph in \e graph6 format.
 	 *
@@ -143,7 +140,7 @@ namespace sparse6 {
 	 * @return Returns false if the file coule not be opened.
 	 * Returns true otherwise.
 	 */
-	bool read(const string& filename, uugraph& g);
+	bool read(const std::string& filename, uugraph& g);
 	/**
 	 * @brief Reads an unweighted, undirected graph in \e sparse6 format.
 	 *
@@ -166,7 +163,7 @@ namespace sparse6 {
 	 * @return Returns false if the file coule not be opened.
 	 * Returns true otherwise.
 	 */
-	bool write(const string& filename, const uugraph& g);
+	bool write(const std::string& filename, const uugraph& g);
 	/**
 	 * @brief Writes an unweighted, undirected graph in \e sparse6 format.
 	 *
@@ -213,7 +210,7 @@ namespace digraph6 {
 	 * @return Returns false if the file coule not be opened.
 	 * Returns true otherwise.
 	 */
-	bool read(const string& filename, udgraph& g);
+	bool read(const std::string& filename, udgraph& g);
 	/**
 	 * @brief Reads an unweighted, directed graph in \e digraph6 format.
 	 *
@@ -236,7 +233,7 @@ namespace digraph6 {
 	 * @return Returns false if the file coule not be opened.
 	 * Returns true otherwise.
 	 */
-	bool write(const string& filename, const udgraph& g);
+	bool write(const std::string& filename, const udgraph& g);
 	/**
 	 * @brief Writes an unweighted, directed graph in \e digraph6 format.
 	 *

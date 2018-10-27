@@ -6,12 +6,12 @@ namespace metrics {
 namespace distance {
 
 	_new_ max_distance(const uxgraph *G) {
-		vector<vector<_new_> > ds;
+		std::vector<std::vector<_new_> > ds;
 		traversal::uxdistances(G, ds);
 		return max_distance(G, ds);
 	}
 
-	_new_ max_distance(const uxgraph *G, const vector<vector<_new_> >& ds) {
+	_new_ max_distance(const uxgraph *G, const std::vector<std::vector<_new_> >& ds) {
 		const size_t N = G->n_nodes();
 		size_t D = 0;
 		for (size_t i = 0; i < N; ++i) {
@@ -19,8 +19,8 @@ namespace distance {
 			(
 				ds[i].begin() + i + 1, ds[i].end(), D,
 				[](size_t M, size_t d) {
-					if (d != utils::z_inf) {
-						M = max(M, d);
+					if (d != z_inf) {
+						M = std::max(M, d);
 					}
 					return M;
 				}
@@ -31,12 +31,12 @@ namespace distance {
 	}
 
 	double mean_distance(const uxgraph *G) {
-		vector<vector<_new_> > ds;
+		std::vector<std::vector<_new_> > ds;
 		traversal::uxdistances(G, ds);
 		return mean_distance(G, ds);
 	}
 
-	double mean_distance(const uxgraph *G, const vector<vector<_new_> >& ds) {
+	double mean_distance(const uxgraph *G, const std::vector<std::vector<_new_> >& ds) {
 		const size_t N = G->n_nodes();
 		double m = 0;
 		for (size_t i = 0; i < N; ++i) {
@@ -46,7 +46,7 @@ namespace distance {
 			(
 				ds[i].begin(), ds[i].end(), 0.0,
 				[](double acc, size_t d) {
-					if (d != utils::z_inf) {
+					if (d != z_inf) {
 						acc += d;
 					}
 					return acc;
@@ -61,12 +61,12 @@ namespace distance {
 	}
 	
 	double mcc(const uxgraph *G) {
-		vector<double> cc;
+		std::vector<double> cc;
 		centralities::closeness(G, cc);
 		return mcc(G, cc);
 	}
 
-	double mcc(const uxgraph *G, const vector<double>& cc) {
+	double mcc(const uxgraph *G, const std::vector<double>& cc) {
 		double S = std::accumulate(cc.begin(), cc.end(), 0.0);
 		return S/G->n_nodes();
 	}

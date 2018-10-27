@@ -1,7 +1,6 @@
 #include <lgraph/data_structures/uxgraph.hpp>
 
 namespace lgraph {
-namespace utils {
 
 // PUBLIC
 
@@ -11,7 +10,7 @@ uxgraph::uxgraph(size_t n) : xxgraph() {
 	init(n);
 }
 
-uxgraph::uxgraph(const vector<neighbourhood>& adj, size_t n_edges) : xxgraph() {
+uxgraph::uxgraph(const std::vector<neighbourhood>& adj, size_t n_edges) : xxgraph() {
 	init(adj, n_edges);
 }
 
@@ -22,7 +21,7 @@ void uxgraph::init(size_t n) {
 	initialise_parent_graph(n);
 }
 
-void uxgraph::init(const vector<neighbourhood>& adj, size_t n_edges) {
+void uxgraph::init(const std::vector<neighbourhood>& adj, size_t n_edges) {
 	clear();
 	adjacency_list = adj;
 	num_edges = n_edges;
@@ -44,7 +43,7 @@ void uxgraph::add_edge(const edge& e) {
 	add_edge(e.first, e.second);
 }
 
-void uxgraph::add_edges(const vector<edge>& edge_list) {
+void uxgraph::add_edges(const std::vector<edge>& edge_list) {
 	for (const edge& e : edge_list) {
 		add_edge(e.first, e.second);
 	}
@@ -60,9 +59,8 @@ bool uxgraph::is_weighted() const {
 	return false;
 }
 
-void uxgraph::edges(vector<edge>& all_edges) const {
+void uxgraph::edges(std::vector<edge>& all_edges) const {
 	get_unique_edges(all_edges);
 }
 
-} // -- namespace utils
 } // -- namespace lgraph

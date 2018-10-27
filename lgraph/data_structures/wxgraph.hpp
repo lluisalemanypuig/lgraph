@@ -7,17 +7,14 @@
 #include <string>
 #include <vector>
 #include <set>
-#include <map>
-using namespace std;
 
-// Custom includes
+// lgraph includes
 #include <lgraph/data_structures/xxgraph.hpp>
 #include <lgraph/data_structures/uxgraph.hpp>
-#include <lgraph/data_structures/svector.hpp>
 #include <lgraph/utils/definitions.hpp>
+#include <lgraph/utils/svector.hpp>
 
 namespace lgraph {
-namespace utils {
 
 /**
  * @brief Abstract class for weighted (ux) graphs.
@@ -38,7 +35,7 @@ class wxgraph : public xxgraph {
 		 * where @ref weights[u][v] represents the weight of
 		 * edge between nodes @e u and @e v.
 		 */
-		vector<weight_list<T> > weights;
+		std::vector<weight_list<T> > weights;
 
 		// MODIFIERS
 
@@ -60,7 +57,7 @@ class wxgraph : public xxgraph {
 		 * @return Stores in @ref edges the list of weighted edges of this
 		 * graph.
 		 */
-		virtual void get_unique_edges(vector<pair<edge, T> >& edges) const = 0;
+		virtual void get_unique_edges(std::vector<std::pair<edge, T> >& edges) const = 0;
 
 		/**
 		 * @brief Computes the list of unique unweighted edges of this graph.
@@ -73,7 +70,7 @@ class wxgraph : public xxgraph {
 		 * @return Stores in @ref edges the list of unweighted edges of this
 		 * graph.
 		 */
-		virtual void get_unique_edges(vector<edge>& edges) const = 0;
+		virtual void get_unique_edges(std::vector<edge>& edges) const = 0;
 
 	public:
 		/// Default constructor.
@@ -86,8 +83,8 @@ class wxgraph : public xxgraph {
 		 * @param wl The weights for every edge.
 		 * @param n_edges The number of edges in the adjacency list.
 		 */
-		wxgraph(const vector<neighbourhood>& adj,
-				const vector<weight_list<T> >& wl,
+		wxgraph(const std::vector<neighbourhood>& adj,
+				const std::vector<weight_list<T> >& wl,
 				size_t n_edges);
 		/// Destructor.
 		virtual ~wxgraph();
@@ -100,8 +97,8 @@ class wxgraph : public xxgraph {
 		 * @param wl The weights for every edge.
 		 * @param n_edges The number of edges in the adjacency list.
 		 */
-		void init(const vector<neighbourhood>& adj,
-				  const vector<weight_list<T> >& wl,
+		void init(const std::vector<neighbourhood>& adj,
+				  const std::vector<weight_list<T> >& wl,
 				  size_t n_edges);
 
 		// OPERATORS
@@ -112,7 +109,7 @@ class wxgraph : public xxgraph {
 		 * @param g THe graph to be output.
 		 */
 		inline friend
-		ostream& operator<< (ostream& os, const wxgraph<T>& g) {
+		std::ostream& operator<< (std::ostream& os, const wxgraph<T>& g) {
 			for (node i = 0; i < g.n_nodes(); ++i) {
 				os << i << ":";
 				const neighbourhood& ni = g.adjacency_list[i];
@@ -125,7 +122,7 @@ class wxgraph : public xxgraph {
 				}
 
 				if (i < g.n_nodes() - 1) {
-					os << endl;
+					os << std::endl;
 				}
 			}
 			return os;
@@ -163,7 +160,7 @@ class wxgraph : public xxgraph {
 		 * @param edge_list A list of pairs of nodes.
 		 * @param ws A list of weights. The i-th edge has weight @e ws[i].
 		 */
-		void add_edges(const vector<edge>& edge_list, const vector<T>& ws);
+		void add_edges(const std::vector<edge>& edge_list, const std::vector<T>& ws);
 
 		/**
 		 * @brief Adds an edge between nodes @e u and @e v.
@@ -231,16 +228,16 @@ class wxgraph : public xxgraph {
 		/**
 		 * @brief Returns all unique edges of this graph.
 		 *
-		 * See method @ref get_unique_edges(vector<pair<edge,T> >& edges)const for details.
+		 * See method @ref get_unique_edges(std::vector<std::pair<edge,T> >& edges)const for details.
 		 */
-		void edges(vector<pair<edge, T> >& all_edges) const;
+		void edges(std::vector<std::pair<edge, T> >& all_edges) const;
 
 		/**
 		 * @brief Returns all unique edges of this graph without their weights.
 		 *
-		 * See method @ref get_unique_edges(vector<edge>& edges)const for details.
+		 * See method @ref get_unique_edges(std::vector<edge>& edges)const for details.
 		 */
-		void edges(vector<edge>& all_edges) const;
+		void edges(std::vector<edge>& all_edges) const;
 
 		/**
 		 * @brief Converts this graph into an unweighted graph.
@@ -260,7 +257,6 @@ class wxgraph : public xxgraph {
 		virtual uxgraph* to_unweighted() const = 0;
 };
 
-} // -- namespace utils
 } // -- namespace lgraph
 
 #include <lgraph/data_structures/wxgraph.cpp>

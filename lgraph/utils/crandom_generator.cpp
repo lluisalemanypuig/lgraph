@@ -1,4 +1,4 @@
-#include <lgraph/data_structures/random_generator.hpp>
+#include <lgraph/utils/random_generator.hpp>
 
 namespace lgraph {
 namespace utils {
@@ -23,7 +23,7 @@ void crandom_generator<G,cT>::init_uniform(cT a, cT b) {
 		delete U;
 		U = nullptr;
 	}
-	U = new uniform_real_distribution<cT>(a, b);
+	U = new std::uniform_real_distribution<cT>(a, b);
 }
 
 template<class G, typename cT>

@@ -7,6 +7,9 @@
  * Not recommended, though, as it will
  * very likely increase the compilation
  * time (many files are templates).
+ *
+ * Include only those that are actually
+ * necessary.
  */
 
 // lgraph includes

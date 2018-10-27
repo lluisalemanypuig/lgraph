@@ -8,13 +8,11 @@
 #include <vector>
 #include <set>
 #include <map>
-using namespace std;
 
-// Custom includes
+// lgraph includes
 #include <lgraph/utils/definitions.hpp>
 
 namespace lgraph {
-namespace utils {
 
 /**
  * @brief Abstract class for the graph data structure.
@@ -30,7 +28,7 @@ namespace utils {
 class xxgraph {
 	protected:
 		/// The neighbourhood of every node.
-		vector<neighbourhood> adjacency_list;
+		std::vector<neighbourhood> adjacency_list;
 		/// The amount of edges in this graph.
 		size_t num_edges;
 
@@ -114,7 +112,7 @@ class xxgraph {
 		 * The attribute @ref num_edges is decremented by one.
 		 * @param edge_list A list of edges.
 		 */
-		void remove_edges(const vector<edge>& edge_list);
+		void remove_edges(const std::vector<edge>& edge_list);
 
 		/**
 		 * @brief Removes an edge from this graph.
@@ -162,7 +160,7 @@ class xxgraph {
 		size_t n_edges() const;
 
 		/// Returns all nodes (as integers).
-		void nodes(vector<node>& all_nodes) const;
+		void nodes(std::vector<node>& all_nodes) const;
 
 		/**
 		 * @brief Returns the neighbourhood of node u.
@@ -204,7 +202,7 @@ class xxgraph {
 		// GRAPH FEATURES
 
 		/// Returns the adjacency matrix of this graph.
-		void get_adjacency_matrix(vector<vector<bool> >& adj_mat) const;
+		void get_adjacency_matrix(std::vector<std::vector<bool> >& adj_mat) const;
 
 		/**
 		 * @brief Returns the degree sequence of the graph.
@@ -212,7 +210,7 @@ class xxgraph {
 		 * of nodes in this graph that have that degree. The degree
 		 * of a node is detailed in @ref degree.
 		 */
-		void get_degree_sequence(map<size_t, size_t>& ds) const;
+		void get_degree_sequence(std::map<size_t, size_t>& ds) const;
 
 		/**
 		 * @brief Returns the number of triangles in this graph.
@@ -221,5 +219,4 @@ class xxgraph {
 		size_t n_triangles() const;
 };
 
-} // -- namespace utils
 } // -- namespace lgraph

@@ -109,13 +109,14 @@ class cerr_stream {
  * deletion/comment-out, the logger can be used in the following way:
  *
  *		logger<cout_stream>& LOG = logger<cout_stream>::get_logger();	// declare the object\n
- *		LOG.log() << "message 1" << endl;	// Use it	\n
- *		LOG.log() << "message 2" << endl;				\n\n
+ *		LOG.log() << "message 1" << std::endl;	// Use it	\n
+ *		LOG.log() << "message 2" << std::endl;				\n\n
  *
  * Once we are not interested in displaying messages anymore, change
  * the declaration of the object to:
  *
- *		logger<null_stream>& LOG = logger<null_stream>::get_logger();
+ *		utils::logger<utils::null_stream>& LOG =
+			utils::logger<utils::null_stream>::get_logger();
  *
  * The other calls displaying "message *" will have no effect. There
  * is only one instance of this class for a cout_stream, one for a

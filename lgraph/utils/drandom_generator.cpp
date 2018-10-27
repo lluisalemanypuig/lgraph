@@ -1,4 +1,4 @@
-#include <lgraph/data_structures/random_generator.hpp>
+#include <lgraph/utils/random_generator.hpp>
 
 namespace lgraph {
 namespace utils {
@@ -27,7 +27,7 @@ void drandom_generator<G,dT>::init_uniform(dT a, dT b) {
 		delete U;
 		U = nullptr;
 	}
-	U = new uniform_int_distribution<dT>(a, b);
+	U = new std::uniform_int_distribution<dT>(a, b);
 }
 
 template<class G, typename dT>
@@ -36,7 +36,7 @@ void drandom_generator<G,dT>::init_binomial(dT a, double p) {
 		delete B;
 		B = nullptr;
 	}
-	B = new binomial_distribution<dT>(a, p);
+	B = new std::binomial_distribution<dT>(a, p);
 }
 
 /* Get pseudo-random numbers */

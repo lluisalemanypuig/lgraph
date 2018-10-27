@@ -3,6 +3,8 @@
 namespace lgraph {
 namespace traversal {
 
+using namespace std;
+
 	/* VERTEX-VERTEX */
 
 	// one path
@@ -47,7 +49,9 @@ namespace traversal {
 	/* ALL-ALL */
 
 	// one path
-	void uxpath(const uxgraph *G, vector<vector<boolean_path<_new_> > >& all_all_paths) {
+	void uxpath
+	(const uxgraph *G, vector<vector<boolean_path<_new_> > >& all_all_paths)
+	{
 		const size_t N = G->n_nodes();
 
 		vector<node_path_set<_new_> > node_ps;
@@ -60,13 +64,17 @@ namespace traversal {
 	}
 
 	// all paths
-	void uxpaths(const uxgraph *G, vector<vector<boolean_path_set<_new_> > >& all_all_paths) {
+	void uxpaths
+	(const uxgraph *G, vector<vector<boolean_path_set<_new_> > >& all_all_paths)
+	{
 		const size_t N = G->n_nodes();
 
 		vector<vector<node_path_set<_new_> > > all_all_node_paths;
 		uxpaths(G, all_all_node_paths);
 
-		all_all_paths = vector<vector<boolean_path_set<_new_> > >(N, vector<boolean_path_set<_new_> >(N));
+		all_all_paths =
+			vector<vector<boolean_path_set<_new_> > >
+			(N, vector<boolean_path_set<_new_> >(N));
 
 		for (size_t i = 0; i < N; ++i) {
 			for (size_t j = 0; j < N; ++j) {

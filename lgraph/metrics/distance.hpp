@@ -4,9 +4,8 @@
 #include <functional>
 #include <numeric>
 #include <vector>
-using namespace std;
 
-// Custom includes
+// lgraph includes
 #include <lgraph/graph_traversal/traversal.hpp>
 #include <lgraph/data_structures/uxgraph.hpp>
 #include <lgraph/data_structures/wxgraph.hpp>
@@ -14,8 +13,6 @@ using namespace std;
 #include <lgraph/utils/definitions.hpp>
 
 namespace lgraph {
-using namespace utils;
-
 namespace networks {
 namespace metrics {
 namespace distance {
@@ -42,7 +39,7 @@ namespace distance {
 	 * @param ds @e ds[u][v] contains the distance between nodes @e u and @e v.
 	 * @return Returns the largest distance between all pairs of nodes.
 	 */
-	_new_ max_distance(const uxgraph *G, const vector<vector<_new_> >& ds);
+	_new_ max_distance(const uxgraph *G, const std::vector<std::vector<_new_> >& ds);
 
 	/**
 	 * @brief Mean distance between all pairs of nodes.
@@ -63,7 +60,7 @@ namespace distance {
 	 * @param ds @e ds[u][v] contains the distance between nodes @e u and @e v.
 	 * @return Returns the average of the distance between all pairs of nodes.
 	 */
-	double mean_distance(const uxgraph *G, const vector<vector<_new_> >& ds);
+	double mean_distance(const uxgraph *G, const std::vector<std::vector<_new_> >& ds);
 
 	/**
 	 * @brief Mean closeness centrality of a graph.
@@ -84,7 +81,7 @@ namespace distance {
 	 * @param cc @e cc[u] contains the closeness centrality of node @e u.
 	 * @return Returns the average of the closeness centralities.
 	 */
-	double mcc(const uxgraph *G, const vector<double>& cc);
+	double mcc(const uxgraph *G, const std::vector<double>& cc);
 	
 	/* ----------------------------- */
 	/* DISTANCES FOR WEIGHTED GRAPHS */
@@ -110,7 +107,7 @@ namespace distance {
 	 * @return Returns the largest distance between all pairs of nodes.
 	 */
 	template<class T>
-	T max_distance(const wxgraph<T> *G, const vector<vector<T> >& ds);
+	T max_distance(const wxgraph<T> *G, const std::vector<std::vector<T> >& ds);
 
 	/**
 	 * @brief Mean distance between all pairs of nodes.
@@ -133,7 +130,7 @@ namespace distance {
 	 * @return Returns the average of the distance between all pairs of nodes.
 	 */
 	template<class T>
-	double mean_distance(const wxgraph<T> *G, const vector<vector<T> >& ds);
+	double mean_distance(const wxgraph<T> *G, const std::vector<std::vector<T> >& ds);
 
 	/**
 	 * @brief Mean closeness centrality of a graph.
@@ -156,7 +153,7 @@ namespace distance {
 	 * @return Returns the average of the closeness centralities.
 	 */
 	template<class T>
-	double mcc(const wxgraph<T> *G, const vector<double>& cc);
+	double mcc(const wxgraph<T> *G, const std::vector<double>& cc);
 	
 } // -- namespace distance
 } // -- namespace metrics

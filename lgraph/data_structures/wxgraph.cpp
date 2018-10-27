@@ -1,13 +1,12 @@
 #include <lgraph/data_structures/wxgraph.hpp>
 
 namespace lgraph {
-namespace utils {
 
 // PRIVATE
 
 template<class T>
 void wxgraph<T>::initialise_weights(size_t n) {
-	weights = vector<weight_list<T> >(n);
+	weights = std::vector<weight_list<T> >(n);
 }
 
 template<class T>
@@ -28,8 +27,8 @@ wxgraph<T>::wxgraph(size_t n) : xxgraph() {
 template<class T>
 wxgraph<T>::wxgraph
 (
-	const vector<neighbourhood>& adj,
-	const vector<weight_list<T> >& wl,
+	const std::vector<neighbourhood>& adj,
+	const std::vector<weight_list<T> >& wl,
 	size_t n_edges
 )
 : xxgraph()
@@ -50,8 +49,8 @@ void wxgraph<T>::init(size_t n) {
 template<class T>
 void wxgraph<T>::init
 (
-	const vector<neighbourhood>& adj,
-	const vector<weight_list<T> >& wl,
+	const std::vector<neighbourhood>& adj,
+	const std::vector<weight_list<T> >& wl,
 	size_t n_edges
 )
 {
@@ -80,7 +79,7 @@ void wxgraph<T>::add_edge(const edge& e, const T& w) {
 }
 
 template<class T>
-void wxgraph<T>::add_edges(const vector<edge>& edge_list, const vector<T>& ws) {
+void wxgraph<T>::add_edges(const std::vector<edge>& edge_list, const std::vector<T>& ws) {
 	for (size_t i = 0; i < edge_list.size(); ++i) {
 		const edge& e = edge_list[i];
 		add_edge(e.first, e.second, ws[i]);
@@ -118,14 +117,13 @@ void wxgraph<T>::get_weights(node u, weight_list<T>& ws) const {
 }
 
 template<class T>
-void wxgraph<T>::edges(vector<pair<edge, T> >& all_edges) const {
+void wxgraph<T>::edges(std::vector<std::pair<edge, T> >& all_edges) const {
 	this->get_unique_edges(all_edges);
 }
 
 template<class T>
-void wxgraph<T>::edges(vector<edge>& all_edges) const {
+void wxgraph<T>::edges(std::vector<edge>& all_edges) const {
 	this->get_unique_edges(all_edges);
 }
 
-} // -- namespace utils
 } // -- namespace lgraph

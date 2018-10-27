@@ -4,18 +4,15 @@
 #include <assert.h>
 
 // C++ includes
-#include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
-using namespace std;
 
-// Custom includes
+// lgraph includes
 #include <lgraph/data_structures/xxgraph.hpp>
 #include <lgraph/utils/definitions.hpp>
 
 namespace lgraph {
-namespace utils {
 
 /**
  * @brief Abstract class for unweighted (ux) graphs.
@@ -37,7 +34,7 @@ class uxgraph : public xxgraph {
 		 * @return Stores in @ref edges the list of unweighted edges of this
 		 * graph.
 		 */
-		virtual void get_unique_edges(vector<edge>& edges) const = 0;
+		virtual void get_unique_edges(std::vector<edge>& edges) const = 0;
 
 	public:
 		/// Default onstructor.
@@ -49,7 +46,7 @@ class uxgraph : public xxgraph {
 		 * @param adj The adjacency list of the graph.
 		 * @param n_edges The number of edges in the adjacency list.
 		 */
-		uxgraph(const vector<neighbourhood>& adj, size_t n_edges);
+		uxgraph(const std::vector<neighbourhood>& adj, size_t n_edges);
 		/// Destructor.
 		virtual ~uxgraph();
 
@@ -60,7 +57,7 @@ class uxgraph : public xxgraph {
 		 * @param adj The adjacency list of the graph.
 		 * @param n_edges The number of edges in the adjacency list.
 		 */
-		void init(const vector<neighbourhood>& adj, size_t n_edges);
+		void init(const std::vector<neighbourhood>& adj, size_t n_edges);
 
 		// OPERATORS
 
@@ -70,7 +67,7 @@ class uxgraph : public xxgraph {
 		 * @param g THe graph to be output.
 		 */
 		inline friend
-		ostream& operator<< (ostream& os, const uxgraph& g) {
+		std::ostream& operator<< (std::ostream& os, const uxgraph& g) {
 			for (node i = 0; i < g.n_nodes(); ++i) {
 				os << i << ":";
 				const neighbourhood& ni = g.adjacency_list[i];
@@ -80,7 +77,7 @@ class uxgraph : public xxgraph {
 				}
 
 				if (i < g.n_nodes() - 1) {
-					os << endl;
+					os << std::endl;
 				}
 			}
 			return os;
@@ -116,7 +113,7 @@ class uxgraph : public xxgraph {
 		 *
 		 * @param edge_list A list of pairs of nodes.
 		 */
-		void add_edges(const vector<edge>& edge_list);
+		void add_edges(const std::vector<edge>& edge_list);
 
 		/**
 		 * @brief Adds an edge between nodes @e u and @e v.
@@ -143,11 +140,10 @@ class uxgraph : public xxgraph {
 		/**
 		 * @brief Returns all unique edges of this graph.
 		 *
-		 * See method @ref get_unique_edges(vector<edge>&)const for details.
+		 * See method @ref get_unique_edges(std::vector<edge>&)const for details.
 		 */
-		void edges(vector<edge>& all_edges) const;
+		void edges(std::vector<edge>& all_edges) const;
 
 };
 
-} // -- namespace utils
 } // -- namespace lgraph

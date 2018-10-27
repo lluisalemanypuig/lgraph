@@ -8,17 +8,15 @@
 #include <sstream>
 #include <iomanip>
 #include <vector>
-using namespace std;
 
 // lgraph includes
 #include <lgraph/data_structures/node_path.hpp>
 #include <lgraph/data_structures/xxgraph.hpp>
 #include <lgraph/data_structures/wxgraph.hpp>
-#include <lgraph/utils/definitions.hpp>
 #include <lgraph/utils/static_bitset.hpp>
+#include <lgraph/utils/definitions.hpp>
 
 namespace lgraph {
-namespace utils {
 
 /**
  * @brief A path through a graph seen as a list of Boolean values.
@@ -48,7 +46,7 @@ class boolean_path {
 		 * @ref nodes_in_path[i] = true if, and only if, i-th node
 		 * of the graph is in the path.
 		 */
-		static_bitset nodes_in_path;
+		utils::static_bitset nodes_in_path;
 
 		/// Number of nodes in the path, i.e., the amount of values set to true.
 		size_t n_nodes;
@@ -131,7 +129,7 @@ class boolean_path {
 		 * followed by '->' and this path's length.
 		 */
 		inline friend
-		ostream& operator<< (ostream& os, const boolean_path<T>& bp) {
+		std::ostream& operator<< (std::ostream& os, const boolean_path<T>& bp) {
 			os << bp.to_string() << " (" << bp.path_length << ")";
 			return os;
 		}
@@ -214,7 +212,7 @@ class boolean_path {
 		 * @return Returns true if there actually exists a "next" node in the path.
 		 */
 		bool closest_next
-		(const xxgraph *G, const vector<bool>& previous, node current, node& next) const;
+		(const xxgraph *G, const std::vector<bool>& previous, node current, node& next) const;
 
 		/**
 		 * @brief Converts this boolean_path to an object of type node_path.
@@ -248,7 +246,7 @@ class boolean_path {
 		 * indicating the index of the node. The second is either a 0 or a 1
 		 * telling whether the corresponding index is in the path or not.
 		 */
-		string pretty_string() const;
+		std::string pretty_string() const;
 
 		/**
 		 * @brief Formats this path into a string with a 'pretty' format.
@@ -258,7 +256,7 @@ class boolean_path {
 		 * indicating the index of the node. The second is either a 0 or a 1
 		 * telling whether the corresponding index is in the path or not.
 		 */
-		void pretty_string(string& s) const;
+		void pretty_string(std::string& s) const;
 
 		/**
 		 * @brief Formats this path into a string with a plain format.
@@ -266,7 +264,7 @@ class boolean_path {
 		 * @returns Returns this path as a list of 0's and 1's. The i-th
 		 * digit is a 1 if, and only if, the i-th vertex is in the path.
 		 */
-		string to_string() const;
+		std::string to_string() const;
 
 		/**
 		 * @brief Formats this path into a string with a plain format.
@@ -274,12 +272,12 @@ class boolean_path {
 		 * @param[out] s Stores this path as a list of 0's and 1's. The i-th
 		 * digit is a 1 if, and only if, the i-th vertex is in the path.
 		 */
-		void to_string(string& s) const;
+		void to_string(std::string& s) const;
 };
 
 /// Template for a list of boolean_path objects.
 template<class T = size_t>
-using boolean_path_set = vector<boolean_path<T> >;
+using boolean_path_set = std::vector<boolean_path<T> >;
 
 /**
  * @brief Shortcut to convert all node_path objects in a list to a list
@@ -293,7 +291,6 @@ using boolean_path_set = vector<boolean_path<T> >;
 template<class T>
 void from_nps_to_bps(const node_path_set<T>& nps, size_t N, boolean_path_set<T>& bps);
 
-} // -- namespace utils
 } // -- namespace lgraph
 
 #include <lgraph/data_structures/boolean_path.cpp>

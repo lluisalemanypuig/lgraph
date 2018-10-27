@@ -8,14 +8,12 @@
 #include <sstream>
 #include <iomanip>
 #include <vector>
-using namespace std;
 
-// Custom includes
+// lgraph includes
 #include <lgraph/data_structures/xxgraph.hpp>
 #include <lgraph/utils/definitions.hpp>
 
 namespace lgraph {
-namespace utils {
 
 /**
  * @brief A path through a grpah seen as a list of nodes.
@@ -34,7 +32,7 @@ template<class T = _new_>
 class node_path {
 	private:
 		/// The list of nodes of this path.
-		vector<node> nodes;
+		std::vector<node> nodes;
 
 		/**
 		 * @brief The total weight of this path.
@@ -70,7 +68,7 @@ class node_path {
 		 * followed by '->' and this path's length.
 		 */
 		inline friend
-		ostream& operator<< (ostream& os, const node_path<T>& np) {
+		std::ostream& operator<< (std::ostream& os, const node_path<T>& np) {
 			if (np.size() > 0) {
 				os << np.to_string() << " (" << np.path_length << ")";
 			}
@@ -161,7 +159,7 @@ class node_path {
 		node last_node() const;
 
 		/// Returns a constant reference to the list of nodes.
-		const vector<node>& get_nodes() const;
+		const std::vector<node>& get_nodes() const;
 
 		/**
 		 * @brief Formats this path into a string with a plain format.
@@ -169,7 +167,7 @@ class node_path {
 		 * @returns Returns this path as a list of indexes, each representing
 		 * a node.
 		 */
-		string to_string() const;
+		std::string to_string() const;
 
 		/**
 		 * @brief Formats this path into a string with a plain format.
@@ -177,14 +175,13 @@ class node_path {
 		 * @param[out] s Stores this path as a list of indexes, each representing
 		 * a node.
 		 */
-		void to_string(string& s) const;
+		void to_string(std::string& s) const;
 };
 
 /// Template for a list of node_path objects.
 template<class T = _new_>
-using node_path_set = vector<node_path<T> >;
+using node_path_set = std::vector<node_path<T> >;
 
-} // -- namespace utils
 } // -- namespace lgraph
 
 #include <lgraph/data_structures/node_path.cpp>

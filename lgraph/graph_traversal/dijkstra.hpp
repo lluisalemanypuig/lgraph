@@ -7,21 +7,18 @@
 #include <vector>
 #include <queue>
 #include <stack>
-using namespace std;
 
-// Custom includes
+// lgraph includes
 #include <lgraph/data_structures/wxgraph.hpp>
 #include <lgraph/utils/logger.hpp>
 
 namespace lgraph {
-using namespace utils;
-
 namespace traversal {
 namespace dijkstra {
 
 	/// A pair encoding the distance to a node, and that node.
 	template<class T>
-	using djka_node = pair<T, node>;
+	using djka_node = std::pair<T, node>;
 
 	/**
 	 * @brief Terminating function.
@@ -36,7 +33,10 @@ namespace dijkstra {
 	 * @param vis The set of visited nodes.
 	 */
 	template<class T = size_t>
-	using djka_terminate = function<bool (const wxgraph<T> *G, const djka_node<T>& u, const vector<bool>& vis)>;
+	using djka_terminate =
+		std::function<
+			bool (const wxgraph<T> *G, const djka_node<T>& u, const std::vector<bool>& vis)
+		>;
 
 	/**
 	 * @brief Node processing function.
@@ -51,7 +51,10 @@ namespace dijkstra {
 	 * @param vis The set of visited nodes.
 	 */
 	template<class T = size_t>
-	using djka_process_current = function<void (const wxgraph<T> *G, const djka_node<T>& u, const vector<bool>& vis)>;
+	using djka_process_current =
+		std::function<
+			void (const wxgraph<T> *G, const djka_node<T>& u, const std::vector<bool>& vis)
+		>;
 
 	/**
 	 * @brief Node processing function.
@@ -70,7 +73,10 @@ namespace dijkstra {
 	 *	should be added or not.
 	 */
 	template<class T = size_t>
-	using djka_process_neighbour = function<bool (const wxgraph<T> *G, node u, node v, const T& w, const vector<bool>& vis)>;
+	using djka_process_neighbour =
+		std::function<
+			bool (const wxgraph<T> *G, node u, node v, const T& w, const std::vector<bool>& vis)
+		>;
 
 	/**
 	 * @brief Generic Dijkstra algorithm.
@@ -116,9 +122,12 @@ namespace dijkstra {
 	(
 		const wxgraph<T> *G,
 		node source,
-		djka_terminate<T> term =				[](const wxgraph<T> *, const djka_node<T>&, const vector<bool>&) -> bool { return false; },
-		djka_process_current<T> proc_curr =		[](const wxgraph<T> *, const djka_node<T>&, const vector<bool>&) -> void {},
-		djka_process_neighbour<T> proc_neigh =	[](const wxgraph<T> *, node, node, const T&, const vector<bool>&) -> bool { return true; }
+		djka_terminate<T> term =
+			[](const wxgraph<T> *, const djka_node<T>&, const std::vector<bool>&) -> bool { return false; },
+		djka_process_current<T> proc_curr =
+			[](const wxgraph<T> *, const djka_node<T>&, const std::vector<bool>&) -> void {},
+		djka_process_neighbour<T> proc_neigh =
+			[](const wxgraph<T> *, node, node, const T&, const std::vector<bool>&) -> bool { return true; }
 	);
 
 } // -- namespace dijkstra

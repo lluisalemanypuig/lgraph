@@ -1,16 +1,10 @@
 #pragma once
 
-// C++ incldues
-#include <vector>
-using namespace std;
-
-// Custom includes
+// lgraph includes
 #include <lgraph/data_structures/uxgraph.hpp>
 #include <lgraph/data_structures/wxgraph.hpp>
 
 namespace lgraph {
-using namespace utils;
-
 namespace networks {
 namespace metrics {
 namespace clustering {

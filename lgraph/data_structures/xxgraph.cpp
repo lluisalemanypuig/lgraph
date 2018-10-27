@@ -1,7 +1,6 @@
 #include <lgraph/data_structures/xxgraph.hpp>
 
 namespace lgraph {
-namespace utils {
 
 // PROTECTED
 
@@ -17,7 +16,7 @@ size_t xxgraph::get_neighbour_position(const neighbourhood& n, node u) const {
 }
 
 void xxgraph::initialise_adjacency_list(size_t n) {
-	adjacency_list = vector<neighbourhood>(n);
+	adjacency_list = std::vector<neighbourhood>(n);
 }
 
 void xxgraph::clear_adjacency_list() {
@@ -61,7 +60,7 @@ void xxgraph::remove_edge(const edge& e) {
 	remove_edge(e.first, e.second);
 }
 
-void xxgraph::remove_edges(const vector<edge>& edge_list) {
+void xxgraph::remove_edges(const std::vector<edge>& edge_list) {
 	for (const edge& e : edge_list) {
 		remove_edge(e.first, e.second);
 	}
@@ -81,7 +80,7 @@ size_t xxgraph::n_edges() const {
 	return num_edges;
 }
 
-void xxgraph::nodes(vector<node>& all_nodes) const {
+void xxgraph::nodes(std::vector<node>& all_nodes) const {
 	all_nodes.resize(adjacency_list.size());
 	for (size_t u = 0; u < all_nodes.size(); ++u) {
 		all_nodes[u] = u;
@@ -106,9 +105,9 @@ long long int xxgraph::genus() const {
 
 // FEATURES OF GRAPHS
 
-void xxgraph::get_adjacency_matrix(vector<vector<bool> >& adj_mat) const {
+void xxgraph::get_adjacency_matrix(std::vector<std::vector<bool> >& adj_mat) const {
 	const size_t N = n_nodes();
-	adj_mat = vector<vector<bool> >(N, vector<bool>(N, false));
+	adj_mat = std::vector<std::vector<bool> >(N, std::vector<bool>(N, false));
 	for (size_t u = 0; u < N; ++u) {
 		const neighbourhood& Nu = get_neighbours(u);
 		for (size_t v : Nu) {
@@ -117,7 +116,7 @@ void xxgraph::get_adjacency_matrix(vector<vector<bool> >& adj_mat) const {
 	}
 }
 
-void xxgraph::get_degree_sequence(map<size_t, size_t>& deg_seq) const {
+void xxgraph::get_degree_sequence(std::map<size_t, size_t>& deg_seq) const {
 	for (size_t u = 0; u < adjacency_list.size(); ++u) {
 		size_t deg = degree(u);
 		if (deg_seq.find(deg) == deg_seq.end()) {
@@ -157,5 +156,4 @@ size_t xxgraph::n_triangles() const {
 	return tris/3;
 }
 
-} // -- namespace utils
 } // -- namespace lgraph

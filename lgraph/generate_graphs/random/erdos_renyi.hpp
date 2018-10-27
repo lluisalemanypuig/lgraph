@@ -8,16 +8,13 @@
 #include <random>
 #include <vector>
 #include <cmath>
-using namespace std;
 
-// Custom includes
-#include <lgraph/data_structures/random_generator.hpp>
-#include <lgraph/data_structures/uugraph.hpp>
+// lgraph includes
 #include <lgraph/generate_graphs/classic/classic.hpp>
+#include <lgraph/data_structures/uugraph.hpp>
+#include <lgraph/utils/random_generator.hpp>
 
 namespace lgraph {
-using namespace utils;
-
 namespace networks {
 namespace random {
 
@@ -38,10 +35,11 @@ namespace random {
 	 * @param[out] Gs The binomial graph constructed.
 	 */
 	template<
-		class G = default_random_engine,
+		class G = std::default_random_engine,
 		typename cT = float
 	>
-	void Erdos_Renyi(crandom_generator<G,cT>& rg, size_t N, double p, uugraph& Gs);
+	void Erdos_Renyi
+	(utils::crandom_generator<G,cT>& rg, size_t N, double p, uugraph& Gs);
 
 } // -- namespace random
 } // -- namespace networks

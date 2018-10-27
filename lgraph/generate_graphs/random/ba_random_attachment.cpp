@@ -7,7 +7,7 @@ namespace random {
 	template<class G, typename dT>
 	void BA_random_attachment
 	(
-		drandom_generator<G,dT>& rg,
+		utils::drandom_generator<G,dT>& rg,
 		size_t n0, size_t m0, size_t T,
 		uugraph& Gs
 	)
@@ -16,7 +16,7 @@ namespace random {
 		Gs.init(n0);
 		
 		// initialize vertices to choose from
-		vector<size_t> idxs(n0);
+		std::vector<size_t> idxs(n0);
 		for (size_t i = 0; i < idxs.size(); ++i) {
 			idxs[i] = i;
 		}
@@ -43,7 +43,7 @@ namespace random {
 				
 				// the chosen node goes at the end, where it will not
 				// be chosen again.
-				swap(idxs[r], idxs[max_idx]);
+				std::swap(idxs[r], idxs[max_idx]);
 				--max_idx;
 			}
 			

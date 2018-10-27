@@ -6,7 +6,7 @@ namespace sparse6 {
 
 	// -- READING --
 
-	bool read(const string& filename, uugraph& g) {
+	bool read(const std::string& filename, uugraph& g) {
 		return read(filename.c_str(), g);
 	}
 
@@ -16,7 +16,7 @@ namespace sparse6 {
 
 	// -- WRITING --
 
-	bool write(const string& filename, const uugraph& g) {
+	bool write(const std::string& filename, const uugraph& g) {
 		return write(filename.c_str(), g);
 	}
 

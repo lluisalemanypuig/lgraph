@@ -13,11 +13,11 @@ namespace dfs {
 		dfs_process_neighbour proc_neig
 	)
 	{
-		logger<null_stream>& LOG = logger<null_stream>::get_logger();
-		LOG.log() << "DEPTH-FIRST SEARCH ALGORITHM" << endl;
+		utils::logger<utils::null_stream>& LOG = utils::logger<utils::null_stream>::get_logger();
+		LOG.log() << "DEPTH-FIRST SEARCH ALGORITHM" << std::endl;
 
-		vector<bool> vis(G->n_nodes(), false);
-		stack<node> S;
+		std::vector<bool> vis(G->n_nodes(), false);
+		std::stack<node> S;
 
 		vis[source] = true;
 		S.push(source);
@@ -27,43 +27,47 @@ namespace dfs {
 			node u = S.top();
 			S.pop();
 
-			LOG.log() << "Current node: " << u << endl;
+			LOG.log() << "Current node: " << u << std::endl;
 			LOG.log() << "... processing ...";
 
 			proc_curr(G, u, vis);
 
-			LOG.log() << " processed." << endl;
+			LOG.log() << " processed." << std::endl;
 
 			if (terminate(G, u, vis)) {
 
-				LOG.log() << "! Termination condition true for node " << u << endl;
+				LOG.log() << "! Termination condition true for node "
+						  << u << std::endl;
 
 				term = true;
 			}
 			else {
 				const neighbourhood& Nu = G->get_neighbours(u);
 
-				LOG.log() << "Iterate through neighbours of " << u << endl;
+				LOG.log() << "Iterate through neighbours of "
+						  << u << std::endl;
 
 				for (auto Nu_it = Nu.begin(); Nu_it != Nu.end(); ++Nu_it) {
 					node v = *Nu_it;
 
-					LOG.log() << "    Neighbour " << v << endl;
+					LOG.log() << "    Neighbour " << v << std::endl;
 					LOG.log() << "    ... processing ...";
 
 					proc_neig(G, u, v, vis);
 
-					LOG.log() << " processed." << endl;
+					LOG.log() << " processed." << std::endl;
 
 					if (not vis[v]) {
 
-						LOG.log() << "    Neighbour " << v << " was not visited before" << endl;
+						LOG.log() << "    Neighbour " << v
+								  << " was not visited before" << std::endl;
 
 						S.push(v);
 						vis[v] = true;
 					}
 					else {
-						LOG.log() << "    Neighbour " << v << " already visited" << endl;
+						LOG.log() << "    Neighbour " << v
+								  << " already visited" << std::endl;
 					}
 				}
 			}

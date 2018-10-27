@@ -3,6 +3,9 @@
 namespace lgraph {
 namespace traversal {
 
+using namespace std;
+using namespace bfs;
+
 	/* VERTEX-VERTEX */
 
 	// one path
@@ -25,7 +28,8 @@ namespace traversal {
 		};
 
 		bfs_process_current process_current =
-		[&paths, &p, &current_path, &target](const uxgraph *, node u, const vector<bool>&)
+		[&paths, &p, &current_path, &target]
+		(const uxgraph *, node u, const vector<bool>&)
 		{
 			current_path = paths.front();
 			paths.pop();
@@ -37,7 +41,8 @@ namespace traversal {
 
 		// function to compute the shortest distance from source to node v
 		bfs_process_neighbour process_neighbour =
-		[&paths, &current_path](const uxgraph *, node, node v, const vector<bool>& vis)
+		[&paths, &current_path]
+		(const uxgraph *, node, node v, const vector<bool>& vis)
 		{
 			if (not vis[v]) {
 				node_path<_new_> path_to_v = current_path;
@@ -116,7 +121,7 @@ namespace traversal {
 			size_t d_u;
 			if (ps[u].size() == 0) {
 				// not a single path from 'source' to 'u'
-				d_u = utils::inf_t<_new_>();
+				d_u = inf_t<_new_>();
 			}
 			else {
 				// at least one path from 'source' to 'u'
@@ -130,7 +135,7 @@ namespace traversal {
 			size_t d_v;
 			if (ps[v].size() == 0) {
 				// not a single path from 'source' to 'u'
-				d_v = utils::inf_t<_new_>();
+				d_v = inf_t<_new_>();
 			}
 			else {
 				// at least one path from 'source' to 'u'
@@ -169,11 +174,13 @@ namespace traversal {
 	/* ALL-ALL */
 
 	// one path
-	void uxpath(const uxgraph *G, vector<vector<node_path<_new_> > >& all_all_paths) {
+	void uxpath
+	(const uxgraph *G, vector<vector<node_path<_new_> > >& all_all_paths)
+	{
 		const size_t N = G->n_nodes();
 
 		// allocate memory...
-		vector<vector<size_t> > dist(N, vector<size_t>(N, utils::inf_t<_new_>()));
+		vector<vector<size_t> > dist(N, vector<size_t>(N, inf_t<_new_>()));
 		all_all_paths = vector<node_path_set<_new_> >(N, node_path_set<_new_>(N));
 
 		// initialise data
@@ -207,8 +214,8 @@ namespace traversal {
 					// the path is not moving
 					if (u == v) continue;
 					// the distances are infinite
-					if (dist[v][w] == utils::inf_t<_new_>()) continue;
-					if (dist[w][u] == utils::inf_t<_new_>()) continue;
+					if (dist[v][w] == inf_t<_new_>()) continue;
+					if (dist[w][u] == inf_t<_new_>()) continue;
 
 					_new_ d = dist[u][w] + dist[w][v];
 					if (d < dist[u][v]) {
@@ -223,12 +230,16 @@ namespace traversal {
 	}
 
 	// all paths
-	void uxpaths(const uxgraph *G, vector<vector<node_path_set<_new_> > >& all_all_paths) {
+	void uxpaths
+	(const uxgraph *G, vector<vector<node_path_set<_new_> > >& all_all_paths)
+	{
 		const size_t N = G->n_nodes();
 
 		// allocate memory...
-		vector<vector<size_t> > dist(N, vector<size_t>(N, utils::inf_t<_new_>()));
-		all_all_paths = vector<vector<node_path_set<_new_> > >(N, vector<node_path_set<_new_> >(N));
+		vector<vector<size_t> > dist(N, vector<size_t>(N, inf_t<_new_>()));
+		all_all_paths =
+			vector<vector<node_path_set<_new_> > >
+				(N, vector<node_path_set<_new_> >(N));
 
 		// initialise with edge weights (here always 1) the distance and the
 		// shortest-path from u to all its neighbours with {u,v}
@@ -252,7 +263,7 @@ namespace traversal {
 			for (size_t u = 0; u < N; ++u) {
 				for (size_t v = 0; v < N; ++v) {
 
-					if (dist[u][w] == utils::inf_t<_new_>() or dist[w][v] == utils::inf_t<_new_>()) continue;
+					if (dist[u][w] == inf_t<_new_>() or dist[w][v] == inf_t<_new_>()) continue;
 					if (u == v) continue;
 
 					size_t d = dist[u][w] + dist[w][v];

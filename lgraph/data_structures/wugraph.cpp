@@ -1,12 +1,11 @@
 #include <lgraph/data_structures/wugraph.hpp>
 
 namespace lgraph {
-namespace utils {
 
 // PROTECTED
 
 template<class T>
-void wugraph<T>::get_unique_edges(vector<pair<edge, T> >& unique_edges) const {
+void wugraph<T>::get_unique_edges(std::vector<std::pair<edge, T> >& unique_edges) const {
 	for (node i = 0; i < this->n_nodes(); ++i) {
 		const neighbourhood& ni = this->adjacency_list[i];
 		const weight_list<T>& wi = this->weights[i];
@@ -18,14 +17,14 @@ void wugraph<T>::get_unique_edges(vector<pair<edge, T> >& unique_edges) const {
 			// since this graph is UNDIRECTED the order of the
 			// indices in the pair does not matter
 			if (i < *ni_it) {
-				unique_edges.push_back( make_pair(edge(i, *ni_it), *wi_it) );
+				unique_edges.push_back( std::make_pair(edge(i, *ni_it), *wi_it) );
 			}
 		}
 	}
 }
 
 template<class T>
-void wugraph<T>::get_unique_edges(vector<edge>& unique_edges) const {
+void wugraph<T>::get_unique_edges(std::vector<edge>& unique_edges) const {
 	for (node i = 0; i < this->n_nodes(); ++i) {
 
 		const neighbourhood& ni = this->adjacency_list[i];
@@ -48,8 +47,8 @@ wugraph<T>::wugraph() : wxgraph<T>() { }
 template<class T>
 wugraph<T>::wugraph
 (
-	const vector<neighbourhood>& adj,
-	const vector<weight_list<T> >& wl
+	const std::vector<neighbourhood>& adj,
+	const std::vector<weight_list<T> >& wl
 )
 : wxgraph<T>()
 {
@@ -59,8 +58,8 @@ wugraph<T>::wugraph
 template<class T>
 wugraph<T>::wugraph
 (
-	const vector<neighbourhood>& adj,
-	const vector<weight_list<T> >& wl,
+	const std::vector<neighbourhood>& adj,
+	const std::vector<weight_list<T> >& wl,
 	size_t n_edges
 )
 : wxgraph<T>(adj,wl,n_edges)
@@ -72,8 +71,8 @@ wugraph<T>::~wugraph() { }
 template<class T>
 void wugraph<T>::init
 (
-	const vector<neighbourhood>& adj,
-	const vector<weight_list<T> >& wl
+	const std::vector<neighbourhood>& adj,
+	const std::vector<weight_list<T> >& wl
 )
 {
 	this->adjacency_list = adj;
@@ -218,8 +217,8 @@ template<class T>
 void wugraph<T>::remove_node(node u) {
 	assert( this->has_node(u) );
 
-	vector<neighbourhood>& adj = this->adjacency_list;
-	vector<weight_list<T> >& wei = this->weights;
+	std::vector<neighbourhood>& adj = this->adjacency_list;
+	std::vector<weight_list<T> >& wei = this->weights;
 
 	// decrease number of edges
 	this->num_edges -= adj[u].size();
@@ -266,5 +265,4 @@ uxgraph *wugraph<T>::to_unweighted() const {
 	return g;
 }
 
-} // -- namespace utils
 } // -- namespace lgraph

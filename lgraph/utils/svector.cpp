@@ -1,4 +1,4 @@
-#include <lgraph/data_structures/svector.hpp>
+#include <lgraph/utils/svector.hpp>
 
 namespace lgraph {
 namespace utils {
@@ -27,19 +27,19 @@ void svector<T, Alloc>::shrink_if() {
 template<class T, class Alloc>
 svector<T, Alloc>::svector() {
 	idx = 0;
-	elems = vector<T, Alloc>();
+	elems = std::vector<T, Alloc>();
 }
 
 template<class T, class Alloc>
 svector<T, Alloc>::svector(size_t n) {
 	idx = n;
-	elems = vector<T, Alloc>(n);
+	elems = std::vector<T, Alloc>(n);
 }
 
 template<class T, class Alloc>
 svector<T, Alloc>::svector(size_t n, const T& v) {
 	idx = n;
-	elems = vector<T, Alloc>(n,v);
+	elems = std::vector<T, Alloc>(n,v);
 }
 
 template<class T, class Alloc>
@@ -133,7 +133,7 @@ void svector<T, Alloc>::remove(size_t b, size_t e) {
 
 	// copy the elements from [e, idx) to
 	// the positions starting at b
-	copy(
+	std::copy(
 		elems.begin() + e, elems.begin() + idx,
 		elems.begin() + b
 	);
@@ -158,7 +158,7 @@ void svector<T, Alloc>::find_remove(const T& v) {
 }
 
 template<class T, class Alloc>
-void svector<T, Alloc>::remove_several(const set<size_t>& v) {
+void svector<T, Alloc>::remove_several(const std::set<size_t>& v) {
 	// traverse the set to the end (in reverse order)
 	for (auto it = v.rbegin(); it != v.rend(); ++it) {
 		only_remove( *it );
@@ -169,8 +169,8 @@ void svector<T, Alloc>::remove_several(const set<size_t>& v) {
 }
 
 template<class T, class Alloc>
-void svector<T, Alloc>::remove_several_s(const vector<size_t>& v) {
-#if not defined (NDEBUG)
+void svector<T, Alloc>::remove_several_s(const std::vector<size_t>& v) {
+#if defined (DEBUG)
 	// variables used to make sure the
 	// vector is increasingly sorted
 	size_t prev_elem = v[0];
@@ -179,7 +179,7 @@ void svector<T, Alloc>::remove_several_s(const vector<size_t>& v) {
 
 	// traverse the set to the end (in reverse order)
 	for (auto it = v.rbegin(); it != v.rend(); ++it) {
-#if not defined (NDEBUG)
+#if defined (DEBUG)
 		if (k > 0) {
 			// if k points at the second
 			// element or beyond
@@ -222,8 +222,8 @@ size_t svector<T, Alloc>::position(const T& v) const {
 }
 
 template<class T, class Alloc>
-void svector<T,Alloc>::as_vector(vector<T,Alloc>& v) const {
-	v = vector<T,Alloc>(elems.begin(), elems.begin() + size() );
+void svector<T,Alloc>::as_vector(std::vector<T,Alloc>& v) const {
+	v = std::vector<T,Alloc>(elems.begin(), elems.begin() + size() );
 }
 
 } // -- namespace utils

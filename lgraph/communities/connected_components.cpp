@@ -4,6 +4,9 @@ namespace lgraph {
 namespace networks {
 namespace communities {
 
+using namespace std;
+using namespace traversal::bfs;
+
 	size_t connected_components
 	(
 		const uugraph& g, vector<size_t>& comps,
@@ -26,13 +29,16 @@ namespace communities {
 			// search to.
 			return false;
 		};
-		bfs_process_current proc_cur = [&](const uxgraph *, node u, const vector<bool>&) -> void {
+		bfs_process_current proc_cur =
+		[&](const uxgraph *, node u, const vector<bool>&) -> void
+		{
 			// assign to vertex u the current label
 			comps[u] = label;
 			// increment the number of vertices in this component
 			++count;
 		};
-		bfs_process_neighbour proc_neigh = [](const uxgraph *, node, node, const vector<bool>&) -> void {
+		bfs_process_neighbour proc_neigh =
+		[](const uxgraph *, node, node, const vector<bool>&) -> void {
 			// no need to do anything
 		};
 

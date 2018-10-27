@@ -3,6 +3,9 @@
 namespace lgraph {
 namespace traversal {
 
+using namespace std;
+using namespace bfs;
+
 	/* VERTEX-VERTEX */
 
 	_new_ uxdistance(const uxgraph *G, node source, node target) {
@@ -15,7 +18,7 @@ namespace traversal {
 
 		// distance from source to target. Set to infinite
 		// for those targets not reachable from source.
-		_new_ st_dist = utils::inf_t<_new_>();
+		_new_ st_dist = inf_t<_new_>();
 
 		// DO terminate when target node is found. BFS guarantees that when this happens
 		// the shortest distance was found
@@ -26,7 +29,8 @@ namespace traversal {
 		};
 
 		bfs_process_current process_current =
-		[&distances, &current_dist, &target, &st_dist](const uxgraph *, node u, const vector<bool>&)
+		[&distances, &current_dist, &target, &st_dist]
+		(const uxgraph *, node u, const vector<bool>&)
 		{
 			current_dist = distances.front();
 			distances.pop();
@@ -37,7 +41,8 @@ namespace traversal {
 
 		// function to compute the shortest distance from source to node v
 		bfs_process_neighbour process_neighbour =
-		[&distances, &current_dist](const uxgraph *, node, node v, const vector<bool>& vis)
+		[&distances, &current_dist]
+		(const uxgraph *, node, node v, const vector<bool>& vis)
 		{
 			if (not vis[v]) {
 				distances.push(current_dist + 1);
@@ -63,15 +68,13 @@ namespace traversal {
 		const size_t N = G->n_nodes();
 
 		// distance from source to all nodes
-		ds = vector<_new_>(N, utils::inf_t<_new_>());
+		ds = vector<_new_>(N, inf_t<_new_>());
 		ds[source] = 0;
 
 		// do NOT terminate: iterate through all nodes
 		bfs_terminate terminate =
 		[](const uxgraph *, node, const vector<bool>&)
-		{
-			return false;
-		};
+		{ return false; };
 
 		// don't need to process the currently visited node
 		bfs_process_current process_current =
@@ -90,11 +93,13 @@ namespace traversal {
 		BFS(G, source, terminate, process_current, process_neighbour);
 	}
 
-	void uxdistance(const uxgraph *G, node source, vector<_new_>& ds, vector<size_t>& n_paths) {
+	void uxdistance
+	(const uxgraph *G, node source, vector<_new_>& ds, vector<size_t>& n_paths)
+	{
 		const size_t N = G->n_nodes();
 
 		// distance from source to all nodes
-		ds = vector<_new_>(N, utils::inf_t<_new_>());
+		ds = vector<_new_>(N, inf_t<_new_>());
 		ds[source] = 0;
 		// number of paths between each pair of nodes
 		n_paths = vector<size_t>(N, 0);
@@ -134,7 +139,7 @@ namespace traversal {
 		const size_t N = G->n_nodes();
 
 		// initialise data
-		dist = vector<vector<_new_> >(N, vector<_new_>(N, utils::inf_t<_new_>()));
+		dist = vector<vector<_new_> >(N, vector<_new_>(N, inf_t<_new_>()));
 
 		// initialise with edge weights (here always 1)
 		for (size_t u = 0; u < N; ++u) {
@@ -156,8 +161,8 @@ namespace traversal {
 					// the path is not moving
 					if (u == v) continue;
 					// the distances are infinite
-					if (dist[v][w] == utils::inf_t<_new_>()) continue;
-					if (dist[w][u] == utils::inf_t<_new_>()) continue;
+					if (dist[v][w] == inf_t<_new_>()) continue;
+					if (dist[w][u] == inf_t<_new_>()) continue;
 
 					size_t d = dist[u][w] + dist[w][v];
 					if (d < dist[u][v]) {
@@ -172,7 +177,7 @@ namespace traversal {
 		const size_t N = G->n_nodes();
 
 		// initialise data
-		dist = vector<vector<_new_> >(N, vector<_new_>(N, utils::inf_t<_new_>()));
+		dist = vector<vector<_new_> >(N, vector<_new_>(N, inf_t<_new_>()));
 		n_paths = vector<vector<size_t> >(N, vector<size_t>(N, 0));
 
 		// initialise with edge weights (here always 1) the distance and the
@@ -198,8 +203,8 @@ namespace traversal {
 					// the path is not moving
 					if (u == v) continue;
 					// the distances are infinite
-					if (dist[v][w] == utils::inf_t<_new_>()) continue;
-					if (dist[w][u] == utils::inf_t<_new_>()) continue;
+					if (dist[v][w] == inf_t<_new_>()) continue;
+					if (dist[w][u] == inf_t<_new_>()) continue;
 
 					size_t d = dist[u][w] + dist[w][v];
 					if (d < dist[u][v]) {

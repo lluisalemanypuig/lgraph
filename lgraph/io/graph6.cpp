@@ -1,4 +1,5 @@
 #include <lgraph/io/gsd6.hpp>
+#include <lgraph/utils/logger.hpp>
 
 #include <limits>
 #include <bitset>
@@ -6,6 +7,9 @@
 namespace lgraph {
 namespace io {
 namespace graph6 {
+
+using namespace std;
+using namespace utils;
 
 	// Convert the first 6 bits of 'k' into
 	// a decimal number considering that the
@@ -69,14 +73,15 @@ namespace graph6 {
 				// 258048 <= n <= 68,719,476,735
 
 				if (uint64_t(numeric_limits<size_t>::max()) <= uint64_t(68719476735)) {
-					cerr << "Warning: when parsing graph in graph6 format." << endl;
-					cerr << "    The amount of nodes will be read into a 'size_t' type" << endl;
-					cerr << "    which, in your system, may not have enough precision" << endl;
-					cerr << "    to fit the maximum amount of vertices of your graph." << endl;
-					cerr << "    The maximum amount of vertices allowed in graph6 is:" << endl;
-					cerr << "        68719476735" << endl;
-					cerr << "    Your 'size_t' can hold up to:" << endl;
-					cerr << "        " << numeric_limits<size_t>::max() << endl;
+					logger<cerr_stream>& LOG = logger<cerr_stream>::get_logger();
+					LOG.log() << "Warning: when parsing graph in graph6 format." << std::endl;
+					LOG.log() << "    The amount of nodes will be read into a 'size_t' type" << std::endl;
+					LOG.log() << "    which, in your system, may not have enough precision" << std::endl;
+					LOG.log() << "    to fit the maximum amount of vertices of your graph." << std::endl;
+					LOG.log() << "    The maximum amount of vertices allowed in graph6 is:" << std::endl;
+					LOG.log() << "        68719476735" << std::endl;
+					LOG.log() << "    Your 'size_t' can hold up to:" << std::endl;
+					LOG.log() << "        " << numeric_limits<size_t>::max() << std::endl;
 				}
 
 				++k;
@@ -264,7 +269,7 @@ namespace graph6 {
 		to_g6_string(g, data);
 
 		// write
-		fout << data << endl;
+		fout << data << std::endl;
 		fout.close();
 
 		return true;

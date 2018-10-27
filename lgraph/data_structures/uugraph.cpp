@@ -1,11 +1,10 @@
 #include <lgraph/data_structures/uugraph.hpp>
 
 namespace lgraph {
-namespace utils {
 
 // PROTECTED
 
-void uugraph::get_unique_edges(vector<edge>& unique_edges) const {
+void uugraph::get_unique_edges(std::vector<edge>& unique_edges) const {
 	// insert all edges into a set to get only those that are unique
 	for (node i = 0; i < n_nodes(); ++i) {
 
@@ -26,15 +25,15 @@ void uugraph::get_unique_edges(vector<edge>& unique_edges) const {
 
 uugraph::uugraph() : uxgraph() { }
 
-uugraph::uugraph(const vector<neighbourhood>& adj) : uxgraph() {
+uugraph::uugraph(const std::vector<neighbourhood>& adj) : uxgraph() {
 	init(adj);
 }
 
-uugraph::uugraph(const vector<neighbourhood>& adj, size_t n_edges) : uxgraph(adj, n_edges) { }
+uugraph::uugraph(const std::vector<neighbourhood>& adj, size_t n_edges) : uxgraph(adj, n_edges) { }
 
 uugraph::~uugraph() { }
 
-void uugraph::init(const vector<neighbourhood>& adj) {
+void uugraph::init(const std::vector<neighbourhood>& adj) {
 	adjacency_list = adj;
 
 	// count the amount of edges for only those pairs
@@ -96,7 +95,7 @@ void uugraph::remove_edge(node u, node v) {
 void uugraph::remove_node(node u) {
 	assert( has_node(u) );
 
-	vector<neighbourhood>& adj = adjacency_list;
+	std::vector<neighbourhood>& adj = adjacency_list;
 
 	// decrease number of edges
 	num_edges -= adj[u].size();
@@ -149,5 +148,4 @@ bool uugraph::is_directed() const {
 	return false;
 }
 
-} // -- namespace utils
 } // -- namespace lgraph

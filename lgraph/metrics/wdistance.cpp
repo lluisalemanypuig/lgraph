@@ -7,13 +7,13 @@ namespace distance {
 
 	template<class T>
 	T max_distance(const wxgraph<T> *G) {
-		vector<vector<T> > ds;
+		std::vector<std::vector<T> > ds;
 		traversal::wxdistances(G, ds);
 		return max_distance(G, ds);
 	}
 
 	template<class T>
-	T max_distance(const wxgraph<T> *G, const vector<vector<T> >& ds) {
+	T max_distance(const wxgraph<T> *G, const std::vector<std::vector<T> >& ds) {
 		const size_t N = G->n_nodes();
 		T D = 0;
 		for (size_t i = 0; i < N; ++i) {
@@ -21,8 +21,8 @@ namespace distance {
 			(
 				ds[i].begin() + i + 1, ds[i].end(), D,
 				[](T M, T d) {
-					if (d != utils::inf_t) {
-						M = max(M, d);
+					if (d != inf_t) {
+						M = std::max(M, d);
 					}
 					return M;
 				}
@@ -34,13 +34,13 @@ namespace distance {
 
 	template<class T>
 	double mean_distance(const wxgraph<T> *G) {
-		vector<vector<T> > ds;
+		std::vector<std::vector<T> > ds;
 		traversal::wxdistances(G, ds);
 		return mean_distance(G, ds);
 	}
 
 	template<class T>
-	double mean_distance(const wxgraph<T> *G, const vector<vector<T> >& ds) {
+	double mean_distance(const wxgraph<T> *G, const std::vector<std::vector<T> >& ds) {
 		const size_t N = G->n_nodes();
 		double m = 0;
 		for (size_t i = 0; i < N; ++i) {
@@ -50,7 +50,7 @@ namespace distance {
 			(
 				ds[i].begin(), ds[i].end(), 0.0,
 				[](double acc, T d) {
-					if (d != utils::inf_t) {
+					if (d != inf_t) {
 						acc += d;
 					}
 					return acc;
@@ -66,13 +66,13 @@ namespace distance {
 
 	template<class T>
 	double mcc(const wxgraph<T> *G) {
-		vector<double> cc;
+		std::vector<double> cc;
 		centralities::closeness(G, cc);
 		return mcc(G, cc);
 	}
 
 	template<class T>
-	double mcc(const wxgraph<T> *G, const vector<double>& cc) {
+	double mcc(const wxgraph<T> *G, const std::vector<double>& cc) {
 		double S = std::accumulate(cc.begin(), cc.end(), 0.0);
 		return S/G->n_nodes();
 	}
