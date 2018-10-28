@@ -567,7 +567,7 @@ int main(int argc, char *argv[]) {
 		execute_epidemic_models(Gs);
 	}
 	
-	if (estrcmp(to_file, "none") == 0) {
+	if (estrcmp(to_file, "none") != 0) {
 		io::edge_list::write(to_file, &Gs);
 	}
 	
