@@ -139,7 +139,9 @@ class static_bitset {
 		 *
 		 * Each character of the vector is interpreted as a byte.
 		 *
-		 * @ref bytes[i..i+7] = @e bytes[i].
+		 * @ref bytes[0..7] = @e bytes[0].
+		 *
+		 * @ref bytes[8..15] = @e bytes[1].
 		 */
 		void init_bytes(const std::vector<char>& bytes);
 		/**
@@ -147,7 +149,9 @@ class static_bitset {
 		 *
 		 * Each character of the string is interpreted as a byte.
 		 *
-		 * @ref bytes[i..i+7] = @e bytes[i].
+		 * @ref bytes[0..7] = @e bytes[0].
+		 *
+		 * @ref bytes[8..15] = @e bytes[1].
 		 */
 		void init_bytes(const std::string& bytes);
 
@@ -289,6 +293,20 @@ class static_bitset {
 		 */
 		static_bitset& operator^= (const static_bitset& bs); // bit-wise exclusive or
 
+		/**
+		 * @brief Adds a value to every group of 8 bits.
+		 *
+		 * Interpreting this bitset as a list of groups of 8 bits,
+		 * adds to each one of them the value @e k.
+		 *
+		 * That is, to each of the groups of bits 0..7, 8..15, 16..23, ...
+		 * adds to them the value @e k using the regular addition operation.
+		 *
+		 * The result is left in this bitset.
+		 * @param k Value between 0 and 255, both included.
+		 */
+		static_bitset& operator+= (char k);
+
 		/// Outputs this bitset formatted in a string.
 		inline friend
 		std::ostream& operator<< (std::ostream& os, const static_bitset& bitset) {
@@ -402,23 +420,44 @@ class static_bitset {
 		std::vector<bool> get_01() const;
 
 		/**
-		 * @brief Returns a reference to the bytes of the bitset
-		 * (see @ref bytes).
+		 * @brief Append the contents of this bitset to the end
+		 * of a string.
 		 *
 		 * The last byte may contain rubbish. The number of valid bits
 		 * in the last byte is equal to the remainder of the division
 		 * of the number of bytes by 8.
+		 *
+		 * @param[out] s Let @e k be a string such that
+		 * k[0..7] = @ref bytes[0], k[8..15] = @ref bytes[1], ...
+		 * The string k is appended at the end of @e s.
 		 */
-		unsigned char *get_bytes();
+		void append_bytes(std::string& s) const;
 		/**
-		 * @brief Returns a constant reference to the bytes
-		 * of the bitset (see @ref bytes).
+		 * @brief Returns a string whose characters are the bytes of
+		 * this bitset.
 		 *
 		 * The last byte may contain rubbish. The number of valid bits
 		 * in the last byte is equal to the remainder of the division
 		 * of the number of bytes by 8.
+		 *
+		 * @param[out] s A string 's' such that
+		 * s[0..7] = @ref bytes[0], s[8..15] = @ref bytes[1], ...
 		 */
-		const unsigned char *get_bytes() const;
+		void get_bytes(std::string& s) const;
+
+		/**
+		 * @brief Returns a string whose characters are the bytes of
+		 * this bitset.
+		 *
+		 * The last byte may contain rubbish. The number of valid bits
+		 * in the last byte is equal to the remainder of the division
+		 * of the number of bytes by 8.
+		 *
+		 * @returns Returns a string 's' such that
+		 * s[0..7] = @ref bytes[0], s[8..15] = @ref bytes[1], ...
+		 */
+		std::string get_bytes() const;
+
 };
 
 } // -- namespace utils

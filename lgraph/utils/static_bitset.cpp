@@ -223,6 +223,13 @@ static_bitset& static_bitset::operator^= (const static_bitset& bs) {
 	return *this;
 }
 
+static_bitset& static_bitset::operator+= (char k) {
+	for (size_t b = 0; b < n_bytes; ++b) {
+		bytes[b] += k;
+	}
+	return *this;
+}
+
 // SETTERS
 
 void static_bitset::set_all() {
@@ -491,12 +498,23 @@ std::vector<bool> static_bitset::get_01() const {
 	return v;
 }
 
-unsigned char *static_bitset::get_bytes() {
-	return bytes;
+void static_bitset::append_bytes(std::string& s) const {
+	for (size_t k = 0; k < n_bytes; ++k) {
+		s += bytes[k];
+	}
 }
 
-const unsigned char *static_bitset::get_bytes() const {
-	return bytes;
+void static_bitset::get_bytes(std::string& s) const {
+	s.resize(n_bytes);
+	for (size_t k = 0; k < n_bytes; ++k) {
+		s[k] = bytes[k];
+	}
+}
+
+std::string static_bitset::get_bytes() const {
+	std::string s;
+	get_bytes(s);
+	return s;
 }
 
 } // -- namespace utils

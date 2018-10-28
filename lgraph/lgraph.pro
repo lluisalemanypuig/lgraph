@@ -15,11 +15,11 @@ HEADERS += \
         data_structures/wxgraph.cpp \
         data_structures/wugraph.hpp \
         data_structures/wugraph.cpp \
+		data_structures/wdgraph.cpp \
+		data_structures/wdgraph.hpp \
         data_structures/uxgraph.hpp \
         data_structures/uugraph.hpp \
         data_structures/udgraph.hpp \
-        data_structures/wdgraph.cpp \
-        data_structures/wdgraph.hpp \
     data_structures/node_path.hpp \
         data_structures/node_path.cpp \
     data_structures/boolean_path.hpp \

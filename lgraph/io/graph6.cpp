@@ -1,15 +1,19 @@
 #include <lgraph/io/gsd6.hpp>
-#include <lgraph/utils/logger.hpp>
 
+// C++ includes
 #include <limits>
 #include <bitset>
+using namespace std;
+
+// lgraph includes
+#include <lgraph/utils/static_bitset.hpp>
+#include <lgraph/utils/logger.hpp>
 
 namespace lgraph {
+using namespace utils;
+
 namespace io {
 namespace graph6 {
-
-using namespace std;
-using namespace utils;
 
 	// Convert the first 6 bits of 'k' into
 	// a decimal number considering that the
@@ -25,15 +29,13 @@ using namespace utils;
 
 	// Converts the lower 6 bits starting at p
 	// of a decimal number b (unsigned integer).
-	// The last 'and' is there to prevent leading 1's
-	// b is an integer
-	#define SIZE_T_TO_BIN6(b,p)								\
-		((b & size_t(0x01) << size_t(p)) >> size_t(p))	|	\
-		((b & size_t(0x02) << size_t(p)) >> size_t(p))	|	\
-		((b & size_t(0x04) << size_t(p)) >> size_t(p))	|	\
-		((b & size_t(0x08) << size_t(p)) >> size_t(p))	|	\
-		((b & size_t(0x10) << size_t(p)) >> size_t(p))	|	\
-		((b & size_t(0x20) << size_t(p)) >> size_t(p))
+	#define SIZE_T_TO_BIN6(b,p)									\
+		((b & (size_t(0x01) << size_t(p))) >> size_t(p))	|	\
+		((b & (size_t(0x02) << size_t(p))) >> size_t(p))	|	\
+		((b & (size_t(0x04) << size_t(p))) >> size_t(p))	|	\
+		((b & (size_t(0x08) << size_t(p))) >> size_t(p))	|	\
+		((b & (size_t(0x10) << size_t(p))) >> size_t(p))	|	\
+		((b & (size_t(0x20) << size_t(p))) >> size_t(p))
 
 	#define THREE_BIN6_TO_SIZE_T(a,b,c)		\
 		BIN6_TO_SIZE_T((a - 63),12) +		\
@@ -77,7 +79,7 @@ using namespace utils;
 					LOG.log() << "Warning: when parsing graph in graph6 format." << std::endl;
 					LOG.log() << "    The amount of nodes will be read into a 'size_t' type" << std::endl;
 					LOG.log() << "    which, in your system, may not have enough precision" << std::endl;
-					LOG.log() << "    to fit the maximum amount of vertices of your graph." << std::endl;
+					LOG.log() << "    to fit the value equal to the amount of vertices of the graph." << std::endl;
 					LOG.log() << "    The maximum amount of vertices allowed in graph6 is:" << std::endl;
 					LOG.log() << "        68719476735" << std::endl;
 					LOG.log() << "    Your 'size_t' can hold up to:" << std::endl;
@@ -91,7 +93,8 @@ using namespace utils;
 			}
 		}
 
-		// initialise graph
+		// clear and initialise graph
+		g.clear();
 		g.init(n);
 
 		char byte = s[k] - 63;
@@ -154,40 +157,31 @@ using namespace utils;
 			s += static_cast<char>(63 + (0x03f & (SIZE_T_TO_BIN6(N,40))));
 		}
 
-		/* 'Store' the edges of the graph.
-		 */
+		// size of the upper triangular submatrix
+		size_t n_cells = (N%2 == 0 ? (N/2)*(N - 1) : ((N - 1)/2)*N);
+		// bits needed for the adjacency matrix
+		size_t n_bits = n_cells + (n_cells/6)*2;
 
-		char byte = 0;
-		char mask = 0x20;
-		char bit_idx = 6;	// skip the first two bits
+		static_bitset bs;
+		bs.init_unset(n_bits);
 
-		for (node j = 1; j < N; ++j) {
-			for (node i = 0; i < j; ++i) {
-				// output edge (i,j) iff i < j
-
-				if (g.has_edge(i,j)) {
-					byte |= (0xff & mask);
+		for (node u = 0; u < N; ++u) {
+			const neighbourhood& Nu = g.get_neighbours(u);
+			for (node v : Nu) {
+				if (u < v) {
+					size_t base_idx = (v%2 == 0 ? (v/2)*(v - 1) : ((v - 1)/2)*v);
+					size_t idx = base_idx + u;
+					size_t bit = idx + (idx/6 + 1)*2;
+					bs.set_bit(bit);
 				}
 
-				--bit_idx;
-				mask >>= 1;
-
-				// skip the first two bits of each byte
-				if (bit_idx == 0) {
-					s += static_cast<char>(byte + 63);
-
-					bit_idx = 6;
-					byte = 0;
-					mask = 0x20;
-				}
 			}
 		}
 
-		if (bit_idx != 0) {
-			// the last byte surely hasn't been added
-			// do it now
-			s += static_cast<char>(byte + 63);
-		}
+		// make characters printable
+		bs += 63;
+		// 'Store' the edges of the graph.
+		bs.append_bytes(s);
 	}
 
 	// -- READING --
@@ -231,14 +225,13 @@ using namespace utils;
 			return false;
 		}
 
-		// Bear in mind that the file may contain
-		// several lines, but only one will be read.
-
+		// skip the header and empty lines.
 		string data = "";
 		while (data == "" or data == ">>graph6<<") {
 			fin >> data;
 		}
 
+		// read all graphs and store them in the vector
 		do {
 			uugraph g;
 			from_g6_string(data, g);
