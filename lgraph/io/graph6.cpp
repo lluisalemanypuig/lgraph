@@ -2,7 +2,6 @@
 
 // C++ includes
 #include <limits>
-#include <bitset>
 using namespace std;
 
 // lgraph includes
@@ -157,6 +156,10 @@ namespace graph6 {
 			s += static_cast<char>(63 + (0x03f & (SIZE_T_TO_BIN6(N,40))));
 		}
 
+		/* Convert the upper triangular matrix of the adjacency matrix
+		 * into a string of bits.
+		 */
+
 		// size of the upper triangular submatrix
 		size_t n_cells = (N%2 == 0 ? (N/2)*(N - 1) : ((N - 1)/2)*N);
 		// bits needed for the adjacency matrix
@@ -174,7 +177,6 @@ namespace graph6 {
 					size_t bit = idx + (idx/6 + 1)*2;
 					bs.set_bit(bit);
 				}
-
 			}
 		}
 
