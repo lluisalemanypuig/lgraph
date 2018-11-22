@@ -2,6 +2,8 @@
 
 // MACROS
 
+#define uchar unsigned char
+
 #define mod_8(i) (i & 0x07)
 #define div_8(i) (i >> 3)
 #define is_div_8(i) (mod_8(i) == 0x00)
@@ -18,8 +20,8 @@
 
 // returns the byte corresponding to the i-th bit (in ordinary system)
 // with the corresponding bit b set to the specified value
-#define set_bit_(val, i) val | (1 << bit_pos(mod_8(i)))
-#define unset_bit_(val, i) val & ~(1 << bit_pos(mod_8(i)))
+#define   _set_bit(val, i) static_cast<uchar>(val |  (1 << bit_pos(mod_8(i))))
+#define _unset_bit(val, i) static_cast<uchar>(val & ~(1 << bit_pos(mod_8(i))))
 
 // returns the i-th bit's value
 #define get_bit(val, i) ((val & (0x80 >> mod_8(i))) >> bit_pos(i))
@@ -81,7 +83,7 @@ void static_bitset::init(size_t b) {
 		// ... and reserve the new space
 		n_bits = b;
 		n_bytes = k_bytes;
-		bytes = (unsigned char *)malloc(n_bytes*sizeof(unsigned char));
+		bytes = static_cast<uchar *>(malloc(n_bytes*sizeof(unsigned char)));
 	}
 }
 
@@ -103,7 +105,7 @@ void static_bitset::init_01(const std::string& zerones) {
 	init_unset(zerones.length());
 	for (size_t i = 0; i < n_bits; ++i) {
 		if (zerones[i] == '1') {
-			bytes[byte(i)] = set_bit_(bytes[byte(i)], i);
+			bytes[byte(i)] = _set_bit(bytes[byte(i)], i);
 		}
 	}
 }
@@ -112,7 +114,7 @@ void static_bitset::init_01(const std::vector<bool>& bits) {
 	init_unset(bits.size());
 	for (size_t i = 0; i < n_bits; ++i) {
 		if (bits[i]) {
-			bytes[byte(i)] = set_bit_(bytes[byte(i)], i);
+			bytes[byte(i)] = _set_bit(bytes[byte(i)], i);
 		}
 	}
 }
@@ -120,14 +122,14 @@ void static_bitset::init_01(const std::vector<bool>& bits) {
 void static_bitset::init_bytes(const std::vector<char>& bts) {
 	init(8*bts.size());
 	for (size_t i = 0; i < n_bytes; ++i) {
-		bytes[i] = bts[i];
+		bytes[i] = static_cast<uchar>(bts[i]);
 	}
 }
 
 void static_bitset::init_bytes(const std::string& bts) {
 	init(8*bts.length());
 	for (size_t i = 0; i < n_bytes; ++i) {
-		bytes[i] = bts[i];
+		bytes[i] = static_cast<uchar>(bts[i]);
 	}
 }
 
@@ -142,7 +144,13 @@ void static_bitset::clear() {
 
 static_bitset& static_bitset::operator= (const static_bitset& bs) {
 	init(bs.n_bits);
-	bytes = (unsigned char *)memcpy( (void *)bytes, (void *)bs.bytes, n_bytes);
+	bytes = static_cast<uchar *>(
+		memcpy(
+			static_cast<void *>(bytes),
+			static_cast<void *>(bs.bytes),
+			n_bytes
+		)
+	);
 	return *this;
 }
 
@@ -245,11 +253,11 @@ void static_bitset::unset_all() {
 }
 
 void static_bitset::set_bit(size_t i) {
-	bytes[byte(i)] = set_bit_(bytes[byte(i)], i);
+	bytes[byte(i)] = _set_bit(bytes[byte(i)], i);
 }
 
 void static_bitset::unset_bit(size_t i) {
-	bytes[byte(i)] = unset_bit_(bytes[byte(i)], i);
+	bytes[byte(i)] = _unset_bit(bytes[byte(i)], i);
 }
 
 void static_bitset::flip() {
@@ -333,7 +341,7 @@ bool static_bitset::all() const {
 	}
 
 	unsigned char last = last_byte(bytes[n_bytes - 1], n_bits);
-	unsigned char sign = (1 << mod_8(n_bits)) - 1;
+	unsigned char sign = static_cast<uchar>(1 << mod_8(n_bits)) - 1;
 	return last == sign;
 }
 
@@ -404,15 +412,16 @@ size_t static_bitset::count() const {
 				((0x01 & bytes[b]) >> 0);
 	}
 
-	char last = bytes[n_bytes - 1];
+	unsigned char last = bytes[n_bytes - 1];
+
 	switch (rem) {
-		case 7: c += ((0x02 & last) >> 1);
-		case 6: c += ((0x04 & last) >> 2);
-		case 5: c += ((0x08 & last) >> 3);
-		case 4: c += ((0x10 & last) >> 4);
-		case 3: c += ((0x20 & last) >> 5);
-		case 2: c += ((0x40 & last) >> 6);
-		case 1: c += ((0x80 & last) >> 7);
+		case 7: c += ((0x02 & last) >> 1); [[clang::fallthrough]];
+		case 6: c += ((0x04 & last) >> 2); [[clang::fallthrough]];
+		case 5: c += ((0x08 & last) >> 3); [[clang::fallthrough]];
+		case 4: c += ((0x10 & last) >> 4); [[clang::fallthrough]];
+		case 3: c += ((0x20 & last) >> 5); [[clang::fallthrough]];
+		case 2: c += ((0x40 & last) >> 6); [[clang::fallthrough]];
+		case 1: c += ((0x80 & last) >> 7); [[clang::fallthrough]];
 		default: break;
 	}
 	return c;
@@ -440,15 +449,15 @@ void static_bitset::get_01(std::string& s, const std::string& sep) const {
 		s.pop_back();
 	}
 
-	char last = bytes[n_bytes - 1];
+	unsigned char last = bytes[n_bytes - 1];
 	switch (rem) {
-		case 7: s += char('0' + ((0x02 & last) >> 1));
-		case 6: s += char('0' + ((0x04 & last) >> 2));
-		case 5: s += char('0' + ((0x08 & last) >> 3));
-		case 4: s += char('0' + ((0x10 & last) >> 4));
-		case 3: s += char('0' + ((0x20 & last) >> 5));
-		case 2: s += char('0' + ((0x40 & last) >> 6));
-		case 1: s += char('0' + ((0x80 & last) >> 7));
+		case 7: s += char('0' + ((0x02 & last) >> 1)); [[clang::fallthrough]];
+		case 6: s += char('0' + ((0x04 & last) >> 2)); [[clang::fallthrough]];
+		case 5: s += char('0' + ((0x08 & last) >> 3)); [[clang::fallthrough]];
+		case 4: s += char('0' + ((0x10 & last) >> 4)); [[clang::fallthrough]];
+		case 3: s += char('0' + ((0x20 & last) >> 5)); [[clang::fallthrough]];
+		case 2: s += char('0' + ((0x40 & last) >> 6)); [[clang::fallthrough]];
+		case 1: s += char('0' + ((0x80 & last) >> 7)); [[clang::fallthrough]];
 		default: break;
 	}
 }
@@ -479,15 +488,15 @@ void static_bitset::get_01(std::vector<bool>& v) const {
 	}
 
 	b8 = 8*(n_bytes - 1);
-	char last = bytes[n_bytes - 1];
+	unsigned char last = bytes[n_bytes - 1];
 	switch (rem) {
-		case 7: v[b8 + 6] = ((0x02 & last) >> 1);
-		case 6: v[b8 + 5] = ((0x04 & last) >> 2);
-		case 5: v[b8 + 4] = ((0x08 & last) >> 3);
-		case 4: v[b8 + 3] = ((0x10 & last) >> 4);
-		case 3: v[b8 + 2] = ((0x20 & last) >> 5);
-		case 2: v[b8 + 1] = ((0x40 & last) >> 6);
-		case 1: v[b8    ] = ((0x80 & last) >> 7);
+		case 7: v[b8 + 6] = ((0x02 & last) >> 1); [[clang::fallthrough]];
+		case 6: v[b8 + 5] = ((0x04 & last) >> 2); [[clang::fallthrough]];
+		case 5: v[b8 + 4] = ((0x08 & last) >> 3); [[clang::fallthrough]];
+		case 4: v[b8 + 3] = ((0x10 & last) >> 4); [[clang::fallthrough]];
+		case 3: v[b8 + 2] = ((0x20 & last) >> 5); [[clang::fallthrough]];
+		case 2: v[b8 + 1] = ((0x40 & last) >> 6); [[clang::fallthrough]];
+		case 1: v[b8    ] = ((0x80 & last) >> 7); [[clang::fallthrough]];
 		default: break;
 	}
 }
@@ -507,7 +516,7 @@ void static_bitset::append_bytes(std::string& s) const {
 void static_bitset::get_bytes(std::string& s) const {
 	s.resize(n_bytes);
 	for (size_t k = 0; k < n_bytes; ++k) {
-		s[k] = bytes[k];
+		s[k] = static_cast<char>(bytes[k]);
 	}
 }
 

@@ -162,6 +162,14 @@ namespace graph6 {
 
 		// size of the upper triangular submatrix
 		size_t n_cells = (N%2 == 0 ? (N/2)*(N - 1) : ((N - 1)/2)*N);
+		/* Note to self: this computation of 'n_cells' is clearly unnecessary.
+		 * The result could be calculated using (N*(N-1))/2, without worrying
+		 * about the result of the division since N*(N - 1) is always an even
+		 * number. However, since N may be really large, the product N*(N - 1)
+		 * may overflow hence giving wrong results. The computation above is
+		 * an attempt to obtain a safer computation.
+		 */
+
 		// bits needed for the adjacency matrix
 		size_t n_bits = n_cells + (n_cells/6)*2;
 
@@ -173,6 +181,11 @@ namespace graph6 {
 			for (node v : Nu) {
 				if (u < v) {
 					size_t base_idx = (v%2 == 0 ? (v/2)*(v - 1) : ((v - 1)/2)*v);
+					/* Note to self: the computation of 'base_idx' is similar to
+					 * that of 'n_cells'. If this computation looks weird read
+					 * the comments below 'n_cells' for an explanation.
+					 */
+
 					size_t idx = base_idx + u;
 					size_t bit = idx + (idx/6 + 1)*2;
 					bs.set_bit(bit);
@@ -182,6 +195,7 @@ namespace graph6 {
 
 		// make characters printable
 		bs += 63;
+
 		// 'Store' the edges of the graph.
 		bs.append_bytes(s);
 	}
