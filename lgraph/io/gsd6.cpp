@@ -1,7 +1,7 @@
 #include <lgraph/io/gsd6.hpp>
 
 // C++ includes
-#include <limits>
+#include <iostream>
 using namespace std;
 
 // lgraph includes
@@ -26,8 +26,8 @@ namespace io {
 		c = s[k];
 		if (
 			s[k] == sparse6_first() or
-			incremental_sparse6_first() or
-			digraph6_first()
+			s[k] == incremental_sparse6_first() or
+			s[k] == digraph6_first()
 		)
 		{
 			++k;
@@ -74,6 +74,12 @@ namespace io {
 					 << "the graph6 format" << endl;
 				return false;
 			}
+		}
+		else {
+			cerr << "lgraph::io::gsd6_string_format - Error:" << endl;
+			cerr << "    Header '" << header << "' not recognised as any of the" << endl;
+			cerr << "    binary formats graph6, sparse6, digraph6" << endl;
+			return false;
 		}
 
 		return true;
