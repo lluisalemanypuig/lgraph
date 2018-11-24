@@ -1,5 +1,8 @@
 #include <lgraph/data_structures/uxgraph.hpp>
 
+// C includes
+#include <assert.h>
+
 namespace lgraph {
 
 // PUBLIC

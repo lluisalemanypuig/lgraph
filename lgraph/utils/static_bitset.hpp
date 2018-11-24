@@ -188,14 +188,14 @@ class static_bitset {
 		 * @param bs Bitset to be compared again.
 		 * @return Returns a bitset s where the i-th bit of s, s[i], is
 		 *
-		 *		s[i] = ~(this[i]) | bs[i] = this[i] -> bs[i]
-		 *
+		 *		s[i] = ~(this[i]) | bs[i]
 		 *  * 0 <= 0: 1
 		 *  * 0 <= 1: 1
 		 *  * 1 <= 0: 0
 		 *  * 1 <= 1: 1
 		 */
 		static_bitset operator<= (const static_bitset& bs) const; // bit-wise lt
+
 		/**
 		 * @brief Unary not operator.
 		 * @return Returns the bits of this bitset flipped (what was a 1
@@ -206,93 +206,80 @@ class static_bitset {
 		 * @brief Bitset difference operator.
 		 * @param bs Bitset to be operated with.
 		 * @return Returns a bitset s where the i-th bit of s, s[i], is
-		 * s[i] = this[i] & ~bs[i]:
 		 *
+		 *		s[i] = this[i] & ~bs[i]
 		 *  * 1 - 0 = 1
 		 *  * 1 - 1 = 1
 		 *  * 0 - . = 0
 		 */
 		static_bitset operator- (const static_bitset& bs) const; // bit-wise d
 		/**
-		 * @brief And operator.
+		 * @brief Bitwise @e and operator.
 		 * @return Returns a bitset s where the i-th bit of s, s[i], is
 		 *
-		 *		s[i] := this[i] & bs[i]:
+		 *		s[i] := this[i] & bs[i]
 		 */
 		static_bitset operator& (const static_bitset& bs) const; // bit-wise and
 		/**
-		 * @brief Or operator.
+		 * @brief Bitwise @e or operator.
 		 * @return Returns a bitset s where the i-th bit of s, s[i], is
 		 *
-		 *		s[i] := this[i] | bs[i]:
+		 *		s[i] := this[i] | bs[i]
 		 */
 		static_bitset operator| (const static_bitset& bs) const; // bit-wise or
 		/**
-		 * @brief Exclusive-or operator.
+		 * @brief Bitwise @e exclusive-or operator.
 		 * @return Returns a bitset s where the i-th bit of s, s[i], is
 		 *
-		 *		s[i] := this[i] ^ bs[i]:
+		 *		s[i] := this[i] ^ bs[i]
 		 */
 		static_bitset operator^ (const static_bitset& bs) const; // bit-wise exclusive or
 		/**
-		 * @brief Equality operator.
+		 * @brief Bitwise @e equality operator.
 		 * @return Returns a bitset s where the i-th bit of s is set to 1
 		 * if, and only if, the i-th bit of this bitset and the i-th of @e bs
 		 * are equal.
 		 *
-		 *		s[i] := ~(this[i]^bs[i])
+		 *		s[i] := ~(this[i] ^ bs[i])
 		 */
 		static_bitset operator== (const static_bitset& bs) const; // bit-wise exclusive nor
 
 		/**
-		 * @brief Difference operator.
+		 * @brief Bitwise @e difference operator.
 		 *
-		 * See @ref operator-(const static_bitset&)const
-		 * for details.
+		 * See @ref operator-(const static_bitset&)const for details.
+		 * @returns Modifies this bitset so that:
 		 *
-		 * * The operation performed is:
-		 \verbatim
-		 *this = *this - bs
-		 \endverbatim
+		 *		this = *this - bs
 		 */
 		static_bitset& operator-= (const static_bitset& bs); // bit-wise d
 		/**
-		 * @brief And operator.
+		 * @brief Bitwise @e and operator.
 		 *
-		 * See @ref operator&(const static_bitset&)const
-		 * for details.
+		 * See @ref operator&(const static_bitset&)const for details.
+		 * @returns Modifies this bitset so that:
 		 *
-		 * * The operation performed is:
-		 \verbatim
-		 *this = *this & bs
-		 \endverbatim
+		 *		this = *this & bs
 		 */
 		static_bitset& operator&= (const static_bitset& bs); // bit-wise and
 		/**
-		 * @brief Or operator.
+		 * @brief Bitwise @e or operator.
 		 *
-		 * See @ref operator|(const static_bitset&)const
-		 * for details.
+		 * See @ref operator|(const static_bitset&)const for details.
+		 * @returns Modifies this bitset so that:
 		 *
-		 * The operation performed is:
-		 \verbatim
-		 *this = *this | bs
-		 \endverbatim
+		 *		this = *this | bs
 		 */
 		static_bitset& operator|= (const static_bitset& bs); // bit-wise or
 		/**
-		 * @brief Exclusive-or operator.
+		 * @brief Bitwise @e exclusive-or operator.
 		 *
-		 * See @ref operator^(const static_bitset&)const
-		 * for details.
+		 * See @ref operator^(const static_bitset&)const for details.
+		 * @returns Modifies this bitset so that:
 		 *
-		 * * The operation performed is:
-		 \verbatim
-		 *this = *this ^ bs
-		 \endverbatim
+		 *		this = *this ^ bs
 		 */
 		static_bitset& operator^= (const static_bitset& bs); // bit-wise exclusive or
-
 		/**
 		 * @brief Adds a value to every group of 8 bits.
 		 *
@@ -304,6 +291,10 @@ class static_bitset {
 		 *
 		 * The result is left in this bitset.
 		 * @param k Value between 0 and 255, both included.
+		 * @returns Modifies this bitset so that:
+		 *
+		 *		s[i..i+7] = s[i..i+7] + k
+		 * for i in 0,8,16,...
 		 */
 		static_bitset& operator+= (char k);
 

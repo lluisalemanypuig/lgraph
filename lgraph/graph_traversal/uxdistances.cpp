@@ -64,7 +64,7 @@ using namespace bfs;
 
 	/* VERTEX-ALL */
 
-	void uxdistance(const uxgraph *G, node source, vector<_new_>& ds) {
+	void uxdistance(const uxgraph *G, node source, std::vector<_new_>& ds) {
 		const size_t N = G->n_nodes();
 
 		// distance from source to all nodes
@@ -94,7 +94,7 @@ using namespace bfs;
 	}
 
 	void uxdistance
-	(const uxgraph *G, node source, vector<_new_>& ds, vector<size_t>& n_paths)
+	(const uxgraph *G, node source, std::vector<_new_>& ds, std::vector<size_t>& n_paths)
 	{
 		const size_t N = G->n_nodes();
 
@@ -135,7 +135,7 @@ using namespace bfs;
 
 	/* ALL-ALL */
 
-	void uxdistances(const uxgraph *G, vector<vector<_new_> >& dist) {
+	void uxdistances(const uxgraph *G, std::vector<std::vector<_new_> >& dist) {
 		const size_t N = G->n_nodes();
 
 		// initialise data
@@ -173,7 +173,12 @@ using namespace bfs;
 		}
 	}
 
-	void uxdistances(const uxgraph *G, vector<vector<_new_> >& dist, vector<vector<size_t> >& n_paths) {
+	void uxdistances(
+		const uxgraph *G,
+		std::vector<std::vector<_new_> >& dist,
+		std::vector<std::vector<size_t> >& n_paths
+	)
+	{
 		const size_t N = G->n_nodes();
 
 		// initialise data

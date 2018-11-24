@@ -65,7 +65,7 @@ using namespace bfs;
 	/* VERTEX-ALL */
 
 	// one path
-	void uxpath(const uxgraph *G, node source, vector<node_path<_new_> >& ps) {
+	void uxpath(const uxgraph *G, node source, std::vector<node_path<_new_> >& ps) {
 		const size_t N = G->n_nodes();
 
 		// path from source to target
@@ -97,7 +97,7 @@ using namespace bfs;
 	}
 
 	// all paths
-	void uxpaths(const uxgraph *G, node source, vector<node_path_set<_new_> >& ps) {
+	void uxpaths(const uxgraph *G, node source, std::vector<node_path_set<_new_> >& ps) {
 		const size_t N = G->n_nodes();
 
 		// all paths from source to a target
@@ -175,12 +175,12 @@ using namespace bfs;
 
 	// one path
 	void uxpath
-	(const uxgraph *G, vector<vector<node_path<_new_> > >& all_all_paths)
+	(const uxgraph *G, std::vector<std::vector<node_path<_new_> > >& all_all_paths)
 	{
 		const size_t N = G->n_nodes();
 
 		// allocate memory...
-		vector<vector<size_t> > dist(N, vector<size_t>(N, inf_t<_new_>()));
+		vector<vector<_new_> > dist(N, vector<_new_>(N, inf_t<_new_>()));
 		all_all_paths = vector<node_path_set<_new_> >(N, node_path_set<_new_>(N));
 
 		// initialise data
@@ -231,7 +231,7 @@ using namespace bfs;
 
 	// all paths
 	void uxpaths
-	(const uxgraph *G, vector<vector<node_path_set<_new_> > >& all_all_paths)
+	(const uxgraph *G, std::vector<std::vector<node_path_set<_new_> > >& all_all_paths)
 	{
 		const size_t N = G->n_nodes();
 

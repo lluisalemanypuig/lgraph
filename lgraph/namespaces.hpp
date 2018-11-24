@@ -66,7 +66,7 @@ namespace lgraph {
 	 * file in several formats. The formats supported are:
 	 * 
 	 * - edge list (see @ref io::edge_list)
-	 * - graph6 (see @ref io::graph6, io::sparse6, io::digraph6)
+	 * - binary formats (see @ref io::graph6, io::sparse6, io::digraph6)
 	 * 
 	 * Each format is detailed in the corresponding function.
 	 * 

@@ -30,8 +30,8 @@ namespace io {
  * a directed graph the same pair represents the edge (u -> v).
  *
  * Reading/Writing a directed/undirected from/to a file graph
- * can be done with methods @ref read(const string&, uxgraph *)
- * and @ref write(const string&, const uxgraph *).
+ * can be done with methods @ref read(const std::string&, uxgraph *)
+ * and @ref write(const std::string&, const uxgraph *).
  *
  * This format can be enriched with more information about
  * the edges such as their weight. In this case, if an edge

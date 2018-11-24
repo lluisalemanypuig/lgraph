@@ -1,16 +1,17 @@
 #include <lgraph/communities/communities.hpp>
 
+using namespace std;
+
 namespace lgraph {
+using namespace traversal::bfs;
+
 namespace networks {
 namespace communities {
 
-using namespace std;
-using namespace traversal::bfs;
-
 	size_t connected_components
 	(
-		const uugraph& g, vector<size_t>& comps,
-		vector<size_t> *bins
+		const uugraph& g, std::vector<size_t>& comps,
+		std::vector<size_t> *bins
 	)
 	{
 		const size_t N = g.n_nodes();
@@ -66,8 +67,8 @@ using namespace traversal::bfs;
 
 	size_t connected_components
 	(
-		const udgraph& g, vector<size_t>& comps,
-		vector<size_t> *bins
+		const udgraph& g, std::vector<size_t>& comps,
+		std::vector<size_t> *bins
 	)
 	{
 		comps = vector<size_t>(g.n_nodes(), g.n_nodes());

@@ -48,7 +48,7 @@ namespace graph6 {
 		BIN6_TO_SIZE_T((e - 63), 6) +		\
 		BIN6_TO_SIZE_T((f - 63), 0)
 
-	bool from_g6_string(const string& data, uugraph& g) {
+	bool from_g6_string(const std::string& data, uugraph& g) {
 		// error control: if the format of the string is not
 		// for graph6, stop
 
@@ -147,7 +147,7 @@ namespace graph6 {
 		return true;
 	}
 
-	void to_g6_string(const uugraph& g, string& s) {
+	void to_g6_string(const uugraph& g, std::string& s) {
 		size_t N = g.n_nodes();
 
 		// put header into the string
@@ -228,7 +228,7 @@ namespace graph6 {
 
 	// -- READING --
 
-	bool read(const string& filename, uugraph& g) {
+	bool read(const std::string& filename, uugraph& g) {
 		return read(filename.c_str(), g);
 	}
 
@@ -256,11 +256,11 @@ namespace graph6 {
 		return from_g6_string(data, g);
 	}
 
-	bool read(const string& filename, vector<uugraph>& gs) {
+	bool read(const std::string& filename, std::vector<uugraph>& gs) {
 		return read(filename.c_str(), gs);
 	}
 
-	bool read(const char *filename, vector<uugraph>& gs) {
+	bool read(const char *filename, std::vector<uugraph>& gs) {
 		ifstream fin;
 		fin.open(filename);
 		if (not fin.is_open()) {
@@ -295,7 +295,7 @@ namespace graph6 {
 
 	// -- WRITING --
 
-	bool write(const string& filename, const uugraph& g) {
+	bool write(const std::string& filename, const uugraph& g) {
 		return write(filename.c_str(), g);
 	}
 

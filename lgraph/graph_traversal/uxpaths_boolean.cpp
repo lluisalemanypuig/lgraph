@@ -24,7 +24,7 @@ using namespace std;
 	/* VERTEX-ALL */
 
 	// one path
-	void uxpath(const uxgraph *G, node source, vector<boolean_path<_new_> >& ps) {
+	void uxpath(const uxgraph *G, node source, std::vector<boolean_path<_new_> >& ps) {
 		vector<node_path<_new_> > nps;
 		uxpath(G, source, nps);
 		for (const node_path<_new_>& p : nps) {
@@ -34,7 +34,7 @@ using namespace std;
 	}
 
 	// all paths
-	void uxpaths(const uxgraph *G, node source, vector<boolean_path_set<_new_> >& ps) {
+	void uxpaths(const uxgraph *G, node source, std::vector<boolean_path_set<_new_> >& ps) {
 		const size_t N = G->n_nodes();
 
 		vector<node_path_set<_new_> > node_ps;
@@ -50,7 +50,7 @@ using namespace std;
 
 	// one path
 	void uxpath
-	(const uxgraph *G, vector<vector<boolean_path<_new_> > >& all_all_paths)
+	(const uxgraph *G, std::vector<std::vector<boolean_path<_new_> > >& all_all_paths)
 	{
 		const size_t N = G->n_nodes();
 
@@ -65,7 +65,7 @@ using namespace std;
 
 	// all paths
 	void uxpaths
-	(const uxgraph *G, vector<vector<boolean_path_set<_new_> > >& all_all_paths)
+	(const uxgraph *G, std::vector<std::vector<boolean_path_set<_new_> > >& all_all_paths)
 	{
 		const size_t N = G->n_nodes();
 
