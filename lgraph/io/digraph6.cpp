@@ -11,7 +11,7 @@ namespace digraph6 {
 	}
 
 	bool read(const char *filename, udgraph& g) {
-
+		return true;
 	}
 
 	// -- WRITING --
@@ -21,7 +21,7 @@ namespace digraph6 {
 	}
 
 	bool write(const char *filename, const udgraph& g) {
-
+		return true;
 	}
 
 } // -- namespace digraph6

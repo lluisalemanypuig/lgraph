@@ -10,6 +10,66 @@
 namespace lgraph {
 namespace io {
 
+	/**
+	 * @brief Three different types of binary formats for storing graphs.
+	 *
+	 * See details in @ref gsd6_format::Graph6, @ref gsd6_format::Graph6,
+	 * @ref gsd6_format::Sparse6, @ref gsd6_format::Incremental_Sparse6
+	 * and @ref gsd6_format::DiGraph6.
+	 */
+	enum class gsd6_format : int8_t {
+		/// @ref sparse6 format. String starts with ':'. See namespace sparse6 for
+		/// details.
+		Sparse6,
+		/// Incremental @ref sparse6 format. String starts with ';'. See namespace
+		/// sparse6 for details.
+		Incremental_Sparse6,
+		/// @ref digraph6 format. String starts with '&'. See namespace digraph6
+		/// for details.
+		DiGraph6,
+		/// @ref graph6 format. String starts with none of the above. See namespace
+		/// graph6 for details.
+		Graph6,
+	};
+
+	/**
+	 * @brief Returns the format of the binary encoding of a graph in @e s.
+	 *
+	 * If a format mismatch occurs an error message will be output.
+	 * @param[in] s A graph codified in a string.
+	 * @param[out] format Enumeration value representing the format of the string.
+	 * @param[out] h Header (optional) in the string.
+	 * @param[out] f First (and optional) character in the string after the
+	 * header (if any) that defines the format. Comes before the bytes encoding
+	 * the number of vertices of the graph and takes the values:
+	 * - ' ', for graph6,
+	 * - ':', for sparse6,
+	 * - ';', for incremental sparse 6,
+	 * - '&', for digraph6.
+	 * @param[out] k Index of the first character with data.
+	 * @return Returns true on success.
+	 */
+	bool gsd6_string_format
+	(const std::string& s, gsd6_format& format, std::string& h, char& f, size_t& k);
+
+	/// Returns the first character of a sparse6-formatted string.
+	inline char sparse6_first() { return ':'; }
+	/// Returns the first character of a incremental sparse6-formatted string.
+	inline char incremental_sparse6_first() { return ';'; }
+	/// Returns the first character of a digraph6-formatted string.
+	inline char digraph6_first() { return '&'; }
+
+	/// Returns the optional header of a file containing graph6-formatted strings.
+	inline std::string graph6_header() { return ">>graph6<<"; }
+	/// Returns the optional header of a file containing sparse6-formatted strings.
+	inline std::string sparse6_header() { return ">>sparse6<<"; }
+	/// Returns the optional header of a file containing incremental
+	/// sparse6-formatted strings.
+	inline std::string incremental_sparse6_header() { return ">>sparse6<<"; }
+	/// Returns the optional header of a file containing digraph6-formatted
+	/// strings.
+	inline std::string digraph6_header() { return ">>digraph6<<"; }
+
 /**
  * @brief Read/write graphs in \e graph6 format.
  *
@@ -31,10 +91,11 @@ namespace graph6 {
 	 * @brief Obtains a graph given its representation in @e graph6 format.
 	 * @param s The list of characters that encode the graph.
 	 * @param[out] g The graph resulting from decoding @e s.
+	 * @return Returns true on success.
 	 * @pre The output graph need not be passed empty (it is cleared
 	 * in this function).
 	 */
-	void from_g6_string(const std::string& s, uugraph& g);
+	bool from_g6_string(const std::string& s, uugraph& g);
 
 	/**
 	 * @brief Obtains a graph given its representation in @e graph6 format.

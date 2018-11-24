@@ -11,7 +11,7 @@ namespace sparse6 {
 	}
 
 	bool read(const char *filename, uugraph& g) {
-
+		return true;
 	}
 
 	// -- WRITING --
@@ -21,7 +21,7 @@ namespace sparse6 {
 	}
 
 	bool write(const char *filename, const uugraph& g) {
-
+		return true;
 	}
 
 } // -- namespace sparse6

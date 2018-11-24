@@ -1,12 +1,12 @@
 #include <lgraph/io/gsd6.hpp>
 
 // C++ includes
+#include <iostream>
 #include <limits>
 using namespace std;
 
 // lgraph includes
 #include <lgraph/utils/static_bitset.hpp>
-#include <lgraph/utils/logger.hpp>
 
 namespace lgraph {
 using namespace utils;
@@ -48,46 +48,67 @@ namespace graph6 {
 		BIN6_TO_SIZE_T((e - 63), 6) +		\
 		BIN6_TO_SIZE_T((f - 63), 0)
 
-	void from_g6_string(const string& s, uugraph& g) {
-		size_t k = 0;
+	bool from_g6_string(const string& data, uugraph& g) {
+		// error control: if the format of the string is not
+		// for graph6, stop
 
-		// ignore first optional character
-		if (s[0] == ':' or s[0] == ';' or s[0] == '&') {
-			++k;
+		gsd6_format format;
+		string header;
+		char del;
+		size_t k = 0; // first character of 'actual' data
+
+		bool r = gsd6_string_format(data, format, header, del, k);
+		if (not r) {
+			return false;
+		}
+
+		if (format != gsd6_format::Graph6) {
+			cerr << "lgraph::io::graph6::from_g6_string - Error:" << endl;
+			cerr << "    string passed as parameter is not in graph6 format." << endl;
+			cerr << "    Format is: ";
+			if (format == gsd6_format::Sparse6) {
+				cerr << "sparse6" << endl;
+			}
+			if (format == gsd6_format::Incremental_Sparse6) {
+				cerr << "incremental sparse6" << endl;
+			}
+			if (format == gsd6_format::DiGraph6) {
+				cerr << "digraph6" << endl;
+			}
+			return false;
 		}
 
 		// retrieve number of vertices
 		size_t n;
-		if (s[k] != 0x7e) {
+		if (data[k] != 0x7e) {
 			// 0 <= n <= 62
-			n = size_t(s[k] - 63);
+			n = size_t(data[k] - 63);
 			++k;
 		}
 		else {
 			++k;
-			if (s[k] != 0x7e) {
+			if (data[k] != 0x7e) {
 				// 63 <= n <= 258047
-				n = THREE_BIN6_TO_SIZE_T(s[k],s[k+1],s[k+2]);
+				n = THREE_BIN6_TO_SIZE_T(data[k],data[k+1],data[k+2]);
 				k += 3;
 			}
 			else {
 				// 258048 <= n <= 68,719,476,735
 
 				if (uint64_t(numeric_limits<size_t>::max()) <= uint64_t(68719476735)) {
-					logger<cerr_stream>& LOG = logger<cerr_stream>::get_logger();
-					LOG.log() << "Warning: when parsing graph in graph6 format." << std::endl;
-					LOG.log() << "    The amount of nodes will be read into a 'size_t' type" << std::endl;
-					LOG.log() << "    which, in your system, may not have enough precision" << std::endl;
-					LOG.log() << "    to fit the value equal to the amount of vertices of the graph." << std::endl;
-					LOG.log() << "    The maximum amount of vertices allowed in graph6 is:" << std::endl;
-					LOG.log() << "        68719476735" << std::endl;
-					LOG.log() << "    Your 'size_t' can hold up to:" << std::endl;
-					LOG.log() << "        " << numeric_limits<size_t>::max() << std::endl;
+					cerr << "lgraph::io::graph6::from_g6_string - Warning:" << endl;
+					cerr << "    The amount of nodes will be read into a 'size_t' type" << endl;
+					cerr << "    which, in your system, may not be large enough to fit" << endl;
+					cerr << "    the value equal to the amount of vertices of the graph." << endl;
+					cerr << "    The maximum amount of vertices allowed in graph6 is:" << endl;
+					cerr << "        68719476735" << endl;
+					cerr << "    Your 'size_t' can hold up to:" << endl;
+					cerr << "        " << numeric_limits<size_t>::max() << endl;
 				}
 
 				++k;
-				n = SIX_BIN6_TO_SIZE_T(s[k],s[k+1],s[k+2],
-									s[k+3],s[k+4],s[k+5]);
+				n = SIX_BIN6_TO_SIZE_T(data[k],data[k+1],data[k+2],
+									data[k+3],data[k+4],data[k+5]);
 				k += 6;
 			}
 		}
@@ -96,7 +117,7 @@ namespace graph6 {
 		g.clear();
 		g.init(n);
 
-		char byte = s[k] - 63;
+		char byte = data[k] - 63;
 		char mask = 0x20;
 		char bit_idx = 6;	// skip the first two bits
 
@@ -115,17 +136,22 @@ namespace graph6 {
 					bit_idx = 6;	// skip the first two bits
 					++k;
 					// avoid segmentation faults, please
-					if (k < s.length()) {
-						byte = s[k] - 63;
+					if (k < data.length()) {
+						byte = data[k] - 63;
 					}
 					mask = 0x20;
 				}
 			}
 		}
+
+		return true;
 	}
 
 	void to_g6_string(const uugraph& g, string& s) {
 		size_t N = g.n_nodes();
+
+		// put header into the string
+		s = graph6_header();
 
 		/* Obtain N(x) for x=N, the number of vertices
 		 * in the graph.
@@ -162,6 +188,14 @@ namespace graph6 {
 
 		// size of the upper triangular submatrix
 		size_t n_cells = (N%2 == 0 ? (N/2)*(N - 1) : ((N - 1)/2)*N);
+		/* Note to self: this computation of 'n_cells' is clearly unnecessary.
+		 * The result could be calculated using (N*(N-1))/2, without worrying
+		 * about the result of the division since N*(N - 1) is always an even
+		 * number. However, since N may be really large, the product N*(N - 1)
+		 * may overflow hence giving wrong results. The computation above is
+		 * an attempt to obtain a safer computation.
+		 */
+
 		// bits needed for the adjacency matrix
 		size_t n_bits = n_cells + (n_cells/6)*2;
 
@@ -173,6 +207,11 @@ namespace graph6 {
 			for (node v : Nu) {
 				if (u < v) {
 					size_t base_idx = (v%2 == 0 ? (v/2)*(v - 1) : ((v - 1)/2)*v);
+					/* Note to self: the computation of 'base_idx' is similar to
+					 * that of 'n_cells'. If this computation looks weird read
+					 * the comments below 'n_cells' for an explanation.
+					 */
+
 					size_t idx = base_idx + u;
 					size_t bit = idx + (idx/6 + 1)*2;
 					bs.set_bit(bit);
@@ -182,6 +221,7 @@ namespace graph6 {
 
 		// make characters printable
 		bs += 63;
+
 		// 'Store' the edges of the graph.
 		bs.append_bytes(s);
 	}
@@ -202,18 +242,18 @@ namespace graph6 {
 		// Bear in mind that the file may contain
 		// several lines, but only one will be read.
 
-		// ignore heather and empty lines
+		// skip empty lines
 		string data = "";
-		while (data == "" or data == ">>graph6<<") {
-			fin >> data;
+		do {
+			getline(fin, data);
 		}
+		while (data == "");
 
 		// ignore the other lines
 		fin.close();
 
 		// parse the graph
-		from_g6_string(data, g);
-		return true;
+		return from_g6_string(data, g);
 	}
 
 	bool read(const string& filename, vector<uugraph>& gs) {
@@ -227,19 +267,27 @@ namespace graph6 {
 			return false;
 		}
 
-		// skip the header and empty lines.
+		// skip empty lines
+		size_t lineno = 0;
 		string data = "";
-		while (data == "" or data == ">>graph6<<") {
-			fin >> data;
+		do {
+			getline(fin, data);
+			++lineno;
 		}
+		while (data == "");
 
 		// read all graphs and store them in the vector
 		do {
 			uugraph g;
-			from_g6_string(data, g);
+			if (not from_g6_string(data, g)) {
+				cerr << "    In line " << lineno << " of file '"
+					 << string(filename) << endl;
+				return false;
+			}
 			gs.push_back(g);
+			++lineno;
 		}
-		while (fin >> data);
+		while (getline(fin, data));
 
 		fin.close();
 		return true;
@@ -264,7 +312,7 @@ namespace graph6 {
 		to_g6_string(g, data);
 
 		// write
-		fout << data << std::endl;
+		fout << data << endl;
 		fout.close();
 
 		return true;

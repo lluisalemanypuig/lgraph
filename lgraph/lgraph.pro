@@ -11,64 +11,64 @@ INCLUDEPATH += ..
 
 HEADERS += \
     data_structures/xxgraph.hpp \
-        data_structures/wxgraph.hpp \
-        data_structures/wxgraph.cpp \
-        data_structures/wugraph.hpp \
-        data_structures/wugraph.cpp \
-		data_structures/wdgraph.cpp \
-		data_structures/wdgraph.hpp \
-        data_structures/uxgraph.hpp \
-        data_structures/uugraph.hpp \
-        data_structures/udgraph.hpp \
+    data_structures/wxgraph.hpp \
+    data_structures/wxgraph.cpp \
+    data_structures/wugraph.hpp \
+    data_structures/wugraph.cpp \
+    data_structures/wdgraph.cpp \
+    data_structures/wdgraph.hpp \
+    data_structures/uxgraph.hpp \
+    data_structures/uugraph.hpp \
+    data_structures/udgraph.hpp \
     data_structures/node_path.hpp \
-        data_structures/node_path.cpp \
+    data_structures/node_path.cpp \
     data_structures/boolean_path.hpp \
-        data_structures/boolean_path.cpp \
+    data_structures/boolean_path.cpp \
     generate_graphs/classic/classic.hpp \
     generate_graphs/classic/regular.hpp \
     generate_graphs/random/erdos_renyi.hpp \
-        generate_graphs/random/erdos_renyi.cpp \
+    generate_graphs/random/erdos_renyi.cpp \
     generate_graphs/random/barabasi_albert.hpp \
-        generate_graphs/random/ba_preferential_attachment.cpp \
-        generate_graphs/random/ba_random_attachment.cpp \
-        generate_graphs/random/ba_no_vertex_growth.cpp \
+    generate_graphs/random/ba_preferential_attachment.cpp \
+    generate_graphs/random/ba_random_attachment.cpp \
+    generate_graphs/random/ba_no_vertex_growth.cpp \
     generate_graphs/random/watts_strogatz.hpp \
-        generate_graphs/random/watts_strogatz.cpp \
+    generate_graphs/random/watts_strogatz.cpp \
     generate_graphs/switching.hpp \
-        generate_graphs/switching.cpp \
+    generate_graphs/switching.cpp \
     metrics/clustering.hpp \
-        metrics/wclustering.cpp \
+    metrics/wclustering.cpp \
     metrics/distance.hpp \
-        metrics/wdistance.cpp \
+    metrics/wdistance.cpp \
     metrics/centralities.hpp \
-        metrics/wcentralities.cpp \
+    metrics/wcentralities.cpp \
     epidemics/models.hpp \
-        epidemics/sir.cpp \
-        epidemics/sir_immune.cpp \
-        epidemics/sis.cpp \
-        epidemics/sis_immune.cpp \
+    epidemics/sir.cpp \
+    epidemics/sir_immune.cpp \
+    epidemics/sis.cpp \
+    epidemics/sis_immune.cpp \
     graph_traversal/traversal.hpp \
-        graph_traversal/dfs.hpp \
-        graph_traversal/bfs.hpp \
-        graph_traversal/dijkstra.hpp \
-        graph_traversal/dijkstra.cpp \
-        graph_traversal/wxdistances.cpp \
-        graph_traversal/wxpaths.cpp \
-        graph_traversal/wxpaths_boolean.cpp \
+    graph_traversal/dfs.hpp \
+    graph_traversal/bfs.hpp \
+    graph_traversal/dijkstra.hpp \
+    graph_traversal/dijkstra.cpp \
+    graph_traversal/wxdistances.cpp \
+    graph_traversal/wxpaths.cpp \
+    graph_traversal/wxpaths_boolean.cpp \
     utils/logger.hpp \
     utils/definitions.hpp \
     utils/static_bitset.hpp \
     communities/communities.hpp \
     io/io.hpp \
-		io/edge_list.hpp \
-		io/edge_list_temp.cpp \
-		io/gsd6.hpp \
-	utils/svector.hpp \
-	utils/svector.cpp \
-	utils/random_generator.hpp \
-	utils/random_generator.cpp \
-	utils/drandom_generator.cpp \
-	utils/crandom_generator.cpp
+    io/edge_list.hpp \
+    io/edge_list_temp.cpp \
+    io/gsd6.hpp \
+    utils/svector.hpp \
+    utils/svector.cpp \
+    utils/random_generator.hpp \
+    utils/random_generator.cpp \
+    utils/drandom_generator.cpp \
+    utils/crandom_generator.cpp
 
 SOURCES += \
     utils/static_bitset.cpp \
@@ -90,9 +90,10 @@ SOURCES += \
     generate_graphs/classic/complete_graph.cpp \
     generate_graphs/classic/regular.cpp \
     communities/connected_components.cpp \
-	io/edge_list.cpp \
+    io/edge_list.cpp \
     io/graph6.cpp \
     io/sparse6.cpp \
-	io/digraph6.cpp
+    io/digraph6.cpp \
+    io/gsd6.cpp
 
 
