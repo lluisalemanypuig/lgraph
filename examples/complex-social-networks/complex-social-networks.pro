@@ -8,13 +8,6 @@ CONFIG -= qt
 QMAKE_CXXFLAGS_DEBUG += -DDEBUG
 QMAKE_CXXFLAGS_RELEASE += -DNDEBUG
 
-SOURCES += \
-    csn_utils.cpp \
-    main.cpp
-
-HEADERS += \
-    csn_utils.hpp
-
 # lgraph library
 CONFIG(debug, debug|release) {
 	LIBS += -L../../../lgraph-debug/ -llgraph
@@ -26,3 +19,10 @@ CONFIG(release, debug|release) {
 }
 INCLUDEPATH += ../..
 DEPENDPATH += ../..
+
+SOURCES += \
+	csn_utils.cpp \
+	main.cpp
+
+HEADERS += \
+	csn_utils.hpp

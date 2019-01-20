@@ -8,15 +8,6 @@ CONFIG -= qt
 QMAKE_CXXFLAGS_DEBUG += -DDEBUG
 QMAKE_CXXFLAGS_RELEASE += -DNDEBUG
 
-HEADERS += \
-	display.cpp \
-	weighted_dist_paths.cpp \
-    functions.hpp
-
-SOURCES += \
-	unweighted_dist_paths.cpp \
-    main.cpp
-
 # lgraph library
 CONFIG(debug, debug|release) {
 	LIBS += -L../../../lgraph-debug/ -llgraph
@@ -28,3 +19,12 @@ CONFIG(release, debug|release) {
 }
 INCLUDEPATH += ../..
 DEPENDPATH += ../..
+
+HEADERS += \
+	display.cpp \
+	weighted_dist_paths.cpp \
+    functions.hpp
+
+SOURCES += \
+	unweighted_dist_paths.cpp \
+    main.cpp
