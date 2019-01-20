@@ -1,0 +1,44 @@
+\hypertarget{classlgraph_1_1utils_1_1cout__stream}{\section{lgraph\-:\-:utils\-:\-:cout\-\_\-stream Class Reference}
+\label{classlgraph_1_1utils_1_1cout__stream}\index{lgraph\-::utils\-::cout\-\_\-stream@{lgraph\-::utils\-::cout\-\_\-stream}}
+}
+
+
+A class for the cout stream.  
+
+
+
+
+{\ttfamily \#include $<$logger.\-hpp$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classlgraph_1_1utils_1_1cout__stream_a567e84e8f695f9f06e25a90385bd36bc}{typedef std\-::basic\-\_\-ostream\\*
+$<$ char, std\-::char\-\_\-traits$<$ char $>$ $>$ \hyperlink{classlgraph_1_1utils_1_1cout__stream_a567e84e8f695f9f06e25a90385bd36bc}{cout\-\_\-type}}\label{classlgraph_1_1utils_1_1cout__stream_a567e84e8f695f9f06e25a90385bd36bc}
+
+\begin{DoxyCompactList}\small\item\em This is the type of std\-::cout. \end{DoxyCompactList}\item 
+\hypertarget{classlgraph_1_1utils_1_1cout__stream_a8d78b6d03f5ae2ffbdc9f859dfe039b3}{typedef \hyperlink{classlgraph_1_1utils_1_1cout__stream_a567e84e8f695f9f06e25a90385bd36bc}{cout\-\_\-type} \&($\ast$ \hyperlink{classlgraph_1_1utils_1_1cout__stream_a8d78b6d03f5ae2ffbdc9f859dfe039b3}{standard\-\_\-endl} )(\hyperlink{classlgraph_1_1utils_1_1cout__stream_a567e84e8f695f9f06e25a90385bd36bc}{cout\-\_\-type} \&)}\label{classlgraph_1_1utils_1_1cout__stream_a8d78b6d03f5ae2ffbdc9f859dfe039b3}
+
+\begin{DoxyCompactList}\small\item\em This is the function signature of std\-::endl. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classlgraph_1_1utils_1_1cout__stream_a818a63700e577a13db63088353ce4098}{void \hyperlink{classlgraph_1_1utils_1_1cout__stream_a818a63700e577a13db63088353ce4098}{open} (const char $\ast$, const std\-::ios\-\_\-base\-::openmode \&)}\label{classlgraph_1_1utils_1_1cout__stream_a818a63700e577a13db63088353ce4098}
+
+\begin{DoxyCompactList}\small\item\em Open an empty stream for standard output messages. \end{DoxyCompactList}\item 
+\hypertarget{classlgraph_1_1utils_1_1cout__stream_a6e35f97a622bccec72247d6f9e6ca2c8}{\hyperlink{classlgraph_1_1utils_1_1cout__stream}{cout\-\_\-stream} \& \hyperlink{classlgraph_1_1utils_1_1cout__stream_a6e35f97a622bccec72247d6f9e6ca2c8}{operator$<$$<$} (const \hyperlink{classlgraph_1_1utils_1_1cout__stream_a8d78b6d03f5ae2ffbdc9f859dfe039b3}{standard\-\_\-endl} \&)}\label{classlgraph_1_1utils_1_1cout__stream_a6e35f97a622bccec72247d6f9e6ca2c8}
+
+\begin{DoxyCompactList}\small\item\em Define an operator$<$$<$ to take in std\-::endl. \end{DoxyCompactList}\item 
+\hypertarget{classlgraph_1_1utils_1_1cout__stream_a88f6cf6d54312f795ccbff57724d51e4}{{\footnotesize template$<$class t\-\_\-printable $>$ }\\\hyperlink{classlgraph_1_1utils_1_1cout__stream}{cout\-\_\-stream} \& \hyperlink{classlgraph_1_1utils_1_1cout__stream_a88f6cf6d54312f795ccbff57724d51e4}{operator$<$$<$} (const t\-\_\-printable \&t)}\label{classlgraph_1_1utils_1_1cout__stream_a88f6cf6d54312f795ccbff57724d51e4}
+
+\begin{DoxyCompactList}\small\item\em operator$<$$<$ for any printable type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class for the cout stream. 
+
+A wrapper over the ostrem object cout. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+lgraph/utils/logger.\-hpp\end{DoxyCompactItemize}

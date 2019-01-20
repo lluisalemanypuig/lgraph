@@ -1,0 +1,216 @@
+\hypertarget{namespacelgraph_1_1io_1_1graph6}{\section{lgraph\-:\-:io\-:\-:graph6 Namespace Reference}
+\label{namespacelgraph_1_1io_1_1graph6}\index{lgraph\-::io\-::graph6@{lgraph\-::io\-::graph6}}
+}
+
+
+Read/write graphs in {\itshape \hyperlink{namespacelgraph_1_1io_1_1graph6}{graph6}} format.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{namespacelgraph_1_1io_1_1graph6_aa0785d218fed2cfc2056c3ae4b1bdc84}{from\-\_\-g6\-\_\-string} (const std\-::string \&s, \hyperlink{classlgraph_1_1uugraph}{uugraph} \&g)
+\begin{DoxyCompactList}\small\item\em Obtains a graph given its representation in {\itshape \hyperlink{namespacelgraph_1_1io_1_1graph6}{graph6}} format. \end{DoxyCompactList}\item 
+void \hyperlink{namespacelgraph_1_1io_1_1graph6_a89dba61410e4fe01ab54b0a8e476942e}{to\-\_\-g6\-\_\-string} (const \hyperlink{classlgraph_1_1uugraph}{uugraph} \&g, std\-::string \&s)
+\begin{DoxyCompactList}\small\item\em Obtains a graph given its representation in {\itshape \hyperlink{namespacelgraph_1_1io_1_1graph6}{graph6}} format. \end{DoxyCompactList}\item 
+bool \hyperlink{namespacelgraph_1_1io_1_1graph6_acf631cd214582c5fb67d4766bc3f1270}{read} (const std\-::string \&filename, \hyperlink{classlgraph_1_1uugraph}{uugraph} \&g)
+\begin{DoxyCompactList}\small\item\em Reads an unweighted, undirected graph in {\itshape \hyperlink{namespacelgraph_1_1io_1_1graph6}{graph6}} format. \end{DoxyCompactList}\item 
+bool \hyperlink{namespacelgraph_1_1io_1_1graph6_a4100b07dc643c2fda1dd4cd2deb80a59}{read} (const char $\ast$filename, \hyperlink{classlgraph_1_1uugraph}{uugraph} \&g)
+\begin{DoxyCompactList}\small\item\em Reads an unweighted, undirected graph in {\itshape \hyperlink{namespacelgraph_1_1io_1_1graph6}{graph6}} format. \end{DoxyCompactList}\item 
+bool \hyperlink{namespacelgraph_1_1io_1_1graph6_ad36631b2e69f1a58d9678ee01a335739}{read} (const std\-::string \&filename, std\-::vector$<$ \hyperlink{classlgraph_1_1uugraph}{uugraph} $>$ \&gs)
+\begin{DoxyCompactList}\small\item\em Reads a list of unweighted, undirected graphs in {\itshape \hyperlink{namespacelgraph_1_1io_1_1graph6}{graph6}} format. \end{DoxyCompactList}\item 
+bool \hyperlink{namespacelgraph_1_1io_1_1graph6_a90d5dd8ee748263b93cdb4513a36cbf5}{read} (const char $\ast$filename, std\-::vector$<$ \hyperlink{classlgraph_1_1uugraph}{uugraph} $>$ \&gs)
+\begin{DoxyCompactList}\small\item\em Reads a list of unweighted, undirected graphs in {\itshape \hyperlink{namespacelgraph_1_1io_1_1graph6}{graph6}} format. \end{DoxyCompactList}\item 
+bool \hyperlink{namespacelgraph_1_1io_1_1graph6_ad011c538d80f9dafb02b1504b9c07e44}{write} (const std\-::string \&filename, const \hyperlink{classlgraph_1_1uugraph}{uugraph} \&g)
+\begin{DoxyCompactList}\small\item\em Writes an unweighted, undirected graph in {\itshape \hyperlink{namespacelgraph_1_1io_1_1graph6}{graph6}} format. \end{DoxyCompactList}\item 
+bool \hyperlink{namespacelgraph_1_1io_1_1graph6_a5e2bba91e66667d06c699fbf7c6c634c}{write} (const char $\ast$filename, const \hyperlink{classlgraph_1_1uugraph}{uugraph} \&g)
+\begin{DoxyCompactList}\small\item\em Writes an unweighted, undirected graph in {\itshape \hyperlink{namespacelgraph_1_1io_1_1graph6}{graph6}} format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Read/write graphs in {\itshape \hyperlink{namespacelgraph_1_1io_1_1graph6}{graph6}} format. This format is detailed (as of 20th October 2018) in the webpage\-:
+
+\href{http://users.cecs.anu.edu.au/~bdm/data/formats.html}{\tt http\-://users.\-cecs.\-anu.\-edu.\-au/$\sim$bdm/data/formats.\-html}
+
+by Brendan Mc\-Kay (\href{http://users.cecs.anu.edu.au/~bdm/}{\tt http\-://users.\-cecs.\-anu.\-edu.\-au/$\sim$bdm/}) 
+
+\subsection{Function Documentation}
+\hypertarget{namespacelgraph_1_1io_1_1graph6_aa0785d218fed2cfc2056c3ae4b1bdc84}{\index{lgraph\-::io\-::graph6@{lgraph\-::io\-::graph6}!from\-\_\-g6\-\_\-string@{from\-\_\-g6\-\_\-string}}
+\index{from\-\_\-g6\-\_\-string@{from\-\_\-g6\-\_\-string}!lgraph::io::graph6@{lgraph\-::io\-::graph6}}
+\subsubsection[{from\-\_\-g6\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}bool lgraph\-::io\-::graph6\-::from\-\_\-g6\-\_\-string (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{s, }
+\item[{uugraph \&}]{g}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1io_1_1graph6_aa0785d218fed2cfc2056c3ae4b1bdc84}
+
+
+Obtains a graph given its representation in {\itshape \hyperlink{namespacelgraph_1_1io_1_1graph6}{graph6}} format. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em s} & The list of characters that encode the graph. \\
+\hline
+\mbox{\tt out}  & {\em g} & The graph resulting from decoding {\itshape s}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true on success. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+The output graph need not be passed empty (it is cleared in this function). 
+\end{DoxyPrecond}
+\hypertarget{namespacelgraph_1_1io_1_1graph6_acf631cd214582c5fb67d4766bc3f1270}{\index{lgraph\-::io\-::graph6@{lgraph\-::io\-::graph6}!read@{read}}
+\index{read@{read}!lgraph::io::graph6@{lgraph\-::io\-::graph6}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}bool lgraph\-::io\-::graph6\-::read (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{filename, }
+\item[{uugraph \&}]{g}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1io_1_1graph6_acf631cd214582c5fb67d4766bc3f1270}
+
+
+Reads an unweighted, undirected graph in {\itshape \hyperlink{namespacelgraph_1_1io_1_1graph6}{graph6}} format. 
+
+The file may contain more than one graph. However, if there is more than one, only the first will be read. 
+\begin{DoxyParams}[1]{Parameters}
+ & {\em filename} & The name of the file to be read. \\
+\hline
+\mbox{\tt out}  & {\em g} & The graph built with the contents in the file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns false if the file coule not be opened. Returns true otherwise. 
+\end{DoxyReturn}
+\hypertarget{namespacelgraph_1_1io_1_1graph6_a4100b07dc643c2fda1dd4cd2deb80a59}{\index{lgraph\-::io\-::graph6@{lgraph\-::io\-::graph6}!read@{read}}
+\index{read@{read}!lgraph::io::graph6@{lgraph\-::io\-::graph6}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}bool lgraph\-::io\-::graph6\-::read (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{filename, }
+\item[{uugraph \&}]{g}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1io_1_1graph6_a4100b07dc643c2fda1dd4cd2deb80a59}
+
+
+Reads an unweighted, undirected graph in {\itshape \hyperlink{namespacelgraph_1_1io_1_1graph6}{graph6}} format. 
+
+The file can only contain one single graph. If there is more than one, only the first will be read. 
+\begin{DoxyParams}[1]{Parameters}
+ & {\em filename} & The name of the file to be read. \\
+\hline
+\mbox{\tt out}  & {\em g} & The graph built with the contents in the file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns false if the file coule not be opened. Returns true otherwise. 
+\end{DoxyReturn}
+\hypertarget{namespacelgraph_1_1io_1_1graph6_ad36631b2e69f1a58d9678ee01a335739}{\index{lgraph\-::io\-::graph6@{lgraph\-::io\-::graph6}!read@{read}}
+\index{read@{read}!lgraph::io::graph6@{lgraph\-::io\-::graph6}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}bool lgraph\-::io\-::graph6\-::read (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{filename, }
+\item[{std\-::vector$<$ uugraph $>$ \&}]{gs}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1io_1_1graph6_ad36631b2e69f1a58d9678ee01a335739}
+
+
+Reads a list of unweighted, undirected graphs in {\itshape \hyperlink{namespacelgraph_1_1io_1_1graph6}{graph6}} format. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em filename} & The name of the file to be read. \\
+\hline
+\mbox{\tt out}  & {\em gs} & The graphs built with the contents in the file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns false if the file coule not be opened. Returns true otherwise. 
+\end{DoxyReturn}
+\hypertarget{namespacelgraph_1_1io_1_1graph6_a90d5dd8ee748263b93cdb4513a36cbf5}{\index{lgraph\-::io\-::graph6@{lgraph\-::io\-::graph6}!read@{read}}
+\index{read@{read}!lgraph::io::graph6@{lgraph\-::io\-::graph6}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}bool lgraph\-::io\-::graph6\-::read (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{filename, }
+\item[{std\-::vector$<$ uugraph $>$ \&}]{gs}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1io_1_1graph6_a90d5dd8ee748263b93cdb4513a36cbf5}
+
+
+Reads a list of unweighted, undirected graphs in {\itshape \hyperlink{namespacelgraph_1_1io_1_1graph6}{graph6}} format. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em filename} & The name of the file to be read. \\
+\hline
+\mbox{\tt out}  & {\em gs} & The graphs built with the contents in the file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns false if the file coule not be opened. Returns true otherwise. 
+\end{DoxyReturn}
+\hypertarget{namespacelgraph_1_1io_1_1graph6_a89dba61410e4fe01ab54b0a8e476942e}{\index{lgraph\-::io\-::graph6@{lgraph\-::io\-::graph6}!to\-\_\-g6\-\_\-string@{to\-\_\-g6\-\_\-string}}
+\index{to\-\_\-g6\-\_\-string@{to\-\_\-g6\-\_\-string}!lgraph::io::graph6@{lgraph\-::io\-::graph6}}
+\subsubsection[{to\-\_\-g6\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\-::io\-::graph6\-::to\-\_\-g6\-\_\-string (
+\begin{DoxyParamCaption}
+\item[{const uugraph \&}]{g, }
+\item[{std\-::string \&}]{s}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1io_1_1graph6_a89dba61410e4fe01ab54b0a8e476942e}
+
+
+Obtains a graph given its representation in {\itshape \hyperlink{namespacelgraph_1_1io_1_1graph6}{graph6}} format. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em g} & The graph to be encoded. \\
+\hline
+\mbox{\tt out}  & {\em s} & The graph decoded in \hyperlink{namespacelgraph_1_1io_1_1graph6}{graph6} format. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+The output string need not be passed empty (it is cleared in this function) 
+\end{DoxyPrecond}
+\hypertarget{namespacelgraph_1_1io_1_1graph6_ad011c538d80f9dafb02b1504b9c07e44}{\index{lgraph\-::io\-::graph6@{lgraph\-::io\-::graph6}!write@{write}}
+\index{write@{write}!lgraph::io::graph6@{lgraph\-::io\-::graph6}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}bool lgraph\-::io\-::graph6\-::write (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{filename, }
+\item[{const uugraph \&}]{g}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1io_1_1graph6_ad011c538d80f9dafb02b1504b9c07e44}
+
+
+Writes an unweighted, undirected graph in {\itshape \hyperlink{namespacelgraph_1_1io_1_1graph6}{graph6}} format. 
+
+The graph will be appended at the end of the file. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file where the graph will be written to. \\
+\hline
+{\em g} & The graph to store. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns false if the file coule not be opened. Returns true otherwise. 
+\end{DoxyReturn}
+\hypertarget{namespacelgraph_1_1io_1_1graph6_a5e2bba91e66667d06c699fbf7c6c634c}{\index{lgraph\-::io\-::graph6@{lgraph\-::io\-::graph6}!write@{write}}
+\index{write@{write}!lgraph::io::graph6@{lgraph\-::io\-::graph6}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}bool lgraph\-::io\-::graph6\-::write (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{filename, }
+\item[{const uugraph \&}]{g}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1io_1_1graph6_a5e2bba91e66667d06c699fbf7c6c634c}
+
+
+Writes an unweighted, undirected graph in {\itshape \hyperlink{namespacelgraph_1_1io_1_1graph6}{graph6}} format. 
+
+The graph will be appended at the end of the file. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file where the graph will be written to. \\
+\hline
+{\em g} & The graph to store. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns false if the file coule not be opened. Returns true otherwise. 
+\end{DoxyReturn}

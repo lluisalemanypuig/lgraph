@@ -1,0 +1,153 @@
+\hypertarget{namespacelgraph_1_1traversal_1_1bfs}{\section{lgraph\-:\-:traversal\-:\-:bfs Namespace Reference}
+\label{namespacelgraph_1_1traversal_1_1bfs}\index{lgraph\-::traversal\-::bfs@{lgraph\-::traversal\-::bfs}}
+}
+
+
+Definition of a generic B\-F\-S traversal of an unweighted graph.  
+
+
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\-::function$<$ bool(const \\*
+\hyperlink{classlgraph_1_1uxgraph}{uxgraph} $\ast$G, \hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node} u, const \\*
+std\-::vector$<$ bool $>$ \&vis) $>$ \hyperlink{namespacelgraph_1_1traversal_1_1bfs_a69a129d105f75c4e0093cbd1ae7f53b5}{bfs\-\_\-terminate}
+\begin{DoxyCompactList}\small\item\em Terminating function. \end{DoxyCompactList}\item 
+typedef std\-::function$<$ void(const \\*
+\hyperlink{classlgraph_1_1uxgraph}{uxgraph} $\ast$G, \hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node} u, const \\*
+std\-::vector$<$ bool $>$ \&vis) $>$ \hyperlink{namespacelgraph_1_1traversal_1_1bfs_af0722b6cc643380c87128c791fb74599}{bfs\-\_\-process\-\_\-current}
+\begin{DoxyCompactList}\small\item\em Node processing function. \end{DoxyCompactList}\item 
+typedef std\-::function$<$ void(const \\*
+\hyperlink{classlgraph_1_1uxgraph}{uxgraph} $\ast$G, \hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node} u, \hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node} v, \\*
+const std\-::vector$<$ bool $>$ \&vis) $>$ \hyperlink{namespacelgraph_1_1traversal_1_1bfs_a4db72f35e69ecdb59756c0258fabb821}{bfs\-\_\-process\-\_\-neighbour}
+\begin{DoxyCompactList}\small\item\em Node processing function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespacelgraph_1_1traversal_1_1bfs_a08f86eecdea2ffbb82c09163115ec5cc}{B\-F\-S} (const \hyperlink{classlgraph_1_1uxgraph}{uxgraph} $\ast$G, \hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node} source, \hyperlink{namespacelgraph_1_1traversal_1_1bfs_a69a129d105f75c4e0093cbd1ae7f53b5}{bfs\-\_\-terminate} term=\mbox{[}$\,$\mbox{]}(const \hyperlink{classlgraph_1_1uxgraph}{uxgraph} $\ast$, \hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node}, const std\-::vector$<$ bool $>$ \&) -\/$>$ bool\{return false;\}, \hyperlink{namespacelgraph_1_1traversal_1_1bfs_af0722b6cc643380c87128c791fb74599}{bfs\-\_\-process\-\_\-current} proc\-\_\-curr=\mbox{[}$\,$\mbox{]}(const \hyperlink{classlgraph_1_1uxgraph}{uxgraph} $\ast$, \hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node}, const std\-::vector$<$ bool $>$ \&) -\/$>$ void\{\}, \hyperlink{namespacelgraph_1_1traversal_1_1bfs_a4db72f35e69ecdb59756c0258fabb821}{bfs\-\_\-process\-\_\-neighbour} proc\-\_\-neigh=\mbox{[}$\,$\mbox{]}(const \hyperlink{classlgraph_1_1uxgraph}{uxgraph} $\ast$, \hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node}, \hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node}, const std\-::vector$<$ bool $>$ \&) -\/$>$ void\{\})
+\begin{DoxyCompactList}\small\item\em Generic Breadth-\/\-First search algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Definition of a generic B\-F\-S traversal of an unweighted graph. Contains a generic B\-F\-S algorithm that uses three different functions that guide it. 
+
+\subsection{Typedef Documentation}
+\hypertarget{namespacelgraph_1_1traversal_1_1bfs_af0722b6cc643380c87128c791fb74599}{\index{lgraph\-::traversal\-::bfs@{lgraph\-::traversal\-::bfs}!bfs\-\_\-process\-\_\-current@{bfs\-\_\-process\-\_\-current}}
+\index{bfs\-\_\-process\-\_\-current@{bfs\-\_\-process\-\_\-current}!lgraph::traversal::bfs@{lgraph\-::traversal\-::bfs}}
+\subsubsection[{bfs\-\_\-process\-\_\-current}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\-::function$<$ void (const {\bf uxgraph} $\ast$G, {\bf node} u, const std\-::vector$<$bool$>$\& vis) $>$ {\bf lgraph\-::traversal\-::bfs\-::bfs\-\_\-process\-\_\-current}}}\label{namespacelgraph_1_1traversal_1_1bfs_af0722b6cc643380c87128c791fb74599}
+
+
+Node processing function. 
+
+Processes the current node visited.
+
+For more details on when this function is called see \hyperlink{namespacelgraph_1_1traversal_1_1bfs_a08f86eecdea2ffbb82c09163115ec5cc}{B\-F\-S}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em G} & The graph being traversed. \\
+\hline
+{\em u} & The node at the front of the queue of the algorithm. \\
+\hline
+{\em vis} & The set of visited nodes. \\
+\hline
+\end{DoxyParams}
+\hypertarget{namespacelgraph_1_1traversal_1_1bfs_a4db72f35e69ecdb59756c0258fabb821}{\index{lgraph\-::traversal\-::bfs@{lgraph\-::traversal\-::bfs}!bfs\-\_\-process\-\_\-neighbour@{bfs\-\_\-process\-\_\-neighbour}}
+\index{bfs\-\_\-process\-\_\-neighbour@{bfs\-\_\-process\-\_\-neighbour}!lgraph::traversal::bfs@{lgraph\-::traversal\-::bfs}}
+\subsubsection[{bfs\-\_\-process\-\_\-neighbour}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\-::function$<$ void (const {\bf uxgraph} $\ast$G, {\bf node} u, {\bf node} v, const std\-::vector$<$bool$>$\& vis) $>$ {\bf lgraph\-::traversal\-::bfs\-::bfs\-\_\-process\-\_\-neighbour}}}\label{namespacelgraph_1_1traversal_1_1bfs_a4db72f35e69ecdb59756c0258fabb821}
+
+
+Node processing function. 
+
+Processes the next visited node.
+
+For more details on when this function is called see \hyperlink{namespacelgraph_1_1traversal_1_1bfs_a08f86eecdea2ffbb82c09163115ec5cc}{B\-F\-S}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em G} & The graph being traversed. \\
+\hline
+{\em u} & The node at the front of the queue of the algorithm. \\
+\hline
+{\em v} & The node neighbour of {\itshape u} visited by the algorithm. \\
+\hline
+{\em vis} & The set of visited nodes. \\
+\hline
+\end{DoxyParams}
+\hypertarget{namespacelgraph_1_1traversal_1_1bfs_a69a129d105f75c4e0093cbd1ae7f53b5}{\index{lgraph\-::traversal\-::bfs@{lgraph\-::traversal\-::bfs}!bfs\-\_\-terminate@{bfs\-\_\-terminate}}
+\index{bfs\-\_\-terminate@{bfs\-\_\-terminate}!lgraph::traversal::bfs@{lgraph\-::traversal\-::bfs}}
+\subsubsection[{bfs\-\_\-terminate}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\-::function$<$ bool (const {\bf uxgraph} $\ast$G, {\bf node} u, const std\-::vector$<$bool$>$\& vis) $>$ {\bf lgraph\-::traversal\-::bfs\-::bfs\-\_\-terminate}}}\label{namespacelgraph_1_1traversal_1_1bfs_a69a129d105f75c4e0093cbd1ae7f53b5}
+
+
+Terminating function. 
+
+Returns true if the \hyperlink{namespacelgraph_1_1traversal_1_1bfs_a08f86eecdea2ffbb82c09163115ec5cc}{B\-F\-S} algorithm should terminate.
+
+For more details on when this function is called see \hyperlink{namespacelgraph_1_1traversal_1_1bfs_a08f86eecdea2ffbb82c09163115ec5cc}{B\-F\-S}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em G} & The graph being traversed. \\
+\hline
+{\em u} & The node at the front of the queue of the algorithm. \\
+\hline
+{\em vis} & The set of visited nodes. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacelgraph_1_1traversal_1_1bfs_a08f86eecdea2ffbb82c09163115ec5cc}{\index{lgraph\-::traversal\-::bfs@{lgraph\-::traversal\-::bfs}!B\-F\-S@{B\-F\-S}}
+\index{B\-F\-S@{B\-F\-S}!lgraph::traversal::bfs@{lgraph\-::traversal\-::bfs}}
+\subsubsection[{B\-F\-S}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\-::traversal\-::bfs\-::\-B\-F\-S (
+\begin{DoxyParamCaption}
+\item[{const uxgraph $\ast$}]{G, }
+\item[{node}]{source, }
+\item[{bfs\-\_\-terminate}]{term = {\ttfamily \mbox{[}\mbox{]}(const~uxgraph~$\ast$,~node,~const~std\-:\-:vector$<$~bool~$>$~\&)~-\/$>$~bool\{return~false;\}}, }
+\item[{bfs\-\_\-process\-\_\-current}]{proc\-\_\-curr = {\ttfamily \mbox{[}\mbox{]}(const~uxgraph~$\ast$,~node,~const~std\-:\-:vector$<$~bool~$>$~\&)~-\/$>$~void\{\}}, }
+\item[{bfs\-\_\-process\-\_\-neighbour}]{proc\-\_\-neigh = {\ttfamily \mbox{[}\mbox{]}(const~uxgraph~$\ast$,~node,~node,~const~std\-:\-:vector$<$~bool~$>$~\&)~-\/$>$~void\{\}}}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1traversal_1_1bfs_a08f86eecdea2ffbb82c09163115ec5cc}
+
+
+Generic Breadth-\/\-First search algorithm. 
+
+The usual procedure of this algorithm for traversing through a graph from a source node to a target node is as follows\-:
+
+
+\begin{DoxyPre}
+BFS(graph, source, target):
+  1.    vis = \{false\}   // set of |V(graph)| bits set to false
+  2.    Q = empty       // empty queue
+  3.    while Q is not empty do
+  4.        v = Q.front
+  5.        remove Q's front
+  6.        proc\_curr(G,v,vis)
+  7.        if terminate(G,v,vis) then terminate
+  8.        else
+  9.            Nv = neighbourhood of v
+ 10.            for each w in Nv do
+ 11.                proc\_neigh(G,u,w,vis)
+ 12.                if w not visited before then
+ 13.                    push w into Q
+ 14.                    mark w as visited in vis
+ 15.                endif
+ 16.            endfor
+ 17.        endif
+ 18.    endwhile
+\end{DoxyPre}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em G} & The graph being traversed. \\
+\hline
+{\em source} & The node where the algorithm starts at. \\
+\hline
+{\em term} & The terminating function. It is used as a termination condition in line 7.. \\
+\hline
+{\em proc\-\_\-curr} & The function to process the currently visited node. It is called in line 6 used to perform some operation on the current node of the traversal. \\
+\hline
+{\em proc\-\_\-neigh} & It is called in line 11 used to perform some operation on each of the neighbours. \\
+\hline
+\end{DoxyParams}

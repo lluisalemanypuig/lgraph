@@ -1,0 +1,305 @@
+\hypertarget{namespacelgraph_1_1networks_1_1classic}{\section{lgraph\-:\-:networks\-:\-:classic Namespace Reference}
+\label{namespacelgraph_1_1networks_1_1classic}\index{lgraph\-::networks\-::classic@{lgraph\-::networks\-::classic}}
+}
+
+
+Algorithms to generate classic networks.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespacelgraph_1_1networks_1_1classic_a1e4b680e58568ec361b80de0b06c07f1}{complete\-\_\-graph} (size\-\_\-t N, \hyperlink{classlgraph_1_1uugraph}{uugraph} \&G)
+\begin{DoxyCompactList}\small\item\em Generate an undirected complete graph of {\itshape N} nodes. \end{DoxyCompactList}\item 
+void \hyperlink{namespacelgraph_1_1networks_1_1classic_ad5c4b95c958be073656dc61776313919}{complete\-\_\-graph} (size\-\_\-t N, \hyperlink{classlgraph_1_1udgraph}{udgraph} \&G)
+\begin{DoxyCompactList}\small\item\em Generate a directed complete graph of {\itshape N} nodes. \end{DoxyCompactList}\item 
+void \hyperlink{namespacelgraph_1_1networks_1_1classic_a0f97ac0554fd9bd03e7618d857f136de}{linear\-\_\-tree} (size\-\_\-t N, \hyperlink{classlgraph_1_1uugraph}{uugraph} \&G)
+\begin{DoxyCompactList}\small\item\em Generate a liner tree of {\itshape N} nodes. \end{DoxyCompactList}\item 
+void \hyperlink{namespacelgraph_1_1networks_1_1classic_a207a73a90be34953bbffce096fd09ad6}{linear\-\_\-tree} (size\-\_\-t N, \hyperlink{classlgraph_1_1udgraph}{udgraph} \&G, uint8\-\_\-t d=1)
+\begin{DoxyCompactList}\small\item\em Generate a liner tree of {\itshape N} nodes with edge orientation. \end{DoxyCompactList}\item 
+void \hyperlink{namespacelgraph_1_1networks_1_1classic_abb5f4e0818cb76a434a8881dd84564cb}{cycle\-\_\-graph} (size\-\_\-t N, \hyperlink{classlgraph_1_1uugraph}{uugraph} \&G)
+\begin{DoxyCompactList}\small\item\em Generate a cycle graph of {\itshape N} nodes. \end{DoxyCompactList}\item 
+void \hyperlink{namespacelgraph_1_1networks_1_1classic_a3fdc2b19840d4727d4bd5ec434b3fabc}{cycle\-\_\-graph} (size\-\_\-t N, \hyperlink{classlgraph_1_1udgraph}{udgraph} \&G, uint8\-\_\-t d=1)
+\begin{DoxyCompactList}\small\item\em Generate a cycle graph of {\itshape N} nodes wih edge orientation. \end{DoxyCompactList}\item 
+void \hyperlink{namespacelgraph_1_1networks_1_1classic_a98b55be442b4c178e4359dd0cdb534fe}{star\-\_\-graph} (size\-\_\-t N, \hyperlink{classlgraph_1_1uugraph}{uugraph} \&G)
+\begin{DoxyCompactList}\small\item\em Generate a star graph of {\itshape N} nodes. \end{DoxyCompactList}\item 
+void \hyperlink{namespacelgraph_1_1networks_1_1classic_a7a659f0085a30b2801bb0efd31e8d084}{star\-\_\-graph} (size\-\_\-t N, \hyperlink{classlgraph_1_1udgraph}{udgraph} \&G, uint8\-\_\-t d=1)
+\begin{DoxyCompactList}\small\item\em Generate a star graph of {\itshape N} nodes wih edge orientation. \end{DoxyCompactList}\item 
+void \hyperlink{namespacelgraph_1_1networks_1_1classic_a7177ab266c5b173513fb9a28b98c05f5}{one\-\_\-regular} (size\-\_\-t n, \hyperlink{classlgraph_1_1uugraph}{uugraph} \&G)
+\begin{DoxyCompactList}\small\item\em Generate an undirected 1-\/regular graph of {\itshape n} nodes. \end{DoxyCompactList}\item 
+void \hyperlink{namespacelgraph_1_1networks_1_1classic_aa21699973ba38f018893ad61babcfaa3}{one\-\_\-regular} (size\-\_\-t n, \hyperlink{classlgraph_1_1udgraph}{udgraph} \&G, uint8\-\_\-t d=1)
+\begin{DoxyCompactList}\small\item\em Generate an undirected 1-\/regular graph of {\itshape n} nodes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Algorithms to generate classic networks. 
+
+\subsection{Function Documentation}
+\hypertarget{namespacelgraph_1_1networks_1_1classic_a1e4b680e58568ec361b80de0b06c07f1}{\index{lgraph\-::networks\-::classic@{lgraph\-::networks\-::classic}!complete\-\_\-graph@{complete\-\_\-graph}}
+\index{complete\-\_\-graph@{complete\-\_\-graph}!lgraph::networks::classic@{lgraph\-::networks\-::classic}}
+\subsubsection[{complete\-\_\-graph}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\-::networks\-::classic\-::complete\-\_\-graph (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{N, }
+\item[{uugraph \&}]{G}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1networks_1_1classic_a1e4b680e58568ec361b80de0b06c07f1}
+
+
+Generate an undirected complete graph of {\itshape N} nodes. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em N} & Number of nodes. \\
+\hline
+\mbox{\tt out}  & {\em G} & Generated complete undirected graph. \\
+\hline
+\end{DoxyParams}
+\hypertarget{namespacelgraph_1_1networks_1_1classic_ad5c4b95c958be073656dc61776313919}{\index{lgraph\-::networks\-::classic@{lgraph\-::networks\-::classic}!complete\-\_\-graph@{complete\-\_\-graph}}
+\index{complete\-\_\-graph@{complete\-\_\-graph}!lgraph::networks::classic@{lgraph\-::networks\-::classic}}
+\subsubsection[{complete\-\_\-graph}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\-::networks\-::classic\-::complete\-\_\-graph (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{N, }
+\item[{udgraph \&}]{G}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1networks_1_1classic_ad5c4b95c958be073656dc61776313919}
+
+
+Generate a directed complete graph of {\itshape N} nodes. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em N} & Number of nodes. \\
+\hline
+\mbox{\tt out}  & {\em G} & Generated complete directed graph. For each pair of nodes u,v there are two pairs of directed edges (u,v) and (v,u). \\
+\hline
+\end{DoxyParams}
+\hypertarget{namespacelgraph_1_1networks_1_1classic_abb5f4e0818cb76a434a8881dd84564cb}{\index{lgraph\-::networks\-::classic@{lgraph\-::networks\-::classic}!cycle\-\_\-graph@{cycle\-\_\-graph}}
+\index{cycle\-\_\-graph@{cycle\-\_\-graph}!lgraph::networks::classic@{lgraph\-::networks\-::classic}}
+\subsubsection[{cycle\-\_\-graph}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\-::networks\-::classic\-::cycle\-\_\-graph (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{N, }
+\item[{uugraph \&}]{G}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1networks_1_1classic_abb5f4e0818cb76a434a8881dd84564cb}
+
+
+Generate a cycle graph of {\itshape N} nodes. 
+
+A cycle graph is a graph with 3 or more nodes. It is, basically, a linear tree in which the nodes 0 and N-\/1 are connected by an edge.
+
+See \hyperlink{namespacelgraph_1_1networks_1_1classic_a0f97ac0554fd9bd03e7618d857f136de}{linear\-\_\-tree(size\-\_\-t, uugraph\&)} for the description of a linear tree.
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em N} & Number of nodes. \\
+\hline
+\mbox{\tt out}  & {\em G} & Generated cycle graph. \\
+\hline
+\end{DoxyParams}
+\hypertarget{namespacelgraph_1_1networks_1_1classic_a3fdc2b19840d4727d4bd5ec434b3fabc}{\index{lgraph\-::networks\-::classic@{lgraph\-::networks\-::classic}!cycle\-\_\-graph@{cycle\-\_\-graph}}
+\index{cycle\-\_\-graph@{cycle\-\_\-graph}!lgraph::networks::classic@{lgraph\-::networks\-::classic}}
+\subsubsection[{cycle\-\_\-graph}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\-::networks\-::classic\-::cycle\-\_\-graph (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{N, }
+\item[{udgraph \&}]{G, }
+\item[{uint8\-\_\-t}]{d = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1networks_1_1classic_a3fdc2b19840d4727d4bd5ec434b3fabc}
+
+
+Generate a cycle graph of {\itshape N} nodes wih edge orientation. 
+
+See \hyperlink{namespacelgraph_1_1networks_1_1classic_abb5f4e0818cb76a434a8881dd84564cb}{cycle\-\_\-graph(size\-\_\-t, uugraph\&)} for the description of a cycle graph.
+
+The orientation of the edges depends on the value of {\itshape clockwise}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em N} & Number of nodes. \\
+\hline
+\mbox{\tt out}  & {\em G} & Generated cycle graph. \\
+\hline
+ & {\em d} & Indicate orientation of edges. Values\-:
+\begin{DoxyItemize}
+\item 1 for clockwise orientation\-: edges (u,v) such that u $<$ v
+\item 2 for counter-\/clockwise orientation\-: edges (u,v) such that u $>$ v
+\item 3 for both orientations 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\hypertarget{namespacelgraph_1_1networks_1_1classic_a0f97ac0554fd9bd03e7618d857f136de}{\index{lgraph\-::networks\-::classic@{lgraph\-::networks\-::classic}!linear\-\_\-tree@{linear\-\_\-tree}}
+\index{linear\-\_\-tree@{linear\-\_\-tree}!lgraph::networks::classic@{lgraph\-::networks\-::classic}}
+\subsubsection[{linear\-\_\-tree}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\-::networks\-::classic\-::linear\-\_\-tree (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{N, }
+\item[{uugraph \&}]{G}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1networks_1_1classic_a0f97ac0554fd9bd03e7618d857f136de}
+
+
+Generate a liner tree of {\itshape N} nodes. 
+
+For N = 1, the graph is a single node with no neighbours.
+
+For N = 2, the graph consists of two nodes joined by an edge.
+
+For N $>$= 3, the graph has N nodes,
+\begin{DoxyItemize}
+\item the 0-\/th node has as neighbours the nodes 1,
+\item the 1-\/st node has as neighbours the nodes 0 and 2,
+\item the 2-\/nd node has as neighbouts the nodes 1 and 3,
+\item ...
+\item the (N-\/2)-\/th node has as neighbours the nodes N-\/3 and N-\/1
+\item the (N-\/1)-\/th node has as neighbours the nodes N-\/2
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em N} & Number of nodes. \\
+\hline
+\mbox{\tt out}  & {\em G} & Generated cycle graph. \\
+\hline
+\end{DoxyParams}
+\hypertarget{namespacelgraph_1_1networks_1_1classic_a207a73a90be34953bbffce096fd09ad6}{\index{lgraph\-::networks\-::classic@{lgraph\-::networks\-::classic}!linear\-\_\-tree@{linear\-\_\-tree}}
+\index{linear\-\_\-tree@{linear\-\_\-tree}!lgraph::networks::classic@{lgraph\-::networks\-::classic}}
+\subsubsection[{linear\-\_\-tree}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\-::networks\-::classic\-::linear\-\_\-tree (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{N, }
+\item[{udgraph \&}]{G, }
+\item[{uint8\-\_\-t}]{d = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1networks_1_1classic_a207a73a90be34953bbffce096fd09ad6}
+
+
+Generate a liner tree of {\itshape N} nodes with edge orientation. 
+
+See \hyperlink{namespacelgraph_1_1networks_1_1classic_a0f97ac0554fd9bd03e7618d857f136de}{linear\-\_\-tree(size\-\_\-t, uugraph\&)} for the description of a linear tree.
+
+The orientation of the edges depends on the value of {\itshape d}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em N} & Number of nodes. \\
+\hline
+\mbox{\tt out}  & {\em G} & Generated cycle graph. \\
+\hline
+ & {\em d} & Indicate orientation of edges. Values\-:
+\begin{DoxyItemize}
+\item 1 for clockwise orientation\-: edges (u,v) such that u $<$ v
+\item 2 for counter-\/clockwise orientation\-: edges (u,v) such that u $>$ v
+\item 3 for both orientations 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\hypertarget{namespacelgraph_1_1networks_1_1classic_a7177ab266c5b173513fb9a28b98c05f5}{\index{lgraph\-::networks\-::classic@{lgraph\-::networks\-::classic}!one\-\_\-regular@{one\-\_\-regular}}
+\index{one\-\_\-regular@{one\-\_\-regular}!lgraph::networks::classic@{lgraph\-::networks\-::classic}}
+\subsubsection[{one\-\_\-regular}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\-::networks\-::classic\-::one\-\_\-regular (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{n, }
+\item[{uugraph \&}]{G}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1networks_1_1classic_a7177ab266c5b173513fb9a28b98c05f5}
+
+
+Generate an undirected 1-\/regular graph of {\itshape n} nodes. 
+
+If {\itshape n} is odd then the graph has {\itshape n} -\/ 1 nodes.
+
+A 1-\/regular graph is a graph where the edges are of the form (u, u + 1) where u takes the even values in \mbox{[}0,n).
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em n} & Number of nodes. \\
+\hline
+\mbox{\tt out}  & {\em G} & Generated 1-\/regular undirected graph. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+{\itshape n} $>$= 2 
+\end{DoxyPrecond}
+\hypertarget{namespacelgraph_1_1networks_1_1classic_aa21699973ba38f018893ad61babcfaa3}{\index{lgraph\-::networks\-::classic@{lgraph\-::networks\-::classic}!one\-\_\-regular@{one\-\_\-regular}}
+\index{one\-\_\-regular@{one\-\_\-regular}!lgraph::networks::classic@{lgraph\-::networks\-::classic}}
+\subsubsection[{one\-\_\-regular}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\-::networks\-::classic\-::one\-\_\-regular (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{n, }
+\item[{udgraph \&}]{G, }
+\item[{uint8\-\_\-t}]{d = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1networks_1_1classic_aa21699973ba38f018893ad61babcfaa3}
+
+
+Generate an undirected 1-\/regular graph of {\itshape n} nodes. 
+
+See \hyperlink{namespacelgraph_1_1networks_1_1classic_a7177ab266c5b173513fb9a28b98c05f5}{one\-\_\-regular(size\-\_\-t, uugraph\&)} for the description of a 1-\/regular graph.
+
+The orientation of the edges depends on the value of {\itshape d}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em n} & Number of nodes. \\
+\hline
+\mbox{\tt out}  & {\em G} & Generated 1-\/regular undirected graph. \\
+\hline
+ & {\em d} & Indicate orientation of edges. Values\-:
+\begin{DoxyItemize}
+\item 1 for clockwise orientation\-: edges (u,v) such that u $<$ v
+\item 2 for counter-\/clockwise orientation\-: edges (u,v) such that u $>$ v
+\item 3 for both orientations 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+{\itshape n} $>$= 2 
+\end{DoxyPrecond}
+\hypertarget{namespacelgraph_1_1networks_1_1classic_a98b55be442b4c178e4359dd0cdb534fe}{\index{lgraph\-::networks\-::classic@{lgraph\-::networks\-::classic}!star\-\_\-graph@{star\-\_\-graph}}
+\index{star\-\_\-graph@{star\-\_\-graph}!lgraph::networks::classic@{lgraph\-::networks\-::classic}}
+\subsubsection[{star\-\_\-graph}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\-::networks\-::classic\-::star\-\_\-graph (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{N, }
+\item[{uugraph \&}]{G}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1networks_1_1classic_a98b55be442b4c178e4359dd0cdb534fe}
+
+
+Generate a star graph of {\itshape N} nodes. 
+
+A star graph is a graph in which the nodes from 1 to N-\/1 are connected to node 0.
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em N} & Number of nodes. \\
+\hline
+\mbox{\tt out}  & {\em G} & Generated cycle graph. \\
+\hline
+\end{DoxyParams}
+\hypertarget{namespacelgraph_1_1networks_1_1classic_a7a659f0085a30b2801bb0efd31e8d084}{\index{lgraph\-::networks\-::classic@{lgraph\-::networks\-::classic}!star\-\_\-graph@{star\-\_\-graph}}
+\index{star\-\_\-graph@{star\-\_\-graph}!lgraph::networks::classic@{lgraph\-::networks\-::classic}}
+\subsubsection[{star\-\_\-graph}]{\setlength{\rightskip}{0pt plus 5cm}void lgraph\-::networks\-::classic\-::star\-\_\-graph (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{N, }
+\item[{udgraph \&}]{G, }
+\item[{uint8\-\_\-t}]{d = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1networks_1_1classic_a7a659f0085a30b2801bb0efd31e8d084}
+
+
+Generate a star graph of {\itshape N} nodes wih edge orientation. 
+
+A star graph is a graph in which the nodes from 1 to N-\/1 are connected to node 0.
+
+The orientation of the edges depends on the value of {\itshape clockwise}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em N} & Number of nodes. \\
+\hline
+\mbox{\tt out}  & {\em G} & Generated cycle graph. \\
+\hline
+ & {\em d} & Indicate orientation of edges. Values\-:
+\begin{DoxyItemize}
+\item 1 for outwards orientation\-: edges (u,v) such that u $<$ v
+\item 2 for inwards orientation\-: edges (u,v) such that u $>$ v
+\item 3 for both orientations 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}

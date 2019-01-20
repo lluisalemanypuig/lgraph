@@ -1,0 +1,205 @@
+\hypertarget{namespacelgraph_1_1networks_1_1epidemics}{\section{lgraph\-:\-:networks\-:\-:epidemics Namespace Reference}
+\label{namespacelgraph_1_1networks_1_1epidemics}\index{lgraph\-::networks\-::epidemics@{lgraph\-::networks\-::epidemics}}
+}
+
+
+Epidemic algorithms.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class G  = std\-::default\-\_\-random\-\_\-engine, typename d\-T  = size\-\_\-t, typename c\-T  = double$>$ }\\void \hyperlink{namespacelgraph_1_1networks_1_1epidemics_ab3c20f0604bb3c45e501755d10e7c7b1}{S\-I\-R} (const \hyperlink{classlgraph_1_1uugraph}{uugraph} \&net, double p0, double beta, double gamma, size\-\_\-t T, \hyperlink{classlgraph_1_1utils_1_1drandom__generator}{utils\-::drandom\-\_\-generator}$<$ G, d\-T $>$ \&drg, \hyperlink{classlgraph_1_1utils_1_1crandom__generator}{utils\-::crandom\-\_\-generator}$<$ G, c\-T $>$ \&crg, std\-::vector$<$ size\-\_\-t $>$ \&n\-\_\-rec, std\-::vector$<$ size\-\_\-t $>$ \&n\-\_\-sus, std\-::vector$<$ size\-\_\-t $>$ \&n\-\_\-inf)
+\begin{DoxyCompactList}\small\item\em S\-I\-R (Susceptible, Infected, Recovered) epidemic model. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class G  = std\-::default\-\_\-random\-\_\-engine, typename d\-T  = size\-\_\-t, typename c\-T  = double$>$ }\\void \hyperlink{namespacelgraph_1_1networks_1_1epidemics_af7c21ddb81d8637daacc904cd2eca4e8}{S\-I\-R} (const \hyperlink{classlgraph_1_1uugraph}{uugraph} \&net, double p0, double beta, double gamma, size\-\_\-t T, const std\-::vector$<$ bool $>$ \&immune, \hyperlink{classlgraph_1_1utils_1_1drandom__generator}{utils\-::drandom\-\_\-generator}$<$ G, d\-T $>$ \&drg, \hyperlink{classlgraph_1_1utils_1_1crandom__generator}{utils\-::crandom\-\_\-generator}$<$ G, c\-T $>$ \&crg, std\-::vector$<$ size\-\_\-t $>$ \&n\-\_\-rec, std\-::vector$<$ size\-\_\-t $>$ \&n\-\_\-sus, std\-::vector$<$ size\-\_\-t $>$ \&n\-\_\-inf)
+\begin{DoxyCompactList}\small\item\em S\-I\-R (Susceptible, Infected, Recovered) epidemic model with immunities. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class G  = std\-::default\-\_\-random\-\_\-engine, typename d\-T  = size\-\_\-t, typename c\-T  = double$>$ }\\void \hyperlink{namespacelgraph_1_1networks_1_1epidemics_ab13c06a31d1bb67952af8bada055954a}{S\-I\-S} (const \hyperlink{classlgraph_1_1uugraph}{uugraph} \&net, double p0, double beta, double gamma, size\-\_\-t T, \hyperlink{classlgraph_1_1utils_1_1drandom__generator}{utils\-::drandom\-\_\-generator}$<$ G, d\-T $>$ \&drg, \hyperlink{classlgraph_1_1utils_1_1crandom__generator}{utils\-::crandom\-\_\-generator}$<$ G, c\-T $>$ \&crg, std\-::vector$<$ size\-\_\-t $>$ \&n\-\_\-rec, std\-::vector$<$ size\-\_\-t $>$ \&n\-\_\-sus, std\-::vector$<$ size\-\_\-t $>$ \&n\-\_\-inf)
+\begin{DoxyCompactList}\small\item\em S\-I\-S (Susceptible, Infected, Susceptible) epidemic model. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class G  = std\-::default\-\_\-random\-\_\-engine, typename d\-T  = size\-\_\-t, typename c\-T  = double$>$ }\\void \hyperlink{namespacelgraph_1_1networks_1_1epidemics_a0ea6c12de2cf4ddf40808ce18de3e91b}{S\-I\-S} (const \hyperlink{classlgraph_1_1uugraph}{uugraph} \&net, double p0, double beta, double gamma, size\-\_\-t T, const std\-::vector$<$ bool $>$ \&immune, \hyperlink{classlgraph_1_1utils_1_1drandom__generator}{utils\-::drandom\-\_\-generator}$<$ G, d\-T $>$ \&drg, \hyperlink{classlgraph_1_1utils_1_1crandom__generator}{utils\-::crandom\-\_\-generator}$<$ G, c\-T $>$ \&crg, std\-::vector$<$ size\-\_\-t $>$ \&n\-\_\-rec, std\-::vector$<$ size\-\_\-t $>$ \&n\-\_\-sus, std\-::vector$<$ size\-\_\-t $>$ \&n\-\_\-inf)
+\begin{DoxyCompactList}\small\item\em S\-I\-S (Susceptible, Infected, Susceptible) epidemic model with immunities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Epidemic algorithms. 
+
+\subsection{Function Documentation}
+\hypertarget{namespacelgraph_1_1networks_1_1epidemics_ab3c20f0604bb3c45e501755d10e7c7b1}{\index{lgraph\-::networks\-::epidemics@{lgraph\-::networks\-::epidemics}!S\-I\-R@{S\-I\-R}}
+\index{S\-I\-R@{S\-I\-R}!lgraph::networks::epidemics@{lgraph\-::networks\-::epidemics}}
+\subsubsection[{S\-I\-R}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class G  = std\-::default\-\_\-random\-\_\-engine, typename d\-T  = size\-\_\-t, typename c\-T  = double$>$ void lgraph\-::networks\-::epidemics\-::\-S\-I\-R (
+\begin{DoxyParamCaption}
+\item[{const uugraph \&}]{net, }
+\item[{double}]{p0, }
+\item[{double}]{beta, }
+\item[{double}]{gamma, }
+\item[{size\-\_\-t}]{T, }
+\item[{utils\-::drandom\-\_\-generator$<$ G, d\-T $>$ \&}]{drg, }
+\item[{utils\-::crandom\-\_\-generator$<$ G, c\-T $>$ \&}]{crg, }
+\item[{std\-::vector$<$ size\-\_\-t $>$ \&}]{n\-\_\-rec, }
+\item[{std\-::vector$<$ size\-\_\-t $>$ \&}]{n\-\_\-sus, }
+\item[{std\-::vector$<$ size\-\_\-t $>$ \&}]{n\-\_\-inf}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1networks_1_1epidemics_ab3c20f0604bb3c45e501755d10e7c7b1}
+
+
+S\-I\-R (Susceptible, Infected, Recovered) epidemic model. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em net} & The network the epidemic model is applied on \\
+\hline
+\mbox{\tt in}  & {\em p0} & Initial proportion of infected individuals. Used as a probability of being infected at the beginning of the simulation, applied to each individual. \\
+\hline
+\mbox{\tt in}  & {\em beta} & Rate of infection of an individual with a single neighbour \\
+\hline
+\mbox{\tt in}  & {\em gamma} & Rate of recovery of an individual \\
+\hline
+\mbox{\tt in}  & {\em T} & Maximum number of steps of the simulation. The steps performed have index 1,2,...,{\itshape T} \\
+\hline
+\mbox{\tt in}  & {\em drg} & The discrete random generator used for algorithm optimisation \\
+\hline
+\mbox{\tt in}  & {\em crg} & The continuous random generator used to generate numbers between 0 and 1\\
+\hline
+\mbox{\tt out}  & {\em n\-\_\-rec} & n\-\_\-rec\mbox{[}i\mbox{]} contains the amount of recoverd agents after the i-\/th step is completed. {\itshape n\-\_\-rec}\mbox{[}0\mbox{]} always has a zero and is not a valid value. Its size at the end of the simulation {\itshape T} + 1.\\
+\hline
+\mbox{\tt out}  & {\em n\-\_\-sus} & n\-\_\-sus\mbox{[}i\mbox{]} contains the amount of susceptible agents after the i-\/th step is completed. {\itshape n\-\_\-sus}\mbox{[}0\mbox{]} contains the amount of agents susceptible of infection after infecting a proportion {\itshape of} p0 agents of the population. Its size at the end of the simulation is {\itshape T} + 1.\\
+\hline
+\mbox{\tt out}  & {\em n\-\_\-inf} & n\-\_\-inf\mbox{[}i\mbox{]} contains the amount of infected agents after the i-\/th step is completed. n\-\_\-inf\mbox{[}0\mbox{]} contains the amount of agents susceptible of infection after infecting a proportion of {\itshape p0} agents of the population. Its size at the end of the simulation {\itshape T} + 1. \\
+\hline
+\end{DoxyParams}
+\hypertarget{namespacelgraph_1_1networks_1_1epidemics_af7c21ddb81d8637daacc904cd2eca4e8}{\index{lgraph\-::networks\-::epidemics@{lgraph\-::networks\-::epidemics}!S\-I\-R@{S\-I\-R}}
+\index{S\-I\-R@{S\-I\-R}!lgraph::networks::epidemics@{lgraph\-::networks\-::epidemics}}
+\subsubsection[{S\-I\-R}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class G  = std\-::default\-\_\-random\-\_\-engine, typename d\-T  = size\-\_\-t, typename c\-T  = double$>$ void lgraph\-::networks\-::epidemics\-::\-S\-I\-R (
+\begin{DoxyParamCaption}
+\item[{const uugraph \&}]{net, }
+\item[{double}]{p0, }
+\item[{double}]{beta, }
+\item[{double}]{gamma, }
+\item[{size\-\_\-t}]{T, }
+\item[{const std\-::vector$<$ bool $>$ \&}]{immune, }
+\item[{utils\-::drandom\-\_\-generator$<$ G, d\-T $>$ \&}]{drg, }
+\item[{utils\-::crandom\-\_\-generator$<$ G, c\-T $>$ \&}]{crg, }
+\item[{std\-::vector$<$ size\-\_\-t $>$ \&}]{n\-\_\-rec, }
+\item[{std\-::vector$<$ size\-\_\-t $>$ \&}]{n\-\_\-sus, }
+\item[{std\-::vector$<$ size\-\_\-t $>$ \&}]{n\-\_\-inf}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1networks_1_1epidemics_af7c21ddb81d8637daacc904cd2eca4e8}
+
+
+S\-I\-R (Susceptible, Infected, Recovered) epidemic model with immunities. 
+
+The immune nodes are not considered for infection.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em net} & The network the epidemic model is applied on \\
+\hline
+\mbox{\tt in}  & {\em p0} & Initial proportion of infected individuals. Used as a probability of being infected at the beginning of the simulation, applied to each individual. \\
+\hline
+\mbox{\tt in}  & {\em beta} & Rate of infection of an individual with a single neighbour. \\
+\hline
+\mbox{\tt in}  & {\em gamma} & Rate of recovery of an individual. \\
+\hline
+\mbox{\tt in}  & {\em T} & Maximum number of steps of the simulation. The steps performed have index 1,2,...,{\itshape T} \\
+\hline
+\mbox{\tt in}  & {\em immune} & The individuals of the net immune to infection. \\
+\hline
+\mbox{\tt in}  & {\em drg} & The discrete random generator used for algorithm optimisation. \\
+\hline
+\mbox{\tt in}  & {\em crg} & The continuous random generator used to generate numbers between 0 and 1.\\
+\hline
+\mbox{\tt out}  & {\em n\-\_\-rec} & n\-\_\-rec\mbox{[}i\mbox{]} contains the amount of recoverd agents after the i-\/th step is completed. {\itshape n\-\_\-rec}\mbox{[}0\mbox{]} always has a zero and is not a valid value. Its size at the end of the simulation {\itshape T} + 1.\\
+\hline
+\mbox{\tt out}  & {\em n\-\_\-sus} & n\-\_\-sus\mbox{[}i\mbox{]} contains the amount of susceptible agents after the i-\/th step is completed. {\itshape n\-\_\-sus}\mbox{[}0\mbox{]} contains the amount of agents susceptible of infection after infecting a proportion {\itshape of} p0 agents of the population. Its size at the end of the simulation is {\itshape T} + 1.\\
+\hline
+\mbox{\tt out}  & {\em n\-\_\-inf} & n\-\_\-inf\mbox{[}i\mbox{]} contains the amount of infected agents after the i-\/th step is completed. n\-\_\-inf\mbox{[}0\mbox{]} contains the amount of agents susceptible of infection after infecting a proportion of {\itshape p0} agents of the population. Its size at the end of the simulation {\itshape T} + 1. \\
+\hline
+\end{DoxyParams}
+\hypertarget{namespacelgraph_1_1networks_1_1epidemics_ab13c06a31d1bb67952af8bada055954a}{\index{lgraph\-::networks\-::epidemics@{lgraph\-::networks\-::epidemics}!S\-I\-S@{S\-I\-S}}
+\index{S\-I\-S@{S\-I\-S}!lgraph::networks::epidemics@{lgraph\-::networks\-::epidemics}}
+\subsubsection[{S\-I\-S}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class G  = std\-::default\-\_\-random\-\_\-engine, typename d\-T  = size\-\_\-t, typename c\-T  = double$>$ void lgraph\-::networks\-::epidemics\-::\-S\-I\-S (
+\begin{DoxyParamCaption}
+\item[{const uugraph \&}]{net, }
+\item[{double}]{p0, }
+\item[{double}]{beta, }
+\item[{double}]{gamma, }
+\item[{size\-\_\-t}]{T, }
+\item[{utils\-::drandom\-\_\-generator$<$ G, d\-T $>$ \&}]{drg, }
+\item[{utils\-::crandom\-\_\-generator$<$ G, c\-T $>$ \&}]{crg, }
+\item[{std\-::vector$<$ size\-\_\-t $>$ \&}]{n\-\_\-rec, }
+\item[{std\-::vector$<$ size\-\_\-t $>$ \&}]{n\-\_\-sus, }
+\item[{std\-::vector$<$ size\-\_\-t $>$ \&}]{n\-\_\-inf}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1networks_1_1epidemics_ab13c06a31d1bb67952af8bada055954a}
+
+
+S\-I\-S (Susceptible, Infected, Susceptible) epidemic model. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em net} & The network the epidemic model is applied on. \\
+\hline
+\mbox{\tt in}  & {\em p0} & Initial proportion of infected individuals. Used as a probability of being infected at the beginning of the simulation, applied to each individual. \\
+\hline
+\mbox{\tt in}  & {\em beta} & Rate of infection of an individual with a single neighbour. \\
+\hline
+\mbox{\tt in}  & {\em gamma} & Rate of recovery of an individual. \\
+\hline
+\mbox{\tt in}  & {\em T} & Maximum number of steps of the simulation. The steps performed have index 1,2,...,{\itshape T}. \\
+\hline
+\mbox{\tt in}  & {\em drg} & The discrete random generator used for algorithm optimisation. \\
+\hline
+\mbox{\tt in}  & {\em crg} & The continuous random generator used to generate numbers between 0 and 1.\\
+\hline
+\mbox{\tt out}  & {\em n\-\_\-rec} & n\-\_\-rec\mbox{[}i\mbox{]} contains the amount of recoverd agents after the i-\/th step is completed. {\itshape n\-\_\-rec}\mbox{[}0\mbox{]} always has a zero and is not a valid value. Its size at the end of the simulation {\itshape T} + 1.\\
+\hline
+\mbox{\tt out}  & {\em n\-\_\-sus} & n\-\_\-sus\mbox{[}i\mbox{]} contains the amount of susceptible agents after the i-\/th step is completed. {\itshape n\-\_\-sus}\mbox{[}0\mbox{]} contains the amount of agents susceptible of infection after infecting a proportion {\itshape of} p0 agents of the population. Its size at the end of the simulation is {\itshape T} + 1.\\
+\hline
+\mbox{\tt out}  & {\em n\-\_\-inf} & n\-\_\-inf\mbox{[}i\mbox{]} contains the amount of infected agents after the i-\/th step is completed. n\-\_\-inf\mbox{[}0\mbox{]} contains the amount of agents susceptible of infection after infecting a proportion of {\itshape p0} agents of the population. Its size at the end of the simulation {\itshape T} + 1. \\
+\hline
+\end{DoxyParams}
+\hypertarget{namespacelgraph_1_1networks_1_1epidemics_a0ea6c12de2cf4ddf40808ce18de3e91b}{\index{lgraph\-::networks\-::epidemics@{lgraph\-::networks\-::epidemics}!S\-I\-S@{S\-I\-S}}
+\index{S\-I\-S@{S\-I\-S}!lgraph::networks::epidemics@{lgraph\-::networks\-::epidemics}}
+\subsubsection[{S\-I\-S}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class G  = std\-::default\-\_\-random\-\_\-engine, typename d\-T  = size\-\_\-t, typename c\-T  = double$>$ void lgraph\-::networks\-::epidemics\-::\-S\-I\-S (
+\begin{DoxyParamCaption}
+\item[{const uugraph \&}]{net, }
+\item[{double}]{p0, }
+\item[{double}]{beta, }
+\item[{double}]{gamma, }
+\item[{size\-\_\-t}]{T, }
+\item[{const std\-::vector$<$ bool $>$ \&}]{immune, }
+\item[{utils\-::drandom\-\_\-generator$<$ G, d\-T $>$ \&}]{drg, }
+\item[{utils\-::crandom\-\_\-generator$<$ G, c\-T $>$ \&}]{crg, }
+\item[{std\-::vector$<$ size\-\_\-t $>$ \&}]{n\-\_\-rec, }
+\item[{std\-::vector$<$ size\-\_\-t $>$ \&}]{n\-\_\-sus, }
+\item[{std\-::vector$<$ size\-\_\-t $>$ \&}]{n\-\_\-inf}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1networks_1_1epidemics_a0ea6c12de2cf4ddf40808ce18de3e91b}
+
+
+S\-I\-S (Susceptible, Infected, Susceptible) epidemic model with immunities. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em net} & The network the epidemic model is applied on. \\
+\hline
+\mbox{\tt in}  & {\em p0} & Initial proportion of infected individuals. Used as a probability of being infected at the beginning of the simulation, applied to each individual. \\
+\hline
+\mbox{\tt in}  & {\em beta} & Rate of infection of an individual with a single neighbour. \\
+\hline
+\mbox{\tt in}  & {\em gamma} & Rate of recovery of an individual. \\
+\hline
+\mbox{\tt in}  & {\em T} & Maximum number of steps of the simulation. The steps performed have index 1,2,...,{\itshape T}. \\
+\hline
+\mbox{\tt in}  & {\em immune} & The individuals of the net immune to infection. \\
+\hline
+\mbox{\tt in}  & {\em drg} & The discrete random generator used for algorithm optimisation. \\
+\hline
+\mbox{\tt in}  & {\em crg} & The continuous random generator used to generate numbers between 0 and 1.\\
+\hline
+\mbox{\tt out}  & {\em n\-\_\-rec} & n\-\_\-rec\mbox{[}i\mbox{]} contains the amount of recoverd agents after the i-\/th step is completed. {\itshape n\-\_\-rec}\mbox{[}0\mbox{]} always has a zero and is not a valid value. Its size at the end of the simulation {\itshape T} + 1.\\
+\hline
+\mbox{\tt out}  & {\em n\-\_\-sus} & n\-\_\-sus\mbox{[}i\mbox{]} contains the amount of susceptible agents after the i-\/th step is completed. {\itshape n\-\_\-sus}\mbox{[}0\mbox{]} contains the amount of agents susceptible of infection after infecting a proportion {\itshape of} p0 agents of the population. Its size at the end of the simulation is {\itshape T} + 1.\\
+\hline
+\mbox{\tt out}  & {\em n\-\_\-inf} & n\-\_\-inf\mbox{[}i\mbox{]} contains the amount of infected agents after the i-\/th step is completed. n\-\_\-inf\mbox{[}0\mbox{]} contains the amount of agents susceptible of infection after infecting a proportion of {\itshape p0} agents of the population. Its size at the end of the simulation {\itshape T} + 1. \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,229 @@
+\hypertarget{namespacelgraph_1_1io_1_1edge__list}{\section{lgraph\-:\-:io\-:\-:edge\-\_\-list Namespace Reference}
+\label{namespacelgraph_1_1io_1_1edge__list}\index{lgraph\-::io\-::edge\-\_\-list@{lgraph\-::io\-::edge\-\_\-list}}
+}
+
+
+Read/write graphs in {\itshape edge} {\itshape list} format.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{namespacelgraph_1_1io_1_1edge__list_a51d3431a6910ab3120f2d12efb7c2073}{read} (const std\-::string \&filename, \hyperlink{classlgraph_1_1uxgraph}{uxgraph} $\ast$g)
+\begin{DoxyCompactList}\small\item\em Reads an unweighted graph in edge list format. \end{DoxyCompactList}\item 
+bool \hyperlink{namespacelgraph_1_1io_1_1edge__list_a1861bd84b7b67c310fd1b13534b7308b}{read} (const char $\ast$filename, \hyperlink{classlgraph_1_1uxgraph}{uxgraph} $\ast$g)
+\begin{DoxyCompactList}\small\item\em Reads an unweighted graph in edge list format. \end{DoxyCompactList}\item 
+bool \hyperlink{namespacelgraph_1_1io_1_1edge__list_a769bbfbae588e800a54d5920ebf6f4d0}{write} (const std\-::string \&filename, const \hyperlink{classlgraph_1_1uxgraph}{uxgraph} $\ast$g)
+\begin{DoxyCompactList}\small\item\em Writes an unweighted graph in edge list format. \end{DoxyCompactList}\item 
+bool \hyperlink{namespacelgraph_1_1io_1_1edge__list_aed1aa537146bbb2f4f2308a04ec12ff6}{write} (const char $\ast$filename, const \hyperlink{classlgraph_1_1uxgraph}{uxgraph} $\ast$g)
+\begin{DoxyCompactList}\small\item\em Writes an unweighted graph in edge list format. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\bool \hyperlink{namespacelgraph_1_1io_1_1edge__list_ab421e520957c993c352796a839e38173}{read} (const std\-::string \&filename, \hyperlink{classlgraph_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$g)
+\begin{DoxyCompactList}\small\item\em Reads a weighted graph in edge list format. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\bool \hyperlink{namespacelgraph_1_1io_1_1edge__list_af10b33e98f0f7df9dd555006a69ad0de}{read} (const char $\ast$filename, \hyperlink{classlgraph_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$g)
+\begin{DoxyCompactList}\small\item\em Reads a weighted graph in edge list format. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\bool \hyperlink{namespacelgraph_1_1io_1_1edge__list_ae422e4d5062831a958585527065208e7}{write} (const std\-::string \&filename, const \hyperlink{classlgraph_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$g)
+\begin{DoxyCompactList}\small\item\em Writes a weighted graph in edge list format. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\bool \hyperlink{namespacelgraph_1_1io_1_1edge__list_ab8a0f64a5850e4c9741fcb2fc53646b7}{write} (const char $\ast$filename, const \hyperlink{classlgraph_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$g)
+\begin{DoxyCompactList}\small\item\em Writes a weighted graph in edge list format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Read/write graphs in {\itshape edge} {\itshape list} format. For both undirected and directed graphs, the edge list format consists of the list of edges represented as pairs of indices\-: \begin{DoxyVerb}u v
+\end{DoxyVerb}
+
+
+where {\itshape u} and {\itshape v} represent two vertices of the graph.
+
+If the graph has {\itshape n} vertices, these two indices are positive integer values such that\-: $0 \le u,v < n$.
+
+When an undirected graph the pair ({\itshape u}, {\itshape v}) represents the two directed egdes (u -\/$>$ v) and (v -\/$>$ u). When reading a directed graph the same pair represents the edge (u -\/$>$ v).
+
+Reading/\-Writing a directed/undirected from/to a file graph can be done with methods \hyperlink{namespacelgraph_1_1io_1_1edge__list_a51d3431a6910ab3120f2d12efb7c2073}{read(const std\-::string\&, uxgraph $\ast$)} and \hyperlink{namespacelgraph_1_1io_1_1edge__list_a769bbfbae588e800a54d5920ebf6f4d0}{write(const std\-::string\&, const uxgraph $\ast$)}.
+
+This format can be enriched with more information about the edges such as their weight. In this case, if an edge (u -\/$>$ v) has weight {\itshape w}, then the format is as follows\-: \begin{DoxyVerb}u v w
+\end{DoxyVerb}
+
+
+For any type of graph ( \{directed,undirected\}x\{weighted,unweighted\} ) all nodes with index higher than the las vertex's index involved in an edge are lost when writing them to a file. For example, a graph with 1000 nodes, but only one edge between the 13-\/th and 14-\/th vertices, the contents of the file when writing the graph are\-: \begin{DoxyVerb}13 14
+\end{DoxyVerb}
+
+
+Therefore, after reading that file the resulting graph will have only 15 vertices, labelled with the indices in \mbox{[}0,14\mbox{]}. 
+
+\subsection{Function Documentation}
+\hypertarget{namespacelgraph_1_1io_1_1edge__list_a51d3431a6910ab3120f2d12efb7c2073}{\index{lgraph\-::io\-::edge\-\_\-list@{lgraph\-::io\-::edge\-\_\-list}!read@{read}}
+\index{read@{read}!lgraph::io::edge_list@{lgraph\-::io\-::edge\-\_\-list}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}bool lgraph\-::io\-::edge\-\_\-list\-::read (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{filename, }
+\item[{uxgraph $\ast$}]{g}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1io_1_1edge__list_a51d3431a6910ab3120f2d12efb7c2073}
+
+
+Reads an unweighted graph in edge list format. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em filename} & The name of the file to be read. \\
+\hline
+\mbox{\tt out}  & {\em g} & The graph built with the contents in the file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns false if the file coule not be opened. Returns true otherwise. 
+\end{DoxyReturn}
+\hypertarget{namespacelgraph_1_1io_1_1edge__list_a1861bd84b7b67c310fd1b13534b7308b}{\index{lgraph\-::io\-::edge\-\_\-list@{lgraph\-::io\-::edge\-\_\-list}!read@{read}}
+\index{read@{read}!lgraph::io::edge_list@{lgraph\-::io\-::edge\-\_\-list}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}bool lgraph\-::io\-::edge\-\_\-list\-::read (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{filename, }
+\item[{uxgraph $\ast$}]{g}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1io_1_1edge__list_a1861bd84b7b67c310fd1b13534b7308b}
+
+
+Reads an unweighted graph in edge list format. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em filename} & The name of the file to be read. \\
+\hline
+\mbox{\tt out}  & {\em g} & The graph built with the contents in the file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns false if the file coule not be opened. Returns true otherwise. 
+\end{DoxyReturn}
+\hypertarget{namespacelgraph_1_1io_1_1edge__list_ab421e520957c993c352796a839e38173}{\index{lgraph\-::io\-::edge\-\_\-list@{lgraph\-::io\-::edge\-\_\-list}!read@{read}}
+\index{read@{read}!lgraph::io::edge_list@{lgraph\-::io\-::edge\-\_\-list}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ bool lgraph\-::io\-::edge\-\_\-list\-::read (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{filename, }
+\item[{wxgraph$<$ T $>$ $\ast$}]{g}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1io_1_1edge__list_ab421e520957c993c352796a839e38173}
+
+
+Reads a weighted graph in edge list format. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em filename} & The name of the file to be read. \\
+\hline
+\mbox{\tt out}  & {\em g} & The graph built with the contents in the file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns false if the file coule not be opened. Returns true otherwise. 
+\end{DoxyReturn}
+\hypertarget{namespacelgraph_1_1io_1_1edge__list_af10b33e98f0f7df9dd555006a69ad0de}{\index{lgraph\-::io\-::edge\-\_\-list@{lgraph\-::io\-::edge\-\_\-list}!read@{read}}
+\index{read@{read}!lgraph::io::edge_list@{lgraph\-::io\-::edge\-\_\-list}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ bool lgraph\-::io\-::edge\-\_\-list\-::read (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{filename, }
+\item[{wxgraph$<$ T $>$ $\ast$}]{g}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1io_1_1edge__list_af10b33e98f0f7df9dd555006a69ad0de}
+
+
+Reads a weighted graph in edge list format. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em filename} & The name of the file to be read. \\
+\hline
+\mbox{\tt out}  & {\em g} & The graph built with the contents in the file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns false if the file coule not be opened. Returns true otherwise. 
+\end{DoxyReturn}
+\hypertarget{namespacelgraph_1_1io_1_1edge__list_a769bbfbae588e800a54d5920ebf6f4d0}{\index{lgraph\-::io\-::edge\-\_\-list@{lgraph\-::io\-::edge\-\_\-list}!write@{write}}
+\index{write@{write}!lgraph::io::edge_list@{lgraph\-::io\-::edge\-\_\-list}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}bool lgraph\-::io\-::edge\-\_\-list\-::write (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{filename, }
+\item[{const uxgraph $\ast$}]{g}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1io_1_1edge__list_a769bbfbae588e800a54d5920ebf6f4d0}
+
+
+Writes an unweighted graph in edge list format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file where the graph will be written to. \\
+\hline
+{\em g} & The graph to store. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns false if the file could not be opened. Returns true otherwise. 
+\end{DoxyReturn}
+\hypertarget{namespacelgraph_1_1io_1_1edge__list_aed1aa537146bbb2f4f2308a04ec12ff6}{\index{lgraph\-::io\-::edge\-\_\-list@{lgraph\-::io\-::edge\-\_\-list}!write@{write}}
+\index{write@{write}!lgraph::io::edge_list@{lgraph\-::io\-::edge\-\_\-list}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}bool lgraph\-::io\-::edge\-\_\-list\-::write (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{filename, }
+\item[{const uxgraph $\ast$}]{g}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1io_1_1edge__list_aed1aa537146bbb2f4f2308a04ec12ff6}
+
+
+Writes an unweighted graph in edge list format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file where the graph will be written to. \\
+\hline
+{\em g} & The graph to store. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns false if the file could not be opened. Returns true otherwise. 
+\end{DoxyReturn}
+\hypertarget{namespacelgraph_1_1io_1_1edge__list_ae422e4d5062831a958585527065208e7}{\index{lgraph\-::io\-::edge\-\_\-list@{lgraph\-::io\-::edge\-\_\-list}!write@{write}}
+\index{write@{write}!lgraph::io::edge_list@{lgraph\-::io\-::edge\-\_\-list}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ bool lgraph\-::io\-::edge\-\_\-list\-::write (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{filename, }
+\item[{const wxgraph$<$ T $>$ $\ast$}]{g}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1io_1_1edge__list_ae422e4d5062831a958585527065208e7}
+
+
+Writes a weighted graph in edge list format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file where the graph will be written to. \\
+\hline
+{\em g} & The graph to store. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns false if the file could not be opened. Returns true otherwise. 
+\end{DoxyReturn}
+\hypertarget{namespacelgraph_1_1io_1_1edge__list_ab8a0f64a5850e4c9741fcb2fc53646b7}{\index{lgraph\-::io\-::edge\-\_\-list@{lgraph\-::io\-::edge\-\_\-list}!write@{write}}
+\index{write@{write}!lgraph::io::edge_list@{lgraph\-::io\-::edge\-\_\-list}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ bool lgraph\-::io\-::edge\-\_\-list\-::write (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{filename, }
+\item[{const wxgraph$<$ T $>$ $\ast$}]{g}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1io_1_1edge__list_ab8a0f64a5850e4c9741fcb2fc53646b7}
+
+
+Writes a weighted graph in edge list format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file where the graph will be written to. \\
+\hline
+{\em g} & The graph to store. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns false if the file could not be opened. Returns true otherwise. 
+\end{DoxyReturn}

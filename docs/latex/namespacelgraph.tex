@@ -1,0 +1,128 @@
+\hypertarget{namespacelgraph}{\section{lgraph Namespace Reference}
+\label{namespacelgraph}\index{lgraph@{lgraph}}
+}
+
+
+Library's main namespace.  
+
+
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacelgraph_1_1io}{io}
+\begin{DoxyCompactList}\small\item\em Collection of functions for reading and writing graphs. \end{DoxyCompactList}\item 
+\hyperlink{namespacelgraph_1_1networks}{networks}
+\begin{DoxyCompactList}\small\item\em Methods to be applied to networks. \end{DoxyCompactList}\item 
+\hyperlink{namespacelgraph_1_1traversal}{traversal}
+\begin{DoxyCompactList}\small\item\em Collection of path-\/finding algorithms. \end{DoxyCompactList}\item 
+\hyperlink{namespacelgraph_1_1utils}{utils}
+\begin{DoxyCompactList}\small\item\em Collection of utilities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classlgraph_1_1boolean__path}{boolean\-\_\-path}
+\begin{DoxyCompactList}\small\item\em A path through a graph seen as a list of Boolean values. \end{DoxyCompactList}\item 
+class \hyperlink{classlgraph_1_1node__path}{node\-\_\-path}
+\begin{DoxyCompactList}\small\item\em A path through a grpah seen as a list of nodes. \end{DoxyCompactList}\item 
+class \hyperlink{classlgraph_1_1udgraph}{udgraph}
+\begin{DoxyCompactList}\small\item\em Unweighted directed (ud) graphs. \end{DoxyCompactList}\item 
+class \hyperlink{classlgraph_1_1uugraph}{uugraph}
+\begin{DoxyCompactList}\small\item\em Unweighted undirected (uu) graphs. \end{DoxyCompactList}\item 
+class \hyperlink{classlgraph_1_1uxgraph}{uxgraph}
+\begin{DoxyCompactList}\small\item\em Abstract class for unweighted (ux) graphs. \end{DoxyCompactList}\item 
+class \hyperlink{classlgraph_1_1wdgraph}{wdgraph}
+\begin{DoxyCompactList}\small\item\em Weighted directed graphs. \end{DoxyCompactList}\item 
+class \hyperlink{classlgraph_1_1wugraph}{wugraph}
+\begin{DoxyCompactList}\small\item\em Weighted undirected graphs. \end{DoxyCompactList}\item 
+class \hyperlink{classlgraph_1_1wxgraph}{wxgraph}
+\begin{DoxyCompactList}\small\item\em Abstract class for weighted (ux) graphs. \end{DoxyCompactList}\item 
+class \hyperlink{classlgraph_1_1xxgraph}{xxgraph}
+\begin{DoxyCompactList}\small\item\em Abstract class for the graph data structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespacelgraph_afad432931ba600ab1628d5c9595986c5}{{\footnotesize template$<$class T  = size\-\_\-t$>$ }\\using \hyperlink{namespacelgraph_afad432931ba600ab1628d5c9595986c5}{boolean\-\_\-path\-\_\-set} = std\-::vector$<$ \hyperlink{classlgraph_1_1boolean__path}{boolean\-\_\-path}$<$ T $>$ $>$}\label{namespacelgraph_afad432931ba600ab1628d5c9595986c5}
+
+\begin{DoxyCompactList}\small\item\em Template for a list of \hyperlink{classlgraph_1_1boolean__path}{boolean\-\_\-path} objects. \end{DoxyCompactList}\item 
+\hypertarget{namespacelgraph_a0570ce57129123d5816913d287f6cc73}{{\footnotesize template$<$class T  = \-\_\-new\-\_\-$>$ }\\using \hyperlink{namespacelgraph_a0570ce57129123d5816913d287f6cc73}{node\-\_\-path\-\_\-set} = std\-::vector$<$ \hyperlink{classlgraph_1_1node__path}{node\-\_\-path}$<$ T $>$ $>$}\label{namespacelgraph_a0570ce57129123d5816913d287f6cc73}
+
+\begin{DoxyCompactList}\small\item\em Template for a list of \hyperlink{classlgraph_1_1node__path}{node\-\_\-path} objects. \end{DoxyCompactList}\item 
+\hypertarget{namespacelgraph_a397169dd66adf725210a30fb7251773e}{typedef uint64\-\_\-t \hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node}}\label{namespacelgraph_a397169dd66adf725210a30fb7251773e}
+
+\begin{DoxyCompactList}\small\item\em Typedef for a graph node's index. \end{DoxyCompactList}\item 
+\hypertarget{namespacelgraph_a052e7766c13f3a43cec0aec8173fdede}{typedef \hyperlink{classlgraph_1_1utils_1_1svector}{utils\-::svector}$<$ \hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node} $>$ \hyperlink{namespacelgraph_a052e7766c13f3a43cec0aec8173fdede}{neighbourhood}}\label{namespacelgraph_a052e7766c13f3a43cec0aec8173fdede}
+
+\begin{DoxyCompactList}\small\item\em Typedef for a list of nodes. \end{DoxyCompactList}\item 
+\hypertarget{namespacelgraph_a1e0fd5ef0a78b2a92da48adbed265cb6}{{\footnotesize template$<$class T $>$ }\\using \hyperlink{namespacelgraph_a1e0fd5ef0a78b2a92da48adbed265cb6}{weight\-\_\-list} = \hyperlink{classlgraph_1_1utils_1_1svector}{utils\-::svector}$<$ T $>$}\label{namespacelgraph_a1e0fd5ef0a78b2a92da48adbed265cb6}
+
+\begin{DoxyCompactList}\small\item\em Typedef for a list of weights. \end{DoxyCompactList}\item 
+\hypertarget{namespacelgraph_a9db6fe3bec7403f09c603c229beb7e40}{typedef \\*
+\hyperlink{classlgraph_1_1utils_1_1svector_a50774ce617a742e76f3fb8cc0a7a9445}{neighbourhood\-::const\-\_\-iterator} \hyperlink{namespacelgraph_a9db6fe3bec7403f09c603c229beb7e40}{ncit}}\label{namespacelgraph_a9db6fe3bec7403f09c603c229beb7e40}
+
+\begin{DoxyCompactList}\small\item\em Typedef for a constant iterator through a \hyperlink{namespacelgraph_a052e7766c13f3a43cec0aec8173fdede}{neighbourhood}. \end{DoxyCompactList}\item 
+\hypertarget{namespacelgraph_ad402f72c6d926f6e75ba3523515e0e4a}{typedef \hyperlink{classlgraph_1_1utils_1_1svector_a518288794e754e27d2e2274ced4485a6}{neighbourhood\-::iterator} \hyperlink{namespacelgraph_ad402f72c6d926f6e75ba3523515e0e4a}{nit}}\label{namespacelgraph_ad402f72c6d926f6e75ba3523515e0e4a}
+
+\begin{DoxyCompactList}\small\item\em Typedef for a non-\/constant iterator through a \hyperlink{namespacelgraph_a052e7766c13f3a43cec0aec8173fdede}{neighbourhood}. \end{DoxyCompactList}\item 
+\hypertarget{namespacelgraph_a76bd7d50719f03de7a85db259d80d572}{typedef std\-::pair$<$ \hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node}, \hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node} $>$ \hyperlink{namespacelgraph_a76bd7d50719f03de7a85db259d80d572}{edge}}\label{namespacelgraph_a76bd7d50719f03de7a85db259d80d572}
+
+\begin{DoxyCompactList}\small\item\em Typedef for an edge of a graph. \end{DoxyCompactList}\item 
+typedef uint32\-\_\-t \hyperlink{namespacelgraph_a2836f966c1c36b43da337d8907728ec0}{\-\_\-new\-\_\-}
+\begin{DoxyCompactList}\small\item\em Typedef for the type of weight in unweighted graphs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{namespacelgraph_a22faf23dc44c909b5727c26625637447}{from\-\_\-nps\-\_\-to\-\_\-bps} (const \hyperlink{namespacelgraph_a0570ce57129123d5816913d287f6cc73}{node\-\_\-path\-\_\-set}$<$ T $>$ \&nps, size\-\_\-t N, \hyperlink{namespacelgraph_afad432931ba600ab1628d5c9595986c5}{boolean\-\_\-path\-\_\-set}$<$ T $>$ \&bps)
+\begin{DoxyCompactList}\small\item\em Shortcut to convert all \hyperlink{classlgraph_1_1node__path}{node\-\_\-path} objects in a list to a list of \hyperlink{classlgraph_1_1boolean__path}{boolean\-\_\-path} objects. \end{DoxyCompactList}\item 
+\hypertarget{namespacelgraph_a9c17e678f030dbd9da486735489e5aef}{{\footnotesize template$<$class T $>$ }\\void \hyperlink{namespacelgraph_a9c17e678f030dbd9da486735489e5aef}{U\-N\-U\-S\-E\-D} (const T \&t)}\label{namespacelgraph_a9c17e678f030dbd9da486735489e5aef}
+
+\begin{DoxyCompactList}\small\item\em Function to avoid 'Unused parameter' warnings. \end{DoxyCompactList}\item 
+\hypertarget{namespacelgraph_af736a008e890d631c62cc8c719e966a2}{{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespacelgraph_af736a008e890d631c62cc8c719e966a2}{inf\-\_\-t} ()}\label{namespacelgraph_af736a008e890d631c62cc8c719e966a2}
+
+\begin{DoxyCompactList}\small\item\em Shorthand for the maximum value of any type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespacelgraph_a367229188e5a8c4e78e33866e3d46c48}{static const size\-\_\-t \hyperlink{namespacelgraph_a367229188e5a8c4e78e33866e3d46c48}{z\-\_\-inf} = std\-::numeric\-\_\-limits$<$size\-\_\-t$>$\-::max()}\label{namespacelgraph_a367229188e5a8c4e78e33866e3d46c48}
+
+\begin{DoxyCompactList}\small\item\em Constant for maximum value for unsigned integer type. \end{DoxyCompactList}\item 
+\hypertarget{namespacelgraph_a196c37be2b8b7c6631b9bee5fca0bed3}{static const double \hyperlink{namespacelgraph_a196c37be2b8b7c6631b9bee5fca0bed3}{r\-\_\-inf} = std\-::numeric\-\_\-limits$<$double$>$\-::max()}\label{namespacelgraph_a196c37be2b8b7c6631b9bee5fca0bed3}
+
+\begin{DoxyCompactList}\small\item\em Constant for maximum value for double-\/precision floating point type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Library's main namespace. 
+
+\subsection{Typedef Documentation}
+\hypertarget{namespacelgraph_a2836f966c1c36b43da337d8907728ec0}{\index{lgraph@{lgraph}!\-\_\-new\-\_\-@{\-\_\-new\-\_\-}}
+\index{\-\_\-new\-\_\-@{\-\_\-new\-\_\-}!lgraph@{lgraph}}
+\subsubsection[{\-\_\-new\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}typedef uint32\-\_\-t {\bf lgraph\-::\-\_\-new\-\_\-}}}\label{namespacelgraph_a2836f966c1c36b43da337d8907728ec0}
+
+
+Typedef for the type of weight in unweighted graphs. 
+
+{\itshape new} stands for Null Edge Weight. 
+
+\subsection{Function Documentation}
+\hypertarget{namespacelgraph_a22faf23dc44c909b5727c26625637447}{\index{lgraph@{lgraph}!from\-\_\-nps\-\_\-to\-\_\-bps@{from\-\_\-nps\-\_\-to\-\_\-bps}}
+\index{from\-\_\-nps\-\_\-to\-\_\-bps@{from\-\_\-nps\-\_\-to\-\_\-bps}!lgraph@{lgraph}}
+\subsubsection[{from\-\_\-nps\-\_\-to\-\_\-bps}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void lgraph\-::from\-\_\-nps\-\_\-to\-\_\-bps (
+\begin{DoxyParamCaption}
+\item[{const node\-\_\-path\-\_\-set$<$ T $>$ \&}]{nps, }
+\item[{size\-\_\-t}]{N, }
+\item[{boolean\-\_\-path\-\_\-set$<$ T $>$ \&}]{bps}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_a22faf23dc44c909b5727c26625637447}
+
+
+Shortcut to convert all \hyperlink{classlgraph_1_1node__path}{node\-\_\-path} objects in a list to a list of \hyperlink{classlgraph_1_1boolean__path}{boolean\-\_\-path} objects. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em nps} & The list of \hyperlink{classlgraph_1_1node__path}{node\-\_\-path} objects to convert. \\
+\hline
+\mbox{\tt in}  & {\em N} & The amount of nodes that the graph each \hyperlink{classlgraph_1_1node__path}{node\-\_\-path} object traverses has. \\
+\hline
+\mbox{\tt out}  & {\em bps} & A list with as many boolean\-\_\-paths as node\-\_\-paths are in {\itshape bps}. The boolean path in {\itshape bps}\mbox{[}i\mbox{]} \\
+\hline
+\end{DoxyParams}

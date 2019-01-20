@@ -1,0 +1,128 @@
+\hypertarget{classlgraph_1_1utils_1_1random__generator}{\section{lgraph\-:\-:utils\-:\-:random\-\_\-generator$<$ G, T $>$ Class Template Reference}
+\label{classlgraph_1_1utils_1_1random__generator}\index{lgraph\-::utils\-::random\-\_\-generator$<$ G, T $>$@{lgraph\-::utils\-::random\-\_\-generator$<$ G, T $>$}}
+}
+
+
+Abstract pseudo-\/\-Random Number Generator (A\-R\-N\-G).  
+
+
+
+
+{\ttfamily \#include $<$random\-\_\-generator.\-hpp$>$}
+
+
+
+Collaboration diagram for lgraph\-:\-:utils\-:\-:random\-\_\-generator$<$ G, T $>$\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classlgraph_1_1utils_1_1random__generator__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classlgraph_1_1utils_1_1random__generator_af4f4ba363f6f72d3ded2dba9e97079bb}{\hyperlink{classlgraph_1_1utils_1_1random__generator_af4f4ba363f6f72d3ded2dba9e97079bb}{random\-\_\-generator} ()}\label{classlgraph_1_1utils_1_1random__generator_af4f4ba363f6f72d3ded2dba9e97079bb}
+
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+\hypertarget{classlgraph_1_1utils_1_1random__generator_a87783727d9e3a109bc3ed0631edad69b}{virtual \hyperlink{classlgraph_1_1utils_1_1random__generator_a87783727d9e3a109bc3ed0631edad69b}{$\sim$random\-\_\-generator} ()}\label{classlgraph_1_1utils_1_1random__generator_a87783727d9e3a109bc3ed0631edad69b}
+
+\begin{DoxyCompactList}\small\item\em Class destructor. \end{DoxyCompactList}\item 
+\hypertarget{classlgraph_1_1utils_1_1random__generator_a4eb6998070eecb59bd89dca92d8a509c}{virtual void \hyperlink{classlgraph_1_1utils_1_1random__generator_a4eb6998070eecb59bd89dca92d8a509c}{seed\-\_\-random\-\_\-engine} ()}\label{classlgraph_1_1utils_1_1random__generator_a4eb6998070eecb59bd89dca92d8a509c}
+
+\begin{DoxyCompactList}\small\item\em Initialises the random engine. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classlgraph_1_1utils_1_1random__generator_a129da597bed5b08e9c7e5a3ddce4287c}{init\-\_\-uniform} (T a, T b)=0
+\begin{DoxyCompactList}\small\item\em Initialise the uniform distribution. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classlgraph_1_1utils_1_1random__generator_a71976e6ecbbd49de85ac270085832df1}{init\-\_\-binomial} (T n, double p)=0
+\begin{DoxyCompactList}\small\item\em Initialise the binomial distribution. \end{DoxyCompactList}\item 
+\hypertarget{classlgraph_1_1utils_1_1random__generator_ac18bd12c8baf8a7cbe6ef9be072c95cf}{virtual T \hyperlink{classlgraph_1_1utils_1_1random__generator_ac18bd12c8baf8a7cbe6ef9be072c95cf}{get\-\_\-uniform} ()=0}\label{classlgraph_1_1utils_1_1random__generator_ac18bd12c8baf8a7cbe6ef9be072c95cf}
+
+\begin{DoxyCompactList}\small\item\em Compute a pseudo-\/random number uniformly at random. \end{DoxyCompactList}\item 
+\hypertarget{classlgraph_1_1utils_1_1random__generator_a721da14c38e38d28559e8c617e0bdde2}{virtual T \hyperlink{classlgraph_1_1utils_1_1random__generator_a721da14c38e38d28559e8c617e0bdde2}{get\-\_\-binomial} ()=0}\label{classlgraph_1_1utils_1_1random__generator_a721da14c38e38d28559e8c617e0bdde2}
+
+\begin{DoxyCompactList}\small\item\em Compute a pseudo-\/random binomal number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classlgraph_1_1utils_1_1random__generator_a18353876b4c2d3a18aee454b5750a0a0}{G \hyperlink{classlgraph_1_1utils_1_1random__generator_a18353876b4c2d3a18aee454b5750a0a0}{gen}}\label{classlgraph_1_1utils_1_1random__generator_a18353876b4c2d3a18aee454b5750a0a0}
+
+\begin{DoxyCompactList}\small\item\em Random engine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class G, typename T$>$class lgraph\-::utils\-::random\-\_\-generator$<$ G, T $>$}
+
+Abstract pseudo-\/\-Random Number Generator (A\-R\-N\-G). 
+
+Interface for random number generators using the C++11 header $<$random$>$.
+
+Seed the random engine calling method \hyperlink{classlgraph_1_1utils_1_1random__generator_a4eb6998070eecb59bd89dca92d8a509c}{seed\-\_\-random\-\_\-engine()}.
+
+Initialise whatever distribution is needed with the appropriate method\-:
+\begin{DoxyItemize}
+\item \hyperlink{classlgraph_1_1utils_1_1random__generator_a129da597bed5b08e9c7e5a3ddce4287c}{init\-\_\-uniform(\-T a, T b)} to generate numbers following the distribution U\mbox{[}a,b\mbox{]}, where U denotes the uniform distribution.
+\item \hyperlink{classlgraph_1_1utils_1_1random__generator_a71976e6ecbbd49de85ac270085832df1}{init\-\_\-binomial(\-T n, double p)} to generate numbers following the distribution B(n,p), where B denotes the binomial distribution.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em G} & The random engine used to generate the numbers \\
+\hline
+{\em T} & The type of the numbers generated (its type depends on the subclass that will implement the interface) \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classlgraph_1_1utils_1_1random__generator_a71976e6ecbbd49de85ac270085832df1}{\index{lgraph\-::utils\-::random\-\_\-generator@{lgraph\-::utils\-::random\-\_\-generator}!init\-\_\-binomial@{init\-\_\-binomial}}
+\index{init\-\_\-binomial@{init\-\_\-binomial}!lgraph::utils::random_generator@{lgraph\-::utils\-::random\-\_\-generator}}
+\subsubsection[{init\-\_\-binomial}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class G, typename T$>$ virtual void {\bf lgraph\-::utils\-::random\-\_\-generator}$<$ G, T $>$\-::init\-\_\-binomial (
+\begin{DoxyParamCaption}
+\item[{T}]{n, }
+\item[{double}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classlgraph_1_1utils_1_1random__generator_a71976e6ecbbd49de85ac270085832df1}
+
+
+Initialise the binomial distribution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Number of independent experiments of the distribution. \\
+\hline
+{\em p} & Probability of success of each experiment. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{classlgraph_1_1utils_1_1crandom__generator_a4d7042cb0862c3b8b4792890e6c5388c}{lgraph\-::utils\-::crandom\-\_\-generator$<$ G, c\-T $>$}, and \hyperlink{classlgraph_1_1utils_1_1drandom__generator_acae17810176a40fdfd8a4a260892361e}{lgraph\-::utils\-::drandom\-\_\-generator$<$ G, d\-T $>$}.
+
+\hypertarget{classlgraph_1_1utils_1_1random__generator_a129da597bed5b08e9c7e5a3ddce4287c}{\index{lgraph\-::utils\-::random\-\_\-generator@{lgraph\-::utils\-::random\-\_\-generator}!init\-\_\-uniform@{init\-\_\-uniform}}
+\index{init\-\_\-uniform@{init\-\_\-uniform}!lgraph::utils::random_generator@{lgraph\-::utils\-::random\-\_\-generator}}
+\subsubsection[{init\-\_\-uniform}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class G, typename T$>$ virtual void {\bf lgraph\-::utils\-::random\-\_\-generator}$<$ G, T $>$\-::init\-\_\-uniform (
+\begin{DoxyParamCaption}
+\item[{T}]{a, }
+\item[{T}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classlgraph_1_1utils_1_1random__generator_a129da597bed5b08e9c7e5a3ddce4287c}
+
+
+Initialise the uniform distribution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Lower bound of the interval of the distribution. \\
+\hline
+{\em b} & Upper bound of the interval of the distribution. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{classlgraph_1_1utils_1_1crandom__generator_addfa5951276296b2a164e5dc482728ce}{lgraph\-::utils\-::crandom\-\_\-generator$<$ G, c\-T $>$}, and \hyperlink{classlgraph_1_1utils_1_1drandom__generator_a38c5b5c981d635aac32f632a0f4a0092}{lgraph\-::utils\-::drandom\-\_\-generator$<$ G, d\-T $>$}.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+lgraph/utils/random\-\_\-generator.\-hpp\item 
+lgraph/utils/random\-\_\-generator.\-cpp\end{DoxyCompactItemize}

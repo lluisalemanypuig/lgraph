@@ -1,0 +1,145 @@
+\hypertarget{namespacelgraph_1_1io}{\section{lgraph\-:\-:io Namespace Reference}
+\label{namespacelgraph_1_1io}\index{lgraph\-::io@{lgraph\-::io}}
+}
+
+
+Collection of functions for reading and writing graphs.  
+
+
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacelgraph_1_1io_1_1digraph6}{digraph6}
+\begin{DoxyCompactList}\small\item\em Read/write graphs in {\itshape \hyperlink{namespacelgraph_1_1io_1_1digraph6}{digraph6}} format. \end{DoxyCompactList}\item 
+\hyperlink{namespacelgraph_1_1io_1_1edge__list}{edge\-\_\-list}
+\begin{DoxyCompactList}\small\item\em Read/write graphs in {\itshape edge} {\itshape list} format. \end{DoxyCompactList}\item 
+\hyperlink{namespacelgraph_1_1io_1_1graph6}{graph6}
+\begin{DoxyCompactList}\small\item\em Read/write graphs in {\itshape \hyperlink{namespacelgraph_1_1io_1_1graph6}{graph6}} format. \end{DoxyCompactList}\item 
+\hyperlink{namespacelgraph_1_1io_1_1sparse6}{sparse6}
+\begin{DoxyCompactList}\small\item\em Read/write graphs in {\itshape \hyperlink{namespacelgraph_1_1io_1_1sparse6}{sparse6}} format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespacelgraph_1_1io_ad0917668d35430ffe13d455d687be4ff}{gsd6\-\_\-format} \-: int8\-\_\-t \{ \hyperlink{namespacelgraph_1_1io_ad0917668d35430ffe13d455d687be4ffaec6f468c732e372f3e518a35a9f0a084}{gsd6\-\_\-format\-::\-Sparse6}, 
+\hyperlink{namespacelgraph_1_1io_ad0917668d35430ffe13d455d687be4ffaa08456aea2e82d44d7225c8058694d71}{gsd6\-\_\-format\-::\-Incremental\-\_\-\-Sparse6}, 
+\hyperlink{namespacelgraph_1_1io_ad0917668d35430ffe13d455d687be4ffa216a4f5d733bff3751658293fd6bb407}{gsd6\-\_\-format\-::\-Di\-Graph6}, 
+\hyperlink{namespacelgraph_1_1io_ad0917668d35430ffe13d455d687be4ffa2e43b93fa3f1c33bc0ca7890f2e9bb73}{gsd6\-\_\-format\-::\-Graph6}
+ \}
+\begin{DoxyCompactList}\small\item\em Three different types of binary formats for storing graphs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{namespacelgraph_1_1io_a555bafffaae99fce108ea5d4d58e365c}{gsd6\-\_\-string\-\_\-format} (const std\-::string \&s, \hyperlink{namespacelgraph_1_1io_ad0917668d35430ffe13d455d687be4ff}{gsd6\-\_\-format} \&format, std\-::string \&h, char \&f, size\-\_\-t \&k)
+\begin{DoxyCompactList}\small\item\em Returns the format of the binary encoding of a graph in {\itshape s}. \end{DoxyCompactList}\item 
+\hypertarget{namespacelgraph_1_1io_a10e5665273589476194ba3a0864f27cc}{char \hyperlink{namespacelgraph_1_1io_a10e5665273589476194ba3a0864f27cc}{sparse6\-\_\-first} ()}\label{namespacelgraph_1_1io_a10e5665273589476194ba3a0864f27cc}
+
+\begin{DoxyCompactList}\small\item\em Returns the first character of a sparse6-\/formatted string. \end{DoxyCompactList}\item 
+\hypertarget{namespacelgraph_1_1io_a2933ba9e38c072aed5200245d4c910d4}{char \hyperlink{namespacelgraph_1_1io_a2933ba9e38c072aed5200245d4c910d4}{incremental\-\_\-sparse6\-\_\-first} ()}\label{namespacelgraph_1_1io_a2933ba9e38c072aed5200245d4c910d4}
+
+\begin{DoxyCompactList}\small\item\em Returns the first character of a incremental sparse6-\/formatted string. \end{DoxyCompactList}\item 
+\hypertarget{namespacelgraph_1_1io_a4e2ea6a030760d080c853942e107517f}{char \hyperlink{namespacelgraph_1_1io_a4e2ea6a030760d080c853942e107517f}{digraph6\-\_\-first} ()}\label{namespacelgraph_1_1io_a4e2ea6a030760d080c853942e107517f}
+
+\begin{DoxyCompactList}\small\item\em Returns the first character of a digraph6-\/formatted string. \end{DoxyCompactList}\item 
+\hypertarget{namespacelgraph_1_1io_a4395b0de6f762686c4d20e475f0e2b0f}{std\-::string \hyperlink{namespacelgraph_1_1io_a4395b0de6f762686c4d20e475f0e2b0f}{graph6\-\_\-header} ()}\label{namespacelgraph_1_1io_a4395b0de6f762686c4d20e475f0e2b0f}
+
+\begin{DoxyCompactList}\small\item\em Returns the optional header of a file containing graph6-\/formatted strings. \end{DoxyCompactList}\item 
+\hypertarget{namespacelgraph_1_1io_ae84792a42d9b8e6f312635e00d774164}{std\-::string \hyperlink{namespacelgraph_1_1io_ae84792a42d9b8e6f312635e00d774164}{sparse6\-\_\-header} ()}\label{namespacelgraph_1_1io_ae84792a42d9b8e6f312635e00d774164}
+
+\begin{DoxyCompactList}\small\item\em Returns the optional header of a file containing sparse6-\/formatted strings. \end{DoxyCompactList}\item 
+std\-::string \hyperlink{namespacelgraph_1_1io_a22c81bcdaaa74ddd2651a92fde479c61}{incremental\-\_\-sparse6\-\_\-header} ()
+\item 
+std\-::string \hyperlink{namespacelgraph_1_1io_a045d4701d064cd1f3be3775c3edad35f}{digraph6\-\_\-header} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Collection of functions for reading and writing graphs. This namespace is devoted to reading/writing graphs from/to a file in several formats. The formats supported are\-:
+
+
+\begin{DoxyItemize}
+\item edge list (see \hyperlink{namespacelgraph_1_1io_1_1edge__list}{io\-::edge\-\_\-list})
+\item binary formats (see \hyperlink{namespacelgraph_1_1io_1_1graph6}{io\-::graph6}, \hyperlink{namespacelgraph_1_1io_1_1sparse6}{io\-::sparse6}, \hyperlink{namespacelgraph_1_1io_1_1digraph6}{io\-::digraph6})
+\end{DoxyItemize}
+
+Each format is detailed in the corresponding function.
+
+Some formats allow the reading and writing of edge weights. When it is the case, the type the weights are represented with must provide an implementation of the '$<$$<$' and '$>$$>$' operators.
+
+For example, when weights are not represented with the usual numeric types (int,float,double,...), but, say, with integers with arbitrary precision, the user must provide the implementation of the '$<$$<$' and '$>$$>$' operators for this type of integers. A possibility for doing this is by defining a class suitable for this type where these two operators are overloaded. 
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{namespacelgraph_1_1io_ad0917668d35430ffe13d455d687be4ff}{\index{lgraph\-::io@{lgraph\-::io}!gsd6\-\_\-format@{gsd6\-\_\-format}}
+\index{gsd6\-\_\-format@{gsd6\-\_\-format}!lgraph::io@{lgraph\-::io}}
+\subsubsection[{gsd6\-\_\-format}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf lgraph\-::io\-::gsd6\-\_\-format} \-: int8\-\_\-t\hspace{0.3cm}{\ttfamily [strong]}}}\label{namespacelgraph_1_1io_ad0917668d35430ffe13d455d687be4ff}
+
+
+Three different types of binary formats for storing graphs. 
+
+See details in \hyperlink{namespacelgraph_1_1io_ad0917668d35430ffe13d455d687be4ffa2e43b93fa3f1c33bc0ca7890f2e9bb73}{gsd6\-\_\-format\-::\-Graph6}, \hyperlink{namespacelgraph_1_1io_ad0917668d35430ffe13d455d687be4ffa2e43b93fa3f1c33bc0ca7890f2e9bb73}{gsd6\-\_\-format\-::\-Graph6}, \hyperlink{namespacelgraph_1_1io_ad0917668d35430ffe13d455d687be4ffaec6f468c732e372f3e518a35a9f0a084}{gsd6\-\_\-format\-::\-Sparse6}, \hyperlink{namespacelgraph_1_1io_ad0917668d35430ffe13d455d687be4ffaa08456aea2e82d44d7225c8058694d71}{gsd6\-\_\-format\-::\-Incremental\-\_\-\-Sparse6} and \hyperlink{namespacelgraph_1_1io_ad0917668d35430ffe13d455d687be4ffa216a4f5d733bff3751658293fd6bb407}{gsd6\-\_\-format\-::\-Di\-Graph6}. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Sparse6@{Sparse6}!lgraph\-::io@{lgraph\-::io}}\index{lgraph\-::io@{lgraph\-::io}!Sparse6@{Sparse6}}\item[{\em 
+\hypertarget{namespacelgraph_1_1io_ad0917668d35430ffe13d455d687be4ffaec6f468c732e372f3e518a35a9f0a084}{Sparse6}\label{namespacelgraph_1_1io_ad0917668d35430ffe13d455d687be4ffaec6f468c732e372f3e518a35a9f0a084}
+}]\hyperlink{namespacelgraph_1_1io_1_1sparse6}{sparse6} format. String starts with '\-:'. See namespace \hyperlink{namespacelgraph_1_1io_1_1sparse6}{sparse6} for details. \index{Incremental\-\_\-\-Sparse6@{Incremental\-\_\-\-Sparse6}!lgraph\-::io@{lgraph\-::io}}\index{lgraph\-::io@{lgraph\-::io}!Incremental\-\_\-\-Sparse6@{Incremental\-\_\-\-Sparse6}}\item[{\em 
+\hypertarget{namespacelgraph_1_1io_ad0917668d35430ffe13d455d687be4ffaa08456aea2e82d44d7225c8058694d71}{Incremental\-\_\-\-Sparse6}\label{namespacelgraph_1_1io_ad0917668d35430ffe13d455d687be4ffaa08456aea2e82d44d7225c8058694d71}
+}]Incremental \hyperlink{namespacelgraph_1_1io_1_1sparse6}{sparse6} format. String starts with ';'. See namespace \hyperlink{namespacelgraph_1_1io_1_1sparse6}{sparse6} for details. \index{Di\-Graph6@{Di\-Graph6}!lgraph\-::io@{lgraph\-::io}}\index{lgraph\-::io@{lgraph\-::io}!Di\-Graph6@{Di\-Graph6}}\item[{\em 
+\hypertarget{namespacelgraph_1_1io_ad0917668d35430ffe13d455d687be4ffa216a4f5d733bff3751658293fd6bb407}{Di\-Graph6}\label{namespacelgraph_1_1io_ad0917668d35430ffe13d455d687be4ffa216a4f5d733bff3751658293fd6bb407}
+}]\hyperlink{namespacelgraph_1_1io_1_1digraph6}{digraph6} format. String starts with '\&'. See namespace \hyperlink{namespacelgraph_1_1io_1_1digraph6}{digraph6} for details. \index{Graph6@{Graph6}!lgraph\-::io@{lgraph\-::io}}\index{lgraph\-::io@{lgraph\-::io}!Graph6@{Graph6}}\item[{\em 
+\hypertarget{namespacelgraph_1_1io_ad0917668d35430ffe13d455d687be4ffa2e43b93fa3f1c33bc0ca7890f2e9bb73}{Graph6}\label{namespacelgraph_1_1io_ad0917668d35430ffe13d455d687be4ffa2e43b93fa3f1c33bc0ca7890f2e9bb73}
+}]\hyperlink{namespacelgraph_1_1io_1_1graph6}{graph6} format. String starts with none of the above. See namespace \hyperlink{namespacelgraph_1_1io_1_1graph6}{graph6} for details. \end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacelgraph_1_1io_a045d4701d064cd1f3be3775c3edad35f}{\index{lgraph\-::io@{lgraph\-::io}!digraph6\-\_\-header@{digraph6\-\_\-header}}
+\index{digraph6\-\_\-header@{digraph6\-\_\-header}!lgraph::io@{lgraph\-::io}}
+\subsubsection[{digraph6\-\_\-header}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string lgraph\-::io\-::digraph6\-\_\-header (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacelgraph_1_1io_a045d4701d064cd1f3be3775c3edad35f}
+Returns the optional header of a file containing digraph6-\/formatted strings. \hypertarget{namespacelgraph_1_1io_a555bafffaae99fce108ea5d4d58e365c}{\index{lgraph\-::io@{lgraph\-::io}!gsd6\-\_\-string\-\_\-format@{gsd6\-\_\-string\-\_\-format}}
+\index{gsd6\-\_\-string\-\_\-format@{gsd6\-\_\-string\-\_\-format}!lgraph::io@{lgraph\-::io}}
+\subsubsection[{gsd6\-\_\-string\-\_\-format}]{\setlength{\rightskip}{0pt plus 5cm}bool lgraph\-::io\-::gsd6\-\_\-string\-\_\-format (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{s, }
+\item[{gsd6\-\_\-format \&}]{format, }
+\item[{std\-::string \&}]{h, }
+\item[{char \&}]{f, }
+\item[{size\-\_\-t \&}]{k}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1io_a555bafffaae99fce108ea5d4d58e365c}
+
+
+Returns the format of the binary encoding of a graph in {\itshape s}. 
+
+If a format mismatch occurs an error message will be output. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em s} & A graph codified in a string. \\
+\hline
+\mbox{\tt out}  & {\em format} & Enumeration value representing the format of the string. \\
+\hline
+\mbox{\tt out}  & {\em h} & Header (optional) in the string. \\
+\hline
+\mbox{\tt out}  & {\em f} & First (and optional) character in the string after the header (if any) that defines the format. Comes before the bytes encoding the number of vertices of the graph and takes the values\-:
+\begin{DoxyItemize}
+\item ' ', for \hyperlink{namespacelgraph_1_1io_1_1graph6}{graph6},
+\item '\-:', for \hyperlink{namespacelgraph_1_1io_1_1sparse6}{sparse6},
+\item ';', for incremental sparse 6,
+\item '\&', for \hyperlink{namespacelgraph_1_1io_1_1digraph6}{digraph6}. 
+\end{DoxyItemize}\\
+\hline
+\mbox{\tt out}  & {\em k} & Index of the first character with data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true on success. 
+\end{DoxyReturn}
+\hypertarget{namespacelgraph_1_1io_a22c81bcdaaa74ddd2651a92fde479c61}{\index{lgraph\-::io@{lgraph\-::io}!incremental\-\_\-sparse6\-\_\-header@{incremental\-\_\-sparse6\-\_\-header}}
+\index{incremental\-\_\-sparse6\-\_\-header@{incremental\-\_\-sparse6\-\_\-header}!lgraph::io@{lgraph\-::io}}
+\subsubsection[{incremental\-\_\-sparse6\-\_\-header}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string lgraph\-::io\-::incremental\-\_\-sparse6\-\_\-header (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacelgraph_1_1io_a22c81bcdaaa74ddd2651a92fde479c61}
+Returns the optional header of a file containing incremental sparse6-\/formatted strings. 

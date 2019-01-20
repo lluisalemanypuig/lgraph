@@ -1,0 +1,113 @@
+\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1clustering}{\section{lgraph\-:\-:networks\-:\-:metrics\-:\-:clustering Namespace Reference}
+\label{namespacelgraph_1_1networks_1_1metrics_1_1clustering}\index{lgraph\-::networks\-::metrics\-::clustering@{lgraph\-::networks\-::metrics\-::clustering}}
+}
+
+
+Clustering metrics.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1clustering_aa2831ceb0814d7d3d2298b8c93d0b99f}{gcc} (const \hyperlink{classlgraph_1_1uxgraph}{uxgraph} $\ast$G)
+\begin{DoxyCompactList}\small\item\em Global Clustering Coefficient of an undirected unweighted graph. \end{DoxyCompactList}\item 
+double \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1clustering_ac24aeb5d50fe539b9f0d0cd2f0b8ced2}{mlcc} (const \hyperlink{classlgraph_1_1uxgraph}{uxgraph} $\ast$G)
+\begin{DoxyCompactList}\small\item\em Mean Local Clustering Coefficient of an undirected unweighted graph. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\double \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1clustering_a0bd5461cb7b39c35b3806749778ea073}{gcc} (const \hyperlink{classlgraph_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G)
+\begin{DoxyCompactList}\small\item\em Global Clustering Coefficient of an undirected unweighted graph. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\double \hyperlink{namespacelgraph_1_1networks_1_1metrics_1_1clustering_a1339f3f6a8c6044f57829d080cc742f2}{mlcc} (const \hyperlink{classlgraph_1_1wxgraph}{wxgraph}$<$ T $>$ $\ast$G)
+\begin{DoxyCompactList}\small\item\em Mean Local Clustering Coefficient of an undirected unweighted graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Clustering metrics. 
+
+\subsection{Function Documentation}
+\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1clustering_aa2831ceb0814d7d3d2298b8c93d0b99f}{\index{lgraph\-::networks\-::metrics\-::clustering@{lgraph\-::networks\-::metrics\-::clustering}!gcc@{gcc}}
+\index{gcc@{gcc}!lgraph::networks::metrics::clustering@{lgraph\-::networks\-::metrics\-::clustering}}
+\subsubsection[{gcc}]{\setlength{\rightskip}{0pt plus 5cm}double lgraph\-::networks\-::metrics\-::clustering\-::gcc (
+\begin{DoxyParamCaption}
+\item[{const uxgraph $\ast$}]{G}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1networks_1_1metrics_1_1clustering_aa2831ceb0814d7d3d2298b8c93d0b99f}
+
+
+Global Clustering Coefficient of an undirected unweighted graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em G} & The unweighted graph to be evaluated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the global clustering coefficient of G as defined in \begin{DoxyVerb}Newman, M. E. J. (2010). Networks. An introduction. Oxford
+University Press, Oxford.
+\end{DoxyVerb}
+ 
+\end{DoxyReturn}
+\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1clustering_a0bd5461cb7b39c35b3806749778ea073}{\index{lgraph\-::networks\-::metrics\-::clustering@{lgraph\-::networks\-::metrics\-::clustering}!gcc@{gcc}}
+\index{gcc@{gcc}!lgraph::networks::metrics::clustering@{lgraph\-::networks\-::metrics\-::clustering}}
+\subsubsection[{gcc}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ double lgraph\-::networks\-::metrics\-::clustering\-::gcc (
+\begin{DoxyParamCaption}
+\item[{const wxgraph$<$ T $>$ $\ast$}]{G}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1networks_1_1metrics_1_1clustering_a0bd5461cb7b39c35b3806749778ea073}
+
+
+Global Clustering Coefficient of an undirected unweighted graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em G} & The weighted graph to be evaluated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the global clustering coefficient of G as defined in \begin{DoxyVerb}Newman, M. E. J. (2010). Networks. An introduction. Oxford
+University Press, Oxford.
+\end{DoxyVerb}
+ 
+\end{DoxyReturn}
+\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1clustering_ac24aeb5d50fe539b9f0d0cd2f0b8ced2}{\index{lgraph\-::networks\-::metrics\-::clustering@{lgraph\-::networks\-::metrics\-::clustering}!mlcc@{mlcc}}
+\index{mlcc@{mlcc}!lgraph::networks::metrics::clustering@{lgraph\-::networks\-::metrics\-::clustering}}
+\subsubsection[{mlcc}]{\setlength{\rightskip}{0pt plus 5cm}double lgraph\-::networks\-::metrics\-::clustering\-::mlcc (
+\begin{DoxyParamCaption}
+\item[{const uxgraph $\ast$}]{G}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1networks_1_1metrics_1_1clustering_ac24aeb5d50fe539b9f0d0cd2f0b8ced2}
+
+
+Mean Local Clustering Coefficient of an undirected unweighted graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em G} & The unweighted graph to be evaluated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the global clustering coefficient of G as defined in \begin{DoxyVerb}Watts, D. J. and Strogatz, S. H. (1998). Collective
+dynamics of ’small-world’ networks. Nature, 393:440–442.
+\end{DoxyVerb}
+ 
+\end{DoxyReturn}
+\hypertarget{namespacelgraph_1_1networks_1_1metrics_1_1clustering_a1339f3f6a8c6044f57829d080cc742f2}{\index{lgraph\-::networks\-::metrics\-::clustering@{lgraph\-::networks\-::metrics\-::clustering}!mlcc@{mlcc}}
+\index{mlcc@{mlcc}!lgraph::networks::metrics::clustering@{lgraph\-::networks\-::metrics\-::clustering}}
+\subsubsection[{mlcc}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ double lgraph\-::networks\-::metrics\-::clustering\-::mlcc (
+\begin{DoxyParamCaption}
+\item[{const wxgraph$<$ T $>$ $\ast$}]{G}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1networks_1_1metrics_1_1clustering_a1339f3f6a8c6044f57829d080cc742f2}
+
+
+Mean Local Clustering Coefficient of an undirected unweighted graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em G} & The weighted graph to be evaluated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the global clustering coefficient of G as defined in \begin{DoxyVerb}Watts, D. J. and Strogatz, S. H. (1998). Collective
+dynamics of ’small-world’ networks. Nature, 393:440–442.
+\end{DoxyVerb}
+ 
+\end{DoxyReturn}

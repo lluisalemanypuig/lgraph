@@ -1,0 +1,117 @@
+\hypertarget{namespacelgraph_1_1io_1_1sparse6}{\section{lgraph\-:\-:io\-:\-:sparse6 Namespace Reference}
+\label{namespacelgraph_1_1io_1_1sparse6}\index{lgraph\-::io\-::sparse6@{lgraph\-::io\-::sparse6}}
+}
+
+
+Read/write graphs in {\itshape \hyperlink{namespacelgraph_1_1io_1_1sparse6}{sparse6}} format.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{namespacelgraph_1_1io_1_1sparse6_aef4d5e701991e80d99482b20018b03d4}{read} (const std\-::string \&filename, \hyperlink{classlgraph_1_1uugraph}{uugraph} \&g)
+\begin{DoxyCompactList}\small\item\em Reads an unweighted, undirected graph in {\itshape \hyperlink{namespacelgraph_1_1io_1_1sparse6}{sparse6}} format. \end{DoxyCompactList}\item 
+bool \hyperlink{namespacelgraph_1_1io_1_1sparse6_ae96a7c49cd0f6b70eb6ae23dc18d8588}{read} (const char $\ast$filename, \hyperlink{classlgraph_1_1uugraph}{uugraph} \&g)
+\begin{DoxyCompactList}\small\item\em Reads an unweighted, undirected graph in {\itshape \hyperlink{namespacelgraph_1_1io_1_1sparse6}{sparse6}} format. \end{DoxyCompactList}\item 
+bool \hyperlink{namespacelgraph_1_1io_1_1sparse6_a4727f803d03a747416ce43acf4cfbb59}{write} (const std\-::string \&filename, const \hyperlink{classlgraph_1_1uugraph}{uugraph} \&g)
+\begin{DoxyCompactList}\small\item\em Writes an unweighted, undirected graph in {\itshape \hyperlink{namespacelgraph_1_1io_1_1sparse6}{sparse6}} format. \end{DoxyCompactList}\item 
+bool \hyperlink{namespacelgraph_1_1io_1_1sparse6_a851ea580cd4dd91e6239caa76f74b887}{write} (const char $\ast$filename, const \hyperlink{classlgraph_1_1uugraph}{uugraph} \&g)
+\begin{DoxyCompactList}\small\item\em Writes an unweighted, undirected graph in {\itshape \hyperlink{namespacelgraph_1_1io_1_1sparse6}{sparse6}} format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Read/write graphs in {\itshape \hyperlink{namespacelgraph_1_1io_1_1sparse6}{sparse6}} format. This format is detailed (as of 20th October 2018) in the webpage\-:
+
+\href{http://users.cecs.anu.edu.au/~bdm/data/formats.html}{\tt http\-://users.\-cecs.\-anu.\-edu.\-au/$\sim$bdm/data/formats.\-html}
+
+by Brendan Mc\-Kay (\href{http://users.cecs.anu.edu.au/~bdm/}{\tt http\-://users.\-cecs.\-anu.\-edu.\-au/$\sim$bdm/}) 
+
+\subsection{Function Documentation}
+\hypertarget{namespacelgraph_1_1io_1_1sparse6_aef4d5e701991e80d99482b20018b03d4}{\index{lgraph\-::io\-::sparse6@{lgraph\-::io\-::sparse6}!read@{read}}
+\index{read@{read}!lgraph::io::sparse6@{lgraph\-::io\-::sparse6}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}bool lgraph\-::io\-::sparse6\-::read (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{filename, }
+\item[{uugraph \&}]{g}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1io_1_1sparse6_aef4d5e701991e80d99482b20018b03d4}
+
+
+Reads an unweighted, undirected graph in {\itshape \hyperlink{namespacelgraph_1_1io_1_1sparse6}{sparse6}} format. 
+
+The file can only contain one single graph. If there is more than one, only the first will be read. 
+\begin{DoxyParams}[1]{Parameters}
+ & {\em filename} & The name of the file to be read. \\
+\hline
+\mbox{\tt out}  & {\em g} & The graph built with the contents in the file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns false if the file coule not be opened. Returns true otherwise. 
+\end{DoxyReturn}
+\hypertarget{namespacelgraph_1_1io_1_1sparse6_ae96a7c49cd0f6b70eb6ae23dc18d8588}{\index{lgraph\-::io\-::sparse6@{lgraph\-::io\-::sparse6}!read@{read}}
+\index{read@{read}!lgraph::io::sparse6@{lgraph\-::io\-::sparse6}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}bool lgraph\-::io\-::sparse6\-::read (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{filename, }
+\item[{uugraph \&}]{g}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1io_1_1sparse6_ae96a7c49cd0f6b70eb6ae23dc18d8588}
+
+
+Reads an unweighted, undirected graph in {\itshape \hyperlink{namespacelgraph_1_1io_1_1sparse6}{sparse6}} format. 
+
+The file can only contain one single graph. If there is more than one, only the first will be read. 
+\begin{DoxyParams}[1]{Parameters}
+ & {\em filename} & The name of the file to be read. \\
+\hline
+\mbox{\tt out}  & {\em g} & The graph built with the contents in the file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns false if the file coule not be opened. Returns true otherwise. 
+\end{DoxyReturn}
+\hypertarget{namespacelgraph_1_1io_1_1sparse6_a4727f803d03a747416ce43acf4cfbb59}{\index{lgraph\-::io\-::sparse6@{lgraph\-::io\-::sparse6}!write@{write}}
+\index{write@{write}!lgraph::io::sparse6@{lgraph\-::io\-::sparse6}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}bool lgraph\-::io\-::sparse6\-::write (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{filename, }
+\item[{const uugraph \&}]{g}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1io_1_1sparse6_a4727f803d03a747416ce43acf4cfbb59}
+
+
+Writes an unweighted, undirected graph in {\itshape \hyperlink{namespacelgraph_1_1io_1_1sparse6}{sparse6}} format. 
+
+The graph will be appended at the end of the file. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file where the graph will be written to. \\
+\hline
+{\em g} & The graph to store. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns false if the file coule not be opened. Returns true otherwise. 
+\end{DoxyReturn}
+\hypertarget{namespacelgraph_1_1io_1_1sparse6_a851ea580cd4dd91e6239caa76f74b887}{\index{lgraph\-::io\-::sparse6@{lgraph\-::io\-::sparse6}!write@{write}}
+\index{write@{write}!lgraph::io::sparse6@{lgraph\-::io\-::sparse6}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}bool lgraph\-::io\-::sparse6\-::write (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{filename, }
+\item[{const uugraph \&}]{g}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1io_1_1sparse6_a851ea580cd4dd91e6239caa76f74b887}
+
+
+Writes an unweighted, undirected graph in {\itshape \hyperlink{namespacelgraph_1_1io_1_1sparse6}{sparse6}} format. 
+
+The graph will be appended at the end of the file. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file where the graph will be written to. \\
+\hline
+{\em g} & The graph to store. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns false if the file coule not be opened. Returns true otherwise. 
+\end{DoxyReturn}

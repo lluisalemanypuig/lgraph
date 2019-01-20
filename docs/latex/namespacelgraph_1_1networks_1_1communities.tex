@@ -1,0 +1,73 @@
+\hypertarget{namespacelgraph_1_1networks_1_1communities}{\section{lgraph\-:\-:networks\-:\-:communities Namespace Reference}
+\label{namespacelgraph_1_1networks_1_1communities}\index{lgraph\-::networks\-::communities@{lgraph\-::networks\-::communities}}
+}
+
+
+Algorithms for community-\/finding.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+size\-\_\-t \hyperlink{namespacelgraph_1_1networks_1_1communities_a3d10fc5364fef994e881117c376e3513}{connected\-\_\-components} (const \hyperlink{classlgraph_1_1uugraph}{uugraph} \&g, std\-::vector$<$ size\-\_\-t $>$ \&comps, std\-::vector$<$ size\-\_\-t $>$ $\ast$bins=nullptr)
+\begin{DoxyCompactList}\small\item\em Computes the connected components of this graph. \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{namespacelgraph_1_1networks_1_1communities_acd8a141ca593aee59fee06d4657c902a}{connected\-\_\-components} (const \hyperlink{classlgraph_1_1udgraph}{udgraph} \&g, std\-::vector$<$ size\-\_\-t $>$ \&comps, std\-::vector$<$ size\-\_\-t $>$ $\ast$bins=nullptr)
+\begin{DoxyCompactList}\small\item\em Computes the strongly connected components of this graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Algorithms for community-\/finding. 
+
+\subsection{Function Documentation}
+\hypertarget{namespacelgraph_1_1networks_1_1communities_a3d10fc5364fef994e881117c376e3513}{\index{lgraph\-::networks\-::communities@{lgraph\-::networks\-::communities}!connected\-\_\-components@{connected\-\_\-components}}
+\index{connected\-\_\-components@{connected\-\_\-components}!lgraph::networks::communities@{lgraph\-::networks\-::communities}}
+\subsubsection[{connected\-\_\-components}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lgraph\-::networks\-::communities\-::connected\-\_\-components (
+\begin{DoxyParamCaption}
+\item[{const uugraph \&}]{g, }
+\item[{std\-::vector$<$ size\-\_\-t $>$ \&}]{comps, }
+\item[{std\-::vector$<$ size\-\_\-t $>$ $\ast$}]{bins = {\ttfamily nullptr}}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1networks_1_1communities_a3d10fc5364fef994e881117c376e3513}
+
+
+Computes the connected components of this graph. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em g} & The input graph. \\
+\hline
+\mbox{\tt out}  & {\em comps} & {\itshape comps}\mbox{[}i\mbox{]} = {\itshape j} if, and only if, the {\itshape i-\/th} vertex belongs to the {\itshape j-\/th} connected component, where {\itshape i} is a node index. \par
+The labels start at 0. Any label's value greater or equal than the number of vertices of {\itshape g} is not valid. \\
+\hline
+\mbox{\tt out}  & {\em bins} & If this parameter is not null then {\itshape bins}\mbox{[}i\mbox{]} contains how many vertices are in the {\itshape i-\/th} connected component. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the amount of connected components in {\itshape g}. 
+\end{DoxyReturn}
+\hypertarget{namespacelgraph_1_1networks_1_1communities_acd8a141ca593aee59fee06d4657c902a}{\index{lgraph\-::networks\-::communities@{lgraph\-::networks\-::communities}!connected\-\_\-components@{connected\-\_\-components}}
+\index{connected\-\_\-components@{connected\-\_\-components}!lgraph::networks::communities@{lgraph\-::networks\-::communities}}
+\subsubsection[{connected\-\_\-components}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t lgraph\-::networks\-::communities\-::connected\-\_\-components (
+\begin{DoxyParamCaption}
+\item[{const udgraph \&}]{g, }
+\item[{std\-::vector$<$ size\-\_\-t $>$ \&}]{comps, }
+\item[{std\-::vector$<$ size\-\_\-t $>$ $\ast$}]{bins = {\ttfamily nullptr}}
+\end{DoxyParamCaption}
+)}}\label{namespacelgraph_1_1networks_1_1communities_acd8a141ca593aee59fee06d4657c902a}
+
+
+Computes the strongly connected components of this graph. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em g} & The input graph. \\
+\hline
+\mbox{\tt out}  & {\em comps} & {\itshape comps}\mbox{[}i\mbox{]} = {\itshape j} if, and only if, the {\itshape i-\/th} vertex belongs to the {\itshape j-\/th} connected component, where {\itshape i} is a node index. \par
+The labels start at 0. Any label's value greater or equal than the number of vertices of {\itshape g} is not valid. \\
+\hline
+\mbox{\tt out}  & {\em bins} & If this parameter is not null then {\itshape bins}\mbox{[}i\mbox{]} contains how many vertices are in the {\itshape i-\/th} connected component. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the amount of connected components in {\itshape g}. 
+\end{DoxyReturn}
