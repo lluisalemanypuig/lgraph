@@ -8,24 +8,24 @@ CONFIG -= qt
 QMAKE_CXXFLAGS_DEBUG += -DDEBUG
 QMAKE_CXXFLAGS_RELEASE += -DNDEBUG
 
-HEADERS +=					\
-    driver.hpp				\
+HEADERS += \
+	driver.hpp \
     time.hpp
 
-SOURCES +=					\
-	graphs_driver.cpp		\
-	unweighted_driver.cpp	\
-	weighted_driver.cpp		\
-    time.cpp
+SOURCES += \
+	unweighted_driver.cpp \
+	weighted_driver.cpp \
+    time.cpp \
+    main.cpp
 
 # lgraph library
 CONFIG(debug, debug|release) {
-    LIBS += -L../../lgraph-debug/ -llgraph
-    PRE_TARGETDEPS += ../../lgraph-debug/liblgraph.a
+	LIBS += -L../../../lgraph-debug/ -llgraph
+	PRE_TARGETDEPS += ../../../lgraph-debug/liblgraph.a
 }
 CONFIG(release, debug|release) {
-    LIBS += -L../../lgraph-release/ -llgraph
-    PRE_TARGETDEPS += ../../lgraph-release/liblgraph.a
+	LIBS += -L../../../lgraph-release/ -llgraph
+	PRE_TARGETDEPS += ../../../lgraph-release/liblgraph.a
 }
 INCLUDEPATH += ../..
 DEPENDPATH += ../..
