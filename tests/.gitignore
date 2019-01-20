@@ -1,0 +1,4 @@
+*.pro.user
+.tmp.*
+*-debug/
+*-release/
