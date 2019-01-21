@@ -26,4 +26,11 @@ err_type ux_path_node_node__all(const string& graph_type, ifstream& fin);
 err_type ux_path_node_all__all(const string& graph_type, ifstream& fin);
 err_type ux_path_all_all__all(const string& graph_type, ifstream& fin);
 
+err_type ux_distance_node_node__single(const string& graph_type, ifstream& fin);
+err_type ux_distance_node_all__single(const string& graph_type, ifstream& fin);
+err_type ux_distance_all_all__single(const string& graph_type, ifstream& fin);
+err_type ux_distance_node_node__all(const string& graph_type, ifstream& fin);
+err_type ux_distance_node_all__all(const string& graph_type, ifstream& fin);
+err_type ux_distance_all_all__all(const string& graph_type, ifstream& fin);
+
 } // -- namespace exe_tests

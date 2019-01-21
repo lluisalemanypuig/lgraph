@@ -22,5 +22,7 @@ err_type call_main(const vector<string>& keywords, ifstream& fin);
 err_type call_ux(const vector<string>& keywords, ifstream& fin);
 err_type call_ux_path
 (const vector<string>& keywords, const string& graph_type, ifstream& fin);
+err_type call_ux_distance
+(const vector<string>& keywords, const string& graph_type, ifstream& fin);
 
 } // -- namespace exe_tests

@@ -64,6 +64,9 @@ err_type call_ux(const vector<string>& keywords, ifstream& fin) {
 	if (task == "path") {
 		return call_ux_path(keywords, graph_type, fin);
 	}
+	if (task == "distance") {
+		return call_ux_distance(keywords, graph_type, fin);
+	}
 
 	cerr << ERROR("parse_keywords.cpp", "call_ux") << endl;
 	cerr << "    Unhandled keyword at 2: '" << task << "'." << endl;
@@ -104,6 +107,48 @@ err_type call_ux_path
 	}
 
 	cerr << ERROR("parse_keywords.cpp", "call_ux_path") << endl;
+	cerr << "    Wrong combination of the keywords at 3,4,5:" << endl;
+	vector<size_t> wrong;
+	if (key3 != "node" and key3 != "all") { wrong.push_back(3); }
+	if (key4 != "node" and key4 != "all") { wrong.push_back(4); }
+	if (key5 != "single" and key5 != "all") { wrong.push_back(5); }
+	mark_wrong_keyword(keywords, wrong, "    ");
+	return err_type::wrong_keyword;
+}
+
+err_type call_ux_distance
+(const vector<string>& keywords, const string& graph_type, ifstream& fin)
+{
+	string key3 = keywords[3];
+	string key4 = keywords[4];
+	string key5 = keywords[5];
+
+	if (key3 == "node" and key4 == "node") {
+		if (key5 == "single") {
+			return ux_distance_node_node__single(graph_type, fin);
+		}
+		if (key5 == "all") {
+			return ux_distance_node_node__all(graph_type, fin);
+		}
+	}
+	else if (key3 == "node" and key4 == "all") {
+		if (key5 == "single") {
+			return ux_distance_node_all__single(graph_type, fin);
+		}
+		if (key5 == "all") {
+			return ux_distance_node_all__all(graph_type, fin);
+		}
+	}
+	else if (key3 == "all" and key4 == "all") {
+		if (key5 == "single") {
+			return ux_distance_all_all__single(graph_type, fin);
+		}
+		if (key5 == "all") {
+			return ux_distance_all_all__all(graph_type, fin);
+		}
+	}
+
+	cerr << ERROR("parse_keywords.cpp", "call_ux_distance") << endl;
 	cerr << "    Wrong combination of the keywords at 3,4,5:" << endl;
 	vector<size_t> wrong;
 	if (key3 != "node" and key3 != "all") { wrong.push_back(3); }
