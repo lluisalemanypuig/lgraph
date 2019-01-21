@@ -158,10 +158,16 @@ void uxdistances(const uxgraph *G, std::vector<std::vector<_new_> >& dist) {
 
 				// ignore the cases where:
 				// the path is not moving
-				if (u == v) continue;
+				if (u == v) {
+					continue;
+				}
 				// the distances are infinite
-				if (dist[v][w] == inf_t<_new_>()) continue;
-				if (dist[w][u] == inf_t<_new_>()) continue;
+				if (dist[u][w] == inf_t<_new_>()) {
+					continue;
+				}
+				if (dist[w][v] == inf_t<_new_>()) {
+					continue;
+				}
 
 				size_t d = dist[u][w] + dist[w][v];
 				if (d < dist[u][v]) {
@@ -205,10 +211,16 @@ void uxdistances(
 
 				// ignore the cases where:
 				// the path is not moving
-				if (u == v) continue;
+				if (u == v) {
+					continue;
+				}
 				// the distances are infinite
-				if (dist[v][w] == inf_t<_new_>()) continue;
-				if (dist[w][u] == inf_t<_new_>()) continue;
+				if (dist[u][w] == inf_t<_new_>()) {
+					continue;
+				}
+				if (dist[w][v] == inf_t<_new_>()) {
+					continue;
+				}
 
 				size_t d = dist[u][w] + dist[w][v];
 				if (d < dist[u][v]) {
