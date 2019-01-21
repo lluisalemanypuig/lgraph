@@ -11,6 +11,9 @@ enum class err_type : int8_t {
 	// The test completed successfully
 	no_error = 0,
 
+	// wrong parameter value
+	invalid_param,
+
 	// The input file was not formatted correctly
 	test_format_error,
 	// The format for the input graph is not supported
@@ -25,7 +28,7 @@ enum class err_type : int8_t {
 	// incorrect given its parent test type
 	wrong_keyword,
 	// too many keywords
-	too_many,
+	too_many_keywords,
 
 	// an error occurred when reading a file
 	io_error,

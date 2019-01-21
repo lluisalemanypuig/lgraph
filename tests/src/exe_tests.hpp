@@ -19,18 +19,11 @@ using namespace std;
 
 namespace exe_tests {
 
-err_type uu_path_node_node__single(ifstream& fin);
-err_type uu_path_node_all__single(ifstream& fin);
-err_type uu_path_all_all__single(ifstream& fin);
-err_type uu_path_node_node__all(ifstream& fin);
-err_type uu_path_node_all__all(ifstream& fin);
-err_type uu_path_all_all__all(ifstream& fin);
-
-err_type ud_path_node_node__single(ifstream& fin);
-err_type ud_path_node_all__single(ifstream& fin);
-err_type ud_path_all_all__single(ifstream& fin);
-err_type ud_path_node_node__all(ifstream& fin);
-err_type ud_path_node_all__all(ifstream& fin);
-err_type ud_path_all_all__all(ifstream& fin);
+err_type ux_path_node_node__single(const string& graph_type, ifstream& fin);
+err_type ux_path_node_all__single(const string& graph_type, ifstream& fin);
+err_type ux_path_all_all__single(const string& graph_type, ifstream& fin);
+err_type ux_path_node_node__all(const string& graph_type, ifstream& fin);
+err_type ux_path_node_all__all(const string& graph_type, ifstream& fin);
+err_type ux_path_all_all__all(const string& graph_type, ifstream& fin);
 
 } // -- namespace exe_tests

@@ -16,7 +16,7 @@ using namespace lgraph;
 
 namespace exe_tests {
 
-err_type ud_path_all_all__single(ifstream& fin) {
+err_type ux_path_node_all__single(const string& graph_type, ifstream& fin) {
 	string input_graph, format;
 	size_t n;
 
@@ -24,14 +24,14 @@ err_type ud_path_all_all__single(ifstream& fin) {
 	string field;
 	fin >> field;
 	if (field != "INPUT") {
-		cerr << ERROR("ud_path_all_all__single.cpp", "ud_path_all_all__single") << endl;
+		cerr << ERROR("ux_path_node_all__single.cpp", "ux_path_node_all__single") << endl;
 		cerr << "    Expected field 'INPUT'." << endl;
 		cerr << "    Instead, '" << field << "' was found." << endl;
 		return err_type::test_format_error;
 	}
 	fin >> n;
 	if (n != 1) {
-		cerr << ERROR("ud_path_all_all__single.cpp", "ud_path_all_all__single") << endl;
+		cerr << ERROR("ux_path_node_all__single.cpp", "ux_path_node_all__single") << endl;
 		cerr << "    Only one input file is allowed in this test." << endl;
 		cerr << "    Instead, " << n << " were specified." << endl;
 		return err_type::test_format_error;
@@ -41,41 +41,57 @@ err_type ud_path_all_all__single(ifstream& fin) {
 	// parse body field
 	fin >> field;
 	if (field != "BODY") {
-		cerr << ERROR("ud_path_all_all__single.cpp", "ud_path_all_all__single") << endl;
+		cerr << ERROR("ux_path_node_all__single.cpp", "ux_path_node_all__single") << endl;
 		cerr << "    Expected field 'BODY'." << endl;
 		cerr << "    Instead, '" << field << "' was found." << endl;
 		return err_type::test_format_error;
 	}
 
-	udgraph G;
-	err_type r = io_wrapper::read_graph(input_graph, format, &G);
+	uxgraph *G = nullptr;
+	if (graph_type == "directed") {
+		G = new udgraph();
+	}
+	else if (graph_type == "undirected") {
+		G = new uugraph();
+	}
+	else {
+		cerr << ERROR("ux_path_node_all__single.cpp", "ux_path_node_all__single") << endl;
+		cerr << "    Wrong value for parameter 'garph_type'." << endl;
+		cerr << "    Received '" << graph_type << "'." << endl;
+		return err_type::invalid_param;
+	}
+
+	err_type r = io_wrapper::read_graph(input_graph, format, G);
 	if (r != err_type::no_error) {
 		if (r == err_type::io_error) {
-			cerr << ERROR("ud_path_all_all__single.cpp", "ud_path_all_all__single") << endl;
+			cerr << ERROR("ux_path_node_all__single.cpp", "ux_path_node_all__single") << endl;
 			cerr << "    Could not open file '" << input_graph << "'" << endl;
 		}
 		else if (r == err_type::graph_format_error) {
-			cerr << ERROR("ud_path_all_all__single.cpp", "ud_path_all_all__single") << endl;
+			cerr << ERROR("ux_path_node_all__single.cpp", "ux_path_node_all__single") << endl;
 			cerr << "    Format '" << format << "' not supported." << endl;
 		}
 		return r;
 	}
 
-	// this test needs no BODY
+	node u;
+	// read list of nodes
+	while (fin >> u) {
+		vector<node_path<_new_> > ps;
+		traversal::uxpath(G, u, ps);
 
-	vector<vector< node_path<_new_> > > uv_path;
-	traversal::uxpath(&G, uv_path);
-	for (node u = 0; u < G.n_nodes(); ++u) {
-		for (node v = 0; v < G.n_nodes(); ++v) {
-			const node_path<_new_>& p = uv_path[u][v];
-
-			cout << "(" << u << ", " << v << "): ";
-			if (p.size() == 0) {
-				cout << "No path" << endl;
+		if (ps.size() > 0) {
+			for (node v = 0; v < G->n_nodes(); ++v) {
+				if (ps[v].size() == 0) {
+					cout << v << ": No path" << endl;
+				}
+				else {
+					cout << v << ": " << ps[v].to_string() << "; " << ps[v].get_length() << endl;
+				}
 			}
-			else {
-				cout << p.to_string() << "; " << p.get_length() << endl;
-			}
+		}
+		else {
+			cout << "No paths" << endl;
 		}
 	}
 
@@ -83,3 +99,4 @@ err_type ud_path_all_all__single(ifstream& fin) {
 }
 
 }
+
