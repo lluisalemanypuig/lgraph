@@ -1,0 +1,8 @@
+TYPE unweighted-undirected-distance-node-node-single
+INPUT 1 graphs/linear-8-uu-00.el edge-list
+BODY
+	0 1
+	4 5
+	1 5
+	0 7
+	6 3
