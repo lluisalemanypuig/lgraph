@@ -58,27 +58,33 @@ OUTPUT_GROUP=outputs/$GROUP
 echo -e "\e[1;1;33mExecuting tests in \e[0m""\e[1;2;33m$INPUT_GROUP\e[0m"
 ALL_TEST_FILES=$(ls $INPUT_GROUP)
 for f in $ALL_TEST_FILES; do
-	# retrieve id from input test
-	# e.g.: 'input-0010' -> '0010'
-	INFILE_LENGTH=${#f}
-	ID=${f:5:($INFILE_LENGTH - 4)}
-	
-	echo -en "    Test ""\e[1;1;34m$f\e[0m"" "
-	./$EXE_FILE --input $INPUT_GROUP/$f > $TEST_OUT 2> $TEST_ERR
-	
-	if [ -s $TEST_ERR ]; then
-		echo -e "\e[1;4;31mThe test produced errors\e[0m"
-		mv $TEST_ERR $TEST_ERR.$ID
+	if [ "$f" = "summary.ods" ]; then
+		# skip
+		echo -n ""
 	else
-		# test whether the error output produced is empty or not
-		BASE_OUT=$OUTPUT_GROUP/output-$ID
+		# retrieve id from input test
+		# e.g.: 'test-0010' -> '0010'
+		INFILE_LENGTH=${#f}
+		ID=${f:5:($INFILE_LENGTH - 4)}
 		
-		DIFF=$(diff $BASE_OUT $TEST_OUT)
-		if [ ! -z "$DIFF" ]; then
-			echo -e "\e[1;4;31mDifferent outputs\e[0m See result in $TEST_OUT.$ID"
-			mv $TEST_OUT $TEST_OUT.$ID
+		echo -en "    Test ""\e[1;1;34m$f\e[0m"" "
+		PROG_OUT=$(./$EXE_FILE --input $INPUT_GROUP/$f 2> $TEST_ERR)
+		
+		if [ -s $TEST_ERR ]; then
+			echo -e "\e[1;4;31mThe test produced errors\e[0m"
+			mv $TEST_ERR $TEST_ERR.$ID
 		else
-			echo -e "\e[1;1;32mOk\e[0m"
+			# test whether the error output produced is empty or not
+			BASE_OUT=$OUTPUT_GROUP/$f
+			BASE_CONTENTS=$(cat $BASE_OUT)
+			
+			DIFF=$(diff <(echo "$BASE_CONTENTS") <(echo "$PROG_OUT"))
+			if [ ! -z "$DIFF" ]; then
+				echo -e "\e[1;4;31mDifferent outputs\e[0m See result in $TEST_OUT.$ID"
+				echo "$PROG_OUT" > $TEST_OUT.$ID
+			else
+				echo -e "\e[1;1;32mOk\e[0m"
+			fi
 		fi
 	fi
 done

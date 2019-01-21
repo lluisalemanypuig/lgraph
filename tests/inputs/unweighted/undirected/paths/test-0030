@@ -1,0 +1,5 @@
+TYPE unweighted-undirected-path-node-all-all
+INPUT 1 graphs/Qromboid-9-uu-00.el edge-list
+BODY
+	0
+	4

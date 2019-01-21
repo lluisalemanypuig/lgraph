@@ -69,7 +69,7 @@ err_type uu_path_node_node__single(ifstream& fin) {
 		traversal::uxpath(&G, u, v, p);
 
 		if (p.size() > 0) {
-			cout << p.to_string() << endl;
+			cout << p.to_string() << "; " << p.get_length() << endl;
 		}
 		else {
 			cout << "No path" << endl;

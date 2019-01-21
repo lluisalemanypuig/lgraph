@@ -1,7 +1,9 @@
-TYPE unweighted-undirected-path-node-node-all
-INPUT 1 graphs/cycle-8-uu-00.el edge-list
+TYPE unweighted-undirected-path-node-node-single
+INPUT 1 graphs/SQR-uu-00.el edge-list
 BODY
-	0 4
-	1 5
-	2 6
-	3 7
+	0 6
+	0 1
+	0 3
+	7 5
+	6 5
+	2 4

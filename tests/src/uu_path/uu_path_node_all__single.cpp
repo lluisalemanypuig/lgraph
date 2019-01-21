@@ -68,8 +68,8 @@ err_type uu_path_node_all__single(ifstream& fin) {
 		traversal::uxpath(&G, u, ps);
 
 		if (ps.size() > 0) {
-			for (node_path<_new_>& p : ps) {
-				cout << p.to_string() << endl;
+			for (node v = 0; v < G.n_nodes(); ++v) {
+				cout << v << ": " << ps[v].to_string() << "; " << ps[v].get_length() << endl;
 			}
 		}
 		else {
