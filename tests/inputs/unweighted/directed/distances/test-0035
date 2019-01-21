@@ -1,0 +1,5 @@
+TYPE unweighted-directed-distance-node-all-all
+INPUT 1 graphs/linear-8-ud-02.el edge-list
+BODY
+	0
+	3

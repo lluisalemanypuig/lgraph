@@ -1,0 +1,16 @@
+TYPE unweighted-directed-distance-node-node-single
+INPUT 1 graphs/SmallNet-1-ud-01.el edge-list
+BODY
+	0 3
+	2 5
+	2 4
+	2 6
+	2 8
+	7 0
+	7 1
+	7 5
+	5 8
+	0 5
+	3 2
+	5 2
+	5 6
