@@ -1,2 +1,5 @@
 docs/* linguist-vendored
 doxygen/* linguist-vendored
+tests/inputs/* linguist-vendored
+tests/outputs/* linguist-vendored
+tests/graphs/* linguist-vendored
