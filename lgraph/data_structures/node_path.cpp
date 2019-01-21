@@ -58,11 +58,13 @@ node_path<T>& node_path<T>::operator= (const node_path<T>& np) {
 
 template<class T>
 void node_path<T>::concatenate(const node_path<T>& p) {
-	nodes.insert(
-		nodes.end(),
-		p.nodes.begin() + 1, p.nodes.end()
-	);
-	path_length += p.path_length;
+	if (p.size() > 1) {
+		nodes.insert(
+			nodes.end(),
+			p.nodes.begin() + 1, p.nodes.end()
+		);
+		path_length += p.path_length;
+	}
 }
 
 template<class T>
