@@ -67,13 +67,14 @@ err_type uu_path_all_all__single(ifstream& fin) {
 	traversal::uxpath(&G, uv_path);
 	for (node u = 0; u < G.n_nodes(); ++u) {
 		for (node v = 0; v < G.n_nodes(); ++v) {
+			const node_path<_new_>& p = uv_path[u][v];
+
 			cout << "(" << u << ", " << v << "): ";
-			if (uv_path[u][v].size() == 0) {
+			if (p.size() == 0) {
 				cout << "No path" << endl;
 			}
 			else {
-				cout << uv_path[u][v].to_string() << "; "
-					 << uv_path[u][v].get_length() << endl;
+				cout << p.to_string() << "; " << p.get_length() << endl;
 			}
 		}
 	}

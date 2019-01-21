@@ -1,0 +1,14 @@
+TYPE unweighted-directed-path-node-node-single
+INPUT 1 graphs/SmallNet-1-ud-02.el edge-list
+BODY
+	0 3
+	2 5
+	2 4
+	2 6
+	2 8
+	7 0
+	7 1
+	7 5
+	5 8
+	2 3
+	3 2

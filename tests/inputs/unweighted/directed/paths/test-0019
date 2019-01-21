@@ -1,0 +1,7 @@
+TYPE unweighted-directed-path-node-node-all
+INPUT 1 graphs/SQR-ud-02.el edge-list
+BODY
+	0 7
+	4 1
+	2 4
+	7 3

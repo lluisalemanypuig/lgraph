@@ -71,6 +71,7 @@ err_type uu_path_all_all__all(ifstream& fin) {
 			sort(uv_paths[u][v].begin(), uv_paths[u][v].end(),
 				 test_utils::comp_ux_paths);
 
+			cout << "(" << u << ", " << v << "): ";
 			if (uv_paths[u][v].size() == 0) {
 				cout << "No path" << endl;
 			}

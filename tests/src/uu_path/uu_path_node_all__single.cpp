@@ -69,7 +69,12 @@ err_type uu_path_node_all__single(ifstream& fin) {
 
 		if (ps.size() > 0) {
 			for (node v = 0; v < G.n_nodes(); ++v) {
-				cout << v << ": " << ps[v].to_string() << "; " << ps[v].get_length() << endl;
+				if (ps[v].size() == 0) {
+					cout << v << ": No path" << endl;
+				}
+				else {
+					cout << v << ": " << ps[v].to_string() << "; " << ps[v].get_length() << endl;
+				}
 			}
 		}
 		else {

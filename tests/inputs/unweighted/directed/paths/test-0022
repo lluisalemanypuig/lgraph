@@ -1,0 +1,4 @@
+TYPE unweighted-directed-path-node-node-all
+INPUT 1 graphs/romboid-7-ud-02.el edge-list
+BODY
+	5 4
