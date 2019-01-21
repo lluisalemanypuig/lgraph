@@ -69,7 +69,7 @@ err_type ux_path_all_all__single(const string& graph_type, ifstream& fin) {
 		}
 		else if (r == err_type::graph_format_error) {
 			cerr << ERROR("ux_path_all_all__single.cpp", "ux_path_all_all__single") << endl;
-			cerr << "    Format '" << format << "' not supported." << endl;
+			cerr << "    Input file format '" << format << "' not supported." << endl;
 		}
 		return r;
 	}

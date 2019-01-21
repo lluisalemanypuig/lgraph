@@ -9,6 +9,36 @@ using namespace std;
 
 namespace exe_tests {
 
+void mark_wrong_keyword
+(const vector<string>& keywords,
+ const vector<size_t>& k, const string& tab)
+{
+	cerr << tab;
+	// sure 'keywords' has at least one keyword
+	for (size_t i = 0; i < keywords.size(); ++i) {
+		cerr << keywords[i] << " ";
+	}
+	cerr << endl;
+
+	// display the /\ where needed
+	size_t it = 0;
+	cerr << tab;
+	for (size_t i = 0; i < keywords.size(); ++i) {
+		size_t l = keywords[i].length();
+		if (it < k.size()) {
+			if (k[it] != i) {
+				cerr << string(l, ' ') << " ";
+			}
+			else {
+				cerr << "/\\";
+				cerr << string(l - 2, ' ') << " ";
+				++it;
+			}
+		}
+	}
+	cerr << endl;
+}
+
 err_type call_main(const vector<string>& keywords, ifstream& fin) {
 	const string& key = keywords[0];
 	if (key == "unweighted") {
@@ -16,61 +46,70 @@ err_type call_main(const vector<string>& keywords, ifstream& fin) {
 	}
 
 	cerr << ERROR("parse_keywords.cpp", "call_main") << endl;
-	cerr << "    Unknow keyword at 0: '" << key << "'." << endl;
+	cerr << "    Unhandled keyword at 0: '" << key << "'." << endl;
+	mark_wrong_keyword(keywords, {0}, "    ");
 	return err_type::wrong_keyword;
 }
 
 err_type call_ux(const vector<string>& keywords, ifstream& fin) {
-	const string& key = keywords[1];
-	if (key == "undirected" or key == "directed") {
-		return call_ux_path(keywords, key, fin);
+	const string& graph_type = keywords[1];
+	if (graph_type != "undirected" and graph_type != "directed") {
+		cerr << ERROR("parse_keywords.cpp", "call_ux") << endl;
+		cerr << "    Wrong keyword at 1: '" << graph_type << "'." << endl;
+		mark_wrong_keyword(keywords, {1}, "    ");
+		return err_type::wrong_keyword;
+	}
+
+	const string& task = keywords[2];
+	if (task == "path") {
+		return call_ux_path(keywords, graph_type, fin);
 	}
 
 	cerr << ERROR("parse_keywords.cpp", "call_ux") << endl;
-	cerr << "    Unknow keyword at 1: '" << key << "'." << endl;
+	cerr << "    Unhandled keyword at 2: '" << task << "'." << endl;
+	mark_wrong_keyword(keywords, {2}, "    ");
 	return err_type::wrong_keyword;
 }
 
 err_type call_ux_path
 (const vector<string>& keywords, const string& graph_type, ifstream& fin)
 {
-	string key1 = keywords[3];
-	string key2 = keywords[4];
-	string key3 = keywords[5];
+	string key3 = keywords[3];
+	string key4 = keywords[4];
+	string key5 = keywords[5];
 
-	if (key1 == "node" and key2 == "node") {
-		if (key3 == "single") {
+	if (key3 == "node" and key4 == "node") {
+		if (key5 == "single") {
 			return ux_path_node_node__single(graph_type, fin);
 		}
-		if (key3 == "all") {
+		if (key5 == "all") {
 			return ux_path_node_node__all(graph_type, fin);
 		}
 	}
-	else if (key1 == "node" and key2 == "all") {
-		if (key3 == "single") {
+	else if (key3 == "node" and key4 == "all") {
+		if (key5 == "single") {
 			return ux_path_node_all__single(graph_type, fin);
 		}
-		if (key3 == "all") {
+		if (key5 == "all") {
 			return ux_path_node_all__all(graph_type, fin);
 		}
 	}
-	else if (key1 == "all" and key2 == "all") {
-		if (key3 == "single") {
+	else if (key3 == "all" and key4 == "all") {
+		if (key5 == "single") {
 			return ux_path_all_all__single(graph_type, fin);
 		}
-		if (key3 == "all") {
+		if (key5 == "all") {
 			return ux_path_all_all__all(graph_type, fin);
 		}
 	}
 
 	cerr << ERROR("parse_keywords.cpp", "call_ux_path") << endl;
 	cerr << "    Wrong combination of the keywords at 3,4,5:" << endl;
-	cerr << "        " << key1 << "  --  " << key2 << "  --  " << key3 << endl;
-	cerr << "   ";
-	for (const string& s : keywords) {
-		cerr << " " << s;
-	}
-	cerr << endl;
+	vector<size_t> wrong;
+	if (key3 != "node" and key3 != "all") { wrong.push_back(3); }
+	if (key4 != "node" and key4 != "all") { wrong.push_back(4); }
+	if (key5 != "single" and key5 != "all") { wrong.push_back(5); }
+	mark_wrong_keyword(keywords, wrong, "    ");
 	return err_type::wrong_keyword;
 }
 

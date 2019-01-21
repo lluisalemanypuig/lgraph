@@ -11,6 +11,9 @@ using namespace std;
 
 namespace exe_tests {
 
+void mark_wrong_keyword
+(const vector<string>& keywords, const vector<size_t>& k, const string& tab = "");
+
 /* FUNCTIONS FOR KEYWORD PARSING */
 
 // parses the first keyword and calls the appropriate main type function
