@@ -14,8 +14,9 @@ using namespace lgraph;
 
 // custom includes
 #include "src/definitions.hpp"
-#include "src/test_utils.hpp"
 #include "src/io_wrapper.hpp"
+#include "src/test_utils.hpp"
+using namespace test_utils;
 
 namespace exe_tests {
 
@@ -82,7 +83,7 @@ err_type ux_distance_node_node__all(const string& graph_type, ifstream& fin) {
 	while (fin >> u >> v) {
 		size_t n_paths;
 		size_t dist = traversal::uxdistance(G, u, v, n_paths);
-		cout << dist << " (" << n_paths << ")" << endl;
+		cout << distout(dist) << " (" << n_paths << ")" << endl;
 	}
 
 	return err_type::no_error;

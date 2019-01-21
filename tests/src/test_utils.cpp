@@ -9,6 +9,7 @@ using namespace std;
 
 // lgraph includes
 #include <lgraph/data_structures/node_path.hpp>
+#include <lgraph/utils/definitions.hpp>
 using namespace lgraph;
 
 // custom includes

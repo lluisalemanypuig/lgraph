@@ -13,6 +13,7 @@ using namespace lgraph;
 #include "src/definitions.hpp"
 #include "src/io_wrapper.hpp"
 #include "src/test_utils.hpp"
+using namespace test_utils;
 
 namespace exe_tests {
 
@@ -82,7 +83,8 @@ err_type ux_distance_node_all__all(const string& graph_type, ifstream& fin) {
 		traversal::uxdistance(G, u, dists, n_paths);
 
 		for (node v = 0; v < G->n_nodes(); ++v) {
-			cout << v << ": " << dists[v] << " (" << n_paths[v] << ")" << endl;
+			cout << v << ": " << distout(dists[v])
+				 << " (" << n_paths[v] << ")" << endl;
 		}
 	}
 
