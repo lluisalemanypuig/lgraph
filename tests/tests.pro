@@ -23,19 +23,13 @@ DEPENDPATH += ..
 SOURCES += \
 	src/main.cpp \
 	src/parse_keywords.cpp \
-	src/uu_path/uu_path_all_all__all.cpp \
-	src/uu_path/uu_path_node_all__all.cpp \
-	src/uu_path/uu_path_node_node__all.cpp \
-    src/ud_path/ud_path_all_all__all.cpp \
-    src/ud_path/ud_path_node_all__all.cpp \
-    src/ud_path/ud_path_node_node__all.cpp \
+	src/ux_path/ux_path_all_all__all.cpp \
+	src/ux_path/ux_path_node_all__all.cpp \
+	src/ux_path/ux_path_node_node__all.cpp \
 	src/io_wrapper.cpp \
-    src/uu_path/uu_path_node_node__single.cpp \
-    src/uu_path/uu_path_node_all__single.cpp \
-    src/uu_path/uu_path_all_all__single.cpp \
-    src/ud_path/ud_path_all_all__single.cpp \
-    src/ud_path/ud_path_node_all__single.cpp \
-    src/ud_path/ud_path_node_node__single.cpp \
+	src/ux_path/ux_path_node_node__single.cpp \
+	src/ux_path/ux_path_node_all__single.cpp \
+	src/ux_path/ux_path_all_all__single.cpp \
     src/test_utils.cpp
 
 HEADERS += \

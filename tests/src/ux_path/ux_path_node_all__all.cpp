@@ -83,17 +83,17 @@ err_type ux_path_node_all__all(const string& graph_type, ifstream& fin) {
 
 		for (node v = 0; v < G->n_nodes(); ++v) {
 			sort(pss[v].begin(), pss[v].end(), test_utils::comp_ux_paths);
-		}
 
-		for (node v = 0; v < G->n_nodes(); ++v) {
 			const node_path_set<_new_>& ps = pss[v];
-			cout << v << ": ";
-
 			if (ps.size() > 0) {
-				cout << ps[v].to_string() << "; " << ps[v].get_length() << endl;
+				for (const node_path<_new_>& p : ps) {
+					cout << v << ": "
+						 << p.to_string() << "; "
+						 << p.get_length() << endl;
+				}
 			}
 			else {
-				cout << "No paths" << endl;
+				cout << v << ": No paths" << endl;
 			}
 		}
 	}

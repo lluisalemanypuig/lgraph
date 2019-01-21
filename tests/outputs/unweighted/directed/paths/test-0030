@@ -1,18 +1,18 @@
 0: 0; 0
-No paths
-No paths
-No paths
-No paths
-No paths
-No paths
-No paths
-No paths
+1: No paths
+2: No paths
+3: No paths
+4: No paths
+5: No paths
+6: No paths
+7: No paths
+8: No paths
 0: 4 -> 1 -> 0; 2
 1: 4 -> 1; 1
-2: No path
-3: No path
+2: No paths
+3: No paths
 4: 4; 0
-5: No path
-6: No path
-7: No path
-8: No path
+5: No paths
+6: No paths
+7: No paths
+8: No paths

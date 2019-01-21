@@ -84,9 +84,8 @@ err_type ux_path_all_all__all(const string& graph_type, ifstream& fin) {
 			sort(uv_paths[u][v].begin(), uv_paths[u][v].end(),
 				 test_utils::comp_ux_paths);
 
-			cout << "(" << u << ", " << v << "): ";
 			if (uv_paths[u][v].size() == 0) {
-				cout << "No path" << endl;
+				cout << "(" << u << ", " << v << "): No path" << endl;
 			}
 			else {
 				for (const node_path<_new_>& p : uv_paths[u][v]) {
