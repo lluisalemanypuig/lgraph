@@ -37,5 +37,34 @@ bool comp_ux_paths(const node_path<_new_>& p, const node_path<_new_>& q) {
 	assert(false);
 }
 
+bool comp_wx_paths(const node_path<float>& p, const node_path<float>& q) {
+	// The two paths have the same length, because
+	// they are the shortest between two nodes.
+	// However, these paths may have different amount
+	// of nodes.
+	if (p.size() < q.size()) {
+		return true;
+	}
+	if (p.size() > q.size()) {
+		return false;
+	}
+
+	// The two paths have the same amount of nodes.
+	for (size_t i = 0; i < p.size(); ++i) {
+		if (p[i] < q[i]) {
+			return true;
+		}
+		else if (p[i] > q[i]) {
+			return false;
+		}
+	}
+
+	// same path! Should never happen
+	cerr << ERROR("test_utils.cpp", "comp_wx_paths") << endl;
+	cerr << "    Fatal: comparing two equal paths." << endl;
+	cerr << "    Aborting..." << endl;
+	assert(false);
+}
+
 } // -- namespace test_utils
 
