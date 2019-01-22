@@ -1,0 +1,3 @@
+TYPE unweighted-directed-distance-all-all-all
+INPUT 1 graphs/SmallNet-1-ud-02.el edge-list
+BODY

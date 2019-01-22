@@ -1,0 +1,4 @@
+TYPE unweighted-undirected-distance-all-all-single
+INPUT 1 graphs/Qromboid-9-uu-02.el edge-list
+BODY
+
