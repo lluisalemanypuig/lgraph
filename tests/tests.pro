@@ -36,7 +36,19 @@ SOURCES += \
 	src/ux_dist/ux_dist_node_all__all.cpp \
 	src/ux_dist/ux_dist_node_all__single.cpp \
 	src/ux_dist/ux_dist_node_node__all.cpp \
-	src/ux_dist/ux_dist_node_node__single.cpp
+	src/ux_dist/ux_dist_node_node__single.cpp \
+	src/wx_path/wx_path_all_all__all.cpp \
+	src/wx_path/wx_path_all_all__single.cpp \
+	src/wx_path/wx_path_node_all__all.cpp \
+	src/wx_path/wx_path_node_all__single.cpp \
+	src/wx_path/wx_path_node_node__all.cpp \
+	src/wx_path/wx_path_node_node__single.cpp \
+	src/wx_dist/wx_dist_all_all__all.cpp \
+	src/wx_dist/wx_dist_all_all__single.cpp \
+	src/wx_dist/wx_dist_node_all__all.cpp \
+	src/wx_dist/wx_dist_node_all__single.cpp \
+	src/wx_dist/wx_dist_node_node__all.cpp \
+	src/wx_dist/wx_dist_node_node__single.cpp
 
 HEADERS += \
 	src/definitions.hpp \

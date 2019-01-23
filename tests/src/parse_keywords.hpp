@@ -25,4 +25,10 @@ err_type call_ux_path
 err_type call_ux_distance
 (const vector<string>& keywords, const string& graph_type, ifstream& fin);
 
+err_type call_wx(const vector<string>& keywords, ifstream& fin);
+err_type call_wx_path
+(const vector<string>& keywords, const string& graph_type, ifstream& fin);
+err_type call_wx_distance
+(const vector<string>& keywords, const string& graph_type, ifstream& fin);
+
 } // -- namespace exe_tests
