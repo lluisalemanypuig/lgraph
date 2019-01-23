@@ -8,7 +8,7 @@ using namespace std;
 
 // lgraph includes
 #include <lgraph/data_structures/wxgraph.hpp>
-#include <lgraph/graph_traversal/traversal.hpp>
+#include <lgraph/graph_traversal/traversal_wx.hpp>
 #include <lgraph/io/io.hpp>
 using namespace lgraph;
 

@@ -1,5 +1,8 @@
 #include "functions.hpp"
 
+#include <lgraph/graph_traversal/traversal_ux.hpp>
+#include <lgraph/data_structures/node_path.hpp>
+
 namespace functions {
 
 	void deb_distances(const uxgraph *G, node source, node target) {

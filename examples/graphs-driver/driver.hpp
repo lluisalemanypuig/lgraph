@@ -17,10 +17,6 @@ using namespace std;
 using namespace lgraph;
 using namespace utils;
 
-#include <lgraph/graph_traversal/traversal.hpp>
-#include <lgraph/data_structures/node_path.hpp>
-using namespace traversal;
-
 #include <lgraph/generate_graphs/classic/classic.hpp>
 using namespace networks::classic;
 

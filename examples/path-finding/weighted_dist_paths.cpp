@@ -1,5 +1,8 @@
 #include "functions.hpp"
 
+#include <lgraph/graph_traversal/traversal_wx.hpp>
+#include <lgraph/data_structures/node_path.hpp>
+
 namespace functions {
 
 	template<class T>

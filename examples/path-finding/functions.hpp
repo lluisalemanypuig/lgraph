@@ -5,11 +5,8 @@
 using namespace std;
 
 // lgraph includes
-#include <lgraph/data_structures/boolean_path.hpp>
-#include <lgraph/data_structures/node_path.hpp>
 #include <lgraph/data_structures/wxgraph.hpp>
 #include <lgraph/data_structures/uxgraph.hpp>
-#include <lgraph/graph_traversal/traversal.hpp>
 using namespace lgraph;
 using namespace utils;
 

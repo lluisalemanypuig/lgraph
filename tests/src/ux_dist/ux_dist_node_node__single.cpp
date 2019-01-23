@@ -6,7 +6,7 @@ using namespace std;
 
 // lgraph includes
 #include <lgraph/data_structures/uugraph.hpp>
-#include <lgraph/graph_traversal/traversal.hpp>
+#include <lgraph/graph_traversal/traversal_ux.hpp>
 #include <lgraph/io/io.hpp>
 using namespace lgraph;
 

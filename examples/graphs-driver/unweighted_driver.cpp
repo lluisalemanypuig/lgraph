@@ -1,5 +1,9 @@
 #include "driver.hpp"
 
+#include <lgraph/graph_traversal/traversal_ux.hpp>
+#include <lgraph/data_structures/node_path.hpp>
+using namespace traversal;
+
 namespace graph_driver {
 
 	void print_unweighted_options() {

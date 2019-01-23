@@ -1,5 +1,9 @@
 #include "functions.hpp"
 
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
 namespace functions {
 
 	template<class T>
