@@ -1,6 +1,13 @@
 TODO LIST
 =========
 
+[] 23/01/2018 ->
+Finish the tests for all currently implemented algorithms
+
+[] 23/01/2018 ->
+The value of epsilon used for floating point value comparison in the
+weighted path-finding algorithms should a user's choice.
+
 [] 20/10/2018 ->
 Implement reading/writing from/to graph6, sparse6, digraph6 formats.
 	[v] 20/10/2018 -> 23/09/2018
@@ -60,7 +67,8 @@ Implement Erdos-Renyi model
 Implement SIS and SIR with node immunity
 
 [v] 26/02/2018 -> 15/08/2018
-Use class 'svector' to implement the adjacency list of the graph data structure.
+Use class 'svector' to implement the adjacency list of the graph data
+structure.
 
 [v] 24/03/2018 -> 28/05/2018
 Add documentation with Doxygen
@@ -111,7 +119,8 @@ Implement betweennes centrality metric
 	For all vertices of a graph
 
 [X] 20/02/2018 -> 20/02/2018
-Do not use a vertex-all method to count the number of shortest paths from node to node.
+Do not use a vertex-all method to count the number of shortest paths
+from node to node.
 ** We need to traverse all the graph apparently
 
 [v] 20/02/2018 -> 25/02/2018
@@ -147,7 +156,8 @@ Implement two classes that implement paths as
 	[v] 16/02/2018 -> 16/02/2018
 	List of vertices
 	[v] 16/02/2018 -> 16/02/2018
-	Bitsets (a vertex is in the path if the corresponding bit is set to 1)
+	Bitsets (a vertex is in the path if the corresponding bit
+	is set to 1)
 
 [v] 13/02/2018 -> 16/02/2018
 Debug path-finding with BFS
