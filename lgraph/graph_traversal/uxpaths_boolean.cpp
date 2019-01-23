@@ -1,4 +1,4 @@
-#include <lgraph/graph_traversal/traversal.hpp>
+#include <lgraph/graph_traversal/traversal_ux.hpp>
 
 namespace lgraph {
 namespace traversal {

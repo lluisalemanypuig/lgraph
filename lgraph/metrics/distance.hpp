@@ -6,7 +6,7 @@
 #include <vector>
 
 // lgraph includes
-#include <lgraph/graph_traversal/traversal.hpp>
+#include <lgraph/graph_traversal/traversal_ux.hpp>
 #include <lgraph/data_structures/uxgraph.hpp>
 #include <lgraph/data_structures/wxgraph.hpp>
 #include <lgraph/metrics/centralities.hpp>

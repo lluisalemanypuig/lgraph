@@ -1,4 +1,8 @@
-#include <lgraph/graph_traversal/traversal.hpp>
+#include <lgraph/graph_traversal/traversal_wx.hpp>
+
+// lgraph includes
+#include <lgraph/graph_traversal/dijkstra.hpp>
+#include <lgraph/utils/logger.hpp>
 
 namespace lgraph {
 namespace traversal {
@@ -38,7 +42,7 @@ void wxpath(const wxgraph<T> *G, node source, node target, node_path<T>& p) {
 	-> bool
 	{
 		bool add = false;
-		if (ds[u] + w < ds[v]) {
+		if (ds[u] + w + static_cast<T>(1.0e-5) < ds[v]) {
 			ds[v] = ds[u] + w;
 			prev[v] = u;
 			add = true;
@@ -64,16 +68,15 @@ void wxpath(const wxgraph<T> *G, node source, node target, node_path<T>& p) {
 	p.set_length(ds[target]);
 }
 
-/// Make a list of paths given a matrix of precendes
+// Make a list of paths given a matrix of precendes
 template<class T>
 void make_paths
 (
 	node source,
 	const std::vector< std::vector<node> >& prev,
-	T st_dist,
 	node nidx,
-	node_path_set<T>& ps,
-	node_path<T>& path
+	node_path<T>& path,
+	node_path_set<T>& ps
 )
 {
 	path.add_node(nidx);
@@ -86,7 +89,7 @@ void make_paths
 
 	for (size_t i = 0; i < prev[nidx].size(); ++i) {
 		node prev_node = prev[nidx][i];
-		make_paths(source, prev, st_dist, prev_node, ps, path);
+		make_paths(source, prev, prev_node, path, ps);
 		path.delete_last();
 	}
 }
@@ -99,7 +102,7 @@ void wxpaths(const wxgraph<T> *G, node source, node target, node_path_set<T>& ps
 
 	const size_t N = G->n_nodes();
 
-	// prev[v] = u: previous node of v in the path is u
+	// prev[v] = u <-> u is the previous node to v in the path
 	std::vector< std::vector<node> > prev(N);
 	std::vector<T> ds(N, inf_t<T>());
 	ds[source] = 0;
@@ -107,10 +110,10 @@ void wxpaths(const wxgraph<T> *G, node source, node target, node_path_set<T>& ps
 	// terminate when target is found
 	dijkstra::djka_terminate<T> terminate =
 	[&target]
-	(const wxgraph<T> *, const dijkstra::djka_node<T>& u, const std::vector<bool>&)
+	(const wxgraph<T> *, const dijkstra::djka_node<T>&, const std::vector<bool>&)
 	-> bool
 	{
-		return u.second == target;
+		return false;
 	};
 
 	dijkstra::djka_process_current<T> proc_curr =
@@ -124,13 +127,13 @@ void wxpaths(const wxgraph<T> *G, node source, node target, node_path_set<T>& ps
 	-> bool
 	{
 		bool add = false;
-		if (ds[u] + w < ds[v]) {
+		if (ds[u] + w + static_cast<T>(1.0e-5) < ds[v]) {
 			// shorter path from u to v
 			ds[v] = ds[u] + w;
 			prev[v] = std::vector<node>(1, u);
 			add = true;
 		}
-		else if (ds[u] + w == ds[v]) {
+		else if (std::abs(ds[u] + w - ds[v]) <= static_cast<T>(1.0e-5)) {
 			// equally long path from u to v
 			prev[v].push_back(u);
 		}
@@ -141,7 +144,7 @@ void wxpaths(const wxgraph<T> *G, node source, node target, node_path_set<T>& ps
 
 	node_path<T> empty_path;
 	empty_path.set_length(ds[target]);
-	make_paths(source, prev, ds[target], target, ps, empty_path);
+	make_paths(source, prev, target, empty_path, ps);
 }
 
 /* NODE-ALL */
@@ -174,7 +177,7 @@ void wxpath(const wxgraph<T> *G, node source, std::vector<node_path<T> >& ps) {
 	-> bool
 	{
 		bool add = false;
-		if (ds[u] + w < ds[v]) {
+		if (ds[u] + w + static_cast<T>(1.0e-5) < ds[v]) {
 			ds[v] = ds[u] + w;
 			prev[v] = u;
 			add = true;
@@ -269,7 +272,7 @@ template<class T> void wxpath
 				}
 
 				T d = dist[u][w] + dist[w][v];
-				if (d < dist[u][v]) {
+				if (d + static_cast<T>(1.0e-5) < dist[u][v]) {
 					dist[u][v] = d;
 
 					all_all_paths[u][v] = all_all_paths[u][w];
@@ -318,13 +321,19 @@ template<class T> void wxpaths
 
 				// ignore the cases where:
 				// the path is not moving
-				if (u == v) continue;
+				if (u == v) {
+					continue;
+				}
 				// the distances are infinite
-				if (dist[v][w] == inf_t<_new_>()) continue;
-				if (dist[w][u] == inf_t<_new_>()) continue;
+				if (dist[u][w] == inf_t<_new_>()) {
+					continue;
+				}
+				if (dist[w][v] == inf_t<_new_>()) {
+					continue;
+				}
 
 				T d = dist[u][w] + dist[w][v];
-				if (d < dist[u][v]) {
+				if (d + static_cast<T>(1.0e-5) < dist[u][v]) {
 					// this is a shorter path than the shortest found so far
 					dist[u][v] = d;
 
@@ -346,7 +355,8 @@ template<class T> void wxpaths
 						}
 					}
 				}
-				else if (d == dist[u][v]) {
+				else if (std::abs(d - dist[u][v]) <= static_cast<T>(1.0e-5)) {
+
 					// this is a path as short as the shortest found so far
 					if (u != w and w != v) {
 

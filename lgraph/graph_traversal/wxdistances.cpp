@@ -1,4 +1,4 @@
-#include <lgraph/graph_traversal/traversal.hpp>
+#include <lgraph/graph_traversal/traversal_wx.hpp>
 
 namespace lgraph {
 namespace traversal {
@@ -76,7 +76,7 @@ void wxdistance(const wxgraph<T> *G, node source, std::vector<T>& ds) {
 	[&ds](const wxgraph<T> *, node u, node v, T w, const std::vector<bool>&) -> bool
 	{
 		bool add = false;
-		if (ds[u] + w < ds[v]) {
+		if (ds[u] + w + static_cast<T>(1.0e-5) < ds[v]) {
 			ds[v] = ds[u] + w;
 			add = true;
 		}
@@ -117,12 +117,12 @@ void wxdistance
 	{
 		bool add = false;
 		T d = ds[u] + w;
-		if (d < ds[v]) {
+		if (d + static_cast<T>(1.0e-5) < ds[v]) {
 			ds[v] = d;
 			n_paths[v] = n_paths[u];
 			add = true;
 		}
-		else if (d == ds[v]) {
+		else if (std::abs(d - ds[v]) <= static_cast<T>(1.0e-5)) {
 			n_paths[v] += n_paths[u];
 			add = true;
 		}
@@ -157,12 +157,18 @@ void wxdistances(const wxgraph<T> *G, std::vector<std::vector<T> >& dist) {
 		for (size_t u = 0; u < N; ++u) {
 			for (size_t v = 0; v < N; ++v) {
 
-				if (u == v) continue;
-				if (dist[v][w] == inf_t<T>()) continue;
-				if (dist[w][u] == inf_t<T>()) continue;
+				if (u == v) {
+					continue;
+				}
+				if (dist[u][w] == inf_t<T>()) {
+					continue;
+				}
+				if (dist[w][v] == inf_t<T>()) {
+					continue;
+				}
 
 				T d = dist[u][w] + dist[w][v];
-				if (d < dist[u][v]) {
+				if (d + static_cast<T>(1.0e-5) < dist[u][v]) {
 					dist[u][v] = d;
 				}
 			}
@@ -171,7 +177,12 @@ void wxdistances(const wxgraph<T> *G, std::vector<std::vector<T> >& dist) {
 }
 
 template<class T>
-void wxdistances(const wxgraph<T> *G, std::vector<std::vector<T> >& dist, std::vector<std::vector<size_t> >& n_paths) {
+void wxdistances(
+	const wxgraph<T> *G,
+	std::vector<std::vector<T> >& dist,
+	std::vector<std::vector<size_t> >& n_paths
+)
+{
 	const size_t N = G->n_nodes();
 
 	// initialise data
@@ -197,12 +208,18 @@ void wxdistances(const wxgraph<T> *G, std::vector<std::vector<T> >& dist, std::v
 		for (size_t u = 0; u < N; ++u) {
 			for (size_t v = 0; v < N; ++v) {
 
-				if (u == v) continue;
-				if (dist[v][w] == inf_t<T>()) continue;
-				if (dist[w][u] == inf_t<T>()) continue;
+				if (u == v) {
+					continue;
+				}
+				if (dist[u][w] == inf_t<T>()) {
+					continue;
+				}
+				if (dist[w][v] == inf_t<T>()) {
+					continue;
+				}
 
 				T d = dist[u][w] + dist[w][v];
-				if (d < dist[u][v]) {
+				if (d + static_cast<T>(1.0e-5) < dist[u][v]) {
 					// this is a shorter path than the shortest found so far
 					dist[u][v] = d;
 
@@ -210,7 +227,7 @@ void wxdistances(const wxgraph<T> *G, std::vector<std::vector<T> >& dist, std::v
 						n_paths[u][v] = n_paths[u][w]*n_paths[w][v];
 					}
 				}
-				else if (d == dist[u][v]) {
+				else if (std::abs(d - dist[u][v]) <= static_cast<T>(1.0e-5)) {
 					// this is a path as short as the shortest found so far
 					if (u != w and w != v) {
 						n_paths[u][v] += n_paths[u][w]*n_paths[w][v];

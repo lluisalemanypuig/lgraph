@@ -1,5 +1,8 @@
 #include <lgraph/metrics/centralities.hpp>
 
+// lgraph includes
+#include <lgraph/graph_traversal/traversal_ux.hpp>
+
 namespace lgraph {
 namespace networks {
 namespace metrics {

@@ -47,7 +47,6 @@ HEADERS += \
     epidemics/sir_immune.cpp \
     epidemics/sis.cpp \
     epidemics/sis_immune.cpp \
-    graph_traversal/traversal.hpp \
     graph_traversal/dfs.hpp \
     graph_traversal/bfs.hpp \
     graph_traversal/dijkstra.hpp \
@@ -68,7 +67,9 @@ HEADERS += \
     utils/random_generator.hpp \
     utils/random_generator.cpp \
     utils/drandom_generator.cpp \
-    utils/crandom_generator.cpp
+    utils/crandom_generator.cpp \
+    graph_traversal/traversal_wx.hpp \
+    graph_traversal/traversal_ux.hpp
 
 SOURCES += \
     utils/static_bitset.cpp \
