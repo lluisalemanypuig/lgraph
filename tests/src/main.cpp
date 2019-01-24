@@ -10,6 +10,7 @@ using namespace std;
 
 // custom includes
 #include "definitions.hpp"
+#include "test_utils.hpp"
 #include "parse_keywords.hpp"
 
 err_type get_type_keyword(const string& filename, ifstream& fin, string& type) {
@@ -49,6 +50,10 @@ void get_keywords(const string& type, vector<string>& keywords) {
 }
 
 int main(int argc, char *argv[]) {
+	// set precision of cout
+	cout.setf(ios::fixed);
+	cout.precision(FV_PREC);
+
 	// error checking
 	if (argc == 1) {
 		cerr << ERROR("main.cpp", "main") << endl;

@@ -89,5 +89,4 @@ err_type ux_distance_node_node__all(const string& graph_type, ifstream& fin) {
 	return err_type::no_error;
 }
 
-}
-
+} // -- namespace exe_tests

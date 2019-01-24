@@ -7,6 +7,8 @@
 	"Error [file " << file << ", function '" \
 	<< func << "', line " << __LINE__ << "]:"
 
+#define FV_PREC 3
+
 enum class err_type : int8_t {
 	// The test completed successfully
 	no_error = 0,

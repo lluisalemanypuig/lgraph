@@ -1,11 +1,15 @@
 #pragma once
 
 // C++ includes
+#include <sstream>
 #include <string>
 #include <limits>
 
 // lgraph includes
 #include <lgraph/data_structures/node_path.hpp>
+
+// custom includes
+#include "definitions.hpp"
 
 namespace test_utils {
 
@@ -20,7 +24,10 @@ std::string distout(T d) {
 	if (d == std::numeric_limits<T>::max()) {
 		return "inf";
 	}
-	return std::to_string(d);
+	std::ostringstream out;
+	out.precision(FV_PREC);
+	out << std::fixed << d;
+	return out.str();
 }
 
 } // -- namespace test_utils
