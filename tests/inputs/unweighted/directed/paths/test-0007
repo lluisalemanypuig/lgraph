@@ -1,5 +1,5 @@
 TYPE unweighted-directed-path-node-node-single
-INPUT 1 graphs/SQR-ud-01.el edge-list
+INPUT 1 graphs/sqr-ud-01.el edge-list
 BODY
 	0 6
 	1 7

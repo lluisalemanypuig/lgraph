@@ -1,5 +1,5 @@
 TYPE weighted-undirected-distance-node-all-all
-INPUT 1 graphs/romboid-7-wu-00.el edge-list
+INPUT 1 graphs/romboid-07-wu-00.el edge-list
 BODY
 	0
 	3

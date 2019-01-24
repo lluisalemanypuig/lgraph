@@ -1,4 +1,4 @@
 TYPE unweighted-directed-distance-node-all-all
-INPUT 1 graphs/Qromboid-9-ud-01.el edge-list
+INPUT 1 graphs/qromboid-09-ud-01.el edge-list
 BODY
 	1

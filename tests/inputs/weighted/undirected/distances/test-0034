@@ -1,0 +1,5 @@
+TYPE weighted-undirected-distance-node-all-all
+INPUT 1 graphs/smallnet-01-wu-00.el edge-list
+BODY
+	0
+	3

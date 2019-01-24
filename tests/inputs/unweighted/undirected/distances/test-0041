@@ -1,3 +1,3 @@
 TYPE unweighted-undirected-distance-all-all-all
-INPUT 1 graphs/SQR-uu-00.el edge-list
+INPUT 1 graphs/sqr-uu-00.el edge-list
 BODY

@@ -1,0 +1,3 @@
+TYPE weighted-undirected-path-all-all-all
+INPUT 1 graphs/sqr-wu-00.el edge-list
+BODY

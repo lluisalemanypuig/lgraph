@@ -1,0 +1,14 @@
+TYPE weighted-undirected-path-node-node-all
+INPUT 1 graphs/sqr-wu-00.el edge-list
+BODY
+	0 1
+	1 2
+	2 3
+	3 4
+	4 0
+	0 2
+	1 3
+	2 4
+	3 0
+	0 4
+	7 0

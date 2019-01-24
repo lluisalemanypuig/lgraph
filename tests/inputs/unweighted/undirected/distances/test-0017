@@ -1,5 +1,5 @@
 TYPE unweighted-undirected-distance-node-node-all
-INPUT 1 graphs/SQR-uu-00.el edge-list
+INPUT 1 graphs/sqr-uu-00.el edge-list
 BODY
 	0 2
 	7 4

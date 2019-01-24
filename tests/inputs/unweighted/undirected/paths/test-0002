@@ -1,5 +1,5 @@
 TYPE unweighted-undirected-path-node-node-single
-INPUT 1 graphs/cycle-5-uu-02.el edge-list
+INPUT 1 graphs/cycle-05-uu-02.el edge-list
 BODY
 	0 1
 	1 2

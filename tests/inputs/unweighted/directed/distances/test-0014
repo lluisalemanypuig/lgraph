@@ -1,5 +1,5 @@
 TYPE unweighted-directed-distance-node-node-all
-INPUT 1 graphs/cycle-8-ud-00.el edge-list
+INPUT 1 graphs/cycle-08-ud-00.el edge-list
 BODY
 	0 4
 	1 5
