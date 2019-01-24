@@ -49,9 +49,9 @@ double closeness(const wxgraph<T> *G, node u) {
 	double sum = std::accumulate
 	(
 		ds.begin(), ds.end(), 0.0,
-		[](double acc, size_t d) {
+		[](double acc, _new_ d) {
 			// if d is infinite 1.0/d equals 0:n no need to divide
-			if (d != z_inf and d > 0) {
+			if (d != inf_t<_new_>() and d > 0) {
 				acc += 1.0/d;
 			}
 			return acc;
@@ -74,7 +74,6 @@ template<class T> void closeness
 	transform(
 		// iterate through all nodes
 		ds.begin(), ds.end(),
-
 		// append value at the back of cc
 		back_inserter(cc),
 
@@ -83,14 +82,13 @@ template<class T> void closeness
 			double sum = std::accumulate
 			(
 				ds_i.begin(), ds_i.end(), 0.0,
-				[](double acc, size_t d) {
-					if (d != z_inf and d > 0) {
+				[](double acc, _new_ d) {
+					if (d != inf_t<_new_>() and d > 0) {
 						acc += 1.0/d;
 					}
 					return acc;
 				}
 			);
-
 			return 1.0/(sum/(G->n_nodes() - 1));
 		}
 	);
