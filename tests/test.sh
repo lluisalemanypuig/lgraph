@@ -67,7 +67,7 @@ for f in $ALL_TEST_FILES; do
 		INFILE_LENGTH=${#f}
 		ID=${f:5:($INFILE_LENGTH - 4)}
 		
-		echo -en "    Test ""\e[1;1;34m$f\e[0m"" "
+		echo -en "    ""\e[1;1;34m$f\e[0m"" "
 		PROG_OUT=$(./$EXE_FILE --input $INPUT_GROUP/$f 2> $TEST_ERR)
 		
 		if [ -s $TEST_ERR ]; then

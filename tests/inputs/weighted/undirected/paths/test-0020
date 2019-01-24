@@ -1,0 +1,3 @@
+TYPE weighted-undirected-path-all-all-all
+INPUT 1 graphs/cycle-8-wu-01.el edge-list
+BODY

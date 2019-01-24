@@ -1,5 +1,5 @@
 TYPE unweighted-undirected-distance-node-node-single
-INPUT 1 graphs/SmallNet-1-uu-01.el edge-list
+INPUT 1 graphs/SmallNet-01-uu-01.el edge-list
 BODY
 	0 3
 	2 5
