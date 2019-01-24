@@ -1,0 +1,7 @@
+TYPE unweighted-directed-path-node-node-all
+INPUT 1 graphs/cycle-05-ud-03.el edge-list
+BODY
+	0 4
+	4 0
+	2 3
+	3 2

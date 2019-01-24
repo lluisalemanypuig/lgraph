@@ -1,0 +1,5 @@
+TYPE weighted-directed-path-node-node-all
+INPUT 1 graphs/cycle-08-wd-01.el edge-list
+BODY
+	0 4
+	4 1

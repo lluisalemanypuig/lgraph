@@ -55,6 +55,10 @@ fi
 INPUT_GROUP=inputs/$GROUP
 OUTPUT_GROUP=outputs/$GROUP
 
+if [ ! -d $INPUT_GROUP ]; then
+	exit
+fi
+
 echo -e "\e[1;1;33mExecuting tests in \e[0m""\e[1;2;33m$INPUT_GROUP\e[0m"
 ALL_TEST_FILES=$(ls $INPUT_GROUP)
 for f in $ALL_TEST_FILES; do

@@ -1,5 +1,5 @@
 TYPE weighted-undirected-path-node-node-all
-INPUT 1 graphs/sqr-wu-01.el edge-list
+INPUT 1 graphs/random-00-wu-01.el edge-list
 BODY
 	0 1
 	1 2

@@ -1,5 +1,5 @@
 TYPE unweighted-undirected-path-node-node-single
-INPUT 1 graphs/smallnet-01-uu-02.el edge-list
+INPUT 1 graphs/smallnet-00-uu-02.el edge-list
 BODY
 	0 3
 	2 5

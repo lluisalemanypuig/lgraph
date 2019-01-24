@@ -1,0 +1,12 @@
+TYPE weighted-directed-path-node-node-all
+INPUT 1 graphs/qromboid-09-wd-00.el edge-list
+BODY
+	1 7
+	8 0
+	7 1
+	7 0
+	4 1
+	8 1
+	3 2
+	2 3
+	6 1

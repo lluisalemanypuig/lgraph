@@ -1,5 +1,5 @@
 TYPE weighted-undirected-distance-all-all-single
-INPUT 1 graphs/sqr-wu-03.el edge-list
+INPUT 1 graphs/random-00-wu-03.el edge-list
 BODY
 	0
 	7

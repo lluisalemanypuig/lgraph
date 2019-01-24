@@ -1,0 +1,3 @@
+TYPE unweighted-directed-path-all-all-all
+INPUT 1 graphs/cycle-05-ud-03.el edge-list
+BODY
