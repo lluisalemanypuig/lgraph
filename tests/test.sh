@@ -1,38 +1,95 @@
 #!/bin/bash
 
+########################################################################
+# Functions
+
 function show_usage {
 	echo "Options:"
 	echo "    [-h, --help]: show the usage"
-	echo "    --group=string: specify the group of tests to be performed."
-	echo "        This string must not contain the last slash ('/')"
-	echo "        and should not start with 'inputs/'."
+	echo "    --group=g: specify the group 'g' of tests to be performed."
+	echo "        This string is the path to the directory with all the"
+	echo "        input tests. It can not contain the last slash ('/')"
+	echo "        and can not start with 'inputs/'."
+	echo "    --valgrind : use the memory error detector on every input"
+	echo "        test. This option makes the test ignore the output"
+	echo "        produced and errors are only reported when valgrind"
+	echo "        does so." 
 }
 
+function exe_valgrind {
+	# When using valgrind, we only need to ensure
+	# that there were no errors produced.
+	if [ -s $TEST_ERR ]; then
+		echo -en "\e[1;4;31mThe test produced errors\e[0m "
+		echo "See result in $VALG_ERR.$ID"
+		mv $TEST_ERR $VALG_ERR.$ID
+	else
+		# no errors were detected
+		echo -e "\e[1;1;32mOk\e[0m"
+	fi
+}
+
+function exe_no_valgrind {
+	# When not using valgrind, we have to make sure that
+	# the output produced is correct. If not, copy the
+	# contents of the temporary standard output file into
+	# a unique file for this test.
+	if [ -s $TEST_ERR ]; then
+		# why should we check the output if the library
+		# produced errors?
+		echo -en "\e[1;4;31mThe test produced errors\e[0m "
+		echo "See result in $TEST_ERR.$ID"
+		mv $TEST_ERR $TEST_ERR.$ID
+	else
+		# test whether the error output produced is empty or not
+		BASE_OUT=$output_group/$f
+		BASE_CONTENTS=$(cat $BASE_OUT)
+		
+		DIFF=$(diff <(echo "$BASE_CONTENTS") <(echo "$PROG_OUT"))
+		if [ ! -z "$DIFF" ]; then
+			echo -en "\e[1;4;31mDifferent outputs\e[0m"
+			echo "See result in $TEST_OUT.$ID"
+			echo "$PROG_OUT" > $TEST_OUT.$ID
+		else
+			# output produced by library is
+			# equal to the output made by hand
+			echo -e "\e[1;1;32mOk\e[0m"
+		fi
+	fi
+}
+
+########################################################################
+# Code starts here
+
 EXE_FILE="tests-debug/tests"
-# test that executable file exists
+# Make sure that executable file exists.
+# Do not continue if it does not.
 if [ ! -f $EXE_FILE ]; then
 	"\e[1;4;31mError:\e[0m Executable file $EXE_FILE does not exist"
 fi
 
-# files for standard and error output
-TEST_OUT=.tmp.out
-TEST_ERR=.tmp.err
+# show usage
+usage=0
 # the group of tests to be executed
-GROUP=""
-GROUP_READ=0
-HELP=0
+group=""
+# use valgrind
+use_valgrind=0
 
 for i in "$@"; do
 	case $i in
 		
 		--help|-h)
-		HELP=1
+		usage=1
 		shift
 		;;
 		
 		--group=*)
-		GROUP="${i#*=}"
-		GROUP_READ=1
+		group="${i#*=}"
+		shift
+		;;
+		
+		--valgrind)
+		use_valgrind=1
 		shift
 		;;
 		
@@ -42,26 +99,52 @@ for i in "$@"; do
 	esac
 done
 
-if [ $HELP = 1 ]; then
+# show usage if indicated
+if [ $usage = 1 ]; then
 	show_usage
 	exit
 fi
-if [ $GROUP_READ = 0 ]; then
+# make sure that we have something to test
+if [ -z "$group" ]; then
 	echo -e "\e[1;4;31mError:\e[0m" "Group of tests was not set" 
 	echo "    Use ./test.sh --help to see the usage"
 	exit
 fi
 
-INPUT_GROUP=inputs/$GROUP
-OUTPUT_GROUP=outputs/$GROUP
-
-if [ ! -d $INPUT_GROUP ]; then
+# Make sure the output directory exists
+input_group=inputs/$group
+output_group=outputs/$group
+if [ ! -d $input_group ]; then
 	exit
 fi
 
-echo -e "\e[1;1;33mExecuting tests in \e[0m""\e[1;2;33m$INPUT_GROUP\e[0m"
-ALL_TEST_FILES=$(ls $INPUT_GROUP)
-for f in $ALL_TEST_FILES; do
+# Prepare execution command. If valgrind is
+# requested, make the command appropriately.
+if [ $use_valgrind = 1 ]; then
+	EXE_COMMAND="valgrind -q --leak-check=full ./$EXE_FILE"
+else
+	EXE_COMMAND="./$EXE_FILE"
+fi
+
+# ------------------------------------------------
+# Prepare filenames for standard and error outputs
+keys=$(echo $group | tr "/" "\n");
+id=$(echo $keys | tr ' ' '.')
+# TEST_OUT and TEST_ERR are temporary files: a test named, for example,
+# test-0015 will produce a standard output and an error output into
+# $TEST_OUT and $TEST_ERR. Then, in case of errors, each file will be
+# moved to a unique file for this test, namely into the files
+# $TEST_OUT.0015 and $TEST_ERR.0015. In case of valgrind the contents
+# of $TEST_ERR will be moved to $VALG_ERR.0015.
+TEST_OUT=.tmp.$id.out
+TEST_ERR=.tmp.$id.err
+VALG_ERR=.vgd.$id.err
+
+echo -e "\e[1;1;33mExecuting tests in \e[0m""\e[1;2;33m$input_group\e[0m"
+
+# execute all tests
+all_test_files=$(ls $input_group)
+for f in $all_test_files; do
 	if [ "$f" = "summary.ods" ]; then
 		# skip
 		echo -n ""
@@ -72,25 +155,18 @@ for f in $ALL_TEST_FILES; do
 		ID=${f:5:($INFILE_LENGTH - 4)}
 		
 		echo -en "    ""\e[1;1;34m$f\e[0m"" "
-		PROG_OUT=$(./$EXE_FILE --input $INPUT_GROUP/$f 2> $TEST_ERR)
+		PROG_OUT=$($EXE_COMMAND --input $input_group/$f 2> $TEST_ERR)
 		
-		if [ -s $TEST_ERR ]; then
-			echo -e "\e[1;4;31mThe test produced errors\e[0m"
-			mv $TEST_ERR $TEST_ERR.$ID
+		# parse result of execution command differently,
+		# depending on whether we are using valgrind or not.
+		if [ $use_valgrind = 1 ]; then
+			exe_valgrind
 		else
-			# test whether the error output produced is empty or not
-			BASE_OUT=$OUTPUT_GROUP/$f
-			BASE_CONTENTS=$(cat $BASE_OUT)
-			
-			DIFF=$(diff <(echo "$BASE_CONTENTS") <(echo "$PROG_OUT"))
-			if [ ! -z "$DIFF" ]; then
-				echo -e "\e[1;4;31mDifferent outputs\e[0m See result in $TEST_OUT.$ID"
-				echo "$PROG_OUT" > $TEST_OUT.$ID
-			else
-				echo -e "\e[1;1;32mOk\e[0m"
-			fi
+			exe_no_valgrind
 		fi
 	fi
 done
 
+# Remove those unnecessary temporary files.
+# File $VALG_ERR is never actually used 'as is'.
 rm -f $TEST_OUT $TEST_ERR
