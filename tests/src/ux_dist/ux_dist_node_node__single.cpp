@@ -79,7 +79,7 @@ err_type ux_distance_node_node__single(const string& graph_type, ifstream& fin) 
 	node u, v;
 	// read pairs of nodes
 	while (fin >> u >> v) {
-		size_t dist = traversal::uxdistance(G, u, v);
+		_new_ dist = traversal::uxdistance(G, u, v);
 		cout << distout(dist) << endl;
 	}
 
