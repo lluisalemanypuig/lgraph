@@ -1,7 +1,7 @@
-#include <lgraph/metrics/centralities.hpp>
+#include <lgraph/metrics/centralities_ux.hpp>
 
 // lgraph includes
-#include <lgraph/graph_traversal/traversal_wx.hpp>
+#include <lgraph/graph_traversal/traversal_ux.hpp>
 
 namespace lgraph {
 namespace networks {
@@ -10,15 +10,13 @@ namespace centralities {
 
 /* DEGREE */
 
-template<class T>
-double degree(const wxgraph<T> *G, node u) {
+double degree(const uxgraph *G, node u) {
 	// number of nodes minus 1
 	const double nm1 = G->n_nodes() - 1;
 	return G->degree(u)/nm1;
 }
 
-template<class T>
-void degree(const wxgraph<T> *G, std::vector<double>& dc) {
+void degree(const uxgraph *G, std::vector<double>& dc) {
 	std::vector<node> nds;
 	G->nodes(nds);
 
@@ -42,10 +40,9 @@ void degree(const wxgraph<T> *G, std::vector<double>& dc) {
 
 /* CLOSENESS */
 
-template<class T>
-double closeness(const wxgraph<T> *G, node u) {
+double closeness(const uxgraph *G, node u) {
 	std::vector<_new_> ds;
-	traversal::wxdistance(G, u, ds);
+	traversal::uxdistance(G, u, ds);
 	double sum = std::accumulate
 	(
 		ds.begin(), ds.end(), 0.0,
@@ -61,24 +58,22 @@ double closeness(const wxgraph<T> *G, node u) {
 	return 1.0/(sum/(G->n_nodes() - 1));
 }
 
-template<class T>
-void closeness(const wxgraph<T> *G, std::vector<double>& cc) {
+void closeness(const uxgraph *G, std::vector<double>& cc) {
 	std::vector<std::vector<_new_> > ds;
-	traversal::wxdistances(G, ds);
+	traversal::uxdistances(G, ds);
 	return closeness(G, ds, cc);
 }
 
-template<class T> void closeness
-(const wxgraph<T> *G, const std::vector<std::vector<T> >& ds, std::vector<double>& cc)
-{
+void closeness(const uxgraph *G, const std::vector<std::vector<_new_> >& ds, std::vector<double>& cc) {
 	transform(
 		// iterate through all nodes
 		ds.begin(), ds.end(),
+
 		// append value at the back of cc
 		back_inserter(cc),
 
 		// calculate closeness centrality
-		[&](const std::vector<T>& ds_i) {
+		[&](const std::vector<_new_>& ds_i) {
 			double sum = std::accumulate
 			(
 				ds_i.begin(), ds_i.end(), 0.0,
@@ -89,6 +84,7 @@ template<class T> void closeness
 					return acc;
 				}
 			);
+
 			return 1.0/(sum/(G->n_nodes() - 1));
 		}
 	);
@@ -96,16 +92,15 @@ template<class T> void closeness
 
 /* BETWEENNES */
 
-template<class T>
-double betweenness(const wxgraph<T> *G, node u) {
-	std::vector<std::vector<boolean_path_set<T> > > all_to_all_paths;
-	traversal::wxpaths(G, all_to_all_paths);
+double betweenness(const uxgraph *G, node u) {
+	std::vector<std::vector<boolean_path_set<_new_> > > all_to_all_paths;
+	traversal::uxpaths(G, all_to_all_paths);
 	return betweenness(G, all_to_all_paths, u);
 }
 
-template<class T> double betweenness(
-	const wxgraph<T> *G,
-	const std::vector<std::vector<boolean_path_set<T> > >& paths,
+double betweenness(
+	const uxgraph *G,
+	const std::vector<std::vector<boolean_path_set<_new_> > >& paths,
 	node u
 )
 {
@@ -124,7 +119,7 @@ template<class T> double betweenness(
 
 			// amount of shortest paths between s and t in which u lies on
 			size_t g_st_i = 0;
-			for (const boolean_path<T>& bp : paths[s][t]) {
+			for (const boolean_path<_new_>& bp : paths[s][t]) {
 				if (bp[u]) {
 					++g_st_i;
 				}
@@ -141,16 +136,15 @@ template<class T> double betweenness(
 	return B;
 }
 
-template<class T>
-void betweenness(const wxgraph<T> *G, std::vector<double>& bc) {
-	std::vector<std::vector<boolean_path_set<T> > > all_to_all_paths;
-	traversal::wxpaths(G, all_to_all_paths);
+void betweenness(const uxgraph *G, std::vector<double>& bc) {
+	std::vector<std::vector<boolean_path_set<_new_> > > all_to_all_paths;
+	traversal::uxpaths(G, all_to_all_paths);
 	betweenness(G, all_to_all_paths, bc);
 }
 
-template<class T> void betweenness(
-	const wxgraph<T> *G,
-	const std::vector<std::vector<boolean_path_set<T> > >& paths,
+void betweenness(
+	const uxgraph *G,
+	const std::vector<std::vector<boolean_path_set<_new_> > >& paths,
 	std::vector<double>& bc
 )
 {
@@ -174,7 +168,7 @@ template<class T> void betweenness(
 				continue;
 			}
 
-			// set std::vector to 0
+			// set vector to 0
 			std::fill(g_st_i.begin(), g_st_i.end(), 0);
 
 			for (node u = 0; u < N; ++u) {
@@ -198,9 +192,9 @@ template<class T> void betweenness(
 		bc[u] /= n_minus_1__chose_2;
 	}
 }
-
+	
 } // -- namespace centralities
 } // -- namespace metrics
-} // -- namespace networks
+} // -- namespace networks	
 } // -- namespace lgraph
 

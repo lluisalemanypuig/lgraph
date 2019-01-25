@@ -36,12 +36,6 @@ HEADERS += \
     generate_graphs/random/watts_strogatz.cpp \
     generate_graphs/switching.hpp \
     generate_graphs/switching.cpp \
-    metrics/clustering.hpp \
-    metrics/wclustering.cpp \
-    metrics/distance.hpp \
-    metrics/wdistance.cpp \
-    metrics/centralities.hpp \
-    metrics/wcentralities.cpp \
     epidemics/models.hpp \
     epidemics/sir.cpp \
     epidemics/sir_immune.cpp \
@@ -51,9 +45,6 @@ HEADERS += \
     graph_traversal/bfs.hpp \
     graph_traversal/dijkstra.hpp \
     graph_traversal/dijkstra.cpp \
-    graph_traversal/wxdistances.cpp \
-    graph_traversal/wxpaths.cpp \
-    graph_traversal/wxpaths_boolean.cpp \
     utils/logger.hpp \
     utils/definitions.hpp \
     utils/static_bitset.hpp \
@@ -69,22 +60,28 @@ HEADERS += \
     utils/drandom_generator.cpp \
     utils/crandom_generator.cpp \
     graph_traversal/traversal_wx.hpp \
-    graph_traversal/traversal_ux.hpp
+    graph_traversal/traversal_ux.hpp \
+    metrics/centralities_ux.hpp \
+    metrics/centralities_wx.hpp \
+    graph_traversal/distances_wx.cpp \
+    graph_traversal/paths_wx.cpp \
+    graph_traversal/paths_boolean_wx.cpp \
+    metrics/clustering_ux.hpp \
+    metrics/clustering_wx.hpp \
+    metrics/distance_ux.hpp \
+    metrics/distance_wx.hpp \
+    metrics/centralities_wx.cpp \
+    metrics/clustering_wx.cpp \
+    metrics/distance_wx.cpp
 
 SOURCES += \
     utils/static_bitset.cpp \
-    metrics/uclustering.cpp \
-    metrics/udistance.cpp \
-    metrics/ucentralities.cpp \
     data_structures/xxgraph.cpp \
     data_structures/uxgraph.cpp \
     data_structures/uugraph.cpp \
     data_structures/udgraph.cpp \
     graph_traversal/bfs.cpp \
     graph_traversal/dfs.cpp \
-    graph_traversal/uxdistances.cpp \
-    graph_traversal/uxpaths.cpp \
-    graph_traversal/uxpaths_boolean.cpp \
     generate_graphs/classic/linear_tree.cpp \
     generate_graphs/classic/star_graph.cpp \
     generate_graphs/classic/cycle_graph.cpp \
@@ -95,6 +92,12 @@ SOURCES += \
     io/graph6.cpp \
     io/sparse6.cpp \
     io/digraph6.cpp \
-    io/gsd6.cpp
+    io/gsd6.cpp \
+    graph_traversal/distances_ux.cpp \
+    graph_traversal/paths_ux.cpp \
+    graph_traversal/paths_boolean_ux.cpp \
+    metrics/distance_ux.cpp \
+    metrics/centralities_ux.cpp \
+    metrics/clustering_ux.cpp
 
 

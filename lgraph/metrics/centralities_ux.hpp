@@ -8,7 +8,6 @@
 // lgraph includes
 #include <lgraph/data_structures/boolean_path.hpp>
 #include <lgraph/data_structures/uxgraph.hpp>
-#include <lgraph/data_structures/wxgraph.hpp>
 
 namespace lgraph {
 namespace networks {
@@ -401,5 +400,3 @@ template<class T> void betweenness(
 } // -- namespace metrics
 } // -- namespace networks	
 } // -- namespace lgraph
-
-#include <lgraph/metrics/wcentralities.cpp>

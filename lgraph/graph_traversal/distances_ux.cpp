@@ -1,5 +1,12 @@
 #include <lgraph/graph_traversal/traversal_ux.hpp>
 
+// C++ includes
+#include <queue>
+using namespace std;
+
+// lgraph includes
+#include <lgraph/graph_traversal/bfs.hpp>
+
 namespace lgraph {
 namespace traversal {
 using namespace std;
@@ -83,7 +90,7 @@ void uxdistance(const uxgraph *G, node source, std::vector<_new_>& ds) {
 	bfs_process_neighbour process_neighbour =
 	[&ds](const uxgraph *, node u, node v, const vector<bool>&)
 	{
-		size_t d = ds[u] + 1;
+		_new_ d = ds[u] + 1;
 		if (d < ds[v]) {
 			ds[v] = d;
 		}
@@ -119,7 +126,7 @@ void uxdistance
 	bfs_process_neighbour process_neighbour =
 	[&ds, &n_paths](const uxgraph *, node u, node v, const vector<bool>&)
 	{
-		size_t d = ds[u] + 1;
+		_new_ d = ds[u] + 1;
 		if (d < ds[v]) {
 			ds[v] = d;
 			n_paths[v] = n_paths[u];

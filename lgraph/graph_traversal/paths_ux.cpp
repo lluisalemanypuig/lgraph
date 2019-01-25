@@ -1,5 +1,12 @@
 #include <lgraph/graph_traversal/traversal_ux.hpp>
 
+// C++ includes
+#include <queue>
+using namespace std;
+
+// lgraph includes
+#include <lgraph/graph_traversal/bfs.hpp>
+
 namespace lgraph {
 namespace traversal {
 using namespace std;

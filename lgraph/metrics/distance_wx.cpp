@@ -1,25 +1,31 @@
-#include <lgraph/metrics/distance.hpp>
+#include <lgraph/metrics/distance_ux.hpp>
+
+// lgraph includes
+#include <lgraph/graph_traversal/traversal_wx.hpp>
+#include <lgraph/metrics/centralities_wx.hpp>
 
 namespace lgraph {
 namespace networks {
 namespace metrics {
 namespace distance {
 
-_new_ max_distance(const uxgraph *G) {
-	std::vector<std::vector<_new_> > ds;
-	traversal::uxdistances(G, ds);
+template<class T>
+T max_distance(const wxgraph<T> *G) {
+	std::vector<std::vector<T> > ds;
+	traversal::wxdistances(G, ds);
 	return max_distance(G, ds);
 }
 
-_new_ max_distance(const uxgraph *G, const std::vector<std::vector<_new_> >& ds) {
+template<class T>
+T max_distance(const wxgraph<T> *G, const std::vector<std::vector<T> >& ds) {
 	const size_t N = G->n_nodes();
-	_new_ D = 0;
+	T D = 0;
 	for (size_t i = 0; i < N; ++i) {
 		D = accumulate
 		(
 			ds[i].begin() + i + 1, ds[i].end(), D,
-			[](_new_ M, _new_ d) {
-				if (d != inf_t<_new_>()) {
+			[](T M, T d) {
+				if (d != inf_t) {
 					M = std::max(M, d);
 				}
 				return M;
@@ -30,13 +36,15 @@ _new_ max_distance(const uxgraph *G, const std::vector<std::vector<_new_> >& ds)
 	return D;
 }
 
-double mean_distance(const uxgraph *G) {
-	std::vector<std::vector<_new_> > ds;
-	traversal::uxdistances(G, ds);
+template<class T>
+double mean_distance(const wxgraph<T> *G) {
+	std::vector<std::vector<T> > ds;
+	traversal::wxdistances(G, ds);
 	return mean_distance(G, ds);
 }
 
-double mean_distance(const uxgraph *G, const std::vector<std::vector<_new_> >& ds) {
+template<class T>
+double mean_distance(const wxgraph<T> *G, const std::vector<std::vector<T> >& ds) {
 	const size_t N = G->n_nodes();
 	double m = 0;
 	for (size_t i = 0; i < N; ++i) {
@@ -45,8 +53,8 @@ double mean_distance(const uxgraph *G, const std::vector<std::vector<_new_> >& d
 		double li = accumulate
 		(
 			ds[i].begin(), ds[i].end(), 0.0,
-			[](double acc, _new_ d) {
-				if (d != inf_t<_new_>()) {
+			[](double acc, T d) {
+				if (d != inf_t) {
 					acc += d;
 				}
 				return acc;
@@ -60,19 +68,21 @@ double mean_distance(const uxgraph *G, const std::vector<std::vector<_new_> >& d
 	return m/N;
 }
 
-double mcc(const uxgraph *G) {
+template<class T>
+double mcc(const wxgraph<T> *G) {
 	std::vector<double> cc;
 	centralities::closeness(G, cc);
 	return mcc(G, cc);
 }
 
-double mcc(const uxgraph *G, const std::vector<double>& cc) {
+template<class T>
+double mcc(const wxgraph<T> *G, const std::vector<double>& cc) {
 	double S = std::accumulate(cc.begin(), cc.end(), 0.0);
 	return S/G->n_nodes();
 }
 
 } // -- namespace distance
 } // -- namespace metrics
-} // -- namespace networks	
+} // -- namespace networks
 } // -- namespace lgraph
 

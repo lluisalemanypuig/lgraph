@@ -263,6 +263,6 @@ void wxpaths(const wxgraph<T> *G, std::vector<std::vector<boolean_path_set<T> > 
 } // -- namespace traversal
 } // -- namespace lgraph
 
-#include <lgraph/graph_traversal/wxpaths.cpp>
-#include <lgraph/graph_traversal/wxdistances.cpp>
-#include <lgraph/graph_traversal/wxpaths_boolean.cpp>
+#include <lgraph/graph_traversal/paths_wx.cpp>
+#include <lgraph/graph_traversal/distances_wx.cpp>
+#include <lgraph/graph_traversal/paths_boolean_wx.cpp>

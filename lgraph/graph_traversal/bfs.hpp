@@ -2,11 +2,7 @@
 
 // C++ includes
 #include <functional>
-#include <algorithm>
-#include <iterator>
 #include <vector>
-#include <queue>
-#include <stack>
 
 // lgraph includes
 #include <lgraph/data_structures/uxgraph.hpp>
