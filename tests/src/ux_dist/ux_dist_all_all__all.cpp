@@ -89,6 +89,7 @@ err_type ux_distance_all_all__all(const string& graph_type, ifstream& fin) {
 	}
 
 	delete G;
+	G = nullptr;
 
 	return err_type::no_error;
 }

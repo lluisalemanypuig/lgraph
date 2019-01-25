@@ -86,6 +86,9 @@ err_type ux_distance_node_node__all(const string& graph_type, ifstream& fin) {
 		cout << distout(dist) << " (" << n_paths << ")" << endl;
 	}
 
+	delete G;
+	G = nullptr;
+
 	return err_type::no_error;
 }
 

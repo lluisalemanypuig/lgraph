@@ -86,6 +86,9 @@ err_type wx_distance_all_all__single(const string& graph_type, ifstream& fin) {
 		}
 	}
 
+	delete G;
+	G = nullptr;
+
 	return err_type::no_error;
 }
 
