@@ -1,0 +1,7 @@
+TYPE weighted-directed-distance-node-all-all
+INPUT 1 graphs/random-00-wd-00.el edge-list
+BODY
+	0
+	1
+	5
+	7

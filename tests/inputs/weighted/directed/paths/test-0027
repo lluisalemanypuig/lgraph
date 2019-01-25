@@ -1,0 +1,3 @@
+TYPE weighted-directed-path-all-all-all
+INPUT 1 graphs/random-01-wd-00.el edge-list
+BODY

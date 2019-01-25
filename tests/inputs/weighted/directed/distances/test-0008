@@ -1,0 +1,5 @@
+TYPE weighted-directed-distance-node-node-all
+INPUT 1 graphs/cycle-08-wd-00.el edge-list
+BODY
+	0 4
+	0 5

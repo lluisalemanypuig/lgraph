@@ -1,0 +1,8 @@
+TYPE weighted-directed-path-node-node-single
+INPUT 1 graphs/random-01-wd-00.el edge-list
+BODY
+	0 3
+	3 6
+	1 0
+	2 0
+	5 6

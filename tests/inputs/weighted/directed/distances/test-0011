@@ -1,0 +1,13 @@
+TYPE weighted-directed-distance-node-node-all
+INPUT 1 graphs/qromboid-09-wd-01.el edge-list
+BODY
+	1 7
+	8 0
+	7 1
+	7 0
+	4 1
+	8 1
+	8 3
+	3 2
+	2 3
+	6 1
