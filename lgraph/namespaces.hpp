@@ -82,7 +82,52 @@ namespace lgraph {
 	 * class suitable for this type where these two operators are
 	 * overloaded.
 	 */
-	namespace io {}
+	namespace io {
+		
+		/**
+		 * @brief Read/write graphs in \a edge \a list format.
+		 *
+		 * For both undirected and directed graphs, the edge list
+		 * format consists of the list of edges represented as
+		 * pairs of indices:
+		 \verbatim
+		 u v
+		 \endverbatim
+		 *
+		 * where \a u and \a v represent two vertices of the graph.
+		 *
+		 * If the graph has @e n vertices, these two indices are
+		 * positive integer values such that: \f$0 \le u,v < n\f$.
+		 *
+		 * When an undirected graph the pair (@e u, @e v) represents
+		 * the two directed egdes (u -> v) and (v -> u). When reading
+		 * a directed graph the same pair represents the edge (u -> v).
+		 *
+		 * Reading/Writing a directed/undirected from/to a file graph
+		 * can be done with methods @ref read(const std::string&, uxgraph *)
+		 * and @ref write(const std::string&, const uxgraph *).
+		 *
+		 * This format can be enriched with more information about
+		 * the edges such as their weight. In this case, if an edge
+		 * (u -> v) has weight @e w, then the format is as follows:
+		 \verbatim
+		 u v w
+		 \endverbatim
+		 *
+		 * For any type of graph ( {directed,undirected}x{weighted,unweighted} )
+		 * all nodes with index higher than the las vertex's index involved in an
+		 * edge are lost when writing them to a file. For example, a graph
+		 * with 1000 nodes, but only one edge between the 13-th and 14-th
+		 * vertices, the contents of the file when writing the graph are:
+		 \verbatim
+		 13 14
+		 \endverbatim
+		 *
+		 * Therefore, after reading that file the resulting graph
+		 * will have only 15 vertices, labelled with the indices in [0,14].
+		 */
+		namespace edge_list {}
+	}
 	
 	/**
 	 * @brief Collection of utilities

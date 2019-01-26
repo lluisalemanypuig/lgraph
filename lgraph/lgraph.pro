@@ -50,8 +50,6 @@ HEADERS += \
     utils/static_bitset.hpp \
     communities/communities.hpp \
     io/io.hpp \
-    io/edge_list.hpp \
-    io/edge_list_temp.cpp \
     io/gsd6.hpp \
     utils/svector.hpp \
     utils/svector.cpp \
@@ -72,7 +70,10 @@ HEADERS += \
     metrics/distance_wx.hpp \
     metrics/centralities_wx.cpp \
     metrics/clustering_wx.cpp \
-    metrics/distance_wx.cpp
+    metrics/distance_wx.cpp \
+    io/edge_list_ux.hpp \
+	io/edge_list_wx.hpp \
+	io/edge_list_wx.cpp
 
 SOURCES += \
     utils/static_bitset.cpp \
@@ -88,7 +89,6 @@ SOURCES += \
     generate_graphs/classic/complete_graph.cpp \
     generate_graphs/classic/regular.cpp \
     communities/connected_components.cpp \
-    io/edge_list.cpp \
     io/graph6.cpp \
     io/sparse6.cpp \
     io/digraph6.cpp \
@@ -98,6 +98,7 @@ SOURCES += \
     graph_traversal/paths_boolean_ux.cpp \
     metrics/distance_ux.cpp \
     metrics/centralities_ux.cpp \
-    metrics/clustering_ux.cpp
+    metrics/clustering_ux.cpp \
+	io/edge_list_ux.cpp
 
 

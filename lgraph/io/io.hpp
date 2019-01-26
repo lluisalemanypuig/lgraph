@@ -13,5 +13,6 @@
  */
 
 // lgraph includes
-#include <lgraph/io/edge_list.hpp>
+#include <lgraph/io/edge_list_ux.hpp>
+#include <lgraph/io/edge_list_wx.hpp>
 #include <lgraph/io/gsd6.hpp>
