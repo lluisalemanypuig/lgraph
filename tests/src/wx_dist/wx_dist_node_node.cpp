@@ -5,7 +5,8 @@
 using namespace std;
 
 // lgraph includes
-#include <lgraph/data_structures/wxgraph.hpp>
+#include <lgraph/data_structures/wugraph.hpp>
+#include <lgraph/data_structures/wdgraph.hpp>
 #include <lgraph/graph_traversal/traversal_wx.hpp>
 #include <lgraph/io/io.hpp>
 using namespace lgraph;
@@ -23,7 +24,7 @@ void wx_distance_node_node__single(const wxgraph<float> *G, ifstream& fin) {
 	// read pairs of nodes
 	while (fin >> u >> v) {
 		float dist = traversal::wxdistance(G, u, v);
-		cout << distout(dist) << endl;
+		cout << floatpointout(dist) << endl;
 	}
 }
 
@@ -33,7 +34,7 @@ void wx_distance_node_node__all(const wxgraph<float> *G, ifstream& fin) {
 	while (fin >> u >> v) {
 		size_t n_paths;
 		float dist = traversal::wxdistance(G, u, v, n_paths);
-		cout << distout(dist) << " (" << n_paths << ")" << endl;
+		cout << floatpointout(dist) << " (" << n_paths << ")" << endl;
 	}
 }
 
@@ -77,7 +78,7 @@ err_type wx_distance_node_node(const string& graph_type, const string& many, ifs
 	}
 	else {
 		cerr << ERROR("wx_distance_node_node.cpp", "wx_distance_node_node") << endl;
-		cerr << "    Wrong value for parameter 'garph_type'." << endl;
+		cerr << "    Wrong value for parameter 'graph_type'." << endl;
 		cerr << "    Received '" << graph_type << "'." << endl;
 		return err_type::invalid_param;
 	}

@@ -5,6 +5,7 @@ using namespace std;
 
 // lgraph includes
 #include <lgraph/data_structures/uugraph.hpp>
+#include <lgraph/data_structures/udgraph.hpp>
 #include <lgraph/graph_traversal/traversal_ux.hpp>
 #include <lgraph/io/io.hpp>
 using namespace lgraph;
@@ -25,7 +26,7 @@ void ux_distance_node_all__single(const uxgraph *G, ifstream& fin) {
 		traversal::uxdistance(G, u, dists);
 
 		for (node v = 0; v < G->n_nodes(); ++v) {
-			cout << v << ": " << distout(dists[v]) << endl;
+			cout << v << ": " << floatpointout(dists[v]) << endl;
 		}
 	}
 }
@@ -39,7 +40,7 @@ void ux_distance_node_all__all(const uxgraph *G, ifstream& fin) {
 		traversal::uxdistance(G, u, dists, n_paths);
 
 		for (node v = 0; v < G->n_nodes(); ++v) {
-			cout << v << ": " << distout(dists[v])
+			cout << v << ": " << floatpointout(dists[v])
 				 << " (" << n_paths[v] << ")" << endl;
 		}
 	}
@@ -85,7 +86,7 @@ err_type ux_distance_node_all(const string& graph_type, const string& many, ifst
 	}
 	else {
 		cerr << ERROR("ux_distance_node_all.cpp", "ux_distance_node_all") << endl;
-		cerr << "    Wrong value for parameter 'garph_type'." << endl;
+		cerr << "    Wrong value for parameter 'graph_type'." << endl;
 		cerr << "    Received '" << graph_type << "'." << endl;
 		return err_type::invalid_param;
 	}

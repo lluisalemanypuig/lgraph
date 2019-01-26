@@ -4,7 +4,8 @@
 using namespace std;
 
 // lgraph includes
-#include <lgraph/data_structures/wxgraph.hpp>
+#include <lgraph/data_structures/wugraph.hpp>
+#include <lgraph/data_structures/wdgraph.hpp>
 #include <lgraph/data_structures/node_path.hpp>
 #include <lgraph/graph_traversal/traversal_wx.hpp>
 #include <lgraph/io/io.hpp>
@@ -106,7 +107,7 @@ err_type wx_path_node_all(const string& graph_type, const string& many, ifstream
 	}
 	else {
 		cerr << ERROR("wx_path_node_all.cpp", "wx_path_node_all") << endl;
-		cerr << "    Wrong value for parameter 'garph_type'." << endl;
+		cerr << "    Wrong value for parameter 'graph_type'." << endl;
 		cerr << "    Received '" << graph_type << "'." << endl;
 		return err_type::invalid_param;
 	}

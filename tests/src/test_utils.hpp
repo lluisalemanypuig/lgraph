@@ -20,7 +20,7 @@ bool comp_wx_paths
 (const lgraph::node_path<float>& p, const lgraph::node_path<float>& q);
 
 template<typename T>
-std::string distout(T d) {
+std::string floatpointout(T d) {
 	if (d == std::numeric_limits<T>::max()) {
 		return "inf";
 	}

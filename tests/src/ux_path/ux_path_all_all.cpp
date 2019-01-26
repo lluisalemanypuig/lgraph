@@ -5,6 +5,7 @@ using namespace std;
 
 // lgraph includes
 #include <lgraph/data_structures/uugraph.hpp>
+#include <lgraph/data_structures/udgraph.hpp>
 #include <lgraph/data_structures/node_path.hpp>
 #include <lgraph/graph_traversal/traversal_ux.hpp>
 #include <lgraph/io/io.hpp>
@@ -96,7 +97,7 @@ err_type ux_path_all_all(const string& graph_type, const string& many, ifstream&
 	}
 	else {
 		cerr << ERROR("ux_path_all_all.cpp", "ux_path_all_all") << endl;
-		cerr << "    Wrong value for parameter 'garph_type'." << endl;
+		cerr << "    Wrong value for parameter 'graph_type'." << endl;
 		cerr << "    Received '" << graph_type << "'." << endl;
 		return err_type::invalid_param;
 	}

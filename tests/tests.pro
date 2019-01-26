@@ -25,30 +25,24 @@ SOURCES += \
 	src/parse_keywords.cpp \
 	src/io_wrapper.cpp \
 	src/test_utils.cpp \
-	src/ux_path/ux_path_all_all__all.cpp \
-	src/ux_path/ux_path_all_all__single.cpp \
-	src/ux_path/ux_path_node_all__all.cpp \
-	src/ux_path/ux_path_node_all__single.cpp \
-	src/ux_path/ux_path_node_node__all.cpp \
-	src/ux_path/ux_path_node_node__single.cpp \
-	src/ux_dist/ux_dist_all_all__all.cpp \
-	src/ux_dist/ux_dist_all_all__single.cpp \
-	src/ux_dist/ux_dist_node_all__all.cpp \
-	src/ux_dist/ux_dist_node_all__single.cpp \
-	src/ux_dist/ux_dist_node_node__all.cpp \
-	src/ux_dist/ux_dist_node_node__single.cpp \
-	src/wx_path/wx_path_all_all__all.cpp \
-	src/wx_path/wx_path_all_all__single.cpp \
-	src/wx_path/wx_path_node_all__all.cpp \
-	src/wx_path/wx_path_node_all__single.cpp \
-	src/wx_path/wx_path_node_node__all.cpp \
-	src/wx_path/wx_path_node_node__single.cpp \
-	src/wx_dist/wx_dist_all_all__all.cpp \
-	src/wx_dist/wx_dist_all_all__single.cpp \
-	src/wx_dist/wx_dist_node_all__all.cpp \
-	src/wx_dist/wx_dist_node_all__single.cpp \
-	src/wx_dist/wx_dist_node_node__all.cpp \
-	src/wx_dist/wx_dist_node_node__single.cpp
+    src/ux_path/ux_path_all_all.cpp \
+    src/ux_path/ux_path_node_all.cpp \
+    src/ux_path/ux_path_node_node.cpp \
+    src/ux_dist/ux_dist_all_all.cpp \
+    src/ux_dist/ux_dist_node_all.cpp \
+    src/ux_dist/ux_dist_node_node.cpp \
+    src/wx_dist/wx_dist_all_all.cpp \
+    src/wx_dist/wx_dist_node_all.cpp \
+    src/wx_dist/wx_dist_node_node.cpp \
+    src/wx_path/wx_path_all_all.cpp \
+    src/wx_path/wx_path_node_all.cpp \
+    src/wx_path/wx_path_node_node.cpp \
+    src/ux_metric/ux_metric_centrality.cpp \
+    src/ux_metric/ux_metric_clustering.cpp \
+    src/ux_metric/ux_metric_distance.cpp \
+    src/wx_metric/wx_metric_centrality.cpp \
+    src/wx_metric/wx_metric_clustering.cpp \
+    src/wx_metric/wx_metric_distance.cpp
 
 HEADERS += \
 	src/definitions.hpp \

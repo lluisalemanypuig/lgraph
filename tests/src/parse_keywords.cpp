@@ -42,10 +42,10 @@ void mark_wrong_keyword
 err_type call_main(const vector<string>& keywords, ifstream& fin) {
 	const string& key = keywords[0];
 	if (key == "unweighted") {
-		return call_ux(keywords, fin);
+		return call_ux(keywords, 1, fin);
 	}
 	if (key == "weighted") {
-		return call_wx(keywords, fin);
+		return call_wx(keywords, 1, fin);
 	}
 
 	cerr << ERROR("parse_keywords.cpp", "call_main") << endl;
@@ -55,38 +55,41 @@ err_type call_main(const vector<string>& keywords, ifstream& fin) {
 }
 
 /* ---------- */
-/* UNDIRECTED */
+/* UNWEIGHTED */
 /* ---------- */
 
-err_type call_ux(const vector<string>& keywords, ifstream& fin) {
-	const string& graph_type = keywords[1];
+err_type call_ux(const vector<string>& keywords, size_t i, ifstream& fin) {
+	const string& graph_type = keywords[i];
 	if (graph_type != "undirected" and graph_type != "directed") {
 		cerr << ERROR("parse_keywords.cpp", "call_ux") << endl;
-		cerr << "    Wrong keyword at 1: '" << graph_type << "'." << endl;
-		mark_wrong_keyword(keywords, {1}, "    ");
+		cerr << "    Wrong keyword at " << i << ": '" << graph_type << "'." << endl;
+		mark_wrong_keyword(keywords, {i}, "    ");
 		return err_type::wrong_keyword;
 	}
 
-	const string& task = keywords[2];
+	const string& task = keywords[i + 1];
 	if (task == "path") {
-		return call_ux_path(keywords, graph_type, fin);
+		return call_ux_path(keywords, i + 2, graph_type, fin);
 	}
 	if (task == "distance") {
-		return call_ux_distance(keywords, graph_type, fin);
+		return call_ux_distance(keywords, i + 2, graph_type, fin);
+	}
+	if (task == "metric") {
+		return call_ux_metric(keywords, i + 2, graph_type, fin);
 	}
 
 	cerr << ERROR("parse_keywords.cpp", "call_ux") << endl;
-	cerr << "    Unhandled keyword at 2: '" << task << "'." << endl;
-	mark_wrong_keyword(keywords, {2}, "    ");
+	cerr << "    Unhandled keyword at " << i + 2 << ": '" << task << "'." << endl;
+	mark_wrong_keyword(keywords, {i + 2}, "    ");
 	return err_type::wrong_keyword;
 }
 
 err_type call_ux_path
-(const vector<string>& keywords, const string& graph_type, ifstream& fin)
+(const vector<string>& keywords, size_t i, const string& graph_type, ifstream& fin)
 {
-	string key3 = keywords[3];
-	string key4 = keywords[4];
-	string key5 = keywords[5];
+	string key3 = keywords[i    ];
+	string key4 = keywords[i + 1];
+	string key5 = keywords[i + 2];
 
 	if (key3 == "node" and key4 == "node") {
 		return ux_path_node_node(graph_type, key5, fin);
@@ -99,21 +102,24 @@ err_type call_ux_path
 	}
 
 	cerr << ERROR("parse_keywords.cpp", "call_ux_path") << endl;
-	cerr << "    Wrong combination of the keywords at 3,4,5:" << endl;
+	cerr << "    Wrong combination of the keywords at "
+		 << i + 0 << ","
+		 << i + 1 << ","
+		 << i + 2 << endl;
 	vector<size_t> wrong;
-	if (key3 != "node" and key3 != "all") { wrong.push_back(3); }
-	if (key4 != "node" and key4 != "all") { wrong.push_back(4); }
-	if (key5 != "single" and key5 != "all") { wrong.push_back(5); }
+	if (key3 != "node" and key3 != "all")	{ wrong.push_back(i    ); }
+	if (key4 != "node" and key4 != "all")	{ wrong.push_back(i + 1); }
+	if (key5 != "single" and key5 != "all")	{ wrong.push_back(i + 2); }
 	mark_wrong_keyword(keywords, wrong, "    ");
 	return err_type::wrong_keyword;
 }
 
 err_type call_ux_distance
-(const vector<string>& keywords, const string& graph_type, ifstream& fin)
+(const vector<string>& keywords, size_t i, const string& graph_type, ifstream& fin)
 {
-	string key3 = keywords[3];
-	string key4 = keywords[4];
-	string key5 = keywords[5];
+	string key3 = keywords[i    ];
+	string key4 = keywords[i + 1];
+	string key5 = keywords[i + 2];
 
 	if (key3 == "node" and key4 == "node") {
 		return ux_distance_node_node(graph_type, key5, fin);
@@ -126,48 +132,73 @@ err_type call_ux_distance
 	}
 
 	cerr << ERROR("parse_keywords.cpp", "call_ux_distance") << endl;
-	cerr << "    Wrong combination of the keywords at 3,4,5:" << endl;
+	cerr << "    Wrong combination of the keywords at "
+		 << i + 0 << ","
+		 << i + 1 << ","
+		 << i + 2 << endl;
 	vector<size_t> wrong;
-	if (key3 != "node" and key3 != "all") { wrong.push_back(3); }
-	if (key4 != "node" and key4 != "all") { wrong.push_back(4); }
-	if (key5 != "single" and key5 != "all") { wrong.push_back(5); }
+	if (key3 != "node" and key3 != "all")	{ wrong.push_back(i    ); }
+	if (key4 != "node" and key4 != "all")	{ wrong.push_back(i + 1); }
+	if (key5 != "single" and key5 != "all")	{ wrong.push_back(i + 2); }
 	mark_wrong_keyword(keywords, wrong, "    ");
 	return err_type::wrong_keyword;
 }
 
+err_type call_ux_metric
+(const vector<string>& keywords, size_t i, const string& graph_type, ifstream& fin)
+{
+	string metric = keywords[i];
+	string metric_type = keywords[i + 1];
+	if (metric == "centrality") {
+		string all_single = keywords[i + 2];
+		return ux_metric_centrality(graph_type, metric_type, all_single, fin);
+	}
+	if (metric == "clustering") {
+		return ux_metric_clustering(graph_type, metric_type, fin);
+	}
+	if (metric == "distance") {
+		return ux_metric_distance(graph_type, metric_type, fin);
+	}
+
+	cerr << ERROR("parse_keywords.cpp", "call_ux") << endl;
+	cerr << "    Unhandled keyword at " << i << ": '" << metric << "'." << endl;
+	mark_wrong_keyword(keywords, {i}, "    ");
+	return err_type::wrong_keyword;
+}
+
 /* -------- */
-/* DIRECTED */
+/* WEIGHTED */
 /* -------- */
 
-err_type call_wx(const vector<string>& keywords, ifstream& fin) {
-	const string& graph_type = keywords[1];
+err_type call_wx(const vector<string>& keywords, size_t i, ifstream& fin) {
+	const string& graph_type = keywords[i];
 	if (graph_type != "undirected" and graph_type != "directed") {
 		cerr << ERROR("parse_keywords.cpp", "call_wx") << endl;
-		cerr << "    Wrong keyword at 1: '" << graph_type << "'." << endl;
-		mark_wrong_keyword(keywords, {1}, "    ");
+		cerr << "    Wrong keyword at " << i << ": '" << graph_type << "'." << endl;
+		mark_wrong_keyword(keywords, {i}, "    ");
 		return err_type::wrong_keyword;
 	}
 
-	const string& task = keywords[2];
+	const string& task = keywords[i + 1];
 	if (task == "path") {
-		return call_wx_path(keywords, graph_type, fin);
+		return call_wx_path(keywords, i + 2, graph_type, fin);
 	}
 	if (task == "distance") {
-		return call_wx_distance(keywords, graph_type, fin);
+		return call_wx_distance(keywords, i + 2, graph_type, fin);
 	}
 
 	cerr << ERROR("parse_keywords.cpp", "call_wx") << endl;
-	cerr << "    Unhandled keyword at 2: '" << task << "'." << endl;
-	mark_wrong_keyword(keywords, {2}, "    ");
+	cerr << "    Unhandled keyword at " << i + 2 << ": '" << task << "'." << endl;
+	mark_wrong_keyword(keywords, {i + 2}, "    ");
 	return err_type::wrong_keyword;
 }
 
 err_type call_wx_path
-(const vector<string>& keywords, const string& graph_type, ifstream& fin)
+(const vector<string>& keywords, size_t i, const string& graph_type, ifstream& fin)
 {
-	string key3 = keywords[3];
-	string key4 = keywords[4];
-	string key5 = keywords[5];
+	string key3 = keywords[i    ];
+	string key4 = keywords[i + 1];
+	string key5 = keywords[i + 2];
 
 	if (key3 == "node" and key4 == "node") {
 		return wx_path_node_node(graph_type, key5, fin);
@@ -180,21 +211,24 @@ err_type call_wx_path
 	}
 
 	cerr << ERROR("parse_keywords.cpp", "call_wx_path") << endl;
-	cerr << "    Wrong combination of the keywords at 3,4,5:" << endl;
+	cerr << "    Wrong combination of the keywords at "
+		 << i + 0 << ","
+		 << i + 1 << ","
+		 << i + 2 << endl;
 	vector<size_t> wrong;
-	if (key3 != "node" and key3 != "all") { wrong.push_back(3); }
-	if (key4 != "node" and key4 != "all") { wrong.push_back(4); }
-	if (key5 != "single" and key5 != "all") { wrong.push_back(5); }
+	if (key3 != "node" and key3 != "all")	{ wrong.push_back(i    ); }
+	if (key4 != "node" and key4 != "all")	{ wrong.push_back(i + 1); }
+	if (key5 != "single" and key5 != "all")	{ wrong.push_back(i + 2); }
 	mark_wrong_keyword(keywords, wrong, "    ");
 	return err_type::wrong_keyword;
 }
 
 err_type call_wx_distance
-(const vector<string>& keywords, const string& graph_type, ifstream& fin)
+(const vector<string>& keywords, size_t i, const string& graph_type, ifstream& fin)
 {
-	string key3 = keywords[3];
-	string key4 = keywords[4];
-	string key5 = keywords[5];
+	string key3 = keywords[i    ];
+	string key4 = keywords[i + 1];
+	string key5 = keywords[i + 2];
 
 	if (key3 == "node" and key4 == "node") {
 		return wx_distance_node_node(graph_type, key5, fin);
@@ -207,12 +241,37 @@ err_type call_wx_distance
 	}
 
 	cerr << ERROR("parse_keywords.cpp", "call_wx_distance") << endl;
-	cerr << "    Wrong combination of the keywords at 3,4,5:" << endl;
+	cerr << "    Wrong combination of the keywords at "
+		 << i + 0 << ","
+		 << i + 1 << ","
+		 << i + 2 << endl;
 	vector<size_t> wrong;
-	if (key3 != "node" and key3 != "all") { wrong.push_back(3); }
-	if (key4 != "node" and key4 != "all") { wrong.push_back(4); }
-	if (key5 != "single" and key5 != "all") { wrong.push_back(5); }
+	if (key3 != "node" and key3 != "all")	{ wrong.push_back(i    ); }
+	if (key4 != "node" and key4 != "all")	{ wrong.push_back(i + 1); }
+	if (key5 != "single" and key5 != "all")	{ wrong.push_back(i + 2); }
 	mark_wrong_keyword(keywords, wrong, "    ");
+	return err_type::wrong_keyword;
+}
+
+err_type call_wx_metric
+(const vector<string>& keywords, size_t i, const string& graph_type, ifstream& fin)
+{
+	string metric = keywords[i];
+	string metric_type = keywords[i + 1];
+	if (metric == "centrality") {
+		string all_single = keywords[i + 2];
+		return wx_metric_centrality(graph_type, metric_type, all_single, fin);
+	}
+	if (metric == "clustering") {
+		return wx_metric_clustering(graph_type, metric_type, fin);
+	}
+	if (metric == "distance") {
+		return wx_metric_distance(graph_type, metric_type, fin);
+	}
+
+	cerr << ERROR("parse_keywords.cpp", "call_ux") << endl;
+	cerr << "    Unhandled keyword at " << i << ": '" << metric << "'." << endl;
+	mark_wrong_keyword(keywords, {i}, "    ");
 	return err_type::wrong_keyword;
 }
 
