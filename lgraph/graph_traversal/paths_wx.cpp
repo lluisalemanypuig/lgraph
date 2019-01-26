@@ -4,6 +4,32 @@
 #include <lgraph/graph_traversal/dijkstra.hpp>
 #include <lgraph/utils/logger.hpp>
 
+// Make a list of paths given a matrix of precendes
+template<class T>
+inline void make_paths
+(
+	lgraph::node source,
+	const std::vector< std::vector<lgraph::node> >& prev,
+	lgraph::node nidx,
+	lgraph::node_path<T>& path,
+	lgraph::node_path_set<T>& ps
+)
+{
+	path.add_node(nidx);
+	if (nidx == source) {
+		// path contains a list of nodes from target to source
+		ps.push_back(path);
+		ps.back().reverse();
+		return;
+	}
+
+	for (size_t i = 0; i < prev[nidx].size(); ++i) {
+		lgraph::node prev_node = prev[nidx][i];
+		make_paths(source, prev, prev_node, path, ps);
+		path.delete_last();
+	}
+}
+
 namespace lgraph {
 namespace traversal {
 
@@ -66,32 +92,6 @@ void wxpath(const wxgraph<T> *G, node source, node target, node_path<T>& p) {
 		p.reverse();
 	}
 	p.set_length(ds[target]);
-}
-
-// Make a list of paths given a matrix of precendes
-template<class T>
-void make_paths
-(
-	node source,
-	const std::vector< std::vector<node> >& prev,
-	node nidx,
-	node_path<T>& path,
-	node_path_set<T>& ps
-)
-{
-	path.add_node(nidx);
-	if (nidx == source) {
-		// path contains a list of nodes from target to source
-		ps.push_back(path);
-		ps.back().reverse();
-		return;
-	}
-
-	for (size_t i = 0; i < prev[nidx].size(); ++i) {
-		node prev_node = prev[nidx][i];
-		make_paths(source, prev, prev_node, path, ps);
-		path.delete_last();
-	}
 }
 
 // all paths

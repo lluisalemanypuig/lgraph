@@ -44,7 +44,7 @@ void degree(const wxgraph<T> *G, std::vector<double>& dc) {
 
 template<class T>
 double closeness(const wxgraph<T> *G, node u) {
-	std::vector<_new_> ds;
+	std::vector<T> ds;
 	traversal::wxdistance(G, u, ds);
 	double sum = std::accumulate
 	(
@@ -63,7 +63,7 @@ double closeness(const wxgraph<T> *G, node u) {
 
 template<class T>
 void closeness(const wxgraph<T> *G, std::vector<double>& cc) {
-	std::vector<std::vector<_new_> > ds;
+	std::vector<std::vector<T> > ds;
 	traversal::wxdistances(G, ds);
 	return closeness(G, ds, cc);
 }
@@ -178,7 +178,7 @@ template<class T> void betweenness(
 			std::fill(g_st_i.begin(), g_st_i.end(), 0);
 
 			for (node u = 0; u < N; ++u) {
-				for (const boolean_path<_new_>& bp : paths[s][t]) {
+				for (const boolean_path<T>& bp : paths[s][t]) {
 					if (bp[u]) {
 						++g_st_i[u];
 					}

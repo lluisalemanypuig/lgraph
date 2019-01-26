@@ -1,4 +1,4 @@
-#include <lgraph/metrics/distance_ux.hpp>
+#include <lgraph/metrics/distance_wx.hpp>
 
 // lgraph includes
 #include <lgraph/graph_traversal/traversal_wx.hpp>
@@ -25,13 +25,12 @@ T max_distance(const wxgraph<T> *G, const std::vector<std::vector<T> >& ds) {
 		(
 			ds[i].begin() + i + 1, ds[i].end(), D,
 			[](T M, T d) {
-				if (d != inf_t) {
+				if (d != inf_t<T>()) {
 					M = std::max(M, d);
 				}
 				return M;
 			}
 		);
-
 	}
 	return D;
 }
@@ -54,7 +53,7 @@ double mean_distance(const wxgraph<T> *G, const std::vector<std::vector<T> >& ds
 		(
 			ds[i].begin(), ds[i].end(), 0.0,
 			[](double acc, T d) {
-				if (d != inf_t) {
+				if (d != inf_t<T>()) {
 					acc += d;
 				}
 				return acc;
