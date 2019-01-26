@@ -169,19 +169,20 @@ void print_metrics(const uugraph& Gs) {
 	if (clust_gcc or clust_mlcc or dist_mgc or dist_diam or dist_mcc) {
 		cout << "Metrics:" << endl;
 		if (clust_gcc) {
-			cout << "    Global clustering coefficient:     " << networks::metrics::clustering::gcc(&Gs) << endl;
+			cout << "    Global clustering coefficient:     "
+				 << networks::metrics::clustering::gcc(&Gs) << endl;
 		}
 		if (clust_mlcc) {
-			cout << "    Mean local clustering coefficient: " << networks::metrics::clustering::mlcc(&Gs) << endl;
+			cout << "    Mean local clustering coefficient: "
+				 << networks::metrics::clustering::mlcc(&Gs) << endl;
 		}
 		if (dist_mgc) {
-			cout << "    Mean geodesic distance: " << networks::metrics::distance::mean_distance(&Gs) << endl;
+			cout << "    Mean geodesic distance: "
+				 << networks::metrics::distance::mean_distance(&Gs) << endl;
 		}
 		if (dist_diam) {
-			cout << "    Maximum geodesic distance: " << networks::metrics::distance::max_distance(&Gs) << endl;
-		}
-		if (dist_mcc) {
-			cout << "    Mean closeness centrality: " << networks::metrics::distance::mcc(&Gs) << endl;
+			cout << "    Maximum geodesic distance: "
+				 << networks::metrics::distance::max_distance(&Gs) << endl;
 		}
 		cout << endl;
 	}
@@ -231,6 +232,10 @@ void print_centralities(const uugraph& Gs) {
 		}
 		if (cent_closeness) {
 			print_closeness_centrality(Gs);
+		}
+		if (dist_mcc) {
+			cout << "    Mean closeness centrality: "
+				 << networks::metrics::centralities::mcc(&Gs) << endl;
 		}
 		if (cent_betweenness) {
 			print_betweenness_centrality(Gs);
