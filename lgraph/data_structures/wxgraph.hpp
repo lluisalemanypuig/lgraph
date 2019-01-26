@@ -1,18 +1,13 @@
 #pragma once
 
-// C includes
-#include <assert.h>
-
 // C++ includes
-#include <string>
+#include <fstream>
 #include <vector>
-#include <set>
 
 // lgraph includes
 #include <lgraph/data_structures/xxgraph.hpp>
 #include <lgraph/data_structures/uxgraph.hpp>
 #include <lgraph/utils/definitions.hpp>
-#include <lgraph/utils/svector.hpp>
 
 namespace lgraph {
 

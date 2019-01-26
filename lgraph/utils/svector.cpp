@@ -1,5 +1,11 @@
 #include <lgraph/utils/svector.hpp>
 
+// C includes
+#include <assert.h>
+
+// C++ includes
+#include <algorithm>
+
 namespace lgraph {
 namespace utils {
 

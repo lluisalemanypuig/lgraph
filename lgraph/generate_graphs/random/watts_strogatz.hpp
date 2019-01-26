@@ -1,22 +1,8 @@
 #pragma once
 
-// C includes
-#include <assert.h>
-
-// C++ includes
-#include <algorithm>
-#include <iostream>
-#include <iterator>
-#include <iomanip>
-#include <random>
-#include <vector>
-
 // lgraph includes
-#include <lgraph/generate_graphs/classic/classic.hpp>
 #include <lgraph/data_structures/uugraph.hpp>
 #include <lgraph/utils/random_generator.hpp>
-#include <lgraph/utils/svector.hpp>
-#include <lgraph/utils/logger.hpp>
 
 namespace lgraph {
 namespace networks {

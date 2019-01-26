@@ -2,7 +2,6 @@
 
 // lgraph includes
 #include <lgraph/graph_traversal/dijkstra.hpp>
-#include <lgraph/utils/logger.hpp>
 
 // Make a list of paths given a matrix of precendes
 template<class T>

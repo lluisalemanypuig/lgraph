@@ -1,5 +1,9 @@
 #include <lgraph/utils/static_bitset.hpp>
 
+// C includes
+#include <stdlib.h>
+#include <string.h>
+
 // MACROS
 
 #define __uns_char__ unsigned char

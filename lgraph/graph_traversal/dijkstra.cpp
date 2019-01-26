@@ -1,5 +1,12 @@
 #include <lgraph/graph_traversal/dijkstra.hpp>
 
+// C++ includes
+#include <vector>
+#include <queue>
+
+// lgraph includes
+#include <lgraph/utils/logger.hpp>
+
 namespace lgraph {
 namespace traversal {
 namespace dijkstra {

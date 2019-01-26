@@ -1,8 +1,6 @@
 #pragma once
 
-// C++ incldues
-#include <functional>
-#include <numeric>
+// C++ includes
 #include <vector>
 
 // lgraph includes

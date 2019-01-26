@@ -1,12 +1,7 @@
 #pragma once
 
-// C includes
-#include <assert.h>
-
 // C++ includes
-#include <string>
 #include <vector>
-#include <set>
 
 // lgraph includes
 #include <lgraph/data_structures/uxgraph.hpp>

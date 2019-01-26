@@ -1,5 +1,12 @@
 #include <lgraph/graph_traversal/dfs.hpp>
 
+// C++ includes
+#include <vector>
+#include <stack>
+
+// lgraph includes
+#include <lgraph/utils/logger.hpp>
+
 namespace lgraph {
 namespace traversal {
 namespace dfs {

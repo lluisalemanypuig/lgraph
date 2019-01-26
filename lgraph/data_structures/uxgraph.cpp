@@ -39,7 +39,6 @@ uxgraph& uxgraph::operator= (const uxgraph& g) {
 	return *this;
 }
 
-
 // MODIFIERS
 
 void uxgraph::add_edge(const edge& e) {

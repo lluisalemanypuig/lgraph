@@ -1,5 +1,8 @@
 #include <lgraph/data_structures/wugraph.hpp>
 
+// C includes
+#include <assert.h>
+
 namespace lgraph {
 
 // PROTECTED

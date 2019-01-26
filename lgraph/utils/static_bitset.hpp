@@ -1,9 +1,5 @@
 #pragma once
 
-// C includes
-#include <stdlib.h>
-#include <string.h>
-
 // C++ includes
 #include <fstream>
 #include <string>

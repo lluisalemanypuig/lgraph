@@ -1,5 +1,8 @@
 #include <lgraph/graph_traversal/traversal_wx.hpp>
 
+// lgraph includes
+#include <lgraph/graph_traversal/dijkstra.hpp>
+
 namespace lgraph {
 namespace traversal {
 

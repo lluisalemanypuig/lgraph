@@ -1,10 +1,6 @@
 #pragma once
 
-// C includes
-#include <assert.h>
-
 // C++ includes
-#include <fstream>
 #include <utility>
 #include <vector>
 
