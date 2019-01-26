@@ -83,5 +83,3 @@ double mcc(const uxgraph *G, const std::vector<double>& cc);
 } // -- namespace metrics
 } // -- namespace networks	
 } // -- namespace lgraph
-
-#include <lgraph/metrics/distance_wx.cpp>
