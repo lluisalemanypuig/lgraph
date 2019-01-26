@@ -1,6 +1,5 @@
-\hypertarget{namespacelgraph_1_1networks_1_1modify}{\section{lgraph\-:\-:networks\-:\-:modify Namespace Reference}
-\label{namespacelgraph_1_1networks_1_1modify}\index{lgraph\-::networks\-::modify@{lgraph\-::networks\-::modify}}
-}
+\hypertarget{namespacelgraph_1_1networks_1_1modify}{}\section{lgraph\+:\+:networks\+:\+:modify Namespace Reference}
+\label{namespacelgraph_1_1networks_1_1modify}\index{lgraph\+::networks\+::modify@{lgraph\+::networks\+::modify}}
 
 
 Algorithms for modifying already existing networks.  
@@ -9,7 +8,7 @@ Algorithms for modifying already existing networks.
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$class G , typename d\-T $>$ }\\void \hyperlink{namespacelgraph_1_1networks_1_1modify_a70c6b5acd27230191d4d82baecdfb740}{switching\-\_\-model} (\hyperlink{classlgraph_1_1utils_1_1drandom__generator}{utils\-::drandom\-\_\-generator}$<$ G, d\-T $>$ \&rg, size\-\_\-t Q, \hyperlink{classlgraph_1_1uugraph}{uugraph} \&Gs)
+{\footnotesize template$<$class G , typename dT $>$ }\\void \hyperlink{namespacelgraph_1_1networks_1_1modify_a70c6b5acd27230191d4d82baecdfb740}{switching\+\_\+model} (\hyperlink{classlgraph_1_1utils_1_1drandom__generator}{utils\+::drandom\+\_\+generator}$<$ G, dT $>$ \&rg, size\+\_\+t Q, \hyperlink{classlgraph_1_1uugraph}{uugraph} \&Gs)
 \begin{DoxyCompactList}\small\item\em Applies the switching model to an undirected unweighted graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -17,34 +16,32 @@ Algorithms for modifying already existing networks.
 Algorithms for modifying already existing networks. 
 
 \subsection{Function Documentation}
-\hypertarget{namespacelgraph_1_1networks_1_1modify_a70c6b5acd27230191d4d82baecdfb740}{\index{lgraph\-::networks\-::modify@{lgraph\-::networks\-::modify}!switching\-\_\-model@{switching\-\_\-model}}
-\index{switching\-\_\-model@{switching\-\_\-model}!lgraph::networks::modify@{lgraph\-::networks\-::modify}}
-\subsubsection[{switching\-\_\-model}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class G , typename d\-T $>$ void lgraph\-::networks\-::modify\-::switching\-\_\-model (
-\begin{DoxyParamCaption}
-\item[{utils\-::drandom\-\_\-generator$<$ G, d\-T $>$ \&}]{rg, }
-\item[{size\-\_\-t}]{Q, }
-\item[{uugraph \&}]{Gs}
-\end{DoxyParamCaption}
-)}}\label{namespacelgraph_1_1networks_1_1modify_a70c6b5acd27230191d4d82baecdfb740}
+\mbox{\Hypertarget{namespacelgraph_1_1networks_1_1modify_a70c6b5acd27230191d4d82baecdfb740}\label{namespacelgraph_1_1networks_1_1modify_a70c6b5acd27230191d4d82baecdfb740}} 
+\index{lgraph\+::networks\+::modify@{lgraph\+::networks\+::modify}!switching\+\_\+model@{switching\+\_\+model}}
+\index{switching\+\_\+model@{switching\+\_\+model}!lgraph\+::networks\+::modify@{lgraph\+::networks\+::modify}}
+\subsubsection{\texorpdfstring{switching\+\_\+model()}{switching\_model()}}
+{\footnotesize\ttfamily template$<$class G , typename dT $>$ \\
+void lgraph\+::networks\+::modify\+::switching\+\_\+model (\begin{DoxyParamCaption}\item[{\hyperlink{classlgraph_1_1utils_1_1drandom__generator}{utils\+::drandom\+\_\+generator}$<$ G, dT $>$ \&}]{rg,  }\item[{size\+\_\+t}]{Q,  }\item[{\hyperlink{classlgraph_1_1uugraph}{uugraph} \&}]{Gs }\end{DoxyParamCaption})}
+
 
 
 Applies the switching model to an undirected unweighted graph. 
 
-Given an undirected unweighted graph Gs, let E be the set of edges of Gs. The switching model consists on applying {\itshape Q$\ast$$\vert$\-E$\vert$} times the following operation\-:
+Given an undirected unweighted graph Gs, let E be the set of edges of Gs. The switching model consists on applying {\itshape Q$\ast$$\vert$\+E$\vert$} times the following operation\+:
 \begin{DoxyEnumerate}
-\item Take two edges (s,t) and (u,v), where s != t and u != v -\/ (no self-\/loops) s != u and s != v -\/ (both edges must be different and t != u and t != v can't share edges)
-\item Exchange endpoints\-: (s,v) and (u,t)
+\item Take two edges (s,t) and (u,v), where s != t and u != v -\/ (no self-\/loops) s != u and s != v -\/ (both edges must be different and t != u and t != v can\textquotesingle{}t share edges)
+\item Exchange endpoints\+: (s,v) and (u,t)
 \end{DoxyEnumerate}
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em Q} & Factor used to compute the number of rounds T = Q$\ast$$\vert$\-E$\vert$ where $\vert$\-E$\vert$ is the number of edges in the graph. \\
+\mbox{\tt in}  & {\em Q} & Factor used to compute the number of rounds T = Q$\ast$$\vert$\+E$\vert$ where $\vert$\+E$\vert$ is the number of edges in the graph. \\
 \hline
-\mbox{\tt in}  & {\em rg} & The R\-N\-G used to select the nodes for endpoint exchange. Has to be seeded by the caller. \\
+\mbox{\tt in}  & {\em rg} & The R\+NG used to select the nodes for endpoint exchange. Has to be seeded by the caller. \\
 \hline
 \mbox{\tt out}  & {\em Gs} & The graph on which the switching model is applied. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyPrecond}{Precondition}
-The graph on which to apply the model must have at least two edges. Also, seeding the R\-N\-G is done before valling the function. 
+The graph on which to apply the model must have at least two edges. Also, seeding the R\+NG is done before valling the function. 
 \end{DoxyPrecond}

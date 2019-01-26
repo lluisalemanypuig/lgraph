@@ -1,5 +1,5 @@
 <map id="lgraph::uxgraph" name="lgraph::uxgraph">
-<area shape="rect" id="node5" href="$classlgraph_1_1udgraph.html" title="Unweighted directed (ud) graphs. " alt="" coords="5,171,115,205"/>
-<area shape="rect" id="node7" href="$classlgraph_1_1uugraph.html" title="Unweighted undirected (uu) graphs. " alt="" coords="139,171,248,205"/>
-<area shape="rect" id="node2" href="$classlgraph_1_1xxgraph.html" title="Abstract class for the graph data structure. " alt="" coords="72,6,181,39"/>
+<area shape="rect" id="node3" href="$classlgraph_1_1udgraph.html" title="Unweighted directed (ud) graphs. " alt="" coords="5,155,116,181"/>
+<area shape="rect" id="node4" href="$classlgraph_1_1uugraph.html" title="Unweighted undirected (uu) graphs. " alt="" coords="140,155,251,181"/>
+<area shape="rect" id="node2" href="$classlgraph_1_1xxgraph.html" title="Abstract class for the graph data structure. " alt="" coords="72,5,183,32"/>
 </map>

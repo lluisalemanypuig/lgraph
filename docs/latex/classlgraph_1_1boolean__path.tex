@@ -1,6 +1,5 @@
-\hypertarget{classlgraph_1_1boolean__path}{\section{lgraph\-:\-:boolean\-\_\-path$<$ T $>$ Class Template Reference}
-\label{classlgraph_1_1boolean__path}\index{lgraph\-::boolean\-\_\-path$<$ T $>$@{lgraph\-::boolean\-\_\-path$<$ T $>$}}
-}
+\hypertarget{classlgraph_1_1boolean__path}{}\section{lgraph\+:\+:boolean\+\_\+path$<$ T $>$ Class Template Reference}
+\label{classlgraph_1_1boolean__path}\index{lgraph\+::boolean\+\_\+path$<$ T $>$@{lgraph\+::boolean\+\_\+path$<$ T $>$}}
 
 
 A path through a graph seen as a list of Boolean values.  
@@ -8,153 +7,150 @@ A path through a graph seen as a list of Boolean values.
 
 
 
-{\ttfamily \#include $<$boolean\-\_\-path.\-hpp$>$}
+{\ttfamily \#include $<$boolean\+\_\+path.\+hpp$>$}
 
 
 
-Collaboration diagram for lgraph\-:\-:boolean\-\_\-path$<$ T $>$\-:
-\nopagebreak
+Collaboration diagram for lgraph\+:\+:boolean\+\_\+path$<$ T $>$\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=212pt]{classlgraph_1_1boolean__path__coll__graph}
+\includegraphics[width=213pt]{classlgraph_1_1boolean__path__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{classlgraph_1_1boolean__path_a3e8fde070fbf86b3e9c6d6d4bc3b4a07}{init} (size\-\_\-t n)
+void \hyperlink{classlgraph_1_1boolean__path_a3e8fde070fbf86b3e9c6d6d4bc3b4a07}{init} (size\+\_\+t n)
 \begin{DoxyCompactList}\small\item\em Initialises the path to an empty path within a graph of {\itshape n} nodes. \end{DoxyCompactList}\item 
-void \hyperlink{classlgraph_1_1boolean__path_a01a381ba89ec44c10b7e6da16343ceac}{init} (size\-\_\-t n, const \hyperlink{classlgraph_1_1node__path}{node\-\_\-path}$<$ T $>$ \&vp)
+void \hyperlink{classlgraph_1_1boolean__path_a01a381ba89ec44c10b7e6da16343ceac}{init} (size\+\_\+t n, const \hyperlink{classlgraph_1_1node__path}{node\+\_\+path}$<$ T $>$ \&vp)
 \begin{DoxyCompactList}\small\item\em Initialises the path to a path within a graph of {\itshape n} nodes with the nodes in {\itshape vp}. \end{DoxyCompactList}\item 
 void \hyperlink{classlgraph_1_1boolean__path_a60fab7da9a58d1933dc1db0d3004ca67}{clear} ()
 \begin{DoxyCompactList}\small\item\em Clears the path. \end{DoxyCompactList}\item 
-void \hyperlink{classlgraph_1_1boolean__path_a2d8a7182f9519e56bc13e1f64f8e7195}{add\-\_\-node} (\hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node} u)
+void \hyperlink{classlgraph_1_1boolean__path_a2d8a7182f9519e56bc13e1f64f8e7195}{add\+\_\+node} (\hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node} u)
 \begin{DoxyCompactList}\small\item\em Adds a node to the path. \end{DoxyCompactList}\item 
-void \hyperlink{classlgraph_1_1boolean__path_affb5cf1d4157f95d956ca10aea3c3d2c}{add\-\_\-length} (const T \&l)
+void \hyperlink{classlgraph_1_1boolean__path_affb5cf1d4157f95d956ca10aea3c3d2c}{add\+\_\+length} (const T \&l)
 \begin{DoxyCompactList}\small\item\em Accumulates to the current length of the the path the value l. \end{DoxyCompactList}\item 
-void \hyperlink{classlgraph_1_1boolean__path_a322855eaf5660b2f478c95e2ca26e119}{set\-\_\-length} (const T \&l)
+void \hyperlink{classlgraph_1_1boolean__path_a322855eaf5660b2f478c95e2ca26e119}{set\+\_\+length} (const T \&l)
 \begin{DoxyCompactList}\small\item\em Sets the current length of the the path the value l. \end{DoxyCompactList}\item 
-void \hyperlink{classlgraph_1_1boolean__path_ad2a4186c5836ac554fefeace9b9d775f}{concatenate} (const \hyperlink{classlgraph_1_1boolean__path}{boolean\-\_\-path}$<$ T $>$ \&bp)
+void \hyperlink{classlgraph_1_1boolean__path_ad2a4186c5836ac554fefeace9b9d775f}{concatenate} (const \hyperlink{classlgraph_1_1boolean__path}{boolean\+\_\+path}$<$ T $>$ \&bp)
 \begin{DoxyCompactList}\small\item\em Adds to this paths all nodes from bp. \end{DoxyCompactList}\item 
-bool \hyperlink{classlgraph_1_1boolean__path_aa6dbbaa758c5f0669aba45e2b43c1f49}{operator\mbox{[}$\,$\mbox{]}} (\hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node} i) const 
+bool \hyperlink{classlgraph_1_1boolean__path_a16895c9aebb5e989489b4523a7b6696a}{operator\mbox{[}$\,$\mbox{]}} (\hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node} i) const
 \begin{DoxyCompactList}\small\item\em Check if the i-\/th node is in the path. \end{DoxyCompactList}\item 
-\hyperlink{classlgraph_1_1boolean__path}{boolean\-\_\-path} \& \hyperlink{classlgraph_1_1boolean__path_a72f36b5460f82b2922cec385db08c967}{operator=} (const \hyperlink{classlgraph_1_1boolean__path}{boolean\-\_\-path}$<$ T $>$ \&bp)
-\begin{DoxyCompactList}\small\item\em Overrides this boolean path's information with {\itshape bp}. \end{DoxyCompactList}\item 
-size\-\_\-t \hyperlink{classlgraph_1_1boolean__path_aa14dc868cb4055a4fa31b8223d41a9e5}{size} () const 
+\hyperlink{classlgraph_1_1boolean__path}{boolean\+\_\+path} \& \hyperlink{classlgraph_1_1boolean__path_a72f36b5460f82b2922cec385db08c967}{operator=} (const \hyperlink{classlgraph_1_1boolean__path}{boolean\+\_\+path}$<$ T $>$ \&bp)
+\begin{DoxyCompactList}\small\item\em Overrides this boolean path\textquotesingle{}s information with {\itshape bp}. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classlgraph_1_1boolean__path_ac87119984b213d8f2f2d9bb2c40c7b8d}{size} () const
 \begin{DoxyCompactList}\small\item\em Returns the number of nodes in the path. \end{DoxyCompactList}\item 
-T \hyperlink{classlgraph_1_1boolean__path_a5e8536fbd958d6b4b2dced0e05dfc97f}{get\-\_\-length} () const 
-\begin{DoxyCompactList}\small\item\em Returns this path's length. \end{DoxyCompactList}\item 
-size\-\_\-t \hyperlink{classlgraph_1_1boolean__path_ae75e241e99a66c8dbfa328700bb2cdbc}{potential\-\_\-length} () const 
+T \hyperlink{classlgraph_1_1boolean__path_aaf0aa82860b5c5b29e6f5533c2599463}{get\+\_\+length} () const
+\begin{DoxyCompactList}\small\item\em Returns this path\textquotesingle{}s length. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classlgraph_1_1boolean__path_a64d9fc30eb11b6edec66e0d54e6081b3}{potential\+\_\+length} () const
 \begin{DoxyCompactList}\small\item\em Returns the maximum number of nodes that could be in the path. \end{DoxyCompactList}\item 
-bool \hyperlink{classlgraph_1_1boolean__path_ac802abcf4a728123cfb4d7a53f109908}{closest\-\_\-next} (const \hyperlink{classlgraph_1_1xxgraph}{xxgraph} $\ast$G, \hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node} previous, \hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node} current, \hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node} \&next) const 
+bool \hyperlink{classlgraph_1_1boolean__path_ae6ceef567800784b5cb751de8c319d5a}{closest\+\_\+next} (const \hyperlink{classlgraph_1_1xxgraph}{xxgraph} $\ast$G, \hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node} previous, \hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node} current, \hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node} \&next) const
 \begin{DoxyCompactList}\small\item\em Looks for the next node in this path taking as a reference the {\itshape previous} and {\itshape current} nodes. \end{DoxyCompactList}\item 
-bool \hyperlink{classlgraph_1_1boolean__path_a64750d012e8f3037744a26e36804e92b}{closest\-\_\-next} (const \hyperlink{classlgraph_1_1xxgraph}{xxgraph} $\ast$G, const std\-::vector$<$ bool $>$ \&previous, \hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node} current, \hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node} \&next) const 
+bool \hyperlink{classlgraph_1_1boolean__path_a6b0bbbe3de1f5ea406b0ed9ea4624d49}{closest\+\_\+next} (const \hyperlink{classlgraph_1_1xxgraph}{xxgraph} $\ast$G, const std\+::vector$<$ bool $>$ \&previous, \hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node} current, \hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node} \&next) const
 \begin{DoxyCompactList}\small\item\em Looks for the next node in this path taking as a reference the nodes previously visited and the {\itshape current} node. \end{DoxyCompactList}\item 
-\hyperlink{classlgraph_1_1node__path}{node\-\_\-path}$<$ T $>$ \hyperlink{classlgraph_1_1boolean__path_ac661d8bcabc7aa76b44f13edec88ea73}{to\-\_\-node\-\_\-path} (const \hyperlink{classlgraph_1_1xxgraph}{xxgraph} $\ast$G, \hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node} s) const 
-\begin{DoxyCompactList}\small\item\em Converts this \hyperlink{classlgraph_1_1boolean__path}{boolean\-\_\-path} to an object of type \hyperlink{classlgraph_1_1node__path}{node\-\_\-path}. \end{DoxyCompactList}\item 
-void \hyperlink{classlgraph_1_1boolean__path_a6051571fc3d56c7e535c9d3aa984e7b0}{to\-\_\-node\-\_\-path} (const \hyperlink{classlgraph_1_1xxgraph}{xxgraph} $\ast$G, \hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node} s, \hyperlink{classlgraph_1_1node__path}{node\-\_\-path}$<$ T $>$ \&np) const 
-\begin{DoxyCompactList}\small\item\em Converts this \hyperlink{classlgraph_1_1boolean__path}{boolean\-\_\-path} to an object of type \hyperlink{classlgraph_1_1node__path}{node\-\_\-path}. \end{DoxyCompactList}\item 
-std\-::string \hyperlink{classlgraph_1_1boolean__path_af862f948f259138ed21876d0db7066ce}{pretty\-\_\-string} () const 
-\begin{DoxyCompactList}\small\item\em Formats this path into a string with a 'pretty' format. \end{DoxyCompactList}\item 
-void \hyperlink{classlgraph_1_1boolean__path_ac4a89490082847487ec6d0bc76d546a0}{pretty\-\_\-string} (std\-::string \&s) const 
-\begin{DoxyCompactList}\small\item\em Formats this path into a string with a 'pretty' format. \end{DoxyCompactList}\item 
-std\-::string \hyperlink{classlgraph_1_1boolean__path_aec231697faf9b19bf98002719631494c}{to\-\_\-string} () const 
+\hyperlink{classlgraph_1_1node__path}{node\+\_\+path}$<$ T $>$ \hyperlink{classlgraph_1_1boolean__path_a0e9a6c2a747b7b0c7ad0b7fcceefe7bf}{to\+\_\+node\+\_\+path} (const \hyperlink{classlgraph_1_1xxgraph}{xxgraph} $\ast$G, \hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node} s) const
+\begin{DoxyCompactList}\small\item\em Converts this \hyperlink{classlgraph_1_1boolean__path}{boolean\+\_\+path} to an object of type \hyperlink{classlgraph_1_1node__path}{node\+\_\+path}. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1boolean__path_aee896769bdb13cc9e880e948041c6a6f}{to\+\_\+node\+\_\+path} (const \hyperlink{classlgraph_1_1xxgraph}{xxgraph} $\ast$G, \hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node} s, \hyperlink{classlgraph_1_1node__path}{node\+\_\+path}$<$ T $>$ \&np) const
+\begin{DoxyCompactList}\small\item\em Converts this \hyperlink{classlgraph_1_1boolean__path}{boolean\+\_\+path} to an object of type \hyperlink{classlgraph_1_1node__path}{node\+\_\+path}. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{classlgraph_1_1boolean__path_a5c3df2487f9c5b096d845b8d11ba0e0c}{pretty\+\_\+string} () const
+\begin{DoxyCompactList}\small\item\em Formats this path into a string with a \textquotesingle{}pretty\textquotesingle{} format. \end{DoxyCompactList}\item 
+void \hyperlink{classlgraph_1_1boolean__path_afc470414b972269818fa55ff4bad12ee}{pretty\+\_\+string} (std\+::string \&s) const
+\begin{DoxyCompactList}\small\item\em Formats this path into a string with a \textquotesingle{}pretty\textquotesingle{} format. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{classlgraph_1_1boolean__path_a28c70d226f016ff660aa12f9ba7ae00e}{to\+\_\+string} () const
 \begin{DoxyCompactList}\small\item\em Formats this path into a string with a plain format. \end{DoxyCompactList}\item 
-void \hyperlink{classlgraph_1_1boolean__path_ab1bbf257e568c16bdc825ead3bd25590}{to\-\_\-string} (std\-::string \&s) const 
+void \hyperlink{classlgraph_1_1boolean__path_a372b30f0cf0f54f5053cf04e06110ec4}{to\+\_\+string} (std\+::string \&s) const
 \begin{DoxyCompactList}\small\item\em Formats this path into a string with a plain format. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classlgraph_1_1utils_1_1static__bitset}{utils\-::static\-\_\-bitset} \hyperlink{classlgraph_1_1boolean__path_a0ea5d4c5f7e445270bb5c0346ec7c150}{nodes\-\_\-in\-\_\-path}
+\hyperlink{classlgraph_1_1utils_1_1static__bitset}{utils\+::static\+\_\+bitset} \hyperlink{classlgraph_1_1boolean__path_a0ea5d4c5f7e445270bb5c0346ec7c150}{nodes\+\_\+in\+\_\+path}
 \begin{DoxyCompactList}\small\item\em The list of nodes as Boolean values. \end{DoxyCompactList}\item 
-\hypertarget{classlgraph_1_1boolean__path_a98f07b983e0812fd283f16c3871793ef}{size\-\_\-t \hyperlink{classlgraph_1_1boolean__path_a98f07b983e0812fd283f16c3871793ef}{n\-\_\-nodes}}\label{classlgraph_1_1boolean__path_a98f07b983e0812fd283f16c3871793ef}
-
-\begin{DoxyCompactList}\small\item\em Number of nodes in the path, i.\-e., the amount of values set to true. \end{DoxyCompactList}\item 
-T \hyperlink{classlgraph_1_1boolean__path_ab298ac156fd7d73e21769fd30b2c5ad1}{path\-\_\-length}
+\mbox{\Hypertarget{classlgraph_1_1boolean__path_a98f07b983e0812fd283f16c3871793ef}\label{classlgraph_1_1boolean__path_a98f07b983e0812fd283f16c3871793ef}} 
+size\+\_\+t \hyperlink{classlgraph_1_1boolean__path_a98f07b983e0812fd283f16c3871793ef}{n\+\_\+nodes}
+\begin{DoxyCompactList}\small\item\em Number of nodes in the path, i.\+e., the amount of values set to true. \end{DoxyCompactList}\item 
+T \hyperlink{classlgraph_1_1boolean__path_ab298ac156fd7d73e21769fd30b2c5ad1}{path\+\_\+length}
 \begin{DoxyCompactList}\small\item\em The total weight of this path. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-std\-::ostream \& \hyperlink{classlgraph_1_1boolean__path_a3f1b01270c5ffdd0f7ce524dc1e29725}{operator$<$$<$} (std\-::ostream \&os, const \hyperlink{classlgraph_1_1boolean__path}{boolean\-\_\-path}$<$ T $>$ \&bp)
+std\+::ostream \& \hyperlink{classlgraph_1_1boolean__path_a3f1b01270c5ffdd0f7ce524dc1e29725}{operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classlgraph_1_1boolean__path}{boolean\+\_\+path}$<$ T $>$ \&bp)
 \begin{DoxyCompactList}\small\item\em Outputs this path on a {\itshape ostream} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-\subsubsection*{template$<$class T = \-\_\-new\-\_\-$>$class lgraph\-::boolean\-\_\-path$<$ T $>$}
+\subsubsection*{template$<$class T = \+\_\+new\+\_\+$>$\newline
+class lgraph\+::boolean\+\_\+path$<$ T $>$}
 
 A path through a graph seen as a list of Boolean values. 
 
-The i-\/th position of this path is 1 if, and only if, the i-\/th node of the graph is in the path. This is intended to be used O\-N\-L\-Y for shortest paths. Therefore, any \hyperlink{classlgraph_1_1boolean__path}{boolean\-\_\-path} can be converted into a \hyperlink{classlgraph_1_1node__path}{node\-\_\-path} under the following condition\-: if p(u) is the position of node 'u' in the node path then\-:
+The i-\/th position of this path is 1 if, and only if, the i-\/th node of the graph is in the path. This is intended to be used O\+N\+LY for shortest paths. Therefore, any \hyperlink{classlgraph_1_1boolean__path}{boolean\+\_\+path} can be converted into a \hyperlink{classlgraph_1_1node__path}{node\+\_\+path} under the following condition\+: if p(u) is the position of node \textquotesingle{}u\textquotesingle{} in the node path then\+:
 \begin{DoxyItemize}
-\item if u has only one neighbour 'v' then either p(v) $<$ p(u) or p(u) $<$ p(v)
-\item if u has two neighbours 'v', 'w' then either p(v) $<$ p(u) $<$ p(w) or p(w) $<$ p(u) $<$ p(v) Any other boolean path not following the previous two conventions is not guaranteed to be able to be converted into an object of type '\hyperlink{classlgraph_1_1node__path}{node\-\_\-path}'. The template parameter type is the type used to store this path's length (see \hyperlink{classlgraph_1_1boolean__path_ab298ac156fd7d73e21769fd30b2c5ad1}{path\-\_\-length}).
+\item if u has only one neighbour \textquotesingle{}v\textquotesingle{} then either p(v) $<$ p(u) or p(u) $<$ p(v)
+\item if u has two neighbours \textquotesingle{}v\textquotesingle{}, \textquotesingle{}w\textquotesingle{} then either p(v) $<$ p(u) $<$ p(w) or p(w) $<$ p(u) $<$ p(v) Any other boolean path not following the previous two conventions is not guaranteed to be able to be converted into an object of type \textquotesingle{}\hyperlink{classlgraph_1_1node__path}{node\+\_\+path}\textquotesingle{}. The template parameter type is the type used to store this path\textquotesingle{}s length (see \hyperlink{classlgraph_1_1boolean__path_ab298ac156fd7d73e21769fd30b2c5ad1}{path\+\_\+length}).
 \end{DoxyItemize}
 
 
 \begin{DoxyParams}{Parameters}
-{\em T} & The type used for the length. It must support comparisons and the C++'s output operator $<$$<$. \\
+{\em T} & The type used for the length. It must support comparisons and the C++\textquotesingle{}s output operator $<$$<$. \\
 \hline
 \end{DoxyParams}
 
 
 \subsection{Member Function Documentation}
-\hypertarget{classlgraph_1_1boolean__path_affb5cf1d4157f95d956ca10aea3c3d2c}{\index{lgraph\-::boolean\-\_\-path@{lgraph\-::boolean\-\_\-path}!add\-\_\-length@{add\-\_\-length}}
-\index{add\-\_\-length@{add\-\_\-length}!lgraph::boolean_path@{lgraph\-::boolean\-\_\-path}}
-\subsubsection[{add\-\_\-length}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf lgraph\-::boolean\-\_\-path}$<$ T $>$\-::add\-\_\-length (
-\begin{DoxyParamCaption}
-\item[{const T \&}]{l}
-\end{DoxyParamCaption}
-)}}\label{classlgraph_1_1boolean__path_affb5cf1d4157f95d956ca10aea3c3d2c}
+\mbox{\Hypertarget{classlgraph_1_1boolean__path_affb5cf1d4157f95d956ca10aea3c3d2c}\label{classlgraph_1_1boolean__path_affb5cf1d4157f95d956ca10aea3c3d2c}} 
+\index{lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}!add\+\_\+length@{add\+\_\+length}}
+\index{add\+\_\+length@{add\+\_\+length}!lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}}
+\subsubsection{\texorpdfstring{add\+\_\+length()}{add\_length()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \hyperlink{classlgraph_1_1boolean__path}{lgraph\+::boolean\+\_\+path}$<$ T $>$\+::add\+\_\+length (\begin{DoxyParamCaption}\item[{const T \&}]{l }\end{DoxyParamCaption})}
+
 
 
 Accumulates to the current length of the the path the value l. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em l} & The value to be accumulated to \hyperlink{classlgraph_1_1boolean__path_ab298ac156fd7d73e21769fd30b2c5ad1}{path\-\_\-length}. \\
+{\em l} & The value to be accumulated to \hyperlink{classlgraph_1_1boolean__path_ab298ac156fd7d73e21769fd30b2c5ad1}{path\+\_\+length}. \\
 \hline
 \end{DoxyParams}
-\hypertarget{classlgraph_1_1boolean__path_a2d8a7182f9519e56bc13e1f64f8e7195}{\index{lgraph\-::boolean\-\_\-path@{lgraph\-::boolean\-\_\-path}!add\-\_\-node@{add\-\_\-node}}
-\index{add\-\_\-node@{add\-\_\-node}!lgraph::boolean_path@{lgraph\-::boolean\-\_\-path}}
-\subsubsection[{add\-\_\-node}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf lgraph\-::boolean\-\_\-path}$<$ T $>$\-::add\-\_\-node (
-\begin{DoxyParamCaption}
-\item[{{\bf node}}]{u}
-\end{DoxyParamCaption}
-)}}\label{classlgraph_1_1boolean__path_a2d8a7182f9519e56bc13e1f64f8e7195}
+\mbox{\Hypertarget{classlgraph_1_1boolean__path_a2d8a7182f9519e56bc13e1f64f8e7195}\label{classlgraph_1_1boolean__path_a2d8a7182f9519e56bc13e1f64f8e7195}} 
+\index{lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}!add\+\_\+node@{add\+\_\+node}}
+\index{add\+\_\+node@{add\+\_\+node}!lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}}
+\subsubsection{\texorpdfstring{add\+\_\+node()}{add\_node()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \hyperlink{classlgraph_1_1boolean__path}{lgraph\+::boolean\+\_\+path}$<$ T $>$\+::add\+\_\+node (\begin{DoxyParamCaption}\item[{\hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node}}]{u }\end{DoxyParamCaption})}
+
 
 
 Adds a node to the path. 
 
-The corresponding position of \hyperlink{classlgraph_1_1boolean__path_a0ea5d4c5f7e445270bb5c0346ec7c150}{nodes\-\_\-in\-\_\-path} is set to true. 
+The corresponding position of \hyperlink{classlgraph_1_1boolean__path_a0ea5d4c5f7e445270bb5c0346ec7c150}{nodes\+\_\+in\+\_\+path} is set to true. 
 \begin{DoxyParams}{Parameters}
-{\em u} & The node's index, between 0 and \hyperlink{classlgraph_1_1boolean__path_a98f07b983e0812fd283f16c3871793ef}{n\-\_\-nodes} -\/ 1. \\
+{\em u} & The node\textquotesingle{}s index, between 0 and \hyperlink{classlgraph_1_1boolean__path_a98f07b983e0812fd283f16c3871793ef}{n\+\_\+nodes} -\/ 1. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyPostcond}{Postcondition}
 The length remains unchanged. 
 \end{DoxyPostcond}
-\hypertarget{classlgraph_1_1boolean__path_a60fab7da9a58d1933dc1db0d3004ca67}{\index{lgraph\-::boolean\-\_\-path@{lgraph\-::boolean\-\_\-path}!clear@{clear}}
-\index{clear@{clear}!lgraph::boolean_path@{lgraph\-::boolean\-\_\-path}}
-\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf lgraph\-::boolean\-\_\-path}$<$ T $>$\-::clear (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}}\label{classlgraph_1_1boolean__path_a60fab7da9a58d1933dc1db0d3004ca67}
+\mbox{\Hypertarget{classlgraph_1_1boolean__path_a60fab7da9a58d1933dc1db0d3004ca67}\label{classlgraph_1_1boolean__path_a60fab7da9a58d1933dc1db0d3004ca67}} 
+\index{lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}!clear@{clear}}
+\index{clear@{clear}!lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}}
+\subsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \hyperlink{classlgraph_1_1boolean__path}{lgraph\+::boolean\+\_\+path}$<$ T $>$\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
 
 
 Clears the path. 
 
-One of the two methods \hyperlink{classlgraph_1_1boolean__path_a3e8fde070fbf86b3e9c6d6d4bc3b4a07}{init(size\-\_\-t)} or \hyperlink{classlgraph_1_1boolean__path_a01a381ba89ec44c10b7e6da16343ceac}{init(size\-\_\-t,const node\-\_\-path$<$\-T$>$\&)} will have to be called again to be able to use it again. However, the destructor of this class frees the memory automatically. \hypertarget{classlgraph_1_1boolean__path_ac802abcf4a728123cfb4d7a53f109908}{\index{lgraph\-::boolean\-\_\-path@{lgraph\-::boolean\-\_\-path}!closest\-\_\-next@{closest\-\_\-next}}
-\index{closest\-\_\-next@{closest\-\_\-next}!lgraph::boolean_path@{lgraph\-::boolean\-\_\-path}}
-\subsubsection[{closest\-\_\-next}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ bool {\bf lgraph\-::boolean\-\_\-path}$<$ T $>$\-::closest\-\_\-next (
-\begin{DoxyParamCaption}
-\item[{const {\bf xxgraph} $\ast$}]{G, }
-\item[{{\bf node}}]{previous, }
-\item[{{\bf node}}]{current, }
-\item[{{\bf node} \&}]{next}
-\end{DoxyParamCaption}
-) const}}\label{classlgraph_1_1boolean__path_ac802abcf4a728123cfb4d7a53f109908}
+One of the two methods \hyperlink{classlgraph_1_1boolean__path_a3e8fde070fbf86b3e9c6d6d4bc3b4a07}{init(size\+\_\+t)} or \hyperlink{classlgraph_1_1boolean__path_a01a381ba89ec44c10b7e6da16343ceac}{init(size\+\_\+t,const node\+\_\+path$<$\+T$>$\&)} will have to be called again to be able to use it again. However, the destructor of this class frees the memory automatically. \mbox{\Hypertarget{classlgraph_1_1boolean__path_ae6ceef567800784b5cb751de8c319d5a}\label{classlgraph_1_1boolean__path_ae6ceef567800784b5cb751de8c319d5a}} 
+\index{lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}!closest\+\_\+next@{closest\+\_\+next}}
+\index{closest\+\_\+next@{closest\+\_\+next}!lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}}
+\subsubsection{\texorpdfstring{closest\+\_\+next()}{closest\_next()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \hyperlink{classlgraph_1_1boolean__path}{lgraph\+::boolean\+\_\+path}$<$ T $>$\+::closest\+\_\+next (\begin{DoxyParamCaption}\item[{const \hyperlink{classlgraph_1_1xxgraph}{xxgraph} $\ast$}]{G,  }\item[{\hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node}}]{previous,  }\item[{\hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node}}]{current,  }\item[{\hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node} \&}]{next }\end{DoxyParamCaption}) const}
+
 
 
 Looks for the next node in this path taking as a reference the {\itshape previous} and {\itshape current} nodes. 
@@ -175,27 +171,24 @@ Since a node could have more than one of its neighbour in the path, the node tha
 \begin{DoxyReturn}{Returns}
 Returns true if there actually exists a \char`\"{}next\char`\"{} node in the path. 
 \end{DoxyReturn}
-\hypertarget{classlgraph_1_1boolean__path_a64750d012e8f3037744a26e36804e92b}{\index{lgraph\-::boolean\-\_\-path@{lgraph\-::boolean\-\_\-path}!closest\-\_\-next@{closest\-\_\-next}}
-\index{closest\-\_\-next@{closest\-\_\-next}!lgraph::boolean_path@{lgraph\-::boolean\-\_\-path}}
-\subsubsection[{closest\-\_\-next}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ bool {\bf lgraph\-::boolean\-\_\-path}$<$ T $>$\-::closest\-\_\-next (
-\begin{DoxyParamCaption}
-\item[{const {\bf xxgraph} $\ast$}]{G, }
-\item[{const std\-::vector$<$ bool $>$ \&}]{previous, }
-\item[{{\bf node}}]{current, }
-\item[{{\bf node} \&}]{next}
-\end{DoxyParamCaption}
-) const}}\label{classlgraph_1_1boolean__path_a64750d012e8f3037744a26e36804e92b}
+\mbox{\Hypertarget{classlgraph_1_1boolean__path_a6b0bbbe3de1f5ea406b0ed9ea4624d49}\label{classlgraph_1_1boolean__path_a6b0bbbe3de1f5ea406b0ed9ea4624d49}} 
+\index{lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}!closest\+\_\+next@{closest\+\_\+next}}
+\index{closest\+\_\+next@{closest\+\_\+next}!lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}}
+\subsubsection{\texorpdfstring{closest\+\_\+next()}{closest\_next()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \hyperlink{classlgraph_1_1boolean__path}{lgraph\+::boolean\+\_\+path}$<$ T $>$\+::closest\+\_\+next (\begin{DoxyParamCaption}\item[{const \hyperlink{classlgraph_1_1xxgraph}{xxgraph} $\ast$}]{G,  }\item[{const std\+::vector$<$ bool $>$ \&}]{previous,  }\item[{\hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node}}]{current,  }\item[{\hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node} \&}]{next }\end{DoxyParamCaption}) const}
+
 
 
 Looks for the next node in this path taking as a reference the nodes previously visited and the {\itshape current} node. 
 
-Since a node could have more than one of its neighbour in the path, the node that it retrieves is the closest to the {\itshape current} node, that is different from the previously visited nodes (marked in {\itshape previous}). This function is meant to be used when converting a \hyperlink{classlgraph_1_1boolean__path}{boolean\-\_\-path} to a \hyperlink{classlgraph_1_1node__path}{node\-\_\-path}.
+Since a node could have more than one of its neighbour in the path, the node that it retrieves is the closest to the {\itshape current} node, that is different from the previously visited nodes (marked in {\itshape previous}). This function is meant to be used when converting a \hyperlink{classlgraph_1_1boolean__path}{boolean\+\_\+path} to a \hyperlink{classlgraph_1_1node__path}{node\+\_\+path}.
 
 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em G} & The graph this path goes through. \\
 \hline
-\mbox{\tt in}  & {\em previous} & The nodes previously visited. To retrieve the second node in the path, all the values must be set to false. Its size must be equal to this path's potential length (see \hyperlink{classlgraph_1_1boolean__path_ae75e241e99a66c8dbfa328700bb2cdbc}{potential\-\_\-length()}). \\
+\mbox{\tt in}  & {\em previous} & The nodes previously visited. To retrieve the second node in the path, all the values must be set to false. Its size must be equal to this path\textquotesingle{}s potential length (see \hyperlink{classlgraph_1_1boolean__path_a64d9fc30eb11b6edec66e0d54e6081b3}{potential\+\_\+length()}). \\
 \hline
 \mbox{\tt in}  & {\em current} & The current node in the path. \\
 \hline
@@ -205,13 +198,13 @@ Since a node could have more than one of its neighbour in the path, the node tha
 \begin{DoxyReturn}{Returns}
 Returns true if there actually exists a \char`\"{}next\char`\"{} node in the path. 
 \end{DoxyReturn}
-\hypertarget{classlgraph_1_1boolean__path_ad2a4186c5836ac554fefeace9b9d775f}{\index{lgraph\-::boolean\-\_\-path@{lgraph\-::boolean\-\_\-path}!concatenate@{concatenate}}
-\index{concatenate@{concatenate}!lgraph::boolean_path@{lgraph\-::boolean\-\_\-path}}
-\subsubsection[{concatenate}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf lgraph\-::boolean\-\_\-path}$<$ T $>$\-::concatenate (
-\begin{DoxyParamCaption}
-\item[{const {\bf boolean\-\_\-path}$<$ T $>$ \&}]{bp}
-\end{DoxyParamCaption}
-)}}\label{classlgraph_1_1boolean__path_ad2a4186c5836ac554fefeace9b9d775f}
+\mbox{\Hypertarget{classlgraph_1_1boolean__path_ad2a4186c5836ac554fefeace9b9d775f}\label{classlgraph_1_1boolean__path_ad2a4186c5836ac554fefeace9b9d775f}} 
+\index{lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}!concatenate@{concatenate}}
+\index{concatenate@{concatenate}!lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}}
+\subsubsection{\texorpdfstring{concatenate()}{concatenate()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \hyperlink{classlgraph_1_1boolean__path}{lgraph\+::boolean\+\_\+path}$<$ T $>$\+::concatenate (\begin{DoxyParamCaption}\item[{const \hyperlink{classlgraph_1_1boolean__path}{boolean\+\_\+path}$<$ T $>$ \&}]{bp }\end{DoxyParamCaption})}
+
 
 
 Adds to this paths all nodes from bp. 
@@ -226,36 +219,35 @@ All positions in {\itshape bp} set to true will be set to true in this path.
 \begin{DoxyPrecond}{Precondition}
 {\itshape bp} must have been initialised with the same value as this. 
 \end{DoxyPrecond}
-\hypertarget{classlgraph_1_1boolean__path_a5e8536fbd958d6b4b2dced0e05dfc97f}{\index{lgraph\-::boolean\-\_\-path@{lgraph\-::boolean\-\_\-path}!get\-\_\-length@{get\-\_\-length}}
-\index{get\-\_\-length@{get\-\_\-length}!lgraph::boolean_path@{lgraph\-::boolean\-\_\-path}}
-\subsubsection[{get\-\_\-length}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ T {\bf lgraph\-::boolean\-\_\-path}$<$ T $>$\-::get\-\_\-length (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}}\label{classlgraph_1_1boolean__path_a5e8536fbd958d6b4b2dced0e05dfc97f}
+\mbox{\Hypertarget{classlgraph_1_1boolean__path_aaf0aa82860b5c5b29e6f5533c2599463}\label{classlgraph_1_1boolean__path_aaf0aa82860b5c5b29e6f5533c2599463}} 
+\index{lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}!get\+\_\+length@{get\+\_\+length}}
+\index{get\+\_\+length@{get\+\_\+length}!lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}}
+\subsubsection{\texorpdfstring{get\+\_\+length()}{get\_length()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \hyperlink{classlgraph_1_1boolean__path}{lgraph\+::boolean\+\_\+path}$<$ T $>$\+::get\+\_\+length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
-Returns this path's length. 
 
-Returns the sum of the distances between the nodes in the path, that is, the value \hyperlink{classlgraph_1_1boolean__path_ab298ac156fd7d73e21769fd30b2c5ad1}{path\-\_\-length}. \hypertarget{classlgraph_1_1boolean__path_a3e8fde070fbf86b3e9c6d6d4bc3b4a07}{\index{lgraph\-::boolean\-\_\-path@{lgraph\-::boolean\-\_\-path}!init@{init}}
-\index{init@{init}!lgraph::boolean_path@{lgraph\-::boolean\-\_\-path}}
-\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf lgraph\-::boolean\-\_\-path}$<$ T $>$\-::init (
-\begin{DoxyParamCaption}
-\item[{size\-\_\-t}]{n}
-\end{DoxyParamCaption}
-)}}\label{classlgraph_1_1boolean__path_a3e8fde070fbf86b3e9c6d6d4bc3b4a07}
+Returns this path\textquotesingle{}s length. 
+
+Returns the sum of the distances between the nodes in the path, that is, the value \hyperlink{classlgraph_1_1boolean__path_ab298ac156fd7d73e21769fd30b2c5ad1}{path\+\_\+length}. \mbox{\Hypertarget{classlgraph_1_1boolean__path_a3e8fde070fbf86b3e9c6d6d4bc3b4a07}\label{classlgraph_1_1boolean__path_a3e8fde070fbf86b3e9c6d6d4bc3b4a07}} 
+\index{lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}!init@{init}}
+\index{init@{init}!lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}}
+\subsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \hyperlink{classlgraph_1_1boolean__path}{lgraph\+::boolean\+\_\+path}$<$ T $>$\+::init (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})}
+
 
 
 Initialises the path to an empty path within a graph of {\itshape n} nodes. 
 
-There is no need for this path to be 'uninitialised'. \hypertarget{classlgraph_1_1boolean__path_a01a381ba89ec44c10b7e6da16343ceac}{\index{lgraph\-::boolean\-\_\-path@{lgraph\-::boolean\-\_\-path}!init@{init}}
-\index{init@{init}!lgraph::boolean_path@{lgraph\-::boolean\-\_\-path}}
-\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf lgraph\-::boolean\-\_\-path}$<$ T $>$\-::init (
-\begin{DoxyParamCaption}
-\item[{size\-\_\-t}]{n, }
-\item[{const {\bf node\-\_\-path}$<$ T $>$ \&}]{vp}
-\end{DoxyParamCaption}
-)}}\label{classlgraph_1_1boolean__path_a01a381ba89ec44c10b7e6da16343ceac}
+There is no need for this path to be \textquotesingle{}uninitialised\textquotesingle{}. \mbox{\Hypertarget{classlgraph_1_1boolean__path_a01a381ba89ec44c10b7e6da16343ceac}\label{classlgraph_1_1boolean__path_a01a381ba89ec44c10b7e6da16343ceac}} 
+\index{lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}!init@{init}}
+\index{init@{init}!lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}}
+\subsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \hyperlink{classlgraph_1_1boolean__path}{lgraph\+::boolean\+\_\+path}$<$ T $>$\+::init (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n,  }\item[{const \hyperlink{classlgraph_1_1node__path}{node\+\_\+path}$<$ T $>$ \&}]{vp }\end{DoxyParamCaption})}
+
 
 
 Initialises the path to a path within a graph of {\itshape n} nodes with the nodes in {\itshape vp}. 
@@ -267,127 +259,126 @@ Initialises the path to a path within a graph of {\itshape n} nodes with the nod
 {\em vp} & The list of nodes that makes the path within the graph. All indices of this path must be lower than {\itshape n}. \\
 \hline
 \end{DoxyParams}
-\hypertarget{classlgraph_1_1boolean__path_a72f36b5460f82b2922cec385db08c967}{\index{lgraph\-::boolean\-\_\-path@{lgraph\-::boolean\-\_\-path}!operator=@{operator=}}
-\index{operator=@{operator=}!lgraph::boolean_path@{lgraph\-::boolean\-\_\-path}}
-\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf boolean\-\_\-path}$<$ T $>$ \& {\bf lgraph\-::boolean\-\_\-path}$<$ T $>$\-::operator= (
-\begin{DoxyParamCaption}
-\item[{const {\bf boolean\-\_\-path}$<$ T $>$ \&}]{bp}
-\end{DoxyParamCaption}
-)}}\label{classlgraph_1_1boolean__path_a72f36b5460f82b2922cec385db08c967}
+\mbox{\Hypertarget{classlgraph_1_1boolean__path_a72f36b5460f82b2922cec385db08c967}\label{classlgraph_1_1boolean__path_a72f36b5460f82b2922cec385db08c967}} 
+\index{lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}!operator=@{operator=}}
+\index{operator=@{operator=}!lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\hyperlink{classlgraph_1_1boolean__path}{boolean\+\_\+path}$<$ T $>$ \& \hyperlink{classlgraph_1_1boolean__path}{lgraph\+::boolean\+\_\+path}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classlgraph_1_1boolean__path}{boolean\+\_\+path}$<$ T $>$ \&}]{bp }\end{DoxyParamCaption})}
 
 
-Overrides this boolean path's information with {\itshape bp}. 
 
-This boolean path's memory is first freed and reallocated to hold the contents in {\itshape bp}.
+Overrides this boolean path\textquotesingle{}s information with {\itshape bp}. 
+
+This boolean path\textquotesingle{}s memory is first freed and reallocated to hold the contents in {\itshape bp}.
 
 
 \begin{DoxyParams}{Parameters}
 {\em bp} & The new boolean path. \\
 \hline
 \end{DoxyParams}
-\hypertarget{classlgraph_1_1boolean__path_aa6dbbaa758c5f0669aba45e2b43c1f49}{\index{lgraph\-::boolean\-\_\-path@{lgraph\-::boolean\-\_\-path}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
-\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!lgraph::boolean_path@{lgraph\-::boolean\-\_\-path}}
-\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ bool {\bf lgraph\-::boolean\-\_\-path}$<$ T $>$\-::operator\mbox{[}$\,$\mbox{]} (
-\begin{DoxyParamCaption}
-\item[{{\bf node}}]{i}
-\end{DoxyParamCaption}
-) const}}\label{classlgraph_1_1boolean__path_aa6dbbaa758c5f0669aba45e2b43c1f49}
+\mbox{\Hypertarget{classlgraph_1_1boolean__path_a16895c9aebb5e989489b4523a7b6696a}\label{classlgraph_1_1boolean__path_a16895c9aebb5e989489b4523a7b6696a}} 
+\index{lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \hyperlink{classlgraph_1_1boolean__path}{lgraph\+::boolean\+\_\+path}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{\hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node}}]{i }\end{DoxyParamCaption}) const}
+
 
 
 Check if the i-\/th node is in the path. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em i} & The node's index. \\
+{\em i} & The node\textquotesingle{}s index. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Returns true if, and only if, \hyperlink{classlgraph_1_1boolean__path_a0ea5d4c5f7e445270bb5c0346ec7c150}{nodes\-\_\-in\-\_\-path}\mbox{[}{\itshape i}\mbox{]} is set to true. 
+Returns true if, and only if, \hyperlink{classlgraph_1_1boolean__path_a0ea5d4c5f7e445270bb5c0346ec7c150}{nodes\+\_\+in\+\_\+path}\mbox{[}{\itshape i}\mbox{]} is set to true. 
 \end{DoxyReturn}
 \begin{DoxyPrecond}{Precondition}
-The node index {\itshape i} must satisfy {\itshape i} $<$ \hyperlink{classlgraph_1_1boolean__path_a98f07b983e0812fd283f16c3871793ef}{n\-\_\-nodes}. 
+The node index {\itshape i} must satisfy {\itshape i} $<$ \hyperlink{classlgraph_1_1boolean__path_a98f07b983e0812fd283f16c3871793ef}{n\+\_\+nodes}. 
 \end{DoxyPrecond}
-\hypertarget{classlgraph_1_1boolean__path_ae75e241e99a66c8dbfa328700bb2cdbc}{\index{lgraph\-::boolean\-\_\-path@{lgraph\-::boolean\-\_\-path}!potential\-\_\-length@{potential\-\_\-length}}
-\index{potential\-\_\-length@{potential\-\_\-length}!lgraph::boolean_path@{lgraph\-::boolean\-\_\-path}}
-\subsubsection[{potential\-\_\-length}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ size\-\_\-t {\bf lgraph\-::boolean\-\_\-path}$<$ T $>$\-::potential\-\_\-length (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}}\label{classlgraph_1_1boolean__path_ae75e241e99a66c8dbfa328700bb2cdbc}
+\mbox{\Hypertarget{classlgraph_1_1boolean__path_a64d9fc30eb11b6edec66e0d54e6081b3}\label{classlgraph_1_1boolean__path_a64d9fc30eb11b6edec66e0d54e6081b3}} 
+\index{lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}!potential\+\_\+length@{potential\+\_\+length}}
+\index{potential\+\_\+length@{potential\+\_\+length}!lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}}
+\subsubsection{\texorpdfstring{potential\+\_\+length()}{potential\_length()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+size\+\_\+t \hyperlink{classlgraph_1_1boolean__path}{lgraph\+::boolean\+\_\+path}$<$ T $>$\+::potential\+\_\+length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
 
 
 Returns the maximum number of nodes that could be in the path. 
 
-Basically, returns the size used to initialise it. \hypertarget{classlgraph_1_1boolean__path_af862f948f259138ed21876d0db7066ce}{\index{lgraph\-::boolean\-\_\-path@{lgraph\-::boolean\-\_\-path}!pretty\-\_\-string@{pretty\-\_\-string}}
-\index{pretty\-\_\-string@{pretty\-\_\-string}!lgraph::boolean_path@{lgraph\-::boolean\-\_\-path}}
-\subsubsection[{pretty\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ std\-::string {\bf lgraph\-::boolean\-\_\-path}$<$ T $>$\-::pretty\-\_\-string (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}}\label{classlgraph_1_1boolean__path_af862f948f259138ed21876d0db7066ce}
+Basically, returns the size used to initialise it. \mbox{\Hypertarget{classlgraph_1_1boolean__path_a5c3df2487f9c5b096d845b8d11ba0e0c}\label{classlgraph_1_1boolean__path_a5c3df2487f9c5b096d845b8d11ba0e0c}} 
+\index{lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}!pretty\+\_\+string@{pretty\+\_\+string}}
+\index{pretty\+\_\+string@{pretty\+\_\+string}!lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}}
+\subsubsection{\texorpdfstring{pretty\+\_\+string()}{pretty\_string()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::string \hyperlink{classlgraph_1_1boolean__path}{lgraph\+::boolean\+\_\+path}$<$ T $>$\+::pretty\+\_\+string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
-Formats this path into a string with a 'pretty' format. 
+
+Formats this path into a string with a \textquotesingle{}pretty\textquotesingle{} format. 
 
 \begin{DoxyReturn}{Returns}
-Returns this path formatted into a string that has two parts separated with an 'endl' character. The first is the header indicating the index of the node. The second is either a 0 or a 1 telling whether the corresponding index is in the path or not. 
+Returns this path formatted into a string that has two parts separated with an \textquotesingle{}endl\textquotesingle{} character. The first is the header indicating the index of the node. The second is either a 0 or a 1 telling whether the corresponding index is in the path or not. 
 \end{DoxyReturn}
-\hypertarget{classlgraph_1_1boolean__path_ac4a89490082847487ec6d0bc76d546a0}{\index{lgraph\-::boolean\-\_\-path@{lgraph\-::boolean\-\_\-path}!pretty\-\_\-string@{pretty\-\_\-string}}
-\index{pretty\-\_\-string@{pretty\-\_\-string}!lgraph::boolean_path@{lgraph\-::boolean\-\_\-path}}
-\subsubsection[{pretty\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf lgraph\-::boolean\-\_\-path}$<$ T $>$\-::pretty\-\_\-string (
-\begin{DoxyParamCaption}
-\item[{std\-::string \&}]{s}
-\end{DoxyParamCaption}
-) const}}\label{classlgraph_1_1boolean__path_ac4a89490082847487ec6d0bc76d546a0}
+\mbox{\Hypertarget{classlgraph_1_1boolean__path_afc470414b972269818fa55ff4bad12ee}\label{classlgraph_1_1boolean__path_afc470414b972269818fa55ff4bad12ee}} 
+\index{lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}!pretty\+\_\+string@{pretty\+\_\+string}}
+\index{pretty\+\_\+string@{pretty\+\_\+string}!lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}}
+\subsubsection{\texorpdfstring{pretty\+\_\+string()}{pretty\_string()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \hyperlink{classlgraph_1_1boolean__path}{lgraph\+::boolean\+\_\+path}$<$ T $>$\+::pretty\+\_\+string (\begin{DoxyParamCaption}\item[{std\+::string \&}]{s }\end{DoxyParamCaption}) const}
 
 
-Formats this path into a string with a 'pretty' format. 
+
+Formats this path into a string with a \textquotesingle{}pretty\textquotesingle{} format. 
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt out}  & {\em s} & Stores this path formatted into a string that has two parts separated with an 'endl' character. The first is the header indicating the index of the node. The second is either a 0 or a 1 telling whether the corresponding index is in the path or not. \\
+\mbox{\tt out}  & {\em s} & Stores this path formatted into a string that has two parts separated with an \textquotesingle{}endl\textquotesingle{} character. The first is the header indicating the index of the node. The second is either a 0 or a 1 telling whether the corresponding index is in the path or not. \\
 \hline
 \end{DoxyParams}
-\hypertarget{classlgraph_1_1boolean__path_a322855eaf5660b2f478c95e2ca26e119}{\index{lgraph\-::boolean\-\_\-path@{lgraph\-::boolean\-\_\-path}!set\-\_\-length@{set\-\_\-length}}
-\index{set\-\_\-length@{set\-\_\-length}!lgraph::boolean_path@{lgraph\-::boolean\-\_\-path}}
-\subsubsection[{set\-\_\-length}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf lgraph\-::boolean\-\_\-path}$<$ T $>$\-::set\-\_\-length (
-\begin{DoxyParamCaption}
-\item[{const T \&}]{l}
-\end{DoxyParamCaption}
-)}}\label{classlgraph_1_1boolean__path_a322855eaf5660b2f478c95e2ca26e119}
+\mbox{\Hypertarget{classlgraph_1_1boolean__path_a322855eaf5660b2f478c95e2ca26e119}\label{classlgraph_1_1boolean__path_a322855eaf5660b2f478c95e2ca26e119}} 
+\index{lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}!set\+\_\+length@{set\+\_\+length}}
+\index{set\+\_\+length@{set\+\_\+length}!lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}}
+\subsubsection{\texorpdfstring{set\+\_\+length()}{set\_length()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \hyperlink{classlgraph_1_1boolean__path}{lgraph\+::boolean\+\_\+path}$<$ T $>$\+::set\+\_\+length (\begin{DoxyParamCaption}\item[{const T \&}]{l }\end{DoxyParamCaption})}
+
 
 
 Sets the current length of the the path the value l. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em l} & The value that will replace the current value of \hyperlink{classlgraph_1_1boolean__path_ab298ac156fd7d73e21769fd30b2c5ad1}{path\-\_\-length}. \\
+{\em l} & The value that will replace the current value of \hyperlink{classlgraph_1_1boolean__path_ab298ac156fd7d73e21769fd30b2c5ad1}{path\+\_\+length}. \\
 \hline
 \end{DoxyParams}
-\hypertarget{classlgraph_1_1boolean__path_aa14dc868cb4055a4fa31b8223d41a9e5}{\index{lgraph\-::boolean\-\_\-path@{lgraph\-::boolean\-\_\-path}!size@{size}}
-\index{size@{size}!lgraph::boolean_path@{lgraph\-::boolean\-\_\-path}}
-\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ size\-\_\-t {\bf lgraph\-::boolean\-\_\-path}$<$ T $>$\-::size (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}}\label{classlgraph_1_1boolean__path_aa14dc868cb4055a4fa31b8223d41a9e5}
+\mbox{\Hypertarget{classlgraph_1_1boolean__path_ac87119984b213d8f2f2d9bb2c40c7b8d}\label{classlgraph_1_1boolean__path_ac87119984b213d8f2f2d9bb2c40c7b8d}} 
+\index{lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}!size@{size}}
+\index{size@{size}!lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+size\+\_\+t \hyperlink{classlgraph_1_1boolean__path}{lgraph\+::boolean\+\_\+path}$<$ T $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
 
 
 Returns the number of nodes in the path. 
 
-Returns the value \hyperlink{classlgraph_1_1boolean__path_a98f07b983e0812fd283f16c3871793ef}{n\-\_\-nodes}. \hypertarget{classlgraph_1_1boolean__path_ac661d8bcabc7aa76b44f13edec88ea73}{\index{lgraph\-::boolean\-\_\-path@{lgraph\-::boolean\-\_\-path}!to\-\_\-node\-\_\-path@{to\-\_\-node\-\_\-path}}
-\index{to\-\_\-node\-\_\-path@{to\-\_\-node\-\_\-path}!lgraph::boolean_path@{lgraph\-::boolean\-\_\-path}}
-\subsubsection[{to\-\_\-node\-\_\-path}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf node\-\_\-path}$<$ T $>$ {\bf lgraph\-::boolean\-\_\-path}$<$ T $>$\-::to\-\_\-node\-\_\-path (
-\begin{DoxyParamCaption}
-\item[{const {\bf xxgraph} $\ast$}]{G, }
-\item[{{\bf node}}]{s}
-\end{DoxyParamCaption}
-) const}}\label{classlgraph_1_1boolean__path_ac661d8bcabc7aa76b44f13edec88ea73}
+Returns the value \hyperlink{classlgraph_1_1boolean__path_a98f07b983e0812fd283f16c3871793ef}{n\+\_\+nodes}. \mbox{\Hypertarget{classlgraph_1_1boolean__path_a0e9a6c2a747b7b0c7ad0b7fcceefe7bf}\label{classlgraph_1_1boolean__path_a0e9a6c2a747b7b0c7ad0b7fcceefe7bf}} 
+\index{lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}!to\+\_\+node\+\_\+path@{to\+\_\+node\+\_\+path}}
+\index{to\+\_\+node\+\_\+path@{to\+\_\+node\+\_\+path}!lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}}
+\subsubsection{\texorpdfstring{to\+\_\+node\+\_\+path()}{to\_node\_path()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\hyperlink{classlgraph_1_1node__path}{node\+\_\+path}$<$ T $>$ \hyperlink{classlgraph_1_1boolean__path}{lgraph\+::boolean\+\_\+path}$<$ T $>$\+::to\+\_\+node\+\_\+path (\begin{DoxyParamCaption}\item[{const \hyperlink{classlgraph_1_1xxgraph}{xxgraph} $\ast$}]{G,  }\item[{\hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node}}]{s }\end{DoxyParamCaption}) const}
 
 
-Converts this \hyperlink{classlgraph_1_1boolean__path}{boolean\-\_\-path} to an object of type \hyperlink{classlgraph_1_1node__path}{node\-\_\-path}. 
 
-The conversion is done assuming that the \hyperlink{classlgraph_1_1boolean__path}{boolean\-\_\-path} starts at node {\itshape s}. The result is an object that stores the path as a list of nodes.
+Converts this \hyperlink{classlgraph_1_1boolean__path}{boolean\+\_\+path} to an object of type \hyperlink{classlgraph_1_1node__path}{node\+\_\+path}. 
+
+The conversion is done assuming that the \hyperlink{classlgraph_1_1boolean__path}{boolean\+\_\+path} starts at node {\itshape s}. The result is an object that stores the path as a list of nodes.
 
 
 \begin{DoxyParams}{Parameters}
@@ -397,22 +388,20 @@ The conversion is done assuming that the \hyperlink{classlgraph_1_1boolean__path
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Returns a \hyperlink{classlgraph_1_1node__path}{node\-\_\-path} object equivalent to this boolean path. 
+Returns a \hyperlink{classlgraph_1_1node__path}{node\+\_\+path} object equivalent to this boolean path. 
 \end{DoxyReturn}
-\hypertarget{classlgraph_1_1boolean__path_a6051571fc3d56c7e535c9d3aa984e7b0}{\index{lgraph\-::boolean\-\_\-path@{lgraph\-::boolean\-\_\-path}!to\-\_\-node\-\_\-path@{to\-\_\-node\-\_\-path}}
-\index{to\-\_\-node\-\_\-path@{to\-\_\-node\-\_\-path}!lgraph::boolean_path@{lgraph\-::boolean\-\_\-path}}
-\subsubsection[{to\-\_\-node\-\_\-path}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf lgraph\-::boolean\-\_\-path}$<$ T $>$\-::to\-\_\-node\-\_\-path (
-\begin{DoxyParamCaption}
-\item[{const {\bf xxgraph} $\ast$}]{G, }
-\item[{{\bf node}}]{s, }
-\item[{{\bf node\-\_\-path}$<$ T $>$ \&}]{np}
-\end{DoxyParamCaption}
-) const}}\label{classlgraph_1_1boolean__path_a6051571fc3d56c7e535c9d3aa984e7b0}
+\mbox{\Hypertarget{classlgraph_1_1boolean__path_aee896769bdb13cc9e880e948041c6a6f}\label{classlgraph_1_1boolean__path_aee896769bdb13cc9e880e948041c6a6f}} 
+\index{lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}!to\+\_\+node\+\_\+path@{to\+\_\+node\+\_\+path}}
+\index{to\+\_\+node\+\_\+path@{to\+\_\+node\+\_\+path}!lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}}
+\subsubsection{\texorpdfstring{to\+\_\+node\+\_\+path()}{to\_node\_path()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \hyperlink{classlgraph_1_1boolean__path}{lgraph\+::boolean\+\_\+path}$<$ T $>$\+::to\+\_\+node\+\_\+path (\begin{DoxyParamCaption}\item[{const \hyperlink{classlgraph_1_1xxgraph}{xxgraph} $\ast$}]{G,  }\item[{\hyperlink{namespacelgraph_a397169dd66adf725210a30fb7251773e}{node}}]{s,  }\item[{\hyperlink{classlgraph_1_1node__path}{node\+\_\+path}$<$ T $>$ \&}]{np }\end{DoxyParamCaption}) const}
 
 
-Converts this \hyperlink{classlgraph_1_1boolean__path}{boolean\-\_\-path} to an object of type \hyperlink{classlgraph_1_1node__path}{node\-\_\-path}. 
 
-The conversion is done assuming that the \hyperlink{classlgraph_1_1boolean__path}{boolean\-\_\-path} starts at node {\itshape s}. The result is an object that stores the path as a list of nodes.
+Converts this \hyperlink{classlgraph_1_1boolean__path}{boolean\+\_\+path} to an object of type \hyperlink{classlgraph_1_1node__path}{node\+\_\+path}. 
+
+The conversion is done assuming that the \hyperlink{classlgraph_1_1boolean__path}{boolean\+\_\+path} starts at node {\itshape s}. The result is an object that stores the path as a list of nodes.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -423,71 +412,78 @@ The conversion is done assuming that the \hyperlink{classlgraph_1_1boolean__path
 \mbox{\tt out}  & {\em np} & The path seen as a list of nodes. \\
 \hline
 \end{DoxyParams}
-\hypertarget{classlgraph_1_1boolean__path_aec231697faf9b19bf98002719631494c}{\index{lgraph\-::boolean\-\_\-path@{lgraph\-::boolean\-\_\-path}!to\-\_\-string@{to\-\_\-string}}
-\index{to\-\_\-string@{to\-\_\-string}!lgraph::boolean_path@{lgraph\-::boolean\-\_\-path}}
-\subsubsection[{to\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ std\-::string {\bf lgraph\-::boolean\-\_\-path}$<$ T $>$\-::to\-\_\-string (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}}\label{classlgraph_1_1boolean__path_aec231697faf9b19bf98002719631494c}
+\mbox{\Hypertarget{classlgraph_1_1boolean__path_a28c70d226f016ff660aa12f9ba7ae00e}\label{classlgraph_1_1boolean__path_a28c70d226f016ff660aa12f9ba7ae00e}} 
+\index{lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}!to\+\_\+string@{to\+\_\+string}}
+\index{to\+\_\+string@{to\+\_\+string}!lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}}
+\subsubsection{\texorpdfstring{to\+\_\+string()}{to\_string()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::string \hyperlink{classlgraph_1_1boolean__path}{lgraph\+::boolean\+\_\+path}$<$ T $>$\+::to\+\_\+string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
 
 
 Formats this path into a string with a plain format. 
 
 \begin{DoxyReturn}{Returns}
-Returns this path as a list of 0's and 1's. The i-\/th digit is a 1 if, and only if, the i-\/th vertex is in the path. 
+Returns this path as a list of 0\textquotesingle{}s and 1\textquotesingle{}s. The i-\/th digit is a 1 if, and only if, the i-\/th vertex is in the path. 
 \end{DoxyReturn}
-\hypertarget{classlgraph_1_1boolean__path_ab1bbf257e568c16bdc825ead3bd25590}{\index{lgraph\-::boolean\-\_\-path@{lgraph\-::boolean\-\_\-path}!to\-\_\-string@{to\-\_\-string}}
-\index{to\-\_\-string@{to\-\_\-string}!lgraph::boolean_path@{lgraph\-::boolean\-\_\-path}}
-\subsubsection[{to\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf lgraph\-::boolean\-\_\-path}$<$ T $>$\-::to\-\_\-string (
-\begin{DoxyParamCaption}
-\item[{std\-::string \&}]{s}
-\end{DoxyParamCaption}
-) const}}\label{classlgraph_1_1boolean__path_ab1bbf257e568c16bdc825ead3bd25590}
+\mbox{\Hypertarget{classlgraph_1_1boolean__path_a372b30f0cf0f54f5053cf04e06110ec4}\label{classlgraph_1_1boolean__path_a372b30f0cf0f54f5053cf04e06110ec4}} 
+\index{lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}!to\+\_\+string@{to\+\_\+string}}
+\index{to\+\_\+string@{to\+\_\+string}!lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}}
+\subsubsection{\texorpdfstring{to\+\_\+string()}{to\_string()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \hyperlink{classlgraph_1_1boolean__path}{lgraph\+::boolean\+\_\+path}$<$ T $>$\+::to\+\_\+string (\begin{DoxyParamCaption}\item[{std\+::string \&}]{s }\end{DoxyParamCaption}) const}
+
 
 
 Formats this path into a string with a plain format. 
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt out}  & {\em s} & Stores this path as a list of 0's and 1's. The i-\/th digit is a 1 if, and only if, the i-\/th vertex is in the path. \\
+\mbox{\tt out}  & {\em s} & Stores this path as a list of 0\textquotesingle{}s and 1\textquotesingle{}s. The i-\/th digit is a 1 if, and only if, the i-\/th vertex is in the path. \\
 \hline
 \end{DoxyParams}
 
 
 \subsection{Friends And Related Function Documentation}
-\hypertarget{classlgraph_1_1boolean__path_a3f1b01270c5ffdd0f7ce524dc1e29725}{\index{lgraph\-::boolean\-\_\-path@{lgraph\-::boolean\-\_\-path}!operator$<$$<$@{operator$<$$<$}}
-\index{operator$<$$<$@{operator$<$$<$}!lgraph::boolean_path@{lgraph\-::boolean\-\_\-path}}
-\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T = \-\_\-new\-\_\-$>$ std\-::ostream\& operator$<$$<$ (
-\begin{DoxyParamCaption}
-\item[{std\-::ostream \&}]{os, }
-\item[{const {\bf boolean\-\_\-path}$<$ T $>$ \&}]{bp}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classlgraph_1_1boolean__path_a3f1b01270c5ffdd0f7ce524dc1e29725}
+\mbox{\Hypertarget{classlgraph_1_1boolean__path_a3f1b01270c5ffdd0f7ce524dc1e29725}\label{classlgraph_1_1boolean__path_a3f1b01270c5ffdd0f7ce524dc1e29725}} 
+\index{lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily template$<$class T = \+\_\+new\+\_\+$>$ \\
+std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \hyperlink{classlgraph_1_1boolean__path}{boolean\+\_\+path}$<$ T $>$ \&}]{bp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
 
 
 Outputs this path on a {\itshape ostream} object. 
 
-The format is this path as a string (see \hyperlink{classlgraph_1_1boolean__path_aec231697faf9b19bf98002719631494c}{to\-\_\-string()}) followed by '-\/$>$' and this path's length. 
+The format is this path as a string (see \hyperlink{classlgraph_1_1boolean__path_a28c70d226f016ff660aa12f9ba7ae00e}{to\+\_\+string()}) followed by \textquotesingle{}-\/$>$\textquotesingle{} and this path\textquotesingle{}s length. 
 
 \subsection{Member Data Documentation}
-\hypertarget{classlgraph_1_1boolean__path_a0ea5d4c5f7e445270bb5c0346ec7c150}{\index{lgraph\-::boolean\-\_\-path@{lgraph\-::boolean\-\_\-path}!nodes\-\_\-in\-\_\-path@{nodes\-\_\-in\-\_\-path}}
-\index{nodes\-\_\-in\-\_\-path@{nodes\-\_\-in\-\_\-path}!lgraph::boolean_path@{lgraph\-::boolean\-\_\-path}}
-\subsubsection[{nodes\-\_\-in\-\_\-path}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T = \-\_\-new\-\_\-$>$ {\bf utils\-::static\-\_\-bitset} {\bf lgraph\-::boolean\-\_\-path}$<$ T $>$\-::nodes\-\_\-in\-\_\-path\hspace{0.3cm}{\ttfamily [private]}}}\label{classlgraph_1_1boolean__path_a0ea5d4c5f7e445270bb5c0346ec7c150}
+\mbox{\Hypertarget{classlgraph_1_1boolean__path_a0ea5d4c5f7e445270bb5c0346ec7c150}\label{classlgraph_1_1boolean__path_a0ea5d4c5f7e445270bb5c0346ec7c150}} 
+\index{lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}!nodes\+\_\+in\+\_\+path@{nodes\+\_\+in\+\_\+path}}
+\index{nodes\+\_\+in\+\_\+path@{nodes\+\_\+in\+\_\+path}!lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}}
+\subsubsection{\texorpdfstring{nodes\+\_\+in\+\_\+path}{nodes\_in\_path}}
+{\footnotesize\ttfamily template$<$class T = \+\_\+new\+\_\+$>$ \\
+\hyperlink{classlgraph_1_1utils_1_1static__bitset}{utils\+::static\+\_\+bitset} \hyperlink{classlgraph_1_1boolean__path}{lgraph\+::boolean\+\_\+path}$<$ T $>$\+::nodes\+\_\+in\+\_\+path\hspace{0.3cm}{\ttfamily [private]}}
+
 
 
 The list of nodes as Boolean values. 
 
-\hyperlink{classlgraph_1_1boolean__path_a0ea5d4c5f7e445270bb5c0346ec7c150}{nodes\-\_\-in\-\_\-path}\mbox{[}i\mbox{]} = true if, and only if, i-\/th node of the graph is in the path. \hypertarget{classlgraph_1_1boolean__path_ab298ac156fd7d73e21769fd30b2c5ad1}{\index{lgraph\-::boolean\-\_\-path@{lgraph\-::boolean\-\_\-path}!path\-\_\-length@{path\-\_\-length}}
-\index{path\-\_\-length@{path\-\_\-length}!lgraph::boolean_path@{lgraph\-::boolean\-\_\-path}}
-\subsubsection[{path\-\_\-length}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T = \-\_\-new\-\_\-$>$ T {\bf lgraph\-::boolean\-\_\-path}$<$ T $>$\-::path\-\_\-length\hspace{0.3cm}{\ttfamily [private]}}}\label{classlgraph_1_1boolean__path_ab298ac156fd7d73e21769fd30b2c5ad1}
+\hyperlink{classlgraph_1_1boolean__path_a0ea5d4c5f7e445270bb5c0346ec7c150}{nodes\+\_\+in\+\_\+path}\mbox{[}i\mbox{]} = true if, and only if, i-\/th node of the graph is in the path. \mbox{\Hypertarget{classlgraph_1_1boolean__path_ab298ac156fd7d73e21769fd30b2c5ad1}\label{classlgraph_1_1boolean__path_ab298ac156fd7d73e21769fd30b2c5ad1}} 
+\index{lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}!path\+\_\+length@{path\+\_\+length}}
+\index{path\+\_\+length@{path\+\_\+length}!lgraph\+::boolean\+\_\+path@{lgraph\+::boolean\+\_\+path}}
+\subsubsection{\texorpdfstring{path\+\_\+length}{path\_length}}
+{\footnotesize\ttfamily template$<$class T = \+\_\+new\+\_\+$>$ \\
+T \hyperlink{classlgraph_1_1boolean__path}{lgraph\+::boolean\+\_\+path}$<$ T $>$\+::path\+\_\+length\hspace{0.3cm}{\ttfamily [private]}}
+
 
 
 The total weight of this path. 
 
-If 'p' is the path as a list of edges, then 'path\-\_\-length' equals the sum of weights of all edges in 'p'. 
+If \textquotesingle{}p\textquotesingle{} is the path as a list of edges, then \textquotesingle{}path\+\_\+length\textquotesingle{} equals the sum of weights of all edges in \textquotesingle{}p\textquotesingle{}. 
 
-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-lgraph/data\-\_\-structures/boolean\-\_\-path.\-hpp\item 
-lgraph/data\-\_\-structures/boolean\-\_\-path.\-cpp\end{DoxyCompactItemize}
+lgraph/data\+\_\+structures/boolean\+\_\+path.\+hpp\item 
+lgraph/data\+\_\+structures/boolean\+\_\+path.\+cpp\end{DoxyCompactItemize}

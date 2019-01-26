@@ -1,7 +1,7 @@
 var searchData=
 [
   ['idx',['idx',['../classlgraph_1_1utils_1_1svector.html#a7ef963c079c7dc8a6a559ceef81a241f',1,'lgraph::utils::svector']]],
-  ['included',['included',['../classlgraph_1_1utils_1_1static__bitset.html#a789f2ac0b02c7ecc2e18f6e7a5374869',1,'lgraph::utils::static_bitset']]],
+  ['included',['included',['../classlgraph_1_1utils_1_1static__bitset.html#a28690f7e3bb35b839a80fbb2bcd66389',1,'lgraph::utils::static_bitset']]],
   ['incremental_5fsparse6',['Incremental_Sparse6',['../namespacelgraph_1_1io.html#ad0917668d35430ffe13d455d687be4ffaa08456aea2e82d44d7225c8058694d71',1,'lgraph::io']]],
   ['incremental_5fsparse6_5ffirst',['incremental_sparse6_first',['../namespacelgraph_1_1io.html#a2933ba9e38c072aed5200245d4c910d4',1,'lgraph::io']]],
   ['incremental_5fsparse6_5fheader',['incremental_sparse6_header',['../namespacelgraph_1_1io.html#a22c81bcdaaa74ddd2651a92fde479c61',1,'lgraph::io']]],
@@ -16,7 +16,7 @@ var searchData=
   ['initialise_5fadjacency_5flist',['initialise_adjacency_list',['../classlgraph_1_1xxgraph.html#a682d586f850add8b7e637aeea81b0292',1,'lgraph::xxgraph']]],
   ['initialise_5fparent_5fgraph',['initialise_parent_graph',['../classlgraph_1_1xxgraph.html#a50c658dd39e6b1d38bf7e514daa2f33c',1,'lgraph::xxgraph']]],
   ['initialise_5fweights',['initialise_weights',['../classlgraph_1_1wxgraph.html#a3d0eed0195489df5db3e9383a5c91344',1,'lgraph::wxgraph']]],
-  ['is_5fdirected',['is_directed',['../classlgraph_1_1udgraph.html#a0dbdc44bb09e94a80005cf183de00e58',1,'lgraph::udgraph::is_directed()'],['../classlgraph_1_1uugraph.html#aacea191cad57939a30b06f833e75c6ef',1,'lgraph::uugraph::is_directed()'],['../classlgraph_1_1wdgraph.html#a52a978ce468c14bcf7474f5c2fa3e713',1,'lgraph::wdgraph::is_directed()'],['../classlgraph_1_1wugraph.html#a7b046b2da62a0d9c26e6ec697152aea7',1,'lgraph::wugraph::is_directed()'],['../classlgraph_1_1xxgraph.html#a0a606d77cbbb2efa7056b82c3b8c395c',1,'lgraph::xxgraph::is_directed()']]],
-  ['is_5fweighted',['is_weighted',['../classlgraph_1_1uxgraph.html#a08952515aec4a03dc9fbbfef5e5d35b8',1,'lgraph::uxgraph::is_weighted()'],['../classlgraph_1_1wxgraph.html#a12ed6499d974dafbbca857e00823ab9c',1,'lgraph::wxgraph::is_weighted()'],['../classlgraph_1_1xxgraph.html#a0bd329c5dcbded569658b59462a08acf',1,'lgraph::xxgraph::is_weighted()']]],
+  ['is_5fdirected',['is_directed',['../classlgraph_1_1udgraph.html#ab346eaf76d049a5148ffd87cda7eab6a',1,'lgraph::udgraph::is_directed()'],['../classlgraph_1_1uugraph.html#ab8d27a5e1459960284ac0b334de91ff0',1,'lgraph::uugraph::is_directed()'],['../classlgraph_1_1wdgraph.html#ab167f7c833e7db1a74e65a187f583ed4',1,'lgraph::wdgraph::is_directed()'],['../classlgraph_1_1wugraph.html#a1614f4e23aa04055c64816c001cd093d',1,'lgraph::wugraph::is_directed()'],['../classlgraph_1_1xxgraph.html#a0a606d77cbbb2efa7056b82c3b8c395c',1,'lgraph::xxgraph::is_directed()']]],
+  ['is_5fweighted',['is_weighted',['../classlgraph_1_1uxgraph.html#a8fab8e739e0e74852a1c6de18b2fe6aa',1,'lgraph::uxgraph::is_weighted()'],['../classlgraph_1_1wxgraph.html#a5b1bd3a7ce3c6c628ccde1cf1c2ba130',1,'lgraph::wxgraph::is_weighted()'],['../classlgraph_1_1xxgraph.html#a0bd329c5dcbded569658b59462a08acf',1,'lgraph::xxgraph::is_weighted()']]],
   ['iterator',['iterator',['../classlgraph_1_1utils_1_1svector.html#a518288794e754e27d2e2274ced4485a6',1,'lgraph::utils::svector']]]
 ];
