@@ -36,6 +36,7 @@ double degree(const wxgraph<T> *G, node u);
 template<class T>
 void degree(const wxgraph<T> *G, std::vector<double>& dc);
 
+
 /*  CLOSENESS CENTRALITY */
 
 /**
@@ -75,6 +76,29 @@ template<class T> void closeness(
 	const std::vector<std::vector<T> >& atad,
 	std::vector<double>& cc
 );
+
+/**
+ * @brief Mean closeness centrality of a graph.
+ *
+ * Computes the closeness centrality of each node.
+ *
+ * @param G The weighted graph to be evaluated.
+ * @return Returns the average of the closeness centralities.
+ */
+template<class T>
+double mcc(const wxgraph<T> *G);
+/**
+ * @brief Mean closeness centrality of a graph.
+ *
+ * Uses the parameter @e cc to avoid computing the closeness centrality
+ * of each node.
+ *
+ * @param G The weighted graph to be evaluated.
+ * @param cc @e cc[u] contains the closeness centrality of node @e u.
+ * @return Returns the average of the closeness centralities.
+ */
+template<class T>
+double mcc(const wxgraph<T> *G, const std::vector<double>& cc);
 
 /* BETWEENNESS CENTRALITY */
 

@@ -94,6 +94,19 @@ template<class T> void closeness
 	);
 }
 
+template<class T>
+double mcc(const wxgraph<T> *G) {
+	std::vector<double> cc;
+	closeness(G, cc);
+	return mcc(G, cc);
+}
+
+template<class T>
+double mcc(const wxgraph<T> *G, const std::vector<double>& cc) {
+	double S = std::accumulate(cc.begin(), cc.end(), 0.0);
+	return S/G->n_nodes();
+}
+
 /* BETWEENNES */
 
 template<class T>

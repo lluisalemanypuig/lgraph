@@ -64,17 +64,6 @@ double mean_distance(const uxgraph *G, const std::vector<std::vector<_new_> >& d
 	return m/N;
 }
 
-double mcc(const uxgraph *G) {
-	std::vector<double> cc;
-	centralities::closeness(G, cc);
-	return mcc(G, cc);
-}
-
-double mcc(const uxgraph *G, const std::vector<double>& cc) {
-	double S = std::accumulate(cc.begin(), cc.end(), 0.0);
-	return S/G->n_nodes();
-}
-
 } // -- namespace distance
 } // -- namespace metrics
 } // -- namespace networks	

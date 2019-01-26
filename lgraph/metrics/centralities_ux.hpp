@@ -72,6 +72,27 @@ void closeness(
 	std::vector<double>& cc
 );
 
+/**
+ * @brief Mean closeness centrality of a graph.
+ *
+ * Computes the closeness centrality of each node.
+ *
+ * @param G The graph to be evaluated.
+ * @return Returns the average of the closeness centralities.
+ */
+double mcc(const uxgraph *G);
+/**
+ * @brief Mean closeness centrality of a graph.
+ *
+ * Uses the parameter @e cc to avoid computing the closeness centrality
+ * of each node.
+ *
+ * @param G The graph to be evaluated.
+ * @param cc @e cc[u] contains the closeness centrality of node @e u.
+ * @return Returns the average of the closeness centralities.
+ */
+double mcc(const uxgraph *G, const std::vector<double>& cc);
+
 /* BETWEENNESS CENTRALITY */
 
 /**

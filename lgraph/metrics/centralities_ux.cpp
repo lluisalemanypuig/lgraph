@@ -90,6 +90,17 @@ void closeness(const uxgraph *G, const std::vector<std::vector<_new_> >& ds, std
 	);
 }
 
+double mcc(const uxgraph *G) {
+	std::vector<double> cc;
+	closeness(G, cc);
+	return mcc(G, cc);
+}
+
+double mcc(const uxgraph *G, const std::vector<double>& cc) {
+	double S = std::accumulate(cc.begin(), cc.end(), 0.0);
+	return S/G->n_nodes();
+}
+
 /* BETWEENNES */
 
 double betweenness(const uxgraph *G, node u) {

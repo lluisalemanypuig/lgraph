@@ -67,19 +67,6 @@ double mean_distance(const wxgraph<T> *G, const std::vector<std::vector<T> >& ds
 	return m/N;
 }
 
-template<class T>
-double mcc(const wxgraph<T> *G) {
-	std::vector<double> cc;
-	centralities::closeness(G, cc);
-	return mcc(G, cc);
-}
-
-template<class T>
-double mcc(const wxgraph<T> *G, const std::vector<double>& cc) {
-	double S = std::accumulate(cc.begin(), cc.end(), 0.0);
-	return S/G->n_nodes();
-}
-
 } // -- namespace distance
 } // -- namespace metrics
 } // -- namespace networks
