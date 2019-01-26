@@ -1,6 +1,5 @@
 // C++ inlcudes
 #include <iostream>
-#include <fstream>
 #include <vector>
 using namespace std;
 
@@ -18,7 +17,35 @@ using namespace test_utils;
 
 namespace exe_tests {
 
-err_type ux_distance_node_node__single(const string& graph_type, ifstream& fin) {
+void ux_distance_node_all__single(const uxgraph *G, ifstream& fin) {
+	node u;
+	// read list of nodes
+	while (fin >> u) {
+		vector<_new_> dists;
+		traversal::uxdistance(G, u, dists);
+
+		for (node v = 0; v < G->n_nodes(); ++v) {
+			cout << v << ": " << distout(dists[v]) << endl;
+		}
+	}
+}
+
+void ux_distance_node_all__all(const uxgraph *G, ifstream& fin) {
+	node u;
+	// read list of nodes
+	while (fin >> u) {
+		vector<_new_> dists;
+		vector<size_t> n_paths;
+		traversal::uxdistance(G, u, dists, n_paths);
+
+		for (node v = 0; v < G->n_nodes(); ++v) {
+			cout << v << ": " << distout(dists[v])
+				 << " (" << n_paths[v] << ")" << endl;
+		}
+	}
+}
+
+err_type ux_distance_node_all(const string& graph_type, const string& many, ifstream& fin) {
 	string input_graph, format;
 	size_t n;
 
@@ -26,14 +53,14 @@ err_type ux_distance_node_node__single(const string& graph_type, ifstream& fin) 
 	string field;
 	fin >> field;
 	if (field != "INPUT") {
-		cerr << ERROR("ux_distance_node_node__single.cpp", "ux_distance_node_node__single") << endl;
+		cerr << ERROR("ux_distance_node_all.cpp", "ux_distance_node_all") << endl;
 		cerr << "    Expected field 'INPUT'." << endl;
 		cerr << "    Instead, '" << field << "' was found." << endl;
 		return err_type::test_format_error;
 	}
 	fin >> n;
 	if (n != 1) {
-		cerr << ERROR("ux_distance_node_node__single.cpp", "ux_distance_node_node__single") << endl;
+		cerr << ERROR("ux_distance_node_all.cpp", "ux_distance_node_all") << endl;
 		cerr << "    Only one input file is allowed in this test." << endl;
 		cerr << "    Instead, " << n << " were specified." << endl;
 		return err_type::test_format_error;
@@ -43,7 +70,7 @@ err_type ux_distance_node_node__single(const string& graph_type, ifstream& fin) 
 	// parse body field
 	fin >> field;
 	if (field != "BODY") {
-		cerr << ERROR("ux_distance_node_node__single.cpp", "ux_distance_node_node__single") << endl;
+		cerr << ERROR("ux_distance_node_all.cpp", "ux_distance_node_all") << endl;
 		cerr << "    Expected field 'BODY'." << endl;
 		cerr << "    Instead, '" << field << "' was found." << endl;
 		return err_type::test_format_error;
@@ -57,7 +84,7 @@ err_type ux_distance_node_node__single(const string& graph_type, ifstream& fin) 
 		G = new uugraph();
 	}
 	else {
-		cerr << ERROR("ux_distance_node_node__single.cpp", "ux_distance_node_node__single") << endl;
+		cerr << ERROR("ux_distance_node_all.cpp", "ux_distance_node_all") << endl;
 		cerr << "    Wrong value for parameter 'garph_type'." << endl;
 		cerr << "    Received '" << graph_type << "'." << endl;
 		return err_type::invalid_param;
@@ -66,21 +93,27 @@ err_type ux_distance_node_node__single(const string& graph_type, ifstream& fin) 
 	err_type r = io_wrapper::read_graph(input_graph, format, G);
 	if (r != err_type::no_error) {
 		if (r == err_type::io_error) {
-			cerr << ERROR("ux_distance_node_node__single.cpp", "ux_distance_node_node__single") << endl;
+			cerr << ERROR("ux_distance_node_all.cpp", "ux_distance_node_all") << endl;
 			cerr << "    Could not open file '" << input_graph << "'" << endl;
 		}
 		else if (r == err_type::graph_format_error) {
-			cerr << ERROR("ux_distance_node_node__single.cpp", "ux_distance_node_node__single") << endl;
+			cerr << ERROR("ux_distance_node_all.cpp", "ux_distance_node_all") << endl;
 			cerr << "    Input file format '" << format << "' not supported." << endl;
 		}
 		return r;
 	}
 
-	node u, v;
-	// read pairs of nodes
-	while (fin >> u >> v) {
-		_new_ dist = traversal::uxdistance(G, u, v);
-		cout << distout(dist) << endl;
+	if (many == "single") {
+		ux_distance_node_all__single(G, fin);
+	}
+	else if (many == "all") {
+		ux_distance_node_all__all(G, fin);
+	}
+	else {
+		cerr << ERROR("ux_distance_node_all.cpp", "ux_distance_node_all") << endl;
+		cerr << "    Value of parameter 'many' is not valid." << endl;
+		cerr << "    Received: '" << many << "'." << endl;
+		return err_type::invalid_param;
 	}
 
 	delete G;

@@ -89,28 +89,13 @@ err_type call_ux_path
 	string key5 = keywords[5];
 
 	if (key3 == "node" and key4 == "node") {
-		if (key5 == "single") {
-			return ux_path_node_node__single(graph_type, fin);
-		}
-		if (key5 == "all") {
-			return ux_path_node_node__all(graph_type, fin);
-		}
+		return ux_path_node_node(graph_type, key5, fin);
 	}
 	else if (key3 == "node" and key4 == "all") {
-		if (key5 == "single") {
-			return ux_path_node_all__single(graph_type, fin);
-		}
-		if (key5 == "all") {
-			return ux_path_node_all__all(graph_type, fin);
-		}
+		return ux_path_node_all(graph_type, key5, fin);
 	}
 	else if (key3 == "all" and key4 == "all") {
-		if (key5 == "single") {
-			return ux_path_all_all__single(graph_type, fin);
-		}
-		if (key5 == "all") {
-			return ux_path_all_all__all(graph_type, fin);
-		}
+		return ux_path_all_all(graph_type, key5, fin);
 	}
 
 	cerr << ERROR("parse_keywords.cpp", "call_ux_path") << endl;
@@ -131,28 +116,13 @@ err_type call_ux_distance
 	string key5 = keywords[5];
 
 	if (key3 == "node" and key4 == "node") {
-		if (key5 == "single") {
-			return ux_distance_node_node__single(graph_type, fin);
-		}
-		if (key5 == "all") {
-			return ux_distance_node_node__all(graph_type, fin);
-		}
+		return ux_distance_node_node(graph_type, key5, fin);
 	}
 	else if (key3 == "node" and key4 == "all") {
-		if (key5 == "single") {
-			return ux_distance_node_all__single(graph_type, fin);
-		}
-		if (key5 == "all") {
-			return ux_distance_node_all__all(graph_type, fin);
-		}
+		return ux_distance_node_all(graph_type, key5, fin);
 	}
 	else if (key3 == "all" and key4 == "all") {
-		if (key5 == "single") {
-			return ux_distance_all_all__single(graph_type, fin);
-		}
-		if (key5 == "all") {
-			return ux_distance_all_all__all(graph_type, fin);
-		}
+		return ux_distance_all_all(graph_type, key5, fin);
 	}
 
 	cerr << ERROR("parse_keywords.cpp", "call_ux_distance") << endl;
@@ -200,28 +170,13 @@ err_type call_wx_path
 	string key5 = keywords[5];
 
 	if (key3 == "node" and key4 == "node") {
-		if (key5 == "single") {
-			return wx_path_node_node__single(graph_type, fin);
-		}
-		if (key5 == "all") {
-			return wx_path_node_node__all(graph_type, fin);
-		}
+		return wx_path_node_node(graph_type, key5, fin);
 	}
 	else if (key3 == "node" and key4 == "all") {
-		if (key5 == "single") {
-			return wx_path_node_all__single(graph_type, fin);
-		}
-		if (key5 == "all") {
-			return wx_path_node_all__all(graph_type, fin);
-		}
+		return wx_path_node_all(graph_type, key5, fin);
 	}
 	else if (key3 == "all" and key4 == "all") {
-		if (key5 == "single") {
-			return wx_path_all_all__single(graph_type, fin);
-		}
-		if (key5 == "all") {
-			return wx_path_all_all__all(graph_type, fin);
-		}
+		return wx_path_all_all(graph_type, key5, fin);
 	}
 
 	cerr << ERROR("parse_keywords.cpp", "call_wx_path") << endl;
@@ -242,28 +197,13 @@ err_type call_wx_distance
 	string key5 = keywords[5];
 
 	if (key3 == "node" and key4 == "node") {
-		if (key5 == "single") {
-			return wx_distance_node_node__single(graph_type, fin);
-		}
-		if (key5 == "all") {
-			return wx_distance_node_node__all(graph_type, fin);
-		}
+		return wx_distance_node_node(graph_type, key5, fin);
 	}
 	else if (key3 == "node" and key4 == "all") {
-		if (key5 == "single") {
-			return wx_distance_node_all__single(graph_type, fin);
-		}
-		if (key5 == "all") {
-			return wx_distance_node_all__all(graph_type, fin);
-		}
+		return wx_distance_node_all(graph_type, key5, fin);
 	}
 	else if (key3 == "all" and key4 == "all") {
-		if (key5 == "single") {
-			return wx_distance_all_all__single(graph_type, fin);
-		}
-		if (key5 == "all") {
-			return wx_distance_all_all__all(graph_type, fin);
-		}
+		return wx_distance_all_all(graph_type, key5, fin);
 	}
 
 	cerr << ERROR("parse_keywords.cpp", "call_wx_distance") << endl;
@@ -276,4 +216,4 @@ err_type call_wx_distance
 	return err_type::wrong_keyword;
 }
 
-}
+} // -- namespace exe_tests

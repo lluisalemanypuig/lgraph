@@ -1,5 +1,6 @@
 // C++ inlcudes
 #include <iostream>
+#include <fstream>
 #include <vector>
 using namespace std;
 
@@ -17,7 +18,26 @@ using namespace test_utils;
 
 namespace exe_tests {
 
-err_type wx_distance_all_all__all(const string& graph_type, ifstream& fin) {
+void wx_distance_node_node__single(const wxgraph<float> *G, ifstream& fin) {
+	node u, v;
+	// read pairs of nodes
+	while (fin >> u >> v) {
+		float dist = traversal::wxdistance(G, u, v);
+		cout << distout(dist) << endl;
+	}
+}
+
+void wx_distance_node_node__all(const wxgraph<float> *G, ifstream& fin) {
+	node u, v;
+	// read pairs of nodes
+	while (fin >> u >> v) {
+		size_t n_paths;
+		float dist = traversal::wxdistance(G, u, v, n_paths);
+		cout << distout(dist) << " (" << n_paths << ")" << endl;
+	}
+}
+
+err_type wx_distance_node_node(const string& graph_type, const string& many, ifstream& fin) {
 	string input_graph, format;
 	size_t n;
 
@@ -25,14 +45,14 @@ err_type wx_distance_all_all__all(const string& graph_type, ifstream& fin) {
 	string field;
 	fin >> field;
 	if (field != "INPUT") {
-		cerr << ERROR("wx_distance_all_all__all.cpp", "wx_distance_all_all__all") << endl;
+		cerr << ERROR("wx_distance_node_node.cpp", "wx_distance_node_node") << endl;
 		cerr << "    Expected field 'INPUT'." << endl;
 		cerr << "    Instead, '" << field << "' was found." << endl;
 		return err_type::test_format_error;
 	}
 	fin >> n;
 	if (n != 1) {
-		cerr << ERROR("wx_distance_all_all__all.cpp", "wx_distance_all_all__all") << endl;
+		cerr << ERROR("wx_distance_node_node.cpp", "wx_distance_node_node") << endl;
 		cerr << "    Only one input file is allowed in this test." << endl;
 		cerr << "    Instead, " << n << " were specified." << endl;
 		return err_type::test_format_error;
@@ -42,7 +62,7 @@ err_type wx_distance_all_all__all(const string& graph_type, ifstream& fin) {
 	// parse body field
 	fin >> field;
 	if (field != "BODY") {
-		cerr << ERROR("wx_distance_all_all__all.cpp", "wx_distance_all_all__all") << endl;
+		cerr << ERROR("wx_distance_node_node.cpp", "wx_distance_node_node") << endl;
 		cerr << "    Expected field 'BODY'." << endl;
 		cerr << "    Instead, '" << field << "' was found." << endl;
 		return err_type::test_format_error;
@@ -56,7 +76,7 @@ err_type wx_distance_all_all__all(const string& graph_type, ifstream& fin) {
 		G = new wugraph<float>();
 	}
 	else {
-		cerr << ERROR("wx_distance_all_all__all.cpp", "wx_distance_all_all__all") << endl;
+		cerr << ERROR("wx_distance_node_node.cpp", "wx_distance_node_node") << endl;
 		cerr << "    Wrong value for parameter 'garph_type'." << endl;
 		cerr << "    Received '" << graph_type << "'." << endl;
 		return err_type::invalid_param;
@@ -65,27 +85,27 @@ err_type wx_distance_all_all__all(const string& graph_type, ifstream& fin) {
 	err_type r = io_wrapper::read_graph(input_graph, format, G);
 	if (r != err_type::no_error) {
 		if (r == err_type::io_error) {
-			cerr << ERROR("wx_distance_all_all__all.cpp", "wx_distance_all_all__all") << endl;
+			cerr << ERROR("wx_distance_node_node.cpp", "wx_distance_node_node") << endl;
 			cerr << "    Could not open file '" << input_graph << "'" << endl;
 		}
 		else if (r == err_type::graph_format_error) {
-			cerr << ERROR("wx_distance_all_all__all.cpp", "wx_distance_all_all__all") << endl;
+			cerr << ERROR("wx_distance_node_node.cpp", "wx_distance_node_node") << endl;
 			cerr << "    Input file format '" << format << "' not supported." << endl;
 		}
 		return r;
 	}
 
-	// this test does not have a 'BODY'
-
-	vector<vector<float> > uv_dists;
-	vector<vector<size_t> > n_paths;
-	traversal::wxdistances(G, uv_dists, n_paths);
-	for (node u = 0; u < G->n_nodes(); ++u) {
-		for (node v = 0; v < G->n_nodes(); ++v) {
-			cout << "(" << u << ", " << v << "): "
-				 << distout(uv_dists[u][v]) << " (" << n_paths[u][v] << ")"
-				 << endl;
-		}
+	if (many == "single") {
+		wx_distance_node_node__single(G, fin);
+	}
+	else if (many == "all") {
+		wx_distance_node_node__all(G, fin);
+	}
+	else {
+		cerr << ERROR("wx_distance_node_node.cpp", "wx_distance_node_node") << endl;
+		cerr << "    Value of parameter 'many' is not valid." << endl;
+		cerr << "    Received: '" << many << "'." << endl;
+		return err_type::invalid_param;
 	}
 
 	delete G;

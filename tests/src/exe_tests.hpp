@@ -19,32 +19,20 @@ using namespace std;
 
 namespace exe_tests {
 
-err_type ux_path_node_node__single(const string& graph_type, ifstream& fin);
-err_type ux_path_node_all__single(const string& graph_type, ifstream& fin);
-err_type ux_path_all_all__single(const string& graph_type, ifstream& fin);
-err_type ux_path_node_node__all(const string& graph_type, ifstream& fin);
-err_type ux_path_node_all__all(const string& graph_type, ifstream& fin);
-err_type ux_path_all_all__all(const string& graph_type, ifstream& fin);
+err_type ux_path_node_node(const string& graph_type, const string& many, ifstream& fin);
+err_type ux_path_node_all(const string& graph_type, const string& many, ifstream& fin);
+err_type ux_path_all_all(const string& graph_type, const string& many, ifstream& fin);
 
-err_type ux_distance_node_node__single(const string& graph_type, ifstream& fin);
-err_type ux_distance_node_all__single(const string& graph_type, ifstream& fin);
-err_type ux_distance_all_all__single(const string& graph_type, ifstream& fin);
-err_type ux_distance_node_node__all(const string& graph_type, ifstream& fin);
-err_type ux_distance_node_all__all(const string& graph_type, ifstream& fin);
-err_type ux_distance_all_all__all(const string& graph_type, ifstream& fin);
+err_type ux_distance_node_node(const string& graph_type, const string& many, ifstream& fin);
+err_type ux_distance_node_all(const string& graph_type, const string& many, ifstream& fin);
+err_type ux_distance_all_all(const string& graph_type, const string& many, ifstream& fin);
 
-err_type wx_path_node_node__single(const string& graph_type, ifstream& fin);
-err_type wx_path_node_all__single(const string& graph_type, ifstream& fin);
-err_type wx_path_all_all__single(const string& graph_type, ifstream& fin);
-err_type wx_path_node_node__all(const string& graph_type, ifstream& fin);
-err_type wx_path_node_all__all(const string& graph_type, ifstream& fin);
-err_type wx_path_all_all__all(const string& graph_type, ifstream& fin);
+err_type wx_path_node_node(const string& graph_type, const string& many, ifstream& fin);
+err_type wx_path_node_all(const string& graph_type, const string& many, ifstream& fin);
+err_type wx_path_all_all(const string& graph_type, const string& many, ifstream& fin);
 
-err_type wx_distance_node_node__single(const string& graph_type, ifstream& fin);
-err_type wx_distance_node_all__single(const string& graph_type, ifstream& fin);
-err_type wx_distance_all_all__single(const string& graph_type, ifstream& fin);
-err_type wx_distance_node_node__all(const string& graph_type, ifstream& fin);
-err_type wx_distance_node_all__all(const string& graph_type, ifstream& fin);
-err_type wx_distance_all_all__all(const string& graph_type, ifstream& fin);
+err_type wx_distance_node_node(const string& graph_type, const string& many, ifstream& fin);
+err_type wx_distance_node_all(const string& graph_type, const string& many, ifstream& fin);
+err_type wx_distance_all_all(const string& graph_type, const string& many, ifstream& fin);
 
 } // -- namespace exe_tests
