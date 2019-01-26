@@ -2,9 +2,6 @@ TODO LIST
 =========
 
 [] 23/01/2018 ->
-Finish the tests for all currently implemented algorithms
-
-[] 23/01/2018 ->
 The value of epsilon used for floating point value comparison in the
 weighted path-finding algorithms should a user's choice.
 
@@ -29,12 +26,6 @@ Implement algorithm to find max-flow min-cut of a weighted graph.
 Implement algorithm to find the topological order of the
 nodes of a graph
 
-[] 20/02/2018 ->
-Use sparse matrixes to implement adjacency matrix when needed
-
-[] 20/02/2018 ->
-Implement sparse matrix class.
-
 [] 26/02/2018 ->
 Implement an algorithm to find all connected components of a graph.
 	[] 23/08/2018 ->
@@ -42,12 +33,75 @@ Implement an algorithm to find all connected components of a graph.
 	[v] 23/08/2018 -> 01/10/2018
 	Undirected graphs
 
-[] 24/02/2018 ->
-Counting triangles:
-Move current algorithm to a namespace
-Implement triangle counting algorithm using adjacency matrix
-Paper:			http://www.d.umn.edu/math/Technical%20Reports/Technical%20Reports%202007-/TR%202012/yang.pdf
-Implementation:	https://www.geeksforgeeks.org/number-of-triangles-in-a-undirected-graph/
+[] 21/01/2019 ->
+Finish the tests for all currently implemented algorithms (as of 21/01/2019)
+	[v] 21/01/2019 -> 25/01/2019
+	Distances in
+		- unweighted undirected
+		- unweighted directed
+		- weighted undirected
+		- weighted directed
+	[v] 21/01/2019 -> 25/01/2019
+	Paths in
+		- unweighted undirected
+		- unweighted directed
+		- weighted undirected
+		- weighted directed
+	[] 26/01/2019 ->
+	Input and output of
+		- graph6
+		- digraph6
+		- sparse6
+	[] 26/01/2019 ->
+	Connected components of
+		- directed graphs
+		- undirected graphs
+	[] 26/01/2019 ->
+	Centrality metrics
+		- Degree
+			* unweighted undirected
+			* unweighted directed
+			* weighted undirected
+			* weighted directed
+		- Closeness
+			* unweighted undirected
+			* unweighted directed
+			* weighted undirected
+			* weighted directed
+		- Mean Closeness
+			* unweighted undirected
+			* unweighted directed
+			* weighted undirected
+			* weighted directed
+		- Betweenness
+			* unweighted undirected
+			* unweighted directed
+			* weighted undirected
+			* weighted directed
+	[] 26/01/2019 ->
+	Clustering metrics
+		- Global Clustering Coefficient
+			* unweighted undirected
+			* unweighted directed
+			* weighted undirected
+			* weighted directed
+		- Mean Local Clustering Coefficient
+			* unweighted undirected
+			* unweighted directed
+			* weighted undirected
+			* weighted directed
+	[] 26/01/2019 ->
+	Distance metrics
+		- Maximum distance
+			* unweighted undirected
+			* unweighted directed
+			* weighted undirected
+			* weighted directed
+		- Mean distance
+			* unweighted undirected
+			* unweighted directed
+			* weighted undirected
+			* weighted directed
 
 [v] 23/08/2018 -> 24/08/2018
 Refactor code for generating graphs. Make a directory called
@@ -56,7 +110,6 @@ Each directory should have another subdirectory called random_graphs.
 Example:
 generate/switching.hpp
 generate/switching.cpp
-
 generate/classic/{...}
 generate/social/{...}
 
@@ -94,34 +147,12 @@ Implement generic DFS
 [v] 16/02/2018 -> 05/03/2018
 Implement the boolean path using actual bitsets (not vector<bool>)
 
-[X] 26/02/2018 ->
-Implement betweennes centrality metric (that uses a boolean path)
-** Edge betweenness *may* be defined as an average of the betweenness
-centrality of its endpoints. Already solved.
-	[X] 26/02/2018 ->
-	For a single edge
-	[X] 26/02/2018 ->
-	For all edges of a graph
-
 [v] 16/02/2018 -> 26/02/2018
 Implement betweennes centrality metric (that uses a boolean path)
 	[v] 16/02/2018 -> 26/02/2018
 	For a single vertex
 	[v] 16/02/2018 -> 26/02/2018
 	For all vertices of a graph
-
-[X] 13/02/2018 ->
-Implement betweennes centrality metric
-** This is solved when using boolean paths
-	[X] 13/02/2018 ->
-	For a single vertex
-	[X] 13/02/2018 ->
-	For all vertices of a graph
-
-[X] 20/02/2018 -> 20/02/2018
-Do not use a vertex-all method to count the number of shortest paths
-from node to node.
-** We need to traverse all the graph apparently
 
 [v] 20/02/2018 -> 25/02/2018
 Implement algorithm to enumerate all shortest paths:
