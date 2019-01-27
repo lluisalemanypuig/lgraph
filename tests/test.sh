@@ -49,7 +49,7 @@ function exe_no_valgrind {
 		
 		DIFF=$(diff <(echo "$BASE_CONTENTS") <(echo "$PROG_OUT"))
 		if [ ! -z "$DIFF" ]; then
-			echo -en "\e[1;4;31mDifferent outputs\e[0m"
+			echo -en "\e[1;4;31mDifferent outputs\e[0m "
 			echo "See result in $TEST_OUT.$ID"
 			echo "$PROG_OUT" > $TEST_OUT.$ID
 		else
@@ -61,6 +61,8 @@ function exe_no_valgrind {
 }
 
 function exe_group {
+	group=$1
+	
 	# make sure that we have something to test
 	if [ -z "$group" ]; then
 		echo -e "\e[1;4;31mError:\e[0m" "Group of tests was not set" 
@@ -72,6 +74,14 @@ function exe_group {
 	input_group=inputs/$group
 	output_group=outputs/$group
 	if [ ! -d $input_group ]; then
+		echo -en "\e[1;4;31mError:\e[0m" "Could not find input group "
+		echo -e "\e[2;4;37m$input_group\e[0m"
+		exit
+	fi
+	if [ ! -d $output_group ]; then
+		echo -en "\e[1;4;31mError:\e[0m" "Output directory "
+		echo -en "\e[2;4;37m$input_group\e[0m"
+		echo -e " does not exist"
 		exit
 	fi
 
@@ -97,7 +107,7 @@ function exe_group {
 	TEST_ERR=.tmp.$id.err
 	VALG_ERR=.vgd.$id.err
 
-	progress=$1
+	progress=$2
 	echo -e "\e[1;1;33mExecuting tests in \e[0m""\e[1;2;33m$input_group\e[0m ($progress)"
 
 	# execute all tests
@@ -140,7 +150,8 @@ ALL_GROUPS=("unweighted/undirected/paths"		\
 			"weighted/undirected/paths"			\
 			"weighted/undirected/distances"		\
 			"weighted/directed/paths"			\
-			"weighted/directed/distances")
+			"weighted/directed/distances"		\
+			"unweighted/undirected/metrics"		)
 
 EXE_FILE="tests-debug/tests"
 # Make sure that executable file exists.
@@ -152,11 +163,11 @@ fi
 # show usage
 usage=0
 # the group of tests to be executed
-group=""
+single_group=""
 # use valgrind
 use_valgrind=0
 # execute all tests?
-exe_all=0
+all_groups=0
 
 for i in "$@"; do
 	case $i in
@@ -167,12 +178,12 @@ for i in "$@"; do
 		;;
 		
 		--group=*)
-		group="${i#*=}"
+		single_group="${i#*=}"
 		shift
 		;;
 		
 		--all)
-		exe_all=1
+		all_groups=1
 		shift
 		;;
 		--valgrind)
@@ -192,22 +203,21 @@ if [ $usage = 1 ]; then
 	exit
 fi
 
-if [ $exe_all = 1 ] && [ ! -z $group ]; then
+if [ $all_groups = 1 ] && [ ! -z $single_group ]; then
 	echo -e "\e[1;4;31mError:\e[0m" "Conflicting options '--all' and '--group'"
 	exit
 fi
 
-if [ $exe_all = 1 ]; then
+if [ $all_groups = 1 ]; then
 	echo -e "\e[1;1;36mExecuting all tests\e[0m"
 	n_groups="${#ALL_GROUPS[@]}"
 	ith_test=1
 	for g in "${ALL_GROUPS[@]}"; do
-		group=$g
-		exe_group "$ith_test/$n_groups"
+		exe_group $g "$ith_test/$n_groups"
 		ith_test=$(($ith_test + 1))
 	done
 else
-	exe_group "1/1"
+	exe_group $single_group "1/1"
 fi
 
 

@@ -24,7 +24,7 @@ void ux_distance_node_node__single(const uxgraph *G, ifstream& fin) {
 	// read pairs of nodes
 	while (fin >> u >> v) {
 		_new_ dist = traversal::uxdistance(G, u, v);
-		cout << floatpointout(dist) << endl;
+		cout << floatpointout_dist(dist) << endl;
 	}
 }
 
@@ -34,11 +34,13 @@ void ux_distance_node_node__all(const uxgraph *G, ifstream& fin) {
 	while (fin >> u >> v) {
 		size_t n_paths;
 		_new_ dist = traversal::uxdistance(G, u, v, n_paths);
-		cout << floatpointout(dist) << " (" << n_paths << ")" << endl;
+		cout << floatpointout_dist(dist) << " (" << n_paths << ")" << endl;
 	}
 }
 
-err_type ux_distance_node_node(const string& graph_type, const string& many, ifstream& fin) {
+err_type ux_distance_node_node
+(const string& graph_type, const string& many, ifstream& fin)
+{
 	string input_graph, format;
 	size_t n;
 

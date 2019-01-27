@@ -15,6 +15,7 @@ using namespace lgraph;
 #include "src/definitions.hpp"
 #include "src/io_wrapper.hpp"
 #include "src/test_utils.hpp"
+using namespace test_utils;
 
 namespace exe_tests {
 
@@ -31,7 +32,8 @@ void ux_path_node_all__single(const uxgraph *G, ifstream& fin) {
 					cout << v << ": No path" << endl;
 				}
 				else {
-					cout << v << ": " << ps[v].to_string() << "; " << ps[v].get_length() << endl;
+					cout << v << ": " << ps[v].to_string() << "; "
+						 << ps[v].get_length() << endl;
 				}
 			}
 		}
@@ -66,7 +68,9 @@ void ux_path_node_all__all(const uxgraph *G, ifstream& fin) {
 	}
 }
 
-err_type ux_path_node_all(const string& graph_type, const string& many, ifstream& fin) {
+err_type ux_path_node_all
+(const string& graph_type, const string& many, ifstream& fin)
+{
 	string input_graph, format;
 	size_t n;
 

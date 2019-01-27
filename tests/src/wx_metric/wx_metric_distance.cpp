@@ -25,7 +25,7 @@ void wx_metric_distance_max(const wxgraph<float> *G) {
 
 void wx_metric_distance_mean(const wxgraph<float> *G) {
 	float d = networks::metrics::distance::max_distance(G);
-	cout << floatpointout(d) << endl;
+	cout << floatpointout_metric(d) << endl;
 }
 
 err_type wx_metric_distance

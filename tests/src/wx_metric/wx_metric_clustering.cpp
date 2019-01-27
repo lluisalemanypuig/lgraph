@@ -20,12 +20,12 @@ namespace exe_tests {
 
 void wx_metric_clustering_gcc(const wxgraph<float> *G) {
 	double c = networks::metrics::clustering::gcc(G);
-	cout << floatpointout(c) << endl;
+	cout << floatpointout_metric(c) << endl;
 }
 
 void wx_metric_clustering_mlcc(const wxgraph<float> *G) {
 	double c = networks::metrics::clustering::mlcc(G);
-	cout << floatpointout(c) << endl;
+	cout << floatpointout_metric(c) << endl;
 }
 
 err_type wx_metric_clustering

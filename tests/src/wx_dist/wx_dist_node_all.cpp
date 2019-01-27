@@ -26,7 +26,7 @@ void wx_distance_node_all__single(const wxgraph<float> *G, ifstream& fin) {
 		traversal::wxdistance(G, u, dists);
 
 		for (node v = 0; v < G->n_nodes(); ++v) {
-			cout << v << ": " << floatpointout(dists[v]) << endl;
+			cout << v << ": " << floatpointout_dist(dists[v]) << endl;
 		}
 	}
 }
@@ -40,13 +40,15 @@ void wx_distance_node_all__all(const wxgraph<float> *G, ifstream& fin) {
 		traversal::wxdistance(G, u, dists, n_paths);
 
 		for (node v = 0; v < G->n_nodes(); ++v) {
-			cout << v << ": " << floatpointout(dists[v])
+			cout << v << ": " << floatpointout_dist(dists[v])
 				 << " (" << n_paths[v] << ")" << endl;
 		}
 	}
 }
 
-err_type wx_distance_node_all(const string& graph_type, const string& many, ifstream& fin) {
+err_type wx_distance_node_all
+(const string& graph_type, const string& many, ifstream& fin)
+{
 	string input_graph, format;
 	size_t n;
 

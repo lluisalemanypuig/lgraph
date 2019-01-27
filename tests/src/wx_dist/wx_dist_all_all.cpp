@@ -24,7 +24,7 @@ void wx_distance_all_all__single(const wxgraph<float> *G) {
 	for (node u = 0; u < G->n_nodes(); ++u) {
 		for (node v = 0; v < G->n_nodes(); ++v) {
 			cout << "(" << u << ", " << v << "): "
-				 << floatpointout(uv_dists[u][v]) << endl;
+				 << floatpointout_dist(uv_dists[u][v]) << endl;
 		}
 	}
 }
@@ -36,13 +36,16 @@ void wx_distance_all_all__all(const wxgraph<float> *G) {
 	for (node u = 0; u < G->n_nodes(); ++u) {
 		for (node v = 0; v < G->n_nodes(); ++v) {
 			cout << "(" << u << ", " << v << "): "
-				 << floatpointout(uv_dists[u][v]) << " (" << n_paths[u][v] << ")"
+				 << floatpointout_dist(uv_dists[u][v])
+				 << " (" << n_paths[u][v] << ")"
 				 << endl;
 		}
 	}
 }
 
-err_type wx_distance_all_all(const string& graph_type, const string& many, ifstream& fin) {
+err_type wx_distance_all_all
+(const string& graph_type, const string& many, ifstream& fin)
+{
 	string input_graph, format;
 	size_t n;
 

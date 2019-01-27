@@ -50,10 +50,6 @@ void get_keywords(const string& type, vector<string>& keywords) {
 }
 
 int main(int argc, char *argv[]) {
-	// set precision of cout
-	cout.setf(ios::fixed);
-	cout.precision(FV_PREC);
-
 	// error checking
 	if (argc == 1) {
 		cerr << ERROR("main.cpp", "main") << endl;

@@ -1,0 +1,3 @@
+TYPE unweighted-undirected-distance-all-all-all
+INPUT 1 graphs/random-00-uu-02.el edge-list
+BODY

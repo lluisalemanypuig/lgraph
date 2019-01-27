@@ -15,6 +15,7 @@ using namespace lgraph;
 #include "src/definitions.hpp"
 #include "src/io_wrapper.hpp"
 #include "src/test_utils.hpp"
+using namespace test_utils;
 
 namespace exe_tests {
 
@@ -32,7 +33,7 @@ void wx_path_node_all__single(const wxgraph<float> *G, ifstream& fin) {
 				}
 				else {
 					cout << v << ": " << ps[v].to_string() << "; "
-						 << ps[v].get_length() << endl;
+						 << floatpointout_dist(ps[v].get_length()) << endl;
 				}
 			}
 		}
@@ -57,7 +58,7 @@ void wx_path_node_all__all(const wxgraph<float> *G, ifstream& fin) {
 				for (const node_path<float>& p : ps) {
 					cout << v << ": "
 						 << p.to_string() << "; "
-						 << p.get_length() << endl;
+						 << floatpointout_dist(p.get_length()) << endl;
 				}
 			}
 			else {
@@ -67,7 +68,9 @@ void wx_path_node_all__all(const wxgraph<float> *G, ifstream& fin) {
 	}
 }
 
-err_type wx_path_node_all(const string& graph_type, const string& many, ifstream& fin) {
+err_type wx_path_node_all
+(const string& graph_type, const string& many, ifstream& fin)
+{
 	string input_graph, format;
 	size_t n;
 

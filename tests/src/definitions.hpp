@@ -1,13 +1,13 @@
 #pragma once
 
-// C inlcudes
-#include <stddef.h>
+// C++ inlcudes
+#include <cstdint>
 
 #define ERROR(file, func) \
 	"Error [file " << file << ", function '" \
 	<< func << "', line " << __LINE__ << "]:"
 
-#define FV_PREC 3
+#define INVALID_KEYWORD "¡@/#/?234!"
 
 enum class err_type : int8_t {
 	// The test completed successfully

@@ -25,7 +25,7 @@ void ux_metric_distance_max(const uxgraph* G) {
 
 void ux_metric_distance_mean(const uxgraph* G) {
 	double d = networks::metrics::distance::max_distance(G);
-	cout << floatpointout(d) << endl;
+	cout << floatpointout_metric(d) << endl;
 }
 
 err_type ux_metric_distance

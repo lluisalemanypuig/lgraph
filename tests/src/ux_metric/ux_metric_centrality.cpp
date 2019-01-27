@@ -20,10 +20,10 @@ namespace exe_tests {
 
 void ux_metric_centrality_degree__single(const uxgraph *G, ifstream& fin) {
 	node u;
-	fin >> u;
-
-	double d = networks::metrics::centralities::degree(G, u);
-	cout << floatpointout(d) << endl;
+	while (fin >> u) {
+		double d = networks::metrics::centralities::degree(G, u);
+		cout << floatpointout_metric(d) << endl;
+	}
 }
 
 void ux_metric_centrality_degree__all(const uxgraph *G) {
@@ -31,16 +31,16 @@ void ux_metric_centrality_degree__all(const uxgraph *G) {
 
 	networks::metrics::centralities::degree(G, dc);
 	for (node u = 0; u < G->n_nodes(); ++u) {
-		cout << u << ": " << floatpointout(dc[u]) << endl;
+		cout << u << ": " << floatpointout_metric(dc[u]) << endl;
 	}
 }
 
 void ux_metric_centrality_closeness__single(const uxgraph *G, ifstream& fin) {
 	node u;
-	fin >> u;
-
-	double c = networks::metrics::centralities::closeness(G, u);
-	cout << floatpointout(c) << endl;
+	while (fin >> u) {
+		double c = networks::metrics::centralities::closeness(G, u);
+		cout << floatpointout_metric(c) << endl;
+	}
 }
 
 void ux_metric_centrality_closeness__all(const uxgraph *G) {
@@ -48,16 +48,16 @@ void ux_metric_centrality_closeness__all(const uxgraph *G) {
 
 	networks::metrics::centralities::closeness(G, cc);
 	for (node u = 0; u < G->n_nodes(); ++u) {
-		cout << u << ": " << floatpointout(cc[u]) << endl;
+		cout << u << ": " << floatpointout_metric(cc[u]) << endl;
 	}
 }
 
 void ux_metric_centrality_betweenness__single(const uxgraph *G, ifstream& fin) {
 	node u;
-	fin >> u;
-
-	double b = networks::metrics::centralities::betweenness(G, u);
-	cout << floatpointout(b) << endl;
+	while (fin >> u) {
+		double b = networks::metrics::centralities::betweenness(G, u);
+		cout << floatpointout_metric(b) << endl;
+	}
 }
 
 void ux_metric_centrality_betweenness__all(const uxgraph *G) {
@@ -65,13 +65,13 @@ void ux_metric_centrality_betweenness__all(const uxgraph *G) {
 
 	networks::metrics::centralities::betweenness(G, bc);
 	for (node u = 0; u < G->n_nodes(); ++u) {
-		cout << u << ": " << floatpointout(bc[u]) << endl;
+		cout << u << ": " << floatpointout_metric(bc[u]) << endl;
 	}
 }
 
 void ux_metric_centrality_mcc(const uxgraph* G) {
 	double d = networks::metrics::centralities::mcc(G);
-	cout << floatpointout(d) << endl;
+	cout << floatpointout_metric(d) << endl;
 }
 
 err_type ux_metric_centrality
@@ -134,11 +134,13 @@ err_type ux_metric_centrality
 		return r;
 	}
 
-	if (many != "single" and many != "all") {
-		cerr << ERROR("ux_metric_centrality.cpp", "ux_metric_centrality") << endl;
-		cerr << "    Wrong value for parameter 'many'." << endl;
-		cerr << "    Received '" << many << "'." << endl;
-		return err_type::invalid_param;
+	if (c == "degree" or c == "closeness" or c == "betweenness") {
+		if (many != "single" and many != "all") {
+			cerr << ERROR("ux_metric_centrality.cpp", "ux_metric_centrality") << endl;
+			cerr << "    Wrong value for parameter 'many'." << endl;
+			cerr << "    Received '" << many << "'." << endl;
+			return err_type::invalid_param;
+		}
 	}
 
 	if (c == "degree") {

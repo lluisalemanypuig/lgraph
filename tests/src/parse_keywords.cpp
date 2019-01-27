@@ -150,7 +150,10 @@ err_type call_ux_metric
 	string metric = keywords[i];
 	string metric_type = keywords[i + 1];
 	if (metric == "centrality") {
-		string all_single = keywords[i + 2];
+		string all_single = INVALID_KEYWORD;
+		if (i + 2 < keywords.size()) {
+			all_single = keywords[i + 2];
+		}
 		return ux_metric_centrality(graph_type, metric_type, all_single, fin);
 	}
 	if (metric == "clustering") {
@@ -259,7 +262,10 @@ err_type call_wx_metric
 	string metric = keywords[i];
 	string metric_type = keywords[i + 1];
 	if (metric == "centrality") {
-		string all_single = keywords[i + 2];
+		string all_single = INVALID_KEYWORD;
+		if (keywords.size() < i + 2) {
+			all_single = keywords[i + 2];
+		}
 		return wx_metric_centrality(graph_type, metric_type, all_single, fin);
 	}
 	if (metric == "clustering") {

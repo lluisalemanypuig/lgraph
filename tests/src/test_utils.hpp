@@ -20,13 +20,27 @@ bool comp_wx_paths
 (const lgraph::node_path<float>& p, const lgraph::node_path<float>& q);
 
 template<typename T>
-std::string floatpointout(T d) {
+std::string floatpointout_dist(T d) {
+	if (d == std::numeric_limits<T>::max()) {
+		return "inf";
+	}
+	std::stringstream out;
+	out.setf(std::ios::fixed);
+	out.precision(3);
+	out << d;
+	std::string d_str = out.str();
+	return d_str;
+}
+
+template<typename T>
+std::string floatpointout_metric(T d) {
 	if (d == std::numeric_limits<T>::max()) {
 		return "inf";
 	}
 	std::ostringstream out;
-	out.precision(FV_PREC);
-	out << std::fixed << d;
+	out.setf(std::ios::fixed);
+	out.precision(8);
+	out << d;
 	return out.str();
 }
 

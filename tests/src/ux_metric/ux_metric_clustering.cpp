@@ -20,12 +20,12 @@ namespace exe_tests {
 
 void ux_metric_clustering_gcc(const uxgraph *G) {
 	double c = networks::metrics::clustering::gcc(G);
-	cout << floatpointout(c) << endl;
+	cout << floatpointout_metric(c) << endl;
 }
 
 void ux_metric_clustering_mlcc(const uxgraph *G) {
 	double c = networks::metrics::clustering::mlcc(G);
-	cout << floatpointout(c) << endl;
+	cout << floatpointout_metric(c) << endl;
 }
 
 err_type ux_metric_clustering
