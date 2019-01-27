@@ -35,6 +35,6 @@ template<typename T> inline T inf_t() { return std::numeric_limits<T>::max(); }
  *
  * _new_ stands for Null Edge Weight.
  */
-typedef uint32_t _new_;
+typedef uint64_t _new_;
 
 } // -- namespace lgraph

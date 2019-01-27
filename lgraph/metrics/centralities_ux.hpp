@@ -87,8 +87,7 @@ void closeness(
 /**
  * @brief Mean closeness centrality of a graph.
  *
- * Computes the closeness centrality of each node.
- *
+ * Computes the distance between all pairs of nodes.
  * @param G The graph to be evaluated.
  * @return Returns the average of the closeness centralities.
  */

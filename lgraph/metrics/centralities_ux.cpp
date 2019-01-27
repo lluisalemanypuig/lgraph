@@ -1,6 +1,7 @@
 #include <lgraph/metrics/centralities_ux.hpp>
 
 // C++ includes
+#include <iostream>
 #include <numeric>
 using namespace std;
 
@@ -21,7 +22,7 @@ double degree(const uxgraph *G, node u) {
 }
 
 void degree(const uxgraph *G, std::vector<double>& dc) {
-	std::vector<node> nds;
+	vector<node> nds;
 	G->nodes(nds);
 
 	// number of nodes minus 1
@@ -45,14 +46,15 @@ void degree(const uxgraph *G, std::vector<double>& dc) {
 /* CLOSENESS */
 
 double closeness(const uxgraph *G, node u) {
-	std::vector<_new_> ds;
+	vector<_new_> ds;
 	traversal::uxdistance(G, u, ds);
-	double sum = std::accumulate
+	double sum = accumulate
 	(
 		ds.begin(), ds.end(), 0.0,
 		[](double acc, _new_ d) {
-			// if d is infinite 1.0/d equals 0:n no need to divide
-			if (d != inf_t<_new_>() and d > 0) {
+			// when d == inf, there is not path, so we
+			// should not accumulate this distance
+			if (d != inf_t<_new_>()) {
 				acc += static_cast<double>(d);
 			}
 			return acc;
@@ -62,12 +64,17 @@ double closeness(const uxgraph *G, node u) {
 }
 
 void closeness(const uxgraph *G, std::vector<double>& cc) {
-	std::vector<std::vector<_new_> > ds;
+	vector<vector<_new_> > ds;
 	traversal::uxdistances(G, ds);
 	return closeness(G, ds, cc);
 }
 
-void closeness(const uxgraph *G, const std::vector<std::vector<_new_> >& ds, std::vector<double>& cc) {
+void closeness(
+	const uxgraph *G,
+	const std::vector<std::vector<_new_> >& ds,
+	std::vector<double>& cc
+)
+{
 	transform(
 		// iterate through all nodes
 		ds.begin(), ds.end(),
@@ -76,38 +83,60 @@ void closeness(const uxgraph *G, const std::vector<std::vector<_new_> >& ds, std
 		back_inserter(cc),
 
 		// calculate closeness centrality
-		[&](const std::vector<_new_>& ds_i) {
-			double sum = std::accumulate
+		[&](const vector<_new_>& ds_i) {
+			double sum = accumulate
 			(
 				ds_i.begin(), ds_i.end(), 0.0,
 				[](double acc, _new_ d) {
-					if (d != inf_t<_new_>() and d > 0) {
+					// when d == inf, there is not path, so we
+					// should not accumulate this distance
+					if (d != inf_t<_new_>()) {
 						acc += static_cast<double>(d);
 					}
 					return acc;
 				}
 			);
-
 			return 1.0/(sum/(G->n_nodes() - 1));
 		}
 	);
 }
 
 double mcc(const uxgraph *G) {
-	std::vector<double> cc;
-	closeness(G, cc);
-	return mcc(G, cc);
+	vector<vector<_new_> > ds;
+	traversal::uxdistances(G, ds);
+	// compute sum of all the distance values.
+
+	double sum = accumulate(
+		ds.begin(), ds.end(), 0.0,
+		[](double acc, const vector<_new_>& v) -> double {
+			// sum of a row, accumulate values below infinte
+			_new_ s = accumulate(
+				v.begin(), v.end(), static_cast<_new_>(0),
+				[](_new_ acc_inner, _new_ d) -> _new_ {
+					if (d != inf_t<_new_>()) {
+						acc_inner += d;
+					}
+					return acc_inner;
+				}
+			);
+			// sum of inverse of distances
+			return acc + 1.0/s;
+		}
+	);
+
+	double n = static_cast<double>(G->n_nodes());
+	return ((n - 1.0)/n)*sum;
 }
 
 double mcc(const uxgraph *G, const std::vector<double>& cc) {
-	double S = std::accumulate(cc.begin(), cc.end(), 0.0);
+	double S = accumulate(cc.begin(), cc.end(), 0.0);
 	return S/G->n_nodes();
 }
 
 /* BETWEENNES */
 
 double betweenness(const uxgraph *G, node u) {
-	std::vector<std::vector<boolean_path_set<_new_> > > all_to_all_paths;
+	vector<vector<boolean_path_set<_new_> > > all_to_all_paths;
 	traversal::uxpaths(G, all_to_all_paths);
 	return betweenness(G, all_to_all_paths, u);
 }
@@ -151,7 +180,7 @@ double betweenness(
 }
 
 void betweenness(const uxgraph *G, std::vector<double>& bc) {
-	std::vector<std::vector<boolean_path_set<_new_> > > all_to_all_paths;
+	vector<vector<boolean_path_set<_new_> > > all_to_all_paths;
 	traversal::uxpaths(G, all_to_all_paths);
 	betweenness(G, all_to_all_paths, bc);
 }
@@ -166,9 +195,9 @@ void betweenness(
 
 	// amount of shortest paths between s and t in
 	// which vertices of the graph lie on
-	std::vector<size_t> g_st_i(N);
+	vector<size_t> g_st_i(N);
 	// initialise data
-	bc = std::vector<double>(N, 0);
+	bc = vector<double>(N, 0);
 
 	for (node s = 0; s < N; ++s) {
 		for (node t = s; t < N; ++t) {
@@ -183,7 +212,7 @@ void betweenness(
 			}
 
 			// set vector to 0
-			std::fill(g_st_i.begin(), g_st_i.end(), 0);
+			fill(g_st_i.begin(), g_st_i.end(), 0);
 
 			for (node u = 0; u < N; ++u) {
 				for (const boolean_path<_new_>& bp : paths[s][t]) {
