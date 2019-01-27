@@ -1,0 +1,3 @@
+TYPE unweighted-undirected-metric-centrality-mcc
+INPUT 1 graphs/smallnet-00-uu-02.el edge-list
+BODY
