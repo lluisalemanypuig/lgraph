@@ -1,2 +1,4 @@
 \form#0:$ 0 \le u,v < n$
 \form#1:$0 \le u,v < n$
+\form#2:$v_i$
+\form#3:$C_i = \left( \frac{1}{n - 1} \sum_{j=1}^n \frac{1}{d_{ij}} \right)^{-1}$
