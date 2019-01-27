@@ -1,9 +1,12 @@
 #include <lgraph/metrics/distance_ux.hpp>
 
+// C++ includes
+#include <numeric>
+using namespace std;
+
 // lgraph includes
 #include <lgraph/graph_traversal/traversal_ux.hpp>
 #include <lgraph/metrics/centralities_ux.hpp>
-#include <lgraph/utils/definitions.hpp>
 
 namespace lgraph {
 namespace networks {

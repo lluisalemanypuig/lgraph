@@ -1,5 +1,8 @@
 #include <lgraph/metrics/centralities_ux.hpp>
 
+// C++ includes
+#include <numeric>
+
 // lgraph includes
 #include <lgraph/graph_traversal/traversal_wx.hpp>
 
