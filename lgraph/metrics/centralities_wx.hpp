@@ -36,11 +36,16 @@ double degree(const wxgraph<T> *G, node u);
 template<class T>
 void degree(const wxgraph<T> *G, std::vector<double>& dc);
 
-
 /*  CLOSENESS CENTRALITY */
 
 /**
- * @brief Closeness centrality of a node.
+ * @brief Closeness centrality of all nodes in a graph.
+ *
+ * The centrality of a node \f$v_i\f$ is defined as:
+ *
+ * \f$C_i = \left( \frac{1}{n - 1} \sum_{j=1}^n \frac{1}{d_{ij}} \right)^{-1}\f$
+ *
+ * Computes the distance between each pair of nodes in the graph.
  * @param G The weighted graph to be evaluated.
  * @param u The node to be evaluated.
  * @return Returns the closeness centrality of a node.
@@ -51,8 +56,12 @@ double closeness(const wxgraph<T> *G, node u);
 /**
  * @brief Closeness centrality of all nodes in a graph.
  *
- * Computes the distance between each pair of nodes in the graph.
+ * The centrality of a node \f$v_i\f$ is defined as:
  *
+ * \f$C_i = \left( \frac{1}{n - 1} \sum_{j=1}^n \frac{1}{d_{ij}} \right)^{-1}\f$
+ *
+ * Uses the parameter @e atad to avoit computing the all-to-all distances
+ * (the distance between each pair of nodes).
  * @param[in] G The weighted graph to be evaluated.
  * @param[out] cc The @e i-th position contains the
  * closeness centrality of the @e i-th node.

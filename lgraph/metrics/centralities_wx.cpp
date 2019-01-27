@@ -55,7 +55,7 @@ double closeness(const wxgraph<T> *G, node u) {
 		[](double acc, _new_ d) {
 			// if d is infinite 1.0/d equals 0:n no need to divide
 			if (d != inf_t<_new_>() and d > 0) {
-				acc += 1.0/d;
+				acc += static_cast<double>(d);
 			}
 			return acc;
 		}
@@ -87,7 +87,7 @@ template<class T> void closeness
 				ds_i.begin(), ds_i.end(), 0.0,
 				[](double acc, _new_ d) {
 					if (d != inf_t<_new_>() and d > 0) {
-						acc += 1.0/d;
+						acc += static_cast<double>(d);
 					}
 					return acc;
 				}

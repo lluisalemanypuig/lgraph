@@ -53,12 +53,11 @@ double closeness(const uxgraph *G, node u) {
 		[](double acc, _new_ d) {
 			// if d is infinite 1.0/d equals 0:n no need to divide
 			if (d != inf_t<_new_>() and d > 0) {
-				acc += 1.0/d;
+				acc += static_cast<double>(d);
 			}
 			return acc;
 		}
 	);
-
 	return 1.0/(sum/(G->n_nodes() - 1));
 }
 
@@ -83,7 +82,7 @@ void closeness(const uxgraph *G, const std::vector<std::vector<_new_> >& ds, std
 				ds_i.begin(), ds_i.end(), 0.0,
 				[](double acc, _new_ d) {
 					if (d != inf_t<_new_>() and d > 0) {
-						acc += 1.0/d;
+						acc += static_cast<double>(d);
 					}
 					return acc;
 				}
