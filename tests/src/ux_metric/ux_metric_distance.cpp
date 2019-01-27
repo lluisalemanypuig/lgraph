@@ -28,11 +28,6 @@ void ux_metric_distance_mean(const uxgraph* G) {
 	cout << floatpointout(d) << endl;
 }
 
-void ux_metric_distance_mcc(const uxgraph* G) {
-	double d = networks::metrics::distance::mcc(G);
-	cout << floatpointout(d) << endl;
-}
-
 err_type ux_metric_distance
 (const string& graph_type, const string& c, ifstream& fin)
 {
@@ -98,9 +93,6 @@ err_type ux_metric_distance
 	}
 	else if (c == "mean") {
 		ux_metric_distance_mean(G);
-	}
-	else if (c == "mcc") {
-		ux_metric_distance_mcc(G);
 	}
 	else {
 		cerr << ERROR("ux_metric_distance.cpp", "ux_metric_distance") << endl;

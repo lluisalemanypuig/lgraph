@@ -69,6 +69,11 @@ void ux_metric_centrality_betweenness__all(const uxgraph *G) {
 	}
 }
 
+void ux_metric_centrality_mcc(const uxgraph* G) {
+	double d = networks::metrics::centralities::mcc(G);
+	cout << floatpointout(d) << endl;
+}
+
 err_type ux_metric_centrality
 (const string& graph_type, const string& c, const string& many, ifstream& fin)
 {
@@ -159,6 +164,9 @@ err_type ux_metric_centrality
 		else if (many == "all") {
 			ux_metric_centrality_betweenness__all(G);
 		}
+	}
+	else if (c == "mcc") {
+		ux_metric_centrality_mcc(G);
 	}
 	else {
 		cerr << ERROR("ux_metric_centrality.cpp", "ux_metric_centrality") << endl;

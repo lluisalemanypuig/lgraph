@@ -69,6 +69,11 @@ void wx_metric_centrality_betweenness__all(const wxgraph<float> *G) {
 	}
 }
 
+void wx_metric_centrality_mcc(const wxgraph<float> *G) {
+	double d = networks::metrics::centralities::mcc(G);
+	cout << floatpointout(d) << endl;
+}
+
 err_type wx_metric_centrality
 (const string& graph_type, const string& c, const string& many, ifstream& fin)
 {
@@ -152,6 +157,9 @@ err_type wx_metric_centrality
 		else if (many == "all") {
 			wx_metric_centrality_betweenness__all(G);
 		}
+	}
+	else if (c == "mcc") {
+		wx_metric_centrality_mcc(G);
 	}
 	else {
 		cerr << ERROR("wx_metric_centrality.cpp", "wx_metric_centrality") << endl;
