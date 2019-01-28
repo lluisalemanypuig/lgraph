@@ -2,3 +2,14 @@
 \form#1:$0 \le u,v < n$
 \form#2:$v_i$
 \form#3:$C_i = \left( \frac{1}{n - 1} \sum_{j=1}^n \frac{1}{d_{ij}} \right)^{-1}$
+\form#4:$d_{ij}$
+\form#5:$i$
+\form#6:$j$
+\form#7:$s \le t$
+\form#8:$B_i^*$
+\form#9:$ B_i = \sum_{j < k} \frac{g_{jk}(i)}{g_{jk}} $
+\form#10:$B_i^* = B_i \cdot {n - 1 \choose 2}^{-1}$
+\form#11:$n$
+\form#12:$g_{jk}(i)$
+\form#13:$k$
+\form#14:$g_{jk}$

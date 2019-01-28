@@ -55,7 +55,7 @@ double closeness(const uxgraph *G, node u);
 /**
  * @brief Closeness centrality of all nodes in a graph.
  *
- * See @ref closeness(const uxgraph, node) for the details on this centrality's
+ * See @ref closeness(const uxgraph*, node) for the details on this centrality's
  * definition.
  *
  * Computes the distance between each pair of nodes in the graph.
@@ -68,7 +68,7 @@ void closeness(const uxgraph *G, std::vector<double>& cc);
 /**
  * @brief Closeness centrality of all nodes in a graph.
  *
- * See @ref closeness(const uxgraph, node) for the details on this centrality's
+ * See @ref closeness(const uxgraph*, node) for the details on this centrality's
  * definition.
  *
  * Uses the parameter @e atad to avoid computing the all-to-all distances
@@ -121,9 +121,8 @@ double mcc(const uxgraph *G, const std::vector<double>& cc);
  *
  * The expression for this centrality \f$B_i^*\f$ is as follows:
  *
- * \f$ B_i = \sum_{j < k} \frac{g_{jk}(i)}{g_{jk}} \f$
- *
- * \f$B_i^* = B_i \cdot \binom{n - 1}{2}^{-1}\f$
+ * \f$ B_i = \sum_{j < k} \frac{g_{jk}(i)}{g_{jk}} \f$,
+ * \f$B_i^* = B_i \cdot {n - 1 \choose 2}^{-1}\f$
  *
  * where \f$n\f$ is the number of nodes, \f$g_{jk}(i)\f$ is the number of
  * shortest paths from \f$j\f$ to \f$k\f$ through \f$i\f$, and \f$g_{jk}\f$ is
@@ -143,7 +142,7 @@ double betweenness(const uxgraph *G, node u);
 /**
  * @brief Betweenness centrality of a node.
  *
- * See @ref betweenness(const uxgraph, node) for the details on this centrality's
+ * See @ref betweenness(const uxgraph*, node) for the details on this centrality's
  * definition.
  *
  * This uses the parameter @e paths to avoid computing all the shortest paths between
@@ -165,7 +164,7 @@ double betweenness(
 /**
  * @brief Betweenness centrality of all nodes in a graph.
  *
- * See @ref betweenness(const uxgraph, node) for the details on this centrality's
+ * See @ref betweenness(const uxgraph*, node) for the details on this centrality's
  * definition.
  *
  * This function computes all shortest paths between each pair of nodes.
@@ -178,7 +177,7 @@ void betweenness(const uxgraph *G, std::vector<double>& bc);
 /**
  * @brief Betweenness centrality of all nodes in a graph.
  *
- * See @ref betweenness(const uxgraph, node) for the details on this centrality's
+ * See @ref betweenness(const uxgraph*, node) for the details on this centrality's
  * definition.
  *
  * This uses the parameter @e paths to avoid computing all the shortest paths between

@@ -190,10 +190,12 @@ template&lt;class T &gt; </div>
 <li>Any path from vertex 's' to vertex 't' is considered to include both endpoints.</li>
 <li>The equation to calculate the centrality also considers paths from any vertex to itself.</li>
 </ul>
-<p>Furthermore, only the pairs of vertices (s,t) with s &lt;= t are considered. Finally, this metric is also normalised.</p>
+<p>Furthermore, only the pairs of vertices (s,t) with <img class="formulaInl" alt="$s \le t$" src="form_7.png"/> are considered. Finally, this metric is also normalised.</p>
+<p>The expression for this centrality <img class="formulaInl" alt="$B_i^*$" src="form_8.png"/> is as follows:</p>
+<p><img class="formulaInl" alt="$ B_i = \sum_{j &lt; k} \frac{g_{jk}(i)}{g_{jk}} $" src="form_9.png"/>, <img class="formulaInl" alt="$B_i^* = B_i \cdot {n - 1 \choose 2}^{-1}$" src="form_10.png"/></p>
+<p>where <img class="formulaInl" alt="$n$" src="form_11.png"/> is the number of nodes, <img class="formulaInl" alt="$g_{jk}(i)$" src="form_12.png"/> is the number of shortest paths from <img class="formulaInl" alt="$j$" src="form_6.png"/> to <img class="formulaInl" alt="$k$" src="form_13.png"/> through <img class="formulaInl" alt="$i$" src="form_5.png"/>, and <img class="formulaInl" alt="$g_{jk}$" src="form_14.png"/> is the number of shortest paths from <img class="formulaInl" alt="$j$" src="form_6.png"/> to <img class="formulaInl" alt="$k$" src="form_13.png"/>.</p>
 <p>[Newman, 2010] Newman, M. E. J. (2010). Networks. An introduction. Oxford University Press, Oxford.</p>
-<p>This function computes all shortest paths between each pair of nodes.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>This function computes all shortest paths between each pair of nodes. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">G</td><td>The weighted graph to be evaluated. </td></tr>
     <tr><td class="paramname">u</td><td>The node to be evaluated. </td></tr>
@@ -204,8 +206,55 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="a0834cb72864b1bdf574c212c5cafbce9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0834cb72864b1bdf574c212c5cafbce9">&#9670;&nbsp;</a></span>betweenness() <span class="overload">[2/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double lgraph::networks::metrics::centralities::betweenness </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classlgraph_1_1uxgraph.html">uxgraph</a> *&#160;</td>
+          <td class="paramname"><em>G</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacelgraph.html#a397169dd66adf725210a30fb7251773e">node</a>&#160;</td>
+          <td class="paramname"><em>u</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Betweenness centrality of a node. </p>
+<p>This centrality measure is implemented following the recommendations given in [Newman, 2010]:</p><ul>
+<li>Any path from vertex 's' to vertex 't' is considered to include both endpoints.</li>
+<li>The equation to calculate the centrality also considers paths from any vertex to itself.</li>
+</ul>
+<p>Furthermore, only the pairs of vertices (s,t) with <img class="formulaInl" alt="$s \le t$" src="form_7.png"/> are considered. Finally, this metric is also normalised.</p>
+<p>The expression for this centrality <img class="formulaInl" alt="$B_i^*$" src="form_8.png"/> is as follows:</p>
+<p><img class="formulaInl" alt="$ B_i = \sum_{j &lt; k} \frac{g_{jk}(i)}{g_{jk}} $" src="form_9.png"/>, <img class="formulaInl" alt="$B_i^* = B_i \cdot {n - 1 \choose 2}^{-1}$" src="form_10.png"/></p>
+<p>where <img class="formulaInl" alt="$n$" src="form_11.png"/> is the number of nodes, <img class="formulaInl" alt="$g_{jk}(i)$" src="form_12.png"/> is the number of shortest paths from <img class="formulaInl" alt="$j$" src="form_6.png"/> to <img class="formulaInl" alt="$k$" src="form_13.png"/> through <img class="formulaInl" alt="$i$" src="form_5.png"/>, and <img class="formulaInl" alt="$g_{jk}$" src="form_14.png"/> is the number of shortest paths from <img class="formulaInl" alt="$j$" src="form_6.png"/> to <img class="formulaInl" alt="$k$" src="form_13.png"/>.</p>
+<p>[Newman, 2010] Newman, M. E. J. (2010). Networks. An introduction. Oxford University Press, Oxford.</p>
+<p>This function computes all shortest paths between each pair of nodes. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">G</td><td>The unweighted graph to be evaluated. </td></tr>
+    <tr><td class="paramname">u</td><td>The node to be evaluated. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the betweenness centrality of a node, considering that a path between <em>u</em> and <em>v</em> contains both <em>u</em> and <em>v</em>. </dd></dl>
+
+</div>
+</div>
 <a id="a22d289500772bb1c1c40f705f8cfcdf0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22d289500772bb1c1c40f705f8cfcdf0">&#9670;&nbsp;</a></span>betweenness() <span class="overload">[2/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a22d289500772bb1c1c40f705f8cfcdf0">&#9670;&nbsp;</a></span>betweenness() <span class="overload">[3/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -239,62 +288,12 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Betweenness centrality of a node. </p>
-<p>This centrality measure is implemented following the recommendations given in [Newman, 2010]:</p><ul>
-<li>Any path from vertex 's' to vertex 't' is considered to include both endpoints.</li>
-<li>The equation to calculate the centrality also considers paths from any vertex to itself.</li>
-</ul>
-<p>Furthermore, only the pairs of vertices (s,t) with s &lt;= t are considered. Finally, this metric is also normalised.</p>
-<p>[Newman, 2010] Newman, M. E. J. (2010). Networks. An introduction. Oxford University Press, Oxford.</p>
+<p>See <a class="el" href="namespacelgraph_1_1networks_1_1metrics_1_1centralities.html#a5a8a94d9361a49ffa657d8d6541be4be">betweenness(const wxgraph&lt;T&gt;*, node)</a> for the details on this centrality's definition.</p>
 <p>This uses the parameter <em>paths</em> to avoid computing all the shortest paths between all pair of nodes.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">G</td><td>The weighted graph to be evaluated. </td></tr>
     <tr><td class="paramname">paths</td><td><em>paths</em>[u][v] contains all shortest paths between <em>u</em> and <em>v</em> for 0 &lt;= <em>u</em> , <em>v</em> &lt; <em>G.n_nodes()</em>. </td></tr>
-    <tr><td class="paramname">u</td><td>The node to be evaluated. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns the betweenness centrality of a node, considering that a path between <em>u</em> and <em>v</em> contains both <em>u</em> and <em>v</em>. </dd></dl>
-
-</div>
-</div>
-<a id="a0834cb72864b1bdf574c212c5cafbce9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0834cb72864b1bdf574c212c5cafbce9">&#9670;&nbsp;</a></span>betweenness() <span class="overload">[3/8]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double lgraph::networks::metrics::centralities::betweenness </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classlgraph_1_1uxgraph.html">uxgraph</a> *&#160;</td>
-          <td class="paramname"><em>G</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="namespacelgraph.html#a397169dd66adf725210a30fb7251773e">node</a>&#160;</td>
-          <td class="paramname"><em>u</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Betweenness centrality of a node. </p>
-<p>This centrality measure is implemented following the recommendations given in [Newman, 2010]:</p><ul>
-<li>Any path from vertex 's' to vertex 't' is considered to include both endpoints.</li>
-<li>The equation to calculate the centrality also considers paths from any vertex to itself.</li>
-</ul>
-<p>Furthermore, only the pairs of vertices (s,t) with s &lt;= t are considered. Finally, this metric is also normalised.</p>
-<p>[Newman, 2010] Newman, M. E. J. (2010). Networks. An introduction. Oxford University Press, Oxford.</p>
-<p>This function computes all shortest paths between each pair of nodes.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">G</td><td>The unweighted graph to be evaluated. </td></tr>
     <tr><td class="paramname">u</td><td>The node to be evaluated. </td></tr>
   </table>
   </dd>
@@ -336,12 +335,7 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Betweenness centrality of a node. </p>
-<p>This centrality measure is implemented following the recommendations given in [Newman, 2010]:</p><ul>
-<li>Any path from vertex 's' to vertex 't' is considered to include both endpoints.</li>
-<li>The equation to calculate the centrality also considers paths from any vertex to itself.</li>
-</ul>
-<p>Furthermore, only the pairs of vertices (s,t) with s &lt;= t are considered. Finally, this metric is also normalised.</p>
-<p>[Newman, 2010] Newman, M. E. J. (2010). Networks. An introduction. Oxford University Press, Oxford.</p>
+<p>See <a class="el" href="namespacelgraph_1_1networks_1_1metrics_1_1centralities.html#a0834cb72864b1bdf574c212c5cafbce9">betweenness(const uxgraph*, node)</a> for the details on this centrality's definition.</p>
 <p>This uses the parameter <em>paths</em> to avoid computing all the shortest paths between all pair of nodes.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -355,8 +349,47 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="a9bc71e78d93bb18cd0b6d69c7c88da8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bc71e78d93bb18cd0b6d69c7c88da8a">&#9670;&nbsp;</a></span>betweenness() <span class="overload">[5/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lgraph::networks::metrics::centralities::betweenness </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classlgraph_1_1uxgraph.html">uxgraph</a> *&#160;</td>
+          <td class="paramname"><em>G</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>bc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Betweenness centrality of all nodes in a graph. </p>
+<p>See <a class="el" href="namespacelgraph_1_1networks_1_1metrics_1_1centralities.html#a0834cb72864b1bdf574c212c5cafbce9">betweenness(const uxgraph*, node)</a> for the details on this centrality's definition.</p>
+<p>This function computes all shortest paths between each pair of nodes.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">G</td><td>The unweighted graph to be evaluated. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">bc</td><td><em>bc</em>[i] contains the betweenness centrality of the <em>i-th</em> node. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="adbfe6a6a80259a6c75c63ca60813b0f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbfe6a6a80259a6c75c63ca60813b0f8">&#9670;&nbsp;</a></span>betweenness() <span class="overload">[5/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adbfe6a6a80259a6c75c63ca60813b0f8">&#9670;&nbsp;</a></span>betweenness() <span class="overload">[6/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -384,12 +417,7 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Betweenness centrality of all nodes in a graph. </p>
-<p>This centrality measure is implemented following the recommendations given in [Newman, 2010]:</p><ul>
-<li>Any path from vertex 's' to vertex 't' is considered to include both endpoints.</li>
-<li>The equation to calculate the centrality also considers paths from any vertex to itself.</li>
-</ul>
-<p>Furthermore, only the pairs of vertices (s,t) with s &lt;= t are considered. Finally, this metric is also normalised.</p>
-<p>[Newman, 2010] Newman, M. E. J. (2010). Networks. An introduction. Oxford University Press, Oxford.</p>
+<p>See <a class="el" href="namespacelgraph_1_1networks_1_1metrics_1_1centralities.html#a5a8a94d9361a49ffa657d8d6541be4be">betweenness(const wxgraph&lt;T&gt;*, node)</a> for the details on this centrality's definition.</p>
 <p>This function computes all shortest paths between each pair of nodes.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -402,7 +430,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="aef9634512e57101c088177e0875ed937"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef9634512e57101c088177e0875ed937">&#9670;&nbsp;</a></span>betweenness() <span class="overload">[6/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aef9634512e57101c088177e0875ed937">&#9670;&nbsp;</a></span>betweenness() <span class="overload">[7/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -436,61 +464,12 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Betweenness centrality of all nodes in a graph. </p>
-<p>This centrality measure is implemented following the recommendations given in [Newman, 2010]:</p><ul>
-<li>Any path from vertex 's' to vertex 't' is considered to include both endpoints.</li>
-<li>The equation to calculate the centrality also considers paths from any vertex to itself.</li>
-</ul>
-<p>Furthermore, only the pairs of vertices (s,t) with s &lt;= t are considered. Finally, this metric is also normalised.</p>
-<p>[Newman, 2010] Newman, M. E. J. (2010). Networks. An introduction. Oxford University Press, Oxford.</p>
+<p>See <a class="el" href="namespacelgraph_1_1networks_1_1metrics_1_1centralities.html#a5a8a94d9361a49ffa657d8d6541be4be">betweenness(const wxgraph&lt;T&gt;*, node)</a> for the details on this centrality's definition.</p>
 <p>This uses the parameter <em>paths</em> to avoid computing all the shortest paths between all pair of nodes.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">G</td><td>The weighted graph to be evaluated. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">paths</td><td><em>paths</em>[u][v] contains all shortest paths between <em>u</em> and <em>v</em> for 0 &lt;= <em>u</em> , <em>v</em> &lt; <em>G.n_nodes()</em>. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">bc</td><td><em>bc</em>[i] contains the betweenness centrality of the <em>i-th</em> node. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a9bc71e78d93bb18cd0b6d69c7c88da8a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9bc71e78d93bb18cd0b6d69c7c88da8a">&#9670;&nbsp;</a></span>betweenness() <span class="overload">[7/8]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void lgraph::networks::metrics::centralities::betweenness </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classlgraph_1_1uxgraph.html">uxgraph</a> *&#160;</td>
-          <td class="paramname"><em>G</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; double &gt; &amp;&#160;</td>
-          <td class="paramname"><em>bc</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Betweenness centrality of all nodes in a graph. </p>
-<p>This centrality measure is implemented following the recommendations given in [Newman, 2010]:</p><ul>
-<li>Any path from vertex 's' to vertex 't' is considered to include both endpoints.</li>
-<li>The equation to calculate the centrality also considers paths from any vertex to itself.</li>
-</ul>
-<p>Furthermore, only the pairs of vertices (s,t) with s &lt;= t are considered. Finally, this metric is also normalised.</p>
-<p>[Newman, 2010] Newman, M. E. J. (2010). Networks. An introduction. Oxford University Press, Oxford.</p>
-<p>This function computes all shortest paths between each pair of nodes.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">G</td><td>The unweighted graph to be evaluated. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">bc</td><td><em>bc</em>[i] contains the betweenness centrality of the <em>i-th</em> node. </td></tr>
   </table>
   </dd>
@@ -531,12 +510,7 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Betweenness centrality of all nodes in a graph. </p>
-<p>This centrality measure is implemented following the recommendations given in [Newman, 2010]:</p><ul>
-<li>Any path from vertex 's' to vertex 't' is considered to include both endpoints.</li>
-<li>The equation to calculate the centrality also considers paths from any vertex to itself.</li>
-</ul>
-<p>Furthermore, only the pairs of vertices (s,t) with s &lt;= t are considered. Finally, this metric is also normalised.</p>
-<p>[Newman, 2010] Newman, M. E. J. (2010). Networks. An introduction. Oxford University Press, Oxford.</p>
+<p>See <a class="el" href="namespacelgraph_1_1networks_1_1metrics_1_1centralities.html#a0834cb72864b1bdf574c212c5cafbce9">betweenness(const uxgraph*, node)</a> for the details on this centrality's definition.</p>
 <p>This uses the parameter <em>paths</em> to avoid computing all the shortest paths between all pair of nodes.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -578,6 +552,7 @@ template&lt;class T &gt; </div>
 <p>Closeness centrality of a node. </p>
 <p>The centrality of a node <img class="formulaInl" alt="$v_i$" src="form_2.png"/> is defined as:</p>
 <p><img class="formulaInl" alt="$C_i = \left( \frac{1}{n - 1} \sum_{j=1}^n \frac{1}{d_{ij}} \right)^{-1}$" src="form_3.png"/></p>
+<p>where <img class="formulaInl" alt="$d_{ij}$" src="form_4.png"/> is the shortest distance between nodes <img class="formulaInl" alt="$i$" src="form_5.png"/> and <img class="formulaInl" alt="$j$" src="form_6.png"/>.</p>
 <p>Computes the distance between each pair of nodes in the graph. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">G</td><td>The unweighted graph to be evaluated. </td></tr>
@@ -658,8 +633,7 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Closeness centrality of all nodes in a graph. </p>
-<p>The centrality of a node <img class="formulaInl" alt="$v_i$" src="form_2.png"/> is defined as:</p>
-<p><img class="formulaInl" alt="$C_i = \left( \frac{1}{n - 1} \sum_{j=1}^n \frac{1}{d_{ij}} \right)^{-1}$" src="form_3.png"/></p>
+<p>See <a class="el" href="namespacelgraph_1_1networks_1_1metrics_1_1centralities.html#a5e567539ccb6396bfb47ba2173a0cc4c">closeness(const uxgraph*, node)</a> for the details on this centrality's definition.</p>
 <p>Computes the distance between each pair of nodes in the graph. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">G</td><td>The unweighted graph to be evaluated. </td></tr>
@@ -699,8 +673,7 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Closeness centrality of all nodes in a graph. </p>
-<p>The centrality of a node <img class="formulaInl" alt="$v_i$" src="form_2.png"/> is defined as:</p>
-<p><img class="formulaInl" alt="$C_i = \left( \frac{1}{n - 1} \sum_{j=1}^n \frac{1}{d_{ij}} \right)^{-1}$" src="form_3.png"/></p>
+<p>See <a class="el" href="namespacelgraph_1_1networks_1_1metrics_1_1centralities.html#a641608dcaecba5d3636237bd15da2e96" title="Closeness centrality of all nodes in a graph. ">closeness(const wxgraph&lt;T&gt;*, node)</a> for the details on this centrality's definition.</p>
 <p>Uses the parameter <em>atad</em> to avoit computing the all-to-all distances (the distance between each pair of nodes). </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">G</td><td>The weighted graph to be evaluated. </td></tr>
@@ -744,9 +717,8 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Closeness centrality of all nodes in a graph. </p>
-<p>The centrality of a node <img class="formulaInl" alt="$v_i$" src="form_2.png"/> is defined as:</p>
-<p><img class="formulaInl" alt="$C_i = \left( \frac{1}{n - 1} \sum_{j=1}^n \frac{1}{d_{ij}} \right)^{-1}$" src="form_3.png"/></p>
-<p>Uses the parameter <em>atad</em> to avoit computing the all-to-all distances (the distance between each pair of nodes). </p><dl class="params"><dt>Parameters</dt><dd>
+<p>See <a class="el" href="namespacelgraph_1_1networks_1_1metrics_1_1centralities.html#a5e567539ccb6396bfb47ba2173a0cc4c">closeness(const uxgraph*, node)</a> for the details on this centrality's definition.</p>
+<p>Uses the parameter <em>atad</em> to avoid computing the all-to-all distances (the distance between each pair of nodes). </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">G</td><td>The unweighted graph to be evaluated. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">atad</td><td>The matrix with the distance between each pair of nodes. </td></tr>
@@ -882,8 +854,45 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="a371fb57a5a7b42017baa3ef52a9e28a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a371fb57a5a7b42017baa3ef52a9e28a6">&#9670;&nbsp;</a></span>degree() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lgraph::networks::metrics::centralities::degree </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classlgraph_1_1uxgraph.html">uxgraph</a> *&#160;</td>
+          <td class="paramname"><em>G</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>dc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Normalised degree centrality of all nodes in a graph. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">G</td><td>The unweighted graph to be evaluated. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dc</td><td>The i-th position contains the normalised degree centrality of the i-th node. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a20747beaa4dd97bc96cf153afecc464e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20747beaa4dd97bc96cf153afecc464e">&#9670;&nbsp;</a></span>degree() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a20747beaa4dd97bc96cf153afecc464e">&#9670;&nbsp;</a></span>degree() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -914,43 +923,6 @@ template&lt;class T &gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">G</td><td>The weighted graph to be evaluated. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">dc</td><td>The i-th position contains the normalised degree centrality of the i-th node. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a371fb57a5a7b42017baa3ef52a9e28a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a371fb57a5a7b42017baa3ef52a9e28a6">&#9670;&nbsp;</a></span>degree() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void lgraph::networks::metrics::centralities::degree </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classlgraph_1_1uxgraph.html">uxgraph</a> *&#160;</td>
-          <td class="paramname"><em>G</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; double &gt; &amp;&#160;</td>
-          <td class="paramname"><em>dc</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Normalised degree centrality of all nodes in a graph. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">G</td><td>The unweighted graph to be evaluated. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">dc</td><td>The i-th position contains the normalised degree centrality of the i-th node. </td></tr>
   </table>
   </dd>

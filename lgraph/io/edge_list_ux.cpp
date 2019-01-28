@@ -10,7 +10,7 @@ namespace edge_list {
 
 // -- READING --
 
-bool read(const string& filename, uxgraph *g) {
+bool read(const std::string& filename, uxgraph *g) {
 	return read(filename.c_str(), g);
 }
 
@@ -40,7 +40,7 @@ bool read(const char *filename, uxgraph *g) {
 
 // -- WRITING --
 
-bool write(const string& filename, const uxgraph *g) {
+bool write(const std::string& filename, const uxgraph *g) {
 	return write(filename.c_str(), g);
 }
 
