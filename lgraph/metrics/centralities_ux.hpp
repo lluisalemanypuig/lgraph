@@ -43,6 +43,8 @@ void degree(const uxgraph *G, std::vector<double>& dc);
  *
  * \f$C_i = \left( \frac{1}{n - 1} \sum_{j=1}^n \frac{1}{d_{ij}} \right)^{-1}\f$
  *
+ * where \f$d_{ij}\f$ is the shortest distance between nodes \f$i\f$ and \f$j\f$.
+ *
  * Computes the distance between each pair of nodes in the graph.
  * @param G The unweighted graph to be evaluated.
  * @param u The node to be evaluated.
@@ -53,9 +55,8 @@ double closeness(const uxgraph *G, node u);
 /**
  * @brief Closeness centrality of all nodes in a graph.
  *
- * The centrality of a node \f$v_i\f$ is defined as:
- *
- * \f$C_i = \left( \frac{1}{n - 1} \sum_{j=1}^n \frac{1}{d_{ij}} \right)^{-1}\f$
+ * See @ref closeness(const uxgraph, node) for the details on this centrality's
+ * definition.
  *
  * Computes the distance between each pair of nodes in the graph.
  * @param[in] G The unweighted graph to be evaluated.
@@ -67,11 +68,10 @@ void closeness(const uxgraph *G, std::vector<double>& cc);
 /**
  * @brief Closeness centrality of all nodes in a graph.
  *
- * The centrality of a node \f$v_i\f$ is defined as:
+ * See @ref closeness(const uxgraph, node) for the details on this centrality's
+ * definition.
  *
- * \f$C_i = \left( \frac{1}{n - 1} \sum_{j=1}^n \frac{1}{d_{ij}} \right)^{-1}\f$
- *
- * Uses the parameter @e atad to avoit computing the all-to-all distances
+ * Uses the parameter @e atad to avoid computing the all-to-all distances
  * (the distance between each pair of nodes).
  * @param[in] G The unweighted graph to be evaluated.
  * @param[in] atad The matrix with the distance between each pair of nodes.
@@ -116,14 +116,23 @@ double mcc(const uxgraph *G, const std::vector<double>& cc);
  *	- The equation to calculate the centrality also considers paths from any
  *		vertex to itself.
  *
- * Furthermore, only the pairs of vertices (s,t) with s <= t are considered.
+ * Furthermore, only the pairs of vertices (s,t) with \f$s \le t\f$ are considered.
  * Finally, this metric is also normalised.
+ *
+ * The expression for this centrality \f$B_i^*\f$ is as follows:
+ *
+ * \f$ B_i = \sum_{j < k} \frac{g_{jk}(i)}{g_{jk}} \f$
+ *
+ * \f$B_i^* = B_i \cdot \binom{n - 1}{2}^{-1}\f$
+ *
+ * where \f$n\f$ is the number of nodes, \f$g_{jk}(i)\f$ is the number of
+ * shortest paths from \f$j\f$ to \f$k\f$ through \f$i\f$, and \f$g_{jk}\f$ is
+ * the number of shortest paths from \f$j\f$ to \f$k\f$.
  *
  * [Newman, 2010] Newman, M. E. J. (2010). Networks. An introduction. Oxford
  * University Press, Oxford.
  *
  * This function computes all shortest paths between each pair of nodes.
- *
  * @param G The unweighted graph to be evaluated.
  * @param u The node to be evaluated.
  * @return Returns the betweenness centrality of a node, considering
@@ -134,18 +143,8 @@ double betweenness(const uxgraph *G, node u);
 /**
  * @brief Betweenness centrality of a node.
  *
- * This centrality measure is implemented following the recommendations given
- * in [Newman, 2010]:
- *	- Any path from vertex 's' to vertex 't' is considered to include both
- *		endpoints.
- *	- The equation to calculate the centrality also considers paths from any
- *		vertex to itself.
- *
- * Furthermore, only the pairs of vertices (s,t) with s <= t are considered.
- * Finally, this metric is also normalised.
- *
- * [Newman, 2010] Newman, M. E. J. (2010). Networks. An introduction. Oxford
- * University Press, Oxford.
+ * See @ref betweenness(const uxgraph, node) for the details on this centrality's
+ * definition.
  *
  * This uses the parameter @e paths to avoid computing all the shortest paths between
  * all pair of nodes.
@@ -166,18 +165,8 @@ double betweenness(
 /**
  * @brief Betweenness centrality of all nodes in a graph.
  *
- * This centrality measure is implemented following the recommendations given
- * in [Newman, 2010]:
- *	- Any path from vertex 's' to vertex 't' is considered to include both
- *		endpoints.
- *	- The equation to calculate the centrality also considers paths from any
- *		vertex to itself.
- *
- * Furthermore, only the pairs of vertices (s,t) with s <= t are considered.
- * Finally, this metric is also normalised.
- *
- * [Newman, 2010] Newman, M. E. J. (2010). Networks. An introduction. Oxford
- * University Press, Oxford.
+ * See @ref betweenness(const uxgraph, node) for the details on this centrality's
+ * definition.
  *
  * This function computes all shortest paths between each pair of nodes.
  *
@@ -189,18 +178,8 @@ void betweenness(const uxgraph *G, std::vector<double>& bc);
 /**
  * @brief Betweenness centrality of all nodes in a graph.
  *
- * This centrality measure is implemented following the recommendations given
- * in [Newman, 2010]:
- *	- Any path from vertex 's' to vertex 't' is considered to include both
- *		endpoints.
- *	- The equation to calculate the centrality also considers paths from any
- *		vertex to itself.
- *
- * Furthermore, only the pairs of vertices (s,t) with s <= t are considered.
- * Finally, this metric is also normalised.
- *
- * [Newman, 2010] Newman, M. E. J. (2010). Networks. An introduction. Oxford
- * University Press, Oxford.
+ * See @ref betweenness(const uxgraph, node) for the details on this centrality's
+ * definition.
  *
  * This uses the parameter @e paths to avoid computing all the shortest paths between
  * all pair of nodes.

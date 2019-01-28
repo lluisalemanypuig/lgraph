@@ -54,7 +54,7 @@ double closeness(const wxgraph<T> *G, node u) {
 		ds.begin(), ds.end(), 0.0,
 		[](double acc, _new_ d) {
 			// if d is infinite 1.0/d equals 0:n no need to divide
-			if (d != inf_t<_new_>() and d > 0) {
+			if (d != inf_t<_new_>()) {
 				acc += static_cast<double>(d);
 			}
 			return acc;
@@ -86,7 +86,7 @@ template<class T> void closeness
 			(
 				ds_i.begin(), ds_i.end(), 0.0,
 				[](double acc, _new_ d) {
-					if (d != inf_t<_new_>() and d > 0) {
+					if (d != inf_t<_new_>()) {
 						acc += static_cast<double>(d);
 					}
 					return acc;
@@ -99,9 +99,30 @@ template<class T> void closeness
 
 template<class T>
 double mcc(const wxgraph<T> *G) {
-	std::vector<double> cc;
-	closeness(G, cc);
-	return mcc(G, cc);
+	std::vector<std::vector<T> > ds;
+	traversal::wxdistances(G, ds);
+	// compute sum of all the distance values.
+
+	double sum = accumulate(
+		ds.begin(), ds.end(), 0.0,
+		[](double acc, const std::vector<T>& v) -> double {
+			// sum of a row, accumulate values below infinte
+			T s = accumulate(
+				v.begin(), v.end(), static_cast<T>(0),
+				[](_new_ acc_inner, _new_ d) -> T {
+					if (d != inf_t<T>()) {
+						acc_inner += d;
+					}
+					return acc_inner;
+				}
+			);
+			// sum of inverse of distances
+			return acc + 1.0/s;
+		}
+	);
+
+	double n = static_cast<double>(G->n_nodes());
+	return ((n - 1.0)/n)*sum;
 }
 
 template<class T>
@@ -129,12 +150,15 @@ template<class T> double betweenness(
 
 	const size_t N = G->n_nodes();
 	for (node s = 0; s < N; ++s) {
-		for (node t = s; t < N; ++t) {
-			// amount of shortest paths between s and t
-			const double g_st = paths[s][t].size();
+		for (node t = s + 1; t < N; ++t) {
+			if (s == u or t == u) {
+				// this should be obvious
+				B += 1.0;
+				continue;
+			}
 
-			// don't do any more calculations if there are no paths from s to t
-			if (g_st == 0.0) {
+			// don't do anything if there are no paths from s to t
+			if (paths[s][t].size() == 0) {
 				continue;
 			}
 
@@ -145,6 +169,8 @@ template<class T> double betweenness(
 					++g_st_i;
 				}
 			}
+
+			double g_st = paths[s][t].size();
 
 			// calculate the "partial" centrality
 			B += g_st_i/g_st;
@@ -179,14 +205,9 @@ template<class T> void betweenness(
 	bc = std::vector<double>(N, 0);
 
 	for (node s = 0; s < N; ++s) {
-		for (node t = s; t < N; ++t) {
-
-			// amount of shortest paths between s and t
-			const size_t g_st = paths[s][t].size();
-
-			// don't do any more calculations if there
-			// are no paths from s to t
-			if (g_st == 0) {
+		for (node t = s + 1; t < N; ++t) {
+			// don't do anything if there are no paths from s to t
+			if (paths[s][t].size() == 0) {
 				continue;
 			}
 
@@ -200,6 +221,8 @@ template<class T> void betweenness(
 					}
 				}
 			}
+
+			double g_st = paths[s][t].size();
 
 			// calculate the "partial" centrality for each node
 			for (node u = 0; u < N; ++u) {

@@ -151,12 +151,15 @@ double betweenness(
 
 	const size_t N = G->n_nodes();
 	for (node s = 0; s < N; ++s) {
-		for (node t = s; t < N; ++t) {
-			// amount of shortest paths between s and t
-			const double g_st = paths[s][t].size();
+		for (node t = s + 1; t < N; ++t) {
+			if (s == u or t == u) {
+				// this should be obvious
+				B += 1.0;
+				continue;
+			}
 
-			// don't do any more calculations if there are no paths from s to t
-			if (g_st == 0.0) {
+			// don't do anything if there are no paths from s to t
+			if (paths[s][t].size() == 0) {
 				continue;
 			}
 
@@ -167,6 +170,8 @@ double betweenness(
 					++g_st_i;
 				}
 			}
+
+			double g_st = paths[s][t].size();
 
 			// calculate the "partial" centrality
 			B += g_st_i/g_st;
@@ -200,14 +205,9 @@ void betweenness(
 	bc = vector<double>(N, 0);
 
 	for (node s = 0; s < N; ++s) {
-		for (node t = s; t < N; ++t) {
-
-			// amount of shortest paths between s and t
-			const size_t g_st = paths[s][t].size();
-
-			// don't do any more calculations if there
-			// are no paths from s to t
-			if (g_st == 0) {
+		for (node t = s + 1; t < N; ++t) {
+			// don't do anything if there are no paths from s to t
+			if (paths[s][t].size() == 0) {
 				continue;
 			}
 
@@ -221,6 +221,8 @@ void betweenness(
 					}
 				}
 			}
+
+			double g_st = paths[s][t].size();
 
 			// calculate the "partial" centrality for each node
 			for (node u = 0; u < N; ++u) {
