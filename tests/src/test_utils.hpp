@@ -28,8 +28,7 @@ std::string floatpointout_dist(T d) {
 	out.setf(std::ios::fixed);
 	out.precision(3);
 	out << d;
-	std::string d_str = out.str();
-	return d_str;
+	return out.str();
 }
 
 template<typename T>

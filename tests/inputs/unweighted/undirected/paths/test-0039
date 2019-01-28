@@ -1,0 +1,3 @@
+TYPE unweighted-undirected-path-all-all-all
+INPUT 1 graphs/cycle-05-uu-02.el edge-list
+BODY

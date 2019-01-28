@@ -37,16 +37,16 @@ Implement an algorithm to find all connected components of a graph.
 Finish the tests for all currently implemented algorithms (as of 21/01/2019)
 	[v] 21/01/2019 -> 25/01/2019
 	Distances in
-		- unweighted undirected
-		- unweighted directed
-		- weighted undirected
-		- weighted directed
+		- (v) unweighted undirected
+		- (v) unweighted directed
+		- (v) weighted undirected
+		- (v) weighted directed
 	[v] 21/01/2019 -> 25/01/2019
 	Paths in
-		- unweighted undirected
-		- unweighted directed
-		- weighted undirected
-		- weighted directed
+		- (v) unweighted undirected
+		- (v) unweighted directed
+		- (v) weighted undirected
+		- (v) weighted directed
 	[] 26/01/2019 ->
 	Input and output of
 		- graph6
@@ -59,22 +59,22 @@ Finish the tests for all currently implemented algorithms (as of 21/01/2019)
 	[] 26/01/2019 ->
 	Centrality metrics
 		- Degree
-			* unweighted undirected
+			* (v) unweighted undirected
 			* unweighted directed
 			* weighted undirected
 			* weighted directed
 		- Closeness
-			* unweighted undirected
+			* (v) unweighted undirected
 			* unweighted directed
 			* weighted undirected
 			* weighted directed
 		- Mean Closeness
-			* unweighted undirected
+			* (v) unweighted undirected
 			* unweighted directed
 			* weighted undirected
 			* weighted directed
 		- Betweenness
-			* unweighted undirected
+			* (v) unweighted undirected
 			* unweighted directed
 			* weighted undirected
 			* weighted directed

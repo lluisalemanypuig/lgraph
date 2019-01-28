@@ -1,0 +1,3 @@
+TYPE unweighted-undirected-metric-centrality-betweenness-all
+INPUT 1 graphs/cycle-08-uu-00.el edge-list
+BODY
