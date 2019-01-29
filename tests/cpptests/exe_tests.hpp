@@ -20,7 +20,6 @@ using namespace std;
 namespace exe_tests {
 
 err_type xu_metric_clustering(const string& c, ifstream& fin);
-err_type xd_metric_clustering(const string& c, ifstream& fin);
 
 err_type ux_path_node_node
 (const string& graph_type, const string& many, ifstream& fin);

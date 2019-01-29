@@ -19,7 +19,7 @@ void mark_wrong_keyword
 // parses the first keyword and calls the appropriate main type function
 err_type call_main(const vector<string>& keywords, ifstream& fin);
 
-// weighted/unweighted
+// unweighted/weighted
 
 err_type call_xx
 (const vector<string>& keywords, size_t i, ifstream& fin);
@@ -29,13 +29,6 @@ err_type call_xx
 err_type call_xu
 (const vector<string>& keywords, size_t i, ifstream& fin);
 err_type call_xu_metric
-(const vector<string>& keywords, size_t i, ifstream& fin);
-
-	// directed
-
-err_type call_xd
-(const vector<string>& keywords, size_t i, ifstream& fin);
-err_type call_xd_metric
 (const vector<string>& keywords, size_t i, ifstream& fin);
 
 // unweighted

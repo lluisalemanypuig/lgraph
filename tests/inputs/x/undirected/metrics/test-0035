@@ -1,0 +1,4 @@
+TYPE x-undirected-metric-clustering-gcc
+INPUT 1 graphs/qromboid-09-wu-01.el edge-list
+BODY
+	weighted

@@ -153,7 +153,7 @@ ALL_GROUPS=("unweighted/undirected/paths"		\
 			"weighted/directed/distances"		\
 			"unweighted/undirected/metrics"		)
 
-EXE_FILE="tests-debug/tests"
+EXE_FILE="cpptests-debug/cpptests"
 # Make sure that executable file exists.
 # Do not continue if it does not.
 if [ ! -f $EXE_FILE ]; then

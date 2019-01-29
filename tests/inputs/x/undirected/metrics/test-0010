@@ -1,0 +1,4 @@
+TYPE x-undirected-metric-clustering-gcc
+INPUT 1 graphs/linear-08-uu-01.el edge-list
+BODY
+	unweighted

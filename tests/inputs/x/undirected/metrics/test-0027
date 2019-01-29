@@ -1,0 +1,4 @@
+TYPE x-undirected-metric-clustering-gcc
+INPUT 1 graphs/random-00-wu-00.el edge-list
+BODY
+	weighted

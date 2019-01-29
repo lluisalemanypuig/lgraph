@@ -1,0 +1,4 @@
+TYPE x-undirected-metric-clustering-gcc
+INPUT 1 graphs/romboid-07-uu-02.el edge-list
+BODY
+	unweighted

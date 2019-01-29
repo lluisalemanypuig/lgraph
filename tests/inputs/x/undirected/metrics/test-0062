@@ -1,0 +1,4 @@
+TYPE x-undirected-metric-clustering-mlcc
+INPUT 1 graphs/cycle-05-wu-02.el edge-list
+BODY
+	weighted

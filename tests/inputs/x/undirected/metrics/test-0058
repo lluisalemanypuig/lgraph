@@ -1,0 +1,4 @@
+TYPE x-undirected-metric-clustering-mlcc
+INPUT 1 graphs/smallnet-00-uu-01.el edge-list
+BODY
+	unweighted

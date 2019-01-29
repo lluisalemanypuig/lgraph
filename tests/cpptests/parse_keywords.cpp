@@ -69,9 +69,6 @@ err_type call_xx
 	if (key == "undirected") {
 		return call_xu(keywords, i + 1, fin);
 	}
-	if (key == "directed") {
-		return call_xd(keywords, i + 1, fin);
-	}
 
 	cerr << ERROR("parse_keywords.cpp", "call_xx") << endl;
 	cerr << "    Unhandled keyword at " << i << ": '" << key << "'." << endl;
@@ -104,36 +101,6 @@ err_type call_xu_metric
 	}
 
 	cerr << ERROR("parse_keywords.cpp", "call_xu_metric") << endl;
-	cerr << "    Unhandled keyword at " << i << ": '" << metric_group << "'." << endl;
-	mark_wrong_keyword(keywords, {i}, "    ");
-	return err_type::wrong_keyword;
-}
-
-err_type call_xd
-(const vector<string>& keywords, size_t i, ifstream& fin)
-{
-	const string& key = keywords[i];
-	if (key == "metric") {
-		return call_xd_metric(keywords, i + 1, fin);
-	}
-
-	cerr << ERROR("parse_keywords.cpp", "call_xd") << endl;
-	cerr << "    Unhandled keyword at " << i << ": '" << key << "'." << endl;
-	mark_wrong_keyword(keywords, {i}, "    ");
-	return err_type::wrong_keyword;
-}
-
-err_type call_xd_metric
-(const vector<string>& keywords, size_t i, ifstream& fin)
-{
-	const string& metric_group = keywords[i];
-	const string& metric_name = keywords[i + 1];
-
-	if (metric_group == "clustering") {
-		return xd_metric_clustering(metric_name, fin);
-	}
-
-	cerr << ERROR("parse_keywords.cpp", "call_xd_metric") << endl;
 	cerr << "    Unhandled keyword at " << i << ": '" << metric_group << "'." << endl;
 	mark_wrong_keyword(keywords, {i}, "    ");
 	return err_type::wrong_keyword;
