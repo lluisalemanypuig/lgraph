@@ -14,7 +14,7 @@ using namespace std;
 #include <lgraph/generate_graphs/random/erdos_renyi.hpp>
 #include <lgraph/generate_graphs/switching.hpp>
 #include <lgraph/metrics/centralities_ux.hpp>
-#include <lgraph/metrics/clustering_ux.hpp>
+#include <lgraph/metrics/clustering_xu.hpp>
 #include <lgraph/metrics/distance_ux.hpp>
 #include <lgraph/epidemics/models.hpp>
 #include <lgraph/utils/random_generator.hpp>
