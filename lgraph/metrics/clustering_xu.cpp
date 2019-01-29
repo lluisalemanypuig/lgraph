@@ -1,4 +1,7 @@
-#include <lgraph/metrics/clustering_xx.hpp>
+#include <lgraph/metrics/clustering_xu.hpp>
+
+// C includes
+#include <assert.h>
 
 namespace lgraph {
 namespace networks {
@@ -6,6 +9,8 @@ namespace metrics {
 namespace clustering {
 
 double gcc(const xxgraph *G) {
+	assert(not G->is_directed());
+
 	size_t T = 0;
 	size_t connected_triples = 0;
 	const size_t N = G->n_nodes();
@@ -41,6 +46,8 @@ double gcc(const xxgraph *G) {
 }
 
 double mlcc(const xxgraph *G) {
+	assert(not G->is_directed());
+
 	double Cws = 0.0;
 	const size_t N = G->n_nodes();
 

@@ -64,7 +64,6 @@ HEADERS += \
     graph_traversal/distances_wx.cpp \
     graph_traversal/paths_wx.cpp \
     graph_traversal/paths_boolean_wx.cpp \
-    metrics/clustering_xx.hpp \
     metrics/clustering_wx.hpp \
     metrics/distance_ux.hpp \
     metrics/distance_wx.hpp \
@@ -72,7 +71,8 @@ HEADERS += \
     metrics/distance_wx.cpp \
     io/edge_list_ux.hpp \
 	io/edge_list_wx.hpp \
-	io/edge_list_wx.cpp
+	io/edge_list_wx.cpp \
+    metrics/clustering_xu.hpp
 
 SOURCES += \
     utils/static_bitset.cpp \
@@ -97,7 +97,7 @@ SOURCES += \
     graph_traversal/paths_boolean_ux.cpp \
     metrics/distance_ux.cpp \
     metrics/centralities_ux.cpp \
-    metrics/clustering_xx.cpp \
-	io/edge_list_ux.cpp
+	io/edge_list_ux.cpp \
+    metrics/clustering_xu.cpp
 
 

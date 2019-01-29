@@ -26,6 +26,7 @@ namespace clustering {
  *
  * @param G The unweighted graph to be evaluated.
  * @return Returns the global clustering coefficient of G.
+ * @pre The graph is undirected.
  */
 double gcc(const xxgraph *G);
 
@@ -48,6 +49,7 @@ double gcc(const xxgraph *G);
  *
  * @param G The unweighted graph to be evaluated.
  * @return Returns the local clustering coefficient of G.
+ * @pre The graph is undirected.
  */
 double mlcc(const xxgraph *G);
 
