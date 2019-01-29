@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['gcc',['gcc',['../namespacelgraph_1_1networks_1_1metrics_1_1clustering.html#aa2831ceb0814d7d3d2298b8c93d0b99f',1,'lgraph::networks::metrics::clustering::gcc(const uxgraph *G)'],['../namespacelgraph_1_1networks_1_1metrics_1_1clustering.html#a0bd5461cb7b39c35b3806749778ea073',1,'lgraph::networks::metrics::clustering::gcc(const wxgraph&lt; T &gt; *G)']]],
+  ['gcc',['gcc',['../namespacelgraph_1_1networks_1_1metrics_1_1clustering.html#a9bff132025f09b2e63f21f09ca9f6b68',1,'lgraph::networks::metrics::clustering']]],
   ['gen',['gen',['../classlgraph_1_1utils_1_1random__generator.html#a18353876b4c2d3a18aee454b5750a0a0',1,'lgraph::utils::random_generator']]],
   ['genus',['genus',['../classlgraph_1_1xxgraph.html#a5f48a91046766e3e0b71a3326f2b9153',1,'lgraph::xxgraph']]],
   ['get_5f01',['get_01',['../classlgraph_1_1utils_1_1static__bitset.html#ad77eb6978b0361ed7ef7f4d9e66a96eb',1,'lgraph::utils::static_bitset::get_01(std::string &amp;s, const std::string &amp;sep=&quot;&quot;) const'],['../classlgraph_1_1utils_1_1static__bitset.html#acb29ba63f9a87346a591da639c55196d',1,'lgraph::utils::static_bitset::get_01(const std::string &amp;sep=&quot;&quot;) const'],['../classlgraph_1_1utils_1_1static__bitset.html#a37b11e14da1369678b7d862da959c988',1,'lgraph::utils::static_bitset::get_01(std::vector&lt; bool &gt; &amp;v) const'],['../classlgraph_1_1utils_1_1static__bitset.html#a51f45c5c6bbe8788d4d6c58695a19d49',1,'lgraph::utils::static_bitset::get_01() const']]],

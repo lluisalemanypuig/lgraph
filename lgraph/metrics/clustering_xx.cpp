@@ -1,11 +1,11 @@
-#include <lgraph/metrics/clustering_ux.hpp>
+#include <lgraph/metrics/clustering_xx.hpp>
 
 namespace lgraph {
 namespace networks {
 namespace metrics {
 namespace clustering {
 
-double gcc(const uxgraph *G) {
+double gcc(const xxgraph *G) {
 	size_t T = 0;
 	size_t connected_triples = 0;
 	const size_t N = G->n_nodes();
@@ -40,41 +40,43 @@ double gcc(const uxgraph *G) {
 	return (1.0*T)/(connected_triples);
 }
 
-double mlcc(const uxgraph *G) {
+double mlcc(const xxgraph *G) {
 	double Cws = 0.0;
 	const size_t N = G->n_nodes();
 
 	// for each vertex u ...
 	for (size_t u = 0; u < N; ++u) {
 
-		// The contribution of those nodes with degree less than 2
-		// to to coefficient is for sure 0 because it is sure that
+		// The contribution of those nodes with degree less than 2 to
+		// the coefficient is for sure 0 because we can be certain that
 		// they cannot form a triangle. Besides, the number of pairs
 		// will be equal to 0 (division by zero!)
 		size_t du = G->degree(u);
-		if (du >= 2) {
-			size_t T = 0;
+		if (du < 2) {
+			continue;
+		}
 
-			const neighbourhood& nu = G->get_neighbours(u);
-			for (size_t v_it = 0; v_it < nu.size(); ++v_it) {
-				node v = nu[v_it];
+		size_t T = 0;
 
-				for (size_t w_it = v_it + 1; w_it < nu.size(); ++w_it) {
-					node w = nu[w_it];
+		const neighbourhood& nu = G->get_neighbours(u);
+		for (size_t v_it = 0; v_it < nu.size(); ++v_it) {
+			node v = nu[v_it];
 
-					// ... get two different neighbours of u (v, w) and
-					// check if there is a connection.
-					if (v != w and G->has_edge(v, w)) {
-						++T;
-					}
+			for (size_t w_it = v_it + 1; w_it < nu.size(); ++w_it) {
+				node w = nu[w_it];
+
+				// ... get two different neighbours of u (v, w) and
+				// check if there is a connection.
+				if (v != w and G->has_edge(v, w)) {
+					++T;
 				}
 			}
-
-			// double n_pairs = nu*(nu - 1)/2.0;
-			// Cws += T/n_pairs;
-			// we know that n_pairs > 0 because nu >= 2
-			Cws += (2.0*T)/(du*(du - 1));
 		}
+
+		// double n_pairs = nu*(nu - 1)/2.0;
+		// Cws += T/n_pairs;
+		// we know that n_pairs > 0 because nu >= 2
+		Cws += (2.0*T)/(du*(du - 1));
 	}
 
 	return Cws/N;

@@ -13,3 +13,9 @@
 \form#12:$g_{jk}(i)$
 \form#13:$k$
 \form#14:$g_{jk}$
+\form#15:$C$
+\form#16:$C = \frac{1}{n} \sum_{i=1}^n C_i$
+\form#17:$C = \frac{n-1}{n} \left( \sum_{i=1}^n \left( \sum_{j=i+1}^n d_{ij} \right)^{-1} \right)$
+\form#18:$C = \frac{\# triangles}{\# of connected triples}$
+\form#19:$C = \frac{\# triangles}{\# \ connected \ triples}$
+\form#20:$C_i = \frac{\# \ connected \ neighbours \ of \ i}{\# \ pairs \ of \ neighbours \ of \ i}$
