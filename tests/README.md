@@ -117,11 +117,10 @@ format. In order to indicate these input files we write:
 	INPUT 1 input_file_1 format_1
 
 The format of each file has to be given. The formats allowed are those
-supported by the library:
-- Edge list:	edge-list
+supported by the library. See the documentation for details.
 
-Although other formats might be supported, they are not listed here due
-to lack of proper debugging.
+In case that some format is not supported in the test, the tester will
+issue an error message.
 
 ## BODY
 
@@ -142,58 +141,3 @@ a list of 100 pairs:
 
 Therefore the 'BODY' field is different for each test. This means that some
 tests may allow their 'BODY' field to be left empty.
-
-## All test types
-
-The test types implemented so far are the following:
-
-- Distance finding:
-	- unweighted-undirected-distance-node-node-single
-	- unweighted-undirected-distance-node-node-all
-	- unweighted-undirected-distance-node-all-single
-	- unweighted-undirected-distance-node-all-all
-	- unweighted-undirected-distance-all-all-single
-	- unweighted-undirected-distance-all-all-all
-	- unweighted-directed-distance-node-node-single
-	- unweighted-directed-distance-node-node-all
-	- unweighted-directed-distance-node-all-single
-	- unweighted-directed-distance-node-all-all
-	- unweighted-directed-distance-all-all-single
-	- unweighted-directed-distance-all-all-all
-	- weighted-undirected-distance-node-node-single
-	- weighted-undirected-distance-node-node-all
-	- weighted-undirected-distance-node-all-single
-	- weighted-undirected-distance-node-all-all
-	- weighted-undirected-distance-all-all-single
-	- weighted-undirected-distance-all-all-all
-	- weighted-directed-distance-node-node-single
-	- weighted-directed-distance-node-node-all
-	- weighted-directed-distance-node-all-single
-	- weighted-directed-distance-node-all-all
-	- weighted-directed-distance-all-all-single
-	- weighted-directed-distance-all-all-all
-- Path finding
-	- unweighted-undirected-path-node-node-single
-	- unweighted-undirected-path-node-node-all
-	- unweighted-undirected-path-node-all-single
-	- unweighted-undirected-path-node-all-all
-	- unweighted-undirected-path-all-all-single
-	- unweighted-undirected-path-all-all-all
-	- unweighted-directed-path-node-node-single
-	- unweighted-directed-path-node-node-all
-	- unweighted-directed-path-node-all-single
-	- unweighted-directed-path-node-all-all
-	- unweighted-directed-path-all-all-single
-	- unweighted-directed-path-all-all-all
-	- weighted-undirected-path-node-node-single
-	- weighted-undirected-path-node-node-all
-	- weighted-undirected-path-node-all-single
-	- weighted-undirected-path-node-all-all
-	- weighted-undirected-path-all-all-single
-	- weighted-undirected-path-all-all-all
-	- weighted-directed-path-node-node-single
-	- weighted-directed-path-node-node-all
-	- weighted-directed-path-node-all-single
-	- weighted-directed-path-node-all-all
-	- weighted-directed-path-all-all-single
-	- weighted-directed-path-all-all-all
