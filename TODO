@@ -61,35 +61,31 @@ Finish the tests for all currently implemented algorithms (as of 21/01/2019)
 		- Degree
 			* (v) unweighted undirected
 			* unweighted directed
-			* weighted undirected
+			* (v) weighted undirected
 			* weighted directed
 		- Closeness
 			* (v) unweighted undirected
 			* unweighted directed
-			* weighted undirected
+			* (v) weighted undirected
 			* weighted directed
 		- Mean Closeness
 			* (v) unweighted undirected
 			* unweighted directed
-			* weighted undirected
+			* (v) weighted undirected
 			* weighted directed
 		- Betweenness
 			* (v) unweighted undirected
 			* unweighted directed
-			* weighted undirected
+			* (v) weighted undirected
 			* weighted directed
 	[] 26/01/2019 ->
 	Clustering metrics
 		- Global Clustering Coefficient
-			* unweighted undirected
-			* unweighted directed
-			* weighted undirected
-			* weighted directed
+			* (v) unweighted undirected
+			* (v) weighted undirected
 		- Mean Local Clustering Coefficient
-			* unweighted undirected
-			* unweighted directed
-			* weighted undirected
-			* weighted directed
+			* (v) unweighted undirected
+			* (v) weighted undirected
 	[] 26/01/2019 ->
 	Distance metrics
 		- Maximum distance
