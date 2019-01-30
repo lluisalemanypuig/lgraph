@@ -1,4 +1,4 @@
-TYPE unweighted-undirected-metric-centrality-degree-single
+TYPE unweighted-undirected-metric-centrality-closeness-single
 INPUT 1 graphs/cycle-05-uu-02.el edge-list
 BODY
 	0 1 2 3 4

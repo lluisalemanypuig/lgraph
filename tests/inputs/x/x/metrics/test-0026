@@ -1,0 +1,4 @@
+TYPE x-x-metric-centrality-degree-all
+INPUT 1 graphs/cycle-08-uu-02.el edge-list
+BODY
+	unweighted undirected

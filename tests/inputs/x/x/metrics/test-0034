@@ -1,0 +1,4 @@
+TYPE x-x-metric-centrality-degree-all
+INPUT 1 graphs/romboid-07-uu-01.el edge-list
+BODY
+	unweighted undirected

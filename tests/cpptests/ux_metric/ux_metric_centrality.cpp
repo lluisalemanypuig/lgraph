@@ -19,23 +19,6 @@ using namespace test_utils;
 
 namespace exe_tests {
 
-void ux_metric_centrality_degree__single(const uxgraph *G, ifstream& fin) {
-	node u;
-	while (fin >> u) {
-		double d = networks::metrics::centralities::degree(G, u);
-		cout << floatpointout_metric(d) << endl;
-	}
-}
-
-void ux_metric_centrality_degree__all(const uxgraph *G) {
-	vector<double> dc;
-
-	networks::metrics::centralities::degree(G, dc);
-	for (node u = 0; u < G->n_nodes(); ++u) {
-		cout << u << ": " << floatpointout_metric(dc[u]) << endl;
-	}
-}
-
 void ux_metric_centrality_closeness__single(const uxgraph *G, ifstream& fin) {
 	node u;
 	while (fin >> u) {
@@ -135,29 +118,18 @@ err_type ux_metric_centrality
 		return r;
 	}
 
-	if (c == "degree" or c == "closeness" or c == "betweenness") {
-		if (many != "single" and many != "all") {
-			cerr << ERROR("ux_metric_centrality.cpp", "ux_metric_centrality") << endl;
-			cerr << "    Wrong value for parameter 'many'." << endl;
-			cerr << "    Received '" << many << "'." << endl;
-			return err_type::invalid_param;
-		}
-	}
+	bool wrong_c = false;
+	bool wrong_many = false;
 
-	if (c == "degree") {
-		if (many == "single") {
-			ux_metric_centrality_degree__single(G, fin);
-		}
-		else if (many == "all") {
-			ux_metric_centrality_degree__all(G);
-		}
-	}
-	else if (c == "closeness") {
+	if (c == "closeness") {
 		if (many == "single") {
 			ux_metric_centrality_closeness__single(G, fin);
 		}
 		else if (many == "all") {
 			ux_metric_centrality_closeness__all(G);
+		}
+		else {
+			wrong_many = true;
 		}
 	}
 	else if (c == "betweenness") {
@@ -167,14 +139,28 @@ err_type ux_metric_centrality
 		else if (many == "all") {
 			ux_metric_centrality_betweenness__all(G);
 		}
+		else {
+			wrong_many = true;
+		}
 	}
 	else if (c == "mcc") {
 		ux_metric_centrality_mcc(G);
 	}
 	else {
+		wrong_c = true;
+	}
+
+	if (wrong_c) {
 		cerr << ERROR("ux_metric_centrality.cpp", "ux_metric_centrality") << endl;
 		cerr << "    Wrong value for parameter 'c'." << endl;
 		cerr << "    Received '" << c << "'." << endl;
+		return err_type::invalid_param;
+	}
+
+	if (wrong_many) {
+		cerr << ERROR("ux_metric_centrality.cpp", "ux_metric_centrality") << endl;
+		cerr << "    Wrong value for parameter 'many'." << endl;
+		cerr << "    Received '" << many << "'." << endl;
 		return err_type::invalid_param;
 	}
 

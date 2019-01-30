@@ -42,14 +42,14 @@ void mark_wrong_keyword
 err_type call_main(const vector<string>& keywords, ifstream& fin)
 {
 	const string& key = keywords[0];
+	if (key == "x") {
+		return call_x(keywords, 1, fin);
+	}
 	if (key == "unweighted") {
 		return call_ux(keywords, 1, fin);
 	}
 	if (key == "weighted") {
 		return call_wx(keywords, 1, fin);
-	}
-	if (key == "x") {
-		return call_xx(keywords, 1, fin);
 	}
 
 	cerr << ERROR("parse_keywords.cpp", "call_main") << endl;
@@ -62,16 +62,53 @@ err_type call_main(const vector<string>& keywords, ifstream& fin)
 /* ANY TYPE OF GRAPH */
 /* ----------------- */
 
-err_type call_xx
+err_type call_x
 (const vector<string>& keywords, size_t i, ifstream& fin)
 {
 	const string& key = keywords[i];
+	if (key == "x") {
+		return call_xx(keywords, i + 1, fin);
+	}
 	if (key == "undirected") {
 		return call_xu(keywords, i + 1, fin);
 	}
 
+	cerr << ERROR("parse_keywords.cpp", "call_x") << endl;
+	cerr << "    Unhandled keyword at " << i << ": '" << key << "'." << endl;
+	mark_wrong_keyword(keywords, {i}, "    ");
+	return err_type::wrong_keyword;
+}
+
+err_type call_xx
+(const vector<string>& keywords, size_t i, ifstream& fin)
+{
+	const string& key = keywords[i];
+	if (key == "metric") {
+		return call_xx_metric(keywords, i + 1, fin);
+	}
+
 	cerr << ERROR("parse_keywords.cpp", "call_xx") << endl;
 	cerr << "    Unhandled keyword at " << i << ": '" << key << "'." << endl;
+	mark_wrong_keyword(keywords, {i}, "    ");
+	return err_type::wrong_keyword;
+}
+
+err_type call_xx_metric
+(const vector<string>& keywords, size_t i, ifstream& fin)
+{
+	const string& metric = keywords[i];
+	const string& metric_type = keywords[i + 1];
+
+	if (metric == "centrality") {
+		string all_single = INVALID_KEYWORD;
+		if (i + 2 < keywords.size()) {
+			all_single = keywords[i + 2];
+		}
+		return xx_metric_centrality(metric_type, all_single, fin);
+	}
+
+	cerr << ERROR("parse_keywords.cpp", "call_xx_metric") << endl;
+	cerr << "    Unhandled keyword at " << i << ": '" << metric << "'." << endl;
 	mark_wrong_keyword(keywords, {i}, "    ");
 	return err_type::wrong_keyword;
 }
@@ -93,15 +130,15 @@ err_type call_xu
 err_type call_xu_metric
 (const vector<string>& keywords, size_t i, ifstream& fin)
 {
-	const string& metric_group = keywords[i];
-	const string& metric_name = keywords[i + 1];
+	const string& metric = keywords[i];
+	const string& metric_type = keywords[i + 1];
 
-	if (metric_group == "clustering") {
-		return xu_metric_clustering(metric_name, fin);
+	if (metric == "clustering") {
+		return xu_metric_clustering(metric_type, fin);
 	}
 
 	cerr << ERROR("parse_keywords.cpp", "call_xu_metric") << endl;
-	cerr << "    Unhandled keyword at " << i << ": '" << metric_group << "'." << endl;
+	cerr << "    Unhandled keyword at " << i << ": '" << metric << "'." << endl;
 	mark_wrong_keyword(keywords, {i}, "    ");
 	return err_type::wrong_keyword;
 }
@@ -148,10 +185,10 @@ err_type call_ux_path
 	if (key3 == "node" and key4 == "node") {
 		return ux_path_node_node(graph_type, key5, fin);
 	}
-	else if (key3 == "node" and key4 == "all") {
+	if (key3 == "node" and key4 == "all") {
 		return ux_path_node_all(graph_type, key5, fin);
 	}
-	else if (key3 == "all" and key4 == "all") {
+	if (key3 == "all" and key4 == "all") {
 		return ux_path_all_all(graph_type, key5, fin);
 	}
 
@@ -178,10 +215,10 @@ err_type call_ux_distance
 	if (key3 == "node" and key4 == "node") {
 		return ux_distance_node_node(graph_type, key5, fin);
 	}
-	else if (key3 == "node" and key4 == "all") {
+	if (key3 == "node" and key4 == "all") {
 		return ux_distance_node_all(graph_type, key5, fin);
 	}
-	else if (key3 == "all" and key4 == "all") {
+	if (key3 == "all" and key4 == "all") {
 		return ux_distance_all_all(graph_type, key5, fin);
 	}
 

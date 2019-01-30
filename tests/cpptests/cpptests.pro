@@ -37,7 +37,8 @@ SOURCES += \
     ux_metric/ux_metric_distance.cpp \
     wx_metric/wx_metric_centrality.cpp \
     wx_metric/wx_metric_distance.cpp \
-    xu_metric/xu_metric_clustering.cpp
+    xu_metric/xu_metric_clustering.cpp \
+    xx_metric/xx_metric_centrality.cpp
 
 HEADERS += \
     definitions.hpp \
