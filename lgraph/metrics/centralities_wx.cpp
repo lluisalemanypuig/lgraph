@@ -11,38 +11,6 @@ namespace networks {
 namespace metrics {
 namespace centralities {
 
-/* DEGREE */
-
-template<class T>
-double degree(const wxgraph<T> *G, node u) {
-	// number of nodes minus 1
-	const double nm1 = G->n_nodes() - 1;
-	return G->degree(u)/nm1;
-}
-
-template<class T>
-void degree(const wxgraph<T> *G, std::vector<double>& dc) {
-	std::vector<node> nds;
-	G->nodes(nds);
-
-	// number of nodes minus 1
-	const double nm1 = G->n_nodes() - 1;
-	dc.clear();
-
-	transform(
-		// iterate through all nodes
-		nds.begin(), nds.end(),
-
-		// append value at the back of dc
-		back_inserter(dc),
-
-		// calculate degree centrality
-		[&](node u) {
-			return G->degree(u)/nm1;
-		}
-	);
-}
-
 /* CLOSENESS */
 
 template<class T>

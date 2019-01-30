@@ -72,7 +72,8 @@ HEADERS += \
     io/edge_list_ux.hpp \
 	io/edge_list_wx.hpp \
 	io/edge_list_wx.cpp \
-    metrics/clustering_xu.hpp
+    metrics/clustering_xu.hpp \
+    metrics/centralities_xx.hpp
 
 SOURCES += \
     utils/static_bitset.cpp \
@@ -98,6 +99,7 @@ SOURCES += \
     metrics/distance_ux.cpp \
     metrics/centralities_ux.cpp \
 	io/edge_list_ux.cpp \
-    metrics/clustering_xu.cpp
+    metrics/clustering_xu.cpp \
+    metrics/centralities_xx.cpp
 
 
