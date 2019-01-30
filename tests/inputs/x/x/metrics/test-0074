@@ -1,0 +1,4 @@
+TYPE x-x-metric-centrality-degree-all
+INPUT 1 graphs/linear-08-wu-02.el edge-list
+BODY
+	weighted undirected
