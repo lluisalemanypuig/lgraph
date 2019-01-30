@@ -6,6 +6,7 @@ using namespace std;
 // lgraph includes
 #include <lgraph/data_structures/uugraph.hpp>
 #include <lgraph/data_structures/udgraph.hpp>
+#include <lgraph/metrics/centralities_xx.hpp>
 #include <lgraph/metrics/centralities_ux.hpp>
 #include <lgraph/io/io.hpp>
 using namespace lgraph;
