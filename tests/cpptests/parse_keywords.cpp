@@ -279,6 +279,9 @@ err_type call_wx
 	if (task == "distance") {
 		return call_wx_distance(keywords, i + 2, graph_type, fin);
 	}
+	if (task == "metric") {
+		return call_wx_metric(keywords, i + 2, graph_type, fin);
+	}
 
 	cerr << ERROR("parse_keywords.cpp", "call_wx") << endl;
 	cerr << "    Unhandled keyword at " << i + 2 << ": '" << task << "'." << endl;
@@ -353,7 +356,7 @@ err_type call_wx_metric
 	string metric_type = keywords[i + 1];
 	if (metric == "centrality") {
 		string all_single = INVALID_KEYWORD;
-		if (keywords.size() < i + 2) {
+		if (i + 2 < keywords.size()) {
 			all_single = keywords[i + 2];
 		}
 		return wx_metric_centrality(graph_type, metric_type, all_single, fin);

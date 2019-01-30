@@ -1,0 +1,3 @@
+TYPE weighted-undirected-metric-centrality-closeness-all
+INPUT 1 graphs/cycle-05-wu-01.el edge-list
+BODY
