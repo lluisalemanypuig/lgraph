@@ -84,6 +84,8 @@ namespace graph_driver {
 		cout << "    * connected-components: outputs the label of the connected component" << endl;
 		cout << "        each vertex belongs to" << endl;
 		cout << endl;
+		cout << "    * eccentricity: outputs the eccentricity of every vertex" << endl;
+		cout << endl;
 		cout << "---------------------------------------" << endl;
 		cout << "MISCELLANEA" << endl;
 		cout << endl;
@@ -337,6 +339,20 @@ namespace graph_driver {
 					cout << "    Component " << i << " has " << bins[i] << " nodes" << endl;
 				}
 				cout << endl;
+			}
+			else if (option == "eccentricity") {
+				vector<vector<_new_> > ds;
+				uxdistances(G, ds);
+
+				const auto n = G->n_nodes();
+				for (node u = 0; u < n; ++u) {
+					_new_ ecc = 0;
+					for (node v = 0; v < n; ++v) {
+						ecc = std::max(ecc, ds[u][v]);
+					}
+					cout << "Node " << u << ": " << ecc << endl;
+				}
+
 			}
 			else if (option == "is-weighted") {
 				cout << "Is the graph weighted? "
