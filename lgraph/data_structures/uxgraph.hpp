@@ -37,21 +37,6 @@ namespace lgraph {
  * adjacency lists.
  */
 class uxgraph : public xxgraph {
-	protected:
-
-		/**
-		 * @brief Computes the list of unique unweighted edges of this graph.
-		 *
-		 * An unweighted edge is a pair of indices each of which is within
-		 * the interval [0,@e n) where @e n is the number of nodes of this
-		 * graph.
-		 *
-		 * @param[out] edges The collection of unweighted edges.
-		 * @return Stores in @ref edges the list of unweighted edges of this
-		 * graph.
-		 */
-		virtual void get_unique_edges(std::vector<edge>& edges) const = 0;
-
 	public:
 		/// Default onstructor.
 		uxgraph();
@@ -86,7 +71,7 @@ class uxgraph : public xxgraph {
 		std::ostream& operator<< (std::ostream& os, const uxgraph& g) {
 			for (node i = 0; i < g.n_nodes(); ++i) {
 				os << i << ":";
-				const neighbourhood& ni = g.adjacency_list[i];
+				const neighbourhood& ni = g.m_adjacency_list[i];
 
 				for (node j : ni) {
 					os << " " << j;
@@ -160,6 +145,20 @@ class uxgraph : public xxgraph {
 		 */
 		void edges(std::vector<edge>& all_edges) const;
 
+	protected:
+
+		/**
+		 * @brief Computes the list of unique unweighted edges of this graph.
+		 *
+		 * An unweighted edge is a pair of indices each of which is within
+		 * the interval [0,@e n) where @e n is the number of nodes of this
+		 * graph.
+		 *
+		 * @param[out] edges The collection of unweighted edges.
+		 * @return Stores in @ref edges the list of unweighted edges of this
+		 * graph.
+		 */
+		virtual void get_unique_edges(std::vector<edge>& edges) const = 0;
 };
 
 } // -- namespace lgraph

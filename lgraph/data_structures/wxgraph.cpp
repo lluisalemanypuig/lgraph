@@ -26,18 +26,6 @@
 
 namespace lgraph {
 
-// PRIVATE
-
-template<class T>
-void wxgraph<T>::initialise_weights(size_t n) {
-	weights = std::vector<weight_list<T> >(n);
-}
-
-template<class T>
-void wxgraph<T>::clear_weights() {
-	weights.clear();
-}
-
 // PUBLIC
 
 template<class T>
@@ -79,9 +67,9 @@ void wxgraph<T>::init
 )
 {
 	clear();
-	this->adjacency_list = adj;
-	this->weights = wl;
-	this->num_edges = n_edges;
+	this->m_adjacency_list = adj;
+	this->m_weights = wl;
+	this->m_n_edges = n_edges;
 }
 
 // OPERATORS
@@ -89,9 +77,9 @@ void wxgraph<T>::init
 template<class T>
 wxgraph<T>& wxgraph<T>::operator= (const wxgraph<T>& g) {
 	clear();
-	adjacency_list = g.adjacency_list;
-	weights = g.weights;
-	num_edges = g.num_edges;
+	m_adjacency_list = g.m_adjacency_list;
+	m_weights = g.m_weights;
+	m_n_edges = g.m_n_edges;
 	return *this;
 }
 
@@ -130,14 +118,14 @@ bool wxgraph<T>::is_weighted() const {
 
 template<class T>
 const weight_list<T>& wxgraph<T>::get_weights(node u) const {
-	return weights[u];
+	return m_weights[u];
 }
 
 template<class T>
 void wxgraph<T>::get_weights(node u, weight_list<T>& ws) const {
 	assert( has_node(u));
 
-	ws = weights[u];
+	ws = m_weights[u];
 }
 
 template<class T>
@@ -148,6 +136,18 @@ void wxgraph<T>::edges(std::vector<std::pair<edge, T> >& all_edges) const {
 template<class T>
 void wxgraph<T>::edges(std::vector<edge>& all_edges) const {
 	this->get_unique_edges(all_edges);
+}
+
+// PRIVATE
+
+template<class T>
+void wxgraph<T>::initialise_weights(size_t n) {
+	m_weights = std::vector<weight_list<T> >(n);
+}
+
+template<class T>
+void wxgraph<T>::clear_weights() {
+	m_weights.clear();
 }
 
 } // -- namespace lgraph

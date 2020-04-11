@@ -26,25 +26,6 @@
 
 namespace lgraph {
 
-// PROTECTED
-
-void uugraph::get_unique_edges(std::vector<edge>& unique_edges) const {
-	// insert all edges into a set to get only those that are unique
-	for (node i = 0; i < n_nodes(); ++i) {
-
-		const neighbourhood& ni = adjacency_list[i];
-		for (node j : ni) {
-
-			// since this graph is UNDIRECTED the order of the
-			// indices in the pair does not matter. Use the
-			// lexicographic order
-			if (i < j) {
-				unique_edges.push_back( edge(i, j) );
-			}
-		}
-	}
-}
-
 // PUBLIC
 
 uugraph::uugraph() : uxgraph() { }
@@ -58,15 +39,15 @@ uugraph::uugraph(const std::vector<neighbourhood>& adj, size_t n_edges) : uxgrap
 uugraph::~uugraph() { }
 
 void uugraph::init(const std::vector<neighbourhood>& adj) {
-	adjacency_list = adj;
+	m_adjacency_list = adj;
 
 	// count the amount of edges for only those pairs
 	// of nodes (u,v) such that u < v (because this graph
 	// is undirected)
-	for (node u = 0; u < adjacency_list.size(); ++u) {
-		for (node v : adjacency_list[u]) {
+	for (node u = 0; u < m_adjacency_list.size(); ++u) {
+		for (node v : m_adjacency_list[u]) {
 			if (u < v) {
-				++num_edges;
+				++m_n_edges;
 			}
 		}
 	}
@@ -79,9 +60,9 @@ void uugraph::add_edge(node u, node v) {
 	assert( has_node(v) );
 	assert( not has_edge(u,v) );
 
-	adjacency_list[u].add(v);
-	adjacency_list[v].add(u);
-	++num_edges;
+	m_adjacency_list[u].add(v);
+	m_adjacency_list[v].add(u);
+	++m_n_edges;
 }
 
 void uugraph::remove_edge(node u, node v) {
@@ -91,8 +72,8 @@ void uugraph::remove_edge(node u, node v) {
 
 	bool erased = false;
 
-	neighbourhood& nu = adjacency_list[u];
-	neighbourhood& nv = adjacency_list[v];
+	neighbourhood& nu = m_adjacency_list[u];
+	neighbourhood& nv = m_adjacency_list[v];
 
 	// find the position of node v in neighbourhood of u
 	// delete the neighbour
@@ -112,17 +93,17 @@ void uugraph::remove_edge(node u, node v) {
 
 	// decrease number of edges only if necessary
 	if (erased) {
-		num_edges -= 1;
+		m_n_edges -= 1;
 	}
 }
 
 void uugraph::remove_node(node u) {
 	assert( has_node(u) );
 
-	std::vector<neighbourhood>& adj = adjacency_list;
+	std::vector<neighbourhood>& adj = m_adjacency_list;
 
 	// decrease number of edges
-	num_edges -= adj[u].size();
+	m_n_edges -= adj[u].size();
 	// remove node u's entry from adjacency list
 	adj.erase( adj.begin() + u );
 
@@ -170,6 +151,26 @@ bool uugraph::has_edge(node u, node v) const {
 
 bool uugraph::is_directed() const {
 	return false;
+}
+
+
+// PROTECTED
+
+void uugraph::get_unique_edges(std::vector<edge>& unique_edges) const {
+	// insert all edges into a set to get only those that are unique
+	for (node i = 0; i < n_nodes(); ++i) {
+
+		const neighbourhood& ni = m_adjacency_list[i];
+		for (node j : ni) {
+
+			// since this graph is UNDIRECTED the order of the
+			// indices in the pair does not matter. Use the
+			// lexicographic order
+			if (i < j) {
+				unique_edges.push_back( edge(i, j) );
+			}
+		}
+	}
 }
 
 } // -- namespace lgraph

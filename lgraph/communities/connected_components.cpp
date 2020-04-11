@@ -22,6 +22,7 @@
 #include <lgraph/communities/communities.hpp>
 
 // C++ includes
+#include <iostream>
 using namespace std;
 
 // lgraph includes
@@ -98,6 +99,8 @@ size_t connected_components
 {
 	comps = vector<size_t>(g.n_nodes(), g.n_nodes());
 	UNUSED(bins);
+
+	cerr << "lgraph -- error: 'connected_components' for directed graphs not implemented" << endl;
 
 	return 0;
 }

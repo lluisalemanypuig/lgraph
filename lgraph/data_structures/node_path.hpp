@@ -51,18 +51,6 @@ namespace lgraph {
  */
 template<class T = _new_>
 class node_path {
-	private:
-		/// The list of nodes of this path.
-		std::vector<node> nodes;
-
-		/**
-		 * @brief The total weight of this path.
-		 *
-		 * If 'p' is the path as a list of edges, then 'path_length' equals the
-		 * sum of weights of all edges in 'p'.
-		 */
-		T path_length;
-
 	public:
 		/// Empty constructor.
 		node_path();
@@ -197,6 +185,18 @@ class node_path {
 		 * a node.
 		 */
 		void to_string(std::string& s) const;
+
+	private:
+		/// The list of nodes of this path.
+		std::vector<node> nodes;
+
+		/**
+		 * @brief The total weight of this path.
+		 *
+		 * If 'p' is the path as a list of edges, then 'path_length' equals the
+		 * sum of weights of all edges in 'p'.
+		 */
+		T path_length;
 };
 
 /// Template for a list of node_path objects.

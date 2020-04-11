@@ -60,26 +60,6 @@ namespace lgraph {
  */
 template<class T = _new_>
 class boolean_path {
-	private:
-		/**
-		 * @brief The list of nodes as Boolean values.
-		 *
-		 * @ref nodes_in_path[i] = true if, and only if, i-th node
-		 * of the graph is in the path.
-		 */
-		utils::static_bitset nodes_in_path;
-
-		/// Number of nodes in the path, i.e., the amount of values set to true.
-		size_t n_nodes;
-
-		/**
-		 * @brief The total weight of this path.
-		 *
-		 * If 'p' is the path as a list of edges, then 'path_length' equals the
-		 * sum of weights of all edges in 'p'.
-		 */
-		T path_length;
-
 	public:
 		boolean_path();
 		~boolean_path();
@@ -294,6 +274,26 @@ class boolean_path {
 		 * digit is a 1 if, and only if, the i-th vertex is in the path.
 		 */
 		void to_string(std::string& s) const;
+
+	private:
+		/**
+		 * @brief The list of nodes as Boolean values.
+		 *
+		 * @ref nodes_in_path[i] = true if, and only if, i-th node
+		 * of the graph is in the path.
+		 */
+		utils::static_bitset nodes_in_path;
+
+		/// Number of nodes in the path, i.e., the amount of values set to true.
+		size_t n_nodes;
+
+		/**
+		 * @brief The total weight of this path.
+		 *
+		 * If 'p' is the path as a list of edges, then 'path_length' equals the
+		 * sum of weights of all edges in 'p'.
+		 */
+		T path_length;
 };
 
 /// Template for a list of boolean_path objects.

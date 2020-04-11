@@ -26,23 +26,6 @@
 
 namespace lgraph {
 
-// PROTECTED
-
-void udgraph::get_unique_edges(std::vector<edge>& unique_edges) const {
-	// insert all edges into a set to get only those that are unique
-	for (node i = 0; i < n_nodes(); ++i) {
-
-		const neighbourhood& ni = this->adjacency_list[i];
-		for (node j : ni) {
-
-			// this graph is DIRECTED so an edge is the
-			// pair of nodes (i,j) interpreted as
-			// "i points to j"
-			unique_edges.push_back( edge(i,j) );
-		}
-	}
-}
-
 // PUBLIC
 
 udgraph::udgraph() : uxgraph() { }
@@ -56,11 +39,11 @@ udgraph::udgraph(const std::vector<neighbourhood>& adj, size_t n_edges) : uxgrap
 udgraph::~udgraph() { }
 
 void udgraph::init(const std::vector<neighbourhood>& adj) {
-	adjacency_list = adj;
+	m_adjacency_list = adj;
 
 	// count the amount of edges
-	for (node u = 0; u < adjacency_list.size(); ++u) {
-		num_edges += adjacency_list[u].size();
+	for (node u = 0; u < m_adjacency_list.size(); ++u) {
+		m_n_edges += m_adjacency_list[u].size();
 	}
 }
 
@@ -71,8 +54,8 @@ void udgraph::add_edge(node u, node v) {
 	assert( has_node(v) );
 	assert( not has_edge(u,v) );
 
-	adjacency_list[u].add(v);
-	++num_edges;
+	m_adjacency_list[u].add(v);
+	++m_n_edges;
 }
 
 void udgraph::remove_edge(node u, node v) {
@@ -82,7 +65,7 @@ void udgraph::remove_edge(node u, node v) {
 
 	bool erased = false;
 
-	neighbourhood& nu = adjacency_list[u];
+	neighbourhood& nu = m_adjacency_list[u];
 
 	// find the position of node v in neighbourhood of u
 	// delete the neighbour
@@ -94,17 +77,17 @@ void udgraph::remove_edge(node u, node v) {
 
 	// decrease number of edges only if necessary
 	if (erased) {
-		num_edges -= 1;
+		m_n_edges -= 1;
 	}
 }
 
 void udgraph::remove_node(node u) {
 	assert( has_node(u) );
 
-	std::vector<neighbourhood>& adj = adjacency_list;
+	std::vector<neighbourhood>& adj = m_adjacency_list;
 
 	// decrease number of edges
-	num_edges -= adj[u].size();
+	m_n_edges -= adj[u].size();
 	// remove node u's entry from adjacency list
 	adj.erase( adj.begin() + u );
 
@@ -119,7 +102,7 @@ void udgraph::remove_node(node u) {
 		for (size_t p = Nv.size(); p > 0; --p) {
 			if (Nv[p - 1] == u) {
 				Nv.remove(p - 1);
-				num_edges -= 1;
+				m_n_edges -= 1;
 			}
 			else if (Nv[p - 1] > u) {
 				// decrease index of node
@@ -141,6 +124,24 @@ bool udgraph::has_edge(node u, node v) const {
 
 bool udgraph::is_directed() const {
 	return true;
+}
+
+
+// PROTECTED
+
+void udgraph::get_unique_edges(std::vector<edge>& unique_edges) const {
+	// insert all edges into a set to get only those that are unique
+	for (node i = 0; i < n_nodes(); ++i) {
+
+		const neighbourhood& ni = this->m_adjacency_list[i];
+		for (node j : ni) {
+
+			// this graph is DIRECTED so an edge is the
+			// pair of nodes (i,j) interpreted as
+			// "i points to j"
+			unique_edges.push_back( edge(i,j) );
+		}
+	}
 }
 
 } // -- namespace lgraph

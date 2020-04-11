@@ -24,7 +24,6 @@
 // C++ includes
 #include <string>
 #include <vector>
-#include <set>
 
 // lgraph includes
 #include <lgraph/data_structures/uxgraph.hpp>
@@ -39,20 +38,6 @@ namespace lgraph {
  * based on adjacency lists.
  */
 class udgraph : public uxgraph {
-	protected:
-
-		/**
-		 * @brief Computes the list of unique edges of this graph
-		 *
-		 * An unweighted edge is a pair of indices each of which is within the
-		 * interval [0,@e n) where @e n is the number of nodes of this graph.
-		 *
-		 * @param[out] edges The collection of edges.
-		 * @return Stores in @ref edges the lexicographically sorted list of
-		 * unweighted edges of this graph.
-		 */
-		void get_unique_edges(std::vector<edge>& edges) const;
-
 	public:
 		/// Default constructor
 		udgraph();
@@ -90,6 +75,19 @@ class udgraph : public uxgraph {
 		bool has_edge(node u, node v) const;
 		bool is_directed() const;
 
+	protected:
+
+		/**
+		 * @brief Computes the list of unique edges of this graph
+		 *
+		 * An unweighted edge is a pair of indices each of which is within the
+		 * interval [0,@e n) where @e n is the number of nodes of this graph.
+		 *
+		 * @param[out] edges The collection of edges.
+		 * @return Stores in @ref edges the lexicographically sorted list of
+		 * unweighted edges of this graph.
+		 */
+		void get_unique_edges(std::vector<edge>& edges) const;
 };
 
 } // -- namespace lgraph

@@ -43,39 +43,6 @@ namespace lgraph {
  */
 template<class T>
 class wugraph : public wxgraph<T> {
-	protected:
-
-		/**
-		 * @brief Computes the list of unique weighted edges of this graph.
-		 *
-		 * Since this graph is undirected, the edge (u,v) is the same
-		 * as (v,u). This method computes the list of edges so that the
-		 * result is lexicographically sorted. A weighted edge is a pair
-		 * of an edge and a value representing the weight of that edge.
-		 * An edge is a pair of indices, each of which is within the
-		 * interval [0,@e n) where @e n is the number of nodes of this graph.
-		 *
-		 * @param[out] edges The collection of weighted edges.
-		 * @return Stores in @ref edges the lexicographically sorted list of
-		 * weighted edges of this graph.
-		 */
-		void get_unique_edges(std::vector<std::pair<edge, T> >& edges) const;
-
-		/**
-		 * @brief Computes the list of unique edges of this graph.
-		 *
-		 * Since this graph is undirected, the edge (u,v) is the same
-		 * as (v,u). This method computes the list of edges so that the
-		 * result is lexicographically sorted. An unweighted edge is a
-		 * pair of indices each of which is within the interval [0,@e n)
-		 * where @e n is the number of nodes of this graph.
-		 *
-		 * @param[out] edges The collection of edges.
-		 * @return Stores in @ref edges the lexicographically sorted list of
-		 * unweighted edges of this graph.
-		 */
-		void get_unique_edges(std::vector<edge>& edges) const;
-
 	public:
 		/// Default constructor.
 		wugraph();
@@ -119,6 +86,39 @@ class wugraph : public wxgraph<T> {
 		T edge_weight(node u, node v) const;
 		bool is_directed() const;
 		uxgraph* to_unweighted() const;
+
+	protected:
+
+		/**
+		 * @brief Computes the list of unique weighted edges of this graph.
+		 *
+		 * Since this graph is undirected, the edge (u,v) is the same
+		 * as (v,u). This method computes the list of edges so that the
+		 * result is lexicographically sorted. A weighted edge is a pair
+		 * of an edge and a value representing the weight of that edge.
+		 * An edge is a pair of indices, each of which is within the
+		 * interval [0,@e n) where @e n is the number of nodes of this graph.
+		 *
+		 * @param[out] edges The collection of weighted edges.
+		 * @return Stores in @ref edges the lexicographically sorted list of
+		 * weighted edges of this graph.
+		 */
+		void get_unique_edges(std::vector<std::pair<edge, T> >& edges) const;
+
+		/**
+		 * @brief Computes the list of unique edges of this graph.
+		 *
+		 * Since this graph is undirected, the edge (u,v) is the same
+		 * as (v,u). This method computes the list of edges so that the
+		 * result is lexicographically sorted. An unweighted edge is a
+		 * pair of indices each of which is within the interval [0,@e n)
+		 * where @e n is the number of nodes of this graph.
+		 *
+		 * @param[out] edges The collection of edges.
+		 * @return Stores in @ref edges the lexicographically sorted list of
+		 * unweighted edges of this graph.
+		 */
+		void get_unique_edges(std::vector<edge>& edges) const;
 
 };
 

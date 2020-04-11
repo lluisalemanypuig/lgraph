@@ -42,52 +42,6 @@ namespace lgraph {
  */
 template<class T>
 class wxgraph : public xxgraph {
-	protected:
-
-		/**
-		 * @brief Weight list for each node.
-		 *
-		 * @ref weights[u] is a list of values of type @e T
-		 * where @ref weights[u][v] represents the weight of
-		 * edge between nodes @e u and @e v.
-		 */
-		std::vector<weight_list<T> > weights;
-
-		// MODIFIERS
-
-		/// Initialises the list of weights.
-		void initialise_weights(size_t n);
-
-		/// Clears the list of weights.
-		void clear_weights();
-
-		/**
-		 * @brief Computes the list of unique weighted edges of this graph.
-		 *
-		 * A weighted edge is a pair of an edge and a value representing
-		 * the weight of that edge. An edge is a pair of indices, each
-		 * of which is within the interval [0,@e n) where @e n is the
-		 * number of nodes of this graph.
-		 *
-		 * @param[out] edges The collection of weighted edges.
-		 * @return Stores in @ref edges the list of weighted edges of this
-		 * graph.
-		 */
-		virtual void get_unique_edges(std::vector<std::pair<edge, T> >& edges) const = 0;
-
-		/**
-		 * @brief Computes the list of unique unweighted edges of this graph.
-		 *
-		 * An unweighted edge is a pair of indices each of which is within
-		 * the interval [0,@e n) where @e n is the number of nodes of this
-		 * graph.
-		 *
-		 * @param[out] edges The collection of unweighted edges.
-		 * @return Stores in @ref edges the list of unweighted edges of this
-		 * graph.
-		 */
-		virtual void get_unique_edges(std::vector<edge>& edges) const = 0;
-
 	public:
 		/// Default constructor.
 		wxgraph();
@@ -128,8 +82,8 @@ class wxgraph : public xxgraph {
 		std::ostream& operator<< (std::ostream& os, const wxgraph<T>& g) {
 			for (node i = 0; i < g.n_nodes(); ++i) {
 				os << i << ":";
-				const neighbourhood& ni = g.adjacency_list[i];
-				const weight_list<T>& wi = g.weights[i];
+				const neighbourhood& ni = g.m_adjacency_list[i];
+				const weight_list<T>& wi = g.m_weights[i];
 
 				auto ni_it = ni.begin();
 				auto wi_it = wi.begin();
@@ -271,6 +225,52 @@ class wxgraph : public xxgraph {
 		 * @return A pointer to a @ref uxgraph object.
 		 */
 		virtual uxgraph* to_unweighted() const = 0;
+
+	protected:
+
+		/**
+		 * @brief Weight list for each node.
+		 *
+		 * @ref weights[u] is a list of values of type @e T
+		 * where @ref weights[u][v] represents the weight of
+		 * edge between nodes @e u and @e v.
+		 */
+		std::vector<weight_list<T> > m_weights;
+
+		// MODIFIERS
+
+		/// Initialises the list of weights.
+		void initialise_weights(size_t n);
+
+		/// Clears the list of weights.
+		void clear_weights();
+
+		/**
+		 * @brief Computes the list of unique weighted edges of this graph.
+		 *
+		 * A weighted edge is a pair of an edge and a value representing
+		 * the weight of that edge. An edge is a pair of indices, each
+		 * of which is within the interval [0,@e n) where @e n is the
+		 * number of nodes of this graph.
+		 *
+		 * @param[out] edges The collection of weighted edges.
+		 * @return Stores in @ref edges the list of weighted edges of this
+		 * graph.
+		 */
+		virtual void get_unique_edges(std::vector<std::pair<edge, T> >& edges) const = 0;
+
+		/**
+		 * @brief Computes the list of unique unweighted edges of this graph.
+		 *
+		 * An unweighted edge is a pair of indices each of which is within
+		 * the interval [0,@e n) where @e n is the number of nodes of this
+		 * graph.
+		 *
+		 * @param[out] edges The collection of unweighted edges.
+		 * @return Stores in @ref edges the list of unweighted edges of this
+		 * graph.
+		 */
+		virtual void get_unique_edges(std::vector<edge>& edges) const = 0;
 };
 
 } // -- namespace lgraph

@@ -47,16 +47,16 @@ void uxgraph::init(size_t n) {
 
 void uxgraph::init(const std::vector<neighbourhood>& adj, size_t n_edges) {
 	clear();
-	adjacency_list = adj;
-	num_edges = n_edges;
+	m_adjacency_list = adj;
+	m_n_edges = n_edges;
 }
 
 // OPERATORS
 
 uxgraph& uxgraph::operator= (const uxgraph& g) {
 	clear();
-	adjacency_list = g.adjacency_list;
-	num_edges = g.num_edges;
+	m_adjacency_list = g.m_adjacency_list;
+	m_n_edges = g.m_n_edges;
 	return *this;
 }
 

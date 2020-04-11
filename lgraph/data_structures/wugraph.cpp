@@ -26,43 +26,6 @@
 
 namespace lgraph {
 
-// PROTECTED
-
-template<class T>
-void wugraph<T>::get_unique_edges(std::vector<std::pair<edge, T> >& unique_edges) const {
-	for (node i = 0; i < this->n_nodes(); ++i) {
-		const neighbourhood& ni = this->adjacency_list[i];
-		const weight_list<T>& wi = this->weights[i];
-
-		auto ni_it = ni.begin();
-		auto wi_it = wi.begin();
-		for (; ni_it != ni.end(); ++ni_it, ++wi_it) {
-
-			// since this graph is UNDIRECTED the order of the
-			// indices in the pair does not matter
-			if (i < *ni_it) {
-				unique_edges.push_back( std::make_pair(edge(i, *ni_it), *wi_it) );
-			}
-		}
-	}
-}
-
-template<class T>
-void wugraph<T>::get_unique_edges(std::vector<edge>& unique_edges) const {
-	for (node i = 0; i < this->n_nodes(); ++i) {
-
-		const neighbourhood& ni = this->adjacency_list[i];
-		for (node j : ni) {
-
-			// since this graph is UNDIRECTED the order of the
-			// indices in the pair does not matter
-			if (i < j) {
-				unique_edges.push_back( edge(i, j) );
-			}
-		}
-	}
-}
-
 // PUBLIC
 
 template<class T>
@@ -99,16 +62,16 @@ void wugraph<T>::init
 	const std::vector<weight_list<T> >& wl
 )
 {
-	this->adjacency_list = adj;
-	this->weights = wl;
+	this->m_adjacency_list = adj;
+	this->m_weights = wl;
 
 	// count the amount of edges for only those pairs
 	// of nodes (u,v) such that u < v (because this graph
 	// is undirected)
-	for (node u = 0; u < this->adjacency_list.size(); ++u) {
-		for (node v : this->adjacency_list[u]) {
+	for (node u = 0; u < this->m_adjacency_list.size(); ++u) {
+		for (node v : this->m_adjacency_list[u]) {
 			if (u < v) {
-				++this->num_edges;
+				++this->m_n_edges;
 			}
 		}
 	}
@@ -122,12 +85,12 @@ void wugraph<T>::add_edge(node u, node v, const T& w) {
 	assert( this->has_node(v) );
 	assert( not this->has_edge(u,v) );
 
-	this->adjacency_list[u].add(v);
-	this->adjacency_list[v].add(u);
-	this->weights[u].add(w);
-	this->weights[v].add(w);
+	this->m_adjacency_list[u].add(v);
+	this->m_adjacency_list[v].add(u);
+	this->m_weights[u].add(w);
+	this->m_weights[v].add(w);
 
-	this->num_edges += 1;
+	this->m_n_edges += 1;
 }
 
 template<class T>
@@ -136,10 +99,10 @@ void wugraph<T>::set_edge_weight(node u, node v, const T& w) {
 	assert( this->has_node(v) );
 	assert( this->has_edge(u,v) );
 
-	neighbourhood& nu = this->adjacency_list[u];
-	weight_list<T>& wu = this->weights[u];
-	neighbourhood& nv = this->adjacency_list[v];
-	weight_list<T>& wv = this->weights[v];
+	neighbourhood& nu = this->m_adjacency_list[u];
+	weight_list<T>& wu = this->m_weights[u];
+	neighbourhood& nv = this->m_adjacency_list[v];
+	weight_list<T>& wv = this->m_weights[v];
 
 	size_t posu = this->get_neighbour_position(nu, v);
 	if (posu < nu.size()) {
@@ -160,10 +123,10 @@ void wugraph<T>::remove_edge(node u, node v) {
 
 	bool erased = false;
 
-	neighbourhood& nu = this->adjacency_list[u];
-	weight_list<T>& wu = this->weights[u];
-	neighbourhood& nv = this->adjacency_list[v];
-	weight_list<T>& wv = this->weights[v];
+	neighbourhood& nu = this->m_adjacency_list[u];
+	weight_list<T>& wu = this->m_weights[u];
+	neighbourhood& nv = this->m_adjacency_list[v];
+	weight_list<T>& wv = this->m_weights[v];
 
 	// find the position of node v in neighbourhood of u
 	// delete the neighbour and the corresponding weight
@@ -185,7 +148,7 @@ void wugraph<T>::remove_edge(node u, node v) {
 
 	// decrease number of edges only if necessary
 	if (erased) {
-		this->num_edges -= 1;
+		this->m_n_edges -= 1;
 	}
 }
 
@@ -217,8 +180,8 @@ T wugraph<T>::edge_weight(node u, node v) const {
 	assert( this->has_node(u) );
 	assert( this->has_node(v) );
 
-	const neighbourhood& nu = this->adjacency_list[u];
-	const neighbourhood& nv = this->adjacency_list[v];
+	const neighbourhood& nu = this->m_adjacency_list[u];
+	const neighbourhood& nv = this->m_adjacency_list[v];
 
 	// find neighbour position in the node that has less neighbours
 	// then:
@@ -229,23 +192,23 @@ T wugraph<T>::edge_weight(node u, node v) const {
 	if (nu.size() < nv.size()) {
 		size_t cit_u = this->get_neighbour_position(nu, v);
 		assert(cit_u < nu.size());
-		return this->weights[u][cit_u];
+		return this->m_weights[u][cit_u];
 	}
 
 	size_t cit_v = this->get_neighbour_position(nv, u);
 	assert(cit_v < nv.size());
-	return this->weights[v][cit_v];
+	return this->m_weights[v][cit_v];
 }
 
 template<class T>
 void wugraph<T>::remove_node(node u) {
 	assert( this->has_node(u) );
 
-	std::vector<neighbourhood>& adj = this->adjacency_list;
-	std::vector<weight_list<T> >& wei = this->weights;
+	std::vector<neighbourhood>& adj = this->m_adjacency_list;
+	std::vector<weight_list<T> >& wei = this->m_weights;
 
 	// decrease number of edges
-	this->num_edges -= adj[u].size();
+	this->m_n_edges -= adj[u].size();
 	// remove node u's entry from adjacency list and
 	// from weight list
 	adj.erase( adj.begin() + u );
@@ -285,8 +248,45 @@ bool wugraph<T>::is_directed() const {
 
 template<class T>
 uxgraph *wugraph<T>::to_unweighted() const {
-	uugraph *g = new uugraph(this->adjacency_list, this->num_edges);
+	uugraph *g = new uugraph(this->m_adjacency_list, this->m_n_edges);
 	return g;
+}
+
+// PROTECTED
+
+template<class T>
+void wugraph<T>::get_unique_edges(std::vector<std::pair<edge, T> >& unique_edges) const {
+	for (node i = 0; i < this->n_nodes(); ++i) {
+		const neighbourhood& ni = this->m_adjacency_list[i];
+		const weight_list<T>& wi = this->m_weights[i];
+
+		auto ni_it = ni.begin();
+		auto wi_it = wi.begin();
+		for (; ni_it != ni.end(); ++ni_it, ++wi_it) {
+
+			// since this graph is UNDIRECTED the order of the
+			// indices in the pair does not matter
+			if (i < *ni_it) {
+				unique_edges.push_back( std::make_pair(edge(i, *ni_it), *wi_it) );
+			}
+		}
+	}
+}
+
+template<class T>
+void wugraph<T>::get_unique_edges(std::vector<edge>& unique_edges) const {
+	for (node i = 0; i < this->n_nodes(); ++i) {
+
+		const neighbourhood& ni = this->m_adjacency_list[i];
+		for (node j : ni) {
+
+			// since this graph is UNDIRECTED the order of the
+			// indices in the pair does not matter
+			if (i < j) {
+				unique_edges.push_back( edge(i, j) );
+			}
+		}
+	}
 }
 
 } // -- namespace lgraph

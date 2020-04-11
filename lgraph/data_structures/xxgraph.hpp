@@ -42,45 +42,6 @@ namespace lgraph {
  * modified accordingly.
  */
 class xxgraph {
-	protected:
-		/// The neighbourhood of every node.
-		std::vector<neighbourhood> adjacency_list;
-		/// The amount of edges in this graph.
-		size_t num_edges;
-
-		/**
-		 * @brief Returns the position of node @e u's position in the neighbourhood @e n.
-		 *
-		 * If the position is equal to the number of elements of the list @e n then @e u is in the list.
-		 * Performs a linear search to find it.
-		 *
-		 * @param n The neighbourhood of a node in the graph.
-		 * @param u The node to look for in the neighbourhood.
-		 * @return Returns a value equal to the number of elements in the list @e n if
-		 * node @e u is not in it. Returns a value smaller than that if otherwise.
-		 */
-		size_t get_neighbour_position(const neighbourhood& n, node u) const;
-
-		/// Initialise the list of neighbourhoods with @e n instances.
-		void initialise_adjacency_list(size_t n);
-
-		/// Clear the list of neighbourhoods.
-		void clear_adjacency_list();
-
-		/**
-		 * @brief Initialises the adjacency list of this graph.
-		 *
-		 * The value @ref num_edges is set to 0.
-		 */
-		void initialise_parent_graph(size_t n);
-
-		/**
-		 * @brief Clears the adjacency list of this graph.
-		 *
-		 * The value @ref num_edges is set to 0.
-		 */
-		void clear_parent_graph();
-
 	public:
 		/// Constructor.
 		xxgraph();
@@ -233,6 +194,45 @@ class xxgraph {
 		 * @return Returns the number of cycles of length 3.
 		 */
 		size_t n_triangles() const;
+
+	protected:
+		/// The neighbourhood of every node.
+		std::vector<neighbourhood> m_adjacency_list;
+		/// The amount of edges in this graph.
+		size_t m_n_edges;
+
+		/**
+		 * @brief Returns the position of node @e u's position in the neighbourhood @e n.
+		 *
+		 * If the position is equal to the number of elements of the list @e n then @e u is in the list.
+		 * Performs a linear search to find it.
+		 *
+		 * @param n The neighbourhood of a node in the graph.
+		 * @param u The node to look for in the neighbourhood.
+		 * @return Returns a value equal to the number of elements in the list @e n if
+		 * node @e u is not in it. Returns a value smaller than that if otherwise.
+		 */
+		size_t get_neighbour_position(const neighbourhood& n, node u) const;
+
+		/// Initialise the list of neighbourhoods with @e n instances.
+		void initialise_adjacency_list(size_t n);
+
+		/// Clear the list of neighbourhoods.
+		void clear_adjacency_list();
+
+		/**
+		 * @brief Initialises the adjacency list of this graph.
+		 *
+		 * The value @ref num_edges is set to 0.
+		 */
+		void initialise_parent_graph(size_t n);
+
+		/**
+		 * @brief Clears the adjacency list of this graph.
+		 *
+		 * The value @ref num_edges is set to 0.
+		 */
+		void clear_parent_graph();
 };
 
 } // -- namespace lgraph

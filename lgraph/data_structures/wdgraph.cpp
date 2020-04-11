@@ -26,41 +26,6 @@
 
 namespace lgraph {
 
-// PROTECTED
-
-template<class T>
-void wdgraph<T>::get_unique_edges(std::vector<std::pair<edge, T> >& unique_edges) const {
-	for (node i = 0; i < this->n_nodes(); ++i) {
-		const neighbourhood& ni = this->adjacency_list[i];
-		const weight_list<T>& wi = this->weights[i];
-
-		auto ni_it = ni.begin();
-		auto wi_it = wi.begin();
-		for (; ni_it != ni.end(); ++ni_it, ++wi_it) {
-
-			// this graph is DIRECTED so an edge is the
-			// pair of nodes (i,ni[ni_it]) interpreted as
-			// "i points to ni[ni_it]"
-			unique_edges.push_back( std::make_pair(edge(i, *ni_it), *wi_it) );
-		}
-	}
-}
-
-template<class T>
-void wdgraph<T>::get_unique_edges(std::vector<edge>& unique_edges) const {
-	for (node i = 0; i < this->n_nodes(); ++i) {
-
-		const neighbourhood& ni = this->adjacency_list[i];
-		for (node j : ni) {
-
-			// this graph is DIRECTED so an edge is the
-			// pair of nodes (i, j) interpreted as
-			// "i points to j"
-			unique_edges.push_back( std::make_pair(i,j) );
-		}
-	}
-}
-
 // PUBLIC
 
 template<class T>
@@ -97,14 +62,14 @@ void wdgraph<T>::init
 	const std::vector<weight_list<T> >& wl
 )
 {
-	this->adjacency_list = adj;
-	this->weights = wl;
+	this->m_adjacency_list = adj;
+	this->m_weights = wl;
 
 	// count the amount of edges for only those pairs
 	// of nodes (u,v) such that u < v (because this graph
 	// is undirected)
-	for (node u = 0; u < this->adjacency_list.size(); ++u) {
-		this->num_edges += this->adjacency_list[u].size();
+	for (node u = 0; u < this->m_adjacency_list.size(); ++u) {
+		this->m_n_edges += this->m_adjacency_list[u].size();
 	}
 }
 
@@ -116,10 +81,10 @@ void wdgraph<T>::add_edge(node u, node v, const T& w) {
 	assert( this->has_node(v) );
 	assert( not this->has_edge(u,v) );
 
-	this->adjacency_list[u].add(v);
-	this->weights[u].add(w);
+	this->m_adjacency_list[u].add(v);
+	this->m_weights[u].add(w);
 
-	this->num_edges += 1;
+	this->m_n_edges += 1;
 }
 
 template<class T>
@@ -128,8 +93,8 @@ void wdgraph<T>::set_edge_weight(node u, node v, const T& w) {
 	assert( this->has_node(v) );
 	assert( this->has_edge(u,v) );
 
-	neighbourhood& nu = this->adjacency_list[u];
-	weight_list<T>& wu = this->weights[u];
+	neighbourhood& nu = this->m_adjacency_list[u];
+	weight_list<T>& wu = this->m_weights[u];
 
 	size_t posu = this->get_neighbour_position(nu, v);
 	if (posu < nu.size()) {
@@ -145,8 +110,8 @@ void wdgraph<T>::remove_edge(node u, node v) {
 
 	bool erased = false;
 
-	neighbourhood& nu = this->adjacency_list[u];
-	weight_list<T>& wu = this->weights[u];
+	neighbourhood& nu = this->m_adjacency_list[u];
+	weight_list<T>& wu = this->m_weights[u];
 
 	// find the position of node v in neighbourhood of u
 	// delete the neighbour and the corresponding weight
@@ -159,7 +124,7 @@ void wdgraph<T>::remove_edge(node u, node v) {
 
 	// decrease number of edges only if necessary
 	if (erased) {
-		this->num_edges -= 1;
+		this->m_n_edges -= 1;
 	}
 }
 
@@ -167,11 +132,11 @@ template<class T>
 void wdgraph<T>::remove_node(node u) {
 	assert( this->has_node(u) );
 
-	std::vector<neighbourhood>& adj = this->adjacency_list;
-	std::vector<weight_list<T> >& wei = this->weights;
+	std::vector<neighbourhood>& adj = this->m_adjacency_list;
+	std::vector<weight_list<T> >& wei = this->m_weights;
 
 	// decrease number of edges
-	this->num_edges -= adj[u].size();
+	this->m_n_edges -= adj[u].size();
 	// remove node u's entry from adjacency list and
 	// from weight list
 	adj.erase( adj.begin() + u );
@@ -193,7 +158,7 @@ void wdgraph<T>::remove_node(node u) {
 			if (Nv[p - 1] == u) {
 				Nv.remove(p - 1);
 				Wv.remove(p - 1);
-				this->num_edges -= 1;
+				this->m_n_edges -= 1;
 			}
 			else if (Nv[p - 1] > u) {
 				// decrease index of node
@@ -219,11 +184,11 @@ T wdgraph<T>::edge_weight(node u, node v) const {
 	assert( this->has_node(u) );
 	assert( this->has_node(v) );
 
-	const neighbourhood& nu = this->adjacency_list[u];
+	const neighbourhood& nu = this->m_adjacency_list[u];
 	size_t cit_u = this->get_neighbour_position(nu, v);
 	assert(cit_u < nu.size());
 
-	return this->weights[u][cit_u];
+	return this->m_weights[u][cit_u];
 }
 
 template<class T>
@@ -233,8 +198,43 @@ bool wdgraph<T>::is_directed() const {
 
 template<class T>
 uxgraph *wdgraph<T>::to_unweighted() const {
-	udgraph *g = new udgraph(this->adjacency_list, this->num_edges);
+	udgraph *g = new udgraph(this->m_adjacency_list, this->m_n_edges);
 	return g;
+}
+
+// PROTECTED
+
+template<class T>
+void wdgraph<T>::get_unique_edges(std::vector<std::pair<edge, T> >& unique_edges) const {
+	for (node i = 0; i < this->n_nodes(); ++i) {
+		const neighbourhood& ni = this->m_adjacency_list[i];
+		const weight_list<T>& wi = this->m_weights[i];
+
+		auto ni_it = ni.begin();
+		auto wi_it = wi.begin();
+		for (; ni_it != ni.end(); ++ni_it, ++wi_it) {
+
+			// this graph is DIRECTED so an edge is the
+			// pair of nodes (i,ni[ni_it]) interpreted as
+			// "i points to ni[ni_it]"
+			unique_edges.push_back( std::make_pair(edge(i, *ni_it), *wi_it) );
+		}
+	}
+}
+
+template<class T>
+void wdgraph<T>::get_unique_edges(std::vector<edge>& unique_edges) const {
+	for (node i = 0; i < this->n_nodes(); ++i) {
+
+		const neighbourhood& ni = this->m_adjacency_list[i];
+		for (node j : ni) {
+
+			// this graph is DIRECTED so an edge is the
+			// pair of nodes (i, j) interpreted as
+			// "i points to j"
+			unique_edges.push_back( std::make_pair(i,j) );
+		}
+	}
 }
 
 } // -- namespace lgraph
